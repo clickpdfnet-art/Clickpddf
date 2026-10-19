@@ -40,6 +40,7 @@ import {
   executeConcurrentBatch,
   explicitMemoryCleanup
 } from '../utils/memoryManager';
+import { validateFileBatch } from '../utils/securitySanitizer';
 import confetti from 'canvas-confetti';
 
 interface BatchQueueViewProps {
@@ -61,6 +62,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
   const [isPackagingZip, setIsPackagingZip] = useState(false);
   const [autoDownloadSeconds, setAutoDownloadSeconds] = useState<number | null>(null);
   const [autoDownloadCancelled, setAutoDownloadCancelled] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const autoDownloadTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Configuration options
@@ -76,6 +78,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cancelRequestedRef = useRef(false);
+  const consumedInitialFilesRef = useRef<string | null>(null);
 
   const retryItem = (id: string) => {
     setItems(prev => prev.map(it => it.id === id ? {
@@ -89,8 +92,19 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
   // Populate initial files if provided
   useEffect(() => {
-    if (initialFiles && initialFiles.length > 0) {
-      const newItems: BatchItem[] = initialFiles.map(file => ({
+    if (!initialFiles || initialFiles.length === 0) {
+      consumedInitialFilesRef.current = null;
+      return;
+    }
+
+    const signature = initialFiles
+      .map(file => `${file.name}:${file.size}:${file.lastModified}`)
+      .join('|');
+    if (consumedInitialFilesRef.current === signature) return;
+    consumedInitialFilesRef.current = signature;
+
+    const batch = validateFileBatch(initialFiles, 'pdf', items.map(item => item.file));
+    const newItems: BatchItem[] = batch.validFiles.map(file => ({
         id: `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).substring(2, 7)}`,
         file,
         status: 'queued',
@@ -98,18 +112,21 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
         stepDescription: 'Waiting in queue',
         originalSize: file.size
       }));
-      setItems(prev => [...prev, ...newItems]);
-      if (onClearInitialFiles) {
-        onClearInitialFiles();
-      }
-    }
-  }, [initialFiles, onClearInitialFiles]);
+    if (newItems.length > 0) setItems(prev => [...prev, ...newItems]);
+    setUploadError(batch.errors[0] || null);
+    onClearInitialFiles?.();
+  }, [initialFiles, onClearInitialFiles, items]);
 
   const addFilesToQueue = (files: File[]) => {
-    const valid = files.filter(f => f.name.toLowerCase().endsWith('.pdf') || f.type === 'application/pdf');
-    if (valid.length === 0) return;
+    const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf') || f.type.toLowerCase().includes('pdf'));
+    const unsupportedCount = files.length - pdfFiles.length;
+    const batch = validateFileBatch(pdfFiles, 'pdf', items.map(item => item.file));
+    const errors = [
+      ...(unsupportedCount > 0 ? [`${unsupportedCount} file(s) were skipped. This queue accepts PDF files only.`] : []),
+      ...batch.errors
+    ];
 
-    const newItems: BatchItem[] = valid.map(file => ({
+    const newItems: BatchItem[] = batch.validFiles.map(file => ({
       id: `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).substring(2, 7)}`,
       file,
       status: 'queued',
@@ -118,7 +135,8 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
       originalSize: file.size
     }));
 
-    setItems(prev => [...prev, ...newItems]);
+    if (newItems.length > 0) setItems(prev => [...prev, ...newItems]);
+    setUploadError(errors[0] || null);
   };
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -789,6 +807,12 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
             onChange={handleFileInputChange}
             className="hidden"
           />
+
+          {uploadError && (
+            <div role="alert" className="rounded-xl border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/30 px-4 py-3 text-xs text-rose-700 dark:text-rose-300">
+              {uploadError}
+            </div>
+          )}
 
           {/* Multi-file Dropzone - Disappears once files are added */}
           {items.length === 0 && (

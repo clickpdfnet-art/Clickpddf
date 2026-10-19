@@ -178,3 +178,43 @@ export function validateFileSafety(
 
   return { valid: true };
 }
+
+export interface FileBatchValidationResult {
+  validFiles: File[];
+  errors: string[];
+  totalSizeBytes: number;
+}
+
+/**
+ * Validates a selection together with files already in the workspace.
+ * Each file remains capped at 500 MB and the total selection at 1 GB.
+ */
+export function validateFileBatch(
+  selectedFiles: File[],
+  expectedType: 'pdf' | 'image' | 'word' | 'excel' | 'powerpoint' | 'any' = 'pdf',
+  existingFiles: File[] = []
+): FileBatchValidationResult {
+  const validFiles: File[] = [];
+  const errors: string[] = [];
+  let totalSizeBytes = existingFiles.reduce((total, file) => total + file.size, 0);
+
+  for (const file of selectedFiles) {
+    const validation = validateFileSafety(file, expectedType);
+    if (!validation.valid) {
+      if (validation.error) errors.push(validation.error);
+      continue;
+    }
+
+    if (totalSizeBytes + file.size > MAX_SAFE_TOTAL_BATCH_BYTES) {
+      errors.push(
+        `"${file.name}" was not added because the total batch limit is 1 GB. Remove files or add a smaller selection.`
+      );
+      continue;
+    }
+
+    validFiles.push(file);
+    totalSizeBytes += file.size;
+  }
+
+  return { validFiles, errors, totalSizeBytes };
+}

@@ -47,9 +47,11 @@ import {
   convertPdfToPowerPointPptx,
   convertPowerPointToPdf,
   convertWordToPdf,
+  convertWordToExcelXlsx,
   convertExcelToPdf
 } from '../utils/officeConverters';
-import { validateFileSafety } from '../utils/securitySanitizer';
+import { validateFileBatch } from '../utils/securitySanitizer';
+import { SUPPORTED_OCR_LANGUAGES } from '../utils/ocrLanguages';
 import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
 import { MetadataEditorPanel } from './MetadataEditorPanel';
@@ -112,6 +114,17 @@ interface ToolWorkspaceProps {
   onOpenShare?: () => void;
   onSelectTool?: (tool: PDFTool) => void;
 }
+
+const getDownloadMimeType = (fileName: string): string => {
+  const lowerName = fileName.toLowerCase();
+  if (lowerName.endsWith('.zip')) return 'application/zip';
+  if (lowerName.endsWith('.xlsx')) return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  if (lowerName.endsWith('.docx')) return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+  if (lowerName.endsWith('.pptx')) return 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+  if (lowerName.endsWith('.json')) return 'application/json';
+  if (lowerName.endsWith('.txt')) return 'text/plain';
+  return 'application/pdf';
+};
 
 export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   tool,
@@ -190,6 +203,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   });
 
   const [rotateDeg, setRotateDeg] = useState(90);
+  const [pdfOcrLanguage, setPdfOcrLanguage] = useState('eng');
   const [organizeSelectedFile, setOrganizeSelectedFile] = useState<File | null>(null);
   const [splitRange, setSplitRange] = useState('1');
   const [imageOrientation, setImageOrientation] = useState<'auto' | 'portrait' | 'landscape'>('portrait');
@@ -257,24 +271,38 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // In-browser memory pressure & queue concurrency audit
   const [memoryAudit, setMemoryAudit] = useState<MemoryAuditResult | null>(null);
+  const consumedInitialFilesRef = useRef<string | null>(null);
 
   // Consume incoming initial files from global drop or external trigger
   useEffect(() => {
-    if (initialFiles && initialFiles.length > 0) {
-      const newItems = createOrderedFiles(initialFiles);
-      setFileItems(prev => {
-        const next = [...prev, ...newItems];
-        const audit = auditMemoryPressure(next.map(item => item.file));
-        if (audit.warning) setMemoryAudit(audit);
-        return next;
-      });
-      setErrorMessage(null);
-      setSuccessResult(null);
-      if (onFilesConsumed) {
-        onFilesConsumed();
-      }
+    if (!initialFiles || initialFiles.length === 0) {
+      consumedInitialFilesRef.current = null;
+      return;
     }
+
+    const signature = initialFiles
+      .map(file => `${file.name}:${file.size}:${file.lastModified}`)
+      .join('|');
+    if (consumedInitialFilesRef.current === signature) return;
+    consumedInitialFilesRef.current = signature;
+
+    const batch = validateFileBatch(
+      initialFiles,
+      getExpectedTypeForTool(tool.id),
+      fileItems.map(item => item.file)
+    );
+    if (batch.validFiles.length > 0) {
+      setFileItems(prev => [...prev, ...createOrderedFiles(batch.validFiles)]);
+      setSuccessResult(null);
+    }
+    setErrorMessage(batch.errors[0] || null);
+    onFilesConsumed?.();
   }, [initialFiles, onFilesConsumed]);
+
+  useEffect(() => {
+    const audit = auditMemoryPressure(fileItems.map(item => item.file));
+    setMemoryAudit(audit.warning ? audit : null);
+  }, [fileItems]);
 
   // Synchronize successResultRef with latest successResult
   useEffect(() => {
@@ -325,13 +353,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         // Trigger automatic download directly and cleanly OUTSIDE setState (single-file only)
         const target = successResultRef.current;
         if (target && !target.fileName.endsWith('.zip')) {
-          let mime = 'application/pdf';
-          if (target.fileName.endsWith('.json')) {
-            mime = 'application/json';
-          } else if (target.fileName.endsWith('.txt')) {
-            mime = 'text/plain';
-          }
-          downloadBlob(target.data, target.fileName, mime);
+          downloadBlob(target.data, target.fileName, getDownloadMimeType(target.fileName));
         }
       }
     }, 1000);
@@ -346,44 +368,43 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   const getExpectedTypeForTool = (toolId: string): 'pdf' | 'image' | 'word' | 'excel' | 'powerpoint' | 'any' => {
     if (toolId === 'jpg-to-pdf') return 'image';
-    if (toolId === 'word-to-pdf') return 'word';
+    if (toolId === 'word-to-pdf' || toolId === 'word-to-excel') return 'word';
     if (toolId === 'excel-to-pdf') return 'excel';
     if (toolId === 'powerpoint-to-pdf') return 'powerpoint';
     return 'pdf';
   };
 
+  const addFilesToWorkspace = (selectedFiles: File[]) => {
+    const docxOnly = tool.id === 'word-to-pdf' || tool.id === 'word-to-excel';
+    const compatibleFiles = docxOnly
+      ? selectedFiles.filter(file => file.name.toLowerCase().endsWith('.docx'))
+      : selectedFiles;
+    const unsupportedFiles = docxOnly
+      ? selectedFiles.filter(file => !file.name.toLowerCase().endsWith('.docx'))
+      : [];
+    const batch = validateFileBatch(
+      compatibleFiles,
+      getExpectedTypeForTool(tool.id),
+      fileItems.map(item => item.file)
+    );
+    const errors = [
+      ...unsupportedFiles.map(file => `"${file.name}" is not supported here. Please choose a .docx file.`),
+      ...batch.errors
+    ];
+
+    if (batch.validFiles.length > 0) {
+      setFileItems(prev => [...prev, ...createOrderedFiles(batch.validFiles)]);
+      setSuccessResult(null);
+      setProcessedFilesMap({});
+    }
+
+    setErrorMessage(errors[0] || (batch.validFiles.length === 0 ? 'None of the selected files could be loaded.' : null));
+  };
+
   // File drop / upload handlers with security & crash protection
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      const selected = Array.from(e.target.files);
-      const expectedType = getExpectedTypeForTool(tool.id);
-      const validFiles: File[] = [];
-      let lastError = '';
-
-      for (const file of selected) {
-        const val = validateFileSafety(file, expectedType);
-        if (val.valid) {
-          validFiles.push(file);
-        } else {
-          lastError = val.error || 'Invalid file detected.';
-        }
-      }
-
-      if (validFiles.length === 0) {
-        setErrorMessage(lastError || 'None of the selected files could be loaded.');
-        e.target.value = '';
-        return;
-      }
-
-      const newItems = createOrderedFiles(validFiles);
-      setFileItems(prev => {
-        const next = [...prev, ...newItems];
-        const audit = auditMemoryPressure(next.map(item => item.file));
-        if (audit.warning) setMemoryAudit(audit);
-        return next;
-      });
-      setErrorMessage(null);
-      setSuccessResult(null);
+      addFilesToWorkspace(Array.from(e.target.files));
     }
     // Clean input value so selecting the same files again triggers onChange
     e.target.value = '';
@@ -393,34 +414,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     e.preventDefault();
     e.stopPropagation(); // Stop event from bubbling to window and GlobalDropOverlay
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      const dropped = Array.from(e.dataTransfer.files);
-      const expectedType = getExpectedTypeForTool(tool.id);
-      const validFiles: File[] = [];
-      let lastError = '';
-
-      for (const file of dropped) {
-        const val = validateFileSafety(file, expectedType);
-        if (val.valid) {
-          validFiles.push(file);
-        } else {
-          lastError = val.error || 'Invalid file detected.';
-        }
-      }
-
-      if (validFiles.length === 0) {
-        setErrorMessage(lastError || 'None of the dropped files could be loaded.');
-        return;
-      }
-
-      const newItems = createOrderedFiles(validFiles);
-      setFileItems(prev => {
-        const next = [...prev, ...newItems];
-        const audit = auditMemoryPressure(next.map(item => item.file));
-        if (audit.warning) setMemoryAudit(audit);
-        return next;
-      });
-      setErrorMessage(null);
-      setSuccessResult(null);
+      addFilesToWorkspace(Array.from(e.dataTransfer.files));
     }
   };
 
@@ -459,7 +453,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       delete earlyDownloadTriggerRef.current[item.id];
     }
     const downloadName = info.fileName || `${item.file.name.replace(/\.[^/.]+$/, '')}_compressed.pdf`;
-    downloadBlob(info.data, downloadName, 'application/pdf');
+    downloadBlob(info.data, downloadName, getDownloadMimeType(downloadName));
     setProcessedFilesMap(prev => {
       const existing = prev[item.id];
       if (!existing) return prev;
@@ -504,7 +498,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     }
 
     if (!earlyTriggered) {
-      downloadBlob(data, fileName, 'application/pdf');
+      downloadBlob(data, fileName, getDownloadMimeType(fileName));
     }
 
     setProcessedFilesMap(prev => {
@@ -1302,7 +1296,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           const primary = files[0];
           const item = fileItems[0];
           setProcessingStatus(`Converting ${primary.name} to editable Word (.docx)...`);
-          const res = await convertPdfToWordDocx(primary, (_curr, _tot, txt) => setProcessingStatus(txt));
+          const res = await convertPdfToWordDocx(
+            primary,
+            (_curr, _tot, txt) => setProcessingStatus(txt),
+            pdfOcrLanguage
+          );
           resultData = res.data;
           outputName = res.fileName;
           details = res.details;
@@ -1326,7 +1324,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             const currentItem = fileItems[i];
             setProcessingStatus(`Converting file ${i + 1}/${files.length}: ${f.name} to Word...`);
             try {
-              const res = await convertPdfToWordDocx(f, (_curr, _tot, txt) => setProcessingStatus(`File ${i + 1}/${files.length}: ${txt}`));
+              const res = await convertPdfToWordDocx(
+                f,
+                (_curr, _tot, txt) => setProcessingStatus(`File ${i + 1}/${files.length}: ${txt}`),
+                pdfOcrLanguage
+              );
               zip.file(res.fileName, res.data);
               successCount++;
               if (currentItem) {
@@ -1577,6 +1579,87 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           outputName = `word_to_pdf_${successCount}_files.zip`;
           details = `Successfully converted ${successCount} Word document(s) into PDF.`;
         }
+      } else if (tool.id === 'word-to-excel') {
+        if (files.length === 1) {
+          const primary = files[0];
+          const item = fileItems[0];
+          setProcessingStatus(`Converting ${primary.name} to Excel (.xlsx)...`);
+          const res = await convertWordToExcelXlsx(primary, (_curr, _tot, txt) => setProcessingStatus(txt));
+          resultData = res.data;
+          outputName = res.fileName;
+          details = res.details;
+          if (item) {
+            setProcessedFilesMap({
+              [item.id]: {
+                data: res.data,
+                fileName: res.fileName,
+                originalSize: primary.size,
+                newSize: res.data.byteLength,
+                status: 'done'
+              }
+            });
+          }
+        } else {
+          setProcessingStatus(`Converting 0 of ${files.length} Word documents to Excel...`);
+          const zip = new JSZip();
+          const zipFolder = zip.folder('ClickPDF_Word_to_Excel') || zip;
+          const usedNames = new Set<string>();
+          let successCount = 0;
+
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const item = fileItems[i];
+            setProcessingStatus(`Converting file ${i + 1}/${files.length}: ${file.name}...`);
+            try {
+              const res = await convertWordToExcelXlsx(
+                file,
+                (_curr, _tot, txt) => setProcessingStatus(`File ${i + 1}/${files.length}: ${txt}`)
+              );
+              const baseName = res.fileName.replace(/\.xlsx$/i, '');
+              let uniqueName = res.fileName;
+              let suffix = 2;
+              while (usedNames.has(uniqueName.toLowerCase())) {
+                uniqueName = `${baseName}_${suffix++}.xlsx`;
+              }
+              usedNames.add(uniqueName.toLowerCase());
+              zipFolder.file(uniqueName, res.data);
+              successCount++;
+              if (item) {
+                setProcessedFilesMap(prev => ({
+                  ...prev,
+                  [item.id]: {
+                    data: new Uint8Array(),
+                    fileName: uniqueName,
+                    originalSize: file.size,
+                    newSize: res.data.byteLength,
+                    status: 'done'
+                  }
+                }));
+              }
+            } catch (err: any) {
+              if (item) {
+                setProcessedFilesMap(prev => ({
+                  ...prev,
+                  [item.id]: {
+                    data: new Uint8Array(),
+                    fileName: file.name,
+                    originalSize: file.size,
+                    newSize: 0,
+                    status: 'error',
+                    errorMessage: formatMemoryErrorMessage(err, file.name)
+                  }
+                }));
+              }
+            }
+            await yieldToMainThread(30);
+          }
+
+          if (successCount === 0) throw new Error('None of the selected Word documents could be converted to Excel.');
+          setProcessingStatus('Packaging the Excel files into a ZIP archive...');
+          resultData = await zip.generateAsync({ type: 'uint8array', compression: 'STORE' });
+          outputName = `word_to_excel_${successCount}_files.zip`;
+          details = `Converted ${successCount} of ${files.length} Word document(s) into separate Excel workbooks.`;
+        }
       } else if (tool.id === 'excel-to-pdf') {
         if (files.length === 1) {
           const primary = files[0];
@@ -1761,15 +1844,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
     const target = successResult || successResultRef.current;
     if (target) {
-      let mime = 'application/pdf';
-      if (target.fileName.endsWith('.zip')) {
-        mime = 'application/zip';
-      } else if (target.fileName.endsWith('.json')) {
-        mime = 'application/json';
-      } else if (target.fileName.endsWith('.txt')) {
-        mime = 'text/plain';
-      }
-      downloadBlob(target.data, target.fileName, mime);
+      downloadBlob(target.data, target.fileName, getDownloadMimeType(target.fileName));
     }
   };
 
@@ -1868,7 +1943,37 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         </div>
       </div>
 
-      {tool.id === 'rotate' && files.length > 0 && !successResult ? (
+      {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept={tool.acceptedFileTypes}
+        multiple
+        onChange={handleFileChange}
+        className="hidden"
+      />
+
+      {files.length > 0 && !successResult && (
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3">
+          <div className="text-xs text-slate-600 dark:text-slate-300">
+            <span className="font-semibold">{files.length} file{files.length === 1 ? '' : 's'} selected</span>
+            <span className="mx-2 text-slate-400">·</span>
+            <span>{(files.reduce((total, file) => total + file.size, 0) / (1024 * 1024)).toFixed(1)} MB total</span>
+            <span className="block text-[10px] text-slate-400 mt-0.5">Maximum 500 MB per file and 1 GB per batch. Large files are processed locally and depend on available device memory.</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isProcessing}
+            className="inline-flex items-center gap-2 rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-2 text-xs font-semibold text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 disabled:opacity-50"
+          >
+            <Upload className="w-3.5 h-3.5" />
+            Add more files
+          </button>
+        </div>
+      )}
+
+      {tool.id === 'rotate' && files.length === 1 && !successResult ? (
         <RotatePdfPanel
           file={files[0]}
           isProcessing={isProcessing}
@@ -1897,16 +2002,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         />
       ) : (
         <>
-          {/* Hidden file input always available for button triggers and Add More */}
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept={tool.acceptedFileTypes}
-            multiple={true}
-            onChange={handleFileChange}
-            className="hidden"
-          />
-
           {/* Upload drop zone - Disappears as soon as any files are selected/dropped */}
           {files.length === 0 && (
             <div
@@ -2659,7 +2754,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    Extracts real text glyphs, font weights, H1/H2 heading hierarchies, and bullet lists directly into genuine Microsoft Word (.docx) files without uploading documents to any server.
+                    Extracts selectable PDF text into editable Word paragraphs and headings. If a page is scanned, the selected OCR language is used to recognize its text locally.
                   </p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
@@ -2680,6 +2775,26 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3">
+                <label htmlFor="pdf-word-ocr-language" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  OCR language for scanned pages
+                </label>
+                <select
+                  id="pdf-word-ocr-language"
+                  value={pdfOcrLanguage}
+                  onChange={event => setPdfOcrLanguage(event.target.value)}
+                  className="min-w-44 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-xs text-slate-800 dark:text-slate-100"
+                >
+                  {SUPPORTED_OCR_LANGUAGES.map(language => (
+                    <option key={language.code} value={language.code}>
+                      {language.nativeName ? `${language.name} — ${language.nativeName}` : language.name}
+                    </option>
+                  ))}
+                </select>
+                <p className="basis-full text-[10px] text-slate-500 dark:text-slate-400">
+                  OCR runs only on pages with no selectable text. Urdu is available for scanned Urdu documents.
+                </p>
               </div>
             </div>
           )}
@@ -2778,19 +2893,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 <div className="flex-1 text-xs">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-bold text-slate-900 dark:text-white text-sm">
-                      Microsoft Word (.docx) to PDF Compiler
+                      Microsoft Word (.docx) to Readable PDF
                     </span>
                     <span className="text-[10px] font-semibold bg-sky-100 dark:bg-sky-900/80 text-sky-800 dark:text-sky-300 px-2 py-0.5 rounded-full border border-sky-200 dark:border-sky-700">
-                      A4 Standard Vector PDF
+                      High-resolution A4 pages
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    Parses OpenXML Word document elements, extracts structured headings, paragraphs, and bullet points, and compiles them into a standard, printable A4 PDF document locally.
+                    Preserves readable paragraph structure, headings, lists, tables, and embedded images. The PDF is rendered as high-resolution page images, so its text is not selectable.
                   </p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
-                      <span>Accepts .docx and .doc files</span>
+                      <span>Accepts .docx files</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
@@ -2805,6 +2920,27 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       <span>Zero server transmission - processed directly in browser</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {tool.id === 'word-to-excel' && (
+            <div className="space-y-4">
+              <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 rounded-xl p-4 flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-emerald-600 text-white shadow-md shadow-emerald-500/20 shrink-0">
+                  <FileSpreadsheet className="w-5 h-5" />
+                </div>
+                <div className="flex-1 text-xs">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-bold text-slate-900 dark:text-white text-sm">Word (.docx) tables to Excel</span>
+                    <span className="text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-900/80 text-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-700">
+                      One worksheet per table
+                    </span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Each Word table becomes a separate worksheet. Paragraphs and lists are included in a Text worksheet; cell text is kept as text to avoid changing codes or leading zeros.
+                  </p>
                 </div>
               </div>
             </div>
@@ -2913,6 +3049,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   ? 'bg-amber-600 hover:bg-amber-700 shadow-amber-500/20'
                   : tool.id === 'word-to-pdf'
                   ? 'bg-sky-600 hover:bg-sky-700 shadow-sky-500/20'
+                  : tool.id === 'word-to-excel'
+                  ? 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/20'
                   : tool.id === 'excel-to-pdf'
                   ? 'bg-teal-600 hover:bg-teal-700 shadow-teal-500/20'
                   : tool.id === 'powerpoint-to-pdf'
@@ -2933,6 +3071,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   <Presentation className="w-4 h-4" />
                 ) : tool.id === 'word-to-pdf' ? (
                   <FileText className="w-4 h-4" />
+                ) : tool.id === 'word-to-excel' ? (
+                  <FileSpreadsheet className="w-4 h-4" />
                 ) : tool.id === 'excel-to-pdf' ? (
                   <FileSpreadsheet className="w-4 h-4" />
                 ) : tool.id === 'powerpoint-to-pdf' ? (
@@ -2955,6 +3095,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     ? 'Generating PowerPoint slides...'
                     : tool.id === 'word-to-pdf'
                     ? 'Converting Word to PDF...'
+                    : tool.id === 'word-to-excel'
+                    ? 'Converting Word to Excel...'
                     : tool.id === 'excel-to-pdf'
                     ? 'Converting spreadsheet to PDF...'
                     : tool.id === 'powerpoint-to-pdf'
@@ -2972,6 +3114,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   ? 'Convert to PowerPoint (.pptx)'
                   : tool.id === 'word-to-pdf'
                   ? 'Convert Word to PDF'
+                  : tool.id === 'word-to-excel'
+                  ? 'Convert Word to Excel (.xlsx)'
                   : tool.id === 'excel-to-pdf'
                   ? 'Convert Excel to PDF'
                   : tool.id === 'powerpoint-to-pdf'
@@ -3082,7 +3226,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             )}
 
             {/* Only preview single-file outputs (cannot preview a ZIP as a PDF) */}
-            {!successResult.fileName.endsWith('.zip') && (
+            {successResult.fileName.toLowerCase().endsWith('.pdf') && (
               <button
                 type="button"
                 onClick={() => {

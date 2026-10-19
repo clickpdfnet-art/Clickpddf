@@ -7,6 +7,7 @@ import * as mammoth from 'mammoth';
 import JSZip from 'jszip';
 import { initPdfWorker } from './pdfWorkerSetup';
 import { yieldToMainThread, readSafeArrayBuffer } from './memoryManager';
+import { renderWordHtmlToPdf } from './wordPdfRenderer';
 
 export interface OfficeConversionResult {
   data: Uint8Array;
@@ -26,7 +27,8 @@ export interface ConversionProgressCallback {
  */
 export async function convertPdfToWordDocx(
   file: File,
-  onProgress?: ConversionProgressCallback
+  onProgress?: ConversionProgressCallback,
+  ocrLanguage = 'eng'
 ): Promise<OfficeConversionResult> {
   initPdfWorker();
   onProgress?.(0, 100, 'Loading PDF document into memory...');
@@ -40,6 +42,8 @@ export async function convertPdfToWordDocx(
   const pdf = await loadingTask.promise;
   const numPages = pdf.numPages;
   const docxElements: (Paragraph | Table)[] = [];
+  const scannedPages: number[] = [];
+  const scannedPlaceholderIndexes = new Map<number, number>();
   let totalParagraphs = 0;
 
   for (let pageNum = 1; pageNum <= numPages; pageNum++) {
@@ -48,12 +52,14 @@ export async function convertPdfToWordDocx(
     const textContent = await page.getTextContent();
     const items = textContent.items as any[];
 
-    if (items.length === 0) {
+    if (!items.some(item => typeof item.str === 'string' && item.str.trim().length > 0)) {
+      scannedPages.push(pageNum);
+      scannedPlaceholderIndexes.set(pageNum, docxElements.length);
       docxElements.push(
         new Paragraph({
           children: [
             new TextRun({
-              text: `[Page ${pageNum}: No selectable text detected. If scanned, consider using OCR.]`,
+              text: `[Page ${pageNum}: scanned page; OCR is pending.]`,
               italics: true,
               color: '888888',
               size: 20
@@ -220,6 +226,68 @@ export async function convertPdfToWordDocx(
     await yieldToMainThread(20);
   }
 
+  if (scannedPages.length > 0) {
+    onProgress?.(75, 100, `Recognizing scanned page${scannedPages.length === 1 ? '' : 's'} with OCR...`);
+    const { executePdfOcr } = await import('./pdfOcrEngine');
+    let ocrResult;
+    try {
+      ocrResult = await executePdfOcr(
+        file,
+        numPages,
+        {
+          language: ocrLanguage,
+          pageSelection: 'range',
+          customPageRange: scannedPages.join(','),
+          scale: 1.5,
+          enhanceScannedContrast: true
+        },
+        status => onProgress?.(
+          75 + Math.round(status.overallProgressPct * 0.12),
+          100,
+          status.statusMessage
+        )
+      );
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`OCR could not read the scanned page(s): ${message}`);
+    }
+
+    const replacements = new Map<number, (Paragraph | Table)[]>();
+    for (const pageResult of ocrResult.pages) {
+      const lines = pageResult.text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+      const replacement: (Paragraph | Table)[] = [
+        new Paragraph({
+          heading: HeadingLevel.HEADING_2,
+          children: [new TextRun({ text: `OCR text — Page ${pageResult.pageNumber}`, bold: true, color: '334155' })],
+          spacing: { before: 160, after: 100 }
+        })
+      ];
+      if (lines.length === 0) {
+        replacement.push(new Paragraph({
+          children: [new TextRun({
+            text: '[No readable text was recognized on this scanned page.]',
+            italics: true,
+            color: '888888'
+          })]
+        }));
+      } else {
+        for (const line of lines) {
+          replacement.push(new Paragraph({
+            children: [new TextRun({ text: line, size: 20, color: '1E293B' })],
+            spacing: { after: 80 }
+          }));
+          totalParagraphs++;
+        }
+      }
+      const placeholderIndex = scannedPlaceholderIndexes.get(pageResult.pageNumber);
+      if (placeholderIndex !== undefined) replacements.set(placeholderIndex, replacement);
+    }
+
+    const rebuiltElements = docxElements.flatMap((element, index) => replacements.get(index) || [element]);
+    docxElements.length = 0;
+    for (const element of rebuiltElements) docxElements.push(element);
+  }
+
   onProgress?.(90, 100, 'Packaging editable Word (.docx) document...');
 
   const doc = new Document({
@@ -253,7 +321,7 @@ export async function convertPdfToWordDocx(
   return {
     data: docxUint8,
     fileName: outName,
-    details: `Extracted ${totalParagraphs} formatted paragraphs across ${numPages} page(s) into editable Microsoft Word (.docx).`,
+    details: `Extracted ${totalParagraphs} text paragraphs across ${numPages} page(s) into editable Microsoft Word (.docx)${scannedPages.length > 0 ? `, including OCR on ${scannedPages.length} scanned page(s)` : ''}.`,
     pageCount: numPages,
     itemCount: totalParagraphs
   };
@@ -381,6 +449,101 @@ export async function convertPdfToExcelXlsx(
     details: `Extracted ${totalRowsExtracted} table rows across ${wb.SheetNames.length} sheet(s) into Microsoft Excel (.xlsx).`,
     pageCount: numPages,
     itemCount: totalRowsExtracted
+  };
+}
+
+/**
+ * Convert Word tables and document text into an Excel workbook.
+ * Each Word table becomes its own worksheet; paragraphs and lists are preserved in a Text sheet.
+ */
+export async function convertWordToExcelXlsx(
+  file: File,
+  onProgress?: ConversionProgressCallback
+): Promise<OfficeConversionResult> {
+  if (!file.name.toLowerCase().endsWith('.docx')) {
+    throw new Error('Word to Excel currently supports .docx files. Please save legacy .doc files as .docx first.');
+  }
+
+  onProgress?.(0, 100, 'Reading Word document...');
+  const arrayBuffer = await readSafeArrayBuffer(file);
+  const converted = await mammoth.convertToHtml({ arrayBuffer });
+  const parsed = new DOMParser().parseFromString(converted.value, 'text/html');
+  const workbook = XLSX.utils.book_new();
+  let tableCount = 0;
+  let tableRows = 0;
+  const textRows: string[][] = [];
+
+  const cleanText = (element: Element) => (element.textContent || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const addSheet = (rows: string[][], name: string) => {
+    const sheet = XLSX.utils.aoa_to_sheet(rows);
+    const columnCount = rows.reduce((max, row) => Math.max(max, row.length), 1);
+    sheet['!cols'] = Array.from({ length: columnCount }, (_, columnIndex) => {
+      const longest = rows.reduce((max, row) => Math.max(max, (row[columnIndex] || '').length), 10);
+      return { wch: Math.min(longest + 2, 60) };
+    });
+    XLSX.utils.book_append_sheet(workbook, sheet, name.slice(0, 31));
+  };
+
+  const bodyElements = Array.from(parsed.body.children);
+  for (let elementIndex = 0; elementIndex < bodyElements.length; elementIndex++) {
+    const element = bodyElements[elementIndex];
+    onProgress?.(
+      10 + Math.round((elementIndex / Math.max(1, bodyElements.length)) * 65),
+      100,
+      `Reading Word content ${elementIndex + 1} of ${bodyElements.length}...`
+    );
+
+    if (element.tagName.toLowerCase() === 'table') {
+      const rows = Array.from(element.querySelectorAll('tr'))
+        .map(row => Array.from(row.querySelectorAll('th, td')).map(cleanText))
+        .filter(row => row.some(cell => cell.length > 0));
+      if (rows.length > 0) {
+        tableCount++;
+        tableRows += rows.length;
+        addSheet(rows, `Table ${tableCount}`);
+      }
+      continue;
+    }
+
+    const tag = element.tagName.toLowerCase();
+    if (tag === 'ul' || tag === 'ol') {
+      const listItems = Array.from(element.querySelectorAll(':scope > li'));
+      listItems.forEach((item, index) => {
+        const marker = tag === 'ol' ? `${index + 1}. ` : '• ';
+        const text = cleanText(item);
+        if (text) textRows.push([`${marker}${text}`]);
+      });
+      continue;
+    }
+
+    const text = cleanText(element);
+    if (text) textRows.push([text]);
+    for (const image of Array.from(element.querySelectorAll('img'))) {
+      const alt = image.getAttribute('alt')?.trim();
+      textRows.push([alt ? `[Image: ${alt}]` : '[Image]']);
+    }
+  }
+
+  if (textRows.length > 0) addSheet([['Document text'], ...textRows], 'Text');
+  if (workbook.SheetNames.length === 0) {
+    throw new Error('No readable text or tables were found in this Word document.');
+  }
+
+  onProgress?.(90, 100, 'Creating the Excel workbook...');
+  const output = XLSX.write(workbook, { bookType: 'xlsx', type: 'array', compression: true });
+  const data = new Uint8Array(output);
+  const fileName = `${file.name.replace(/\.docx$/i, '')}.xlsx`;
+  onProgress?.(100, 100, 'Excel workbook ready for download.');
+
+  return {
+    data,
+    fileName,
+    details: `Created ${workbook.SheetNames.length} worksheet(s), including ${tableCount} Word table(s) with ${tableRows} row(s).`,
+    itemCount: tableRows
   };
 }
 
@@ -701,133 +864,30 @@ export async function convertWordToPdf(
   file: File,
   onProgress?: ConversionProgressCallback
 ): Promise<OfficeConversionResult> {
+  if (!file.name.toLowerCase().endsWith('.docx')) {
+    throw new Error('Word to PDF currently supports .docx files. Please save legacy .doc files as .docx first.');
+  }
+
   onProgress?.(0, 100, 'Reading Word (.docx) document...');
-
   const arrayBuffer = await readSafeArrayBuffer(file);
-
-  // Extract raw text and structure using mammoth
-  const rawResult = await mammoth.extractRawText({ arrayBuffer });
-  const rawText = rawResult.value || '';
-  const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-
-  if (lines.length === 0) {
-    throw new Error('Word document contains no readable text content.');
+  const converted = await mammoth.convertToHtml({ arrayBuffer });
+  if (!converted.value.trim()) {
+    throw new Error('Word document contains no readable text, tables, or images.');
   }
 
-  onProgress?.(30, 100, 'Typesetting text and styling pages with PDF-Lib...');
-
-  const pdfDoc = await PDFDocument.create();
-  const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-  // A4 dimensions: 595.28 x 841.89 points
-  const PAGE_WIDTH = 595.28;
-  const PAGE_HEIGHT = 841.89;
-  const MARGIN_LEFT = 54;
-  const MARGIN_RIGHT = 54;
-  const MARGIN_TOP = 60;
-  const MARGIN_BOTTOM = 60;
-  const CONTENT_WIDTH = PAGE_WIDTH - MARGIN_LEFT - MARGIN_RIGHT;
-
-  let currentPage = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
-  let currentY = PAGE_HEIGHT - MARGIN_TOP;
-  let pageNumber = 1;
-
-  const addNewPage = () => {
-    // Add page footer to current page before switching
-    currentPage.drawText(`Page ${pageNumber}`, {
-      x: PAGE_WIDTH / 2 - 20,
-      y: 30,
-      size: 9,
-      font: fontRegular,
-      color: rgb(0.5, 0.55, 0.6)
-    });
-
-    pageNumber++;
-    currentPage = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
-    currentY = PAGE_HEIGHT - MARGIN_TOP;
-  };
-
-  // Header banner on first page
-  const docTitle = file.name.replace(/\.docx?$/i, '');
-  currentPage.drawText(truncateText(docTitle, 50), {
-    x: MARGIN_LEFT,
-    y: currentY,
-    size: 20,
-    font: fontBold,
-    color: rgb(0.12, 0.16, 0.23)
-  });
-  currentY -= 35;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const isHeading = line.length < 60 && !line.endsWith('.') && (i === 0 || lines[i - 1]?.length === 0);
-    const fontSize = isHeading ? 14 : 10.5;
-    const lineHeight = isHeading ? 20 : 15;
-    const font = isHeading ? fontBold : fontRegular;
-    const textColor = isHeading ? rgb(0.12, 0.16, 0.23) : rgb(0.2, 0.25, 0.3);
-
-    // Wrap line to fit content width
-    const words = line.split(' ');
-    let currentLineText = '';
-
-    for (let w = 0; w < words.length; w++) {
-      const testLine = currentLineText ? `${currentLineText} ${words[w]}` : words[w];
-      const testWidth = font.widthOfTextAtSize(testLine, fontSize);
-
-      if (testWidth > CONTENT_WIDTH && currentLineText) {
-        if (currentY <= MARGIN_BOTTOM + lineHeight) {
-          addNewPage();
-        }
-        currentPage.drawText(currentLineText, {
-          x: MARGIN_LEFT,
-          y: currentY,
-          size: fontSize,
-          font,
-          color: textColor
-        });
-        currentY -= lineHeight;
-        currentLineText = words[w];
-      } else {
-        currentLineText = testLine;
-      }
-    }
-
-    if (currentLineText) {
-      if (currentY <= MARGIN_BOTTOM + lineHeight) {
-        addNewPage();
-      }
-      currentPage.drawText(currentLineText, {
-        x: MARGIN_LEFT,
-        y: currentY,
-        size: fontSize,
-        font,
-        color: textColor
-      });
-      currentY -= lineHeight + (isHeading ? 8 : 4);
-    }
-  }
-
-  // Draw footer on last page
-  currentPage.drawText(`Page ${pageNumber}`, {
-    x: PAGE_WIDTH / 2 - 20,
-    y: 30,
-    size: 9,
-    font: fontRegular,
-    color: rgb(0.5, 0.55, 0.6)
-  });
-
-  onProgress?.(95, 100, 'Saving PDF document...');
-  const pdfBytes = await pdfDoc.save();
-  const outName = `${docTitle}.pdf`;
+  const documentTitle = file.name.replace(/\.docx$/i, '');
+  const rendered = await renderWordHtmlToPdf(
+    converted.value,
+    documentTitle,
+    message => onProgress?.(35, 100, message)
+  );
 
   onProgress?.(100, 100, 'Word to PDF conversion complete!');
-
   return {
-    data: pdfBytes,
-    fileName: outName,
-    details: `Converted Word document (.docx) into ${pageNumber} paginated PDF page(s).`,
-    pageCount: pageNumber
+    data: rendered.data,
+    fileName: `${documentTitle}.pdf`,
+    details: `Converted the Word document into ${rendered.pageCount} high-resolution A4 page(s), preserving readable text structure, tables, lists, and embedded images. Text in this visual PDF is not selectable.`,
+    pageCount: rendered.pageCount
   };
 }
 

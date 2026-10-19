@@ -2,30 +2,13 @@ import * as pdfjsLib from 'pdfjs-dist';
 import Tesseract from 'tesseract.js';
 import { downloadBlob } from './pdfEngine';
 import { initPdfWorker } from './pdfWorkerSetup';
+import { SUPPORTED_OCR_LANGUAGES, OcrLanguageOption } from './ocrLanguages';
 
 // Ensure worker is configured safely
 initPdfWorker();
 
-export interface OcrLanguageOption {
-  code: string;
-  name: string;
-  nativeName?: string;
-}
-
-export const SUPPORTED_OCR_LANGUAGES: OcrLanguageOption[] = [
-  { code: 'eng', name: 'English', nativeName: 'English' },
-  { code: 'spa', name: 'Spanish', nativeName: 'Español' },
-  { code: 'fra', name: 'French', nativeName: 'Français' },
-  { code: 'deu', name: 'German', nativeName: 'Deutsch' },
-  { code: 'ita', name: 'Italian', nativeName: 'Italiano' },
-  { code: 'por', name: 'Portuguese', nativeName: 'Português' },
-  { code: 'nld', name: 'Dutch', nativeName: 'Nederlands' },
-  { code: 'chi_sim', name: 'Chinese (Simplified)', nativeName: '简体中文' },
-  { code: 'jpn', name: 'Japanese', nativeName: '日本語' },
-  { code: 'rus', name: 'Russian', nativeName: 'Русский' },
-  { code: 'ara', name: 'Arabic', nativeName: 'Arabic' },
-  { code: 'hin', name: 'Hindi', nativeName: 'Hindi' },
-];
+export { SUPPORTED_OCR_LANGUAGES } from './ocrLanguages';
+export type { OcrLanguageOption } from './ocrLanguages';
 
 export interface PageOcrResult {
   pageNumber: number;

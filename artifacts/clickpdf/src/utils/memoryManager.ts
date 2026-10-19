@@ -274,7 +274,9 @@ export async function readSafeArrayBuffer(
   try {
     const totalBytes = file.size;
     const chunkSize = 8 * 1024 * 1024; // 8MB chunks
-    const chunks: Uint8Array[] = [];
+    // Allocate the destination once and copy each chunk into it immediately.
+    // Retaining all chunks and then assembling them doubled peak memory use.
+    const finalBuffer = new Uint8Array(totalBytes);
     let bytesRead = 0;
 
     for (let offset = 0; offset < totalBytes; offset += chunkSize) {
@@ -288,7 +290,7 @@ export async function readSafeArrayBuffer(
         reader.readAsArrayBuffer(slice);
       });
 
-      chunks.push(new Uint8Array(chunkBuf));
+      finalBuffer.set(new Uint8Array(chunkBuf), offset);
       bytesRead += (end - offset);
 
       const percent = Math.min(99, Math.round((bytesRead / totalBytes) * 100));
@@ -296,16 +298,6 @@ export async function readSafeArrayBuffer(
 
       // Yield event loop between 8MB chunks so GC can recycle intermediate slice objects
       await yieldToMainThread(10);
-    }
-
-    // Allocate final contiguous buffer
-    const finalBuffer = new Uint8Array(totalBytes);
-    let targetOffset = 0;
-    for (let i = 0; i < chunks.length; i++) {
-      finalBuffer.set(chunks[i], targetOffset);
-      targetOffset += chunks[i].byteLength;
-      // Nullify chunk reference immediately
-      chunks[i] = (null as unknown) as Uint8Array;
     }
 
     onProgress?.(100, totalBytes);

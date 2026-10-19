@@ -195,13 +195,25 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'word-to-pdf',
     title: 'Word to PDF',
-    description: 'Convert Word documents (.docx, .doc) into high-resolution, printable PDF files.',
-    extendedDescription: 'Convert Microsoft Word (.docx) documents into standardized, publication-quality A4 PDF documents with preserved headings, line wraps, and pagination.',
+    description: 'Convert Word documents (.docx) into readable, high-resolution PDF files.',
+    extendedDescription: 'Convert Microsoft Word (.docx) documents into high-resolution A4 PDF pages with readable headings, paragraphs, lists, tables, and embedded images.',
     category: 'convert',
     iconName: 'FileText',
     badge: 'DOCX to PDF',
     accentColor: 'from-blue-700 to-sky-600',
-    acceptedFileTypes: '.docx,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword',
+    acceptedFileTypes: '.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    multiFile: true
+  },
+  {
+    id: 'word-to-excel',
+    title: 'Word to Excel',
+    description: 'Move Word tables and document text into an Excel workbook.',
+    extendedDescription: 'Extract each table from a Word (.docx) document into its own Excel worksheet and preserve document paragraphs and lists in a separate Text worksheet.',
+    category: 'convert',
+    iconName: 'FileSpreadsheet',
+    badge: 'DOCX to XLSX',
+    accentColor: 'from-emerald-600 to-teal-700',
+    acceptedFileTypes: '.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     multiFile: true
   },
   {

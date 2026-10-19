@@ -1225,15 +1225,15 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
   'word-to-pdf': {
     slug: 'word-to-pdf',
     toolId: 'word-to-pdf',
-    aliases: ['word-to-pdf', 'docx-to-pdf', 'doc-to-pdf', 'convert-word-to-pdf', 'word2pdf'],
+    aliases: ['word-to-pdf', 'docx-to-pdf', 'convert-word-to-pdf', 'word2pdf'],
     h1Title: 'Word to PDF Converter Online — Free DOCX to PDF In-Browser',
     metaTitle: 'Word to PDF Converter Online Free – Convert DOCX to PDF | ClickPDF',
-    metaDescription: 'Convert Microsoft Word documents (.docx, .doc) to PDF online 100% free. Fast, high-resolution A4 vector PDF compilation in your browser with zero server uploads.',
+    metaDescription: 'Convert Word (.docx) documents to readable, high-resolution PDF pages in your browser. Tables, lists, and embedded images are supported locally.',
     keywords: 'word to pdf, convert word to pdf, docx to pdf, doc to pdf online free, client side word to pdf, in browser docx to pdf converter',
     targetKeywords: ['word to pdf', 'convert docx to pdf', 'free word to pdf converter', 'word to pdf online'],
     badge: 'Standard A4 Vector PDF',
-    overviewHeading: 'Turn Microsoft Word Documents into Printable Vector PDFs',
-    overview: 'Sharing Word files across different operating systems often causes font substitutions and displaced layouts. ClickPDF compiles your Microsoft Word (.docx) files into standard, publication-grade A4 PDF documents with preserved paragraphs, styled headers, and clean margins.',
+    overviewHeading: 'Turn Microsoft Word Documents into Readable PDFs',
+    overview: 'ClickPDF converts Microsoft Word (.docx) documents into high-resolution A4 PDF pages. Headings, paragraphs, lists, tables, and embedded images are laid out locally in your browser. Exact Word pagination and styling can vary.',
     secondaryOverview: 'Mammoth.js parses OpenXML document trees locally, and pdf-lib renders crisp vector text without sending your confidential business proposals, academic theses, or resumes to third-party cloud servers.',
     privacyHighlight: 'Private Resume & Contract Compiler: Document bytes never leave your browser sandbox. Convert confidential files safely offline.',
     stepsHeading: 'How to Convert Word to PDF in 3 Steps',
@@ -1241,17 +1241,17 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       {
         step: 1,
         title: 'Select Your Word Document',
-        description: 'Drag and drop your .docx or .doc file into the workspace.'
+        description: 'Drag and drop a .docx file into the workspace.'
       },
       {
         step: 2,
         title: 'In-Browser Document Parsing',
-        description: 'The client-side engine parses text formatting, heading levels, and line wrapping.'
+        description: 'The browser lays out paragraphs, headings, lists, tables, and embedded images.'
       },
       {
         step: 3,
-        title: 'Download Standard A4 PDF',
-        description: 'Click "Convert Word to PDF" to generate a high-resolution, vector-crisp PDF document instantly.'
+        title: 'Download High-Resolution PDF',
+        description: 'Click "Convert Word to PDF" to generate clear A4 page images. Text is not selectable in this visual PDF.'
       }
     ],
     faqs: [
@@ -1261,11 +1261,11 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'What Word document formats are accepted?',
-        answer: 'ClickPDF supports standard Microsoft Word OpenXML files (.docx), legacy .doc files, and standard word processing documents.'
+        answer: 'This converter supports Microsoft Word OpenXML (.docx) files. Save legacy .doc files as .docx before converting.'
       },
       {
         question: 'Will formatting and paragraphs be preserved?',
-        answer: 'Yes! Headings, paragraph text, line breaks, and page flow are extracted and compiled with standard margins and clear typographic scales.'
+        answer: 'Headings, paragraphs, lists, tables, and embedded images are rendered for readability. Exact fonts, page breaks, and complex layouts may differ from Word.'
       },
       {
         question: 'Are my resumes and private contracts kept private?',
@@ -1278,7 +1278,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     ],
     benefits: [
       { title: 'No Office License Required', desc: 'Runs 100% in any modern browser on Windows, Mac, Linux, iOS, or Android.', iconName: 'Laptop' },
-      { title: 'Print-Ready Vector Output', desc: 'Generates standard A4 PDF pages with sharp vector typography.', iconName: 'FileText' },
+      { title: 'High-Resolution Output', desc: 'Generates clear A4 pages with readable text and tables.', iconName: 'FileText' },
       { title: 'Guaranteed Privacy', desc: 'No server uploads ensure sensitive employee records and contracts remain secure.', iconName: 'ShieldCheck' },
       { title: 'Batch Queue Ready', desc: 'Convert dozens of Word documents with automatic ZIP archiving.', iconName: 'Download' }
     ],
