@@ -1,0 +1,298 @@
+/**
+ * ClickPDF Zero-Config Tool Plugin Template
+ * ============================================================================
+ * HOW TO ADD A NEW PDF TOOL TO CLICKPDF:
+ * 1. Duplicate this file and rename it to your tool's name with a .tsx extension:
+ *    e.g. `src/tools/plugins/extract-text.tsx` or `src/tools/plugins/remove-blank-pages.tsx`
+ *    (Note: files starting with `_` or ending in `.example` are ignored by the loader).
+ *
+ * 2. Update the `id`, `slug`, `title`, `shortDescription`, `category`, and `iconName`.
+ *    - `id`: unique tool identifier, e.g. "extract-text"
+ *    - `slug`: clean URL slug for /tools/:slug, e.g. "extract-text" -> /tools/extract-text
+ *    - `category`: 'organize' | 'optimize' | 'convert' | 'edit' | 'security'
+ *    - `iconName`: any Lucide icon name, e.g. 'FileText', 'Scissors', 'Layers', 'Sparkles', 'Table'
+ *
+ * 3. Configure the `seo` block with keywords, How-To steps, and FAQ items.
+ *
+ * 4. Write your 100% in-browser React component in `Component`.
+ *    The component receives `onBack` and `onSwitchTool` props.
+ *
+ * 5. Commit & Push to GitHub!
+ *    The application's Vite auto-loader automatically registers the new tool:
+ *    - Card appears on the Home Page grid
+ *    - Route is created at /tools/:slug
+ *    - Dynamic meta tags and JSON-LD schema are injected
+ *    - Sitemaps and robots.txt include the new tool
+ * ============================================================================
+ */
+
+import React, { useState } from 'react';
+import { PDFDocument, rgb } from 'pdf-lib';
+import { Sparkles, Upload, Download, Trash2, CheckCircle2, AlertCircle, FileText } from 'lucide-react';
+import { ToolPlugin, ToolPluginProps } from './types';
+
+// ============================================================================
+// 1. TOOL WORKSPACE COMPONENT (100% In-Browser Execution)
+// ============================================================================
+const SampleToolComponent: React.FC<ToolPluginProps> = ({ onBack, onSwitchTool, initialFiles }) => {
+  const [file, setFile] = useState<File | null>(initialFiles && initialFiles.length > 0 ? initialFiles[0] : null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [outputFileName, setOutputFileName] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+      setDownloadUrl(null);
+      setErrorMessage(null);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      setFile(e.dataTransfer.files[0]);
+      setDownloadUrl(null);
+      setErrorMessage(null);
+    }
+  };
+
+  // Example In-Browser Processing (uses pdf-lib in client-side memory)
+  const processDocument = async () => {
+    if (!file) return;
+
+    setIsProcessing(true);
+    setErrorMessage(null);
+
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdfDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+
+      // Example operation: Add a clean footer note or stamp on each page
+      const pages = pdfDoc.getPages();
+      for (const page of pages) {
+        const { width } = page.getSize();
+        page.drawText('Processed with ClickPDF Local Engine', {
+          x: width / 2 - 90,
+          y: 20,
+          size: 9,
+          color: rgb(0.4, 0.4, 0.5),
+        });
+      }
+
+      const modifiedBytes = await pdfDoc.save();
+      const blob = new Blob([modifiedBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const outName = file.name.replace(/\.pdf$/i, '_processed.pdf');
+      setDownloadUrl(url);
+      setOutputFileName(outName);
+    } catch (err) {
+      console.error('Processing error:', err);
+      setErrorMessage('Could not process this file. Please verify it is a valid, unprotected PDF.');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleDownload = () => {
+    if (!downloadUrl) return;
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = outputFileName || 'document.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  return (
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm">
+      {/* Tool Header Card */}
+      <div className="flex items-start gap-4 mb-8">
+        <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-500 to-indigo-600 flex items-center justify-center text-white shrink-0 shadow-sm">
+          <Sparkles className="w-6 h-6" />
+        </div>
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            Sample Plugin Tool
+          </h1>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            Process documents directly in your browser with zero server uploads and strict device privacy.
+          </p>
+        </div>
+      </div>
+
+      {/* Upload Zone / Drop Area */}
+      {!file ? (
+        <div
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
+          className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-2xl p-10 text-center transition-colors bg-slate-50/50 dark:bg-slate-950/40 cursor-pointer"
+        >
+          <input
+            type="file"
+            id="plugin-file-upload"
+            accept=".pdf,application/pdf"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <label htmlFor="plugin-file-upload" className="cursor-pointer block">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+              <Upload className="w-8 h-8" />
+            </div>
+            <span className="text-base font-bold text-slate-800 dark:text-slate-200">
+              Drop your PDF here, or <span className="text-indigo-600 dark:text-indigo-400 underline">browse</span>
+            </span>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              Supports documents up to 200MB. 100% private, runs entirely on your device.
+            </p>
+          </label>
+        </div>
+      ) : (
+        /* Selected File Card & Actions */
+        <div className="space-y-6">
+          <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-950/60 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0">
+                <FileText className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                  {file.name}
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {(file.size / (1024 * 1024)).toFixed(2)} MB
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setFile(null);
+                setDownloadUrl(null);
+                setErrorMessage(null);
+              }}
+              className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors cursor-pointer"
+              title="Remove file"
+            >
+              <Trash2 className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Error Banner */}
+          {errorMessage && (
+            <div className="flex items-center gap-2 p-4 rounded-xl bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-sm">
+              <AlertCircle className="w-5 h-5 shrink-0" />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
+          {/* Action Button */}
+          {!downloadUrl ? (
+            <button
+              type="button"
+              onClick={processDocument}
+              disabled={isProcessing}
+              className="w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-base shadow-lg shadow-indigo-600/25 cursor-pointer transition-all flex items-center justify-center gap-2"
+            >
+              {isProcessing ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span>Processing In-Browser...</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-5 h-5" />
+                  <span>Run Sample Tool</span>
+                </>
+              )}
+            </button>
+          ) : (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-semibold">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Document processed successfully!</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="w-full py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-lg shadow-emerald-600/25 cursor-pointer transition-all flex items-center justify-center gap-2"
+              >
+                <Download className="w-5 h-5" />
+                <span>Download {outputFileName}</span>
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ============================================================================
+// 2. TOOL PLUGIN CONFIGURATION & SEO REGISTRATION
+// ============================================================================
+export const plugin: ToolPlugin = {
+  id: 'sample-tool', // Unique tool ID
+  slug: 'sample-tool', // Clean URL slug: /tools/sample-tool
+  title: 'Sample Plugin Tool', // Display name on home grid card
+  shortDescription: 'Demonstration of ClickPDF zero-config tool plugin architecture.',
+  extendedDescription: 'A fully functional template showing how to build client-side PDF tools using Vite import.meta.glob auto-discovery.',
+  category: 'organize', // 'organize' | 'optimize' | 'convert' | 'edit' | 'security'
+  iconName: 'Sparkles', // Any Lucide icon name
+  badge: 'Template',
+  accentColor: 'from-teal-500 to-indigo-600',
+  acceptedFileTypes: '.pdf,application/pdf',
+  multiFile: false,
+
+  // Complete SEO, How-To steps, and FAQ Accordion
+  seo: {
+    metaTitle: 'Sample PDF Tool Online Free – In-Browser Utility | ClickPDF',
+    metaDescription: 'Run sample PDF operations in-browser with zero server uploads and 100% privacy.',
+    h1Title: 'Sample PDF Tool Online — Fast & In-Browser',
+    keywords: 'sample pdf tool, client side pdf, zero server uploads, in browser pdf editor',
+    overviewHeading: 'Why Run This Tool in Your Browser?',
+    overview: 'This plugin executes locally in your browser memory without uploading confidential files to any remote server.',
+    secondaryOverview: 'You retain complete data privacy, zero subscription fees, and instant download speeds.',
+    stepsHeading: 'How to Use This Tool in 3 Simple Steps',
+    howToSteps: [
+      {
+        step: 1,
+        title: 'Upload Your PDF',
+        description: 'Drop or select your PDF document from your computer or mobile device.',
+      },
+      {
+        step: 2,
+        title: 'Process In-Browser',
+        description: 'Click the process button to run local WebAssembly/JavaScript manipulation.',
+      },
+      {
+        step: 3,
+        title: 'Download Output',
+        description: 'Save your modified PDF document directly to your device storage.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Are my files uploaded to any server?',
+        answer: 'No. All processing occurs 100% inside your local device memory (RAM).',
+      },
+      {
+        question: 'Is there a file size limit?',
+        answer: 'ClickPDF supports large files up to 200MB+ thanks to chunked memory streams.',
+      },
+    ],
+    benefits: [
+      { title: '100% Client-Side', desc: 'Runs in local memory sandbox.', iconName: 'ShieldCheck' },
+      { title: 'Lightning Fast', desc: 'No upload queues or server timeouts.', iconName: 'Zap' },
+    ],
+    relatedToolIds: ['merge', 'split', 'compress'],
+  },
+
+  Component: SampleToolComponent,
+};
+
+export default plugin;

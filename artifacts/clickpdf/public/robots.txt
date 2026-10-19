@@ -1,0 +1,12 @@
+# ClickPDF Robots.txt - In-Browser Privacy Utilities
+User-agent: *
+Allow: /
+Allow: /tools/*
+Allow: /blog/*
+Allow: /blog
+Allow: /?tool=*
+Allow: /?view=*
+Allow: /?article=*
+
+# Dynamic XML Sitemap
+Sitemap: https://clickpdf.net/sitemap.xml

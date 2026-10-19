@@ -1,15 +1,16 @@
-# [Project name]
+# ClickPDF
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+ClickPDF is a privacy-focused browser PDF toolkit for editing, converting, organizing, inspecting, OCR, and document protection.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/clickpdf run dev` — run the ClickPDF web app
+- `pnpm --filter @workspace/api-server run dev` — run the shared API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- ClickPDF processes PDF files in the browser and does not require a database or Gemini API key.
 
 ## Stack
 
@@ -22,23 +23,27 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/clickpdf/` — ClickPDF web app and browser-based PDF tools
+- `artifacts/api-server/` — shared API service
+- `artifacts/mockup-sandbox/` — canvas component preview server
+- `lib/api-spec/` — shared API contract
+- `lib/db/` — shared database package
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- PDF operations are client-side; user documents should not be sent to a server.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- ClickPDF provides in-browser PDF editing, organization, conversion, inspection, OCR, and protection tools.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the separate Binance Futures scanner attachment out of the ClickPDF app.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- ClickPDF was imported from an uploaded source ZIP; retain its existing features and branding when making integration changes.
 
 ## Pointers
 

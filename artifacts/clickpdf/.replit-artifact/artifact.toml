@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ClickPDF"
+description = "A privacy-focused PDF toolkit that lets people edit, convert, organize, and protect documents directly in their browser."
+version = "1.0.0"
+id = "artifacts/clickpdf"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21606
+
+[services.development]
+run = "pnpm --filter @workspace/clickpdf run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/clickpdf", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/clickpdf/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21606"
+BASE_PATH = "/"

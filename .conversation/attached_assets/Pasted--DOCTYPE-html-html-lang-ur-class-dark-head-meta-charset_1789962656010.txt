@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ur" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance Futures All-Coins 12-Matrix + 200m HVN Scanner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#f0b90b', 600: '#d9a708' },
+                        slate: { 950: '#0b0f17' }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-brand-500/10 border border-brand-500/30 rounded-lg text-brand-500">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                        Binance Futures All-Coins Scanner
+                        <span class="text-xs font-normal px-2 py-0.5 bg-brand-500/20 text-brand-500 border border-brand-500/30 rounded-full">12-Matrix + 200m HVN</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Scans ALL Binance Futures USDT Pairs | 200 1m Candles HVN & 15m ADX</p>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-4 flex-wrap text-sm">
+                <!-- ADX Slider 30 to 70 -->
+                <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+                    <label for="adxThreshold" class="text-xs text-slate-300 font-medium">15m Min ADX:</label>
+                    <input type="range" id="adxThreshold" min="30" max="70" value="30" class="w-24 accent-brand-500 cursor-pointer" oninput="document.getElementById('adxVal').innerText = this.value">
+                    <span id="adxVal" class="text-xs font-bold text-brand-500 w-6">30</span>
+                </div>
+
+                <!-- Auto Refresh Timer (1.5 Min Default) -->
+                <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+                    <label for="refreshTimer" class="text-xs text-slate-300 font-medium">Auto Scan:</label>
+                    <select id="refreshTimer" onchange="updateAutoScanInterval()" class="bg-slate-900 text-xs text-brand-500 font-bold border border-slate-700 rounded px-2 py-0.5 focus:outline-none">
+                        <option value="60">1.0 Min (60s)</option>
+                        <option value="90" selected>1.5 Min (90s)</option>
+                        <option value="120">2.0 Min (120s)</option>
+                    </select>
+                </div>
+
+                <button id="scanBtn" onclick="startScan()" class="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-slate-950 font-bold px-4 py-1.5 rounded-lg transition-all shadow-lg shadow-brand-500/20 active:scale-95">
+                    <i data-lucide="refresh-cw" id="scanIcon" class="w-4 h-4"></i>
+                    <span>Scan Market</span>
+                </button>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="autoRefresh" class="rounded bg-slate-800 border-slate-700 text-brand-500 focus:ring-0 cursor-pointer" onchange="toggleAutoRefresh(this.checked)">
+                    <label for="autoRefresh" class="text-xs text-slate-400 cursor-pointer">Auto</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+        <!-- Status Log Alert Box -->
+        <div id="statusAlert" class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl text-xs flex items-center justify-between text-slate-300">
+            <div class="flex items-center gap-2">
+                <span id="statusDot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                <span id="statusText">System Ready. Click "Scan Market" to scan ALL Binance Futures pairs.</span>
+            </div>
+            <span id="scanCountInfo" class="text-slate-500 font-mono">Pairs Scanned: 0/0</span>
+        </div>
+
+        <!-- Top Metrics Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-medium">Scanned Pairs</div>
+                <div id="statScanned" class="text-2xl font-bold text-slate-100 mt-1">0</div>
+                <div class="text-[10px] text-slate-500 mt-1">Filtered by Vol & ADX</div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-medium">200m HVN Active</div>
+                <div id="statHvnCount" class="text-2xl font-bold text-amber-400 mt-1">0</div>
+                <div class="text-[10px] text-slate-500 mt-1">Price inside Yellow HVN Zone</div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-medium">Top Strong Pump</div>
+                <div id="statTopBull" class="text-lg font-bold text-emerald-400 mt-1 truncate">--</div>
+                <div id="statTopBullScore" class="text-[10px] text-slate-500">12-Matrix Score: --</div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-medium">Top Strong Dump</div>
+                <div id="statTopBear" class="text-lg font-bold text-rose-400 mt-1 truncate">--</div>
+                <div id="statTopBearScore" class="text-[10px] text-slate-500">12-Matrix Score: --</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progressContainer" class="hidden space-y-1">
+            <div class="flex justify-between text-xs text-slate-400">
+                <span id="progressText">Scanning Binance API data...</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                <div id="progressBar" class="bg-brand-500 h-full w-0 transition-all duration-150"></div>
+            </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-900/40 p-3 rounded-xl border border-slate-800">
+            <div class="relative w-full sm:w-64">
+                <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-slate-500"></i>
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search symbol..." class="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-brand-500">
+            </div>
+
+            <div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto text-xs">
+                <span class="text-slate-400 whitespace-nowrap">Filter Signals:</span>
+                <button onclick="setSignalFilter('ALL')" class="signal-filter-btn active px-3 py-1 rounded-md bg-slate-800 text-slate-200 border border-slate-700 font-medium">All</button>
+                <button onclick="setSignalFilter('HVN')" class="signal-filter-btn px-3 py-1 rounded-md bg-slate-900 text-slate-400 border border-slate-800 font-medium hover:text-amber-400">✓ HVN Active Only</button>
+                <button onclick="setSignalFilter('PUMP')" class="signal-filter-btn px-3 py-1 rounded-md bg-slate-900 text-slate-400 border border-slate-800 font-medium hover:text-emerald-400">Strong Pump (>=75%)</button>
+                <button onclick="setSignalFilter('DUMP')" class="signal-filter-btn px-3 py-1 rounded-md bg-slate-900 text-slate-400 border border-slate-800 font-medium hover:text-rose-400">Strong Dump (>=75%)</button>
+            </div>
+        </div>
+
+        <!-- Main Data Table -->
+        <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-slate-800 bg-slate-900/80 text-xs text-slate-400 uppercase tracking-wider">
+                        <th class="p-3 cursor-pointer hover:text-white" onclick="sortTable('symbol')">Symbol</th>
+                        <th class="p-3 cursor-pointer hover:text-white" onclick="sortTable('price')">Price</th>
+                        <th class="p-3 cursor-pointer hover:text-white" onclick="sortTable('adx')">15m ADX</th>
+                        <th class="p-3">1m HVN Status (200 Candles)</th>
+                        <th class="p-3">Order Book Ratio</th>
+                        <th class="p-3">Order Flow Delta</th>
+                        <th class="p-3 cursor-pointer hover:text-white text-center" onclick="sortTable('score')">12-Matrix Score</th>
+                        <th class="p-3 text-center">Final Signal</th>
+                        <th class="p-3 text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="scannerTableBody" class="divide-y divide-slate-800/50 text-sm">
+                    <tr>
+                        <td colspan="9" class="p-8 text-center text-slate-500">
+                            Click <strong>"Scan Market"</strong> to scan ALL Binance Futures pairs.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- JS Calculation Engine -->
+    <script>
+        let scannedData = [];
+        let currentSignalFilter = 'ALL';
+        let currentSort = { col: 'score', dir: 'desc' };
+        let autoRefreshInterval = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // -------------------------------------------------------------
+        // Helper Math & Indicators
+        // -------------------------------------------------------------
+        function calculateADX(klines, period = 14) {
+            if (!klines || klines.length < period * 2) return null;
+            const highs = klines.map(k => parseFloat(k[2]));
+            const lows = klines.map(k => parseFloat(k[3]));
+            const closes = klines.map(k => parseFloat(k[4]));
+
+            let trs = [], pDMs = [], nDMs = [];
+            for (let i = 1; i < klines.length; i++) {
+                const h = highs[i], l = lows[i], pc = closes[i - 1];
+                const ph = highs[i - 1], pl = lows[i - 1];
+                const tr = Math.max(h - l, Math.abs(h - pc), Math.abs(l - pc));
+                const upMove = h - ph;
+                const downMove = pl - l;
+
+                trs.push(tr);
+                pDMs.push((upMove > downMove && upMove > 0) ? upMove : 0);
+                nDMs.push((downMove > upMove && downMove > 0) ? downMove : 0);
+            }
+
+            let str = trs.slice(0, period).reduce((a, b) => a + b, 0);
+            let spDM = pDMs.slice(0, period).reduce((a, b) => a + b, 0);
+            let snDM = nDMs.slice(0, period).reduce((a, b) => a + b, 0);
+
+            let pDIs = [], nDIs = [], dxs = [];
+            let pDI = 100 * (spDM / str);
+            let nDI = 100 * (snDM / str);
+            let dx = (pDI + nDI) === 0 ? 0 : 100 * Math.abs(pDI - nDI) / (pDI + nDI);
+            pDIs.push(pDI); nDIs.push(nDI); dxs.push(dx);
+
+            for (let i = period; i < trs.length; i++) {
+                str = str - (str / period) + trs[i];
+                spDM = spDM - (spDM / period) + pDMs[i];
+                snDM = snDM - (snDM / period) + nDMs[i];
+                pDI = 100 * (spDM / str);
+                nDI = 100 * (snDM / str);
+                dx = (pDI + nDI) === 0 ? 0 : 100 * Math.abs(pDI - nDI) / (pDI + nDI);
+                pDIs.push(pDI); nDIs.push(nDI); dxs.push(dx);
+            }
+
+            let adx = dxs.slice(0, period).reduce((a, b) => a + b, 0) / period;
+            for (let i = period; i < dxs.length; i++) {
+                adx = ((adx * (period - 1)) + dxs[i]) / period;
+            }
+
+            return {
+                adx: parseFloat(adx.toFixed(2)),
+                pDI: parseFloat(pDIs[pDIs.length - 1].toFixed(2)),
+                nDI: parseFloat(nDIs[nDIs.length - 1].toFixed(2))
+            };
+        }
+
+        function calculateEMAArray(values, period) {
+            let k = 2 / (period + 1);
+            let emaArray = [];
+            let ema = values.slice(0, period).reduce((a, b) => a + b, 0) / period;
+            emaArray.push(ema);
+            for (let i = period; i < values.length; i++) {
+                ema = (values[i] * k) + (ema * (1 - k));
+                emaArray.push(ema);
+            }
+            return emaArray;
+        }
+
+        function calculateRSI(closes, period = 14) {
+            if (closes.length < period + 1) return 50;
+            let gains = 0, losses = 0;
+            for (let i = 1; i <= period; i++) {
+                let diff = closes[i] - closes[i - 1];
+                if (diff >= 0) gains += diff; else losses -= diff;
+            }
+            let avgGain = gains / period, avgLoss = losses / period;
+            for (let i = period + 1; i < closes.length; i++) {
+                let diff = closes[i] - closes[i - 1];
+                if (diff >= 0) {
+                    avgGain = (avgGain * (period - 1) + diff) / period;
+                    avgLoss = (avgLoss * (period - 1)) / period;
+                } else {
+                    avgGain = (avgGain * (period - 1)) / period;
+                    avgLoss = (avgLoss * (period - 1) - diff) / period;
+                }
+            }
+            if (avgLoss === 0) return 100;
+            return parseFloat((100 - (100 / (1 + (avgGain / avgLoss)))).toFixed(2));
+        }
+
+        function calculateMACD(closes) {
+            if (closes.length < 35) return { hist: 0, bullish: false };
+            const ema12 = calculateEMAArray(closes, 12);
+            const ema26 = calculateEMAArray(closes, 26);
+            let macdLine = [];
+            let offset = 26 - 12;
+            for (let i = 0; i < ema26.length; i++) {
+                macdLine.push(ema12[i + offset] - ema26[i]);
+            }
+            const signalLine = calculateEMAArray(macdLine, 9);
+            const hist = macdLine[macdLine.length - 1] - signalLine[signalLine.length - 1];
+            return { hist: parseFloat(hist.toFixed(4)), bullish: hist > 0 };
+        }
+
+        function calculateVWAP(klines) {
+            let totalPV = 0, totalVol = 0;
+            klines.slice(-20).forEach(k => {
+                let tp = (parseFloat(k[2]) + parseFloat(k[3]) + parseFloat(k[4])) / 3;
+                let vol = parseFloat(k[5]);
+                totalPV += tp * vol;
+                totalVol += vol;
+            });
+            return totalVol > 0 ? totalPV / totalVol : parseFloat(klines[klines.length - 1][4]);
+        }
+
+        // -------------------------------------------------------------
+        // 200 Candle 1m High Volume Node (HVN / Yellow Strip Detector)
+        // -------------------------------------------------------------
+        function detect200CandleHVN(klines1m, currentPrice, numRows = 25) {
+            if (!klines1m || klines1m.length < 50) {
+                return { active: false, volText: 'No Data', priceRange: '--' };
+            }
+
+            let minPrice = Infinity;
+            let maxPrice = -Infinity;
+
+            klines1m.forEach(k => {
+                const h = parseFloat(k[2]);
+                const l = parseFloat(k[3]);
+                if (h > maxPrice) maxPrice = h;
+                if (l < minPrice) minPrice = l;
+            });
+
+            if (maxPrice === minPrice) return { active: false, volText: 'Flat', priceRange: '--' };
+
+            const step = (maxPrice - minPrice) / numRows;
+            const rowVolumes = new Array(numRows).fill(0);
+
+            klines1m.forEach(k => {
+                const close = parseFloat(k[4]);
+                const quoteVol = parseFloat(k[7]); // Binance 8th element = Quote Vol (USDT)
+                let rowIndex = Math.floor((close - minPrice) / step);
+                if (rowIndex >= numRows) rowIndex = numRows - 1;
+                if (rowIndex < 0) rowIndex = 0;
+                rowVolumes[rowIndex] += quoteVol;
+            });
+
+            let maxVolIndex = 0;
+            let maxVolValue = 0;
+            rowVolumes.forEach((vol, idx) => {
+                if (vol > maxVolValue) {
+                    maxVolValue = vol;
+                    maxVolIndex = idx;
+                }
+            });
+
+            const hvnMinPrice = minPrice + (maxVolIndex * step);
+            const hvnMaxPrice = hvnMinPrice + step;
+
+            // Check if current price is trading inside this High Volume Row
+            const active = (currentPrice >= hvnMinPrice && currentPrice <= hvnMaxPrice);
+
+            let volFormatted = `$${(maxVolValue / 1000).toFixed(1)}K`;
+            if (maxVolValue >= 1000000) volFormatted = `$${(maxVolValue / 1000000).toFixed(2)}M`;
+
+            return {
+                active,
+                volText: volFormatted,
+                priceRange: `${formatPrice(hvnMinPrice)} - ${formatPrice(hvnMaxPrice)}`
+            };
+        }
+
+        async function fetchJsonSafe(url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // -------------------------------------------------------------
+        // Main Scan Routine (Scans ALL Binance Futures USDT Pairs)
+        // -------------------------------------------------------------
+        async function startScan() {
+            const scanBtn = document.getElementById('scanBtn');
+            const scanIcon = document.getElementById('scanIcon');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressPercent = document.getElementById('progressPercent');
+            const statusAlert = document.getElementById('statusAlert');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            scanBtn.disabled = true;
+            scanIcon.classList.add('animate-spin');
+            progressContainer.classList.remove('hidden');
+            statusDot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse";
+            statusText.innerText = "Fetching all Binance Futures USDT pairs...";
+            scannedData = [];
+
+            try {
+                const tickers = await fetchJsonSafe('https://fapi.binance.com/fapi/v1/ticker/24hr');
+                if (!tickers || !Array.isArray(tickers)) {
+                    statusDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500";
+                    statusText.innerText = "Error: Failed to connect to Binance API.";
+                    return;
+                }
+
+                const minAdxThreshold = parseFloat(document.getElementById('adxThreshold').value) || 30;
+
+                // Scan ALL USDT Pairs with Volume > $5M (Removes dead/delisted pairs)
+                const validTickers = tickers.filter(t => t.symbol.endsWith('USDT') && parseFloat(t.quoteVolume) > 5000000)
+                                            .sort((a, b) => parseFloat(b.quoteVolume) - parseFloat(a.quoteVolume));
+
+                statusText.innerText = `Scanning ALL ${validTickers.length} Binance Futures Pairs (15m ADX >= ${minAdxThreshold})...`;
+                let processed = 0;
+                const batchSize = 5; // Safe batch size to prevent API throttling
+
+                for (let i = 0; i < validTickers.length; i += batchSize) {
+                    const batch = validTickers.slice(i, i + batchSize);
+                    const promises = batch.map(ticker => analyzeSymbol(ticker, minAdxThreshold));
+                    const results = await Promise.all(promises);
+
+                    results.forEach(r => { if (r) scannedData.push(r); });
+
+                    processed += batch.length;
+                    const pct = Math.round((processed / validTickers.length) * 100);
+                    progressBar.style.width = `${pct}%`;
+                    progressPercent.innerText = `${pct}%`;
+                    document.getElementById('scanCountInfo').innerText = `Pairs Scanned: ${processed}/${validTickers.length}`;
+
+                    renderTable();
+                    updateStats();
+
+                    // Short delay to respect API limits
+                    await new Promise(r => setTimeout(r, 60));
+                }
+
+                statusDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
+                statusText.innerText = `Scan Complete. Total ${validTickers.length} pairs analyzed. Found ${scannedData.length} opportunities.`;
+
+            } catch (error) {
+                console.error(error);
+                statusDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500";
+                statusText.innerText = "Scan failed due to network restriction.";
+            } finally {
+                scanBtn.disabled = false;
+                scanIcon.classList.remove('animate-spin');
+                setTimeout(() => progressContainer.classList.add('hidden'), 800);
+            }
+        }
+
+        async function analyzeSymbol(ticker, minAdxThreshold) {
+            try {
+                const symbol = ticker.symbol;
+                const currentPrice = parseFloat(ticker.lastPrice);
+
+                // Fetch 15m Klines
+                const klines15m = await fetchJsonSafe(`https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=15m&limit=80`);
+                if (!klines15m || klines15m.length < 40) return null;
+
+                // 15m ADX Check
+                const adxData = calculateADX(klines15m, 14);
+                if (!adxData || adxData.adx < minAdxThreshold) return null;
+
+                // Fetch Exactly 200 Candles of 1m Timeframe for HVN
+                const klines1m = await fetchJsonSafe(`https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=1m&limit=200`);
+                const hvnData = detect200CandleHVN(klines1m, currentPrice, 25);
+
+                // Fetch Order Book Depth Top 20
+                let depthRatio = 50;
+                const depthData = await fetchJsonSafe(`https://fapi.binance.com/fapi/v1/depth?symbol=${symbol}&limit=20`);
+                if (depthData && depthData.bids && depthData.asks) {
+                    const bidVol = depthData.bids.reduce((acc, b) => acc + parseFloat(b[1]), 0);
+                    const askVol = depthData.asks.reduce((acc, a) => acc + parseFloat(a[1]), 0);
+                    if (bidVol + askVol > 0) depthRatio = parseFloat(((bidVol / (bidVol + askVol)) * 100).toFixed(1));
+                }
+
+                // Indicators Calculations
+                const closes15m = klines15m.map(k => parseFloat(k[4]));
+                const rsi = calculateRSI(closes15m, 14);
+                const ema9 = calculateEMAArray(closes15m, 9).pop();
+                const ema21 = calculateEMAArray(closes15m, 21).pop();
+                const emaBullish = ema9 > ema21;
+
+                let takerBuyVol = 0, totalVol = 0;
+                klines15m.slice(-4).forEach(c => {
+                    totalVol += parseFloat(c[5]);
+                    takerBuyVol += parseFloat(c[9]);
+                });
+                const netDeltaRatio = totalVol > 0 ? parseFloat((((takerBuyVol - (totalVol - takerBuyVol)) / totalVol) * 100).toFixed(2)) : 0;
+
+                const macd = calculateMACD(closes15m);
+                const vwap = calculateVWAP(klines15m);
+
+                // 12-Matrix Score Calculation Engine
+                let bullScore = 0, bearScore = 0;
+
+                if (adxData.pDI > adxData.nDI) bullScore += 15; else bearScore += 15;
+                if (emaBullish) bullScore += 15; else bearScore += 15;
+                if (depthRatio > 55) bullScore += 15; else if (depthRatio < 45) bearScore += 15;
+                if (netDeltaRatio > 10) bullScore += 15; else if (netDeltaRatio < -10) bearScore += 15;
+                if (macd.bullish) bullScore += 15; else bearScore += 15;
+                if (currentPrice > vwap) bullScore += 10; else bearScore += 10;
+                if (rsi > 52 && rsi < 75) bullScore += 15; else if (rsi < 48 && rsi > 25) bearScore += 15;
+
+                // 200m 1m HVN Zone Active Bonus (+20 Pts)
+                if (hvnData.active) {
+                    if (emaBullish) bullScore += 20; else bearScore += 20;
+                }
+
+                bullScore = Math.min(100, bullScore);
+                bearScore = Math.min(100, bearScore);
+
+                let signal = "NEUTRAL";
+                let score = Math.max(bullScore, bearScore);
+                let badgeClass = "bg-amber-500/10 text-amber-400 border-amber-500/30";
+
+                if (bullScore >= 75 && bullScore > bearScore) {
+                    signal = "STRONG PUMP";
+                    badgeClass = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-extrabold";
+                } else if (bearScore >= 75 && bearScore > bullScore) {
+                    signal = "STRONG DUMP";
+                    badgeClass = "bg-rose-500/10 text-rose-400 border-rose-500/30 font-extrabold";
+                }
+
+                return {
+                    symbol,
+                    price: currentPrice,
+                    adx: adxData.adx,
+                    hvnData,
+                    depthRatio,
+                    netDeltaRatio,
+                    score,
+                    signal,
+                    badgeClass
+                };
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // -------------------------------------------------------------
+        // UI Render Functions
+        // -------------------------------------------------------------
+        function renderTable() {
+            const tbody = document.getElementById('scannerTableBody');
+            const searchVal = document.getElementById('searchInput').value.toUpperCase();
+
+            let data = scannedData.filter(d => {
+                const matchesSearch = d.symbol.includes(searchVal);
+                const matchesSignal = (currentSignalFilter === 'ALL') ||
+                                      (currentSignalFilter === 'HVN' && d.hvnData.active) ||
+                                      (currentSignalFilter === 'PUMP' && d.signal === 'STRONG PUMP') ||
+                                      (currentSignalFilter === 'DUMP' && d.signal === 'STRONG DUMP');
+                return matchesSearch && matchesSignal;
+            });
+
+            data.sort((a, b) => {
+                let valA = a[currentSort.col];
+                let valB = b[currentSort.col];
+                if (typeof valA === 'string') {
+                    return currentSort.dir === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                }
+                return currentSort.dir === 'asc' ? valA - valB : valB - valA;
+            });
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" class="p-8 text-center text-slate-500">No coins matching criteria. Try lowering the ADX slider.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = data.map(item => {
+                const deltaColor = item.netDeltaRatio >= 0 ? 'text-emerald-400' : 'text-rose-400';
+                const bookColor = item.depthRatio > 55 ? 'text-emerald-400' : item.depthRatio < 45 ? 'text-rose-400' : 'text-slate-300';
+                
+                let hvnBadge = `<span class="px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-semibold inline-flex items-center gap-1">✗ No HVN Zone</span>`;
+
+                if (item.hvnData.active) {
+                    hvnBadge = `<span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold inline-flex items-center gap-1"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> ✓ HVN Active (${item.hvnData.volText})</span>`;
+                }
+
+                return `
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="p-3 font-bold text-slate-100">${item.symbol}</td>
+                        <td class="p-3 font-mono">${formatPrice(item.price)}</td>
+                        <td class="p-3 font-bold text-cyan-400">${item.adx}</td>
+                        <td class="p-3">${hvnBadge}</td>
+                        <td class="p-3 font-mono text-xs ${bookColor}">${item.depthRatio}% Bids</td>
+                        <td class="p-3 font-mono ${deltaColor}">${item.netDeltaRatio > 0 ? '▲ +' : '▼ '}${item.netDeltaRatio}%</td>
+                        <td class="p-3 text-center font-bold text-brand-500 font-mono">${item.score}%</td>
+                        <td class="p-3 text-center">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${item.badgeClass}">
+                                ${item.signal}
+                            </span>
+                        </td>
+                        <td class="p-3 text-right">
+                            <a href="https://www.binance.com/en/futures/${item.symbol}" target="_blank" class="inline-flex items-center gap-1 text-xs bg-slate-800 hover:bg-brand-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded transition-colors font-medium">
+                                Chart <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function updateStats() {
+            document.getElementById('statScanned').innerText = scannedData.length;
+            const hvnCount = scannedData.filter(d => d.hvnData.active).length;
+            document.getElementById('statHvnCount').innerText = hvnCount;
+
+            const topBulls = scannedData.filter(d => d.signal === 'STRONG PUMP').sort((a, b) => b.score - a.score);
+            const topBears = scannedData.filter(d => d.signal === 'STRONG DUMP').sort((a, b) => b.score - a.score);
+
+            if (topBulls.length > 0) {
+                document.getElementById('statTopBull').innerText = topBulls[0].symbol;
+                document.getElementById('statTopBullScore').innerText = `12-Matrix Score: ${topBulls[0].score}%`;
+            } else {
+                document.getElementById('statTopBull').innerText = '--';
+                document.getElementById('statTopBullScore').innerText = '12-Matrix Score: --';
+            }
+
+            if (topBears.length > 0) {
+                document.getElementById('statTopBear').innerText = topBears[0].symbol;
+                document.getElementById('statTopBearScore').innerText = `12-Matrix Score: ${topBears[0].score}%`;
+            } else {
+                document.getElementById('statTopBear').innerText = '--';
+                document.getElementById('statTopBearScore').innerText = '12-Matrix Score: --';
+            }
+        }
+
+        function formatPrice(price) {
+            if (price >= 100) return price.toFixed(2);
+            if (price >= 1) return price.toFixed(4);
+            return price.toFixed(6);
+        }
+
+        function filterTable() { renderTable(); }
+
+        function setSignalFilter(type) {
+            currentSignalFilter = type;
+            document.querySelectorAll('.signal-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-slate-200', 'border-slate-700');
+                btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+            });
+            event.target.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+            event.target.classList.add('bg-slate-800', 'text-slate-200', 'border-slate-700');
+            renderTable();
+        }
+
+        function sortTable(col) {
+            if (currentSort.col === col) {
+                currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.col = col;
+                currentSort.dir = 'desc';
+            }
+            renderTable();
+        }
+
+        function updateAutoScanInterval() {
+            const isChecked = document.getElementById('autoRefresh').checked;
+            if (isChecked) {
+                toggleAutoRefresh(false);
+                toggleAutoRefresh(true);
+            }
+        }
+
+        function toggleAutoRefresh(enabled) {
+            if (enabled) {
+                const seconds = parseInt(document.getElementById('refreshTimer').value) || 90;
+                autoRefreshInterval = setInterval(startScan, seconds * 1000);
+            } else {
+                if (autoRefreshInterval) clearInterval(autoRefreshInterval);
+            }
+        }
+    </script>
+</body>
+</html>

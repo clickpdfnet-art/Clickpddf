@@ -1,0 +1,9 @@
+{
+  "name": "ClickPDF",
+  "description": "Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "CLIENT_SIDE_PDF_PROCESSING",
+    "BROWSER_BASED_OCR"
+  ]
+}
