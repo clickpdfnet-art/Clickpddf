@@ -294,7 +294,7 @@ const SortableFileCard: React.FC<SortableFileCardProps> = ({
             {processedInfo.autoDownloaded && (
               <span className="px-2 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                <span>Downloaded ✓</span>
+                <span>Download requested</span>
               </span>
             )}
           </div>

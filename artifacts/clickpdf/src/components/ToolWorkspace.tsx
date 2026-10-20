@@ -3,6 +3,7 @@ import { OutputArchive } from '../utils/outputArchive';
 import { LocalOutputStore } from '../utils/localOutputStore';
 import { runPdfBackground } from '../utils/pdfBackground';
 import { DocumentSelector } from './DocumentSelector';
+import { startDownloadCountdown, DownloadRequestGate } from '../utils/downloadCountdown';
 import { PDFTool } from '../types';
 import {
   mergePdfFiles,
@@ -278,6 +279,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Track per-file processing state and output data for instant individual download
   const [processedFilesMap, setProcessedFilesMap] = useState<Record<string, ProcessedFileInfo>>({});
+  const hasIndividualDownloads = Object.values(processedFilesMap).some(info => info.status === 'done');
   const [resourceWarning, setResourceWarning] = useState<string | null>(null);
   const outputStoreRef = useRef<LocalOutputStore | null>(null);
   const stagedOutputsRef = useRef(new WeakSet<Uint8Array>());
@@ -314,6 +316,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   const autoDownloadTimerRef = useRef<NodeJS.Timeout | null>(null);
   const successResultRef = useRef<{ data: Uint8Array; fileName: string; details?: string } | null>(null);
   const earlyDownloadTriggerRef = useRef<Record<string, () => void>>({});
+  const downloadRequestGate = useRef(new DownloadRequestGate());
+  const processedFilesRef = useRef(processedFilesMap);
+  processedFilesRef.current = processedFilesMap;
+
+  const cancelItemDownloads = () => {
+    Object.values(earlyDownloadTriggerRef.current).forEach(cancel => cancel());
+    earlyDownloadTriggerRef.current = {};
+    downloadRequestGate.current.clear();
+  };
+  useEffect(() => () => cancelItemDownloads(), []);
 
   // Web Crypto Protect & Unlock states
   const [protectPassword, setProtectPassword] = useState('');
@@ -399,7 +411,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   // 5-Second Auto-Download Countdown across single-file tools (Merge, Compress, Rotate, Protect, Unlock, etc.)
   // NEVER auto-download .zip archives automatically; ZIP archives must only download on explicit user click.
   useEffect(() => {
-    if (!successResult || autoDownloadCancelled) {
+    if (!successResult || autoDownloadCancelled || (files.length > 1 && hasIndividualDownloads)) {
       if (autoDownloadTimerRef.current) {
         clearInterval(autoDownloadTimerRef.current);
         autoDownloadTimerRef.current = null;
@@ -451,7 +463,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         autoDownloadTimerRef.current = null;
       }
     };
-  }, [successResult, autoDownloadCancelled]);
+  }, [successResult, autoDownloadCancelled, files.length, hasIndividualDownloads]);
 
   const getExpectedTypeForTool = (toolId: string): 'pdf' | 'image' | 'word' | 'excel' | 'powerpoint' | 'any' => {
     if (toolId === 'jpg-to-pdf') return 'image';
@@ -536,7 +548,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     setSuccessResult(null);
     setAutoDownloadCancelled(false);
     setAutoDownloadSeconds(null);
-    earlyDownloadTriggerRef.current = {};
+    cancelItemDownloads();
     if (autoDownloadTimerRef.current) {
       clearInterval(autoDownloadTimerRef.current);
       autoDownloadTimerRef.current = null;
@@ -545,12 +557,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   const downloadSingleProcessedFile = (item: OrderedFile, info: ProcessedFileInfo) => {
     if (!info || !info.data || (info.data instanceof Blob ? info.data.size : info.data.length) === 0) return;
+    if (files.length === 1) setAutoDownloadCancelled(true);
     // If an auto-download countdown is active for this file, resolve it early so it doesn't wait
     if (earlyDownloadTriggerRef.current[item.id]) {
       earlyDownloadTriggerRef.current[item.id]();
       delete earlyDownloadTriggerRef.current[item.id];
     }
     const downloadName = info.fileName || `${item.file.name.replace(/\.[^/.]+$/, '')}_compressed.pdf`;
+    if (!downloadRequestGate.current.claim(item.id)) return;
     downloadBlob(info.data, downloadName, getDownloadMimeType(downloadName));
     setProcessedFilesMap(prev => {
       const existing = prev[item.id];
@@ -569,58 +583,32 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   // Auto-Download Countdown for individual files (triggers a 5-second countdown per completed file)
   const runItemAutoDownloadCountdown = async (
     item: OrderedFile,
-    data: Uint8Array,
+    _data: Uint8Array | Blob,
     fileName: string,
-    fileIndex: number,
+    _fileIndex: number,
     totalFiles: number
   ) => {
-    // Automatic per-file downloads cause browsers to block large batches.
-    // Batch results remain available individually and in the explicit ZIP download.
-    if (totalFiles > 1) {
-      setProcessedFilesMap((current) => current[item.id]
-        ? { ...current, [item.id]: { ...current[item.id], autoDownloadSeconds: undefined } }
-        : current);
-      return;
-    }
-    let earlyTriggered = false;
-    const earlyPromise = new Promise<void>((resolveEarly) => {
-      earlyDownloadTriggerRef.current[item.id] = () => {
-        earlyTriggered = true;
-        resolveEarly();
-      };
-    });
-
-    for (let s = 5; s >= 1; s--) {
-      if (earlyTriggered) break;
+    // Single-file results already have the workspace countdown. Never download twice.
+    if (totalFiles <= 1) return;
+    earlyDownloadTriggerRef.current[item.id]?.();
+    earlyDownloadTriggerRef.current[item.id] = startDownloadCountdown((s) => {
       setProcessedFilesMap(prev => {
         const existing = prev[item.id];
-        if (!existing) return prev;
+        if (!existing || existing.status !== 'done' || existing.autoDownloaded) return prev;
         return { ...prev, [item.id]: { ...existing, autoDownloadSeconds: s } };
       });
-      await Promise.race([
-        new Promise(r => setTimeout(r, 1000)),
-        earlyPromise
-      ]);
-    }
-
-    if (!earlyTriggered) {
-      downloadBlob(data, fileName, getDownloadMimeType(fileName));
-    }
-
-    setProcessedFilesMap(prev => {
-      const existing = prev[item.id];
-      if (!existing) return prev;
-      return {
-        ...prev,
-        [item.id]: {
-          ...existing,
-          autoDownloadSeconds: 0,
-          autoDownloaded: true
-        }
-      };
+    }, () => {
+      delete earlyDownloadTriggerRef.current[item.id];
+      // Read the current Blob/File (which may now be disk-backed), rather than
+      // retaining a large result buffer in each five-second timer closure.
+      const info = processedFilesRef.current[item.id];
+      if (!info || info.status !== 'done' || info.autoDownloaded) return;
+      if (!downloadRequestGate.current.claim(item.id)) return;
+      downloadBlob(info.data, info.fileName || fileName, getDownloadMimeType(info.fileName || fileName));
+      setProcessedFilesMap(prev => prev[item.id] === info
+        ? { ...prev, [item.id]: { ...info, autoDownloadSeconds: 0, autoDownloaded: true } }
+        : prev);
     });
-
-    delete earlyDownloadTriggerRef.current[item.id];
   };
 
   // Dedicated handler for interactive Rotate PDF workspace without timeout interruption
@@ -628,6 +616,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     if (files.length === 0) return;
     setIsProcessing(true);
     setErrorMessage(null);
+    cancelItemDownloads();
     setAutoDownloadCancelled(false);
     setAutoDownloadSeconds(null);
     try {
@@ -756,6 +745,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     setErrorMessage(null);
     setAutoDownloadCancelled(false);
     setAutoDownloadSeconds(null);
+    cancelItemDownloads();
 
     try {
       let resultData: Uint8Array = new Uint8Array();
@@ -1015,6 +1005,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 }
               }));
 
+              void runItemAutoDownloadCountdown(item, res.data, cleanName, idx, files.length);
             },
             onItemError: (item, _idx, err) => {
               failCount++;
@@ -3335,6 +3326,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-md mx-auto">
             {successResult.details || 'Your PDF has been processed 100% in your browser.'}
           </p>
+          {files.length > 1 && hasIndividualDownloads && (
+            <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+              {language === 'ur'
+                ? 'ہر تیار فائل کی خودکار ڈاؤن لوڈ 5 سیکنڈ بعد شروع کرنے کی کوشش ہوگی۔ اگر browser متعدد downloads روکے تو اجازت دیں، یا متعلقہ Download بٹن استعمال کریں۔ ZIP صرف بٹن دبانے پر ڈاؤن لوڈ ہوگی۔'
+                : 'Each completed file requests an automatic download after 5 seconds. If your browser blocks multiple downloads, allow them or use its Download button. The ZIP downloads only when clicked.'}
+            </p>
+          )}
 
           {/* 5-Second Auto-Download Countdown Badge across single-file tools (NEVER for ZIPs) */}
           {!successResult.fileName.endsWith('.zip') && autoDownloadSeconds !== null && autoDownloadSeconds > 0 && !autoDownloadCancelled && (

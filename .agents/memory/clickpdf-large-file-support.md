@@ -38,3 +38,9 @@ The default Recommended compression option must attempt meaningful size reductio
 **Why:** The user reported that Medium and the other presets work but the automatically selected Recommended option leaves MB unchanged.
 
 **How to apply:** Keep Recommended as the gentler visual-quality choice, distinguish it from explicit lossless optimization, disclose visual-compression tradeoffs, and report unchanged output honestly.
+
+Restore the expected five-second automatic download for each completed batch file; do not silently disable batch auto-downloads to avoid browser restrictions.
+
+**Why:** The user reported that completed compression results still showed “Auto: 5s” but no automatic download occurred.
+
+**How to apply:** Give each completed file its own cancellable countdown without retaining extra output buffers. Manual downloads must cancel pending duplicates. ZIP stays manual. Explain browser permission limits and label download requests honestly rather than claiming verified saves.
