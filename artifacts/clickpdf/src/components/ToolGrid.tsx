@@ -79,7 +79,7 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
       </div>
 
       {/* 3. Sleek Standalone Search Bar Box */}
-      <div className="mx-3 sm:mx-6 lg:mx-auto max-w-xl mb-3 px-1">
+      <div className="mx-auto w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-xl mb-3 px-1">
         <div className="relative group">
           <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 absolute left-3.5 top-1/2 -translate-y-1/2 transition-colors z-10 pointer-events-none" />
           <input

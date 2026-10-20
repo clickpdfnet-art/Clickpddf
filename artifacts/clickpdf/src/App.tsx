@@ -571,7 +571,6 @@ function AppContent() {
         onOpenAdmin={() => setIsAdminModalOpen(true)}
         onOpenSitemap={() => setIsSitemapModalOpen(true)}
         onOpenBatchQueue={() => handleGoToBatchQueue()}
-        onOpenShare={() => setIsShareModalOpen(true)}
         onOpenLegal={(tab) => {
           setLegalModalTab(tab);
           setIsLegalModalOpen(true);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Zap, Share2, ExternalLink, LayoutDashboard, HelpCircle, Newspaper, Info, Mail, Cookie, FileText } from 'lucide-react';
+import { ShieldCheck, Zap, ExternalLink, LayoutDashboard, HelpCircle, Newspaper, Info, Mail, Cookie, FileText } from 'lucide-react';
 import { ToolCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { PWAInstallButton } from './PWAInstallButton';
@@ -15,7 +15,6 @@ interface FooterProps {
   onOpenFaq?: () => void;
   onOpenBatchQueue?: () => void;
   onOpenLegal?: (tab: LegalModalTab) => void;
-  onOpenShare?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -25,8 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenSitemap,
   onOpenFaq,
   onOpenBatchQueue,
-  onOpenLegal,
-  onOpenShare
+  onOpenLegal
 }) => {
   const { t, getToolTitle } = useLanguage();
 
@@ -57,16 +55,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>{t.zeroServerGuarantee}</span>
               </div>
-              {onOpenShare && (
-                <button
-                  type="button"
-                  onClick={onOpenShare}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] text-slate-300 hover:text-white border border-slate-800 transition-colors cursor-pointer"
-                >
-                  <Share2 className="w-3 h-3 text-amber-400" />
-                  <span>{t.shareClickPdf}</span>
-                </button>
-              )}
             </div>
           </div>
 
