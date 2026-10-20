@@ -904,62 +904,31 @@ export async function compressPdfFile(
     grayscale = false;
   }
 
-  // 1. Fast stream & object compression pass first:
-  // Runs in ~20-30ms using pdf-lib with useObjectStreams and metadata removal.
-  let streamData: Uint8Array | null = null;
-  let streamSavedPercent = 0;
-  try {
-    // Deep compression renders the source separately. Do not first load/save an
-    // entire second copy only to discard it, especially for large scanned PDFs.
-    if (grayscale || (mode !== 'lossless' && preset !== 'low')) {
-      throw new Error('Skip object optimization before deep rendering');
-    }
+  // Object-only optimization is an explicit Custom/Lossless choice, not the
+  // Recommended preset: it cannot shrink most image-heavy/scanned documents.
+  // Presets must not inherit a hidden engine choice from a previous Custom visit.
+  if (!grayscale && preset === 'custom' && mode === 'lossless') {
+    let streamData: Uint8Array;
     if (typeof Worker !== 'undefined') {
       streamData = await runPdfBackground('optimize', [file]);
     } else {
-    let arrayBuffer: ArrayBuffer | null = null;
-    try {
-      arrayBuffer = await file.arrayBuffer();
-    } catch {
-      arrayBuffer = await readSafeArrayBuffer(file);
+      const pdf = await PDFDocument.load(await readSafeArrayBuffer(file), { ignoreEncryption: false });
+      pdf.setTitle('');
+      pdf.setAuthor('');
+      pdf.setSubject('');
+      pdf.setKeywords([]);
+      pdf.setProducer('ClickPDF Compression Engine');
+      pdf.setCreator('ClickPDF');
+      streamData = await pdf.save({ useObjectStreams: true, updateFieldAppearances: false });
     }
-    const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
-    arrayBuffer = null;
-    pdf.setTitle('');
-    pdf.setAuthor('');
-    pdf.setSubject('');
-    pdf.setKeywords([]);
-    pdf.setProducer('ClickPDF Compression Engine');
-    pdf.setCreator('ClickPDF');
-    streamData = await pdf.save({ useObjectStreams: true, updateFieldAppearances: false });
-    }
-    streamSavedPercent = originalSize > 0
-      ? Math.max(0, Math.round(((originalSize - streamData.byteLength) / originalSize) * 100))
-      : 0;
-  } catch (error) {
-    // A failed optimization must not silently start another full-document load.
-    if (!grayscale && (mode === 'lossless' || preset === 'low')) throw error;
+    options.onProgress?.(1, 1, 'Optimized via lossless object compression');
+    const data = streamData.byteLength < originalSize ? streamData : new Uint8Array(await readSafeArrayBuffer(file));
+    return {
+      data, originalSize, newSize: data.byteLength,
+      savedPercent: originalSize > 0 ? Math.max(0, Math.round((1 - data.byteLength / originalSize) * 100)) : 0,
+    };
   }
 
-  // Fast stream compression return:
-  // When preset is 'low' (the default "High Quality (Crisp & Clear)") or 'lossless',
-  // if stream optimization saved size, or if file is already small (<600KB),
-  // return immediately in <30ms for blazing-fast speed!
-  if (!grayscale && streamData && (mode === 'lossless' || preset === 'low')) {
-    if (streamData.byteLength < originalSize || mode === 'lossless' || preset === 'low') {
-      options.onProgress?.(1, 1, 'Optimized via fast stream compression');
-      const optimized = streamData.byteLength < originalSize ? streamData : new Uint8Array(await readSafeArrayBuffer(file));
-      return {
-        data: optimized,
-        originalSize,
-        newSize: optimized.byteLength,
-        savedPercent: streamSavedPercent,
-      };
-    }
-  }
-
-  // Do not retain both optimized bytes and a second rendered copy during deep compression.
-  streamData = null;
   // Deep compression mode: process each page with lightweight offscreen canvas
   let pdfDoc: any = null;
   let blobUrl: string | null = null;

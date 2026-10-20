@@ -929,7 +929,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           const savedPercent = res.savedPercent ?? Math.max(0, Math.round(((res.originalSize - res.newSize) / res.originalSize) * 100));
           const origMb = (res.originalSize / (1024 * 1024)).toFixed(2);
           const newMb = (res.newSize / (1024 * 1024)).toFixed(2);
-          details = `Optimized from ${origMb} MB down to ${newMb} MB (${savedPercent}% saved). Preset: ${compressPreset.toUpperCase()}${compressGrayscale ? ' (Grayscale)' : ''}.`;
+          details = res.newSize >= res.originalSize
+            ? `No size reduction with these settings; the original PDF has been kept (${origMb} MB). Try Medium or High for stronger compression.`
+            : `Optimized from ${origMb} MB down to ${newMb} MB (${savedPercent}% saved). Preset: ${{ low: 'High Quality — Recommended', medium: 'Medium', high: 'High Compression', custom: 'Custom' }[compressPreset]}${compressGrayscale ? ' (Grayscale)' : ''}.`;
 
           if (item) {
             setProcessedFilesMap({
@@ -1041,6 +1043,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           outputName = `compressed_documents_${successCount}_files.zip`;
           const savedPercent = totalOrig > 0 ? Math.max(0, Math.round(((totalOrig - totalNew) / totalOrig) * 100)) : 0;
           details = `Successfully compressed ${successCount} of ${files.length} PDF files separately! Reduced from ${(totalOrig / (1024 * 1024)).toFixed(1)} MB down to ${(totalNew / (1024 * 1024)).toFixed(1)} MB (${savedPercent}% saved across batch). ${failCount > 0 ? `(${failCount} file(s) exceeded browser memory and were skipped)` : ''}`;
+          if (totalNew >= totalOrig) {
+            details = `Processed ${successCount} of ${files.length} PDFs. No size reduction with these settings; original files were kept. Try Medium or High for stronger compression.${failCount > 0 ? ` ${failCount} file(s) failed; see their individual errors.` : ''}`;
+          }
         }
       } else if (tool.id === 'jpg-to-pdf') {
         setProcessingStatus(`Converting ${files.length} image${files.length > 1 ? 's' : ''} to PDF...`);
@@ -2359,7 +2364,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       </span>
                     </div>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug">
-                      {'Mild compression (~30-50%). Preserves sharpest text, fine details, and high-res photos.'}
+                      {'Gentle image compression with higher visual quality. Actual size reduction depends on the PDF.'}
                     </p>
                   </button>
 
@@ -2512,6 +2517,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 </div>
               )}
 
+              {(compressPreset !== 'custom' || compressMode !== 'lossless' || compressGrayscale) && (
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  {language === 'ur'
+                    ? 'تصویری compression صفحات کو تصاویر میں بدلتا ہے؛ نتیجے میں متن کی تلاش، کاپی، روابط اور فارم متاثر ہو سکتے ہیں۔ اصل فائل تبدیل نہیں ہوتی۔'
+                    : 'Visual compression converts pages to images; searchable/copyable text, links and forms may be lost. Your original file is not changed.'}
+                </p>
+              )}
               {/* Original File Size Banner (Estimated output calculation removed per user request) */}
               {files.length > 0 && (
                 <div className="bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-800/60 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">

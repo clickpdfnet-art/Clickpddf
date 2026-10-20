@@ -29,7 +29,7 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'compress',
     title: 'Compress PDF',
-    description: 'Optimize and reduce PDF file size directly in your browser with no quality loss.',
+    description: 'Reduce PDF file size in your browser with adjustable compression and visual quality.',
     extendedDescription: 'Reduce document file sizes drastically for emailing and web sharing while maintaining crystal-clear text and image fidelity.',
     category: 'optimize',
     iconName: 'Minimize2',

@@ -1233,8 +1233,8 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     vi: { title: 'Tách PDF', description: 'Tách các trang hoặc trích xuất phạm vi trang cụ thể thành các tệp riêng biệt.' },
   },
   compress: {
-    en: { title: 'Compress PDF', description: 'Optimize and reduce PDF file size directly in your browser with no quality loss.' },
-    ur: { title: 'PDF سائز کم کریں (کمپریس)', description: 'کوالٹی برقرار رکھتے ہوئے براؤزر میں براہ راست PDF فائل کا سائز کم کریں۔' },
+    en: { title: 'Compress PDF', description: 'Reduce PDF file size in your browser with adjustable compression and visual quality.' },
+    ur: { title: 'PDF سائز کم کریں (کمپریس)', description: 'کمپریشن اور تصویری معیار کی ترتیب کے ساتھ اپنے براؤزر میں PDF کا سائز کم کریں۔' },
     hi: { title: 'PDF कंप्रेस करें', description: 'गुणवत्ता खोए बिना ब्राउज़र में सीधे PDF फ़ाइल का आकार कम करें।' },
     ar: { title: 'ضغط PDF', description: 'تقليل حجم ملف PDF مباشرة في المتصفح دون فقدان الجودة.' },
     zh: { title: '压缩 PDF', description: '在浏览器中直接优化并大幅减小 PDF 文件大小，保持清晰度。' },

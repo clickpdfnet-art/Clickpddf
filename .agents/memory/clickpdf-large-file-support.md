@@ -32,3 +32,9 @@ Batch memory safety requires releasing completed buffers before starting more wo
 **Why:** Retained queue results and repeated copying of shared resources can increase peak memory despite nominally serial or chunked processing.
 
 **How to apply:** Stage outputs before advancing to the next document, avoid retaining a second results collection, and preserve shared resource identity across all pages from each source document.
+
+The default Recommended compression option must attempt meaningful size reduction, not treat an unchanged metadata-only rewrite as sufficient.
+
+**Why:** The user reported that Medium and the other presets work but the automatically selected Recommended option leaves MB unchanged.
+
+**How to apply:** Keep Recommended as the gentler visual-quality choice, distinguish it from explicit lossless optimization, disclose visual-compression tradeoffs, and report unchanged output honestly.
