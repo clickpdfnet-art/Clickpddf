@@ -5,11 +5,8 @@ import DOMPurify from 'dompurify';
  * Protects against XSS, script injection, malicious URLs, and corrupted inputs.
  */
 
-// Maximum recommended single file size for in-browser client-side RAM manipulation (500 MB)
-export const MAX_SAFE_FILE_SIZE_BYTES = 500 * 1024 * 1024; // 500MB
-
-// Maximum total batch size for multiple files (1024 MB / 1 GB)
-export const MAX_SAFE_TOTAL_BATCH_BYTES = 1024 * 1024 * 1024; // 1 GB
+// File size is advisory, not an upload restriction. File objects are lazy references;
+// actual processing capacity depends on document complexity and device resources.
 
 /**
  * Sanitizes arbitrary HTML using strict DOMPurify rules.
@@ -88,14 +85,6 @@ export function validateFileSafety(
     };
   }
 
-  // 2. Dangerous memory overload check (>500MB)
-  if (file.size > MAX_SAFE_FILE_SIZE_BYTES) {
-    const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
-    return {
-      valid: false,
-      error: `File is too large (${sizeMb} MB). Maximum supported file size is 500 MB.`
-    };
-  }
 
   const nameLower = (file.name || '').toLowerCase().trim();
   const typeLower = (file.type || '').toLowerCase().trim();
@@ -172,7 +161,7 @@ export function validateFileSafety(
   if (file.size > 100 * 1024 * 1024) {
     return {
       valid: true,
-      warning: `Large file (${(file.size / (1024 * 1024)).toFixed(1)} MB). Processing may take a few seconds on your device CPU.`
+      warning: `Large file (${(file.size / (1024 * 1024)).toFixed(1)} MB). Processing time and success depend on available browser memory; keep this tab open.`
     };
   }
 
@@ -187,7 +176,8 @@ export interface FileBatchValidationResult {
 
 /**
  * Validates a selection together with files already in the workspace.
- * Each file remains capped at 500 MB and the total selection at 1 GB.
+ * No arbitrary file-count, per-file-size, or total-batch-size cap.
+ * Keep type/empty-file validation without reading document contents on selection.
  */
 export function validateFileBatch(
   selectedFiles: File[],
@@ -202,13 +192,6 @@ export function validateFileBatch(
     const validation = validateFileSafety(file, expectedType);
     if (!validation.valid) {
       if (validation.error) errors.push(validation.error);
-      continue;
-    }
-
-    if (totalSizeBytes + file.size > MAX_SAFE_TOTAL_BATCH_BYTES) {
-      errors.push(
-        `"${file.name}" was not added because the total batch limit is 1 GB. Remove files or add a smaller selection.`
-      );
       continue;
     }
 

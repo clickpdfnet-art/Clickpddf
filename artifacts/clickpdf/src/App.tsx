@@ -390,7 +390,9 @@ function AppContent() {
       );
     };
 
-    const validFiles = files.filter(isSupported);
+    // In a selected tool, let that tool validate its own supported source types
+    // (including Office files). Never route a later drop back to the home page.
+    const validFiles = activeView === 'tool' && selectedTool ? files : files.filter(isSupported);
     if (validFiles.length === 0) {
       setDropToast({
         message: 'Only PDF documents and image files (.jpg, .png, .webp) are supported.',

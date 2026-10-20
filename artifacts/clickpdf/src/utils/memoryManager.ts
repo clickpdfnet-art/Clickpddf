@@ -31,10 +31,10 @@ export function auditMemoryPressure(files: File[]): MemoryAuditResult {
   // Adapt concurrency dynamically based on total memory weight and file volume
   if (totalSizeMb > 250 || fileCount > 30) {
     recommendedConcurrency = 1; // Strict serial processing for extreme loads
-    warning = `Large batch detected (${totalSizeMb.toFixed(1)} MB across ${fileCount} files). Processing sequentially with garbage collection to prevent browser tab crashing.`;
+    warning = `Large batch (${totalSizeMb.toFixed(1)} MB, ${fileCount} files). Independent documents are processed one at a time. Merge still needs memory for the combined document.`;
   } else if (totalSizeMb > 120 || fileCount > 12) {
     recommendedConcurrency = 2; // Controlled concurrency
-    warning = `Moderate batch weight (${totalSizeMb.toFixed(1)} MB across ${fileCount} files). Processing 2 files at a time to keep browser responsive.`;
+    warning = `Batch size: ${totalSizeMb.toFixed(1)} MB across ${fileCount} files. Background processing uses limited concurrency to reduce memory pressure.`;
   } else if (fileCount > 5) {
     recommendedConcurrency = 3;
   } else {
@@ -46,7 +46,7 @@ export function auditMemoryPressure(files: File[]): MemoryAuditResult {
   if (hugeFiles.length > 0) {
     recommendedConcurrency = 1;
     const names = hugeFiles.map(f => `${f.name} (${(f.size / (1024 * 1024)).toFixed(0)} MB)`).join(', ');
-    warning = `High-capacity documents detected: ${names}. Processing with dedicated streaming buffers.`;
+    warning = `Large documents: ${names}. No upload size cap is applied, but processing needs more memory than the file size. A 500–1000 MB document may exceed this browser's capacity.`;
   }
 
   return {

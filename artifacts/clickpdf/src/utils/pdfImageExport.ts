@@ -1,4 +1,5 @@
-import JSZip from 'jszip';
+import { OutputArchive } from './outputArchive';
+import type { LocalOutputStore } from './localOutputStore';
 import { getPdfPagesInfo, organizePdfPagesWithRotations, renderPdfPagesToPng } from './pdfEngine';
 import type { OrganizePageItem } from './pdfEngine';
 import { yieldToMainThread } from './memoryManager';
@@ -6,9 +7,10 @@ import { yieldToMainThread } from './memoryManager';
 export async function exportPdfDocumentsAsImages(
   files: File[],
   states: ReadonlyMap<File, { pages: OrganizePageItem[] }>,
-  onProgress: (message: string) => void
+  onProgress: (message: string) => void,
+  store?: LocalOutputStore
 ): Promise<{ data: Uint8Array; fileName: string; details: string }> {
-  const zip = new JSZip();
+  const zip = new OutputArchive(store);
   const usedNames = new Set<string>();
   const failures: string[] = [];
   let documentCount = 0;

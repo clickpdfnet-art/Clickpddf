@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import JSZip from 'jszip';
+import { OutputArchive } from '../utils/outputArchive';
+import { LocalOutputStore } from '../utils/localOutputStore';
+import { runPdfBackground } from '../utils/pdfBackground';
+import { DocumentSelector } from './DocumentSelector';
 import { PDFTool } from '../types';
 import {
   mergePdfFiles,
@@ -275,6 +278,35 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Track per-file processing state and output data for instant individual download
   const [processedFilesMap, setProcessedFilesMap] = useState<Record<string, ProcessedFileInfo>>({});
+  const [resourceWarning, setResourceWarning] = useState<string | null>(null);
+  const outputStoreRef = useRef<LocalOutputStore | null>(null);
+  const stagedOutputsRef = useRef(new WeakSet<Uint8Array>());
+  const getOutputStore = () => {
+    outputStoreRef.current ??= new LocalOutputStore(setResourceWarning);
+    return outputStoreRef.current;
+  };
+  class JSZip extends OutputArchive {
+    constructor() { super(getOutputStore()); }
+  }
+
+  useEffect(() => () => {
+    void outputStoreRef.current?.dispose();
+    outputStoreRef.current = null;
+  }, []);
+
+  useEffect(() => {
+    for (const [id, info] of Object.entries(processedFilesMap)) {
+      const data = info.data;
+      if (info.status !== 'done' || !(data instanceof Uint8Array) ||
+          data.byteLength < 8 * 1024 * 1024 || stagedOutputsRef.current.has(data)) continue;
+      stagedOutputsRef.current.add(data);
+      void getOutputStore().put(data).then((stored) => {
+        setProcessedFilesMap((current) => current[id]?.data === data
+          ? { ...current, [id]: { ...current[id], data: stored } }
+          : current);
+      });
+    }
+  }, [processedFilesMap]);
 
   // 5-Second Auto-Download Countdown across ALL tools
   const [autoDownloadSeconds, setAutoDownloadSeconds] = useState<number | null>(null);
@@ -329,6 +361,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Consume incoming initial files from global drop or external trigger
   useEffect(() => {
+    if (isProcessing) return;
     if (!initialFiles || initialFiles.length === 0) {
       consumedInitialFilesRef.current = null;
       return;
@@ -351,7 +384,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     }
     setErrorMessage(batch.errors[0] || null);
     onFilesConsumed?.();
-  }, [initialFiles, onFilesConsumed]);
+  }, [initialFiles, onFilesConsumed, isProcessing]);
 
   useEffect(() => {
     const audit = auditMemoryPressure(fileItems.map(item => item.file));
@@ -429,6 +462,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const addFilesToWorkspace = (selectedFiles: File[]) => {
+    if (isProcessing) {
+      setErrorMessage('Please wait for the current operation to finish before adding files. Your selection has been kept.');
+      return;
+    }
     const docxOnly = tool.id === 'word-to-pdf' || tool.id === 'word-to-excel';
     const compatibleFiles = docxOnly
       ? selectedFiles.filter(file => file.name.toLowerCase().endsWith('.docx'))
@@ -452,7 +489,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       setProcessedFilesMap({});
     }
 
-    setErrorMessage(errors[0] || (batch.validFiles.length === 0 ? 'None of the selected files could be loaded.' : null));
+    setErrorMessage(errors.length ? errors.join(' ') : (batch.validFiles.length === 0 ? 'None of the selected files could be loaded.' : null));
   };
 
   // File drop / upload handlers with security & crash protection
@@ -473,6 +510,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const removeFile = (index: number) => {
+    if (isProcessing) return;
     const itemToRemove = fileItems[index];
     setFileItems(prev => prev.filter((_, i) => i !== index));
     if (itemToRemove) {
@@ -485,6 +523,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const clearAllFiles = () => {
+    if (isProcessing) return;
+    void outputStoreRef.current?.dispose();
+    outputStoreRef.current = null;
     setFileItems([]);
     setOrganizeSelectedFile(null);
     setOrganizePageStates(new Map());
@@ -503,7 +544,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const downloadSingleProcessedFile = (item: OrderedFile, info: ProcessedFileInfo) => {
-    if (!info || !info.data || info.data.length === 0) return;
+    if (!info || !info.data || (info.data instanceof Blob ? info.data.size : info.data.length) === 0) return;
     // If an auto-download countdown is active for this file, resolve it early so it doesn't wait
     if (earlyDownloadTriggerRef.current[item.id]) {
       earlyDownloadTriggerRef.current[item.id]();
@@ -533,6 +574,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     fileIndex: number,
     totalFiles: number
   ) => {
+    // Automatic per-file downloads cause browsers to block large batches.
+    // Batch results remain available individually and in the explicit ZIP download.
+    if (totalFiles > 1) {
+      setProcessedFilesMap((current) => current[item.id]
+        ? { ...current, [item.id]: { ...current[item.id], autoDownloadSeconds: undefined } }
+        : current);
+      return;
+    }
     let earlyTriggered = false;
     const earlyPromise = new Promise<void>((resolveEarly) => {
       earlyDownloadTriggerRef.current[item.id] = () => {
@@ -638,7 +687,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       if (tool.id === 'pdf-to-image') {
         const states = new Map(organizePageStates);
         states.set(sourceFile, { pages: activePageItems, deletedPages: [] });
-        const result = await exportPdfDocumentsAsImages(files, states, setProcessingStatus);
+        const result = await exportPdfDocumentsAsImages(files, states, setProcessingStatus, getOutputStore());
         setSuccessResult(result);
         return;
       }
@@ -1875,13 +1924,41 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           outputName = `powerpoint_to_pdf_${successCount}_files.zip`;
           details = `Successfully converted ${successCount} presentation(s) into 16:9 widescreen PDF slides.`;
         }
+      } else if (tool.id === 'repair') {
+        const zip = new JSZip();
+        const failures: string[] = [];
+        let repaired = 0;
+        for (let index = 0; index < files.length; index++) {
+          const file = files[index];
+          setProcessingStatus(`Rebuilding document ${index + 1} of ${files.length}: ${file.name}...`);
+          try {
+            const data = await runPdfBackground('repair', [file]);
+            const name = `repaired_${file.name}`;
+            if (files.length === 1) { resultData = data; outputName = name; }
+            else zip.file(name, data);
+            repaired++;
+            const item = fileItems[index];
+            if (item) setProcessedFilesMap((current) => ({
+              ...current, [item.id]: { data, fileName: name, status: 'done', originalSize: file.size, newSize: data.byteLength },
+            }));
+          } catch (error) {
+            const message = formatMemoryErrorMessage(error, file.name);
+            failures.push(`${file.name}: ${message}`);
+            const item = fileItems[index];
+            if (item) setProcessedFilesMap((current) => ({
+              ...current, [item.id]: { data: new Uint8Array(), fileName: file.name, status: 'error', errorMessage: message },
+            }));
+          }
+          await yieldToMainThread(20);
+        }
+        if (!repaired) throw new Error(`No documents could be rebuilt. ${failures.join('; ')}`);
+        if (files.length > 1) {
+          resultData = await zip.generateAsync({ type: 'uint8array' });
+          outputName = 'repaired_documents.zip';
+        }
+        details = `Rebuilt ${repaired} of ${files.length} PDFs with fresh object indexes. Best-effort structural recovery cannot restore missing content.${failures.length ? ` Failed: ${failures.join('; ')}` : ''}`;
       } else {
-        // Fallback standard optimization for other tools
-        const primary = files[0];
-        const res = await compressPdfFile(primary);
-        resultData = res.data;
-        outputName = `clickpdf_${primary.name}`;
-        details = `Processed in browser memory with ISO compliance.`;
+        throw new Error(`The "${getToolTitle(tool)}" processing engine is not implemented. No files were changed. Compression is not a substitute for this operation.`);
       }
 
       setSuccessResult({
@@ -2019,6 +2096,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       </div>
 
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
+      {['sign', 'crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) && (
+        <div role="alert" className="mb-5 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-800 dark:text-amber-200">
+          {language === 'ur'
+            ? 'اس ٹول کا اصل processing انجن موجودہ ایپ میں مکمل نہیں ہے۔ فائلیں منتخب ہو سکتی ہیں، مگر درست نتیجہ ابھی نہیں بنایا جا سکتا۔ پہلے یہ ٹول اصل کام کے بجائے صرف پہلی فائل compress کر رہا تھا؛ اب غلط کامیابی نہیں دکھائی جائے گی۔'
+            : 'This tool’s processing engine is not implemented in the current app. File selection is available, but a correct output cannot yet be produced. Previously it silently compressed only the first file instead of performing this operation; that misleading fallback has been removed.'}
+        </div>
+      )}
       <input
         ref={fileInputRef}
         type="file"
@@ -2034,7 +2118,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             <span className="font-semibold">{files.length} file{files.length === 1 ? '' : 's'} selected</span>
             <span className="mx-2 text-slate-400">·</span>
             <span>{(files.reduce((total, file) => total + file.size, 0) / (1024 * 1024)).toFixed(1)} MB total</span>
-            <span className="block text-[10px] text-slate-400 mt-0.5">Maximum 500 MB per file and 1 GB per batch. Large files are processed locally and depend on available device memory.</span>
+            <span className="block text-[10px] text-slate-400 mt-0.5">
+              {language === 'ur'
+                ? 'فائلوں کی تعداد یا سائز پر مقررہ پابندی نہیں۔ بڑی فائلوں کی processing ڈیوائس کی دستیاب RAM پر منحصر ہے؛ 500–1000 MB کی ہر فائل چلنے کی ضمانت نہیں۔ Merge اور ابتدائی compression پس منظر میں چلتے ہیں۔ دستیاب ہونے پر بڑے نتائج عارضی local disk cache میں رکھے جاتے ہیں۔'
+                : 'No fixed file-count or upload-size cap. Processing depends on device memory; 500–1000 MB files may exceed browser capacity. Merge and initial compression run in background workers. Large outputs use temporary local disk caching where supported.'}
+            </span>
+            {resourceWarning && <span role="status" className="block text-xs text-amber-600 mt-2">{resourceWarning}</span>}
           </div>
           <button
             type="button"
@@ -2205,7 +2294,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             toolId={tool.id}
             processedFiles={processedFilesMap}
             language={language}
-            onReorder={setFileItems}
+            onReorder={(items) => { if (!isProcessing) setFileItems(items); }}
             onPreview={setPreviewFile}
             onRemove={removeFile}
             onClearAll={clearAllFiles}
@@ -2227,19 +2316,23 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       {/* Dedicated PDF Metadata Editor Panel */}
       {tool.id === 'edit-metadata' && files.length > 0 && !successResult && (
         <div className="mt-6">
+          <DocumentSelector files={files} selected={organizeSelectedFile || files[0]} onSelect={setOrganizeSelectedFile} />
           <MetadataEditorPanel
-            file={files[0]}
-            onPreviewRequested={() => setPreviewFile(files[0])}
+            file={organizeSelectedFile || files[0]}
+            onPreviewRequested={() => setPreviewFile(organizeSelectedFile || files[0])}
           />
         </div>
       )}
 
       {/* Specialized Technical Metadata Inspector Panel */}
       {tool.id === 'metadata' && files.length > 0 && !successResult && (
+        <div className="mt-6">
+        <DocumentSelector files={files} selected={organizeSelectedFile || files[0]} onSelect={setOrganizeSelectedFile} />
         <MetadataInspector
-          file={files[0]}
-          onPreviewRequested={() => setPreviewFile(files[0])}
+          file={organizeSelectedFile || files[0]}
+          onPreviewRequested={() => setPreviewFile(organizeSelectedFile || files[0])}
         />
+        </div>
       )}
 
       {/* Tool-specific customization panel (for manipulation tools) */}
@@ -3126,7 +3219,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             <button
               type="button"
               onClick={handleProcess}
-              disabled={isProcessing || (tool.id === 'jpg-to-pdf' && imagePages.length === 0)}
+              disabled={isProcessing || ['sign', 'crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) || (tool.id === 'jpg-to-pdf' && imagePages.length === 0)}
               className={`inline-flex items-center gap-2 px-6 py-2.5 max-w-full ${
                 tool.id === 'protect'
                   ? 'bg-rose-600 hover:bg-rose-700'

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClickPDF — متعدد اور بڑی فائلوں کی جانچ</title>
+<style>
+body{font-family:Arial,sans-serif;line-height:1.9;margin:0;background:#f4f6fb;color:#17243b}
+main{max-width:1040px;margin:auto;padding:32px 20px}h1,h2{line-height:1.5;color:#292b81}
+section{background:white;border:1px solid #dce2ef;border-radius:14px;padding:24px;margin:20px 0}
+.notice{border-right:5px solid #d28b00;background:#fff8e7}.ok{color:#087345}.partial{color:#925600}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;text-align:right;border-bottom:1px solid #dce2ef;vertical-align:top}
+th{background:#eef0ff}td:first-child{direction:ltr;text-align:left;font-weight:bold}
+small{color:#526079}code{direction:ltr;display:inline-block;background:#edf1f7;padding:2px 6px}
+@media(max-width:650px){main{padding:16px 8px}section{padding:14px}.scroll{overflow-x:auto}table{min-width:650px}}
+@media print{body{background:white}section{break-inside:avoid}main{max-width:none;padding:0}}
+</style>
+<main>
+<h1>ClickPDF: متعدد اور بڑی فائلوں کی جانچ</h1>
+<p>20 اکتوبر 2026 — اصلاحات اور عملی جانچ کی واضح، جزوی رپورٹ</p>
+<section class="notice">
+<strong>اہم حد:</strong> فائل منتخب ہونا اور مکمل processing کامیاب ہونا الگ باتیں ہیں۔
+ایپ میں فائلوں کی تعداد، 500 MB فی فائل اور 1 GB پورے batch کی مقررہ پابندیاں ہٹا دی گئی ہیں۔
+اس کا مطلب ہر ڈیوائس پر لامحدود processing یا 1000 MB کی فائل چلنے کی ضمانت نہیں۔
+چار ٹولز کے اصل processing انجن نامکمل ملے؛ انہیں کامیاب یا مکمل قرار نہیں دیا گیا۔
+</section>
+<section>
+<h2>کیا درست کیا گیا؟</h2>
+<ul>
+<li>مشترکہ upload validator اب صرف مقررہ تعداد یا سائز کی وجہ سے درست فائلیں رد نہیں کرتا۔ خالی اور غیر متعلقہ فائلوں کی جانچ برقرار ہے۔</li>
+<li>Merge اور Compress کے ابتدائی object-optimization مرحلے کو الگ Web Worker میں منتقل کیا گیا ہے، تاکہ مرکزی صفحہ زیادہ responsive رہے۔</li>
+<li>بہت سے اور بڑے documents والے compression batches محدود concurrency یا باری باری چلتے ہیں۔</li>
+<li>ZIP میں ایک جیسے نام والے نتائج اب ایک دوسرے کو overwrite نہیں کرتے۔</li>
+<li>بڑے نتائج کے لیے، دستیاب ہونے پر، عارضی browser-local disk cache شامل ہے۔ disk cache نہ ملنے یا quota ختم ہونے پر warning اور memory fallback ہے۔ اس خصوصیت کا عملی browser ٹیسٹ اس جانچ میں مکمل نہیں ہوا۔</li>
+<li>Batch میں خودکار مسلسل downloads بند ہیں؛ انفرادی نتائج اور ZIP واضح download کارروائی سے حاصل کیے جا سکتے ہیں۔</li>
+<li>Metadata editor اور analysis میں document selector شامل ہے۔ منتخب ٹول کے اندر Office فائلیں drop ہونے پر صرف PDF/image کی global filtering لاگو نہیں ہوتی۔</li>
+<li>Repair میں best-effort ساختی rebuild شامل ہے۔ یہ گم شدہ content واپس لانے کی ضمانت نہیں۔</li>
+<li>Sign، Crop، PDF/A اور Compare میں غلط generic compression fallback ہٹا کر نامکمل engine کی واضح اطلاع اور disabled processing رکھی گئی ہے۔</li>
+</ul>
+</section>
+<section>
+<h2>ہر ٹول کی حالت</h2>
+<p>“20 + 5” کا مطلب: پہلے ایک انتخاب میں 20 فائلیں، پھر Add more files سے مزید 5، اور اسی route پر تمام 25 برقرار رہیں۔
+صرف admission کی کامیابی، تمام 25 فائلوں کی conversion کی کامیابی نہیں ہے۔</p>
+<div class="scroll"><table>
+<thead><tr><th>ٹول</th><th>متعدد فائلوں کا browser چیک</th><th>اسی جانچ میں اصل processing</th></tr></thead>
+<tbody>
+<tr><td>Merge PDF</td><td class="ok">20 + 5 کامیاب</td><td>25 فائلوں کا merge کامیاب؛ الگ built-worker چیک میں 20 صفحات کی تصدیق بھی ہوئی۔</td></tr>
+<tr><td>Split PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>Compress PDF</td><td class="ok">20 + 5 کامیاب</td><td>25/25 کامیاب؛ ZIP میں 25 الگ نتائج، یکساں ناموں کی حفاظت اور نمونہ PDF signatures درست۔</td></tr>
+<tr><td>Image to PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF to Image</td><td class="ok">20 + 5 کامیاب</td><td>25 document tabs برقرار؛ اس pass میں نئی ZIP conversion نہیں جانچی گئی۔</td></tr>
+<tr><td>Rotate PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>Watermark PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>Page Numbers</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>Organize Pages</td><td class="ok">20 + 5 کامیاب</td><td>25 document tabs برقرار؛ اس pass میں نئی export نہیں جانچی گئی۔</td></tr>
+<tr><td>Edit PDF Metadata</td><td>دو documents کا selector جانچا گیا؛ 25 کا چیک مکمل نہیں۔</td><td>دوسرا document منتخب ہونے پر editor میں اصل فائل کا نام بدلا۔ Save/export اس pass میں نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF Analysis &amp; Page Counter</td><td class="ok">20 + 5 کامیاب</td><td>منتخب document کا ایک صفحہ درست دکھایا گیا؛ تمام documents کی analysis نہیں جانچی گئی۔</td></tr>
+<tr><td>Protect PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں encryption output نہیں جانچی گئی۔</td></tr>
+<tr><td>Unlock PDF</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں decryption output نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF to Text / Markdown</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF to Word</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF to Excel</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>PDF to PowerPoint</td><td class="ok">20 + 5 کامیاب</td><td>اس pass میں processing نہیں جانچی گئی۔</td></tr>
+<tr><td>Word to PDF</td><td class="partial">Browser چیک نامکمل</td><td>مشترکہ validator کے unit tests کامیاب؛ اصل browser conversion اس pass میں نہیں جانچی گئی۔</td></tr>
+<tr><td>Word to Excel</td><td class="partial">Browser چیک نامکمل</td><td>مشترکہ validator کے unit tests کامیاب؛ اصل browser conversion اس pass میں نہیں جانچی گئی۔</td></tr>
+<tr><td>Excel to PDF</td><td class="partial">Browser چیک نامکمل</td><td>مشترکہ validator کے unit tests کامیاب؛ اصل browser conversion اس pass میں نہیں جانچی گئی۔</td></tr>
+<tr><td>PowerPoint to PDF</td><td class="partial">Browser چیک نامکمل</td><td>مشترکہ validator کے unit tests کامیاب؛ اصل browser conversion اس pass میں نہیں جانچی گئی۔</td></tr>
+<tr><td>Sign PDF</td><td class="partial">Browser چیک نامکمل</td><td>اصل engine نامکمل؛ processing بند اور واضح اطلاع شامل ہے۔</td></tr>
+<tr><td>Crop PDF</td><td class="partial">Browser چیک نامکمل</td><td>اصل engine نامکمل؛ processing بند اور واضح اطلاع شامل ہے۔</td></tr>
+<tr><td>PDF to PDF/A</td><td class="partial">Browser چیک نامکمل</td><td>اصل conversion/compliance engine نامکمل؛ محض compression کو PDF/A نہیں کہا جا سکتا۔</td></tr>
+<tr><td>Repair PDF</td><td>دو فائلوں کا چیک؛ 25 کا چیک نہیں۔</td><td>Browser میں 2/2 rebuild کامیاب؛ built worker کا readable one-page PDF چیک بھی کامیاب۔</td></tr>
+<tr><td>Compare PDFs</td><td class="partial">Browser چیک نامکمل</td><td>اصل comparison engine نامکمل؛ processing بند اور واضح اطلاع شامل ہے۔</td></tr>
+</tbody></table></div>
+</section>
+<section>
+<h2>بڑی فائلوں کے ٹیسٹ: اصل حدود</h2>
+<ul>
+<li><strong>Admission unit tests:</strong> 50، 100، 200، 500، 600 اور 1000 MB کے metadata cases منظور ہوئے۔ 150 فائلوں اور 1 GB سے بڑے مجموعی batch کی selection logic بھی جانچی گئی۔ یہ اصل GB-sized documents کی processing نہیں تھی۔</li>
+<li><strong>حقیقی بڑی فائل:</strong> 50,332,894 bytes، یعنی 50.33 decimal MB / تقریباً 48.0 MiB کی valid PDF، جس میں referenced uncompressed RGB image تھی۔ یہ صرف EOF padding نہیں تھی۔</li>
+<li><strong>Built worker، Node ماحول:</strong> بڑی PDF اور دوسری چھوٹی PDF کا merge دو صفحات کے ساتھ درست ہوا۔ ابتدائی compression/optimization worker نے readable ایک صفحے کا نتیجہ دیا۔ optimization output 50,332,545 bytes تھا؛ اس مثال میں نمایاں size reduction نہیں ہوئی۔</li>
+<li><strong>Browser میں حقیقی 50 MB تا 1000 MB processing:</strong> مکمل نہیں ہوئی۔ Browser test connection بار بار منقطع ہونے پر مزید نتائج فرض نہیں کیے گئے۔</li>
+<li><strong>Regression checks:</strong> 9 unit tests، TypeScript check اور production build کامیاب۔</li>
+</ul>
+</section>
+<section>
+<h2>RAM، processor، graphics اور disk</h2>
+<p>Web Workers processor پر پس منظر کا کام کرتے ہیں۔ وہ RAM کی ضرورت ختم نہیں کرتے۔ PDF کے کئی parsing اور modification کاموں کو پوری document structure memory میں چاہیے ہوتی ہے۔
+Graphics acceleration browser کے Canvas/rendering نظام کی دستیاب سہولتوں پر منحصر ہے؛ تمام PDF کام زبردستی GPU پر منتقل نہیں کیے گئے۔
+Local disk cache صرف معاون سہولت ہے؛ final ZIP ابھی مکمل memory output بناتی ہے۔ بہت بڑے ZIP کے لیے disk-streaming output اگلا واضح کام ہے۔
+کسی document کو server پر خاموشی سے upload کرنے کا راستہ شامل نہیں کیا گیا۔</p>
+</section>
+<small>یہ رپورٹ جانچے گئے اور غیر جانچے گئے حصوں کو الگ رکھتی ہے۔ اسے ہر ٹول، ہر موبائل، یا ہر 1 GB فائل کے لیے کامیابی کی ضمانت نہ سمجھا جائے۔</small>
+</main></html>

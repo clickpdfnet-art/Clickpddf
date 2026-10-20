@@ -41,7 +41,7 @@ export interface OrderedFile {
 }
 
 export interface ProcessedFileInfo {
-  data: Uint8Array;
+  data: Uint8Array | Blob;
   fileName: string;
   originalSize?: number;
   newSize?: number;

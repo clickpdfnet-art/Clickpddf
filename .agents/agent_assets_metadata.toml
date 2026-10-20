@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ZeX-kca1rIehMfBAzoR6l"
+uri = "file://reports/clickpdf-capacity-audit.html"
+type = "html"
+title = "ClickPDF کی فہرست وار جانچ"
+description = "تمام 26 ٹولز کی حالت، کامیاب ٹیسٹ، باقی کام اور بڑی فائلوں کی حقیقی حدود کی اردو رپورٹ۔"
+logical_id = "029727dc-4255-4691-8038-b6d61f1ec21f"
+content_hash = "sha256:486db5f3fdff0c2b213c51a976fd9c43fe192c8d1e1731aeb5c0f6e18b636ff1"
+size = 11414
+mtime_ms = 1792495031806
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/029727dc-4255-4691-8038-b6d61f1ec21f/eb94a3ae-7758-4567-a668-cbcf23344163"
+storage_version_token = "1792495092101234"
+content_type = "text/html"

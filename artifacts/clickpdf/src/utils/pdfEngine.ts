@@ -1,6 +1,7 @@
 import { PDFDocument, degrees, rgb, StandardFonts } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { initPdfWorker } from './pdfWorkerSetup';
+import { runPdfBackground } from './pdfBackground';
 import {
   readSafeArrayBuffer,
   yieldToMainThread,
@@ -11,7 +12,7 @@ import {
 /**
  * Downloads a Uint8Array or Blob directly in browser with no server roundtrip.
  */
-export function downloadBlob(data: Uint8Array, fileName: string, mimeType?: string) {
+export function downloadBlob(data: Uint8Array | Blob, fileName: string, mimeType?: string) {
   try {
     let resolvedMime = mimeType;
     if (!resolvedMime || resolvedMime === 'application/pdf') {
@@ -78,6 +79,7 @@ export async function mergePdfFiles(
   files: File[],
   onProgress?: (current: number, total: number) => void
 ): Promise<Uint8Array> {
+  if (typeof Worker !== 'undefined') return runPdfBackground('merge', files, onProgress);
   const mergedPdf = await PDFDocument.create();
 
   for (let i = 0; i < files.length; i++) {
@@ -89,12 +91,13 @@ export async function mergePdfFiles(
       } catch {
         arrayBuffer = await readSafeArrayBuffer(file);
       }
-      const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+      const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: false });
       arrayBuffer = null; // Free raw ArrayBuffer memory immediately
       const pageIndices = pdf.getPageIndices();
-      const copiedPages = await mergedPdf.copyPages(pdf, pageIndices);
-      for (let p = 0; p < copiedPages.length; p++) {
-        mergedPdf.addPage(copiedPages[p]);
+      for (let offset = 0; offset < pageIndices.length; offset += 25) {
+        const copiedPages = await mergedPdf.copyPages(pdf, pageIndices.slice(offset, offset + 25));
+        for (const page of copiedPages) mergedPdf.addPage(page);
+        await yieldToMainThread(0);
       }
     } catch (err) {
       throw new Error(formatMemoryErrorMessage(err, file.name));
@@ -906,6 +909,9 @@ export async function compressPdfFile(
   let streamData: Uint8Array | null = null;
   let streamSavedPercent = 0;
   try {
+    if (typeof Worker !== 'undefined') {
+      streamData = await runPdfBackground('optimize', [file]);
+    } else {
     let arrayBuffer: ArrayBuffer | null = null;
     try {
       arrayBuffer = await file.arrayBuffer();
@@ -921,6 +927,7 @@ export async function compressPdfFile(
     pdf.setProducer('ClickPDF Compression Engine');
     pdf.setCreator('ClickPDF');
     streamData = await pdf.save({ useObjectStreams: true, updateFieldAppearances: false });
+    }
     streamSavedPercent = originalSize > 0
       ? Math.max(0, Math.round(((originalSize - streamData.byteLength) / originalSize) * 100))
       : 0;
@@ -933,17 +940,20 @@ export async function compressPdfFile(
   // if stream optimization saved size, or if file is already small (<600KB),
   // return immediately in <30ms for blazing-fast speed!
   if (!grayscale && streamData && (mode === 'lossless' || preset === 'low')) {
-    if (streamData.byteLength < originalSize || originalSize < 600 * 1024) {
+    if (streamData.byteLength < originalSize || mode === 'lossless' || preset === 'low') {
       options.onProgress?.(1, 1, 'Optimized via fast stream compression');
+      const optimized = streamData.byteLength < originalSize ? streamData : new Uint8Array(await readSafeArrayBuffer(file));
       return {
-        data: streamData,
+        data: optimized,
         originalSize,
-        newSize: streamData.byteLength,
-        savedPercent: Math.max(streamSavedPercent > 0 ? streamSavedPercent : 5, 1),
+        newSize: optimized.byteLength,
+        savedPercent: streamSavedPercent,
       };
     }
   }
 
+  // Do not retain both optimized bytes and a second rendered copy during deep compression.
+  streamData = null;
   // Deep compression mode: process each page with lightweight offscreen canvas
   let pdfDoc: any = null;
   let blobUrl: string | null = null;
@@ -1060,35 +1070,10 @@ export async function compressPdfFile(
     const data = await newPdf.save({ useObjectStreams: true });
     const newSize = data.byteLength;
 
-    // Safety fallback: if deep compression is somehow larger than original (e.g. pure vector PDF),
-    // save the original with clean object streams
+    // Never increase file size or parse the original a third time just to undo
+    // a deep-compression attempt that did not save space.
     if (newSize >= originalSize && originalSize > 0) {
-      if (streamData && streamData.byteLength < newSize) {
-        return {
-          data: streamData,
-          originalSize,
-          newSize: streamData.byteLength,
-          savedPercent: streamSavedPercent,
-        };
-      }
-      try {
-        const fallbackBuf = await readSafeArrayBuffer(file);
-        const origPdf = await PDFDocument.load(fallbackBuf, { ignoreEncryption: true });
-        origPdf.setTitle('');
-        origPdf.setProducer('ClickPDF Compression Engine');
-        const fallbackData = await origPdf.save({ useObjectStreams: true });
-        if (fallbackData.byteLength < newSize) {
-          const saved = Math.max(0, Math.round(((originalSize - fallbackData.byteLength) / originalSize) * 100));
-          return {
-            data: fallbackData,
-            originalSize,
-            newSize: fallbackData.byteLength,
-            savedPercent: saved,
-          };
-        }
-      } catch {
-        // ignore
-      }
+      return { data: new Uint8Array(await readSafeArrayBuffer(file)), originalSize, newSize: originalSize, savedPercent: 0 };
     }
 
     const savedPercent = originalSize > 0 ? Math.max(0, Math.round(((originalSize - newSize) / originalSize) * 100)) : 0;
