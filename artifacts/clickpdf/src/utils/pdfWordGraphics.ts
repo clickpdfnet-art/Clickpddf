@@ -1,5 +1,6 @@
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import type { WordArtwork } from './pdfWordTypes';
+import { wordAbort, wordRenderScale } from './pdfWordRuntimeChecks';
 export interface WordOperators { fnArray: number[]; argsArray: any[][] }
 
 export async function canvasPng(canvas: HTMLCanvasElement): Promise<Uint8Array> {
@@ -7,14 +8,21 @@ export async function canvasPng(canvas: HTMLCanvasElement): Promise<Uint8Array> 
   return new Uint8Array(await blob.arrayBuffer());
 }
 
-export async function renderWordPage(page: pdfjs.PDFPageProxy, scale = 1.5) {
+export async function renderWordPage(page: pdfjs.PDFPageProxy, scale = 1.5, signal?: AbortSignal, maxPixels = 6_000_000) {
+  wordAbort(signal);
+  const original = page.getViewport({ scale: 1 });
+  scale = wordRenderScale(original.width, original.height, scale, maxPixels);
   const viewport = page.getViewport({ scale });
   const canvas = document.createElement('canvas');
   canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(viewport.height);
   const context = canvas.getContext('2d');
   if (!context) throw new Error('Canvas is unavailable for PDF images.');
-  await page.render({ canvas, canvasContext: context, viewport }).promise;
-  return canvas;
+  const render = page.render({ canvas, canvasContext: context, viewport, annotationMode: pdfjs.AnnotationMode.DISABLE });
+  const cancel = () => render.cancel();
+  signal?.addEventListener('abort', cancel, { once: true });
+  try { await render.promise; wordAbort(signal); return canvas; }
+  catch (error) { canvas.width = canvas.height = 0; wordAbort(signal); throw error; }
+  finally { signal?.removeEventListener('abort', cancel); }
 }
 
 function occupiedBounds(canvas: HTMLCanvasElement, whiteIsEmpty = false) {
@@ -40,7 +48,7 @@ export async function cropArtwork(canvas: HTMLCanvasElement, bounds: number[], s
 }
 
 /** Render only artwork operations: selectable text is never baked into these layers. */
-export async function extractWordArtwork(page: pdfjs.PDFPageProxy, operators: WordOperators, warnings: string[]): Promise<WordArtwork[]> {
+export async function extractWordArtwork(page: pdfjs.PDFPageProxy, operators: WordOperators, warnings: string[], signal?: AbortSignal, maxPixels = 6_000_000): Promise<WordArtwork[]> {
   const ops = pdfjs.OPS;
   const textPaint = new Set([ops.showText, ops.showSpacedText, ops.nextLineShowText, ops.nextLineSetSpacingShowText]);
   const imagePaint = new Set([ops.paintImageXObject, ops.paintInlineImageXObject, ops.paintImageMaskXObject, ops.paintImageXObjectRepeat,
@@ -49,7 +57,9 @@ export async function extractWordArtwork(page: pdfjs.PDFPageProxy, operators: Wo
   const simpleImages = new Set([ops.paintImageXObject, ops.paintInlineImageXObject, ops.paintImageMaskXObject]);
   const hasComplexImages = operators.fnArray.some(op => imagePaint.has(op) && !simpleImages.has(op));
   const result: WordArtwork[] = [];
-  const scale = 1.5, viewport = page.getViewport({ scale });
+  wordAbort(signal);
+  const base = page.getViewport({ scale: 1 });
+  const scale = wordRenderScale(base.width, base.height, 1.5, maxPixels), viewport = page.getViewport({ scale });
   const imageBoxes: number[][] = [];
   let matrix = [1, 0, 0, 1, 0, 0];
   const stack: number[][] = [];
@@ -84,13 +94,18 @@ export async function extractWordArtwork(page: pdfjs.PDFPageProxy, operators: Wo
     canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(viewport.height);
     const context = canvas.getContext('2d')!;
     try {
-      await page.render({ canvas, canvasContext: context, viewport, background: 'rgba(0,0,0,0)', annotationMode: pdfjs.AnnotationMode.DISABLE,
+      wordAbort(signal);
+      const render = page.render({ canvas, canvasContext: context, viewport, background: 'rgba(0,0,0,0)', annotationMode: pdfjs.AnnotationMode.DISABLE,
         operationsFilter: (index, list) => {
           const op = list.fnArray[index];
           if (textPaint.has(op)) return false;
           return layer === 'image' ? !pathPaint.has(op) : !imagePaint.has(op);
         }
-      }).promise;
+      });
+      const cancel = () => render.cancel();
+      signal?.addEventListener('abort', cancel, { once: true });
+      try { await render.promise; wordAbort(signal); }
+      finally { signal?.removeEventListener('abort', cancel); }
       const occupied = occupiedBounds(canvas);
       if (!occupied) {
         if (layer === 'image') warnings.push('Image operators produced no visible pixels (transparent, empty or unsupported image data). Compare these regions with the original PDF.');

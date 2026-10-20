@@ -1,0 +1,94 @@
+Browser Compatibility and Multilingual PDF-to-Word Support
+
+Extend the existing PDF-to-Word implementation to support multiple languages and modern web browsers.
+
+1. Browser-Based Processing
+
+- Run PDF extraction, OCR, and DOCX generation in the browser wherever technically feasible.
+- Do not upload users' PDF files to a server. Keep source files, rendered pages, OCR results, and generated DOCX data in browser memory or browser-managed temporary storage only.
+- Support current versions of Google Chrome, Microsoft Edge, Firefox, and Safari, subject to the documented WebAssembly, worker, memory, and file-system capabilities of each browser.
+- Use PDF.js for PDF parsing and rendering. Bundle a version-compatible "pdf.worker" asset and configure "GlobalWorkerOptions.workerSrc" to a same-origin or approved static asset URL. Do not rely on an unavailable CDN worker at runtime.
+- Load PDF.js documents with typed arrays or "ArrayBuffer" data, disable unnecessary rendering features, and process pages incrementally rather than duplicating the complete PDF in memory.
+- Use selectable-text extraction from PDF.js first. For pages with no usable text, insufficient text density, or an explicit user request, render the page to a canvas at a controlled scale and pass the image to the configured OCR engine.
+- Run OCR in dedicated Web Workers. Package OCR engines such as Tesseract.js or another selected engine with their WebAssembly binaries, worker scripts, traineddata files, and language metadata. Configure the worker and ".wasm" paths explicitly and verify that the assets are reachable before processing.
+- Use WebAssembly for OCR and other supported processing tasks. Detect WebAssembly and worker support before starting; provide a clear unsupported-browser message when required capabilities are missing.
+- Keep OCR workers separate from the UI thread and limit the worker pool to a small configurable number, normally one worker per active conversion unless measured device capacity permits more. Do not create one worker per page.
+- Load language models lazily. Download or retrieve only the selected language models, cache validated models in the Cache API or IndexedDB when available, and expose download progress, model size, version, and failure status. Language-model loading must remain local to the browser.
+- If a language model is unavailable, corrupt, incompatible, or cannot be loaded, stop OCR for the affected language and report the exact limitation. Never silently substitute English or another language.
+- Generate DOCX in the browser using a browser-compatible DOCX library, such as the configured "docx" package, without server-side conversion. Build the document incrementally from extracted paragraphs, page boundaries, tables, and images where supported, then serialize it to a "Blob" and trigger a download with an object URL.
+- Revoke object URLs after download and release PDF.js documents, canvases, image bitmaps, OCR results, workers, model references, and temporary buffers as soon as they are no longer needed.
+- Avoid retaining full-resolution page images and duplicate text buffers. Downscale OCR canvases to a configurable maximum dimension, process one page or a small bounded batch at a time, and use "ArrayBuffer" transfer lists when passing data to workers.
+- Estimate document size and available browser memory where possible. Warn before processing unusually large PDFs, reduce concurrency or rendering scale on constrained devices, and provide a page-range or “process selected pages” option when the full document is unsafe.
+- Handle browser quota, out-of-memory, WebAssembly initialization, malformed-PDF, OCR, and DOCX serialization errors with user-readable messages. Preserve completed work only when it is safe and clearly label partial output as partial.
+- Provide cancellation through an "AbortController" or equivalent job token. Propagate cancellation to PDF.js loading/rendering, OCR workers, model downloads, and DOCX generation; terminate workers when necessary, remove listeners, release resources, and prevent a cancelled job from triggering a download.
+- Show determinate progress for model loading, page extraction, rendering, OCR, and DOCX generation where available. Keep the interface responsive and make cancellation available throughout the operation.
+- Define fallback behavior explicitly:
+  - Use PDF.js text extraction without OCR when the page contains reliable selectable text.
+  - Use OCR only for pages requiring it.
+  - If OCR is unavailable, offer selectable-text extraction for text-bearing pages and explain that scanned or image-only pages cannot be converted accurately.
+  - If DOCX generation is unavailable, do not upload the file or silently produce a different format; report the failure and retain no unnecessary temporary data.
+  - If a browser lacks required workers, WebAssembly, Blob download, or compatible APIs, stop before processing and identify the missing capability.
+- Support current Chrome, Edge, Firefox, and Safari releases through feature detection rather than user-agent assumptions. Document browser-specific limitations, including Safari memory pressure, worker restrictions, download behavior, and any unavailable APIs.
+
+2. Multilingual Support
+
+Do not limit the conversion engine to Urdu.
+
+Support languages according to the actual capabilities of the installed extraction libraries and OCR models, including:
+
+- English
+- Urdu
+- Arabic
+- Japanese
+- Simplified and Traditional Chinese
+- Hindi
+- French
+- German
+- Spanish
+- Portuguese
+- Russian
+- Korean
+- Bengali
+- Persian
+- Other languages supported by the configured engines.
+
+Maintain an explicit language registry containing each language's identifier, display name, PDF text-extraction status, OCR model identifier, model availability, script direction, and known limitations. The interface and documentation must be generated from this registry so that a language is not presented as fully supported unless its extraction and OCR requirements are actually installed and tested.
+
+3. Automatic and Manual Language Selection
+
+- Retain the existing manual language selector and make the selected language or language set visible before processing.
+- Add automatic language detection only where technically reliable. For selectable text, inspect a bounded sample of extracted Unicode text with a local language-detection library or script-aware detector. For scanned pages, use only a configured local detector or OCR-assisted detection whose supported scripts and confidence thresholds are documented.
+- Treat automatic detection as a suggestion unless confidence exceeds the configured threshold. Show the detected language, confidence, and selected OCR model, and allow the user to override them.
+- Allow multiple OCR languages for documents containing mixed languages. Load only the requested combination and warn that combined models may require more memory and may reduce accuracy.
+- Detect language changes across pages where feasible by analyzing each page independently, while allowing the user to lock one language set for the entire document.
+- Support mixed-language content within a single page only when the selected OCR engine and combined models support it. Otherwise report the limitation rather than applying an unverified fallback.
+- Use the appropriate OCR language models for scanned pages and preserve the page-level language assignment in the conversion state.
+- Never silently substitute an unsupported language with English or another language. If detection identifies an unsupported language, preserve any extractable Unicode text and clearly state that OCR for that language is unavailable.
+
+4. Language-Specific Formatting
+
+- Preserve Unicode text and correct reading order from PDF.js extraction and OCR output.
+- Handle right-to-left languages, including Urdu, Arabic, and Persian, using DOCX paragraph direction and bidirectional settings supported by the DOCX library. Apply RTL direction to paragraphs and runs based on the language or detected script, while preserving embedded LTR numbers, URLs, and Latin text.
+- Handle left-to-right languages correctly and do not apply RTL settings to them.
+- Preserve Japanese, Chinese, Korean, and other supported scripts without character corruption by using UTF-8 strings throughout, avoiding lossy normalization, and validating the generated DOCX XML.
+- Use suitable fonts and fallbacks where available. Record the selected font or fallback in the document-generation configuration, but do not assume that a font installed in the browser is installed on the user's DOCX device.
+- Do not reverse text manually or apply conflicting bidirectional transformations. Let Unicode bidirectional behavior and DOCX direction properties determine display order.
+- Preserve paragraph breaks, headings, lists, tables, and page boundaries where the source structure can be determined. Mark uncertain OCR structure conservatively rather than inventing formatting.
+
+5. Testing and Verification
+
+- Test selectable-text PDFs separately from scanned PDFs and verify that OCR is not unnecessarily invoked for reliable text pages.
+- Test representative scripts and real-world samples for every claimed OCR language and every configured multi-language combination.
+- Test mixed-language, multi-page documents, including page-level language changes and mixed scripts within a page where supported.
+- Verify RTL formatting, Unicode characters, punctuation, numerals, combining marks, CJK text, and DOCX editability in Microsoft Word and at least one compatible alternative editor.
+- Verify that generated DOCX files contain no broken relationships, invalid XML, missing fonts metadata, or corrupted characters.
+- Verify processing in current Chrome, Edge, Firefox, and Safari, including worker startup, WebAssembly loading, model caching, cancellation, large-file behavior, and download completion.
+- Test malformed PDFs, password-protected PDFs, empty pages, image-only pages, unsupported languages, failed model downloads, browser memory pressure, and cancellation during every major phase.
+- Report browser-specific limitations and test status in the feature documentation. Do not mark an untested language, language combination, browser, or document type as fully supported.
+- Add automated tests for language-registry validation, model-path resolution, feature detection, cancellation cleanup, RTL DOCX properties, and fallback decisions, plus fixture-based integration tests for representative PDFs.
+
+6. Project Protection
+
+Implement these changes only within the relevant PDF-to-Word components and dependencies. Preserve existing functionality and avoid unnecessary changes to other website tools or shared components. Keep PDF.js, OCR, WebAssembly, language-model, and DOCX assets scoped to the PDF-to-Word feature, and avoid changing global worker configuration, shared upload behavior, or unrelated tool dependencies.
+
+Final requirement: Deliver a genuinely browser-based, multilingual PDF-to-Word converter with accurate language handling, editable DOCX output, explicit local processing, bounded memory use, responsive cancellation, and clearly documented support limitations.

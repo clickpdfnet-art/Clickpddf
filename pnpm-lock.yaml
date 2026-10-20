@@ -222,6 +222,10 @@ importers:
         version: 3.1.0
 
   artifacts/clickpdf:
+    dependencies:
+      tesseract.js-core:
+        specifier: 7.0.0
+        version: 7.0.0
     devDependencies:
       '@dnd-kit/core':
         specifier: ^6.3.1

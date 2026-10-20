@@ -87,5 +87,8 @@
     "wouter": "^3.3.5",
     "xlsx": "^0.18.5",
     "zod": "catalog:"
+  },
+  "dependencies": {
+    "tesseract.js-core": "7.0.0"
   }
 }
