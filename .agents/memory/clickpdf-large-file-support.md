@@ -44,3 +44,9 @@ Restore the expected five-second automatic download for each completed batch fil
 **Why:** The user reported that completed compression results still showed “Auto: 5s” but no automatic download occurred.
 
 **How to apply:** Give each completed file its own cancellable countdown without retaining extra output buffers. Manual downloads must cancel pending duplicates. ZIP stays manual. Explain browser permission limits and label download requests honestly rather than claiming verified saves.
+
+Watermark placement, size, color, opacity, angle, type and page-range settings are shared across every selected PDF, not separate per-document edits.
+
+**Why:** The user explicitly wants the settings chosen on the first preview applied to all selected files, however many are selected.
+
+**How to apply:** Switching the watermark preview must preserve the shared settings. Every watermark processing entry point must use those settings rather than opening a separate queue with defaults. Completed-file previews should show the stamped result.

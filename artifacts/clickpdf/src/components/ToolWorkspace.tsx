@@ -1124,10 +1124,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           details = `Successfully rotated ${successCount} documents by ${rotateDeg}°. ${failCount > 0 ? `(${failCount} skipped due to memory limits)` : ''}`;
         }
       } else if (tool.id === 'watermark') {
-        const textToStamp = watermarkOptions.text || 'CONFIDENTIAL';
+        const sharedWatermarkOptions = { ...watermarkOptions };
+        const textToStamp = sharedWatermarkOptions.text || 'CONFIDENTIAL';
         if (files.length === 1) {
           const primary = files[0];
-          resultData = await addWatermarkToPdf(primary, textToStamp, watermarkOptions);
+          resultData = await addWatermarkToPdf(primary, textToStamp, sharedWatermarkOptions);
           outputName = `watermarked_${primary.name}`;
           details = watermarkOptions.type === 'image'
             ? `Applied custom logo watermark to document.`
@@ -1143,7 +1144,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             const item = fileItems[i];
             setProcessingStatus(`Watermarking file ${i + 1} of ${files.length}: ${f.name}...`);
             try {
-              const stamped = await addWatermarkToPdf(f, textToStamp, watermarkOptions);
+              setProcessedFilesMap(prev => ({
+                ...prev, [item.id]: {
+                  data: new Uint8Array(), fileName: f.name,
+                  originalSize: f.size, newSize: 0, status: 'processing'
+                }
+              }));
+              const stamped = await addWatermarkToPdf(f, textToStamp, sharedWatermarkOptions);
               const stampedName = `${f.name.replace(/\.[^/.]+$/, '')}_watermarked.pdf`;
               zip.file(stampedName, stamped);
               successCount++;
@@ -2205,12 +2212,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               {onOpenBatchQueue && files.length > 1 && !['jpg-to-pdf', 'organize', 'pdf-to-image'].includes(tool.id) && (
                 <button
                   type="button"
-                  onClick={() => onOpenBatchQueue(files)}
-                  title="Switch to Batch Queue to process each file independently with progress indicator"
+                  onClick={() => tool.id === 'watermark' ? void handleProcess() : onOpenBatchQueue(files)}
+                  disabled={isProcessing}
+                  title={tool.id === 'watermark'
+                    ? 'Apply the current watermark settings to every selected PDF'
+                    : 'Switch to Batch Queue to process each file independently with progress indicator'}
                   className="text-xs font-semibold px-2.5 py-1 rounded-lg border border-cyan-200 dark:border-cyan-800 bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Layers className="w-3.5 h-3.5" />
-                  <span>{t.batchProcessEachFile}</span>
+                  <span>{tool.id === 'watermark' ? 'Watermark All Files' : t.batchProcessEachFile}</span>
                 </button>
               )}
 
@@ -2269,7 +2279,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             processedFiles={processedFilesMap}
             language={language}
             onReorder={(items) => { if (!isProcessing) setFileItems(items); }}
-            onPreview={setPreviewFile}
+            onPreview={(file) => {
+              const item = fileItems.find(entry => entry.file === file);
+              const result = item && processedFilesMap[item.id];
+              if (tool.id === 'watermark' && result?.status === 'done') {
+                setPreviewFile(new File([result.data as BlobPart], result.fileName, { type: 'application/pdf' }));
+              } else {
+                setPreviewFile(file);
+              }
+            }}
             onRemove={removeFile}
             onClearAll={clearAllFiles}
             onDownloadSingle={downloadSingleProcessedFile}
@@ -2535,11 +2553,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           )}
 
           {tool.id === 'watermark' && (
-            <WatermarkPanel
-              primaryFile={files[0]}
-              options={watermarkOptions}
-              onChange={setWatermarkOptions}
-            />
+            <fieldset disabled={isProcessing} className="min-w-0 space-y-3">
+              <p className="text-xs text-indigo-700 dark:text-indigo-300">
+                {language === 'ur'
+                  ? `یہی واٹرمارک settings تمام ${files.length} منتخب PDFs پر لاگو ہوں گی۔ Preview کی فائل بدلنے سے settings نہیں بدلیں گی۔`
+                  : `The same watermark settings apply to all ${files.length} selected PDFs. Switching the preview document does not change these shared settings.`}
+              </p>
+              <DocumentSelector files={files} selected={organizeSelectedFile || files[0]} onSelect={setOrganizeSelectedFile} />
+              <WatermarkPanel
+                primaryFile={organizeSelectedFile || files[0]}
+                options={watermarkOptions}
+                onChange={setWatermarkOptions}
+              />
+            </fieldset>
           )}
 
           {tool.id === 'page-numbers' && (
@@ -3287,6 +3313,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   ? 'Convert PowerPoint to PDF'
                   : tool.id === 'jpg-to-pdf'
                   ? 'Convert image pages to PDF'
+                  : tool.id === 'watermark' && files.length > 1
+                  ? `Apply Watermark to All ${files.length} PDFs`
                   : `${t.processBtn}`}
               </span>
             </button>

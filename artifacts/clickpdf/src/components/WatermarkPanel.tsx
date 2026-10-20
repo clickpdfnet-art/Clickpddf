@@ -62,7 +62,9 @@ export const WatermarkPanel: React.FC<WatermarkPanelProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<'text' | 'image'>(options.type || 'text');
   const [useRealPdfBackground, setUseRealPdfBackground] = useState<boolean>(true);
-  const [realPdfThumbnail, setRealPdfThumbnail] = useState<string | null>(null);
+  const [thumbnailResult, setThumbnailResult] = useState<{ file: File; url: string } | null>(null);
+  // Never show the previous document while the next thumbnail is rendering.
+  const realPdfThumbnail = thumbnailResult?.file === primaryFile ? thumbnailResult?.url : null;
   const [isLoadingThumbnail, setIsLoadingThumbnail] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(options.imageDataUrl || null);
@@ -74,23 +76,24 @@ export const WatermarkPanel: React.FC<WatermarkPanelProps> = ({
   // Load thumbnail of uploaded PDF if available
   useEffect(() => {
     let isMounted = true;
-    if (primaryFile && primaryFile.type === 'application/pdf') {
+    setThumbnailResult(null);
+    if (primaryFile && (primaryFile.type === 'application/pdf' || primaryFile.name.toLowerCase().endsWith('.pdf'))) {
       setIsLoadingThumbnail(true);
       renderPdfPageThumbnail(primaryFile, 1, 480)
         .then((url) => {
           if (isMounted) {
-            setRealPdfThumbnail(url);
+            setThumbnailResult(url ? { file: primaryFile, url } : null);
             setIsLoadingThumbnail(false);
           }
         })
         .catch(() => {
           if (isMounted) {
-            setRealPdfThumbnail(null);
+            setThumbnailResult(null);
             setIsLoadingThumbnail(false);
           }
         });
     } else {
-      setRealPdfThumbnail(null);
+      setThumbnailResult(null);
       setIsLoadingThumbnail(false);
     }
     return () => {
