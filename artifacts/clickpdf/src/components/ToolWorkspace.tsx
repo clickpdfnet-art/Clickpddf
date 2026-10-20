@@ -2003,15 +2003,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
       {/* Tool header card */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs mb-6">
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col items-center gap-4 text-center">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center text-white shrink-0 shadow-sm">
             <Sparkles className="w-6 h-6" />
           </div>
-          <div>
+          <div className="w-full">
             <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
               {getToolTitle(tool)}
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed max-w-2xl mx-auto">
               {getToolDescription(tool)}
             </p>
           </div>

@@ -63,12 +63,12 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
       </section>
 
       {/* 2. Multi-File Processing Info Banner (Moved right below Hero, button removed) */}
-      <div className="mx-3 sm:mx-6 lg:mx-auto max-w-6xl mb-2.5 bg-gradient-to-r from-indigo-900/90 via-slate-900/90 to-indigo-950/90 rounded-xl p-3 text-white border border-indigo-800/50 shadow-xs relative overflow-hidden flex items-center gap-2.5">
+      <div className="mx-3 sm:mx-6 lg:mx-auto max-w-6xl mb-2.5 bg-gradient-to-r from-indigo-900/90 via-slate-900/90 to-indigo-950/90 rounded-xl p-3 text-white border border-indigo-800/50 shadow-xs relative overflow-hidden flex flex-col items-center justify-center text-center gap-2.5">
         <div className="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-cyan-300 shrink-0">
           <Layers className="w-4 h-4" />
         </div>
         <div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
             <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight">Need to process multiple PDF files at once?</h3>
             <span className="text-[9px] font-bold uppercase tracking-wider bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 px-1.5 py-0.2 rounded-full">New</span>
           </div>

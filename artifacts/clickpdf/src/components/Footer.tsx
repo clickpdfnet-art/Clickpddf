@@ -41,9 +41,9 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer className="w-full bg-slate-950 text-slate-400 text-xs border-t border-slate-900/80 pt-6 sm:pt-8 pb-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-4 sm:gap-y-6 pb-4 sm:pb-5">
-          {/* Brand info (2 columns on medium+ screens) */}
-          <div className="col-span-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))] gap-x-4 sm:gap-x-6 gap-y-4 sm:gap-y-6 pb-4 sm:pb-5 md:items-start md:[&>div]:min-w-0 md:[&_button]:text-start md:[&_a]:text-start md:[&_svg]:shrink-0">
+          {/* Keep mobile unchanged; give desktop links four evenly sized columns. */}
+          <div className="col-span-2 md:col-span-4 xl:col-span-1">
             <div className="flex items-center gap-1.5 mb-2.5">
               <span className="text-white font-extrabold text-xl sm:text-2xl tracking-tight leading-none">Click</span>
               <BrandLogo className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 aspect-square drop-shadow-md" />

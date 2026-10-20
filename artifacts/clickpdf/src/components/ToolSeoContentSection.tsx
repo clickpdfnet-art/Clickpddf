@@ -119,11 +119,8 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         </div>
 
         {/* 3. Step-by-Step How-To Instructions */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">
-              1-2-3
-            </div>
+        <div className="space-y-4 text-center">
+          <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
               {seoInfo.stepsHeading}
             </h3>
@@ -135,7 +132,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                 key={s.step} 
                 className="p-5 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 relative hover:border-indigo-400/50 transition-colors"
               >
-                <div className="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center mb-3 shadow-xs">
+                <div className="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center mx-auto mb-3 shadow-xs">
                   {s.step}
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
