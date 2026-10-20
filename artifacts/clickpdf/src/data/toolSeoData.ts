@@ -776,7 +776,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     targetKeywords: ['pdf to text', 'extract text from pdf', 'pdf to txt', 'pdf to markdown'],
     badge: 'Structure-Aware Extraction',
     overviewHeading: 'Extract Clean, Formatted Text Ready for AI & Editors',
-    overview: 'Convert un-selectable or locked document content into clean, copyable plain text (.txt) and formatted Markdown (.md). ClickPDF extracts paragraphs, section headings, and structured lists while preserving readable line-breaks.',
+    overview: 'Extract selectable PDF text into copyable plain text (.txt) and Markdown (.md). Review each document, download either format, or save a batch ZIP. Basic heading, list, and paragraph detection helps preserve readability; complex layouts may need review. Scanned pages require OCR, and password-protected files must be unlocked first.',
     secondaryOverview: 'Perfect for preparing documents for Large Language Models (LLMs), research notes, or editorial workflows. All text parsing runs locally using PDF.js without sending words to cloud APIs.',
     privacyHighlight: 'Private Text Parsing: Document contents are parsed in local memory, guaranteeing that proprietary research, confidential legal briefs, and personal emails stay private.',
     stepsHeading: 'How to Extract Text from PDF Documents',
@@ -789,7 +789,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       {
         step: 2,
         title: 'Choose Text or Markdown Output',
-        description: 'Inspect the live extracted text preview in real time.'
+        description: 'Choose an output format, process your selected PDFs, and inspect each extracted result.'
       },
       {
         step: 3,
@@ -800,22 +800,22 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     faqs: [
       {
         question: 'Can this extract text from scanned paper documents?',
-        answer: 'If your PDF is an image scan without an embedded text layer, use our OCR & Analysis tool to transcribe text using neural OCR.'
+        answer: 'Image-only scans do not contain selectable text. This tool reports missing text rather than creating an empty successful output. Run OCR first, then extract the resulting text layer.'
       },
       {
         question: 'Does text extraction preserve paragraph breaks?',
-        answer: 'Yes! Our structure-aware parser detects vertical line gaps and horizontal indentation to preserve natural paragraph divisions.'
+        answer: 'The parser uses text positions and line gaps to identify basic paragraph breaks. Complex columns, tables, and unusual PDF reading order may need manual review.'
       },
       {
         question: 'Is there a limit on how many pages I can extract?',
-        answer: 'You can extract hundreds of pages with fluid browser performance.'
+        answer: 'There is no fixed page-count cap. Files and pages are processed sequentially; successful extraction depends on the document and available device memory.'
       }
     ],
     benefits: [
-      { title: 'Clean Markdown Export', desc: 'Preserves headings, lists, and layout for Obsidian, Notion, or AI.', iconName: 'FileText' },
+      { title: 'Clean Markdown Export', desc: 'Detects basic headings and lists for editing, note-taking, or AI workflows.', iconName: 'FileText' },
       { title: 'One-Click Clipboard Copy', desc: 'Instantly paste extracted paragraphs into any application.', iconName: 'Copy' },
       { title: 'Completely In-Browser', desc: 'No remote servers or cloud databases ever see your words.', iconName: 'Shield' },
-      { title: 'Fast Execution', desc: 'Extracts thousands of words in fractions of a second.', iconName: 'Zap' }
+      { title: 'Page-by-Page Progress', desc: 'Sequential extraction with visible progress and per-file error handling.', iconName: 'Zap' }
     ],
     relatedToolIds: ['metadata', 'split', 'compress', 'merge']
   },

@@ -62,6 +62,7 @@ import { SUPPORTED_OCR_LANGUAGES } from '../utils/ocrLanguages';
 import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
 import { MetadataEditorPanel, MetadataFormValues } from './MetadataEditorPanel';
+import { PdfTextWorkspace } from './PdfTextWorkspace';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';
 import { ImagePageEditor, ImagePageItem } from './ImagePageEditor';
@@ -2101,6 +2102,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const plugin = useMemo(() => getToolPlugin(tool.id), [tool.id]);
+
+  // Isolated text-tool implementation; all other tools retain their existing paths.
+  if (tool.id === 'pdf-to-text') {
+    return <PdfTextWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />;
+  }
 
   if (plugin) {
     const PluginComponent = plugin.Component;
