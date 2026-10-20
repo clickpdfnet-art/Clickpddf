@@ -1135,7 +1135,8 @@ export async function extractPdfMetadata(file: File): Promise<PdfTechnicalMetada
     // fallback
   }
 
-  const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+  // Inspection must not replace the stored Producer or modification date.
+  const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true, updateMetadata: false });
 
   const pageCount = pdf.getPageCount();
   const title = pdf.getTitle() || null;

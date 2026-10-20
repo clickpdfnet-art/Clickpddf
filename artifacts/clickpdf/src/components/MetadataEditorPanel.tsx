@@ -6,10 +6,8 @@ import {
   BookOpen,
   Cpu,
   Layers,
-  Save,
   Trash2,
   Download,
-  CheckCircle2,
   AlertCircle,
   RotateCcw,
   Sparkles,
@@ -20,33 +18,51 @@ import {
 } from 'lucide-react';
 import {
   extractPdfMetadata,
-  updatePdfMetadata,
-  sanitizePdfMetadata,
-  downloadBlob,
   PdfTechnicalMetadata,
-  UpdatePdfMetadataPayload
 } from '../utils/pdfEngine';
-import confetti from 'canvas-confetti';
+
+export interface MetadataFormValues {
+  title: string;
+  author: string;
+  subject: string;
+  keywords: string;
+  creator: string;
+  producer: string;
+}
 
 interface MetadataEditorPanelProps {
   file: File;
+  value: MetadataFormValues | null;
+  onChange: (value: MetadataFormValues) => void;
+  onProcess: (value: MetadataFormValues, sanitize?: boolean) => Promise<void>;
+  fileCount: number;
+  processing: boolean;
   onPreviewRequested?: () => void;
 }
 
-export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, onPreviewRequested }) => {
+export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
+  file, value, onChange, onProcess, fileCount, processing, onPreviewRequested
+}) => {
   const [originalMeta, setOriginalMeta] = useState<PdfTechnicalMetadata | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [saving, setSaving] = useState(false);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const saving = processing;
 
   // Editable form fields
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [subject, setSubject] = useState('');
-  const [keywords, setKeywords] = useState('');
-  const [creator, setCreator] = useState('');
-  const [producer, setProducer] = useState('');
+  const emptyValues: MetadataFormValues = { title: '', author: '', subject: '', keywords: '', creator: '', producer: '' };
+  const { title, author, subject, keywords, creator, producer } = value || emptyValues;
+  const updateField = (field: keyof MetadataFormValues, text: string) =>
+    onChange({ ...(value || emptyValues), [field]: text });
+  const setTitle = (text: string) => updateField('title', text);
+  const setAuthor = (text: string) => updateField('author', text);
+  const setSubject = (text: string) => updateField('subject', text);
+  const setKeywords = (text: string) => updateField('keywords', text);
+  const setCreator = (text: string) => updateField('creator', text);
+  const setProducer = (text: string) => updateField('producer', text);
+  const valuesFromMetadata = (meta: PdfTechnicalMetadata): MetadataFormValues => ({
+    title: meta.title || '', author: meta.author || '', subject: meta.subject || '',
+    keywords: meta.keywords?.join(', ') || '', creator: meta.creator || '', producer: meta.producer || ''
+  });
 
   // Load metadata on file change
   useEffect(() => {
@@ -55,16 +71,11 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, 
       try {
         setLoading(true);
         setError(null);
-        setSuccessMessage(null);
         const meta = await extractPdfMetadata(file);
         if (isMounted) {
           setOriginalMeta(meta);
-          setTitle(meta.title || '');
-          setAuthor(meta.author || '');
-          setSubject(meta.subject || '');
-          setKeywords(meta.keywords ? meta.keywords.join(', ') : '');
-          setCreator(meta.creator || '');
-          setProducer(meta.producer || '');
+          // Only initialize once. Changing the inspected file must not replace the shared draft.
+          if (!value) onChange(valuesFromMetadata(meta));
           setLoading(false);
         }
       } catch (err: any) {
@@ -82,91 +93,28 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, 
 
   const handleResetToOriginal = () => {
     if (!originalMeta) return;
-    setTitle(originalMeta.title || '');
-    setAuthor(originalMeta.author || '');
-    setSubject(originalMeta.subject || '');
-    setKeywords(originalMeta.keywords ? originalMeta.keywords.join(', ') : '');
-    setCreator(originalMeta.creator || '');
-    setProducer(originalMeta.producer || '');
-    setSuccessMessage(null);
+    onChange(valuesFromMetadata(originalMeta));
   };
 
   const handleClearAllFields = () => {
-    setTitle('');
-    setAuthor('');
-    setSubject('');
-    setKeywords('');
-    setCreator('');
-    setProducer('');
-    setSuccessMessage(null);
+    onChange(emptyValues);
   };
 
   const handleSaveAndDownload = async () => {
     try {
-      setSaving(true);
       setError(null);
-      setSuccessMessage(null);
-
-      const parsedKeywords = keywords
-        .split(',')
-        .map((k) => k.trim())
-        .filter(Boolean);
-
-      const payload: UpdatePdfMetadataPayload = {
-        title: title.trim(),
-        author: author.trim(),
-        subject: subject.trim(),
-        keywords: parsedKeywords,
-        creator: creator.trim(),
-        producer: producer.trim(),
-        modificationDate: new Date()
-      };
-
-      const pdfBytes = await updatePdfMetadata(file, payload);
-      const baseName = file.name.replace(/\.[^/.]+$/, '');
-      const downloadName = `${baseName}-updated-metadata.pdf`;
-
-      downloadBlob(pdfBytes, downloadName);
-
-      confetti({
-        particleCount: 60,
-        spread: 60,
-        origin: { y: 0.7 }
-      });
-
-      setSuccessMessage(`Metadata saved successfully! Downloaded: ${downloadName}`);
+      await onProcess(value || emptyValues);
     } catch (err: any) {
       setError(err?.message || 'Error occurred while saving metadata');
-    } finally {
-      setSaving(false);
     }
   };
 
   const handleSanitizeAndDownload = async () => {
     try {
-      setSaving(true);
       setError(null);
-      setSuccessMessage(null);
-
-      const pdfBytes = await sanitizePdfMetadata(file);
-      const baseName = file.name.replace(/\.[^/.]+$/, '');
-      const downloadName = `${baseName}-cleaned-metadata.pdf`;
-
-      downloadBlob(pdfBytes, downloadName);
-
-      handleClearAllFields();
-
-      confetti({
-        particleCount: 60,
-        spread: 60,
-        origin: { y: 0.7 }
-      });
-
-      setSuccessMessage(`All metadata sanitized and cleared for privacy! Downloaded: ${downloadName}`);
+      await onProcess(value || emptyValues, true);
     } catch (err: any) {
       setError(err?.message || 'Error occurred while sanitizing metadata');
-    } finally {
-      setSaving(false);
     }
   };
 
@@ -227,15 +175,12 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, 
         </div>
       )}
 
-      {successMessage && (
-        <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2.5">
-          <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-          <span>{successMessage}</span>
-        </div>
-      )}
+      <p className="text-xs text-indigo-700 dark:text-indigo-300">
+        These fields apply to all {fileCount} selected PDFs. Switching the preview document keeps your changes.
+      </p>
 
       {/* Main Metadata Form Card */}
-      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-xs">
+      <fieldset disabled={saving} className="min-w-0 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-xs">
         <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100 dark:border-slate-800">
           <div className="min-w-0 flex-1 mr-3">
             <h4 className="text-sm font-bold text-slate-900 dark:text-white">Document Properties</h4>
@@ -398,7 +343,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, 
             className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <ShieldCheck className="w-4 h-4 text-rose-600" />
-            <span>Wipe All Metadata (Privacy Sanitize)</span>
+            <span>{fileCount > 1 ? 'Wipe Metadata from All Files (Privacy Sanitize)' : 'Wipe All Metadata (Privacy Sanitize)'}</span>
           </button>
 
           <button
@@ -408,10 +353,10 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({ file, 
             className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-600/20 transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
           >
             <Download className="w-4 h-4" />
-            <span>{saving ? 'Processing PDF...' : 'Save & Download PDF'}</span>
+            <span>{saving ? 'Processing PDFs...' : fileCount > 1 ? `Apply Metadata to All ${fileCount} PDFs` : 'Save & Download PDF'}</span>
           </button>
         </div>
-      </div>
+      </fieldset>
     </div>
   );
 };

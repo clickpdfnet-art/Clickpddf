@@ -24,6 +24,8 @@ import {
   organizePdfPagesWithRotations,
   inspectPdf,
   extractPdfMetadata,
+  updatePdfMetadata,
+  sanitizePdfMetadata,
   countPdfPages
 } from '../utils/pdfEngine';
 import {
@@ -59,7 +61,7 @@ import { validateFileBatch } from '../utils/securitySanitizer';
 import { SUPPORTED_OCR_LANGUAGES } from '../utils/ocrLanguages';
 import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
-import { MetadataEditorPanel } from './MetadataEditorPanel';
+import { MetadataEditorPanel, MetadataFormValues } from './MetadataEditorPanel';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';
 import { ImagePageEditor, ImagePageItem } from './ImagePageEditor';
@@ -279,6 +281,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Track per-file processing state and output data for instant individual download
   const [processedFilesMap, setProcessedFilesMap] = useState<Record<string, ProcessedFileInfo>>({});
+  const [metadataDraft, setMetadataDraft] = useState<MetadataFormValues | null>(null);
+  useEffect(() => {
+    if (!files.length) setMetadataDraft(null);
+  }, [files.length]);
   const hasIndividualDownloads = Object.values(processedFilesMap).some(info => info.status === 'done');
   const [resourceWarning, setResourceWarning] = useState<string | null>(null);
   const outputStoreRef = useRef<LocalOutputStore | null>(null);
@@ -411,7 +417,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   // 5-Second Auto-Download Countdown across single-file tools (Merge, Compress, Rotate, Protect, Unlock, etc.)
   // NEVER auto-download .zip archives automatically; ZIP archives must only download on explicit user click.
   useEffect(() => {
-    if (!successResult || autoDownloadCancelled || (files.length > 1 && hasIndividualDownloads)) {
+    if (!successResult || autoDownloadCancelled || ((files.length > 1 || tool.id === 'edit-metadata') && hasIndividualDownloads)) {
       if (autoDownloadTimerRef.current) {
         clearInterval(autoDownloadTimerRef.current);
         autoDownloadTimerRef.current = null;
@@ -463,7 +469,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         autoDownloadTimerRef.current = null;
       }
     };
-  }, [successResult, autoDownloadCancelled, files.length, hasIndividualDownloads]);
+  }, [successResult, autoDownloadCancelled, files.length, hasIndividualDownloads, tool.id]);
 
   const getExpectedTypeForTool = (toolId: string): 'pdf' | 'image' | 'word' | 'excel' | 'powerpoint' | 'any' => {
     if (toolId === 'jpg-to-pdf') return 'image';
@@ -536,6 +542,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   const clearAllFiles = () => {
     if (isProcessing) return;
+    setMetadataDraft(null);
     void outputStoreRef.current?.dispose();
     outputStoreRef.current = null;
     setFileItems([]);
@@ -586,10 +593,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     _data: Uint8Array | Blob,
     fileName: string,
     _fileIndex: number,
-    totalFiles: number
+    totalFiles: number,
+    forceIndividual = false
   ) => {
     // Single-file results already have the workspace countdown. Never download twice.
-    if (totalFiles <= 1) return;
+    if (totalFiles <= 1 && !forceIndividual) return;
     earlyDownloadTriggerRef.current[item.id]?.();
     earlyDownloadTriggerRef.current[item.id] = startDownloadCountdown((s) => {
       setProcessedFilesMap(prev => {
@@ -609,6 +617,74 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         ? { ...prev, [item.id]: { ...info, autoDownloadSeconds: 0, autoDownloaded: true } }
         : prev);
     });
+  };
+
+  const handleMetadataFromPanel = async (draft: MetadataFormValues, sanitize = false) => {
+    if (isProcessing || !fileItems.length) return;
+    const items = [...fileItems];
+    const payload = {
+      title: draft.title.trim(), author: draft.author.trim(), subject: draft.subject.trim(),
+      keywords: draft.keywords.split(',').map(keyword => keyword.trim()).filter(Boolean),
+      creator: draft.creator.trim(), producer: draft.producer.trim(), modificationDate: new Date()
+    };
+    setIsProcessing(true);
+    setErrorMessage(null);
+    setSuccessResult(null);
+    cancelItemDownloads();
+    setProcessedFilesMap({});
+    setAutoDownloadCancelled(false);
+    setAutoDownloadSeconds(null);
+    const archive = new JSZip();
+    let singleResult: Uint8Array | null = null;
+    let singleName = '';
+    let completed = 0;
+    const failures: string[] = [];
+    try {
+      for (const [index, item] of items.entries()) {
+        const file = item.file;
+        setProcessingStatus(`Updating metadata: ${index + 1} of ${items.length} — ${file.name}`);
+        setProcessedFilesMap(current => ({
+          ...current, [item.id]: { data: new Uint8Array(), fileName: file.name, status: 'processing' }
+        }));
+        try {
+          const bytes = sanitize ? await sanitizePdfMetadata(file) : await updatePdfMetadata(file, payload);
+          const fileName = `${file.name.replace(/\.pdf$/i, '')}-${sanitize ? 'cleaned' : 'updated'}-metadata.pdf`;
+          const stored = await getOutputStore().put(bytes);
+          if (items.length > 1) archive.file(fileName, stored);
+          else { singleResult = bytes; singleName = fileName; }
+          setProcessedFilesMap(current => ({
+            ...current, [item.id]: {
+              data: stored, fileName, originalSize: file.size, newSize: bytes.byteLength,
+              status: 'done', autoDownloadSeconds: 5, autoDownloaded: false
+            }
+          }));
+          void runItemAutoDownloadCountdown(item, stored, fileName, index, items.length, true);
+          completed++;
+        } catch (error: any) {
+          const message = error?.message || 'Could not update this PDF.';
+          failures.push(`${file.name}: ${message}`);
+          setProcessedFilesMap(current => ({
+            ...current, [item.id]: {
+              data: new Uint8Array(), fileName: file.name, status: 'error', errorMessage: message
+            }
+          }));
+        }
+        await yieldToMainThread(25);
+      }
+      if (!completed) throw new Error(failures.join('; ') || 'No PDFs could be updated.');
+      setProcessingStatus('Preparing metadata results...');
+      setSuccessResult({
+        data: items.length > 1 ? await archive.generateAsync({ type: 'uint8array' }) : singleResult!,
+        fileName: items.length > 1 ? `metadata_documents_${completed}_files.zip` : singleName,
+        details: `${sanitize ? 'Cleared metadata from' : 'Applied the same metadata to'} ${completed} of ${items.length} PDFs.${failures.length ? ` Failed: ${failures.join('; ')}` : ''}`
+      });
+      if (failures.length) setErrorMessage(`${failures.length} file(s) could not be processed. Successful files remain available.`);
+    } catch (error: any) {
+      setErrorMessage(error?.message || 'Could not update PDF metadata.');
+    } finally {
+      setIsProcessing(false);
+      setProcessingStatus('');
+    }
   };
 
   // Dedicated handler for interactive Rotate PDF workspace without timeout interruption
@@ -706,6 +782,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Main processing trigger
   const handleProcess = async () => {
+    if (tool.id === 'edit-metadata') {
+      if (metadataDraft) await handleMetadataFromPanel(metadataDraft);
+      return;
+    }
     if (files.length === 0) {
       setErrorMessage('Please upload at least one file to process.');
       return;
@@ -1991,6 +2071,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const handleDownload = () => {
+    if (tool.id === 'edit-metadata' && fileItems.length === 1) {
+      const item = fileItems[0];
+      const result = processedFilesMap[item.id];
+      if (result?.status === 'done') {
+        downloadSingleProcessedFile(item, result);
+        return;
+      }
+    }
     if (autoDownloadTimerRef.current) {
       clearInterval(autoDownloadTimerRef.current);
       autoDownloadTimerRef.current = null;
@@ -2212,15 +2300,17 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               {onOpenBatchQueue && files.length > 1 && !['jpg-to-pdf', 'organize', 'pdf-to-image'].includes(tool.id) && (
                 <button
                   type="button"
-                  onClick={() => tool.id === 'watermark' ? void handleProcess() : onOpenBatchQueue(files)}
-                  disabled={isProcessing}
+                  onClick={() => ['watermark', 'edit-metadata'].includes(tool.id) ? void handleProcess() : onOpenBatchQueue(files)}
+                  disabled={isProcessing || (tool.id === 'edit-metadata' && !metadataDraft)}
                   title={tool.id === 'watermark'
                     ? 'Apply the current watermark settings to every selected PDF'
+                    : tool.id === 'edit-metadata'
+                    ? 'Apply the current metadata fields to every selected PDF'
                     : 'Switch to Batch Queue to process each file independently with progress indicator'}
                   className="text-xs font-semibold px-2.5 py-1 rounded-lg border border-cyan-200 dark:border-cyan-800 bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Layers className="w-3.5 h-3.5" />
-                  <span>{tool.id === 'watermark' ? 'Watermark All Files' : t.batchProcessEachFile}</span>
+                  <span>{tool.id === 'watermark' ? 'Watermark All Files' : tool.id === 'edit-metadata' ? 'Apply Metadata to All Files' : t.batchProcessEachFile}</span>
                 </button>
               )}
 
@@ -2282,7 +2372,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             onPreview={(file) => {
               const item = fileItems.find(entry => entry.file === file);
               const result = item && processedFilesMap[item.id];
-              if (tool.id === 'watermark' && result?.status === 'done') {
+              if (['watermark', 'edit-metadata'].includes(tool.id) && result?.status === 'done') {
                 setPreviewFile(new File([result.data as BlobPart], result.fileName, { type: 'application/pdf' }));
               } else {
                 setPreviewFile(file);
@@ -2311,6 +2401,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           <DocumentSelector files={files} selected={organizeSelectedFile || files[0]} onSelect={setOrganizeSelectedFile} />
           <MetadataEditorPanel
             file={organizeSelectedFile || files[0]}
+            value={metadataDraft}
+            onChange={setMetadataDraft}
+            onProcess={handleMetadataFromPanel}
+            fileCount={files.length}
+            processing={isProcessing}
             onPreviewRequested={() => setPreviewFile(organizeSelectedFile || files[0])}
           />
         </div>

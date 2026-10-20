@@ -50,3 +50,9 @@ Watermark placement, size, color, opacity, angle, type and page-range settings a
 **Why:** The user explicitly wants the settings chosen on the first preview applied to all selected files, however many are selected.
 
 **How to apply:** Switching the watermark preview must preserve the shared settings. Every watermark processing entry point must use those settings rather than opening a separate queue with defaults. Completed-file previews should show the stamped result.
+
+Metadata editing uses one shared set of entered fields for all selected PDFs, with individual Download buttons and five-second automatic downloads. The combined ZIP is downloaded only on request.
+
+**Why:** The user explicitly requested the same batch behavior for Edit PDF Metadata as for the other working tools.
+
+**How to apply:** Switching the inspected document must not overwrite entered values. Both the editor action and batch toolbar action must apply the shared fields to every selected file; privacy sanitization must also process the entire selection.
