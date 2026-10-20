@@ -301,7 +301,7 @@ const en: TranslationDict = {
 
   backToTools: 'Back to Tools Catalog',
   clientProcessingBadge: '100% Client-Side Memory',
-  dropZoneTitleMulti: 'Drop your PDF files here or click to browse',
+  dropZoneTitleMulti: 'Drop your files here or click to browse',
   dropZoneTitleSingle: 'Drop your file here or click to browse',
   dropZoneSubtitlePdf: 'Files are processed exclusively in local RAM',
   dropZoneSubtitleImg: 'Accepts JPG, PNG, WebP image formats',
@@ -499,7 +499,7 @@ const ur: TranslationDict = {
 
   backToTools: 'تمام ٹولز کی طرف واپس',
   clientProcessingBadge: '100% کلائنٹ سائڈ ریم',
-  dropZoneTitleMulti: 'اپنی PDF فائلیں یہاں ڈراپ کریں یا منتخب کریں',
+  dropZoneTitleMulti: 'اپنی فائلیں یہاں ڈراپ کریں یا منتخب کریں',
   dropZoneTitleSingle: 'اپنی فائل یہاں ڈراپ کریں یا منتخب کریں',
   dropZoneSubtitlePdf: 'فائلیں خصوصی طور پر آپ کے ڈیوائس پر پروسیس ہوتی ہیں',
   dropZoneSubtitleImg: 'JPG, PNG, WebP فارمیٹس قبول کیے جاتے ہیں',

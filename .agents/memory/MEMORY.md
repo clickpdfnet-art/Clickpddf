@@ -1,0 +1,1 @@
+- [ClickPDF large-file and batch expectations](clickpdf-large-file-support.md) — keep multi-file work in the selected tool and be clear that large-file success depends on device memory.

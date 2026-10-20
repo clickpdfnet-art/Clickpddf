@@ -53,6 +53,7 @@ function wrapCanvasText(
 function getElementText(element: Element): string {
   const clone = element.cloneNode(true) as HTMLElement;
   clone.querySelectorAll('br').forEach(br => br.replaceWith('\n'));
+  clone.querySelectorAll('p, div, li').forEach(block => block.append('\n'));
   return (clone.textContent || '')
     .replace(/\u00a0/g, ' ')
     .replace(/[ \t]+\n/g, '\n')
@@ -110,11 +111,13 @@ export async function renderWordHtmlToPdf(
     context.fillText(String(pageNumber), PAGE_WIDTH / 2, PAGE_HEIGHT - 24);
     context.restore();
 
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.94);
-    const encoded = dataUrl.slice(dataUrl.indexOf(',') + 1);
-    const binary = atob(encoded);
-    const imageBytes = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) imageBytes[i] = binary.charCodeAt(i);
+    const jpegBlob = await new Promise<Blob>((resolve, reject) => {
+      canvas.toBlob(blob => {
+        if (blob) resolve(blob);
+        else reject(new Error('The browser could not encode a PDF page image.'));
+      }, 'image/jpeg', 0.94);
+    });
+    const imageBytes = new Uint8Array(await jpegBlob.arrayBuffer());
     const image = await pdf.embedJpg(imageBytes);
     const page = pdf.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
     page.drawImage(image, { x: 0, y: 0, width: PAGE_WIDTH, height: PAGE_HEIGHT });

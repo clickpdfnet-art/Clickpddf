@@ -473,10 +473,15 @@ export async function convertWordToExcelXlsx(
   let tableRows = 0;
   const textRows: string[][] = [];
 
-  const cleanText = (element: Element) => (element.textContent || '')
-    .replace(/\u00a0/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  const cleanText = (element: Element) => {
+    const clone = element.cloneNode(true) as HTMLElement;
+    clone.querySelectorAll('br').forEach(lineBreak => lineBreak.replaceWith('\n'));
+    clone.querySelectorAll('p, div, li').forEach(block => block.append('\n'));
+    return (clone.textContent || '')
+      .replace(/\u00a0/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
 
   const addSheet = (rows: string[][], name: string) => {
     const sheet = XLSX.utils.aoa_to_sheet(rows);
