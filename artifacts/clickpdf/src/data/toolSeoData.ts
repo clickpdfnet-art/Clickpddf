@@ -263,6 +263,68 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     relatedToolIds: ['merge', 'organize', 'compress', 'watermark']
   },
 
+  'pdf-to-image': {
+    slug: 'pdf-to-image',
+    toolId: 'pdf-to-image',
+    aliases: ['pdf-to-png', 'convert-pdf-to-images'],
+    h1Title: 'Convert PDF to Images Online — Export PDF Pages as PNG',
+    metaTitle: 'PDF to Image Converter – Export PNG Pages | ClickPDF',
+    metaDescription: 'Convert PDF pages to PNG images in your browser. Add multiple PDFs, reorder, rotate, copy or remove pages, then download images in a ZIP with a folder for each document.',
+    keywords: 'pdf to image, pdf to png, convert pdf pages to images, multiple pdf to png, private pdf converter',
+    targetKeywords: ['pdf to image', 'pdf to png', 'convert pdf pages to images'],
+    badge: 'PNG Page Export',
+    overviewHeading: 'Turn PDF Pages into Images for Sharing and Presentations',
+    overview: 'Convert pages from one or more PDF documents into separate PNG images. Preview your pages, choose their order, rotate sideways scans, duplicate a page or remove unwanted pages before exporting. Each remaining page becomes an image in the downloaded ZIP.',
+    secondaryOverview: 'The converter renders PDF pages locally in your browser without uploading your documents to a server. When you add multiple PDFs, the ZIP keeps each document’s images in its own folder. Processing time and the size of documents you can convert depend on your device’s available memory.',
+    privacyHighlight: 'Private Page Conversion: PDF documents and generated images stay on your device during conversion, with no server upload.',
+    stepsHeading: 'How to Convert PDF Pages to Images',
+    steps: [
+      {
+        step: 1,
+        title: 'Add One or Multiple PDFs',
+        description: 'Choose your PDF files or drag them into the workspace. Use Add Files to include more documents.'
+      },
+      {
+        step: 2,
+        title: 'Arrange and Adjust Pages',
+        description: 'Switch between documents to reorder, rotate, copy or delete pages. Each document keeps its own page edits.'
+      },
+      {
+        step: 3,
+        title: 'Export and Download PNG Images',
+        description: 'Select Export all PDFs as PNG images, then download the ZIP. Each document has a separate folder of numbered PNG files.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I convert several PDF files at the same time?',
+        answer: 'Yes. Select multiple PDFs or add more files inside the workspace. Export processes the documents in sequence and packages their images into a single ZIP, with a separate folder for each document. Very large batches may exceed your browser’s available memory.'
+      },
+      {
+        question: 'Which image format will I get?',
+        answer: 'This tool currently exports PNG images. Each retained PDF page becomes a separate numbered PNG file; the tool does not currently offer JPG output.'
+      },
+      {
+        question: 'Can I remove, copy or rotate pages before converting?',
+        answer: 'Yes. Use the page controls to delete unwanted pages, duplicate pages, rotate scans and change the page order before exporting. When you switch between PDFs, the current document’s page edits are kept.'
+      },
+      {
+        question: 'Are my PDF documents uploaded to a server?',
+        answer: 'No. PDF rendering and image generation take place locally in your browser. Keep the page open until conversion and ZIP packaging finish.'
+      },
+      {
+        question: 'Will the exported images contain editable PDF text?',
+        answer: 'PNG files preserve the rendered appearance of each page, but do not retain selectable text, interactive forms or clickable PDF links. Keep your original PDF if you need those features.'
+      }
+    ],
+    benefits: [
+      { title: 'Multiple Documents', desc: 'Export PDFs into separate document folders within one ZIP.', iconName: 'Layers' },
+      { title: 'Page Controls', desc: 'Reorder, rotate, duplicate or remove pages before conversion.', iconName: 'LayoutGrid' },
+      { title: 'Private Conversion', desc: 'Render pages on your device without server uploads.', iconName: 'Shield' }
+    ],
+    relatedToolIds: ['jpg-to-pdf', 'organize', 'rotate', 'compress']
+  },
+
   rotate: {
     slug: 'rotate-pdf',
     toolId: 'rotate',
