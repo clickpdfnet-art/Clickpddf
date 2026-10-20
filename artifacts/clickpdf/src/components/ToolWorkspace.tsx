@@ -49,7 +49,6 @@ import {
   explicitMemoryCleanup
 } from '../utils/memoryManager';
 import {
-  convertPdfToWordDocx,
   convertPdfToExcelXlsx,
   convertPdfToPowerPointPptx,
   convertPowerPointToPdf,
@@ -63,6 +62,12 @@ import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
 import { MetadataEditorPanel, MetadataFormValues } from './MetadataEditorPanel';
 import { PdfTextWorkspace } from './PdfTextWorkspace';
+import { convertAdvancedPdfToWord } from '../utils/pdfWordConverter';
+import { DEFAULT_PDF_WORD_OPTIONS, PdfWordOptions } from '../utils/pdfWordTypes';
+import { PdfWordOptionsPanel } from './PdfWordOptionsPanel';
+import { PdfWordQualityPanel, WordReportEntry } from './PdfWordQualityPanel';
+import { PdfWordPreview } from './PdfWordPreview';
+import { PdfTextSourcePreview } from './PdfTextSourcePreview';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';
 import { ImagePageEditor, ImagePageItem } from './ImagePageEditor';
@@ -221,6 +226,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   const [rotateDeg, setRotateDeg] = useState(90);
   const [pdfOcrLanguage, setPdfOcrLanguage] = useState('eng');
+  const [pdfWordOptions, setPdfWordOptions] = useState<PdfWordOptions>(DEFAULT_PDF_WORD_OPTIONS);
+  const [wordReports, setWordReports] = useState<Record<string, WordReportEntry>>({});
+  const [wordPreview, setWordPreview] = useState<{ source: File; output?: Uint8Array | Blob } | null>(null);
+  useEffect(() => {
+    if (tool.id === 'pdf-to-word' && !files.length) { setWordReports({}); setWordPreview(null); }
+  }, [tool.id, files.length]);
   const [organizeSelectedFile, setOrganizeSelectedFile] = useState<File | null>(null);
   const [organizePageStates, setOrganizePageStates] = useState<Map<File, OrganizePageState>>(() => new Map());
   const [imagePages, setImagePages] = useState<ImagePageItem[]>([]);
@@ -1500,18 +1511,21 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           details = `Decrypted ${decryptedCount} of ${files.length} documents with Web Crypto AES-256-GCM.`;
         }
       } else if (tool.id === 'pdf-to-word') {
+        setWordReports({});
         if (files.length === 1) {
           const primary = files[0];
           const item = fileItems[0];
-          setProcessingStatus(`Converting ${primary.name} to editable Word (.docx)...`);
-          const res = await convertPdfToWordDocx(
+          setProcessingStatus(`Converting ${primary.name} to ${pdfWordOptions.imageFallback === 'all' ? 'image-only' : pdfWordOptions.mode === 'layout' ? 'Layout-Preserved' : 'Editable'} Word (.docx)...`);
+          const res = await convertAdvancedPdfToWord(
             primary,
             (_curr, _tot, txt) => setProcessingStatus(txt),
-            pdfOcrLanguage
+            pdfOcrLanguage,
+            { ...pdfWordOptions }
           );
           resultData = res.data;
           outputName = res.fileName;
           details = res.details;
+          if (item) setWordReports({ [item.id]: { source: primary, outputName: res.fileName, report: res.report } });
           if (item) {
             setProcessedFilesMap({
               [item.id]: {
@@ -1532,12 +1546,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             const currentItem = fileItems[i];
             setProcessingStatus(`Converting file ${i + 1}/${files.length}: ${f.name} to Word...`);
             try {
-              const res = await convertPdfToWordDocx(
+              const res = await convertAdvancedPdfToWord(
                 f,
                 (_curr, _tot, txt) => setProcessingStatus(`File ${i + 1}/${files.length}: ${txt}`),
-                pdfOcrLanguage
+                pdfOcrLanguage,
+                { ...pdfWordOptions }
               );
               zip.file(res.fileName, res.data);
+              if (currentItem) setWordReports(previous => ({ ...previous, [currentItem.id]: { source: f, outputName: res.fileName, report: res.report } }));
               successCount++;
               if (currentItem) {
                 setProcessedFilesMap(prev => ({
@@ -1575,7 +1591,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           setProcessingStatus('Packaging batch Word documents ZIP...');
           resultData = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' });
           outputName = `converted_word_${successCount}_files.zip`;
-          details = `Successfully converted ${successCount} of ${files.length} PDF(s) into editable Microsoft Word (.docx) files.`;
+          details = `Successfully converted ${successCount} of ${files.length} PDF(s) into ${pdfWordOptions.mode === 'layout' ? 'Layout-Preserved' : 'Editable'} Word documents. Review the per-page quality reports, including any image-fallback pages.`;
         }
       } else if (tool.id === 'pdf-to-excel') {
         if (files.length === 1) {
@@ -2289,7 +2305,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               </span>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className={`flex items-center gap-2 ${tool.id === 'pdf-to-word' ? 'max-sm:flex-wrap max-sm:gap-2' : ''}`}>
               <button
                 type="button"
                 onClick={() => setShowInlinePreview(!showInlinePreview)}
@@ -2306,10 +2322,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               {onOpenBatchQueue && files.length > 1 && !['jpg-to-pdf', 'organize', 'pdf-to-image'].includes(tool.id) && (
                 <button
                   type="button"
-                  onClick={() => ['watermark', 'edit-metadata'].includes(tool.id) ? void handleProcess() : onOpenBatchQueue(files)}
+                  onClick={() => ['watermark', 'edit-metadata', 'pdf-to-word'].includes(tool.id) ? void handleProcess() : onOpenBatchQueue(files)}
                   disabled={isProcessing || (tool.id === 'edit-metadata' && !metadataDraft)}
                   title={tool.id === 'watermark'
                     ? 'Apply the current watermark settings to every selected PDF'
+                    : tool.id === 'pdf-to-word'
+                    ? 'Convert all selected PDFs using the current Word mode and OCR language'
                     : tool.id === 'edit-metadata'
                     ? 'Apply the current metadata fields to every selected PDF'
                     : 'Switch to Batch Queue to process each file independently with progress indicator'}
@@ -2335,7 +2353,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           {/* High-Fidelity in-browser PDF Thumbnail Previewer (pdf.js engine) */}
           {showInlinePreview && files[0] && (
             <div className="mb-5">
-              {files[0].type.startsWith('image/') && inlinePreviewUrl ? (
+              {tool.id === 'pdf-to-word' ? <PdfTextSourcePreview file={files[0]} /> : files[0].type.startsWith('image/') && inlinePreviewUrl ? (
                 <div className="p-3 bg-slate-900 rounded-2xl border border-slate-800 text-white">
                   <div className="flex items-center justify-between mb-2 px-1 text-xs">
                     <span className="text-slate-300 font-semibold min-w-0 flex items-center gap-1.5 flex-1 mr-2">
@@ -2376,6 +2394,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             language={language}
             onReorder={(items) => { if (!isProcessing) setFileItems(items); }}
             onPreview={(file) => {
+              if (tool.id === 'pdf-to-word') {
+                const source = fileItems.find(entry => entry.file === file || processedFilesMap[entry.id]?.fileName === file.name);
+                if (source) setWordPreview({ source: source.file, output: processedFilesMap[source.id]?.status === 'done' ? processedFilesMap[source.id].data : undefined });
+                return;
+              }
               const item = fileItems.find(entry => entry.file === file);
               const result = item && processedFilesMap[item.id];
               if (['watermark', 'edit-metadata'].includes(tool.id) && result?.status === 'done') {
@@ -2400,6 +2423,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           onDeletedPagesChange={setDeletedImagePages}
         />
       )}
+
+      {tool.id === 'pdf-to-word' && <PdfWordQualityPanel
+        reports={Object.fromEntries(Object.entries(wordReports).filter(([id]) => fileItems.some(item => item.id === id)))}
+        onPreview={id => {
+          const entry = wordReports[id], output = processedFilesMap[id];
+          if (entry) setWordPreview({ source: entry.source, output: output?.status === 'done' ? output.data : undefined });
+        }}
+      />}
 
       {/* Dedicated PDF Metadata Editor Panel */}
       {tool.id === 'edit-metadata' && files.length > 0 && !successResult && (
@@ -3032,6 +3063,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           {/* 1. PDF to Editable Word (.docx) Converter Options Panel */}
           {tool.id === 'pdf-to-word' && (
             <div className="space-y-4">
+              <PdfWordOptionsPanel value={pdfWordOptions} onChange={setPdfWordOptions} disabled={isProcessing} onPreview={() => setWordPreview({ source: files[0] })} />
               <div className="bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 rounded-xl p-4 flex items-start gap-3.5">
                 <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20 shrink-0">
                   <FileType className="w-5 h-5" />
@@ -3042,7 +3074,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       100% Client-Side PDF to Word (.docx) Engine
                     </span>
                     <span className="text-[10px] font-semibold bg-blue-100 dark:bg-blue-900/80 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-700">
-                      Editable Text, Not Images
+                      Editable Text + Separate Artwork
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
@@ -3059,7 +3091,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
-                      <span>Compatible with Word, LibreOffice & Google Docs</span>
+                      <span>Reader-dependent layout — review the quality report</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -3075,6 +3107,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 <select
                   id="pdf-word-ocr-language"
                   value={pdfOcrLanguage}
+                  disabled={isProcessing}
                   onChange={event => setPdfOcrLanguage(event.target.value)}
                   className="min-w-44 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-xs text-slate-800 dark:text-slate-100"
                 >
@@ -3399,7 +3432,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   : tool.id === 'unlock'
                   ? t.decryptUnlockPdf
                   : tool.id === 'pdf-to-word'
-                  ? 'Convert to Editable Word (.docx)'
+                  ? `Convert to ${pdfWordOptions.imageFallback === 'all' ? 'Image-Only' : pdfWordOptions.mode === 'layout' ? 'Layout-Preserved' : 'Editable'} Word (.docx)`
                   : tool.id === 'pdf-to-excel'
                   ? 'Convert to Excel (.xlsx)'
                   : tool.id === 'pdf-to-powerpoint'
@@ -3584,6 +3617,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       />
 
       {/* Client-Side File Preview Modal using URL.createObjectURL */}
+      {tool.id === 'pdf-to-word' && wordPreview && <PdfWordPreview source={wordPreview.source} output={wordPreview.output} onClose={() => setWordPreview(null)} />}
       <FilePreviewModal
         file={previewFile}
         onClose={() => setPreviewFile(null)}
