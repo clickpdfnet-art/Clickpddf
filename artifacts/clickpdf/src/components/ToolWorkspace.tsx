@@ -954,12 +954,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           let failCount = 0;
           const usedZipNames = new Set<string>();
 
-          const audit = auditMemoryPressure(files);
-          const concurrency = Math.max(1, Math.min(3, audit.recommendedConcurrency));
-
           await executeConcurrentBatch({
             items: fileItems,
-            concurrency,
+            // PDF decoding expands far beyond the input size, particularly on mobile.
+            concurrency: 1,
+            retainResults: false,
             worker: async (item, idx, onProgress) => {
               const f = item.file;
               setProcessedFilesMap(prev => ({
@@ -981,7 +980,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 }
               });
 
-              return { item, res, idx };
+              // Finish staging before the next document starts, not in a later effect.
+              const stored = await getOutputStore().put(res.data);
+              return { item, res: { ...res, data: stored }, idx };
             },
             onItemSuccess: (_it, idx, { item, res }) => {
               totalOrig += res.originalSize;
@@ -1012,7 +1013,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 }
               }));
 
-              runItemAutoDownloadCountdown(item, res.data, cleanName, idx, files.length);
             },
             onItemError: (item, _idx, err) => {
               failCount++;
@@ -2112,30 +2112,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         className="hidden"
       />
 
-      {files.length > 0 && !successResult && (
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3">
-          <div className="text-xs text-slate-600 dark:text-slate-300">
-            <span className="font-semibold">{files.length} file{files.length === 1 ? '' : 's'} selected</span>
-            <span className="mx-2 text-slate-400">·</span>
-            <span>{(files.reduce((total, file) => total + file.size, 0) / (1024 * 1024)).toFixed(1)} MB total</span>
-            <span className="block text-[10px] text-slate-400 mt-0.5">
-              {language === 'ur'
-                ? 'فائلوں کی تعداد یا سائز پر مقررہ پابندی نہیں۔ بڑی فائلوں کی processing ڈیوائس کی دستیاب RAM پر منحصر ہے؛ 500–1000 MB کی ہر فائل چلنے کی ضمانت نہیں۔ Merge اور ابتدائی compression پس منظر میں چلتے ہیں۔ دستیاب ہونے پر بڑے نتائج عارضی local disk cache میں رکھے جاتے ہیں۔'
-                : 'No fixed file-count or upload-size cap. Processing depends on device memory; 500–1000 MB files may exceed browser capacity. Merge and initial compression run in background workers. Large outputs use temporary local disk caching where supported.'}
-            </span>
-            {resourceWarning && <span role="status" className="block text-xs text-amber-600 mt-2">{resourceWarning}</span>}
-          </div>
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isProcessing}
-            className="inline-flex items-center gap-2 rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-2 text-xs font-semibold text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 disabled:opacity-50"
-          >
-            <Upload className="w-3.5 h-3.5" />
-            Add more files
-          </button>
-        </div>
-      )}
+      {resourceWarning && <p role="status" className="mb-4 text-xs text-amber-600">{resourceWarning}</p>}
 
       {tool.id === 'rotate' && files.length === 1 && !successResult ? (
         <RotatePdfPanel
@@ -2244,6 +2221,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
+                disabled={isProcessing}
                 className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer"
               >
                 <Plus className="w-3.5 h-3.5" />

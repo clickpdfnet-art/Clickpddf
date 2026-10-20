@@ -118,6 +118,7 @@ export const GlobalDropOverlay: React.FC<GlobalDropOverlayProps> = ({
       }}
       onDrop={(e) => {
         e.preventDefault();
+        e.stopPropagation(); // Do not also import the same batch via window's drop listener.
         dragCounter.current = 0;
         setIsDragging(false);
         setHoveredToolId(null);

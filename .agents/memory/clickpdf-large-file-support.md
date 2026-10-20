@@ -20,3 +20,15 @@ Every tool must perform its named operation; an unimplemented operation must fai
 **Why:** The all-tool audit exposed misleading fallback behavior, including an unsupported PDF/A operation. A valid PDF is not evidence of a correct operation or archival compliance.
 
 **How to apply:** Verify meaningful output semantics and batch output counts. Keep admission tests, actual processing tests, and standards-validation results distinct.
+
+Keep the existing Add files controls; do not introduce an extra universal upload/status card above each tool.
+
+**Why:** The user explicitly requested removal of the duplicate card because the tools already have their own Add files buttons.
+
+**How to apply:** Reuse the original picker controls when fixing batch upload behavior; do not add duplicate upload UI.
+
+Batch memory safety requires releasing completed buffers before starting more work, not just limiting concurrent decoders. PDF page-copy chunking can duplicate shared image/font resources when each chunk creates an independent copier.
+
+**Why:** Retained queue results and repeated copying of shared resources can increase peak memory despite nominally serial or chunked processing.
+
+**How to apply:** Stage outputs before advancing to the next document, avoid retaining a second results collection, and preserve shared resource identity across all pages from each source document.

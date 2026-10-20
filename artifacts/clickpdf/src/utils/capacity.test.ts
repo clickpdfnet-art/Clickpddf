@@ -1,3 +1,17 @@
+test('queue can release successful output buffers when callbacks own their storage', async () => {
+  let completed = 0;
+  const result = await executeConcurrentBatch({
+    items: [1, 2, 3],
+    concurrency: 1,
+    retainResults: false,
+    yieldIntervalMs: 0,
+    worker: async () => new Uint8Array(1024),
+    onItemSuccess: () => { completed++; },
+  });
+  assert.equal(completed, 3);
+  assert.equal(result.totalProcessed, 3);
+  assert.equal(result.successes.length, 0);
+});
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import JSZip from 'jszip';

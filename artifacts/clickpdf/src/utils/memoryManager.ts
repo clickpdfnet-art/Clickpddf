@@ -96,6 +96,8 @@ export function createConcurrencyLimiter(concurrency = 3) {
  */
 export interface BatchQueueOptions<TItem, TResult> {
   items: TItem[];
+  /** Disable when callbacks already store results, so completed buffers can be released. */
+  retainResults?: boolean;
   concurrency?: number;
   worker: (
     item: TItem,
@@ -170,7 +172,9 @@ export async function executeConcurrentBatch<TItem, TResult>(
             isCancelled
           );
 
-          successes.push({ item: currentItem, index: currentIndex, result: itemResult });
+          if (options.retainResults !== false) {
+            successes.push({ item: currentItem, index: currentIndex, result: itemResult });
+          }
           onItemSuccess?.(currentItem, currentIndex, itemResult);
         } catch (err: any) {
           const formattedError = err instanceof Error ? err : new Error(String(err));

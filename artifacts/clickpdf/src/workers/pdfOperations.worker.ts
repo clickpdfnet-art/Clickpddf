@@ -12,11 +12,12 @@ self.onmessage = async (event: MessageEvent<Request>) => {
         try {
           const source = await PDFDocument.load(await file.arrayBuffer(), { ignoreEncryption: false });
           const indices = source.getPageIndices();
-          // Bound transient copied-page arrays and yield between chunks.
-          for (let offset = 0; offset < indices.length; offset += 25) {
-            const pages = await output.copyPages(source, indices.slice(offset, offset + 25));
-            for (const page of pages) output.addPage(page);
-            await new Promise((resolve) => setTimeout(resolve, 0));
+          // One copier per source preserves shared image/font references. Calling
+          // copyPages for separate chunks duplicates shared resources in each chunk.
+          const pages = await output.copyPages(source, indices);
+          for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+            output.addPage(pages[pageIndex]);
+            if (pageIndex % 25 === 24) await new Promise((resolve) => setTimeout(resolve, 0));
           }
         } catch (error) {
           throw new Error(`${file.name}: ${error instanceof Error ? error.message : String(error)}`);

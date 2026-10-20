@@ -94,10 +94,10 @@ export async function mergePdfFiles(
       const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: false });
       arrayBuffer = null; // Free raw ArrayBuffer memory immediately
       const pageIndices = pdf.getPageIndices();
-      for (let offset = 0; offset < pageIndices.length; offset += 25) {
-        const copiedPages = await mergedPdf.copyPages(pdf, pageIndices.slice(offset, offset + 25));
-        for (const page of copiedPages) mergedPdf.addPage(page);
-        await yieldToMainThread(0);
+      const copiedPages = await mergedPdf.copyPages(pdf, pageIndices);
+      for (let pageIndex = 0; pageIndex < copiedPages.length; pageIndex++) {
+        mergedPdf.addPage(copiedPages[pageIndex]);
+        if (pageIndex % 25 === 24) await yieldToMainThread(0);
       }
     } catch (err) {
       throw new Error(formatMemoryErrorMessage(err, file.name));
@@ -909,6 +909,11 @@ export async function compressPdfFile(
   let streamData: Uint8Array | null = null;
   let streamSavedPercent = 0;
   try {
+    // Deep compression renders the source separately. Do not first load/save an
+    // entire second copy only to discard it, especially for large scanned PDFs.
+    if (grayscale || (mode !== 'lossless' && preset !== 'low')) {
+      throw new Error('Skip object optimization before deep rendering');
+    }
     if (typeof Worker !== 'undefined') {
       streamData = await runPdfBackground('optimize', [file]);
     } else {
@@ -931,8 +936,9 @@ export async function compressPdfFile(
     streamSavedPercent = originalSize > 0
       ? Math.max(0, Math.round(((originalSize - streamData.byteLength) / originalSize) * 100))
       : 0;
-  } catch {
-    // ignore
+  } catch (error) {
+    // A failed optimization must not silently start another full-document load.
+    if (!grayscale && (mode === 'lossless' || preset === 'low')) throw error;
   }
 
   // Fast stream compression return:
