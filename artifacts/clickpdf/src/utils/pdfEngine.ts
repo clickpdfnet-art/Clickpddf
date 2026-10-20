@@ -627,6 +627,69 @@ export async function organizePdfPages(file: File, newPageIndices: number[]): Pr
   );
 }
 
+/**
+ * Render each page of a PDF to a PNG Blob without retaining page canvases or base64 copies.
+ */
+export async function renderPdfPagesToPng(
+  pdfBytes: Uint8Array,
+  onPageRendered: (pageNumber: number, totalPages: number, image: Blob) => void | Promise<void>,
+  onProgress?: (pageNumber: number, totalPages: number) => void,
+  scale = 2
+): Promise<void> {
+  initPdfWorker();
+  let pdfDocument: any = null;
+
+  try {
+    const loadingTask = pdfjsLib.getDocument({
+      data: pdfBytes,
+      cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@6.4.299/cmaps/',
+      cMapPacked: true,
+    });
+    pdfDocument = await loadingTask.promise;
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) {
+      throw new Error('Canvas is unavailable, so PDF pages cannot be rendered as images.');
+    }
+
+    for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
+      const page = await pdfDocument.getPage(pageNumber);
+      const viewport = page.getViewport({ scale });
+      canvas.width = Math.ceil(viewport.width);
+      canvas.height = Math.ceil(viewport.height);
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      await page.render({
+        canvasContext: context,
+        viewport,
+      }).promise;
+
+      const image = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob((blob) => {
+          if (blob) resolve(blob);
+          else reject(new Error(`Could not encode PDF page ${pageNumber} as PNG.`));
+        }, 'image/png');
+      });
+
+      await onPageRendered(pageNumber, pdfDocument.numPages, image);
+      onProgress?.(pageNumber, pdfDocument.numPages);
+      page.cleanup();
+      canvas.width = 0;
+      canvas.height = 0;
+      if (pageNumber % 2 === 0) {
+        await yieldToMainThread(15);
+      }
+    }
+  } finally {
+    if (pdfDocument) {
+      try {
+        await pdfDocument.destroy();
+      } catch {}
+    }
+  }
+}
+
 export interface ImagesToPdfOptions {
   orientation: 'auto' | 'portrait' | 'landscape';
   pageSize?: 'a4' | 'letter' | 'original' | 'fit-image';

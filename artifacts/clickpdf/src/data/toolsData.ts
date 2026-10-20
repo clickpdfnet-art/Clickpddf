@@ -51,6 +51,18 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
     multiFile: true
   },
   {
+    id: 'pdf-to-image',
+    title: 'PDF to Image',
+    description: 'Convert PDF pages into clear PNG images, with page controls before export.',
+    extendedDescription: 'Select multiple PDFs, reorder, rotate, duplicate, or remove pages, then download all selected documents as PNG images in one ZIP file.',
+    category: 'convert',
+    iconName: 'Image',
+    badge: 'PDF to PNG',
+    accentColor: 'from-sky-500 to-indigo-600',
+    acceptedFileTypes: '.pdf,application/pdf',
+    multiFile: true
+  },
+  {
     id: 'rotate',
     title: 'Rotate PDF',
     description: 'Rotate individual pages or the entire document clockwise and counter-clockwise directly in your browser.',

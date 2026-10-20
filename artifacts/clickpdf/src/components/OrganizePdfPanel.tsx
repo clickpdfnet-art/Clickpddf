@@ -40,14 +40,28 @@ export interface OrganizePageCardItem {
   height: number;
 }
 
+export interface OrganizePageState {
+  pages: OrganizePageCardItem[];
+  deletedPages: OrganizePageCardItem[];
+}
+
 interface OrganizePdfPanelProps {
   file: File;
   allFiles?: File[];
   onSelectDifferentFile?: (file: File) => void;
-  onOrganizeComplete: (reorganizedData: Uint8Array, activePagesCount: number, details: string) => Promise<void>;
+  onOrganizeComplete: (
+    reorganizedData: Uint8Array,
+    activePagesCount: number,
+    details: string,
+    sourceFile: File,
+    pageItems: OrganizePageCardItem[]
+  ) => Promise<void>;
+  onPageStateChange?: (file: File, state: OrganizePageState) => void;
   isProcessing: boolean;
   onPreviewOriginal?: () => void;
   onReplaceFile?: () => void;
+  saveButtonLabel?: string;
+  skipPdfBuildOnSave?: boolean;
 }
 
 export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
@@ -55,11 +69,17 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
   allFiles = [],
   onSelectDifferentFile,
   onOrganizeComplete,
+  onPageStateChange,
   isProcessing,
   onPreviewOriginal,
   onReplaceFile,
+  saveButtonLabel,
+  skipPdfBuildOnSave = false,
 }) => {
   const { t } = useLanguage();
+  const actionLabel = saveButtonLabel || t.organizeSaveBtn;
+  const pageStateCacheRef = useRef<Map<File, OrganizePageState>>(new Map());
+  const activeFileRef = useRef<File | null>(null);
   const [pages, setPages] = useState<OrganizePageCardItem[]>([]);
   const [deletedPages, setDeletedPages] = useState<OrganizePageCardItem[]>([]);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -88,13 +108,30 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
   // Show/Hide deleted tray
   const [showDeletedDrawer, setShowDeletedDrawer] = useState<boolean>(false);
 
+  const switchDocument = (nextFile: File) => {
+    const state = { pages, deletedPages };
+    pageStateCacheRef.current.set(file, state);
+    onPageStateChange?.(file, state);
+    onSelectDifferentFile?.(nextFile);
+  };
+
+  useEffect(() => {
+    const activeFile = activeFileRef.current;
+    if (!activeFile) return;
+    const state = { pages, deletedPages };
+    pageStateCacheRef.current.set(activeFile, state);
+    onPageStateChange?.(activeFile, state);
+  }, [pages, deletedPages, onPageStateChange]);
+
   // Load PDF structure and render thumbnails
   useEffect(() => {
     let isCancelled = false;
+    const savedState = pageStateCacheRef.current.get(file);
+    activeFileRef.current = file;
     setIsLoadingPages(true);
     setError(null);
-    setPages([]);
-    setDeletedPages([]);
+    setPages(savedState?.pages ?? []);
+    setDeletedPages(savedState?.deletedPages ?? []);
     setSelectedIds(new Set());
     setThumbnails(new Map());
     setLastDeletedNotice(null);
@@ -110,7 +147,10 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
           width: p.width,
           height: p.height,
         }));
-        setPages(initialCards);
+        if (!savedState) {
+          setPages(initialCards);
+          setDeletedPages([]);
+        }
         setIsLoadingPages(false);
         setThumbProgress({ current: 0, total: info.pageCount });
 
@@ -438,9 +478,11 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
         rotationDelta: p.rotationDelta,
       }));
 
-      const outputBytes = await organizePdfPagesWithRotations(file, pageItems);
+      const outputBytes = skipPdfBuildOnSave
+        ? new Uint8Array()
+        : await organizePdfPagesWithRotations(file, pageItems);
       const detailsMsg = `Reorganized ${pages.length} pages (removed ${deletedPages.length}, custom rotations preserved).`;
-      await onOrganizeComplete(outputBytes, pages.length, detailsMsg);
+      await onOrganizeComplete(outputBytes, pages.length, detailsMsg, file, pages);
     } catch (err: any) {
       console.warn('Error saving reorganized PDF:', err);
       setError(err?.message || 'Failed to save reorganized PDF document.');
@@ -536,9 +578,9 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
               <button
                 key={`${f.name}-${idx}`}
                 type="button"
-                onClick={() => onSelectDifferentFile(f)}
+                onClick={() => switchDocument(f)}
                 className={`px-2.5 py-1 rounded-md text-xs font-medium truncate max-w-[200px] shrink-0 transition-all cursor-pointer ${
-                  f.name === file.name && f.size === file.size
+                  f === file
                     ? 'bg-teal-600 text-white shadow-xs'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`}
@@ -1011,7 +1053,7 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
           </div>
           <div>
             <div className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span>{t.organizeSaveBtn}</span>
+              <span>{actionLabel}</span>
               <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
                 {pages.length} Pages
               </span>
@@ -1047,7 +1089,7 @@ export const OrganizePdfPanel: React.FC<OrganizePdfPanelProps> = ({
               <>
                 <Download className="w-4 h-4" />
                 <span>
-                  {t.organizeSaveBtn} ({pages.length})
+                  {actionLabel} ({pages.length})
                 </span>
               </>
             )}
