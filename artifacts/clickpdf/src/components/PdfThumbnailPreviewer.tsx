@@ -15,7 +15,7 @@ import {
   AlertCircle,
   ExternalLink
 } from 'lucide-react';
-import * as pdfjsLib from 'pdfjs-dist';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { initPdfWorker } from '../utils/pdfWorkerSetup';
 import { readSafeArrayBuffer, formatMemoryErrorMessage } from '../utils/memoryManager';
 

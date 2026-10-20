@@ -18,8 +18,6 @@ import {
   downloadBlob,
   organizePdfPages,
   organizePdfPagesWithRotations,
-  getPdfPagesInfo,
-  renderPdfPagesToPng,
   inspectPdf,
   extractPdfMetadata,
   countPdfPages
@@ -61,6 +59,7 @@ import { MetadataEditorPanel } from './MetadataEditorPanel';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';
 import { ImagePageEditor, ImagePageItem } from './ImagePageEditor';
+import { exportPdfDocumentsAsImages } from '../utils/pdfImageExport';
 import { WatermarkPanel } from './WatermarkPanel';
 import { PageNumberPanel, PageNumberSettings } from './PageNumberPanel';
 import { PdfThumbnailPreviewer } from './PdfThumbnailPreviewer';
@@ -637,96 +636,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     setAutoDownloadSeconds(null);
     try {
       if (tool.id === 'pdf-to-image') {
-        const zip = new JSZip();
-        const usedFolderNames = new Set<string>();
-        const failures: string[] = [];
-        let processedDocumentCount = 0;
-        let convertedPageCount = 0;
-
-        for (let fileIndex = 0; fileIndex < files.length; fileIndex++) {
-          const source = files[fileIndex];
-          const savedState = organizePageStates.get(source);
-          let pageItems: OrganizePageCardItem[];
-
-          if (source === sourceFile) {
-            pageItems = activePageItems;
-          } else if (savedState) {
-            pageItems = savedState.pages;
-          } else {
-            const info = await getPdfPagesInfo(source);
-            pageItems = info.pages.map((page, index) => ({
-              id: `page-${index}-${source.lastModified}`,
-              originalIndex: index,
-              pageNumber: page.pageNumber,
-              rotationDelta: 0,
-              width: page.width,
-              height: page.height,
-            }));
-          }
-
-          if (pageItems.length === 0) {
-            failures.push(`${source.name}: no pages left to export`);
-            continue;
-          }
-
-          try {
-            setProcessingStatus(`Preparing ${source.name} (${fileIndex + 1} of ${files.length})...`);
-            const pageItemsForPdf = pageItems.map((page) => ({
-              originalIndex: page.originalIndex,
-              rotationDelta: page.rotationDelta,
-            }));
-            const outputPdf = await organizePdfPagesWithRotations(source, pageItemsForPdf);
-            const rawFolderName = source.name
-              .replace(/\.pdf$/i, '')
-              .replace(/[^a-zA-Z0-9._-]+/g, '_')
-              .slice(0, 80) || `document_${fileIndex + 1}`;
-            let folderName = rawFolderName;
-            let suffix = 2;
-            while (usedFolderNames.has(folderName)) {
-              folderName = `${rawFolderName}_${suffix++}`;
-            }
-            usedFolderNames.add(folderName);
-            const folder = zip.folder(folderName);
-            if (!folder) throw new Error(`Could not create an output folder for ${source.name}.`);
-
-            await renderPdfPagesToPng(
-              outputPdf,
-              (pageNumber, _totalPages, image) => {
-                folder.file(`page_${String(pageNumber).padStart(3, '0')}.png`, image);
-              },
-              (pageNumber, totalPages) => {
-                setProcessingStatus(`Rendering ${source.name}: page ${pageNumber} of ${totalPages}...`);
-              },
-              2
-            );
-            processedDocumentCount++;
-            convertedPageCount += pageItems.length;
-          } catch (documentError: any) {
-            failures.push(`${source.name}: ${documentError?.message || 'conversion failed'}`);
-          }
-          await yieldToMainThread(35);
-        }
-
-        if (processedDocumentCount === 0) {
-          throw new Error(`No PDF pages could be converted. ${failures.join('; ')}`);
-        }
-
-        setProcessingStatus('Packaging PNG images into one ZIP file...');
-        const zipBytes = await zip.generateAsync(
-          { type: 'uint8array', compression: 'STORE' },
-          (metadata) => setProcessingStatus(`Packaging PNG images: ${Math.round(metadata.percent)}%...`)
-        );
-        try {
-          confetti({ particleCount: 70, spread: 60, origin: { y: 0.8 } });
-        } catch {}
-        setSuccessResult({
-          data: zipBytes,
-          fileName: 'pdf_pages_as_images.zip',
-          details: `Converted ${convertedPageCount} pages from ${processedDocumentCount} PDF document(s) to PNG images. ${failures.length ? `Some documents were skipped: ${failures.join('; ')}` : 'All selected documents were included.'}`,
-        });
+        const states = new Map(organizePageStates);
+        states.set(sourceFile, { pages: activePageItems, deletedPages: [] });
+        const result = await exportPdfDocumentsAsImages(files, states, setProcessingStatus);
+        setSuccessResult(result);
         return;
       }
-
       const activeFile = sourceFile || organizeSelectedFile || files[0];
       try {
         confetti({
@@ -745,7 +660,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       });
     } catch (err: any) {
       console.warn('[ClickPDF Organize]', err);
-      setErrorMessage(err.message || `Failed to ${tool.id === 'pdf-to-image' ? 'convert PDF pages to images' : 'organize PDF pages'}.`);
+      setErrorMessage(err.message || 'Failed to organize PDF pages.');
     } finally {
       setIsProcessing(false);
     }
@@ -1079,36 +994,26 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           details = `Successfully compressed ${successCount} of ${files.length} PDF files separately! Reduced from ${(totalOrig / (1024 * 1024)).toFixed(1)} MB down to ${(totalNew / (1024 * 1024)).toFixed(1)} MB (${savedPercent}% saved across batch). ${failCount > 0 ? `(${failCount} file(s) exceeded browser memory and were skipped)` : ''}`;
         }
       } else if (tool.id === 'jpg-to-pdf') {
-        if (imagePages.length === 0) {
-          throw new Error('Keep at least one image page before converting to PDF.');
-        }
-        setProcessingStatus(`Converting ${imagePages.length} image page${imagePages.length > 1 ? 's' : ''} to PDF...`);
+        setProcessingStatus(`Converting ${files.length} image${files.length > 1 ? 's' : ''} to PDF...`);
+        if (!imagePages.length) throw new Error('Keep at least one image page before converting.');
         const basePdfData = await imagesToPdf(imagePages.map((page) => page.file), {
           orientation: imageOrientation,
           pageSize: imagePageSize,
           fit: imageFitMode,
           margin: imageMargin
         });
+        resultData = basePdfData;
         if (imagePages.some((page) => page.rotationDelta !== 0)) {
-          const basePdfFile = new File(
-            [new Blob([basePdfData as unknown as BlobPart], { type: 'application/pdf' })],
-            'image_pages.pdf',
-            { type: 'application/pdf' }
-          );
-          resultData = await organizePdfPagesWithRotations(
-            basePdfFile,
-            imagePages.map((page, index) => ({
-              originalIndex: index,
-              rotationDelta: page.rotationDelta,
-            }))
-          );
-        } else {
-          resultData = basePdfData;
+          const source = new File([basePdfData as unknown as BlobPart], 'images.pdf', { type: 'application/pdf' });
+          resultData = await organizePdfPagesWithRotations(source, imagePages.map((page, index) => ({
+            originalIndex: index,
+            rotationDelta: page.rotationDelta,
+          })));
         }
         const firstName = files[0]?.name ? files[0].name.replace(/\.[^/.]+$/, '') : 'images';
         outputName = imagePages.length === 1 ? `${firstName}.pdf` : `converted_images_${imagePages.length}_pages.pdf`;
         const sizeDesc = imagePageSize === 'fit-image' ? 'Original image dimensions' : imagePageSize.toUpperCase();
-        details = `Successfully converted ${imagePages.length} image page${imagePages.length > 1 ? 's' : ''} into a single downloadable PDF (${sizeDesc}, ${imageOrientation === 'auto' ? 'Auto orientation' : imageOrientation}, ${imageFitMode} mode, ${imageMargin}px margins).`;
+        details = `Converted ${imagePages.length} arranged image pages into one PDF (${sizeDesc}, ${imageOrientation}, ${imageFitMode}, ${imageMargin}px margins). Page copies, removals, and rotations are included.`;
       } else if (tool.id === 'rotate') {
         if (files.length === 1) {
           const primary = files[0];
@@ -2156,35 +2061,26 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           }}
         />
       ) : (tool.id === 'organize' || tool.id === 'pdf-to-image') && files.length > 0 && !successResult ? (
-        <>
-          {tool.id === 'pdf-to-image' && (
-            <div className="mt-4 rounded-xl border border-sky-200 bg-sky-50/70 p-3 text-xs text-sky-800 dark:border-sky-900 dark:bg-sky-950/30 dark:text-sky-200">
-              {language === 'ur'
-                ? 'ہر PDF کے صفحے ترتیب، گھمائیں، نقل کریں یا حذف کریں۔ تمام منتخب PDFs کی PNG تصاویر ایک ZIP میں ملیں گی۔'
-                : 'Reorder, rotate, duplicate, or delete pages in each PDF. PNG images from all selected PDFs will be saved in one ZIP.'}
-            </div>
-          )}
-          <OrganizePdfPanel
-            file={organizeSelectedFile || files[0]}
-            allFiles={files}
-            onSelectDifferentFile={(f) => setOrganizeSelectedFile(f)}
-            isProcessing={isProcessing}
-            onOrganizeComplete={handleOrganizeFromPanel}
-            onPageStateChange={handleOrganizerPageStateChange}
-            saveButtonLabel={tool.id === 'pdf-to-image'
-              ? (language === 'ur' ? 'PNG تصاویر بنائیں' : 'Convert to PNG images')
-              : undefined}
-            skipPdfBuildOnSave={tool.id === 'pdf-to-image'}
-            onPreviewOriginal={() => setPreviewFile(organizeSelectedFile || files[0])}
-            onReplaceFile={() => {
-              setFileItems([]);
-              setOrganizeSelectedFile(null);
-              setOrganizePageStates(new Map());
-              setSuccessResult(null);
-              setErrorMessage(null);
-            }}
-          />
-        </>
+        <OrganizePdfPanel
+          file={organizeSelectedFile || files[0]}
+          allFiles={files}
+          onSelectDifferentFile={(f) => setOrganizeSelectedFile(f)}
+          isProcessing={isProcessing}
+          onOrganizeComplete={handleOrganizeFromPanel}
+          onPageStateChange={handleOrganizerPageStateChange}
+          saveButtonLabel={tool.id === 'pdf-to-image'
+            ? (language === 'ur' ? 'تمام PDFs کی PNG تصاویر بنائیں' : 'Export all PDFs as PNG images')
+            : undefined}
+          skipPdfBuildOnSave={tool.id === 'pdf-to-image'}
+          onPreviewOriginal={() => setPreviewFile(organizeSelectedFile || files[0])}
+          onReplaceFile={() => {
+            setFileItems([]);
+            setOrganizeSelectedFile(null);
+            setOrganizePageStates(new Map());
+            setSuccessResult(null);
+            setErrorMessage(null);
+          }}
+        />
       ) : (
         <>
           {/* Upload drop zone - Disappears as soon as any files are selected/dropped */}
@@ -2629,7 +2525,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               <div className="flex items-center gap-2 p-3 bg-cyan-50/70 dark:bg-cyan-950/40 rounded-xl border border-cyan-200/60 dark:border-cyan-800/40 text-cyan-800 dark:text-cyan-200">
                 <ImageIcon className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400" />
                 <p className="text-[11px] leading-relaxed">
-                  Converts <strong>{imagePages.length}</strong> image page{imagePages.length > 1 ? 's' : ''} directly into one PDF. Use the page editor below to reorder, rotate, copy, or remove pages. Processed in your browser.
+                  Converts <strong>{imagePages.length}</strong> arranged image pages into one PDF. Use the page editor to rotate, reorder, copy, delete, or restore pages. Files stay in your browser.
                 </p>
               </div>
 
@@ -3230,7 +3126,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             <button
               type="button"
               onClick={handleProcess}
-              disabled={isProcessing}
+              disabled={isProcessing || (tool.id === 'jpg-to-pdf' && imagePages.length === 0)}
               className={`inline-flex items-center gap-2 px-6 py-2.5 max-w-full ${
                 tool.id === 'protect'
                   ? 'bg-rose-600 hover:bg-rose-700'
@@ -3315,6 +3211,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   ? 'Convert Excel to PDF'
                   : tool.id === 'powerpoint-to-pdf'
                   ? 'Convert PowerPoint to PDF'
+                  : tool.id === 'jpg-to-pdf'
+                  ? 'Convert image pages to PDF'
                   : `${t.processBtn}`}
               </span>
             </button>

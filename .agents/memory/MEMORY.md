@@ -1,1 +1,2 @@
 - [ClickPDF large-file and batch expectations](clickpdf-large-file-support.md) — keep multi-file work in the selected tool and be clear that large-file success depends on device memory.
+- [PDF.js browser compatibility](pdfjs-browser-compatibility.md) — use matching browser-compatible API and worker builds; a passing build does not prove PDF rendering works.

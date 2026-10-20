@@ -87,6 +87,8 @@ const ImagePageCard: React.FC<ImagePageCardProps> = ({
           <img
             src={previewUrl}
             alt={page.file.name}
+            loading="lazy"
+            decoding="async"
             className="max-h-full max-w-full object-contain transition-transform"
             style={{ transform: `rotate(${page.rotationDelta}deg)` }}
           />
