@@ -62,6 +62,7 @@ import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
 import { MetadataEditorPanel, MetadataFormValues } from './MetadataEditorPanel';
 import { PdfTextWorkspace } from './PdfTextWorkspace';
+import { PdfExcelWorkspace } from './PdfExcelWorkspace';
 import { convertAdvancedPdfToWord } from '../utils/pdfWordConverter';
 import { DEFAULT_PDF_WORD_OPTIONS, PdfWordOptions } from '../utils/pdfWordTypes';
 import { PdfWordOptionsPanel } from './PdfWordOptionsPanel';
@@ -2122,6 +2123,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   // Isolated text-tool implementation; all other tools retain their existing paths.
   if (tool.id === 'pdf-to-text') {
     return <PdfTextWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />;
+  }
+  // Only PDF to Excel uses this isolated implementation; no other tool paths change.
+  if (tool.id === 'pdf-to-excel') {
+    return <PdfExcelWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />;
   }
 
   if (plugin) {

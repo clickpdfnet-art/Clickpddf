@@ -1,0 +1,143 @@
+Upgrade and Fully Implement PDF to Excel Tool
+
+Act as a senior frontend engineer specializing in PDF extraction, spreadsheet generation, OCR, and browser-based document conversion.
+
+I have an existing website with a PDF to Excel tool. Inspect the current project and fully implement this tool so users can convert PDF documents into editable Excel spreadsheets (.xlsx).
+
+CRITICAL: This is a targeted improvement to the existing PDF to Excel tool. Do not redesign the entire website or modify unrelated tools.
+
+1. PDF to Excel Conversion
+
+Implement real PDF-to-Excel functionality, not just a UI or placeholder.
+
+- Extract tables and structured data from PDF files.
+- Preserve rows, columns, cell values, and table structure as accurately as possible.
+- Maintain numerical values, decimal points, percentages, dates, currency values, and negative numbers.
+- Preserve column headings, row labels, and empty cells where detectable.
+- Keep multiple tables separate when they represent different sections.
+- Support multi-page PDFs and combine continued tables across pages when their structure matches.
+- Preserve the original reading order.
+- Generate actual, editable Excel workbooks in ".xlsx" format.
+
+Use appropriate browser-compatible libraries, such as PDF.js for PDF text extraction and SheetJS for Excel workbook generation. Choose an appropriate table-detection approach and reuse existing project dependencies where possible.
+
+2. Multiple Conversion Modes
+
+Provide these conversion options where technically feasible:
+
+Mode A: Extract Tables
+
+- Extract detected tables into editable Excel cells.
+- Place separate tables into separate worksheets when appropriate.
+- Name worksheets meaningfully, such as "Table 1", "Table 2", and "Table 3".
+
+Mode B: Extract All Text
+
+- Extract non-tabular text from the PDF.
+- Organize headings, paragraphs, and text lines into spreadsheet rows.
+- Keep the original page number in an additional column when feasible.
+
+Mode C: Scanned PDF / OCR
+
+- Detect pages that contain images instead of selectable text.
+- Use browser-based OCR, such as Tesseract.js, when supported.
+- Support multiple OCR languages only when the corresponding language data is available.
+- Attempt table reconstruction from OCR results where feasible.
+- Clearly warn users when scanned tables cannot be reconstructed reliably.
+
+Do not promise perfect table reconstruction for every PDF.
+
+3. Excel Formatting
+
+Preserve formatting where technically possible:
+
+- Column headers and row labels.
+- Bold headings and basic font styling.
+- Column order and approximate column widths.
+- Number formats, dates, currency, and percentages.
+- Cell alignment and basic table structure.
+- Worksheet names and page-based grouping when useful.
+
+Do not insert an entire PDF page as a picture instead of producing editable spreadsheet cells.
+
+If a PDF contains charts, logos, or decorative graphics, prioritize extracting the underlying data into Excel. Preserve graphics only where practical and useful.
+
+4. Multi-File Upload and Batch Processing
+
+Follow the same upload interface and behavior as the other working tools on my website.
+
+- Support drag-and-drop and multiple PDF file selection.
+- Display each uploaded file in an individual file card.
+- Show file name, file size, processing status, and progress.
+- Allow users to remove individual files or clear the entire queue.
+- Process multiple files in one batch.
+- Generate a separate Excel workbook for each PDF by default.
+- Never mix the contents of different PDF files into one workbook unless the user explicitly chooses a merge option.
+- Allow successful files to finish even if another file fails.
+
+5. Download and Export Options
+
+Implement working buttons for:
+
+- Convert to Excel
+- Download Excel (.xlsx)
+- Download All as ZIP for batch processing, where appropriate
+- Preview extracted tables before downloading
+- Copy extracted table data, where feasible
+
+Do not display download buttons for files that have not been successfully converted.
+
+Ensure every button performs its advertised action and generates a valid output file.
+
+6. Excel Preview
+
+After conversion:
+
+- Display extracted tables in a readable preview.
+- Show worksheet names and row/column counts.
+- Let users inspect the extracted data before downloading.
+- Clearly identify pages or tables where extraction may be incomplete.
+- Handle large tables without freezing the interface.
+
+7. Preserve Existing Website Design
+
+Before coding, inspect the existing working tools and reuse their design patterns.
+
+- Match the existing branding, colors, typography, spacing, cards, buttons, upload area, progress indicators, and download interface.
+- Maintain the same mobile and desktop responsive behavior.
+- Do not create an unrelated or visually inconsistent interface.
+- Reuse existing shared components without changing their behavior for other tools.
+
+8. Browser-Based Privacy
+
+- Keep PDF processing client-side in the browser wherever feasible.
+- Do not upload user documents to a server.
+- Avoid unnecessary external API calls.
+- Handle large files and memory usage carefully.
+- Provide clear errors for corrupted, encrypted, unsupported, or excessively large PDFs.
+
+9. Protect Other Tools
+
+- Modify only the PDF to Excel tool and its dedicated components wherever possible.
+- Do not change other tools, global CSS, shared settings, navigation, header, footer, or routing unnecessarily.
+- Do not remove existing working functionality.
+- Avoid changing dependency versions unless essential.
+- Ensure any required shared changes remain backward-compatible.
+
+10. Testing and Completion
+
+Test the implementation with:
+
+1. A text-based PDF containing a simple table.
+2. A multi-page PDF containing a continued table.
+3. A PDF containing multiple separate tables.
+4. A scanned PDF requiring OCR.
+5. A PDF containing dates, percentages, and currency values.
+6. Multiple PDFs uploaded together.
+7. A PDF with no detectable tables.
+
+Verify that the generated ".xlsx" files open correctly in Microsoft Excel and compatible spreadsheet applications.
+
+Do not claim that conversion is successful unless a valid workbook has actually been generated. Report any limitations honestly.
+
+Final requirement: Deliver a fully functional PDF to Excel tool that matches the existing website, produces editable Excel cells, supports batch conversion, and does not break any other tools.

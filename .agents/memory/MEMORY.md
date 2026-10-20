@@ -1,5 +1,6 @@
 - [ClickPDF large-file and batch expectations](clickpdf-large-file-support.md) — keep multi-file work in the selected tool and be clear that large-file success depends on device memory.
 - [PDF.js browser compatibility](pdfjs-browser-compatibility.md) — use matching browser-compatible API and worker builds; a passing build does not prove PDF rendering works.
+- [Spreadsheet browser compatibility](spreadsheet-browser-compatibility.md) — use namespace SheetJS imports; Node workbook tests do not prove Vite browser compatibility.
 - [Read-only PDF metadata](pdf-metadata-inspection.md) — disable pdf-lib metadata updates during inspection to avoid false Producer and modification-date values.
 - [Targeted tool repairs](tool-repair-isolation.md) — isolate the named tool; protect all unrelated tools and shared website functionality.
 - [PDF to Word fidelity](pdf-word-fidelity.md) — editable defaults, explicit image fallback, honest preview limits, and DOCX textbox schema checks.
