@@ -130,7 +130,7 @@ try {
 
   const frameTree = await send('Page.getFrameTree');
   const findAdFrame = node => {
-    if (node.frame?.url === 'about:srcdoc') return node.frame;
+    if (node.frame?.url === 'about:srcdoc' || node.frame?.url === 'about:blank') return node.frame;
     for (const child of node.childFrames || []) {
       const found = findAdFrame(child);
       if (found) return found;
@@ -138,6 +138,7 @@ try {
     return null;
   };
   const adFrame = findAdFrame(frameTree.frameTree);
+  if (!adFrame) console.log('Frame tree during ad test:', JSON.stringify(frameTree.frameTree));
   assert.ok(adFrame, 'isolated provider document should be a child frame');
   const isolatedWorld = await send('Page.createIsolatedWorld', { frameId: adFrame.id, worldName: 'ad-fill-test' });
   await send('Runtime.evaluate', {
