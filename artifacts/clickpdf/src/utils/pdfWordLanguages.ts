@@ -2,7 +2,7 @@ export interface WordLanguage {
   id: string; name: string; nativeName: string; direction: 'rtl' | 'ltr';
   extraction: 'Unicode text layer required'; modelId: string;
   modelVersion: 'tessdata-4.0.0'; availability: 'downloadable-not-bundled';
-  ocrTest: 'not-verified' | 'chromium-fixture'; textTest: 'not-verified';
+  ocrTest: 'not-verified' | 'chromium-fixture' | 'firefox-fixture' | 'font-sensitive'; textTest: 'not-verified';
   estimatedMB: number; limitations: string;
 }
 const rows: [string, string, string, 'rtl' | 'ltr', number][] = [
@@ -16,11 +16,18 @@ const rows: [string, string, string, 'rtl' | 'ltr', number][] = [
   ['fas', 'Persian', 'فارسی', 'rtl', 3], ['ita', 'Italian', 'Italiano', 'ltr', 8],
   ['nld', 'Dutch', 'Nederlands', 'ltr', 9]
 ];
+const ocrFixtures: Record<string, { status: WordLanguage['ocrTest']; note: string }> = {
+  eng: { status: 'chromium-fixture', note: 'One synthetic Chromium scan; Tesseract reported 94% confidence.' },
+  urd: { status: 'font-sensitive', note: 'Synthetic Urdu scans varied strongly by typeface: Naskh reported 90%; Nastaliq 40% (68% with urd+ara). Review the recognized output.' },
+  jpn: { status: 'firefox-fixture', note: 'One synthetic Noto CJK page in Firefox 140; reported confidence 91%, with character grouping to review.' },
+  ara: { status: 'firefox-fixture', note: 'One synthetic Arabic page in Firefox 140; reported confidence 82%. Review punctuation and ligatures.' },
+  ben: { status: 'firefox-fixture', note: 'One synthetic Bengali page in Firefox 140; reported confidence 71%. Review numerals and signs.' }
+};
 export const WORD_LANGUAGES: WordLanguage[] = rows.map(([id, name, nativeName, direction, estimatedMB]) => ({
   id, name, nativeName, direction, estimatedMB, extraction: 'Unicode text layer required',
   modelId: id, modelVersion: 'tessdata-4.0.0', availability: 'downloadable-not-bundled',
-  ocrTest: 'not-verified', textTest: 'not-verified',
-  limitations: 'Model availability is checked when selected; configuration is not a verified accuracy claim. Embedded fonts are not portable; review OCR, punctuation and combining marks.'
+  ocrTest: ocrFixtures[id]?.status || 'not-verified', textTest: 'not-verified',
+  limitations: `${ocrFixtures[id]?.note || 'No scanned accuracy fixture has been tested for this language.'} Embedded fonts are not portable; review OCR, punctuation and combining marks.`
 }));
 export const WORD_MODEL_BASE = 'https://tessdata.projectnaptha.com/4.0.0';
 export function wordModelUrl(id: string) {
@@ -93,11 +100,12 @@ export function wordLanguageSupportText() {
     'Selected OCR model files may be kept in local browser storage for reuse; PDF content and rendered page images are never cached. Private mode/quota may force a fresh model download. Model sizes are estimates.',
     'Worker and baseline LSTM WebAssembly core: bundled same-origin assets, one worker at a time.',
     'Automatic detection is a bounded script suggestion, never an automatic model switch. Scans require manual models.',
-    'Every language combination is unverified unless explicitly documented. Mixed models can reduce accuracy and increase RAM use.',
+    'OCR fixture confidence is the engine-reported score, not measured character/word accuracy. Synthetic printed text does not certify real PDFs. Mixed models can reduce accuracy and increase RAM use.',
     ...WORD_LANGUAGES.map(entry => `${entry.name} (${entry.id}) | ${entry.direction} | text: ${entry.textTest} | OCR: ${entry.ocrTest} | ${entry.availability} | ${entry.modelVersion} | ~${entry.estimatedMB} MB | ${entry.limitations}`),
-    'Chrome / Edge: browser capabilities are feature-detected; successful conversion on one Chromium build is not a certification of every release.',
-    'Firefox / Safari: feature-detected but not verified in their native browser engines here.',
-    'Safari: memory pressure, storage eviction/private mode, download prompts and worker/CSP restrictions can limit jobs.',
+    'Chromium: English multi-file/text/scan fixture and ZIP conversion passed; one synthetic scanned English page reported 94% confidence.',
+    'Firefox 140.0.4 on Linux: a four-page scanned PDF completed as DOCX with per-page Urdu, Japanese, Arabic and Bengali models. This is one E2E fixture, not certification of every Firefox release.',
+    'Safari: native Safari was not tested. The available WebKitGTK 2.50.4 MiniBrowser could not launch because this Linux runner could not create an EGL display; this is not a Safari result.',
+    'Safari-specific memory pressure, storage eviction/private mode, download prompts and worker/CSP behavior remain unverified.',
     'No File System Access API or Cache API is required. IndexedDB model caching is optional; storage failure falls back to downloading into worker memory.',
     'No native Word/LibreOffice layout comparison has been performed. Font availability depends on the receiving device.'
   ].join('\n');

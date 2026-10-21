@@ -18,7 +18,7 @@ test('OCR registry is unique, explicit about external models, and never marks un
   assert.equal(WORD_LANGUAGES.length, 17);
   assert.equal(new Set(WORD_LANGUAGES.map(entry => entry.id)).size, 17);
   for (const entry of WORD_LANGUAGES) {
-    assert.equal(entry.ocrTest, 'not-verified');
+    assert.equal(entry.ocrTest, ({ eng: 'chromium-fixture', urd: 'font-sensitive', jpn: 'firefox-fixture', ara: 'firefox-fixture', ben: 'firefox-fixture' }[entry.id] || 'not-verified'));
     assert.equal(entry.textTest, 'not-verified');
     assert.equal(entry.availability, 'downloadable-not-bundled');
     assert.equal(new URL(wordModelUrl(entry.id)).protocol, 'https:');

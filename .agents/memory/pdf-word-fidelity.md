@@ -20,3 +20,9 @@ Tesseract.js 7 can load preloaded model-byte objects but misinterpret their byte
 **Why:** Browser batch conversion looked successful for selectable-text PDFs but left the scanned page waiting at API initialization when model bytes were passed as object payloads.
 
 **How to apply:** Test at least one raster-only page end to end through the bundled browser worker, OCR model fetch, recognition, DOCX, and ZIP. Verify recognized text and page-level OCR status rather than only worker progress or a generated ZIP.
+
+Browser test evidence is engine- and version-specific. A completed Firefox run does not establish native Safari behavior; WebKitGTK is a related but separate product.
+
+**Why:** The Linux test host completed PDF-to-Word in Firefox 140, but WebKitGTK's MiniBrowser could not launch because the headless test environment lacked a usable EGL display.
+
+**How to apply:** Report the exact tested engine/version, keep Safari marked unverified until a native Safari run succeeds, and distinguish engine-reported OCR confidence from measured text accuracy.
