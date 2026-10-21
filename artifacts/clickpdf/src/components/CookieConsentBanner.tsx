@@ -6,6 +6,7 @@ interface CookieConsentBannerProps {
 }
 
 const COOKIE_CONSENT_KEY = 'clickpdf_cookie_consent_v1';
+const CONSENT_CHANGED_EVENT = 'clickpdf-cookie-consent-change';
 
 export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpenCookiesPolicy }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,6 +31,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
     try {
       localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
     } catch {}
+    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
     setIsVisible(false);
   };
 
@@ -37,6 +39,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
     try {
       localStorage.setItem(COOKIE_CONSENT_KEY, 'dismissed');
     } catch {}
+    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
     setIsVisible(false);
   };
 

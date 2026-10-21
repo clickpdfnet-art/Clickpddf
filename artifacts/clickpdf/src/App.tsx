@@ -12,6 +12,7 @@ import { MobileDrawer } from './components/MobileDrawer';
 import { ToolGrid } from './components/ToolGrid';
 import { ToolWorkspace } from './components/ToolWorkspace';
 import { SignPdfWorkspace } from './components/SignPdfWorkspace';
+import { ToolPageBannerAd } from './components/ToolPageBannerAd';
 import { BlogSection } from './components/BlogSection';
 import { FeaturesSection } from './components/FeaturesSection';
 import { FaqSection } from './components/FaqSection';
@@ -511,6 +512,7 @@ function AppContent() {
 
       {/* Main Viewport Content */}
       <main className="flex-1">
+        {activeView === 'tool' && selectedTool && <ToolPageBannerAd />}
         {activeView === 'tool' && selectedTool ? (
           <ErrorBoundary fallbackTitle="PDF Workspace Protected" onReset={handleBackToHome}>
             {selectedTool.id === 'sign' ? (
