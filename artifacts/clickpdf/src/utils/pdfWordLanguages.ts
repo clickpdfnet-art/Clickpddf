@@ -89,8 +89,8 @@ export function wordLanguageSupportText() {
   return [
     'ClickPDF PDF to Word — actual support registry',
     'Selectable text: PDF Unicode mappings required; never reverse Unicode strings.',
-    'OCR: models fetched on demand from the configured external model host. The host can see the model request and normal network metadata, never PDF content.',
-    'Model sizes below are estimates, not verified Content-Length. Downloads show observed bytes.',
+    'OCR: the selected traineddata model is fetched on demand from the configured external model host. The host can see its model request and normal network metadata, never PDF content.',
+    'OCR model bytes are kept in worker memory; this tool disables persistent model caching. Model sizes are estimates, not verified Content-Length.',
     'Worker and baseline LSTM WebAssembly core: bundled same-origin assets, one worker at a time.',
     'Automatic detection is a bounded script suggestion, never an automatic model switch. Scans require manual models.',
     'Every language combination is unverified unless explicitly documented. Mixed models can reduce accuracy and increase RAM use.',
