@@ -255,7 +255,7 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'sign',
     title: 'Sign PDF',
-    description: 'Draw or stamp your digital signature onto legal agreements and forms.',
+    description: 'Draw, type, or stamp a visual signature onto PDF pages in your browser.',
     extendedDescription: 'Sign digital contracts and agreements by drawing your handwritten signature on canvas or typing your name with smooth vector stamp placement.',
     category: 'edit',
     iconName: 'PenTool',

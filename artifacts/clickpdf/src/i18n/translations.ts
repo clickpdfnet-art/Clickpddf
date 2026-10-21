@@ -1486,8 +1486,8 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     vi: { title: 'PDF sang Văn bản', description: 'Trích xuất văn bản thuần và nội dung có thể đọc từ tài liệu PDF của bạn.' },
   },
   sign: {
-    en: { title: 'Sign PDF', description: 'Draw or stamp your digital signature onto legal agreements and forms.' },
-    ur: { title: 'PDF پر دستخط کریں', description: 'قانونی معاہدوں اور فارمز پر ڈیجیٹل دستخط کھینچیں یا مہر لگائیں۔' },
+    en: { title: 'Sign PDF', description: 'Draw, type, or upload a visual signature mark onto PDF pages in your browser.' },
+    ur: { title: 'PDF پر دستخط کریں', description: 'اپنے براؤزر میں PDF صفحات پر دستخط کا ظاہری نشان بنائیں، لکھیں یا PNG تصویر لگائیں۔' },
     hi: { title: 'PDF पर हस्ताक्षर करें', description: 'दस्तावेजों और फॉर्म पर अपना डिजिटल हस्ताक्षर बनाएं या जोड़ें।' },
     ar: { title: 'توقيع PDF', description: 'رسم أو وضع توقيعك الرقمي على الاتفاقيات القانونية والنماذج.' },
     zh: { title: '签署 PDF', description: '在合同和表单上手绘签名或输入数字图章。' },

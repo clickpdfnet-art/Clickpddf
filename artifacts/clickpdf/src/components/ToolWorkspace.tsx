@@ -2226,7 +2226,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       </div>
 
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
-      {['sign', 'crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) && (
+      {['crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) && (
         <div role="alert" className="mb-5 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-800 dark:text-amber-200">
           {language === 'ur'
             ? 'اس ٹول کا اصل processing انجن موجودہ ایپ میں مکمل نہیں ہے۔ فائلیں منتخب ہو سکتی ہیں، مگر درست نتیجہ ابھی نہیں بنایا جا سکتا۔ پہلے یہ ٹول اصل کام کے بجائے صرف پہلی فائل compress کر رہا تھا؛ اب غلط کامیابی نہیں دکھائی جائے گی۔'

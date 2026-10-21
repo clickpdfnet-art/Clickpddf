@@ -1,0 +1,208 @@
+ClickPDF — Sign PDF: Complete Professional Implementation
+
+Act as a senior frontend engineer and PDF-processing specialist. Complete the existing Sign PDF tool in my ClickPDF website to a professional, production-ready standard.
+
+1. First Inspect the Existing Project
+
+Before writing or changing code:
+
+- Inspect the existing Sign PDF page, routing, components, file upload flow, dependencies, styling, and project structure.
+- Identify exactly why the current page displays this warning: “This tool’s processing engine is not implemented in the current app.”
+- Check whether a previous implementation exists and whether any working PDF-processing code can be reused.
+- Do not simply hide the warning or replace it with a success message.
+- Do not rewrite the entire website or replace the existing design system.
+- Implement the actual functionality inside the existing application architecture.
+
+2. Implement the Real PDF Signing Engine
+
+Use a compatible, browser-based PDF library such as "pdf-lib" to embed signatures into the original PDF.
+
+The tool must genuinely modify the PDF document and generate a valid downloadable PDF. A signature that appears only in the browser preview is not sufficient.
+
+The user must be able to:
+
+- Select one or multiple PDF files.
+- See the selected file names, sizes, page counts, and processing status.
+- Open a selected PDF in an interactive signing workspace.
+- Preview the actual PDF pages.
+- Navigate between pages, zoom in and out, fit the page to the workspace, and select a target page.
+- Place one or more signatures on the selected page.
+- Move, resize, rotate, replace, or remove a signature before applying the final output.
+- Apply signatures to selected pages or repeat a signature across specified pages.
+- Preview the final result and download the signed PDF.
+
+Keep the original document content intact as far as the chosen PDF library permits. Do not flatten or rasterize every page merely to add a signature.
+
+3. Provide Three Signature Creation Methods
+
+A. Draw Signature
+
+- Provide a clean signature drawing canvas.
+- Support touch, finger, mouse, and stylus input.
+- Use Pointer Events or an equivalent compatible input implementation.
+- Support pen color, stroke thickness, clear, undo where practical, and redraw.
+- Produce a clean PNG with a transparent background and appropriate cropping.
+- Prevent scrolling and accidental page movement while the user is actively drawing, without disabling normal page scrolling everywhere.
+
+B. Type Signature
+
+- Allow the user to type their name.
+- Provide a selection of suitable signature-style fonts that are actually bundled or reliably available.
+- Preview the selected style before applying it.
+- Generate an image or vector representation suitable for embedding into the PDF.
+- Do not claim that typed text is a verified identity or a certificate-backed digital signature.
+
+C. Upload Signature
+
+- Accept supported PNG images, including transparent PNGs.
+- Validate file type, file size, and image dimensions.
+- Show a preview and allow resizing and positioning.
+- Handle unsupported formats and corrupted images with a clear error.
+- Do not silently accept an image that cannot be embedded correctly.
+
+4. Accurate Placement on the PDF
+
+Implement accurate coordinate conversion between the visible page and the PDF's internal coordinate system.
+
+- Signature placement must remain correct when the page is zoomed, resized, scrolled, or displayed on a mobile screen.
+- Account for the actual PDF page dimensions, page rotation, crop box, and relevant page coordinate offsets.
+- Handle portrait and landscape pages.
+- Preserve signature proportions while resizing.
+- Keep signatures within the visible page boundaries unless the user deliberately chooses otherwise.
+- Support moving and removing signatures before finalization.
+- Do not use fixed screen-pixel positions as PDF coordinates.
+- Verify placement by rendering the generated PDF again and comparing the signature position with the intended location.
+
+5. Professional Editor Interface
+
+Use the existing ClickPDF UI components, colors, typography, spacing, buttons, upload area, navigation, and responsive layout.
+
+Create a clear workflow:
+
+1. Upload PDF.
+2. Select or create a signature.
+3. Choose the target page.
+4. Place and adjust the signature.
+5. Preview the result.
+6. Download the signed PDF.
+
+Include:
+
+- A PDF preview workspace.
+- Page thumbnails or a page navigator.
+- Previous and next page controls.
+- Zoom controls.
+- A signature toolbar.
+- Clear selection states and visible controls for moving, resizing, rotating, and deleting the selected signature.
+- Undo and redo where practical.
+- A reset action with confirmation when it would discard work.
+- A processing indicator and clear success or error messages.
+- A disabled download button until a valid output is ready.
+- A “Start Over” action that resets the current document safely.
+
+Make the interface usable on mobile, tablet, and desktop. On mobile, the PDF preview and signature controls must remain accessible without horizontal overflow or overlapping buttons.
+
+6. Multiple Files and Downloads
+
+Support selecting multiple PDF files without mixing their contents.
+
+- Provide a file list with per-file status.
+- Allow the user to open and sign each file independently.
+- Keep each document's signature placement and settings separate.
+- Generate one signed PDF per input file.
+- For multiple outputs, offer individual download buttons and a ZIP download when appropriate.
+- Use the original file name with a clear suffix such as "-signed.pdf".
+- Never silently process only the first selected file.
+- Never produce an empty, unchanged, incorrectly formatted, or fake output while showing success.
+
+If a particular batch operation cannot be completed, report that limitation clearly and retain access to successfully completed outputs.
+
+7. Browser-Only Privacy
+
+All PDF processing must remain in the browser wherever technically feasible.
+
+- Do not upload PDFs, signature images, typed names, or document contents to a backend.
+- Do not introduce an API key or paid conversion service.
+- Keep processing within the existing client-side architecture.
+- Use compatible PDF libraries and correctly configured workers or assets where required.
+- Use browser Blob downloads and revoke temporary object URLs when no longer needed.
+- Release document buffers, canvases, and temporary signature data when the document is closed.
+- Do not store signatures or document contents persistently without an explicit user action and a clear explanation.
+- If the existing project has analytics or logging, ensure that it does not transmit document contents or signatures.
+
+The privacy label must accurately describe the actual implementation, not make an unsupported claim.
+
+8. Robust Error Handling
+
+Handle at least these cases:
+
+- Invalid or non-PDF files.
+- Corrupted or malformed PDFs.
+- Password-protected or encrypted PDFs that the selected library cannot process.
+- PDFs with unusual page rotations or crop boxes.
+- Unsupported embedded image formats.
+- Large documents and browser memory limitations.
+- Failed PDF rendering or PDF serialization.
+- Cancelled processing.
+- Failed downloads or unavailable browser APIs.
+
+Show a useful, user-readable error for each case. Do not silently substitute another tool's functionality, compress the PDF, or download the original file under the name of a signed file.
+
+If an unsupported PDF cannot be processed, explain the limitation and preserve the original file.
+
+9. Compatibility and Accessibility
+
+Test current versions of Chrome, Edge, Firefox, and Safari, including mobile browsers where available.
+
+- Use feature detection rather than relying only on browser names.
+- Ensure touch and mouse interactions work.
+- Provide accessible button labels, keyboard focus states, and readable error messages.
+- Ensure that controls have sufficient contrast and that the interface works at common mobile screen widths.
+- Document any genuine browser-specific limitations.
+
+Do not claim universal browser compatibility without testing.
+
+10. Testing and Acceptance Criteria
+
+Do not consider this task complete until the following checks pass:
+
+1. A user can select a real PDF and view its pages.
+2. A user can draw a signature using a mouse and a touch screen.
+3. A user can type a name and create a signature using an available font.
+4. A user can upload a supported signature image.
+5. A signature can be moved, resized, rotated, and removed before finalization.
+6. A signature can be placed accurately on the first, middle, and last pages of a multi-page PDF.
+7. Placement remains correct on rotated and landscape pages and after changing the preview zoom.
+8. The downloaded file opens in a standard PDF viewer.
+9. The signature remains visible in the downloaded PDF after closing and reopening it.
+10. Original text, images, page count, and layout remain intact as far as the library permits.
+11. Multiple selected files produce separate, correctly named outputs.
+12. Errors do not result in fake success messages or misleading downloads.
+13. The tool remains responsive and does not freeze the entire interface during ordinary processing.
+14. The privacy behavior matches the actual code.
+15. The browser compatibility and mobile layout are verified.
+
+Use automated tests where practical and manually test real PDF fixtures, including a multi-page PDF and a rotated-page PDF. Do not mark a test as passed unless it has actually been executed.
+
+11. Protect the Rest of ClickPDF
+
+- Make changes only to the Sign PDF feature and dependencies that it genuinely requires.
+- Reuse shared components rather than duplicating or replacing the site's global UI.
+- Do not change other PDF tools, shared upload flows, navigation, header, footer, SEO content, language settings, theme, or routing unless a specific change is strictly necessary.
+- Do not introduce global CSS rules that break other tool screens.
+- Do not remove existing features or replace working functionality with placeholders.
+- Run the available build, lint, and test commands after implementation.
+- Fix regressions caused by this change.
+
+12. Final Delivery Report
+
+After implementation, provide a concise report identifying:
+
+- The original cause of the unimplemented-engine warning.
+- The files and components changed.
+- The PDF library used and how signatures are embedded.
+- The supported signature formats and placement options.
+- The browsers and test cases actually verified.
+- Any remaining limitations.
+
+Final requirement: Deliver a genuinely working, browser-based Sign PDF tool with real PDF signature embedding, precise placement, responsive controls, reliable downloads, and no regressions to other ClickPDF tools. Do not stop after building the interface. Implement, test, and verify the complete workflow.

@@ -824,16 +824,16 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'sign-pdf-online',
     toolId: 'sign',
     aliases: ['sign', 'digital-signature', 'draw-signature', 'e-sign-pdf'],
-    h1Title: 'Sign PDF Online — Draw & Add Digital Signatures Free',
-    metaTitle: 'Sign PDF Online Free – Draw & Add Signatures in Browser | ClickPDF',
-    metaDescription: 'Sign PDF documents online for free. Draw your handwritten signature or type a vector stamp in your browser with zero server uploads and complete privacy.',
-    keywords: 'sign pdf online free, digital signature pdf, draw signature on pdf, sign documents in browser, client side e-sign',
+    h1Title: 'Add a Visual Signature to PDF — Draw, Type or Upload',
+    metaTitle: 'Add a Signature to PDF in Your Browser | ClickPDF',
+    metaDescription: 'Draw, type, or upload a visual signature mark and embed it into PDF pages in your browser. Files and signature images stay on your device.',
+    keywords: 'sign pdf online free, signature mark pdf, draw signature on pdf, sign documents in browser, client side e-sign',
     targetKeywords: ['sign pdf online', 'sign pdf free', 'draw signature pdf', 'e-sign pdf'],
-    badge: 'Vector Canvas Signature',
-    overviewHeading: 'Sign Contracts, Leases and Forms Without Uploading',
-    overview: 'Signing business agreements, employee onboarding forms, and lease agreements should be simple, legally recognized, and completely private. ClickPDF provides a smooth signature drawing pad with pressure simulation, smoothing algorithms, and customizable signature stamps.',
-    secondaryOverview: 'Place your signature precisely on the target signature line, resize and align it, and burn it directly into the PDF vector layer. Your signature curve data never leaves your device.',
-    privacyHighlight: 'Private Signature Pad: Your personal handwritten signature is rendered onto your local canvas and never saved on external servers or cloud logs.',
+    badge: 'Visual Signature Mark',
+    overviewHeading: 'Add a Visual Signature Without Uploading Your PDF',
+    overview: 'ClickPDF lets you draw, type, or upload a signature mark and embed it on selected PDF pages in your browser. This tool adds a visible mark; it does not verify identity or create a certificate-backed digital signature.',
+    secondaryOverview: 'Move, resize, rotate, and place the signature on one page, selected pages, or every page. The original PDF content is retained as the signature image is added to the page.',
+    privacyHighlight: 'Private Signature Workspace: PDFs and signature images are processed locally in the active browser session and are not uploaded to a server.',
     stepsHeading: 'How to Sign a PDF Document Online',
     steps: [
       {
@@ -844,7 +844,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       {
         step: 2,
         title: 'Draw or Type Signature',
-        description: 'Draw your handwritten signature using mouse, stylus, or finger, or type your name for a clean vector stamp.'
+        description: 'Draw with a mouse, stylus, or finger, type your name in a bundled signature font, or upload a PNG image.'
       },
       {
         step: 3,
@@ -854,8 +854,8 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     ],
     faqs: [
       {
-        question: 'Is a signature created with ClickPDF legally valid?',
-        answer: 'Yes! In many jurisdictions under the ESIGN Act and eIDAS, electronic signatures applied to agreements hold legal weight for standard agreements and forms.'
+        question: 'Does this create a verified or certificate-backed digital signature?',
+        answer: 'No. ClickPDF embeds a visible signature mark in the PDF. It does not verify identity or create a cryptographic certificate-backed signature; legal acceptance depends on the applicable rules and recipient.'
       },
       {
         question: 'Can I use a touch screen or Apple Pencil to sign?',
@@ -863,11 +863,11 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Does ClickPDF store my signature image?',
-        answer: 'Never. The signature is rendered directly into the PDF’s page stream and purged from browser memory immediately.'
+        answer: 'The PDF and signature image are processed in your browser and are not uploaded. They remain available during the page session and are cleared when you leave or close the tool.'
       }
     ],
     benefits: [
-      { title: 'Smooth Bezier Curves', desc: 'Anti-aliased drawing algorithm produces realistic pen signatures.', iconName: 'PenTool' },
+      { title: 'Transparent Signature PNG', desc: 'Drawn, typed, or uploaded signatures are embedded as transparent PNG images.', iconName: 'PenTool' },
       { title: 'Zero Cloud Storage', desc: 'No risk of signature theft from external database breaches.', iconName: 'Lock' },
       { title: 'Mobile & Stylus Ready', desc: 'Works smoothly with finger touch, stylus, and desktop mouse.', iconName: 'Tablet' },
       { title: 'Instant Download', desc: 'Save your completed signed document immediately.', iconName: 'Download' }

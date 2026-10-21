@@ -11,6 +11,7 @@ import { Header } from './components/Header';
 import { MobileDrawer } from './components/MobileDrawer';
 import { ToolGrid } from './components/ToolGrid';
 import { ToolWorkspace } from './components/ToolWorkspace';
+import { SignPdfWorkspace } from './components/SignPdfWorkspace';
 import { BlogSection } from './components/BlogSection';
 import { FeaturesSection } from './components/FeaturesSection';
 import { FaqSection } from './components/FaqSection';
@@ -512,16 +513,27 @@ function AppContent() {
       <main className="flex-1">
         {activeView === 'tool' && selectedTool ? (
           <ErrorBoundary fallbackTitle="PDF Workspace Protected" onReset={handleBackToHome}>
-            <ToolWorkspace
-              key={selectedTool.id}
-              tool={selectedTool}
-              onBack={handleBackToHome}
-              initialFiles={droppedFiles}
-              onFilesConsumed={() => setDroppedFiles([])}
-              onOpenBatchQueue={(files) => handleGoToBatchQueue(files)}
-              onOpenShare={() => setIsShareModalOpen(true)}
-              onSelectTool={handleSelectTool}
-            />
+            {selectedTool.id === 'sign' ? (
+              <SignPdfWorkspace
+                key={selectedTool.id}
+                tool={selectedTool}
+                onBack={handleBackToHome}
+                initialFiles={droppedFiles}
+                onFilesConsumed={() => setDroppedFiles([])}
+                onSelectTool={handleSelectTool}
+              />
+            ) : (
+              <ToolWorkspace
+                key={selectedTool.id}
+                tool={selectedTool}
+                onBack={handleBackToHome}
+                initialFiles={droppedFiles}
+                onFilesConsumed={() => setDroppedFiles([])}
+                onOpenBatchQueue={(files) => handleGoToBatchQueue(files)}
+                onOpenShare={() => setIsShareModalOpen(true)}
+                onSelectTool={handleSelectTool}
+              />
+            )}
           </ErrorBoundary>
         ) : activeView === 'batch' ? (
           <BatchQueueView
