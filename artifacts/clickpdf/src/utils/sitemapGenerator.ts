@@ -23,17 +23,35 @@ export interface SitemapOptions {
   includeImages?: boolean;
 }
 
+export const PRODUCTION_BASE_URL = 'https://clickpdf.net';
+
 /**
  * Normalizes base URL to ensure no trailing slash.
  */
 export function normalizeBaseUrl(url?: string): string {
-  if (url && url.trim().length > 0) {
-    return url.trim().replace(/\/+$/, '');
+  const candidate = url?.trim();
+  if (!candidate) return PRODUCTION_BASE_URL;
+
+  try {
+    const parsed = new URL(candidate);
+    const hostname = parsed.hostname.toLowerCase();
+    if (
+      hostname === 'localhost' ||
+      hostname.endsWith('.localhost') ||
+      hostname === '127.0.0.1' ||
+      hostname === '0.0.0.0' ||
+      hostname === 'clickpdf.net' ||
+      hostname === 'www.clickpdf.net' ||
+      hostname.endsWith('.replit.dev') ||
+      hostname.endsWith('.replit.app')
+    ) {
+      return PRODUCTION_BASE_URL;
+    }
+  } catch {
+    return PRODUCTION_BASE_URL;
   }
-  if (typeof window !== 'undefined' && window.location?.origin) {
-    return window.location.origin.replace(/\/+$/, '');
-  }
-  return 'https://clickpdf.net';
+
+  return candidate.replace(/\/+$/, '');
 }
 
 /**

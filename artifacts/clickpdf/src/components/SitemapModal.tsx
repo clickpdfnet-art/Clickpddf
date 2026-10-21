@@ -4,7 +4,7 @@ import {
   generateSitemapXml,
   getSitemapEntries,
   downloadSitemapXmlFile,
-  normalizeBaseUrl,
+  PRODUCTION_BASE_URL,
   SitemapEntry
 } from '../utils/sitemapGenerator';
 import { buildAppPath } from '../utils/routeParser';
@@ -46,12 +46,7 @@ export const SitemapModal: React.FC<SitemapModalProps> = ({
   const [viewMode, setViewMode] = useState<'visual' | 'xml'>('visual');
   const [searchFilter, setSearchFilter] = useState('');
   const [copied, setCopied] = useState(false);
-  const [customDomain, setCustomDomain] = useState(() => {
-    if (typeof window !== 'undefined' && window.location.origin) {
-      return window.location.origin;
-    }
-    return 'https://clickpdf.net';
-  });
+  const customDomain = PRODUCTION_BASE_URL;
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
   const entries = useMemo(() => {

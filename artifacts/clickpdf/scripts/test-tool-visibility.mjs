@@ -62,6 +62,17 @@ test('default sitemap only contains public tools', async () => {
   const entries = sitemap.getSitemapEntries({ articles: [] });
   const index = entries.map(entry => `${entry.path} ${entry.title} ${entry.description || ''}`).join('\n').toLowerCase();
 
+  assert.equal(sitemap.normalizeBaseUrl(), 'https://clickpdf.net');
+  assert.equal(sitemap.normalizeBaseUrl('https://m.sisko.replit.dev'), 'https://clickpdf.net');
+  assert.equal(sitemap.normalizeBaseUrl('https://www.clickpdf.net/'), 'https://clickpdf.net');
+  assert.ok(entries.every(entry => entry.loc.startsWith('https://clickpdf.net/')));
+  assert.ok(entries.every(entry =>
+    entry.path === '/' ||
+    entry.path.startsWith('/tools/') ||
+    entry.path.startsWith('/blog') ||
+    entry.path.startsWith('/?tool=')
+  ));
+
   for (const label of ['compare pdf', 'crop & trim margins', 'pdf to pdf/a', 'powerpoint to pdf', 'repair pdf']) {
     assert.ok(!index.includes(label), `${label} is absent from the generated sitemap`);
   }
