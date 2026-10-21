@@ -260,7 +260,7 @@ try {
   await send('Runtime.enable');
   await send('Page.setDownloadBehavior', { behavior: 'allow', downloadPath });
   await send('Page.navigate', { url: 'http://127.0.0.1:21606/sign-pdf-online' });
-  await waitFor(() => evaluate(`document.body.innerText.includes('PDF files') && document.body.innerText.includes('Draw')`), 'Sign PDF page load');
+  await waitFor(() => evaluate(`!!document.body?.innerText.includes('PDF files') && !!document.body?.innerText.includes('Draw')`), 'Sign PDF page load');
 
   await uploadFile(0, pdfPath);
   await waitFor(() => evaluate(`document.body.innerText.includes('three-page-fixture.pdf') && document.body.innerText.includes('3 pages')`), 'PDF inspection');
