@@ -285,7 +285,6 @@ try {
     const button = [...document.querySelectorAll('button')].find(node => node.innerText.includes('Use this signature'));
     return { ink, buttonDisabled: button?.disabled, text: button?.innerText, body: document.body.innerText.slice(-500) };
   })()`);
-  console.log('Draw-pad check:', JSON.stringify(drawnState));
   assert.ok(drawnState.ink > 0, 'mouse drawing should paint nontransparent pixels on the signature canvas');
   assert.equal(drawnState.buttonDisabled, false, 'signature creation button should enable after drawing');
   await clickButton('Use this signature');

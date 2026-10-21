@@ -132,7 +132,7 @@ export const ToolPageBannerAd: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const updateScale = () => setScale(Math.min(1, Math.max(0.5, window.innerWidth / BANNER_WIDTH)));
+    const updateScale = () => setScale(Math.min(1, Math.max(0.1, window.innerWidth / BANNER_WIDTH)));
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
