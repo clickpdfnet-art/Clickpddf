@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, ShieldCheck, Newspaper, PlusCircle, Sun, Moon, Zap, HelpCircle, Layers, Share2 } from 'lucide-react';
+import { Menu, ShieldCheck, Newspaper, Sun, Moon, Zap, HelpCircle, Layers, Share2 } from 'lucide-react';
 import { ToolCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
@@ -9,7 +9,6 @@ import { BrandLogo } from './BrandLogo';
 interface HeaderProps {
   onSelectCategory: (category: ToolCategory) => void;
   onOpenMobileMenu: () => void;
-  onOpenAdmin?: () => void;
   onGoHome: () => void;
   onOpenBlog: () => void;
   onOpenFaq?: () => void;
@@ -22,7 +21,6 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   onSelectCategory,
   onOpenMobileMenu,
-  onOpenAdmin,
   onGoHome,
   onOpenBlog,
   onOpenFaq,

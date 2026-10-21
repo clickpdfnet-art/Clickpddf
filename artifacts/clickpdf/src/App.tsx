@@ -42,7 +42,6 @@ function AppContent() {
   const [activeArticleSlug, setActiveArticleSlug] = useState<string | null>(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [isSitemapModalOpen, setIsSitemapModalOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
@@ -153,10 +152,6 @@ function AppContent() {
       if (route.isSitemapModalOpen) {
         setIsSitemapModalOpen(true);
       }
-      if (route.isAdminModalOpen) {
-        setIsAdminModalOpen(true);
-      }
-
       // Default Home View
       setSelectedTool(null);
       setActiveArticleSlug(null);
@@ -202,16 +197,9 @@ function AppContent() {
         return;
       }
 
-      // Secret Admin Hotkey: Ctrl+Shift+A or Cmd+Shift+A
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key.toLowerCase() === 'a')) {
-        e.preventDefault();
-        setIsAdminModalOpen(true);
-        return;
-      }
-
       // 2. Escape: Hierarchical dismiss
       // - First closes command palette if open
-      // - Else closes open modals (Admin, Sitemap, Mobile drawer)
+      // - Else closes open modals (Sitemap, Mobile drawer)
       // - Else if in tool view or article view, returns to home dashboard
       if (e.key === 'Escape') {
         if (isFileActionModalOpen) {
@@ -223,11 +211,6 @@ function AppContent() {
         if (isCommandPaletteOpen) {
           e.preventDefault();
           setIsCommandPaletteOpen(false);
-          return;
-        }
-        if (isAdminModalOpen) {
-          e.preventDefault();
-          setIsAdminModalOpen(false);
           return;
         }
         if (isSitemapModalOpen) {
@@ -287,7 +270,6 @@ function AppContent() {
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, [
     isCommandPaletteOpen,
-    isAdminModalOpen,
     isSitemapModalOpen,
     isMobileMenuOpen,
     activeArticleSlug,
@@ -501,7 +483,6 @@ function AppContent() {
           setActiveView('home');
         }}
         onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
-        onOpenAdmin={() => setIsAdminModalOpen(true)}
         onGoHome={handleBackToHome}
         onOpenBlog={handleGoToBlog}
         onOpenFaq={handleScrollToFaq}
@@ -555,7 +536,6 @@ function AppContent() {
           <div className="py-6 min-h-[75vh]">
             <BlogSection
               articles={articles}
-              onOpenAdmin={() => setIsAdminModalOpen(true)}
               activeArticleSlug={activeArticleSlug}
               onSelectArticle={handleSelectArticle}
               onCloseArticle={handleCloseArticle}
@@ -590,7 +570,6 @@ function AppContent() {
         }}
         onOpenBlog={handleGoToBlog}
         onOpenFaq={handleScrollToFaq}
-        onOpenAdmin={() => setIsAdminModalOpen(true)}
         onOpenSitemap={() => setIsSitemapModalOpen(true)}
         onOpenBatchQueue={() => handleGoToBatchQueue()}
         onOpenLegal={(tab) => {
@@ -608,7 +587,6 @@ function AppContent() {
           setSelectedCategory(cat);
           handleBackToHome();
         }}
-        onOpenAdmin={() => setIsAdminModalOpen(true)}
         onOpenBlog={handleGoToBlog}
         onOpenFaq={handleScrollToFaq}
         onOpenSitemap={() => setIsSitemapModalOpen(true)}
@@ -625,10 +603,10 @@ function AppContent() {
       />
 
       {/* 6. Admin Modal for daily articles & banner ad customization & XML sitemap & SEO Meta */}
-      <ErrorBoundary fallbackTitle="Admin Panel" onReset={() => setIsAdminModalOpen(false)}>
+      <ErrorBoundary fallbackTitle="Admin Panel" onReset={() => undefined}>
         <AdminModal
-          isOpen={isAdminModalOpen}
-          onClose={() => setIsAdminModalOpen(false)}
+          isOpen={false}
+          onClose={() => undefined}
           articles={articles}
           onSaveArticles={handleUpdateArticles}
           seoConfig={seoConfig}

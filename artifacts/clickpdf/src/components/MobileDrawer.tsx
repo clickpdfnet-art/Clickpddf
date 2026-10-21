@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ShieldCheck, PlusCircle, ArrowRight, Zap, HelpCircle } from 'lucide-react';
+import { X, ShieldCheck, ArrowRight, Zap, HelpCircle } from 'lucide-react';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { PDFTool, ToolCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,7 +11,6 @@ interface MobileDrawerProps {
   onClose: () => void;
   onSelectTool: (tool: PDFTool) => void;
   onSelectCategory: (category: ToolCategory) => void;
-  onOpenAdmin?: () => void;
   onOpenBlog: () => void;
   onOpenSitemap?: () => void;
   onOpenFaq?: () => void;
@@ -25,7 +24,6 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   onClose,
   onSelectTool,
   onSelectCategory,
-  onOpenAdmin,
   onOpenBlog,
   onOpenSitemap,
   onOpenFaq,

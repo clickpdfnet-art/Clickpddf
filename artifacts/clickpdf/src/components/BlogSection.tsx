@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BlogPost } from '../types';
-import { BookOpen, ArrowRight, ArrowLeft, X, PlusCircle, Calendar, Clock, User, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
+import { BookOpen, ArrowRight, ArrowLeft, X, Calendar, Clock, User, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { HIDDEN_TOOL_IDS, PUBLIC_PDF_TOOLS } from '../data/toolsData';
 
 interface BlogSectionProps {
   articles: BlogPost[];
-  onOpenAdmin: () => void;
   activeArticleSlug?: string | null;
   onSelectArticle?: (article: BlogPost) => void;
   onCloseArticle?: () => void;
@@ -17,7 +16,6 @@ interface BlogSectionProps {
 
 export const BlogSection: React.FC<BlogSectionProps> = ({
   articles,
-  onOpenAdmin,
   activeArticleSlug,
   onSelectArticle,
   onCloseArticle,
@@ -332,13 +330,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to PDF Tools</span>
           </button>
-          <button
-            onClick={onOpenAdmin}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold hover:bg-indigo-100 transition-colors cursor-pointer"
-          >
-            <PlusCircle className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            <span>{t.publishArticleBtn}</span>
-          </button>
         </div>
       )}
 
@@ -356,15 +347,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             {t.blogSubtitle}
           </p>
         </div>
-        {!onBackToHome && (
-          <button
-            onClick={onOpenAdmin}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold hover:bg-indigo-100 transition-colors cursor-pointer"
-          >
-            <PlusCircle className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            <span>{t.publishArticleBtn}</span>
-          </button>
-        )}
       </div>
 
       {/* Articles Grid with vivid cover images and semantic crawler links */}

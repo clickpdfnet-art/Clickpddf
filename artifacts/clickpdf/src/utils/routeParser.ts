@@ -25,7 +25,6 @@ export interface ParsedRoute {
   toolId?: string;
   articleSlug?: string;
   isSitemapModalOpen?: boolean;
-  isAdminModalOpen?: boolean;
 }
 
 /**
@@ -158,12 +157,9 @@ export function parseCurrentRoute(): ParsedRoute {
   if (viewParam === 'faq') return { view: 'faq' };
 
   const sitemapParam = params.get('sitemap');
-  const adminParam = params.get('admin');
-
   return {
     view: 'home',
     isSitemapModalOpen: viewParam === 'sitemap' || sitemapParam === 'true',
-    isAdminModalOpen: adminParam === 'true' || viewParam === 'admin'
   };
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Zap, ExternalLink, LayoutDashboard, HelpCircle, Newspaper, Info, Mail, Cookie, FileText } from 'lucide-react';
+import { ShieldCheck, Zap, ExternalLink, HelpCircle, Newspaper, Info, Mail, Cookie, FileText } from 'lucide-react';
 import { ToolCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { PWAInstallButton } from './PWAInstallButton';
@@ -10,7 +10,6 @@ import { buildAppPath } from '../utils/routeParser';
 interface FooterProps {
   onSelectCategory: (cat: ToolCategory) => void;
   onOpenBlog: () => void;
-  onOpenAdmin: () => void;
   onOpenSitemap?: () => void;
   onOpenFaq?: () => void;
   onOpenBatchQueue?: () => void;
@@ -20,7 +19,6 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({
   onSelectCategory,
   onOpenBlog,
-  onOpenAdmin,
   onOpenSitemap,
   onOpenFaq,
   onOpenBatchQueue,
@@ -228,19 +226,6 @@ export const Footer: React.FC<FooterProps> = ({
                 >
                   <HelpCircle className="w-3.5 h-3.5 text-cyan-400 group-hover:text-cyan-300 shrink-0" />
                   <span className="font-medium">{t.faqAndAnswers}</span>
-                </button>
-              </li>
-              {/* 1-Click Admin Dashboard */}
-              <li>
-                <button
-                  type="button"
-                  onClick={onOpenAdmin}
-                  className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 text-indigo-300 hover:text-indigo-200 group font-semibold"
-                  title="Open Admin Dashboard directly"
-                >
-                  <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400 group-hover:text-indigo-300 shrink-0" />
-                  <span>{t.adminDashboard}</span>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-indigo-950 border border-indigo-800 text-indigo-300 font-bold">Direct</span>
                 </button>
               </li>
             </ul>
