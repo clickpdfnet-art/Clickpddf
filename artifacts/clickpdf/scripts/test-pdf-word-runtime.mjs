@@ -58,7 +58,7 @@ test('OCR model selection rejects empty, unknown and duplicate models without su
 });
 
 test('browser capability gates allow text-only conversion when OCR WebAssembly is unavailable', () => {
-  const supported = { worker: true, wasm: true, blob: true, objectUrl: true, arrayBuffer: true, canvas: true, cache: false };
+  const supported = { worker: true, wasm: true, blob: true, objectUrl: true, arrayBuffer: true, canvas: true, indexedDb: false };
   assert.doesNotThrow(() => runtime.validateWordBrowser(supported, true));
   assert.doesNotThrow(() => runtime.validateWordBrowser({ ...supported, wasm: false }, false));
   assert.throws(() => runtime.validateWordBrowser({ ...supported, wasm: false }, true), /WebAssembly/);

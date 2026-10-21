@@ -90,7 +90,7 @@ export function wordLanguageSupportText() {
     'ClickPDF PDF to Word — actual support registry',
     'Selectable text: PDF Unicode mappings required; never reverse Unicode strings.',
     'OCR: the selected traineddata model is fetched on demand from the configured external model host. The host can see its model request and normal network metadata, never PDF content.',
-    'OCR model bytes are kept in worker memory; this tool disables persistent model caching. Model sizes are estimates, not verified Content-Length.',
+    'Selected OCR model files may be kept in local browser storage for reuse; PDF content and rendered page images are never cached. Private mode/quota may force a fresh model download. Model sizes are estimates.',
     'Worker and baseline LSTM WebAssembly core: bundled same-origin assets, one worker at a time.',
     'Automatic detection is a bounded script suggestion, never an automatic model switch. Scans require manual models.',
     'Every language combination is unverified unless explicitly documented. Mixed models can reduce accuracy and increase RAM use.',
@@ -98,7 +98,7 @@ export function wordLanguageSupportText() {
     'Chrome / Edge: browser capabilities are feature-detected; successful conversion on one Chromium build is not a certification of every release.',
     'Firefox / Safari: feature-detected but not verified in their native browser engines here.',
     'Safari: memory pressure, storage eviction/private mode, download prompts and worker/CSP restrictions can limit jobs.',
-    'No File System Access API is required. Cache API is optional; model-cache failures are disclosed and processing uses memory.',
+    'No File System Access API or Cache API is required. IndexedDB model caching is optional; storage failure falls back to downloading into worker memory.',
     'No native Word/LibreOffice layout comparison has been performed. Font availability depends on the receiving device.'
   ].join('\n');
 }

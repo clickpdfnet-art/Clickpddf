@@ -20,7 +20,7 @@ export async function wordTimedOut<T>(promise: Promise<T>, signal: AbortSignal |
   } finally { if (timer) clearTimeout(timer); }
 }
 export interface WordBrowserFeatures {
-  worker: boolean; wasm: boolean; blob: boolean; objectUrl: boolean; arrayBuffer: boolean; canvas: boolean; cache: boolean;
+  worker: boolean; wasm: boolean; blob: boolean; objectUrl: boolean; arrayBuffer: boolean; canvas: boolean; indexedDb: boolean;
 }
 export function inspectWordBrowser(): WordBrowserFeatures {
   const canvas = typeof document !== 'undefined' && !!document.createElement('canvas').getContext('2d');
@@ -29,7 +29,7 @@ export function inspectWordBrowser(): WordBrowserFeatures {
   return { worker: typeof Worker !== 'undefined', wasm, blob: typeof Blob !== 'undefined',
     objectUrl: typeof URL !== 'undefined' && typeof URL.createObjectURL === 'function' && typeof URL.revokeObjectURL === 'function',
     arrayBuffer: typeof Blob !== 'undefined' && typeof Blob.prototype.arrayBuffer === 'function',
-    canvas, cache: typeof caches !== 'undefined' };
+    canvas, indexedDb: typeof indexedDB !== 'undefined' };
 }
 export function validateWordBrowser(features: WordBrowserFeatures, ocr: boolean) {
   const required: [keyof WordBrowserFeatures, string][] = [['worker', 'Web Workers'], ['blob', 'Blob files'],

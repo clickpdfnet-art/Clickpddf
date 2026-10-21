@@ -67,7 +67,6 @@ import { DEFAULT_PDF_WORD_OPTIONS, PdfWordOptions } from '../utils/pdfWordTypes'
 import { PdfWordOptionsPanel } from './PdfWordOptionsPanel';
 import { PdfWordQualityPanel, WordReportEntry } from './PdfWordQualityPanel';
 import { PdfWordPreview } from './PdfWordPreview';
-import { WORD_LANGUAGES } from '../utils/pdfWordLanguages';
 import { PdfTextSourcePreview } from './PdfTextSourcePreview';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';

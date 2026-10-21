@@ -37,7 +37,7 @@ export async function createWordOcrWorker(
     ...assets,
     langPath: WORD_MODEL_BASE,
     gzip: true,
-    cacheMethod: 'none',
+    cacheMethod: 'write',
     workerBlobURL: false,
     logger: message => {
       const progress = typeof message.progress === 'number' ? ` ${Math.round(message.progress * 100)}%` : '';
