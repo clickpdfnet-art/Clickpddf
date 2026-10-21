@@ -25,7 +25,7 @@ export async function extractWordPages(
   // PDF.js transfers this sole typed buffer to its explicitly owned worker.
   // No shared GlobalWorkerOptions, CDN worker fallback or PDF upload is used.
   const nativeWorker = new Worker(new URL(bundledPdfWorker, location.href), { type: 'module' });
-  const pdfWorker = new pdfjs.PDFWorker({ port: nativeWorker });
+  const pdfWorker = new pdfjs.PDFWorker({ port: nativeWorker as any });
   let task: pdfjs.PDFDocumentLoadingTask | undefined;
   let worker: Tesseract.Worker | undefined;
   let workerLanguages = '';
@@ -36,7 +36,7 @@ export async function extractWordPages(
   try {
     const bytes = new Uint8Array(await wordAbortable(file.arrayBuffer(), signal));
     wordAbort(signal);
-    task = pdfjs.getDocument({ data: bytes, worker: pdfWorker, stopAtErrors: true, isEvalSupported: false, enableXfa: false });
+    task = pdfjs.getDocument({ data: bytes, worker: pdfWorker, stopAtErrors: true, enableXfa: false, useWorkerFetch: false });
     const pdf = await wordAbortable(task.promise, signal);
     const numbers = parseWordPageRange(options.pageRange || '', pdf.numPages);
     const overrides = options.lockLanguages === false ? parseWordPageModels(options.pageModels || '', pdf.numPages) : new Map<number, string[]>();
