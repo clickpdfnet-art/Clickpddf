@@ -57,7 +57,6 @@ import {
   convertExcelToPdf
 } from '../utils/officeConverters';
 import { validateFileBatch } from '../utils/securitySanitizer';
-import { SUPPORTED_OCR_LANGUAGES } from '../utils/ocrLanguages';
 import { FilePreviewModal } from './FilePreviewModal';
 import { MetadataInspector } from './MetadataInspector';
 import { MetadataEditorPanel, MetadataFormValues } from './MetadataEditorPanel';
@@ -68,6 +67,7 @@ import { DEFAULT_PDF_WORD_OPTIONS, PdfWordOptions } from '../utils/pdfWordTypes'
 import { PdfWordOptionsPanel } from './PdfWordOptionsPanel';
 import { PdfWordQualityPanel, WordReportEntry } from './PdfWordQualityPanel';
 import { PdfWordPreview } from './PdfWordPreview';
+import { WORD_LANGUAGES } from '../utils/pdfWordLanguages';
 import { PdfTextSourcePreview } from './PdfTextSourcePreview';
 import { RotatePdfPanel } from './RotatePdfPanel';
 import { OrganizePdfPanel, OrganizePageCardItem, OrganizePageState } from './OrganizePdfPanel';
@@ -163,6 +163,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   const [fileItems, setFileItems] = useState<OrderedFile[]>([]);
   const files = useMemo(() => fileItems.map(item => item.file), [fileItems]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const wordAbortControllerRef = useRef<AbortController | null>(null);
   const [processingStatus, setProcessingStatus] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [previewFile, setPreviewFile] = useState<File | null>(null);
@@ -795,6 +796,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Main processing trigger
   const handleProcess = async () => {
+    if (tool.id === 'pdf-to-word' && wordAbortControllerRef.current) return;
     if (tool.id === 'edit-metadata') {
       if (metadataDraft) await handleMetadataFromPanel(metadataDraft);
       return;
@@ -834,6 +836,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       }
     }
 
+    const wordController = tool.id === 'pdf-to-word' ? new AbortController() : null;
+    if (wordController) wordAbortControllerRef.current = wordController;
     setIsProcessing(true);
     setErrorMessage(null);
     setAutoDownloadCancelled(false);
@@ -1521,8 +1525,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             primary,
             (_curr, _tot, txt) => setProcessingStatus(txt),
             pdfOcrLanguage,
-            { ...pdfWordOptions }
+            { ...pdfWordOptions, additionalLanguages: pdfWordOptions.ocrLanguages || [] },
+            wordController?.signal
           );
+          if (wordController?.signal.aborted) throw new DOMException('PDF to Word conversion cancelled.', 'AbortError');
           resultData = res.data;
           outputName = res.fileName;
           details = res.details;
@@ -1551,8 +1557,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 f,
                 (_curr, _tot, txt) => setProcessingStatus(`File ${i + 1}/${files.length}: ${txt}`),
                 pdfOcrLanguage,
-                { ...pdfWordOptions }
+                { ...pdfWordOptions, additionalLanguages: pdfWordOptions.ocrLanguages || [] },
+                wordController?.signal
               );
+              if (wordController?.signal.aborted) throw new DOMException('PDF to Word conversion cancelled.', 'AbortError');
               zip.file(res.fileName, res.data);
               if (currentItem) setWordReports(previous => ({ ...previous, [currentItem.id]: { source: f, outputName: res.fileName, report: res.report } }));
               successCount++;
@@ -1572,6 +1580,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 runItemAutoDownloadCountdown(currentItem, res.data, res.fileName, i, files.length);
               }
             } catch (err: any) {
+              if (wordController?.signal.aborted) throw err;
               if (currentItem) {
                 setProcessedFilesMap(prev => ({
                   ...prev,
@@ -1588,9 +1597,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             }
             await yieldToMainThread(30);
           }
+          if (wordController?.signal.aborted) throw new DOMException('PDF to Word batch was cancelled; no partial ZIP was downloaded.', 'AbortError');
           if (successCount === 0) throw new Error('None of the selected PDFs could be converted to Word.');
           setProcessingStatus('Packaging batch Word documents ZIP...');
-          resultData = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' });
+          resultData = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' },
+            metadata => setProcessingStatus(`Packaging Word ZIP: ${Math.round(metadata.percent)}%`));
+          if (wordController?.signal.aborted) throw new DOMException('Batch ZIP generation finished after cancellation; it was not downloaded.', 'AbortError');
           outputName = `converted_word_${successCount}_files.zip`;
           details = `Successfully converted ${successCount} of ${files.length} PDF(s) into ${pdfWordOptions.mode === 'layout' ? 'Layout-Preserved' : 'Editable'} Word documents. Review the per-page quality reports, including any image-fallback pages.`;
         }
@@ -2085,6 +2097,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     } finally {
       setIsProcessing(false);
       setProcessingStatus('');
+      if (wordAbortControllerRef.current === wordController) wordAbortControllerRef.current = null;
     }
   };
 
@@ -3068,7 +3081,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           {/* 1. PDF to Editable Word (.docx) Converter Options Panel */}
           {tool.id === 'pdf-to-word' && (
             <div className="space-y-4">
-              <PdfWordOptionsPanel value={pdfWordOptions} onChange={setPdfWordOptions} disabled={isProcessing} onPreview={() => setWordPreview({ source: files[0] })} />
+              <PdfWordOptionsPanel value={pdfWordOptions} onChange={setPdfWordOptions} disabled={isProcessing}
+                onPreview={() => files[0] && setWordPreview({ source: files[0] })} primaryLanguage={pdfOcrLanguage}
+                onPrimaryLanguageChange={setPdfOcrLanguage} files={files} />
               <div className="bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-800/60 rounded-xl p-4 flex items-start gap-3.5">
                 <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20 shrink-0">
                   <FileType className="w-5 h-5" />
@@ -3083,7 +3098,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    Extracts selectable PDF text into editable Word paragraphs and headings. If a page is scanned, the selected OCR language is used to recognize its text locally.
+                    Extracts Unicode PDF text and layout into editable Word pages. For scans, you select the OCR languages; OCR workers are bundled with the app and model files load only when needed. The PDF stays in the browser.
                   </p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
@@ -3104,27 +3119,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3">
-                <label htmlFor="pdf-word-ocr-language" className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                  OCR language for scanned pages
-                </label>
-                <select
-                  id="pdf-word-ocr-language"
-                  value={pdfOcrLanguage}
-                  disabled={isProcessing}
-                  onChange={event => setPdfOcrLanguage(event.target.value)}
-                  className="min-w-44 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-xs text-slate-800 dark:text-slate-100"
-                >
-                  {SUPPORTED_OCR_LANGUAGES.map(language => (
-                    <option key={language.code} value={language.code}>
-                      {language.nativeName ? `${language.name} — ${language.nativeName}` : language.name}
-                    </option>
-                  ))}
-                </select>
-                <p className="basis-full text-[10px] text-slate-500 dark:text-slate-400">
-                  OCR runs only on pages with no selectable text. Urdu is available for scanned Urdu documents.
-                </p>
               </div>
             </div>
           )}
@@ -3361,7 +3355,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           )}
 
           {/* Action trigger button */}
-          <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end">
+          <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-end gap-2">
             <button
               type="button"
               onClick={handleProcess}
@@ -3457,6 +3451,20 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   : `${t.processBtn}`}
               </span>
             </button>
+            {isProcessing && tool.id === 'pdf-to-word' && <button type="button"
+              disabled={wordAbortControllerRef.current?.signal.aborted === true}
+              onClick={() => {
+                const controller = wordAbortControllerRef.current;
+                if (!controller || controller.signal.aborted) return;
+                controller.abort();
+                cancelItemDownloads();
+                setAutoDownloadCancelled(true);
+                setAutoDownloadSeconds(null);
+                setSuccessResult(null);
+                setProcessingStatus('Cancelling PDF-to-Word conversion…');
+              }}
+              className="inline-flex items-center gap-2 rounded-xl border border-rose-300 dark:border-rose-800 px-4 py-2.5 text-xs font-bold text-rose-700 dark:text-rose-300 disabled:opacity-60"
+            >Cancel Word conversion</button>}
           </div>
         </div>
       )}

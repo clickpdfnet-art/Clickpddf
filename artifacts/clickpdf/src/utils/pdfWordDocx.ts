@@ -7,6 +7,7 @@ import {
 import JSZip from 'jszip';
 import { emus, findRuledTables, isRtlText, lineCells, twips } from './pdfWordGeometry';
 import type { PdfWordOptions, PdfWordReport, WordLine, WordPage, WordSpan } from './pdfWordTypes';
+import { wordAbort } from './pdfWordRuntimeChecks';
 
 function spanRuns(span: WordSpan) {
   const pieces = span.text.split(/([\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]+)/u).filter(Boolean);
@@ -30,10 +31,13 @@ const pt = (number: number) => `${Math.max(0, number).toFixed(2)}pt` as `${numbe
 const noBorder = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
 
 /** Produce real OOXML paragraphs, tables, positioned text and independently placed PNG assets. */
-export async function buildAdvancedWord(pages: WordPage[], options: PdfWordOptions, title: string): Promise<{ data: Uint8Array; report: PdfWordReport }> {
+export async function buildAdvancedWord(pages: WordPage[], options: PdfWordOptions, title: string, signal?: AbortSignal): Promise<{ data: Uint8Array; report: PdfWordReport }> {
   const reports: PdfWordReport['pages'] = [];
   const numbering: { reference: string; levels: ILevelsOptions[] }[] = [];
-  const sections = pages.map(page => {
+  const sections: any[] = [];
+  for (const page of pages) {
+    wordAbort(signal);
+    await new Promise<void>(resolve => setTimeout(resolve, 0));
     const layout = options.mode === 'layout';
     const raster = page.artwork.some(image => image.role === 'page-image');
     const marginLeft = layout || raster ? 0 : Math.max(0, Math.min(...page.lines.map(line => line.x), 36));
@@ -58,7 +62,8 @@ export async function buildAdvancedWord(pages: WordPage[], options: PdfWordOptio
     const makeTable = (model: typeof tableModels[number]) => {
       const first = page.lines[model.start], last = page.lines[model.end];
       const starts = model.cells[0].map(cell => cell[0].x);
-      const right = Math.max(...model.cells.flatMap(row => row.flatMap(cell => cell.map(span => span.x + span.width)))) + 6;
+      const right = model.cells.flatMap(row => row.flatMap(cell => cell.map(span => span.x + span.width)))
+        .reduce((maximum, value) => Math.max(maximum, value), 0) + 6;
       const widths = starts.map((x, index) => twips((starts[index + 1] ?? right) - x));
       return new Table({
         width: { size: widths.reduce((sum, width) => sum + width, 0), type: WidthType.DXA }, columnWidths: widths,
@@ -148,19 +153,23 @@ export async function buildAdvancedWord(pages: WordPage[], options: PdfWordOptio
     if (!layout && !raster) warnings.push('Editable paragraphs may reflow. Original headers, footers and column text are retained in page order, not inferred as repeating Word header/footer fields.');
     reports.push({ page: page.number, width: page.width, height: page.height, textLines: page.lines.length,
       images: page.artwork.filter(asset => asset.role === 'image').length, artworkLayers: page.artwork.filter(asset => asset.role === 'artwork').length,
-      tables: ruledTables.length, ocr: page.ocr, rasterPage: raster, warnings });
-    return {
+      tables: ruledTables.length, ocr: page.ocr, rasterPage: raster, warnings, language: page.language });
+    sections.push({
       properties: { type: SectionType.NEXT_PAGE, page: {
         // docx swaps these dimensions for landscape itself.
         size: { width: twips(Math.min(page.width, page.height)), height: twips(Math.max(page.width, page.height)),
           orientation: page.width > page.height ? PageOrientation.LANDSCAPE : PageOrientation.PORTRAIT },
         margin: { top: twips(marginTop), left: twips(marginLeft), right: 0, bottom: 0, header: 0, footer: 0 }
-      } }, children
-    };
-  });
+     } }, children
+    } as (typeof sections)[number]);
+  }
+  wordAbort(signal);
   const doc = new Document({ creator: 'ClickPDF', title, description: 'Client-side PDF to Word reconstruction; inspect the conversion quality report.',
     numbering: { config: numbering }, sections });
-  const zip = await JSZip.loadAsync(await Packer.toArrayBuffer(doc));
+  const packed = await Packer.toArrayBuffer(doc);
+  wordAbort(signal);
+  const zip = await JSZip.loadAsync(packed);
+  wordAbort(signal);
   const xml = await zip.file('word/document.xml')!.async('string');
   // Word's default textbox inset/border would displace every positioned PDF line.
   zip.file('word/document.xml', xml.replace(/<v:shape\b([^>]*)>/g, (_, attributes: string) =>
@@ -174,5 +183,7 @@ export async function buildAdvancedWord(pages: WordPage[], options: PdfWordOptio
   zip.file('clickpdf/conversion-report.json', JSON.stringify(report, null, 2));
   const contentTypes = await zip.file('[Content_Types].xml')!.async('string');
   zip.file('[Content_Types].xml', contentTypes.replace('</Types>', '<Default Extension="json" ContentType="application/json"/></Types>'));
-  return { data: await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' }), report };
+  const data = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' });
+  wordAbort(signal);
+  return { data, report };
 }

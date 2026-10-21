@@ -1,7 +1,7 @@
 import type { Worker as OcrWorker } from 'tesseract.js';
 import workerUrl from 'tesseract.js/dist/worker.min.js?url';
 import coreUrl from 'tesseract.js-core/tesseract-core-lstm.wasm.js?url';
-import { validateWordLanguages, wordModelUrl } from './pdfWordLanguages';
+import { WORD_LANGUAGES, validateWordLanguages, wordModelUrl } from './pdfWordLanguages';
 import { wordAbort, wordAbortable } from './pdfWordRuntimeChecks';
 
 const MODEL_CACHE = 'clickpdf-word-models-tessdata-4-validated-v1';
@@ -17,6 +17,9 @@ function validModel(bytes: Uint8Array) {
 }
 async function modelBytes(id: string, signal: AbortSignal | undefined, status: (message: string) => void) {
   const url = wordModelUrl(id);
+  const language = validateWordLanguages([id])[0];
+  const entry = WORD_LANGUAGES.find(item => item.id === language)!;
+  const maximumBytes = Math.max(5, entry.estimatedMB + 5) * 1024 * 1024;
   let cache: Cache | undefined;
   try { if (typeof caches !== 'undefined') cache = await caches.open(MODEL_CACHE); }
   catch { status('Model cache unavailable (private mode/quota); using temporary browser memory.'); }
@@ -44,10 +47,18 @@ async function modelBytes(id: string, signal: AbortSignal | undefined, status: (
       while (true) {
         const next = await reader.read();
         if (next.done) break;
+        if (downloaded + next.value.length > maximumBytes) {
+          await reader.cancel();
+          throw new Error(`OCR model ${id} exceeded its ${Math.round(maximumBytes / 1048576)} MB safety limit.`);
+        }
         chunks.push(next.value); downloaded += next.value.length;
         status(`Loading ${id} OCR model 4.0.0: ${(downloaded / 1048576).toFixed(1)} MB${size ? ` / ${(size / 1048576).toFixed(1)} MB (${Math.round(downloaded / size * 100)}%)` : ' (total size not supplied)'}`);
       }
-    } else { const bytes = new Uint8Array(await response.arrayBuffer()); chunks.push(bytes); downloaded = bytes.length; }
+    } else {
+      const responseBuffer = new Uint8Array(await response.arrayBuffer());
+      if (responseBuffer.byteLength > maximumBytes) throw new Error(`OCR model ${id} exceeded its ${Math.round(maximumBytes / 1048576)} MB safety limit.`);
+      chunks.push(responseBuffer); downloaded = responseBuffer.length;
+    }
     const bytes = new Uint8Array(downloaded); let offset = 0;
     for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
     if (!validModel(bytes)) throw new Error(`Model ${id} did not contain valid compressed traineddata. It was not cached.`);
@@ -64,8 +75,12 @@ export async function createWordOcrWorker(ids: string[], signal: AbortSignal | u
     const response = await wordAbortable(fetch(url, { method: 'HEAD', signal }), signal);
     if (!response.ok) throw new Error(`Bundled OCR ${kind} asset is unreachable (HTTP ${response.status}). No PDF was uploaded.`);
   }
-  const models: Awaited<ReturnType<typeof modelBytes>>[] & { id?: never } = [];
-  for (const id of ids) models.push({ id, ...await modelBytes(id, signal, status) });
+  const models: ({ id: string } & Awaited<ReturnType<typeof modelBytes>>)[] = [];
+  for (const id of ids) {
+    models.push({ id, ...await modelBytes(id, signal, status) });
+    if (models.reduce((sum, model) => sum + model.bytes.byteLength, 0) > 128 * 1048576)
+      throw new Error('Selected OCR language models exceed the 128 MB in-memory safety limit. Choose fewer languages.');
+  }
   wordAbort(signal);
   const { default: Tesseract } = await import('tesseract.js');
   const pending = Tesseract.createWorker(models.map(model => ({ code: model.id, data: model.bytes })), 1, {

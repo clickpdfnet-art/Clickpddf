@@ -13,6 +13,13 @@ export function PdfWordQualityPanel({ reports, onPreview }: { reports: Record<st
       <ul className="mt-3 space-y-1 text-xs text-amber-700 dark:text-amber-300">{entry.report.warnings.map(warning => <li key={warning}>• {warning}</li>)}</ul>
       {entry.report.pages.map(page => <details key={page.page} className="mt-3 rounded-xl bg-slate-50 dark:bg-slate-800 p-3 text-xs">
         <summary className="cursor-pointer font-semibold text-slate-700 dark:text-slate-200">Page {page.page}: {Math.round(page.width)} × {Math.round(page.height)} pt · {page.textLines} text lines · {page.images} images · {page.artworkLayers} artwork layers · {page.tables} tables{page.ocr ? ' · OCR' : ''}{page.rasterPage ? ' · NON-EDITABLE PAGE IMAGE' : ''}</summary>
+        {page.language && <p className="mt-2 text-slate-600 dark:text-slate-300">
+          OCR selection: <b>{page.language.selectedModels.join(' + ') || 'none'}</b> · observed script: <b>{page.language.script}</b>
+          {page.language.candidates.length ? ` · script suggestion: ${page.language.candidates.join(' / ')}` : ''}
+          {page.language.confidence ? ` · script confidence ${page.language.confidence}%` : ''}
+          {page.language.languageConfidence ? ` · language confidence ${page.language.languageConfidence}%` : ' · language not uniquely identified'}
+          {' · '}{page.language.note}
+        </p>}
         <ul className="mt-2 space-y-2 text-slate-500 dark:text-slate-300">{page.warnings.map((warning, index) => <li key={index}>• {warning}</li>)}</ul>
       </details>)}
     </div>)}

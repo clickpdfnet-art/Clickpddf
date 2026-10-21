@@ -64,8 +64,15 @@ export async function extractWordPages(
         let sparseScan = false;
         if (sample.trim().length < 24 && items.length) {
           const operations = await wordAbortable(page.getOperatorList(), signal);
-          sparseScan = operations.fnArray.some((op, i) => op === pdfjs.OPS.paintImageXObject &&
-            (operations.argsArray[i]?.[1] || 0) * (operations.argsArray[i]?.[2] || 0) > viewport.width * viewport.height);
+          const scanOps = new Set([pdfjs.OPS.paintImageXObject, pdfjs.OPS.paintInlineImageXObject,
+            pdfjs.OPS.paintInlineImageXObjectGroup, pdfjs.OPS.paintImageXObjectRepeat]);
+          sparseScan = operations.fnArray.some((op, i) => {
+            if (!scanOps.has(op)) return false;
+            const args = operations.argsArray[i] || [];
+            const width = Number(args[1]) || Number(args[0]?.width) || 0;
+            const height = Number(args[2]) || Number(args[0]?.height) || 0;
+            return width * height > viewport.width * viewport.height * .4;
+          });
         }
         if (options.forceOcr || !items.length || badText || sparseScan) {
           result.ocr = true;
@@ -111,8 +118,28 @@ export async function extractWordPages(
               }
             }
             if (!spans.length) throw new Error('No readable text was recognized on this scanned or blank page.');
+            // Preserve searchable text from a scan page (such as headers or a scanned+digital mix),
+            // unless the user explicitly chose to replace the text with OCR.
+            if (items.length && !options.forceOcr) {
+              const recognizedText = normalized(spans.map(span => span.text).join(' ')).toLocaleLowerCase();
+              for (const item of items) {
+                if (!('str' in item) || !item.str.trim()) continue;
+                const sourceText = normalized(item.str).toLocaleLowerCase();
+                if (sourceText.length >= 3 && recognizedText.includes(sourceText)) continue;
+                const transform = pdfjs.Util.transform(viewport.transform, item.transform);
+                const size = Math.hypot(transform[2], transform[3]) || item.height || 12;
+                const style = content.styles[item.fontName];
+                const font = safeWordFont(style?.fontFamily || 'Arial', item.str).font;
+                spans.push({ text: item.str, x: transform[4], y: transform[5], width: item.width || size,
+                  height: item.height || size, size, font, color: '000000', bold: false, italic: false, rtl: isRtlText(item.str) });
+              }
+            }
             result.lines = groupWordLines(spans);
-            result.language = { selectedModels, ...suggestWordLanguage(spans.map(span => span.text).join(' ')) };
+            const languageSuggestion = suggestWordLanguage(spans.map(span => span.text).join(' '));
+            result.language = { selectedModels, ...languageSuggestion };
+            const highlyCertain = languageSuggestion.languageConfidence >= 80 &&
+              languageSuggestion.candidates.length === 1 && !selectedModels.includes(languageSuggestion.candidates[0]);
+            if (highlyCertain) result.warnings.push(`Recognized text strongly suggests ${languageSuggestion.candidates[0]}, but selected OCR models were ${selectedModels.join('+')}. Models are not silently changed; review or select the suggested language and retry.`);
             result.warnings.push(`OCR models: ${workerLanguages}; manually selected. Automatic scan-language detection is not configured. Combined-language accuracy is unverified.`);
             // Keep scan artwork without painting the recognized words a second time.
             const context = canvas.getContext('2d')!;
