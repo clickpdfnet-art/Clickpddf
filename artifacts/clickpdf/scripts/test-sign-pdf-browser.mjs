@@ -115,6 +115,7 @@ async function clickButton(partialText) {
   return evaluate(`(() => {
     const button = [...document.querySelectorAll('button')].find(node => node.innerText.trim().includes(${JSON.stringify(partialText)}));
     if (!button) throw new Error('Could not find button: ' + ${JSON.stringify(partialText)});
+    if (button.disabled) throw new Error('Button is disabled: ' + ${JSON.stringify(partialText)});
     button.click();
     return true;
   })()`);
@@ -352,9 +353,11 @@ try {
 
   await clickButton('separate-document.pdf');
   await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('separate-document.pdf · original preview')`), 'second PDF selection');
+  await waitFor(() => evaluate(`document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'second PDF preview');
   const secondPlacementCount = await evaluate(`document.querySelector('main')?.innerText.match(/\\d+ signatures? placed in this document/)?.[0]`);
   assert.equal(secondPlacementCount, '0 signatures placed in this document', 'the second PDF must not inherit the first PDF placements');
   await clickButton('Add to page 1');
+  await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('1 signature placed in this document')`), 'second PDF placement');
   await clickButton('Apply signature and preview');
   await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('separate-document-signed.pdf') && document.querySelector('main')?.innerText.includes('Signed PDF ready')`), 'second independent signed output', 30000);
   await clickButton('Download 2 as ZIP');
