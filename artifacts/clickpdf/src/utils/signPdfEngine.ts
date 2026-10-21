@@ -188,9 +188,8 @@ export async function applySignPdfPlacements(
 
   initPdfWorker();
   const loadingTask = pdfjs.getDocument({ data: new Uint8Array(bytes), stopAtErrors: true, enableXfa: false, useWorkerFetch: false });
-  let previewPdf: any;
   try {
-    previewPdf = await loadingTask.promise;
+    const previewPdf = await loadingTask.promise;
     const selectedPages = selection.mode === 'all'
       ? Array.from({ length: pageCount }, (_, index) => index + 1)
       : selection.mode === 'custom'
@@ -247,7 +246,6 @@ export async function applySignPdfPlacements(
     return await pdfDoc.save({ useObjectStreams: true });
   } finally {
     await loadingTask.destroy().catch(() => {});
-    if (previewPdf) await previewPdf.destroy().catch(() => {});
   }
 }
 
