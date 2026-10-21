@@ -6,3 +6,4 @@
 - [PDF to Word fidelity](pdf-word-fidelity.md) — editable defaults, explicit image fallback, honest preview limits, and DOCX textbox schema checks.
 - [Global tool-page banner ad](tool-page-banner-ad.md) — every tool route inherits one consent-gated, sandboxed banner slot; never duplicate provider code in tools.
 - [Admin dashboard visibility](admin-dashboard-visibility.md) — preserve the dashboard code and data, but keep all public website entry points disabled until requested.
+- [Cloudflare root build](cloudflare-root-build.md) — keep Cloudflare’s pnpm version aligned with the lockfile and pass safe PORT/BASE_PATH defaults to the monorepo build.
