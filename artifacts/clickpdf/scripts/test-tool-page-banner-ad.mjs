@@ -33,7 +33,7 @@ function send(method, params = {}) {
       pending.delete(id);
       reject(new Error(`CDP command timed out: ${method}`));
     }, 15000);
-    pending.set(id, { resolve, reject, timer });
+    pending.set(id, { resolve, reject, timer, method });
     socket.send(JSON.stringify({ id, method, params }));
   });
 }
@@ -74,7 +74,7 @@ try {
       const entry = pending.get(message.id);
       pending.delete(message.id);
       clearTimeout(entry.timer);
-      if (message.error) entry.reject(new Error(message.error.message));
+      if (message.error) entry.reject(new Error(`${entry.method}: ${message.error.message}`));
       else entry.resolve(message.result || {});
     }
   });
