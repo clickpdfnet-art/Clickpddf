@@ -64,7 +64,7 @@ export async function createWordOcrWorker(ids: string[], signal: AbortSignal | u
     const response = await wordAbortable(fetch(url, { method: 'HEAD', signal }), signal);
     if (!response.ok) throw new Error(`Bundled OCR ${kind} asset is unreachable (HTTP ${response.status}). No PDF was uploaded.`);
   }
-  const models = [];
+  const models: Awaited<ReturnType<typeof modelBytes>>[] & { id?: never } = [];
   for (const id of ids) models.push({ id, ...await modelBytes(id, signal, status) });
   wordAbort(signal);
   const { default: Tesseract } = await import('tesseract.js');

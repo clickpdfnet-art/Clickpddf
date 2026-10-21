@@ -5,6 +5,7 @@ export interface PdfWordOptions {
   enableOcr?: boolean;
   forceOcr?: boolean;
   additionalLanguages?: string[];
+  ocrLanguages?: string[];
   lockLanguages?: boolean;
   pageModels?: string;
   pageRange?: string;
