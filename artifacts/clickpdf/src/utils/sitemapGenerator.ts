@@ -1,5 +1,5 @@
 import { PDFTool, BlogPost } from '../types';
-import { PDF_TOOLS } from '../data/toolsData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { INITIAL_ARTICLES, getStoredArticles } from '../data/initialArticles';
 import { getToolSeoInfo } from '../data/toolSeoData';
 
@@ -63,11 +63,11 @@ export function formatIsoDate(dateInput?: Date | string): string {
 }
 
 /**
- * Returns structured metadata for all indexed URLs (Homepage, all PDF tools, blog hub, all articles).
+ * Returns structured metadata for all indexed URLs (Homepage, public PDF tools, blog hub, all articles).
  */
 export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   const baseUrl = normalizeBaseUrl(options?.baseUrl);
-  const tools = options?.tools || PDF_TOOLS;
+  const tools = options?.tools ?? PUBLIC_PDF_TOOLS;
   const articles = options?.articles || (typeof window !== 'undefined' ? getStoredArticles() : INITIAL_ARTICLES);
   const today = formatIsoDate();
 
@@ -86,7 +86,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
     badge: 'Core'
   });
 
-  // 2. All PDF Tools (dynamic iteration over PDF_TOOLS with dedicated SEO landing URLs)
+  // 2. Public PDF tools (dynamic iteration over the visible catalog)
   tools.forEach((tool) => {
     const isHighPriority = ['merge', 'split', 'compress', 'rotate', 'organize', 'jpg-to-pdf'].includes(tool.id);
     const seo = getToolSeoInfo(tool.id);
@@ -145,6 +145,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
  */
 export function generateSitemapXml(options?: SitemapOptions): string {
   const entries = getSitemapEntries(options);
+  const tools = options?.tools ?? PUBLIC_PDF_TOOLS;
   const includeImages = options?.includeImages ?? true;
 
   const xmlUrls = entries.map((entry) => {
@@ -165,7 +166,7 @@ export function generateSitemapXml(options?: SitemapOptions): string {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- Generated dynamically by ClickPDF XML Sitemap Generator -->
-<!-- Total URLs: ${entries.length} (1 Core + ${PDF_TOOLS.length} PDF Tools + 1 Blog Hub + ${entries.filter(e => e.category === 'blog-post').length} Articles) -->
+<!-- Total URLs: ${entries.length} (1 Core + ${tools.length} PDF Tools + 1 Blog Hub + ${entries.filter(e => e.category === 'blog-post').length} Articles) -->
 ${xmlUrls.join('\n')}
 </urlset>`;
 }

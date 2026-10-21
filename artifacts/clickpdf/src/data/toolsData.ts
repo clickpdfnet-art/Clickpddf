@@ -316,16 +316,28 @@ export const PDF_TOOLS: PDFTool[] = [
   ...getPluginToolsAsPdfTools()
 ];
 
+// Keep these tools in the full registry as backups, but exclude them from public discovery.
+// Remove an ID here to bring that tool back into the live UI and sitemap.
+export const HIDDEN_TOOL_IDS = new Set([
+  'powerpoint-to-pdf',
+  'crop',
+  'pdf-to-pdfa',
+  'repair',
+  'compare'
+]);
+
+export const PUBLIC_PDF_TOOLS = PDF_TOOLS.filter((tool) => !HIDDEN_TOOL_IDS.has(tool.id));
+
 export function getAllTools(): PDFTool[] {
-  return PDF_TOOLS;
+  return PUBLIC_PDF_TOOLS;
 }
 
 export const CATEGORIES: { id: ToolCategory; label: string; count: number }[] = [
-  { id: 'all', label: 'All Tools', count: PDF_TOOLS.length },
-  { id: 'organize', label: 'Organize PDF', count: PDF_TOOLS.filter(t => t.category === 'organize').length },
-  { id: 'optimize', label: 'Optimize PDF', count: PDF_TOOLS.filter(t => t.category === 'optimize').length },
-  { id: 'convert', label: 'Convert PDF', count: PDF_TOOLS.filter(t => t.category === 'convert').length },
-  { id: 'edit', label: 'Edit & Sign', count: PDF_TOOLS.filter(t => t.category === 'edit').length },
-  { id: 'security', label: 'PDF Security', count: PDF_TOOLS.filter(t => t.category === 'security').length },
+  { id: 'all', label: 'All Tools', count: PUBLIC_PDF_TOOLS.length },
+  { id: 'organize', label: 'Organize PDF', count: PUBLIC_PDF_TOOLS.filter(t => t.category === 'organize').length },
+  { id: 'optimize', label: 'Optimize PDF', count: PUBLIC_PDF_TOOLS.filter(t => t.category === 'optimize').length },
+  { id: 'convert', label: 'Convert PDF', count: PUBLIC_PDF_TOOLS.filter(t => t.category === 'convert').length },
+  { id: 'edit', label: 'Edit & Sign', count: PUBLIC_PDF_TOOLS.filter(t => t.category === 'edit').length },
+  { id: 'security', label: 'PDF Security', count: PUBLIC_PDF_TOOLS.filter(t => t.category === 'security').length },
 ];
 

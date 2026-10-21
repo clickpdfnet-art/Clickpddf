@@ -3,7 +3,7 @@ import { BlogPost } from '../types';
 import { BookOpen, ArrowRight, ArrowLeft, X, PlusCircle, Calendar, Clock, User, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
-import { PDF_TOOLS } from '../data/toolsData';
+import { HIDDEN_TOOL_IDS, PUBLIC_PDF_TOOLS } from '../data/toolsData';
 
 interface BlogSectionProps {
   articles: BlogPost[];
@@ -91,7 +91,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
     if (toolId) {
       const seo = getToolSeoInfo(toolId);
-      const toolObj = PDF_TOOLS.find(t => t.id === toolId);
+      const toolObj = PUBLIC_PDF_TOOLS.find(t => t.id === toolId);
       if (seo) {
         toolUrl = toolUrl || `/tools/${seo.slug}`;
         toolTitle = toolTitle || seo.h1Title;
@@ -252,6 +252,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
    */
   const renderToolCtaCard = (post: BlogPost) => {
     const toolInfo = getToolInfoForPost(post);
+    if (toolInfo.toolId && HIDDEN_TOOL_IDS.has(toolInfo.toolId)) return null;
 
     return (
       <aside

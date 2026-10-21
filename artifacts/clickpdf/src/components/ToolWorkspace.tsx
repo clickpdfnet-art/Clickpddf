@@ -80,7 +80,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
 import { getToolPlugin } from '../tools/plugins/pluginLoader';
-import { PDF_TOOLS } from '../data/toolsData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import confetti from 'canvas-confetti';
 import {
   ArrowLeft,
@@ -2169,7 +2169,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             initialFiles={initialFiles}
             onSwitchTool={(newToolId) => {
               if (onSelectTool) {
-                const targetTool = PDF_TOOLS.find((t) => t.id === newToolId);
+                const targetTool = PUBLIC_PDF_TOOLS.find((t) => t.id === newToolId);
                 if (targetTool) {
                   onSelectTool(targetTool);
                 }

@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { PDFTool } from '../types';
 import { ToolSeoInfo } from '../data/toolSeoData';
-import { PDF_TOOLS } from '../data/toolsData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
 
@@ -39,7 +39,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   }
 
   const relatedTools = (seoInfo.relatedToolIds || [])
-    .map((id) => PDF_TOOLS.find((t) => t.id === id))
+    .map((id) => PUBLIC_PDF_TOOLS.find((t) => t.id === id))
     .filter((t): t is PDFTool => Boolean(t));
 
   // Stage 3: Completed / Download State (When processing finishes & Download button appears):

@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, ShieldCheck, PlusCircle, ArrowRight, Zap, HelpCircle } from 'lucide-react';
-import { PDF_TOOLS } from '../data/toolsData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { PDFTool, ToolCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { LegalModalTab } from './LegalModal';
@@ -73,7 +73,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
           {/* Content / Tool Catalog */}
           <div className="flex-1 overflow-y-auto p-4 space-y-6">
             {categories.map((cat) => {
-              const toolsInCat = PDF_TOOLS.filter(t => t.category === cat.key);
+              const toolsInCat = PUBLIC_PDF_TOOLS.filter(t => t.category === cat.key);
               if (toolsInCat.length === 0) return null;
 
               return (

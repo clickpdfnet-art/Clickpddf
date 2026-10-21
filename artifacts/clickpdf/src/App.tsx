@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PDFTool, ToolCategory, BlogPost, SeoMetaConfig } from './types';
-import { PDF_TOOLS } from './data/toolsData';
+import { HIDDEN_TOOL_IDS, PDF_TOOLS, PUBLIC_PDF_TOOLS } from './data/toolsData';
 import { getStoredArticles, saveArticles } from './data/initialArticles';
 import { getActiveBlogArticles } from './utils/blogLoader';
 import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyBlogSeo, resetHomeSeo } from './utils/seoManager';
@@ -95,6 +95,14 @@ function AppContent() {
       const route = parseCurrentRoute();
 
       if (route.view === 'tool' && route.toolId) {
+        if (HIDDEN_TOOL_IDS.has(route.toolId)) {
+          setSelectedTool(null);
+          setActiveArticleSlug(null);
+          setActiveView('home');
+          resetHomeSeo(seoConfig);
+          navigateToHomeUrl();
+          return;
+        }
         const found = PDF_TOOLS.find((t) => t.id === route.toolId);
         if (found) {
           setSelectedTool(found);
@@ -472,7 +480,7 @@ function AppContent() {
   };
 
   // Filter tools based on category & search query
-  const filteredTools = PDF_TOOLS.filter((tool) => {
+  const filteredTools = PUBLIC_PDF_TOOLS.filter((tool) => {
     const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
     const matchesSearch =
       tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -619,7 +627,7 @@ function AppContent() {
       <SitemapModal
         isOpen={isSitemapModalOpen}
         onClose={() => setIsSitemapModalOpen(false)}
-        tools={PDF_TOOLS}
+        tools={PUBLIC_PDF_TOOLS}
         articles={articles}
         onSelectTool={handleSelectTool}
         onSelectArticle={handleSelectArticle}
@@ -629,7 +637,7 @@ function AppContent() {
       <CommandPalette
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
-        tools={PDF_TOOLS}
+        tools={PUBLIC_PDF_TOOLS}
         articles={articles}
         onSelectTool={handleSelectTool}
         onSelectArticle={handleSelectArticle}
@@ -695,7 +703,7 @@ function AppContent() {
       {/* 10. Global Drag-and-Drop Overlay */}
       <GlobalDropOverlay
         currentTool={activeView === 'tool' ? selectedTool : null}
-        tools={PDF_TOOLS}
+        tools={PUBLIC_PDF_TOOLS}
         onFilesDropped={handleGlobalFilesDropped}
       />
 
@@ -703,7 +711,7 @@ function AppContent() {
       <FileActionModal
         isOpen={isFileActionModalOpen}
         files={pendingDroppedFiles}
-        tools={PDF_TOOLS}
+        tools={PUBLIC_PDF_TOOLS}
         onSelectTool={handleSelectToolForDroppedFiles}
         onOpenBatchQueue={(files) => {
           setIsFileActionModalOpen(false);

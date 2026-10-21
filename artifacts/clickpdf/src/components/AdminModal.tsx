@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BlogPost, SeoMetaConfig } from '../types';
-import { PDF_TOOLS } from '../data/toolsData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { DEFAULT_SEO_CONFIG } from '../utils/seoManager';
 import { sanitizeHtml, isSafeUrl, sanitizeUrl } from '../utils/securitySanitizer';
 import {
@@ -566,7 +566,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                       </span>
                     </div>
                     <p className="text-xs text-slate-500 mt-1">
-                      Auto-generates compliant XML links for all PDF tools ({PDF_TOOLS.length}) and blog articles ({safeArticles.length}) according to sitemaps.org standards.
+                      Auto-generates compliant XML links for all public PDF tools ({PUBLIC_PDF_TOOLS.length}) and blog articles ({safeArticles.length}) according to sitemaps.org standards.
                     </p>
                   </div>
 
@@ -614,13 +614,13 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 text-xs">
                   <div className="p-3 bg-white border border-slate-200 rounded-xl">
                     <div className="text-slate-400 text-[11px]">Total Indexed Links</div>
-                    <div className="text-lg font-black text-slate-900">{1 + PDF_TOOLS.length + 1 + safeArticles.length}</div>
+                    <div className="text-lg font-black text-slate-900">{1 + PUBLIC_PDF_TOOLS.length + 1 + safeArticles.length}</div>
                     <div className="text-[10px] text-emerald-600 font-semibold mt-0.5">100% Crawlable</div>
                   </div>
 
                   <div className="p-3 bg-white border border-slate-200 rounded-xl">
                     <div className="text-slate-400 text-[11px]">PDF Tools</div>
-                    <div className="text-lg font-black text-indigo-600">{PDF_TOOLS.length}</div>
+                    <div className="text-lg font-black text-indigo-600">{PUBLIC_PDF_TOOLS.length}</div>
                     <div className="text-[10px] text-slate-500 mt-0.5">Priority: 0.8 – 0.9</div>
                   </div>
 
