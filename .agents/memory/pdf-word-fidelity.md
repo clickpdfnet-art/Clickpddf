@@ -14,3 +14,9 @@ The installed DOCX library's Textbox API accepts text runs in its TypeScript sig
 **Why:** A passing TypeScript build generated runs directly under the textbox content element, which is not valid Word block structure.
 
 **How to apply:** Verify the actual generated OOXML, including paragraph nesting and inner RTL properties, rather than relying on compilation or an HTML reader. Preserve explicit zero insets and transparent, borderless boxes for positioned PDF text.
+
+Tesseract.js 7 can load preloaded model-byte objects but misinterpret their byte payloads as language codes during OCR initialization. Prefer the library's language-code API and verify with a real scanned PDF in the target browser; unit tests alone did not expose the hang.
+
+**Why:** Browser batch conversion looked successful for selectable-text PDFs but left the scanned page waiting at API initialization when model bytes were passed as object payloads.
+
+**How to apply:** Test at least one raster-only page end to end through the bundled browser worker, OCR model fetch, recognition, DOCX, and ZIP. Verify recognized text and page-level OCR status rather than only worker progress or a generated ZIP.
