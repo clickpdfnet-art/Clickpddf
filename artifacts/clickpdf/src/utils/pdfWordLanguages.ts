@@ -2,7 +2,7 @@ export interface WordLanguage {
   id: string; name: string; nativeName: string; direction: 'rtl' | 'ltr';
   extraction: 'Unicode text layer required'; modelId: string;
   modelVersion: 'tessdata-4.0.0'; availability: 'downloadable-not-bundled';
-  ocrTest: 'not-verified' | 'chromium-fixture'; textTest: 'fixture-covered' | 'not-verified';
+  ocrTest: 'not-verified' | 'chromium-fixture'; textTest: 'not-verified';
   estimatedMB: number; limitations: string;
 }
 const rows: [string, string, string, 'rtl' | 'ltr', number][] = [
@@ -19,7 +19,7 @@ const rows: [string, string, string, 'rtl' | 'ltr', number][] = [
 export const WORD_LANGUAGES: WordLanguage[] = rows.map(([id, name, nativeName, direction, estimatedMB]) => ({
   id, name, nativeName, direction, estimatedMB, extraction: 'Unicode text layer required',
   modelId: id, modelVersion: 'tessdata-4.0.0', availability: 'downloadable-not-bundled',
-  ocrTest: 'not-verified', textTest: ['eng', 'urd', 'jpn'].includes(id) ? 'fixture-covered' : 'not-verified',
+  ocrTest: 'not-verified', textTest: 'not-verified',
   limitations: 'Model availability is checked when selected; configuration is not a verified accuracy claim. Embedded fonts are not portable; review OCR, punctuation and combining marks.'
 }));
 export const WORD_MODEL_BASE = 'https://tessdata.projectnaptha.com/4.0.0';
