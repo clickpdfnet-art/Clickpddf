@@ -94,15 +94,15 @@ try {
       display: ad && getComputedStyle(ad).display,
       height: ad?.getBoundingClientRect().height,
       iframes: ad?.querySelectorAll('iframe').length,
-      back: [...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to Tools Catalog')),
-      header: document.querySelector('header')
+      hasBackButton: Boolean([...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to Tools Catalog'))),
+      hasHeader: Boolean(document.querySelector('header'))
     };
   })()`);
   assert.equal(initialState.state, 'consent-required');
   assert.equal(initialState.display, 'none');
   assert.equal(initialState.height, 0);
   assert.equal(initialState.iframes, 0, 'no provider request should be made before cookie consent');
-  assert.ok(initialState.header, 'global header should be present');
+  assert.equal(initialState.hasHeader, true, 'global header should be present');
   assert.equal(await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
     const back = [...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to Tools Catalog'));
