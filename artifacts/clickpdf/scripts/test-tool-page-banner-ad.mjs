@@ -130,7 +130,7 @@ try {
 
   const frameTree = await send('Page.getFrameTree');
   const findAdFrame = node => {
-    if (node.frame?.url === 'about:srcdoc' || node.frame?.url === 'about:blank') return node.frame;
+    if (node.frame?.parentId) return node.frame;
     for (const child of node.childFrames || []) {
       const found = findAdFrame(child);
       if (found) return found;
