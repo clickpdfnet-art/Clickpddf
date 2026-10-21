@@ -305,7 +305,17 @@ try {
   await setInput('#sign-page-target', 'placed');
   await waitFor(() => evaluate(`document.querySelector('#sign-page-target')?.value === 'placed'`), 'per-page placement mode');
   await clickButton('Apply signature and preview');
-  await waitFor(() => evaluate(`document.body.innerText.includes('Signed PDF ready')`), 'signed PDF generation', 30000);
+  try {
+    await waitFor(() => evaluate(`document.body?.innerText.includes('Signed PDF ready')`), 'signed PDF generation', 30000);
+  } catch (error) {
+    const status = await evaluate(`(() => ({
+      notice: document.querySelector('[role="alert"]')?.innerText || document.querySelector('[role="status"]')?.innerText,
+      files: [...document.querySelectorAll('button')].map(button => button.innerText).filter(text => text.includes('three-page-fixture')),
+      body: document.querySelector('main')?.innerText?.slice(0, 4000)
+    }))()`);
+    console.error('Signing result diagnostics:', JSON.stringify(status));
+    throw error;
+  }
   await waitFor(() => evaluate(`document.body.innerText.includes('signed result preview') && document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'signed-result preview', 30000);
 
   for (const pageNumber of [1, 2, 3]) {
