@@ -356,7 +356,7 @@ try {
   assert.equal(secondPlacementCount, '0 signatures placed in this document', 'the second PDF must not inherit the first PDF placements');
   await clickButton('Add to page 1');
   await clickButton('Apply signature and preview');
-  await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('Signed PDF ready')`), 'second independent signed output', 30000);
+  await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('separate-document-signed.pdf') && document.querySelector('main')?.innerText.includes('Signed PDF ready')`), 'second independent signed output', 30000);
   await clickButton('Download 2 as ZIP');
   await waitFor(async () => (await readdir(downloadPath)).some(name => name === 'signed-pdfs.zip'), 'multiple signed PDF ZIP download', 15000);
   const zipBytes = await readFile(join(downloadPath, 'signed-pdfs.zip'));
