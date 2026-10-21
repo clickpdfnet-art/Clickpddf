@@ -267,6 +267,17 @@ try {
   await waitFor(() => evaluate(`document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'original PDF render');
 
   await drawSignature();
+  const drawnState = await evaluate(`(() => {
+    const canvas = document.querySelector('canvas[aria-label*="Draw your signature"]');
+    const pixels = canvas?.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height).data;
+    let ink = 0;
+    if (pixels) for (let i = 3; i < pixels.length; i += 4) if (pixels[i] > 8) ink += 1;
+    const button = [...document.querySelectorAll('button')].find(node => node.innerText.includes('Use this signature'));
+    return { ink, buttonDisabled: button?.disabled, text: button?.innerText, body: document.body.innerText.slice(-500) };
+  })()`);
+  console.log('Draw-pad check:', JSON.stringify(drawnState));
+  assert.ok(drawnState.ink > 0, 'mouse drawing should paint nontransparent pixels on the signature canvas');
+  assert.equal(drawnState.buttonDisabled, false, 'signature creation button should enable after drawing');
   await clickButton('Use this signature');
   await waitFor(() => evaluate(`document.querySelectorAll('#sign-signature-library option').length === 1`), 'drawn signature creation');
   await addSignatureToPage(1);
