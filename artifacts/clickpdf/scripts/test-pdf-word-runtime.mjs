@@ -24,7 +24,10 @@ test('OCR registry is unique, explicit about external models, and never marks un
     assert.equal(new URL(wordModelUrl(entry.id)).protocol, 'https:');
   }
   assert.throws(() => wordModelUrl('eng+missing'), /not configured/);
-  assert.match(wordLanguageSupportText(), /Firefox \/ Safari: feature-detected but not verified/);
+  assert.match(wordLanguageSupportText(), /Firefox 140\.0\.4 on Linux: a four-page scanned PDF completed/);
+  assert.match(wordLanguageSupportText(), /Safari: native Safari was not tested/);
+  assert.match(wordLanguageSupportText(), /not measured character\/word accuracy/);
+  assert.match(wordLanguageSupportText(), /Nastaliq 40%/);
   assert.match(wordLanguageSupportText(), /never an automatic model switch/);
   assert.match(wordLanguageSupportText(), /never PDF content/);
 });
