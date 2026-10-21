@@ -5,10 +5,12 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { PDFDocument, StandardFonts, degrees } from 'pdf-lib';
+import JSZip from 'jszip';
 
 const root = await mkdtemp(join(tmpdir(), 'clickpdf-sign-browser-'));
 const profile = join(root, 'chrome-profile');
 const pdfPath = join(root, 'three-page-fixture.pdf');
+const secondPdfPath = join(root, 'separate-document.pdf');
 const pngPath = join(root, 'signature.png');
 const downloadPath = join(root, 'downloads');
 await (await import('node:fs/promises')).mkdir(downloadPath, { recursive: true });
@@ -130,7 +132,7 @@ async function setInput(selector, value) {
   })()`);
 }
 
-async function uploadFile(inputIndex, path) {
+async function uploadFiles(inputIndex, paths) {
   const { root: documentRoot } = await send('DOM.getDocument', { depth: -1 });
   const { nodeId } = await send('DOM.querySelector', {
     nodeId: documentRoot.nodeId,
@@ -141,7 +143,11 @@ async function uploadFile(inputIndex, path) {
     selector: `input[type="file"]:nth-of-type(${inputIndex + 1})`,
   });
   const node = targetNode ? { nodeId: targetNode } : { nodeId };
-  await send('DOM.setFileInputFiles', { files: [path], ...node });
+  await send('DOM.setFileInputFiles', { files: paths, ...node });
+}
+
+async function uploadFile(inputIndex, path) {
+  await uploadFiles(inputIndex, [path]);
 }
 
 async function waitForPage(pageNumber) {
@@ -229,6 +235,7 @@ async function pageHasInk(pageNumber) {
 
 try {
   await makePdfFixture();
+  await writeFile(secondPdfPath, await readFile(pdfPath));
   await writeFile(pngPath, makePng(64, 32, [35, 70, 160, 255]));
   browser = spawn(process.env.CHROME_BIN || '/repl/tools/bin/chromium', [
     '--headless=new', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage',
@@ -264,8 +271,8 @@ try {
   await send('Page.navigate', { url: 'http://127.0.0.1:21606/sign-pdf-online' });
   await waitFor(() => evaluate(`!!document.body?.innerText.includes('PDF files') && !!document.body?.innerText.includes('Draw')`), 'Sign PDF page load');
 
-  await uploadFile(0, pdfPath);
-  await waitFor(() => evaluate(`document.body.innerText.includes('three-page-fixture.pdf') && document.body.innerText.includes('3 pages')`), 'PDF inspection');
+  await uploadFiles(0, [pdfPath, secondPdfPath]);
+  await waitFor(() => evaluate(`document.body.innerText.includes('three-page-fixture.pdf') && document.body.innerText.includes('separate-document.pdf') && document.body.innerText.includes('3 pages')`), 'multiple PDF inspection');
   await waitFor(() => evaluate(`document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'original PDF render');
 
   await drawSignature();
@@ -290,6 +297,19 @@ try {
   await addSignatureToPage(1);
   await createUploadedSignature();
   await addSignatureToPage(3);
+  await evaluate(`(() => {
+    const select = document.querySelector('#sign-signature-library');
+    const option = [...select.options].find(item => item.textContent.includes('Browser Test Signature'));
+    select.value = option.value;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  })()`);
+  await clickButton('Replace selected');
+  await evaluate(`(() => {
+    const select = document.querySelector('#sign-signature-library');
+    const option = [...select.options].find(item => item.textContent.includes('signature.png'));
+    select.value = option.value;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  })()`);
   const replace = await evaluate(`!![...document.querySelectorAll('button')].find(button => button.innerText.includes('Replace selected'))`);
   assert.equal(replace, true, 'replace control should be available with a selected placement');
   await clickButton('Replace selected');
@@ -324,14 +344,31 @@ try {
   }
 
   await clickButton('Download three-page-fixture-signed.pdf');
-  await waitFor(async () => (await readdir(downloadPath)).some(name => name.endsWith('.pdf')), 'signed PDF download', 15000);
-  const downloadedName = (await readdir(downloadPath)).find(name => name.endsWith('.pdf'));
-  const downloadedBytes = await readFile(join(downloadPath, downloadedName));
+  await waitFor(async () => (await readdir(downloadPath)).some(name => name === 'three-page-fixture-signed.pdf'), 'first signed PDF download', 15000);
+  const downloadedBytes = await readFile(join(downloadPath, 'three-page-fixture-signed.pdf'));
   const outputPdf = await PDFDocument.load(downloadedBytes);
   assert.equal(outputPdf.getPageCount(), 3, 'download should retain all source pages');
   assert.ok(downloadedBytes.length > (await readFile(pdfPath)).length, 'signed PDF should contain embedded signature images');
+
+  await clickButton('separate-document.pdf');
+  await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('separate-document.pdf · original preview')`), 'second PDF selection');
+  const secondPlacementCount = await evaluate(`document.querySelector('main')?.innerText.match(/\\d+ signatures? placed in this document/)?.[0]`);
+  assert.equal(secondPlacementCount, '0 signatures placed in this document', 'the second PDF must not inherit the first PDF placements');
+  await clickButton('Add to page 1');
+  await clickButton('Apply signature and preview');
+  await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('Signed PDF ready')`), 'second independent signed output', 30000);
+  await clickButton('Download 2 as ZIP');
+  await waitFor(async () => (await readdir(downloadPath)).some(name => name === 'signed-pdfs.zip'), 'multiple signed PDF ZIP download', 15000);
+  const zipBytes = await readFile(join(downloadPath, 'signed-pdfs.zip'));
+  const archive = await JSZip.loadAsync(zipBytes);
+  assert.deepEqual(Object.keys(archive.files).filter(name => !archive.files[name].dir).sort(), [
+    'separate-document-signed.pdf',
+    'three-page-fixture-signed.pdf',
+  ]);
+  const secondOutput = await PDFDocument.load(await archive.file('separate-document-signed.pdf').async('uint8array'));
+  assert.equal(secondOutput.getPageCount(), 3, 'the second output should remain an independent, complete PDF');
   assert.equal(browserErrors.length, 0, `browser should not report runtime exceptions: ${browserErrors.join('; ')}`);
-  console.log('PASS: multi-page PDF opened, drawn/typed/PNG signatures were placed, replaced, rotated, undone/redone, embedded on a rotated page and crop-box page, previewed, downloaded, and parsed as a 3-page PDF.');
+  console.log('PASS: multiple PDFs stayed independent; drawn, typed and PNG signatures were placed and embedded; rotations, crop boxes, undo/redo, final previews, individual downloads and ZIP download were verified.');
 } finally {
   if (socket?.readyState === WebSocket.OPEN) socket.close();
   if (browser) {
