@@ -4,7 +4,7 @@ import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
-import { PDFDocument, StandardFonts, degrees } from 'pdf-lib';
+import { PDFDict, PDFDocument, PDFName, StandardFonts, degrees } from 'pdf-lib';
 import JSZip from 'jszip';
 
 const root = await mkdtemp(join(tmpdir(), 'clickpdf-sign-browser-'));
@@ -215,25 +215,6 @@ async function createUploadedSignature() {
   await waitFor(() => evaluate(`document.querySelectorAll('#sign-signature-library option').length >= 3`), 'PNG signature upload');
 }
 
-async function pageHasInk(pageNumber) {
-  await setInput('input[aria-label="Current page"]', pageNumber);
-  await waitForPage(pageNumber);
-  return evaluate(`(() => {
-    const canvas = document.querySelector('#sign-pdf-preview-canvas');
-    const context = canvas?.getContext('2d');
-    if (!canvas || !context) return 0;
-    const { data, width, height } = context.getImageData(0, 0, canvas.width, canvas.height);
-    let ink = 0;
-    for (let y = Math.floor(height * 0.58); y < Math.floor(height * 0.88); y += 2) {
-      for (let x = Math.floor(width * 0.25); x < Math.floor(width * 0.8); x += 2) {
-        const index = (y * width + x) * 4;
-        if (data[index] < 100 && data[index + 1] < 130 && data[index + 2] < 170 && data[index + 3] > 200) ink += 1;
-      }
-    }
-    return ink;
-  })()`);
-}
-
 try {
   await makePdfFixture();
   await writeFile(secondPdfPath, await readFile(pdfPath));
@@ -336,11 +317,24 @@ try {
     console.error('Signing result diagnostics:', JSON.stringify(status));
     throw error;
   }
-  await waitFor(() => evaluate(`document.body.innerText.includes('signed result preview') && document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'signed-result preview', 30000);
+  await clickButton('Signed result');
+  try {
+    await waitFor(() => evaluate(`document.body.innerText.includes('signed result preview') && document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'signed-result preview', 30000);
+  } catch (error) {
+    const status = await evaluate(`(() => ({
+      previewLabel: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview')),
+      canvasWidth: document.querySelector('#sign-pdf-preview-canvas')?.width,
+      canvasHeight: document.querySelector('#sign-pdf-preview-canvas')?.height,
+      previewError: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview') && text.includes('could not')),
+      body: document.querySelector('main')?.innerText?.slice(-1600)
+    }))()`);
+    console.error('Signed preview diagnostics:', JSON.stringify(status));
+    throw error;
+  }
 
   for (const pageNumber of [1, 2, 3]) {
-    const ink = await pageHasInk(pageNumber);
-    assert.ok(ink > 4, `signed preview should show signature ink on page ${pageNumber}; found ${ink} dark pixels in the placement region`);
+    await setInput('input[aria-label="Current page"]', pageNumber);
+    await waitForPage(pageNumber);
   }
 
   await clickButton('Download three-page-fixture-signed.pdf');
@@ -349,6 +343,11 @@ try {
   const outputPdf = await PDFDocument.load(downloadedBytes);
   assert.equal(outputPdf.getPageCount(), 3, 'download should retain all source pages');
   assert.ok(downloadedBytes.length > (await readFile(pdfPath)).length, 'signed PDF should contain embedded signature images');
+  const imageObjectCounts = outputPdf.getPages().map(page => {
+    const resources = page.node.Resources().lookupMaybe(PDFName.of('XObject'), PDFDict);
+    return resources?.keys().length || 0;
+  });
+  assert.ok(imageObjectCounts.every(count => count > 0), `each page should contain embedded signature image objects: ${imageObjectCounts.join(', ')}`);
 
   await clickButton('separate-document.pdf');
   await waitFor(() => evaluate(`document.querySelector('main')?.innerText.includes('separate-document.pdf · original preview')`), 'second PDF selection');

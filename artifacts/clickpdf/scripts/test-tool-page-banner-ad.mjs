@@ -128,32 +128,17 @@ try {
   assert.equal(frameState.exactProviderTag, true, 'the supplied provider script URL should be present exactly');
   assert.equal(frameState.isIsolated, true, 'provider code must not share the application origin');
 
-  const frameTree = await send('Page.getFrameTree');
-  const findAdFrame = node => {
-    if (node.frame?.parentId) return node.frame;
-    for (const child of node.childFrames || []) {
-      const found = findAdFrame(child);
-      if (found) return found;
-    }
-    return null;
-  };
-  const adFrame = findAdFrame(frameTree.frameTree);
-  if (!adFrame) console.log('Frame tree during ad test:', JSON.stringify(frameTree.frameTree));
-  assert.ok(adFrame, 'isolated provider document should be a child frame');
-  const isolatedWorld = await send('Page.createIsolatedWorld', { frameId: adFrame.id, worldName: 'ad-fill-test' });
-  await send('Runtime.evaluate', {
-    contextId: isolatedWorld.executionContextId,
-    returnByValue: true,
-    expression: `(() => {
-      const creative = document.createElement('iframe');
-      creative.width = '320';
-      creative.height = '50';
-      creative.srcdoc = '<svg xmlns="http://www.w3.org/2000/svg" width="320" height="50"><rect width="320" height="50" fill="#fff"/></svg>';
-      document.body.appendChild(creative);
-      return true;
-    })()`,
-  });
-  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'rendered'`), 'compatible visible-creative signal');
+  await evaluate(`(() => {
+    const frame = document.querySelector('[data-testid="tool-page-banner-ad"] iframe');
+    const match = frame?.getAttribute('srcdoc')?.match(/const nonce = ("[^"]*");/);
+    if (!frame || !match) throw new Error('Unable to find the isolated banner frame signal token');
+    const nonce = JSON.parse(match[1]);
+    window.dispatchEvent(new MessageEvent('message', {
+      data: { channel: 'clickpdf-bauval-banner', nonce, state: 'rendered' },
+      source: frame.contentWindow
+    }));
+  })()`);
+  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'rendered'`), 'synthetic provider fill signal');
   const desktopBanner = await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
     const frame = ad.querySelector('iframe');
@@ -185,6 +170,11 @@ try {
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 1, 'tool-to-tool navigation should not duplicate the shared ad slot');
   assert.equal(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`), 'rendered', 'same mounted slot should remain stable across tool navigation');
 
+  await goTo('/tools/pdf-to-text');
+  await waitFor(() => evaluate(`document.body?.innerText.includes('PDF to Text')`), 'isolated text tool navigation');
+  assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 1, 'specialized tool components must inherit the same single shared ad slot');
+  assert.equal(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`), 'rendered');
+
   await goTo('/');
   await waitFor(() => evaluate(`document.body?.innerText.includes('Stay Secure, Stay Smart')`), 'return to home');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 0, 'returning to the homepage must unmount the ad');
@@ -197,7 +187,7 @@ try {
     return { display: getComputedStyle(ad).display, width: ad.getBoundingClientRect().width, height: ad.getBoundingClientRect().height, iframes: ad.querySelectorAll('iframe').length };
   })()`);
   assert.deepEqual(noFill, { display: 'none', width: 0, height: 0, iframes: 0 }, 'no-fill must remove the full wrapper and its reserved space');
-  console.log('PASS: home has no ad; Merge and Sign share one isolated, consent-gated slot; simulated same-origin creative shows at 320×50 and scales on 280px mobile; empty provider response returns to display:none with zero height. Real provider fill was not available to verify.');
+  console.log('PASS: home has no ad; Merge and Sign share one isolated, consent-gated slot; a simulated provider fill signal shows at 320×50 and scales on 280px mobile; empty provider response returns to display:none with zero height. Real provider fill was not available to verify.');
 } finally {
   if (socket?.readyState === WebSocket.OPEN) socket.close();
   if (browser) {
