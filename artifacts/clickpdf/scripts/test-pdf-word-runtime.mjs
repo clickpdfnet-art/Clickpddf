@@ -83,3 +83,12 @@ test('cancellation promptly rejects conversion work and reports AbortError', asy
   assert.throws(() => runtime.wordAbort(controller.signal), { name: 'AbortError' });
   rejectJob(new Error('cleanup'));
 });
+
+test('OCR model, worker and cache stages can be timed out without disabling cancellation', async () => {
+  await assert.rejects(runtime.wordTimedOut(new Promise(() => {}), undefined, 5, 'worker timed out'),
+    /worker timed out/);
+  const controller = new AbortController();
+  const pending = runtime.wordTimedOut(new Promise(() => {}), controller.signal, 5_000, 'worker timed out');
+  controller.abort();
+  await assert.rejects(pending, { name: 'AbortError' });
+});

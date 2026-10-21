@@ -12,6 +12,13 @@ export async function wordAbortable<T>(promise: Promise<T>, signal?: AbortSignal
     })]);
   } finally { signal.removeEventListener('abort', listener); }
 }
+export async function wordTimedOut<T>(promise: Promise<T>, signal: AbortSignal | undefined, milliseconds: number, message: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    const timeout = new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error(message)), milliseconds); });
+    return await wordAbortable(Promise.race([promise, timeout]), signal);
+  } finally { if (timer) clearTimeout(timer); }
+}
 export interface WordBrowserFeatures {
   worker: boolean; wasm: boolean; blob: boolean; objectUrl: boolean; arrayBuffer: boolean; canvas: boolean; cache: boolean;
 }

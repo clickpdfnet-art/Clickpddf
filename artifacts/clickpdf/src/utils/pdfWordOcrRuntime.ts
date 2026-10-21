@@ -2,9 +2,11 @@ import type { Worker as OcrWorker } from 'tesseract.js';
 import workerUrl from 'tesseract.js/dist/worker.min.js?url';
 import coreUrl from 'tesseract.js-core/tesseract-core-lstm.wasm.js?url';
 import { WORD_LANGUAGES, validateWordLanguages, wordModelUrl } from './pdfWordLanguages';
-import { wordAbort, wordAbortable } from './pdfWordRuntimeChecks';
+import { wordAbort, wordAbortable, wordTimedOut } from './pdfWordRuntimeChecks';
 
 const MODEL_CACHE = 'clickpdf-word-models-tessdata-4-validated-v1';
+const cacheCall = <T,>(operation: Promise<T>, label: string) =>
+  wordTimedOut(operation, undefined, 8_000, `Optional browser cache ${label} timed out.`);
 export function wordOcrAssets(base = location.href) {
   const worker = new URL(workerUrl, base), core = new URL(coreUrl, base);
   if (worker.origin !== new URL(base).origin || core.origin !== new URL(base).origin)
@@ -21,12 +23,14 @@ async function modelBytes(id: string, signal: AbortSignal | undefined, status: (
   const entry = WORD_LANGUAGES.find(item => item.id === language)!;
   const maximumBytes = Math.max(5, entry.estimatedMB + 5) * 1024 * 1024;
   let cache: Cache | undefined;
-  try { if (typeof caches !== 'undefined') cache = await caches.open(MODEL_CACHE); }
+  try { if (typeof caches !== 'undefined') cache = await cacheCall(caches.open(MODEL_CACHE), 'open'); }
   catch { status('Model cache unavailable (private mode/quota); using temporary browser memory.'); }
   if (cache) {
-    const saved = await cache.match(url);
+    let saved: Response | undefined;
+    try { saved = (await cacheCall(cache.match(url), 'read')) || undefined; }
+    catch { status(`Optional browser cache read for ${id} timed out; fetching the selected model instead.`); }
     if (saved) {
-      const bytes = new Uint8Array(await wordAbortable(saved.arrayBuffer(), signal));
+      const bytes = new Uint8Array(await wordTimedOut(saved.arrayBuffer(), signal, 15_000, `Cached ${id} OCR model read timed out.`));
       if (validModel(bytes)) { status(`Using cached ${id} model (tessdata 4.0.0, ${(bytes.length / 1048576).toFixed(1)} MB).`); return { bytes, cache, url, cached: true }; }
       await cache.delete(url);
     }
@@ -89,17 +93,20 @@ export async function createWordOcrWorker(ids: string[], signal: AbortSignal | u
     errorHandler: () => { /* The SDK's rejected job is handled by the caller. */ }
   });
   // If cancellation wins worker initialization, terminate the late worker as soon as it becomes available.
-  void pending.then(worker => { if (signal?.aborted) void worker.terminate().catch(() => {}); }, () => {});
+  let abandoned = false;
+  void pending.then(worker => { if (signal?.aborted || abandoned) void worker.terminate().catch(() => {}); }, () => {});
   let worker: OcrWorker;
-  try { worker = await wordAbortable(pending, signal); }
+  try { worker = await wordTimedOut(pending, signal, 90_000, 'OCR worker initialization timed out. Check browser WebAssembly/worker support and retry.'); }
   catch (error) {
+    abandoned = true;
     for (const model of models) if (model.cached) await model.cache?.delete(model.url).catch(() => {});
     throw error;
   }
   try {
     for (const model of models) if (!model.cached && model.cache) {
       wordAbort(signal);
-      try { await model.cache.put(model.url, new Response(new Blob([model.bytes as BlobPart]), { headers: { 'Content-Type': 'application/gzip' } })); }
+      try { await wordTimedOut(model.cache.put(model.url, new Response(new Blob([model.bytes as BlobPart]), { headers: { 'Content-Type': 'application/gzip' } })),
+        signal, 8_000, 'Optional OCR model cache write timed out.'); }
       catch { status(`Model ${model.id} loaded, but the browser refused cache storage; it remains temporary.`); }
     }
     wordAbort(signal);

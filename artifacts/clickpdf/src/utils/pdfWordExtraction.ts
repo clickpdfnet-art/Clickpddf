@@ -3,7 +3,7 @@ import type Tesseract from 'tesseract.js';
 import bundledPdfWorker from 'pdfjs-dist/legacy/build/pdf.worker.min.mjs?url';
 import { createWordOcrWorker } from './pdfWordOcrRuntime';
 import { parseWordPageRange, parseWordPageModels, suggestWordLanguage, validateWordLanguages } from './pdfWordLanguages';
-import { wordAbort, wordAbortable, wordRenderScale, inspectWordBrowser, validateWordBrowser } from './pdfWordRuntimeChecks';
+import { wordAbort, wordAbortable, wordTimedOut, wordRenderScale, inspectWordBrowser, validateWordBrowser } from './pdfWordRuntimeChecks';
 import { canvasPng, renderWordPage, extractWordArtwork, remainingScanArtwork, hasVisibleScanContent } from './pdfWordGraphics';
 import type { WordOperators } from './pdfWordGraphics';
 import { groupWordLines, isRtlText, safeWordFont } from './pdfWordGeometry';
@@ -103,7 +103,8 @@ export async function extractWordPages(
             }
             wordAbort(signal);
             progress(index, numbers.length, `Recognizing page ${number} with ${workerLanguages}…`);
-            const recognized = await wordAbortable(worker!.recognize(canvas, {}, { text: true, blocks: true }), signal);
+            const recognized = await wordTimedOut(worker!.recognize(canvas, {}, { text: true, blocks: true }), signal,
+              90_000, `OCR on page ${number} timed out. Lower the image-pixel limit, try fewer OCR languages, or select fewer pages.`);
             const spans: WordSpan[] = [];
             const boxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
             for (const block of recognized.data.blocks || []) for (const paragraph of block.paragraphs) for (const line of paragraph.lines) {
