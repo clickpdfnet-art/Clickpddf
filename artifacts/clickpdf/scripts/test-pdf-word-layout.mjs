@@ -10,8 +10,10 @@ const compile = source => ts.transpileModule(source, {
 }).outputText;
 const geometryUrl = asModule(compile(await readFile(new URL('../src/utils/pdfWordGeometry.ts', import.meta.url), 'utf8')));
 const geometry = await import(geometryUrl);
+const runtimeUrl = asModule(compile(await readFile(new URL('../src/utils/pdfWordRuntimeChecks.ts', import.meta.url), 'utf8')));
 const builderSource = compile(await readFile(new URL('../src/utils/pdfWordDocx.ts', import.meta.url), 'utf8'))
-  .replace(/from ['"]([^'"]+)['"]/g, (_, name) => `from '${name === './pdfWordGeometry' ? geometryUrl : import.meta.resolve(name)}'`);
+  .replace(/from ['"]([^'"]+)['"]/g, (_, name) => `from '${name === './pdfWordGeometry' ? geometryUrl :
+    name === './pdfWordRuntimeChecks' ? runtimeUrl : import.meta.resolve(name)}'`);
 const { buildAdvancedWord } = await import(asModule(builderSource));
 const span = (text, x, y, extra = {}) => ({
   text, x, y, width: text.length * 6, height: 12, size: 12, font: 'Arial',
@@ -48,6 +50,14 @@ test('layout DOCX retains Unicode text, editable textboxes and no forced page ra
   assert.ok(Object.keys(zip.files).some(name => name.startsWith('word/media/') && !zip.files[name].dir));
   assert.ok(zip.file('clickpdf/conversion-report.json'));
   assert.match(await zip.file('[Content_Types].xml').async('string'), /Extension="json" ContentType="application\/json"/);
+});
+
+test('DOCX generation observes cancellation between page sections', async () => {
+  const controller = new AbortController();
+  const pending = buildAdvancedWord(Array.from({ length: 8 }, (_, index) => page(index + 1,
+    [span(`Page ${index + 1}`, 50, 50)])), { mode: 'layout', imageFallback: 'never' }, 'Cancel test', controller.signal);
+  setTimeout(() => controller.abort(), 0);
+  await assert.rejects(pending, { name: 'AbortError' });
 });
 
 test('editable DOCX keeps styles, hyperlinks, script direction and genuine sections', async () => {

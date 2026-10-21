@@ -48,12 +48,12 @@ test('page-range and page-language parsers bound and deduplicate the selection',
     [[2, ['urd', 'eng']], [5, ['jpn']]]);
   assert.throws(() => languages.parseWordPageRange('1-9', 6), /outside/);
   assert.throws(() => languages.parseWordPageRange('1,all', 6), /Page range/);
-  assert.throws(() => languages.parseWordPageModels('2:eng+missing', 6), /not configured/);
+  assert.throws(() => languages.parseWordPageModels('2:eng+missing', 6), error => /unavailable/.test(error.message));
 });
 
 test('OCR model selection rejects empty, unknown and duplicate models without substitution', () => {
   assert.throws(() => languages.validateWordLanguages([]), /at least one/);
-  assert.throws(() => languages.validateWordLanguages(['not-supported']), /not configured/);
+  assert.throws(() => languages.validateWordLanguages(['not-supported']), error => /not configured/.test(error.message));
   assert.deepEqual(languages.validateWordLanguages(['urd', 'eng', 'urd']), ['urd', 'eng']);
 });
 

@@ -58,7 +58,7 @@ export function suggestWordLanguage(text: string): WordLanguageSuggestion {
   if (!best || sample.length < 4) return { script: 'Unknown', candidates: [], confidence: 0, languageConfidence: 0, note: 'Insufficient text; choose the OCR language manually.' };
   const confidence = Math.round(100 * best.count / sample.length);
   return { script: scripts.filter(entry => entry.count / sample.length > .15).map(entry => entry.script).join(' + '),
-    candidates: best.candidates, confidence, languageConfidence: best.distinct && best.count >= 6 ? Math.min(95, confidence) : 0,
+    candidates: best.candidates, confidence, languageConfidence: best.distinct && best.count >= 3 ? Math.min(95, confidence) : 0,
     note: best.distinct ? 'Script-derived suggestion only; selected OCR languages remain unchanged.'
       : 'Script does not uniquely identify a language. Confirm the manual OCR selection; no automatic substitution.' };
 }
