@@ -152,6 +152,8 @@ async function waitForPage(pageNumber) {
 
 async function drawSignature() {
   await waitFor(() => evaluate(`!!document.querySelector('canvas[aria-label*="Draw your signature"]')`), 'signature canvas');
+  await evaluate(`document.querySelector('canvas[aria-label*="Draw your signature"]').scrollIntoView({ block: 'center', inline: 'center' })`);
+  await delay(250);
   const rect = await evaluate(`(() => {
     const r = document.querySelector('canvas[aria-label*="Draw your signature"]').getBoundingClientRect();
     return { left:r.left, top:r.top, width:r.width, height:r.height };
