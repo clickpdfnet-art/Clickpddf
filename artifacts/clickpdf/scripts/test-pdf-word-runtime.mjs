@@ -53,7 +53,7 @@ test('page-range and page-language parsers bound and deduplicate the selection',
 
 test('OCR model selection rejects empty, unknown and duplicate models without substitution', () => {
   assert.throws(() => languages.validateWordLanguages([]), /at least one/);
-  assert.throws(() => languages.validateWordLanguages(['not-supported']), error => /not configured/.test(error.message));
+  assert.throws(() => languages.validateWordLanguages(['not-supported']), error => /unavailable/.test(error.message));
   assert.deepEqual(languages.validateWordLanguages(['urd', 'eng', 'urd']), ['urd', 'eng']);
 });
 
