@@ -1,197 +1,118 @@
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-const CONSENT_KEY = 'clickpdf_cookie_consent_v1';
-const AD_CHANNEL = 'clickpdf-bauval-banner';
-const PROVIDER_SCRIPT_URL = 'https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc';
 const BANNER_WIDTH = 320;
 const BANNER_HEIGHT = 50;
-const FILL_TIMEOUT_MS = 10_000;
-
-type AdState = 'loading' | 'rendered' | 'empty';
 
 interface AdsterraBannerProps {
   className?: string;
 }
 
-function hasExplicitAdOptOut(): boolean {
-  if (typeof window === 'undefined') return false;
-  try {
-    return window.localStorage.getItem(CONSENT_KEY) === 'rejected';
-  } catch {
-    return false;
-  }
-}
-
-function createProviderFrameDocument(nonce: string): string {
-  const nonceLiteral = JSON.stringify(nonce);
-  const channelLiteral = JSON.stringify(AD_CHANNEL);
-  const scriptUrlLiteral = JSON.stringify(PROVIDER_SCRIPT_URL);
-
+function createProviderFrameDocument(): string {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="referrer" content="strict-origin">
+  <base target="_blank">
   <meta name="viewport" content="width=320, initial-scale=1">
-  <style>html,body{width:320px;height:50px;margin:0;padding:0;overflow:hidden;background:transparent}</style>
-  <script type="text/javascript">
-  (() => {
-    const channel = ${channelLiteral};
-    const nonce = ${nonceLiteral};
-    const send = state => parent.postMessage({ channel, nonce, state }, '*');
-    const observed = new WeakSet();
-    let providerFrameLoaded = false;
-
-    window.addEventListener('message', event => {
-      const message = event.data;
-      if (event.source !== parent || !message || message.channel !== channel || message.nonce !== nonce || message.state !== 'ready') return;
-      if (providerFrameLoaded) send('loaded');
-    });
-
-    const observeFrame = frame => {
-      if (!(frame instanceof HTMLIFrameElement) || observed.has(frame)) return;
-      observed.add(frame);
-      const onLoad = () => {
-        const rect = frame.getBoundingClientRect();
-        const width = Number(frame.getAttribute('width')) || rect.width;
-        const height = Number(frame.getAttribute('height')) || rect.height;
-        if (width < 320 || height < 50 || !frame.src || frame.src === 'about:blank') return;
-        providerFrameLoaded = true;
-        send('loaded');
-      };
-      frame.addEventListener('load', onLoad);
-      if (frame.contentDocument?.readyState === 'complete' && frame.src && frame.src !== 'about:blank') onLoad();
-    };
-
-    const scan = node => {
-      if (node instanceof HTMLIFrameElement) observeFrame(node);
-      if (node.querySelectorAll) node.querySelectorAll('iframe').forEach(observeFrame);
-    };
-
-    const observer = new MutationObserver(records => {
-      for (const record of records) record.addedNodes.forEach(scan);
-    });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
-    window.addEventListener('pagehide', () => observer.disconnect(), { once: true });
-    window.addEventListener('error', event => {
-      if (event.target instanceof HTMLScriptElement && event.target.src === ${scriptUrlLiteral}) send('empty');
-    }, true);
-    window.setTimeout(() => send('empty'), ${FILL_TIMEOUT_MS});
-  })();
-  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 320px;
+      height: 50px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    iframe { border: none !important; }
+  </style>
 </head>
 <body>
-  <script type="text/javascript">
-    atOptions = {
-      'key' : '3221c27a7eae6feed96313cf6813cfcc',
-      'format' : 'iframe',
-      'height' : 50,
-      'width' : 320,
-      'params' : {}
-    };
-  </script>
-  <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
+  <div style="width:320px;height:50px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '3221c27a7eae6feed96313cf6813cfcc',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
+  </div>
 </body>
 </html>`;
 }
 
-export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className }) => {
+export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }) => {
   const frameRef = useRef<HTMLIFrameElement>(null);
-  const id = useId();
-  const nonce = useMemo(() => `clickpdf-ad-${id}`, [id]);
-  const [adEnabled, setAdEnabled] = useState(() => !hasExplicitAdOptOut());
-  const [state, setState] = useState<AdState>(() => hasExplicitAdOptOut() ? 'empty' : 'loading');
   const [scale, setScale] = useState(1);
-  const srcDoc = useMemo(() => createProviderFrameDocument(nonce), [nonce]);
-  const scaledWidth = Math.round(BANNER_WIDTH * scale);
-  const scaledHeight = Math.round(BANNER_HEIGHT * scale);
+  const srcDoc = useMemo(() => createProviderFrameDocument(), []);
 
+  // Responsive scaling for mobile devices
   useEffect(() => {
-    const readConsent = () => setAdEnabled(!hasExplicitAdOptOut());
-    readConsent();
-    window.addEventListener('storage', readConsent);
-    window.addEventListener('clickpdf-cookie-consent-change', readConsent);
-    return () => {
-      window.removeEventListener('storage', readConsent);
-      window.removeEventListener('clickpdf-cookie-consent-change', readConsent);
+    const updateScale = () => {
+      const padding = 24;
+      const availableWidth = window.innerWidth - padding;
+      setScale(Math.min(1, Math.max(0.7, availableWidth / BANNER_WIDTH)));
     };
-  }, []);
-
-  useEffect(() => {
-    const updateScale = () => setScale(Math.min(1, Math.max(0.1, window.innerWidth / BANNER_WIDTH)));
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
   }, []);
 
-  useEffect(() => {
-    if (!adEnabled) {
-      setState('empty');
-      return;
-    }
-
-    setState('loading');
-    const timeout = window.setTimeout(
-      () => setState(current => current === 'loading' ? 'empty' : current),
-      FILL_TIMEOUT_MS + 1_000,
-    );
-    const onMessage = (event: MessageEvent) => {
-      if (event.source !== frameRef.current?.contentWindow) return;
-      const message = event.data;
-      if (!message || message.channel !== AD_CHANNEL || message.nonce !== nonce) return;
-      if (message.state === 'loaded') setState('rendered');
-      else if (message.state === 'empty') setState(current => current === 'rendered' ? current : 'empty');
-    };
-
-    window.addEventListener('message', onMessage);
-    frameRef.current?.contentWindow?.postMessage({ channel: AD_CHANNEL, nonce, state: 'ready' }, '*');
-    return () => {
-      window.clearTimeout(timeout);
-      window.removeEventListener('message', onMessage);
-    };
-  }, [adEnabled, nonce]);
-
-  const rendered = state === 'rendered';
-  const frameActive = adEnabled && (state === 'loading' || rendered);
+  const scaledWidth = Math.round(BANNER_WIDTH * scale);
+  const scaledHeight = Math.round(BANNER_HEIGHT * scale);
 
   return (
     <div
       className={className}
       data-testid="adsterra-banner"
-      data-ad-state={state}
-      aria-hidden={!rendered}
-      style={rendered
-        ? { display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '100%', height: scaledHeight, padding: 0, border: 0, overflow: 'hidden' }
-        : { display: 'none', width: 0, height: 0, margin: 0, padding: 0, border: 0, overflow: 'hidden' }}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        minHeight: scaledHeight,
+        margin: '8px 0',
+      }}
     >
-      {frameActive && (
-        <div style={{ position: 'relative', width: scaledWidth, height: scaledHeight, flex: '0 0 auto', overflow: 'hidden' }}>
-          <iframe
-            ref={frameRef}
-            title="Advertisement"
-            srcDoc={srcDoc}
-            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-            referrerPolicy="strict-origin"
-            width={BANNER_WIDTH}
-            height={BANNER_HEIGHT}
-            scrolling="no"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              display: 'block',
-              width: BANNER_WIDTH,
-              height: BANNER_HEIGHT,
-              maxWidth: 'none',
-              border: 0,
-              margin: 0,
-              padding: 0,
-              transform: `scale(${scale})`,
-              transformOrigin: 'top left',
-            }}
-          />
-        </div>
-      )}
+      <div
+        style={{
+          position: 'relative',
+          width: scaledWidth,
+          height: scaledHeight,
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <iframe
+          ref={frameRef}
+          title="Advertisement"
+          srcDoc={srcDoc}
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+          width={BANNER_WIDTH}
+          height={BANNER_HEIGHT}
+          scrolling="no"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: BANNER_WIDTH,
+            height: BANNER_HEIGHT,
+            border: 0,
+            margin: 0,
+            padding: 0,
+            transform: scale < 1 ? `scale(${scale})` : undefined,
+            transformOrigin: 'top left',
+          }}
+        />
+      </div>
     </div>
   );
 };
