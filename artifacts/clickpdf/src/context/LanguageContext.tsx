@@ -9,6 +9,12 @@ import {
 } from '../i18n/translations';
 import { PDFTool } from '../types';
 import { PDF_TOOLS } from '../data/toolsData';
+import {
+  UI_TRANSLATIONS,
+  WORKSPACE_TRANSLATIONS,
+  TOOL_BADGE_KEYS,
+} from '../i18n/uiTranslations';
+import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
 
 interface LanguageContextType {
   language: Language;
@@ -17,9 +23,11 @@ interface LanguageContextType {
   t: TranslationDict;
   isRTL: boolean;
   currentLanguageOption: LanguageOption;
+  ui: typeof UI_TRANSLATIONS[Language];
   getToolTitle: (tool: PDFTool | string) => string;
   getToolDescription: (tool: PDFTool | string) => string;
   getToolExtendedDescription: (tool: PDFTool | string) => string;
+  getToolBadge: (tool: PDFTool | string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -62,12 +70,18 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
   }, [language, isRTL]);
 
-  const t = translations[language] || translations.en;
+  const t: TranslationDict = {
+    ...(translations[language] || translations.en),
+    ...WORKSPACE_TRANSLATIONS[language],
+  };
+  const ui = UI_TRANSLATIONS[language];
 
   const getToolTitle = (tool: PDFTool | string): string => {
     const id = typeof tool === 'string' ? tool : tool.id;
     const localized = TOOL_TRANSLATIONS[id]?.[language];
     if (localized?.title) return localized.title;
+    const addedToolTranslation = MISSING_TOOL_TRANSLATIONS[language][id as NewToolId];
+    if (addedToolTranslation?.title) return addedToolTranslation.title;
     if (typeof tool !== 'string') return tool.title;
     const found = PDF_TOOLS.find(t => t.id === id);
     return found?.title || id;
@@ -77,6 +91,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const id = typeof tool === 'string' ? tool : tool.id;
     const localized = TOOL_TRANSLATIONS[id]?.[language];
     if (localized?.description) return localized.description;
+    const addedToolTranslation = MISSING_TOOL_TRANSLATIONS[language][id as NewToolId];
+    if (addedToolTranslation?.description) return addedToolTranslation.description;
     if (typeof tool !== 'string') return tool.description;
     const found = PDF_TOOLS.find(t => t.id === id);
     return found?.description || '';
@@ -89,6 +105,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return getToolDescription(tool);
   };
 
+  const getToolBadge = (tool: PDFTool | string): string => {
+    const badge = typeof tool === 'string' ? PDF_TOOLS.find(item => item.id === tool)?.badge : tool.badge;
+    const key = badge ? TOOL_BADGE_KEYS[badge] : undefined;
+    return key ? ui[key] : badge || '';
+  };
+
   return (
     <LanguageContext.Provider
       value={{
@@ -98,9 +120,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         t,
         isRTL,
         currentLanguageOption: currentOption,
+        ui,
         getToolTitle,
         getToolDescription,
         getToolExtendedDescription,
+        getToolBadge,
       }}
     >
       <div dir={isRTL ? 'rtl' : 'ltr'} className={isRTL ? 'font-sans' : ''}>

@@ -31,7 +31,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   onOpenLegal,
   onOpenShare,
 }) => {
-  const { t, getToolTitle, getToolDescription } = useLanguage();
+  const { t, ui, getToolTitle, getToolDescription, getToolBadge } = useLanguage();
 
   if (!isOpen) return null;
 
@@ -87,7 +87,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                       }}
                       className="text-[11px] text-indigo-600 hover:underline"
                     >
-                      View all ({toolsInCat.length})
+                       {t.allPdfTools} ({toolsInCat.length})
                     </button>
                   </div>
 
@@ -108,7 +108,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                             </span>
                             {tool.badge && (
                               <span className="text-[10px] font-medium px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700">
-                                {tool.badge}
+                                {getToolBadge(tool)}
                               </span>
                             )}
                           </div>

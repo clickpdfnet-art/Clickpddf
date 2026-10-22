@@ -12,7 +12,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   variant = 'header',
   className = '',
 }) => {
-  const { language, setLanguage, currentLanguageOption } = useLanguage();
+  const { language, setLanguage, currentLanguageOption, ui } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +41,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     return (
       <div className={`space-y-1.5 ${className}`}>
         <label className="text-[10px] uppercase font-bold text-slate-400 block px-1">
-          Select Language
+          {ui.selectLanguage}
         </label>
         <div className="grid grid-cols-2 gap-1.5 max-h-48 overflow-y-auto custom-scrollbar p-1 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
           {SUPPORTED_LANGUAGES.map((lang) => {
@@ -77,7 +77,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        title="Change interface language"
+        title={ui.selectLanguage}
         className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 text-xs text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 rounded-lg shadow-2xs transition-all cursor-pointer"
       >
         <Globe className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
@@ -96,8 +96,8 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       {isOpen && (
         <div className="absolute right-0 mt-2 w-64 max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-100 custom-scrollbar">
           <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400">
-            <span>Select Language</span>
-            <span className="text-[9px] text-indigo-500 font-semibold lowercase">21 languages</span>
+            <span>{ui.languageMenuTitle}</span>
+            <span className="text-[9px] text-indigo-500 font-semibold lowercase">{ui.languageCount}</span>
           </div>
           <div className="p-1 space-y-0.5">
             {SUPPORTED_LANGUAGES.map((lang) => {

@@ -31,10 +31,11 @@ import { FloatingShareButton } from './components/FloatingShareButton';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 
 function AppContent() {
+  const { getToolTitle, getToolDescription } = useLanguage();
   const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq'>('home');
   const [selectedTool, setSelectedTool] = useState<PDFTool | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory>('all');
@@ -467,8 +468,8 @@ function AppContent() {
   const filteredTools = PUBLIC_PDF_TOOLS.filter((tool) => {
     const matchesCategory = selectedCategory === 'all' || tool.category === selectedCategory;
     const matchesSearch =
-      tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchQuery.toLowerCase());
+      getToolTitle(tool).toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()) ||
+      getToolDescription(tool).toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase());
     return matchesCategory && matchesSearch;
   });
 

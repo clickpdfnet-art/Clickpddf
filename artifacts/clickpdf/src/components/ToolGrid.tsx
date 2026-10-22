@@ -24,7 +24,7 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
   onSelectTool,
   onOpenBatchQueue,
 }) => {
-  const { t, getToolTitle, getToolDescription } = useLanguage();
+  const { t, ui, getToolTitle, getToolDescription } = useLanguage();
 
   const getCategoryLabel = (id: ToolCategory) => {
     switch (id) {
@@ -49,14 +49,14 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
         <div className="relative z-10 max-w-2xl mx-auto space-y-1.5">
           {/* Prominent Main Brand Headline */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight drop-shadow-sm">
-            Stay Secure, Stay Smart
+            {ui.homeHeadline}
           </h1>
 
           {/* Sub-Motto Badge */}
           <div className="flex items-center justify-center">
             <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-cyan-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] sm:text-xs font-bold shadow-xs backdrop-blur-sm">
               <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
-              <span>Your Data, Your Privacy - 100% Private</span>
+              <span>{ui.homePrivacyBadge}</span>
             </span>
           </div>
         </div>
@@ -69,11 +69,11 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
         </div>
         <div>
           <div className="flex flex-wrap items-center justify-center gap-1.5">
-            <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight">Need to process multiple PDF files at once?</h3>
-            <span className="text-[9px] font-bold uppercase tracking-wider bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 px-1.5 py-0.2 rounded-full">New</span>
+            <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight">{ui.homeBatchTitle}</h3>
+            <span className="text-[9px] font-bold uppercase tracking-wider bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 px-1.5 py-0.2 rounded-full">{ui.newBadge}</span>
           </div>
           <p className="text-[11px] text-indigo-200/80 leading-tight">
-            Launch any tool below to select or drop multiple PDF files and process them sequentially with 100% private local execution.
+            {ui.homeBatchDescription}
           </p>
         </div>
       </div>

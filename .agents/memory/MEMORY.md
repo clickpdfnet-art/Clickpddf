@@ -7,3 +7,4 @@
 - [Global tool-page banner ad](tool-page-banner-ad.md) — every tool route inherits one consent-gated, sandboxed banner slot; never duplicate provider code in tools.
 - [Admin dashboard visibility](admin-dashboard-visibility.md) — preserve the dashboard code and data, but keep all public website entry points disabled until requested.
 - [Cloudflare root build](cloudflare-root-build.md) — keep Cloudflare’s pnpm version aligned with the lockfile and pass safe PORT/BASE_PATH defaults to the monorepo build.
+- [ClickPDF localization rollout](clickpdf-localization-rollout.md) — support all 21 existing locales through manual, staged translation without adding AI translation.

@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenBatchQueue,
   onOpenLegal
 }) => {
-  const { t, getToolTitle } = useLanguage();
+  const { t, ui, getToolTitle } = useLanguage();
 
   const handleOpenBlog = () => {
     onOpenBlog();
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm mb-2.5">
-              ClickPDF.net provides 100% in-browser, client-side PDF utilities developed by Click Digital Services. All document operations execute strictly within local device memory with zero server uploads.
+              {ui.footerAbout}
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-emerald-400">
@@ -235,7 +235,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom copyright */}
         <div className="pt-3 border-t border-slate-900/80 flex items-center justify-center text-center text-[11px] sm:text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} ClickPDF.net — A Product by Click Digital Services
+            © {new Date().getFullYear()} {ui.copyrightLine}
           </div>
         </div>
       </div>

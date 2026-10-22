@@ -10,6 +10,7 @@ import {
 import { PDFTool } from '../types';
 import { ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
+import { useLanguage } from '../context/LanguageContext';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
 
@@ -27,6 +28,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   stage = 'empty'
 }) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const { ui, getToolTitle, getToolDescription } = useLanguage();
 
   if (!seoInfo) {
     return null;
@@ -47,13 +49,13 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   if (stage === 'completed') {
     if (relatedTools.length === 0) return null;
     return (
-      <aside aria-label="Related PDF Tools" className="w-full mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100">
+      <aside aria-label={ui.relatedToolsHeading} className="w-full mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100">
         <div className="max-w-4xl mx-auto space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-              Related PDF Tools You May Need
+              {ui.relatedToolsHeading}
             </h3>
-            <span className="text-xs text-slate-500">100% In-Browser</span>
+            <span className="text-xs text-slate-500">{ui.inBrowserShort}</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -66,14 +68,14 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
               >
                 <div>
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {relTool.title}
+                    {getToolTitle(relTool)}
                   </h4>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">
-                    {relTool.description}
+                    {getToolDescription(relTool)}
                   </p>
                 </div>
                 <div className="flex items-center gap-1 text-[10px] font-semibold text-indigo-600 dark:text-indigo-400 group-hover:translate-x-0.5 transition-transform">
-                  <span>Open Tool</span>
+                  <span>{ui.openToolLabel}</span>
                   <ArrowRight className="w-3 h-3" />
                 </div>
               </button>
@@ -96,7 +98,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
             <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
             <span>{seoInfo.badge}</span>
             <span className="text-slate-300 dark:text-slate-700">•</span>
-            <span>100% Free & Unlimited</span>
+            <span>{ui.freeUnlimitedBadge}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -113,7 +115,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800">
           <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-indigo-500" />
-            <span>{seoInfo.overviewHeading}</span>
+            <span>{ui.aboutToolSectionHeading}</span>
           </h4>
           <p>{seoInfo.secondaryOverview}</p>
         </div>
@@ -122,7 +124,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="space-y-4 text-center">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              {seoInfo.stepsHeading}
+              {ui.howToSectionHeading} {getToolTitle(tool)}
             </h3>
           </div>
 
@@ -151,7 +153,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           <div className="flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-indigo-500" />
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              Frequently Asked Questions About {tool.title}
+              {ui.faqHeadingPrefix} {getToolTitle(tool)}
             </h3>
           </div>
 
@@ -193,9 +195,9 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                Related PDF Tools You May Need
+                {ui.relatedToolsHeading}
               </h3>
-              <span className="text-xs text-slate-500">100% In-Browser</span>
+              <span className="text-xs text-slate-500">{ui.inBrowserShort}</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -208,14 +210,14 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                 >
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                      {relTool.title}
+                      {getToolTitle(relTool)}
                     </h4>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">
-                      {relTool.description}
+                      {getToolDescription(relTool)}
                     </p>
                   </div>
                   <div className="flex items-center gap-1 text-[10px] font-semibold text-indigo-600 dark:text-indigo-400 group-hover:translate-x-0.5 transition-transform">
-                    <span>Open Tool</span>
+                    <span>{ui.openToolLabel}</span>
                     <ArrowRight className="w-3 h-3" />
                   </div>
                 </button>

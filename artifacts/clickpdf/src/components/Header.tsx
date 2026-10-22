@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-indigo-50 dark:bg-slate-800 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-200 dark:border-slate-700 rounded-lg shadow-2xs transition-all cursor-pointer active:scale-95"
             >
               <Share2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-              <span className="hidden sm:inline">Share</span>
+              <span className="hidden sm:inline">{t.shareClickPdf}</span>
             </button>
           )}
 
