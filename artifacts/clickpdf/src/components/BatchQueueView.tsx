@@ -42,6 +42,7 @@ import {
 } from '../utils/memoryManager';
 import { validateFileBatch } from '../utils/securitySanitizer';
 import confetti from 'canvas-confetti';
+import { AdsterraBanner } from './AdsterraBanner';
 
 interface BatchQueueViewProps {
   initialFiles?: File[];
@@ -426,6 +427,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <AdsterraBanner className="mb-4" />
       {/* Top Breadcrumb & Status */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <button

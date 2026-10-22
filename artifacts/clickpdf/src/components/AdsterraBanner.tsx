@@ -9,12 +9,15 @@ const FILL_TIMEOUT_MS = 10_000;
 
 type AdState = 'loading' | 'rendered' | 'empty';
 
+interface AdsterraBannerProps {
+  className?: string;
+}
+
 function hasExplicitAdOptOut(): boolean {
   if (typeof window === 'undefined') return false;
   try {
     return window.localStorage.getItem(CONSENT_KEY) === 'rejected';
   } catch {
-    // The banner defaults to enabled when browser storage is unavailable.
     return false;
   }
 }
@@ -31,7 +34,7 @@ function createProviderFrameDocument(nonce: string): string {
   <meta name="referrer" content="strict-origin">
   <meta name="viewport" content="width=320, initial-scale=1">
   <style>html,body{width:320px;height:50px;margin:0;padding:0;overflow:hidden;background:transparent}</style>
-  <script>
+  <script type="text/javascript">
   (() => {
     const channel = ${channelLiteral};
     const nonce = ${nonceLiteral};
@@ -78,7 +81,7 @@ function createProviderFrameDocument(nonce: string): string {
   </script>
 </head>
 <body>
-  <script>
+  <script type="text/javascript">
     atOptions = {
       'key' : '3221c27a7eae6feed96313cf6813cfcc',
       'format' : 'iframe',
@@ -87,12 +90,12 @@ function createProviderFrameDocument(nonce: string): string {
       'params' : {}
     };
   </script>
-  <script src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
+  <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
 </body>
 </html>`;
 }
 
-export const ToolPageBannerAd: React.FC = () => {
+export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className }) => {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const id = useId();
   const nonce = useMemo(() => `clickpdf-ad-${id}`, [id]);
@@ -104,9 +107,7 @@ export const ToolPageBannerAd: React.FC = () => {
   const scaledHeight = Math.round(BANNER_HEIGHT * scale);
 
   useEffect(() => {
-    const readConsent = () => {
-      setAdEnabled(!hasExplicitAdOptOut());
-    };
+    const readConsent = () => setAdEnabled(!hasExplicitAdOptOut());
     readConsent();
     window.addEventListener('storage', readConsent);
     window.addEventListener('clickpdf-cookie-consent-change', readConsent);
@@ -130,7 +131,10 @@ export const ToolPageBannerAd: React.FC = () => {
     }
 
     setState('loading');
-    const timeout = window.setTimeout(() => setState(current => current === 'loading' ? 'empty' : current), FILL_TIMEOUT_MS + 1_000);
+    const timeout = window.setTimeout(
+      () => setState(current => current === 'loading' ? 'empty' : current),
+      FILL_TIMEOUT_MS + 1_000,
+    );
     const onMessage = (event: MessageEvent) => {
       if (event.source !== frameRef.current?.contentWindow) return;
       const message = event.data;
@@ -152,11 +156,12 @@ export const ToolPageBannerAd: React.FC = () => {
 
   return (
     <div
-      data-testid="tool-page-banner-ad"
+      className={className}
+      data-testid="adsterra-banner"
       data-ad-state={state}
       aria-hidden={!rendered}
       style={rendered
-        ? { display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '100%', height: scaledHeight, margin: 0, padding: 0, border: 0, overflow: 'hidden' }
+        ? { display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '100%', height: scaledHeight, padding: 0, border: 0, overflow: 'hidden' }
         : { display: 'none', width: 0, height: 0, margin: 0, padding: 0, border: 0, overflow: 'hidden' }}
     >
       {frameActive && (

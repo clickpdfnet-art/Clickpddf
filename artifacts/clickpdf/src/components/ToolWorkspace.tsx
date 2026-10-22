@@ -3,6 +3,7 @@ import { OutputArchive } from '../utils/outputArchive';
 import { LocalOutputStore } from '../utils/localOutputStore';
 import { runPdfBackground } from '../utils/pdfBackground';
 import { DocumentSelector } from './DocumentSelector';
+import { AdsterraBanner } from './AdsterraBanner';
 import { startDownloadCountdown, DownloadRequestGate } from '../utils/downloadCountdown';
 import { PDFTool } from '../types';
 import {
@@ -2134,17 +2135,28 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   // Isolated text-tool implementation; all other tools retain their existing paths.
   if (tool.id === 'pdf-to-text') {
-    return <PdfTextWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />;
+    return (
+      <>
+        <AdsterraBanner className="mb-4" />
+        <PdfTextWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />
+      </>
+    );
   }
   // Only PDF to Excel uses this isolated implementation; no other tool paths change.
   if (tool.id === 'pdf-to-excel') {
-    return <PdfExcelWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />;
+    return (
+      <>
+        <AdsterraBanner className="mb-4" />
+        <PdfExcelWorkspace tool={tool} initialFiles={initialFiles} onBack={onBack} onSelectTool={onSelectTool} />
+      </>
+    );
   }
 
   if (plugin) {
     const PluginComponent = plugin.Component;
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+        <AdsterraBanner className="mb-4" />
         {/* Top bar with back button */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -2191,6 +2203,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      <AdsterraBanner className="mb-4" />
       {/* Top bar with back button */}
       <div className="flex items-center justify-between mb-6">
         <button
