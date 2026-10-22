@@ -2155,7 +2155,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   if (plugin) {
     const PluginComponent = plugin.Component;
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <AdsterraBanner className="mb-4" />
         {/* Top bar with back button */}
         <div className="flex items-center justify-between mb-6">
@@ -2202,7 +2202,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
       <AdsterraBanner className="mb-4" />
       {/* Top bar with back button */}
       <div className="flex items-center justify-between mb-6">
