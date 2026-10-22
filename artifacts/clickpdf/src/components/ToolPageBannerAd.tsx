@@ -7,7 +7,17 @@ const BANNER_WIDTH = 320;
 const BANNER_HEIGHT = 50;
 const FILL_TIMEOUT_MS = 10_000;
 
-type AdState = 'consent-required' | 'loading' | 'rendered' | 'empty';
+type AdState = 'loading' | 'rendered' | 'empty';
+
+function hasExplicitAdOptOut(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return window.localStorage.getItem(CONSENT_KEY) === 'rejected';
+  } catch {
+    // The banner defaults to enabled when browser storage is unavailable.
+    return false;
+  }
+}
 
 function createProviderFrameDocument(nonce: string): string {
   const nonceLiteral = JSON.stringify(nonce);
@@ -18,7 +28,7 @@ function createProviderFrameDocument(nonce: string): string {
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="referrer" content="no-referrer">
+  <meta name="referrer" content="strict-origin">
   <meta name="viewport" content="width=320, initial-scale=1">
   <style>html,body{width:320px;height:50px;margin:0;padding:0;overflow:hidden;background:transparent}</style>
   <script>
@@ -27,48 +37,27 @@ function createProviderFrameDocument(nonce: string): string {
     const nonce = ${nonceLiteral};
     const send = state => parent.postMessage({ channel, nonce, state }, '*');
     const observed = new WeakSet();
+    let providerFrameLoaded = false;
 
-    const hasVisibleCreative = frame => {
-      try {
-        const doc = frame.contentDocument;
-        if (!doc || !doc.body || doc.readyState !== 'complete') return false;
-        const nodes = doc.querySelectorAll('img,video,canvas,svg,object,embed,a,[role="img"],[data-ad]');
-        for (const node of nodes) {
-          const rect = node.getBoundingClientRect();
-          const style = doc.defaultView.getComputedStyle(node);
-          if (rect.width < 2 || rect.height < 2 || style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) continue;
-          if (node instanceof doc.defaultView.HTMLImageElement && node.complete && node.naturalWidth > 1 && node.naturalHeight > 1) return true;
-          if (node instanceof doc.defaultView.HTMLVideoElement && node.readyState >= 1) return true;
-          if (node instanceof doc.defaultView.HTMLCanvasElement && node.width > 1 && node.height > 1) {
-            try {
-              const pixels = node.getContext('2d')?.getImageData(0, 0, node.width, node.height).data;
-              if (pixels && pixels.some((value, index) => index % 4 === 3 && value > 0)) return true;
-            } catch {}
-          }
-          if (node instanceof doc.defaultView.SVGElement && node.childElementCount > 0) return true;
-          if (node instanceof doc.defaultView.HTMLObjectElement || node instanceof doc.defaultView.HTMLEmbedElement) return true;
-          if (node instanceof doc.defaultView.HTMLAnchorElement && node.textContent.trim()) return true;
-        }
-        return false;
-      } catch {
-        // A cross-origin creative cannot be inspected safely from this sandbox.
-        return false;
-      }
-    };
+    window.addEventListener('message', event => {
+      const message = event.data;
+      if (event.source !== parent || !message || message.channel !== channel || message.nonce !== nonce || message.state !== 'ready') return;
+      if (providerFrameLoaded) send('loaded');
+    });
 
     const observeFrame = frame => {
       if (!(frame instanceof HTMLIFrameElement) || observed.has(frame)) return;
       observed.add(frame);
-      const inspect = () => {
+      const onLoad = () => {
         const rect = frame.getBoundingClientRect();
         const width = Number(frame.getAttribute('width')) || rect.width;
         const height = Number(frame.getAttribute('height')) || rect.height;
         if (width < 320 || height < 50 || !frame.src || frame.src === 'about:blank') return;
-        if (hasVisibleCreative(frame)) send('rendered');
-        else send('unverifiable');
+        providerFrameLoaded = true;
+        send('loaded');
       };
-      frame.addEventListener('load', inspect);
-      if (frame.contentDocument?.readyState === 'complete') inspect();
+      frame.addEventListener('load', onLoad);
+      if (frame.contentDocument?.readyState === 'complete' && frame.src && frame.src !== 'about:blank') onLoad();
     };
 
     const scan = node => {
@@ -107,8 +96,8 @@ export const ToolPageBannerAd: React.FC = () => {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const id = useId();
   const nonce = useMemo(() => `clickpdf-ad-${id}`, [id]);
-  const [consentAccepted, setConsentAccepted] = useState(false);
-  const [state, setState] = useState<AdState>('consent-required');
+  const [adEnabled, setAdEnabled] = useState(() => !hasExplicitAdOptOut());
+  const [state, setState] = useState<AdState>(() => hasExplicitAdOptOut() ? 'empty' : 'loading');
   const [scale, setScale] = useState(1);
   const srcDoc = useMemo(() => createProviderFrameDocument(nonce), [nonce]);
   const scaledWidth = Math.round(BANNER_WIDTH * scale);
@@ -116,11 +105,7 @@ export const ToolPageBannerAd: React.FC = () => {
 
   useEffect(() => {
     const readConsent = () => {
-      try {
-        setConsentAccepted(window.localStorage.getItem(CONSENT_KEY) === 'accepted');
-      } catch {
-        setConsentAccepted(false);
-      }
+      setAdEnabled(!hasExplicitAdOptOut());
     };
     readConsent();
     window.addEventListener('storage', readConsent);
@@ -139,8 +124,8 @@ export const ToolPageBannerAd: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!consentAccepted) {
-      setState('consent-required');
+    if (!adEnabled) {
+      setState('empty');
       return;
     }
 
@@ -150,21 +135,20 @@ export const ToolPageBannerAd: React.FC = () => {
       if (event.source !== frameRef.current?.contentWindow) return;
       const message = event.data;
       if (!message || message.channel !== AD_CHANNEL || message.nonce !== nonce) return;
-      if (message.state === 'rendered') setState('rendered');
-      else if (message.state === 'empty' || message.state === 'unverifiable') {
-        setState(current => current === 'rendered' ? current : 'empty');
-      }
+      if (message.state === 'loaded') setState('rendered');
+      else if (message.state === 'empty') setState(current => current === 'rendered' ? current : 'empty');
     };
 
     window.addEventListener('message', onMessage);
+    frameRef.current?.contentWindow?.postMessage({ channel: AD_CHANNEL, nonce, state: 'ready' }, '*');
     return () => {
       window.clearTimeout(timeout);
       window.removeEventListener('message', onMessage);
     };
-  }, [consentAccepted, nonce]);
+  }, [adEnabled, nonce]);
 
   const rendered = state === 'rendered';
-  const frameActive = consentAccepted && (state === 'loading' || rendered);
+  const frameActive = adEnabled && (state === 'loading' || rendered);
 
   return (
     <div
@@ -182,7 +166,7 @@ export const ToolPageBannerAd: React.FC = () => {
             title="Advertisement"
             srcDoc={srcDoc}
             sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-            referrerPolicy="no-referrer"
+            referrerPolicy="strict-origin"
             width={BANNER_WIDTH}
             height={BANNER_HEIGHT}
             scrolling="no"

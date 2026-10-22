@@ -35,6 +35,14 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
     setIsVisible(false);
   };
 
+  const handleReject = () => {
+    try {
+      localStorage.setItem(COOKIE_CONSENT_KEY, 'rejected');
+    } catch {}
+    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
+    setIsVisible(false);
+  };
+
   const handleDismiss = () => {
     try {
       localStorage.setItem(COOKIE_CONSENT_KEY, 'dismissed');
@@ -73,7 +81,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
             >
               Cookies Policy
             </button>{' '}
-            for complete transparency.
+            for complete transparency. Ads load by default; choose “Reject Advertising Cookies” to opt out.
           </p>
 
           <div className="mt-3.5 flex items-center gap-2 flex-wrap">
@@ -83,6 +91,13 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
               className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold shadow-sm transition-all cursor-pointer active:scale-95"
             >
               Accept Cookies
+            </button>
+            <button
+              type="button"
+              onClick={handleReject}
+              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-[11px] font-medium border border-slate-700 transition-colors cursor-pointer"
+            >
+              Reject Advertising Cookies
             </button>
             <button
               type="button"
