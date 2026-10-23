@@ -22,7 +22,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   onBackToHome,
   onSelectTool
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeArticle, setActiveArticle] = useState<BlogPost | null>(null);
   const [readingProgress, setReadingProgress] = useState(0);
   const modalScrollRef = useRef<HTMLDivElement>(null);
@@ -37,6 +37,22 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       setActiveArticle(null);
     }
   }, [activeArticleSlug, articles]);
+
+  useEffect(() => {
+    if (!activeArticle?.translationGroup) return;
+    const localizedVersion = articles.find(
+      (article) =>
+        article.translationGroup === activeArticle.translationGroup &&
+        article.locale === language
+    ) || articles.find(
+      (article) =>
+        article.translationGroup === activeArticle.translationGroup &&
+        article.locale === 'en'
+    );
+    if (localizedVersion && localizedVersion.slug !== activeArticle.slug) {
+      handleOpenArticle(localizedVersion);
+    }
+  }, [activeArticle, articles, language]);
 
   // Reset scroll and progress when article opens or changes
   useEffect(() => {
@@ -322,6 +338,16 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     );
   };
 
+  const localizedArticles = articles.filter((post) => {
+    if (!post.translationGroup) return true;
+    const hasCurrentLocale = articles.some(
+      (candidate) =>
+        candidate.translationGroup === post.translationGroup &&
+        candidate.locale === language
+    );
+    return post.locale === (hasCurrentLocale ? language : 'en');
+  });
+
   return (
     <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 border-t border-slate-200 dark:border-slate-800 transition-colors">
       {/* Subtle Progress Bar at the top of BlogSection when an article is open */}
@@ -372,7 +398,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
       {/* Articles Grid with vivid cover images and semantic crawler links */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {articles.map((post) => (
+        {localizedArticles.map((post) => (
           <article
             key={post.id}
             className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500 p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/10 cursor-pointer overflow-hidden"
@@ -384,7 +410,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <div className="relative w-full h-44 -mx-4 -mt-4 sm:-mx-5 sm:-mt-5 mb-4 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
                     src={post.coverImage}
-                    alt={post.title}
+                    alt={post.imageAlt || post.title}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -461,7 +487,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               <div className="relative w-full h-48 sm:h-64 overflow-hidden bg-slate-900 shrink-0">
                 <img
                   src={activeArticle.coverImage}
-                  alt={activeArticle.title}
+                  alt={activeArticle.imageAlt || activeArticle.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />

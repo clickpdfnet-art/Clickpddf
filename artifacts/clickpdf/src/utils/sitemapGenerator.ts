@@ -14,6 +14,7 @@ export interface SitemapEntry {
   description?: string;
   badge?: string;
   image?: string;
+  alternateUrls?: Array<{ locale: string; url: string }>;
 }
 
 export interface SitemapOptions {
@@ -143,7 +144,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
     const articleDate = formatIsoDate(article.date);
     entries.push({
       loc: `${baseUrl}/blog/${encodeURIComponent(article.slug)}`,
-      path: `/blog/${article.slug}`,
+      path: `/blog/${encodeURIComponent(article.slug)}`,
       title: article.title,
       category: 'blog-post',
       lastmod: articleDate || today,
@@ -151,7 +152,8 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
       priority: '0.7',
       description: article.excerpt,
       badge: article.category,
-      image: article.coverImage ? new URL(article.coverImage, baseUrl).toString() : undefined
+      image: article.coverImage ? new URL(article.coverImage, baseUrl).toString() : undefined,
+      alternateUrls: article.alternateUrls,
     });
   });
 
@@ -172,6 +174,13 @@ export function generateSitemapXml(options?: SitemapOptions): string {
     if (includeImages && entry.image) {
       urlXml += `\n    <image:image>\n      <image:loc>${escapeXml(entry.image)}</image:loc>\n      <image:title>${escapeXml(entry.title)}</image:title>\n    </image:image>`;
     }
+    entry.alternateUrls?.forEach(({ locale, url }) => {
+      urlXml += `\n    <xhtml:link rel="alternate" hreflang="${escapeXml(locale)}" href="${escapeXml(url)}" />`;
+    });
+    const defaultUrl = entry.alternateUrls?.find((alternate) => alternate.locale === 'en')?.url;
+    if (defaultUrl) {
+      urlXml += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(defaultUrl)}" />`;
+    }
 
     urlXml += `\n  </url>`;
     return urlXml;
@@ -180,6 +189,7 @@ export function generateSitemapXml(options?: SitemapOptions): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">

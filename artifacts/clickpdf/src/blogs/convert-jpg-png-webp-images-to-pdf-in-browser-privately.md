@@ -1,7 +1,13 @@
 ---
 id: art-7
+locale: en
+translationGroup: image-to-pdf-guide
 title: "How to Convert JPG, PNG, and WebP Images to PDF in Your Browser"
 slug: "convert-jpg-png-webp-images-to-pdf-in-browser-privately"
+seoTitle: "Convert JPG, PNG & WebP Images to PDF in Your Browser | ClickPDF"
+seoDescription: "Learn how to combine JPG, PNG, and WebP images into a PDF in your browser, with practical guidance on privacy, page layout, file limits, and troubleshooting."
+seoKeywords: "convert images to PDF, JPG to PDF, PNG to PDF, WebP to PDF, browser image converter, private image to PDF"
+imageAlt: "JPG, PNG, and WebP image files being converted into a PDF in the browser"
 category: Image Conversion
 date: October 23, 2026
 author: ClickPDF Editorial Team

@@ -34,6 +34,13 @@ export interface BlogPost {
   targetToolUrl?: string;
   targetToolTitle?: string;
   targetToolCta?: string;
+  locale?: string;
+  translationGroup?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string;
+  imageAlt?: string;
+  alternateUrls?: Array<{ locale: string; url: string }>;
 }
 
 export interface FaqItem {

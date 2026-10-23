@@ -31,10 +31,11 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { Language, SUPPORTED_LANGUAGES } from './i18n/translations';
 import { ThemeProvider } from './context/ThemeContext';
 
 function AppContent() {
-  const { getToolTitle, getToolDescription } = useLanguage();
+  const { getToolTitle, getToolDescription, setLanguage } = useLanguage();
   const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq'>('home');
   const [selectedTool, setSelectedTool] = useState<PDFTool | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory>('all');
@@ -124,6 +125,9 @@ function AppContent() {
           const allPosts = getActiveBlogArticles();
           const match = allPosts.find((a) => a.slug === route.articleSlug);
           if (match) {
+            if (match.locale && SUPPORTED_LANGUAGES.some((option) => option.code === match.locale)) {
+              setLanguage(match.locale as Language);
+            }
             applyBlogSeo(match);
             return;
           }

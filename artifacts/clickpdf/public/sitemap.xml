@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated dynamically by ClickPDF Sitemap Engine -->
-<!-- Total URLs: 32 (1 Core + 24 PDF Tools + 1 Blog Hub + 6 Blog Posts) -->
+<!-- Generated sitemap: 34 URLs, including 8 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -163,8 +162,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>How to Convert JPG, PNG, and WebP Images to PDF in Your Browser</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
     <loc>https://clickpdf.net/blog/convert-photos-into-crisp-pdf-portfolios</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -174,7 +186,7 @@
   </url>
   <url>
     <loc>https://clickpdf.net/blog/demystifying-pdf-passwords-encryption</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -184,7 +196,7 @@
   </url>
   <url>
     <loc>https://clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -193,8 +205,21 @@
     </image:image>
   </url>
   <url>
+    <loc>https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>JPG، PNG اور WebP تصاویر کو براؤزر میں PDF میں کیسے تبدیل کریں</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
     <loc>https://clickpdf.net/blog/in-browser-pdf-privacy-guide</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -204,7 +229,7 @@
   </url>
   <url>
     <loc>https://clickpdf.net/blog/scanned-paper-to-searchable-text-ocr</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -214,7 +239,7 @@
   </url>
   <url>
     <loc>https://clickpdf.net/blog/watermarking-confidential-pdf-reports</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>

@@ -87,7 +87,13 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
     targetTool: frontmatter['targettool'] || undefined,
     targetToolUrl: targetToolUrl || undefined,
     targetToolTitle: targetToolTitle || undefined,
-    targetToolCta: targetToolCta || undefined
+    targetToolCta: targetToolCta || undefined,
+    locale: frontmatter['locale'] || undefined,
+    translationGroup: frontmatter['translationgroup'] || undefined,
+    seoTitle: frontmatter['seotitle'] || undefined,
+    seoDescription: frontmatter['seodescription'] || undefined,
+    seoKeywords: frontmatter['seokeywords'] || undefined,
+    imageAlt: frontmatter['imagealt'] || undefined,
   };
 }
 
@@ -137,7 +143,7 @@ export function loadAllBlogPostsFromFolder(): BlogPost[] {
   }
 
   // Sort by date or id descending so newest articles appear first
-  return posts.sort((a, b) => {
+  const orderedPosts = posts.sort((a, b) => {
     try {
       const timeA = new Date(a.date).getTime();
       const timeB = new Date(b.date).getTime();
@@ -145,6 +151,28 @@ export function loadAllBlogPostsFromFolder(): BlogPost[] {
     } catch {}
     return b.id.localeCompare(a.id);
   });
+
+  const translatedGroups = new Map<string, BlogPost[]>();
+  orderedPosts.forEach((post) => {
+    if (!post.translationGroup || !post.locale) return;
+    const group = translatedGroups.get(post.translationGroup) || [];
+    group.push(post);
+    translatedGroups.set(post.translationGroup, group);
+  });
+
+  translatedGroups.forEach((group) => {
+    const alternateUrls = group
+      .filter((post) => post.locale)
+      .map((post) => ({
+        locale: post.locale!,
+        url: `https://clickpdf.net/blog/${encodeURIComponent(post.slug)}`,
+      }));
+    group.forEach((post) => {
+      post.alternateUrls = alternateUrls;
+    });
+  });
+
+  return orderedPosts;
 }
 
 /**

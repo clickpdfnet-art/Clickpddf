@@ -102,6 +102,7 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
 
   // 5. Canonical Link
   updateCanonicalUrl(canonicalUrl);
+  clearAlternateLanguageLinks();
 
   // 6. Schema.org JSON-LD Structured Data (WebApplication + HowTo + FAQPage)
   removeBlogJsonLdSchema();
@@ -115,20 +116,22 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
 export function applyBlogSeo(article: BlogPost): void {
   if (typeof document === 'undefined') return;
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://clickpdf.net';
-  const canonicalUrl = `${origin}/blog/${article.slug}`;
-  const fullTitle = `${article.title} — ClickPDF`;
+  const origin = 'https://clickpdf.net';
+  const canonicalUrl = `${origin}/blog/${encodeURIComponent(article.slug)}`;
+  const fullTitle = article.seoTitle || `${article.title} — ClickPDF`;
 
   // 1. Dynamic Page Title
   document.title = fullTitle;
 
   // 2. Dynamic Description and Keywords
-  setMetaTag('name', 'description', article.excerpt);
-  setMetaTag('name', 'keywords', `${article.category}, in-browser pdf, pdf privacy, clickpdf guide, ${article.title.toLowerCase()}`);
+  const description = article.seoDescription || article.excerpt;
+  const keywords = article.seoKeywords || `${article.category}, in-browser pdf, pdf privacy, clickpdf guide, ${article.title.toLowerCase()}`;
+  setMetaTag('name', 'description', description);
+  setMetaTag('name', 'keywords', keywords);
 
   // 3. OpenGraph Tags
   setMetaTag('property', 'og:title', fullTitle);
-  setMetaTag('property', 'og:description', article.excerpt);
+  setMetaTag('property', 'og:description', description);
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'article');
   if (article.coverImage) {
@@ -138,13 +141,14 @@ export function applyBlogSeo(article: BlogPost): void {
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
   setMetaTag('name', 'twitter:title', fullTitle);
-  setMetaTag('name', 'twitter:description', article.excerpt);
+  setMetaTag('name', 'twitter:description', description);
   if (article.coverImage) {
-    setMetaTag('name', 'twitter:image', article.coverImage);
+    setMetaTag('name', 'twitter:image', new URL(article.coverImage, origin).toString());
   }
 
   // 5. Canonical Link
   updateCanonicalUrl(canonicalUrl);
+  setAlternateLanguageLinks(article.alternateUrls || []);
 
   // 6. Schema.org Article JSON-LD
   removeToolJsonLdSchema();
@@ -167,11 +171,41 @@ export function resetHomeSeo(customConfig?: SeoMetaConfig): void {
   });
 
   // Remove tool-specific & blog-specific JSON-LD schemas
+  clearAlternateLanguageLinks();
   removeToolJsonLdSchema();
   removeBlogJsonLdSchema();
 
   // Inject Organization & Brand JSON-LD schema linking ClickPDF.net to Click Digital Services
   injectHomeOrganizationJsonLd(origin);
+}
+
+const BLOG_HREFLANG_LINK_PREFIX = 'clickpdf-blog-hreflang-';
+
+function setAlternateLanguageLinks(alternates: Array<{ locale: string; url: string }>): void {
+  clearAlternateLanguageLinks();
+  alternates.forEach(({ locale, url }) => {
+    if (!locale || !url) return;
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = locale;
+    link.href = url;
+    link.dataset.blogHreflang = locale;
+    link.id = `${BLOG_HREFLANG_LINK_PREFIX}${locale}`;
+    document.head.appendChild(link);
+  });
+  const defaultUrl = alternates.find((item) => item.locale === 'en')?.url;
+  if (defaultUrl) {
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = 'x-default';
+    link.href = defaultUrl;
+    link.id = `${BLOG_HREFLANG_LINK_PREFIX}x-default`;
+    document.head.appendChild(link);
+  }
+}
+
+function clearAlternateLanguageLinks(): void {
+  document.querySelectorAll(`link[id^="${BLOG_HREFLANG_LINK_PREFIX}"]`).forEach((link) => link.remove());
 }
 
 export function injectHomeOrganizationJsonLd(originUrl: string = 'https://clickpdf.net'): void {
@@ -325,7 +359,10 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
     },
     headline: article.title,
     description: article.excerpt,
-    image: article.coverImage ? [article.coverImage] : ['https://clickpdf.net/icon.svg'],
+    inLanguage: article.locale || 'en',
+    image: article.coverImage
+      ? [new URL(article.coverImage, 'https://clickpdf.net').toString()]
+      : ['https://clickpdf.net/icon.svg'],
     datePublished: article.date,
     dateModified: article.date,
     author: {
