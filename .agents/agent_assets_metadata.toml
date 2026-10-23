@@ -14,3 +14,17 @@ mtime_ms = 1792495031806
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/029727dc-4255-4691-8038-b6d61f1ec21f/eb94a3ae-7758-4567-a668-cbcf23344163"
 storage_version_token = "1792495092101234"
 content_type = "text/html"
+
+[[outputs]]
+id = "kHbaMCKMke3lTTD2gbbyh"
+uri = "file://reports/image-to-pdf-article-reviewed.md"
+type = "text"
+title = "Image to PDF — reviewed article"
+description = "موجودہ ClickPDF ٹول کے مطابق درست کیا ہوا مضمون؛ غیر ثابت شدہ دعوے اور خراب citation markers صاف کیے گئے ہیں۔"
+logical_id = "a5d1d02c-c68b-4b96-a861-f5cb7f022338"
+content_hash = "sha256:f05e27610914aaceb659447de180d8b1aed295663dc83a6aec96e4a3fe3d13f0"
+size = 21847
+mtime_ms = 1792730625833
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/a5d1d02c-c68b-4b96-a861-f5cb7f022338/588e7364-1a96-4145-a220-f5cbbcb47b46"
+storage_version_token = "1792730627491479"
+content_type = "text/markdown"
