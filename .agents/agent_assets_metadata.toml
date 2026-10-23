@@ -19,12 +19,68 @@ content_type = "text/html"
 id = "kHbaMCKMke3lTTD2gbbyh"
 uri = "file://reports/image-to-pdf-article-reviewed.md"
 type = "text"
-title = "Image to PDF — reviewed article"
-description = "موجودہ ClickPDF ٹول کے مطابق درست کیا ہوا مضمون؛ غیر ثابت شدہ دعوے اور خراب citation markers صاف کیے گئے ہیں۔"
+title = "Reviewed Image to PDF article"
+description = "The corrected article with all three infographic images embedded by relative path."
 logical_id = "a5d1d02c-c68b-4b96-a861-f5cb7f022338"
-content_hash = "sha256:f05e27610914aaceb659447de180d8b1aed295663dc83a6aec96e4a3fe3d13f0"
-size = 21847
-mtime_ms = 1792730625833
-storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/a5d1d02c-c68b-4b96-a861-f5cb7f022338/588e7364-1a96-4145-a220-f5cbbcb47b46"
-storage_version_token = "1792730627491479"
+content_hash = "sha256:0d3419dee82160f95c8d6a90e879f7c07037e603897aa3bc3fad5c67d2147170"
+size = 22255
+mtime_ms = 1792731340569
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/a5d1d02c-c68b-4b96-a861-f5cb7f022338/95293d67-2b90-45b9-906e-4e78a895fd1e"
+storage_version_token = "1792731367148186"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "BvwZL1SdDm54bP1CHZHKV"
+uri = "file://reports/image-to-pdf-reviewed-package.zip"
+type = "unspecified"
+title = "Image to PDF article package"
+description = "Reviewed Markdown article with three accurate PNG visuals and editable SVG sources, bundled together with working relative links."
+logical_id = "8c29d8d9-6cc6-453f-8856-6996172baede"
+content_hash = "sha256:5f54f17dacc95061c8a9a026b6b8b3fe3543435d86146f8b229f3e69951fc8da"
+size = 2198691
+mtime_ms = 1792731350725
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/8c29d8d9-6cc6-453f-8856-6996172baede/7569235c-5e84-4123-ac42-57b85e6ecce4"
+storage_version_token = "1792731365798879"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "VIMbGLNykaoElMrjsj713"
+uri = "file://reports/image-to-pdf-guide-assets/image-to-pdf-hero.png"
+type = "image"
+title = "Hero infographic — Image to PDF"
+description = "JPG, PNG, and WebP images processed in the browser; network-scope note included."
+logical_id = "a96ec995-c892-42a5-b7b4-c15c86f75a2b"
+content_hash = "sha256:1b19d03db5ef152a706c41c9f60717ead33559a42f93934dff223da8f9ce3071"
+size = 789629
+mtime_ms = 1792731322329
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/a96ec995-c892-42a5-b7b4-c15c86f75a2b/03d1566b-1b2e-4858-8892-db8fbec20936"
+storage_version_token = "1792731368455981"
+content_type = "image/png"
+
+[[outputs]]
+id = "K4LVzhYeOMQP3DQjyqLHR"
+uri = "file://reports/image-to-pdf-guide-assets/image-to-pdf-workflow.png"
+type = "image"
+title = "Image to PDF — four steps"
+description = "Select images, arrange pages, choose layout settings, then convert and download."
+logical_id = "13e84f91-b3d2-43df-868b-c5850d29cf44"
+content_hash = "sha256:d9aee56b1d4407510cd2946a08224a849f3ab57a1d3f1f7222fad400a38b3ac8"
+size = 669316
+mtime_ms = 1792731322781
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/13e84f91-b3d2-43df-868b-c5850d29cf44/b6a28eb8-5338-4931-99a5-ff595f918385"
+storage_version_token = "1792731369750253"
+content_type = "image/png"
+
+[[outputs]]
+id = "y5JNYGLwD1s1MjSwDI0p8"
+uri = "file://reports/image-to-pdf-guide-assets/image-to-pdf-file-processing.png"
+type = "image"
+title = "Image file processing comparison"
+description = "Accurately distinguishes local file conversion from other webpage network requests."
+logical_id = "0898d6ec-b0a0-4d39-a962-67e3e5bdade8"
+content_hash = "sha256:21ffd28fb116a3741f5e34d117d5cfe8f70fa6fcdd5bbca7f1308add11d33ee6"
+size = 772871
+mtime_ms = 1792731321565
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/0898d6ec-b0a0-4d39-a962-67e3e5bdade8/4a4bc312-a53d-43d1-ba6c-14cf6358f61a"
+storage_version_token = "1792731371036595"
+content_type = "image/png"

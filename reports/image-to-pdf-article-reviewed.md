@@ -6,7 +6,9 @@ description: "Learn how to combine JPG, PNG, and WebP images into a PDF in your 
 
 # How to Convert JPG, PNG, and WebP Images to PDF in Your Browser
 
-<!-- Optional hero image: add a ClickPDF-owned Image to PDF illustration before publishing. -->
+![JPG, PNG, and WebP images flow into a PDF created in the browser; the graphic distinguishes local file conversion from other website requests.](./image-to-pdf-guide-assets/image-to-pdf-hero.png)
+
+*The selected image contents are processed locally for conversion; this does not describe every network request made by the webpage.*
 
 Managing dozens of loose image files across different devices can quickly turn simple administrative tasks into frustrating bottlenecks. Whether you are a freelance creative compiling a visual portfolio, an accountant organizing photographed expense receipts, a student submitting handwritten exam sheets, or a human resources manager archiving scanned identification cards, sending twenty separate image attachments in an email is rarely the right approach. Individual graphics arrive out of sequence, trigger email attachment size limits, or fail to open properly on a recipient's smartphone.
 
@@ -117,7 +119,7 @@ When you visit **clickpdf.net**, our web application loads the conversion engine
 
 ## 6. Step-by-Step Tutorial: Converting Multiple Images to PDF on ClickPDF.net
 
-<!-- Optional workflow graphic: add an approved 4-step Image to PDF illustration before publishing. -->
+![Four steps: select supported images, arrange pages, set page layout, then convert and download.](./image-to-pdf-guide-assets/image-to-pdf-workflow.png)
 
 Ready to combine your images? Follow these steps in a supported desktop or mobile browser. The exact file-picker and download behavior can vary by device and browser:
 
@@ -205,7 +207,7 @@ The source images and selected page settings affect the final document. Keep the
 
 ---
 
-<!-- Optional privacy graphic: add an approved, accurately qualified comparison before publishing. -->
+![A comparison of a typical cloud upload workflow and ClickPDF's local image conversion, with a note about other page resources and separate encryption features.](./image-to-pdf-guide-assets/image-to-pdf-file-processing.png)
 
 ## 11. Frequently Asked Questions (FAQs)
 
