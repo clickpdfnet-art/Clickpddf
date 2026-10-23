@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 34 URLs, including 8 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 40 URLs, including 14 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -171,6 +171,12 @@
       <image:title>How to Convert JPG, PNG, and WebP Images to PDF in Your Browser</image:title>
     </image:image>
     <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
   </url>
@@ -205,6 +211,120 @@
     </image:image>
   </url>
   <url>
+    <loc>https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>كيفية تحويل صور JPG وPNG وWebP إلى PDF في المتصفح</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
+    <loc>https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>JPG-, PNG- und WebP-Bilder im Browser in PDF umwandeln</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
+    <loc>https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>Cómo convertir imágenes JPG, PNG y WebP a PDF en el navegador</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
+    <loc>https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>Convertir des images JPG, PNG et WebP en PDF dans votre navigateur</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
+    <loc>https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>ब्राउज़र में JPG, PNG और WebP छवियों को PDF में कैसे बदलें</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
+    <loc>https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/image-to-pdf/image-to-pdf-hero.png</image:loc>
+      <image:title>Come convertire immagini JPG, PNG e WebP in PDF nel browser</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+  </url>
+  <url>
     <loc>https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -214,6 +334,12 @@
       <image:title>JPG، PNG اور WebP تصاویر کو براؤزر میں PDF میں کیسے تبدیل کریں</image:title>
     </image:image>
     <xhtml:link rel="alternate" hreflang="en" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://clickpdf.net/blog/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%B5%D9%88%D8%B1-jpg-png-webp-%D8%A5%D9%84%D9%89-pdf-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://clickpdf.net/blog/jpg-png-webp-bilder-im-browser-in-pdf-umwandeln" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickpdf.net/blog/convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://clickpdf.net/blog/convertir-images-jpg-png-webp-en-pdf-navigateur" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://clickpdf.net/blog/jpg-png-webp-%E0%A4%9B%E0%A4%B5%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82-%E0%A4%95%E0%A5%8B-pdf-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A5%87%E0%A4%82" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://clickpdf.net/blog/convertire-immagini-jpg-png-webp-in-pdf-nel-browser" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://clickpdf.net/blog/jpg-png-webp-%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1-%DA%A9%D9%88-pdf-%D9%85%DB%8C%DA%BA-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%DA%A9%D8%B1%DB%8C%DA%BA" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://clickpdf.net/blog/convert-jpg-png-webp-images-to-pdf-in-browser-privately" />
   </url>
