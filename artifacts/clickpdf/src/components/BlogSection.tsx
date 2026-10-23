@@ -157,7 +157,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     };
   };
 
-  const renderHumanArticleContent = (rawText: string) => {
+  const renderHumanArticleContent = (rawText: string, articleSlug: string) => {
     if (!rawText) return null;
 
     // Split text into natural paragraphs
@@ -176,6 +176,27 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             .replace(/\*(.*?)\*/g, '$1')
             .replace(/`([^`]+)`/g, '$1')
             .trim();
+
+          const markdownImage = para.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/);
+          if (markdownImage) {
+            const [, altText, imageSrc] = markdownImage;
+            const isLocalPath = imageSrc.startsWith('/') && !imageSrc.startsWith('//');
+            const isSecureRemoteUrl = /^https:\/\//i.test(imageSrc);
+            if (!isLocalPath && !isSecureRemoteUrl) return null;
+
+            return (
+              <figure key={idx} className="my-6">
+                <img
+                  src={imageSrc}
+                  alt={altText || 'Article illustration'}
+                  loading="lazy"
+                  decoding="async"
+                  data-testid={`blog-image-${articleSlug}-${idx}`}
+                  className="block h-auto max-h-[34rem] w-full rounded-xl border border-slate-200 bg-slate-50 object-contain dark:border-slate-700 dark:bg-slate-950"
+                />
+              </figure>
+            );
+          }
 
           const isHeader =
             para.startsWith('#') ||
@@ -262,7 +283,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider">
                 <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                <span>100% Client-Side Privacy</span>
+                <span>Browser-Based File Processing</span>
               </span>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
                 <Sparkles className="w-3 h-3" />
@@ -275,7 +296,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </h4>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
-              Process this workflow right now directly in your web browser. No software installation, no accounts, and your confidential files are never uploaded to any cloud server.
+              Open the related tool in your browser. Processing happens on your device where supported; the page may still load website resources or enabled third-party services.
             </p>
           </div>
 
@@ -513,14 +534,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <div
               ref={modalScrollRef}
               onScroll={handleScrollModal}
-              className="p-6 overflow-y-auto space-y-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed custom-scrollbar"
+              className="flex-1 min-h-0 p-6 overflow-y-auto space-y-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed custom-scrollbar"
             >
               <p className="font-semibold text-slate-900 dark:text-slate-100 text-base leading-relaxed bg-indigo-50/60 dark:bg-indigo-950/40 p-4 rounded-xl border border-indigo-100 dark:border-indigo-900/50">
                 {activeArticle.excerpt}
               </p>
 
               <div className="pt-2">
-                {renderHumanArticleContent(activeArticle.content)}
+                {renderHumanArticleContent(activeArticle.content, activeArticle.slug)}
               </div>
 
               {/* Built-in Tool Call-To-Action (CTA) */}

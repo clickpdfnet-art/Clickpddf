@@ -151,7 +151,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
       priority: '0.7',
       description: article.excerpt,
       badge: article.category,
-      image: article.coverImage
+      image: article.coverImage ? new URL(article.coverImage, baseUrl).toString() : undefined
     });
   });
 

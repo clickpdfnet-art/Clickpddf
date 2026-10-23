@@ -132,7 +132,7 @@ export function applyBlogSeo(article: BlogPost): void {
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'article');
   if (article.coverImage) {
-    setMetaTag('property', 'og:image', article.coverImage);
+    setMetaTag('property', 'og:image', new URL(article.coverImage, origin).toString());
   }
 
   // 4. Twitter Card
