@@ -8,6 +8,19 @@ const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const baseUrl = 'https://clickpdf.net';
 
+function getArticlePath(meta) {
+  const candidate = typeof meta.routepath === 'string' ? meta.routepath.trim() : '';
+  if (
+    candidate.startsWith('/') &&
+    !candidate.startsWith('//') &&
+    !/[?#]/.test(candidate) &&
+    !candidate.split('/').some((segment) => segment === '..' || segment === '.')
+  ) {
+    return `/${candidate.split('/').filter(Boolean).join('/')}/`;
+  }
+  return `/blog/${encodeURIComponent(meta.slug)}`;
+}
+
 function readFrontmatter(markdown) {
   const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return {};
@@ -46,11 +59,12 @@ for (const fileName of markdownFiles) {
   const raw = await readFile(path.join(blogDir, fileName), 'utf8');
   const meta = readFrontmatter(raw);
   if (!meta.slug || !meta.title) continue;
+  const articlePath = getArticlePath(meta);
   articles.push({
     ...meta,
     locale: meta.locale || 'en',
     slug: meta.slug,
-    url: `${baseUrl}/blog/${encodeURIComponent(meta.slug)}`,
+    url: `${baseUrl}${articlePath}`,
   });
 }
 
@@ -94,9 +108,10 @@ sitemap = sitemap.replace(
 );
 
 const urlBlocks = sitemap.match(/  <url>[\s\S]*?<\/url>/g) || [];
+const generatedArticleLocs = new Set(articles.map((article) => escapeXml(article.url)));
 const retainedBlocks = urlBlocks.filter((block) => {
   const loc = block.match(/<loc>(.*?)<\/loc>/)?.[1] || '';
-  return !/\/blog\/[^<]+/.test(loc);
+  return !/\/blog\/[^<]+/.test(loc) && !generatedArticleLocs.has(loc);
 });
 const blogIndexIndex = retainedBlocks.findIndex((block) =>
   /<loc>https:\/\/clickpdf\.net\/blog\/?<\/loc>/.test(block),

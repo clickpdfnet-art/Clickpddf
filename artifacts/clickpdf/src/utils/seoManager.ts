@@ -152,7 +152,10 @@ export function applyBlogSeo(article: BlogPost): void {
 
   removeHomeFaqJsonLdSchema();
   const origin = SITE_ORIGIN;
-  const canonicalUrl = `${origin}/blog/${encodeURIComponent(article.slug)}`;
+  const canonicalUrl = new URL(
+    article.routePath || `/blog/${encodeURIComponent(article.slug)}`,
+    origin,
+  ).toString();
   const fullTitle = article.seoTitle || `${article.title} — ClickPDF`;
 
   // 1. Dynamic Page Title
@@ -163,23 +166,27 @@ export function applyBlogSeo(article: BlogPost): void {
   const keywords = article.seoKeywords || `${article.category}, in-browser pdf, pdf privacy, clickpdf guide, ${article.title.toLowerCase()}`;
   setMetaTag('name', 'description', description);
   setMetaTag('name', 'keywords', keywords);
+  setMetaTag('name', 'robots', 'index,follow');
 
   // 3. OpenGraph Tags
   setMetaTag('property', 'og:title', fullTitle);
   setMetaTag('property', 'og:description', description);
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'article');
+  setMetaTag('property', 'og:site_name', 'ClickPDF');
   if (article.coverImage) {
-    setMetaTag('property', 'og:image', new URL(article.coverImage, origin).toString());
+    const imageUrl = new URL(article.coverImage, origin).toString();
+    setMetaTag('property', 'og:image', imageUrl);
+    setMetaTag('property', 'og:image:alt', article.imageAlt || article.title);
+    setMetaTag('name', 'twitter:image', imageUrl);
+    setMetaTag('name', 'twitter:image:alt', article.imageAlt || article.title);
   }
 
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
   setMetaTag('name', 'twitter:title', fullTitle);
   setMetaTag('name', 'twitter:description', description);
-  if (article.coverImage) {
-    setMetaTag('name', 'twitter:image', new URL(article.coverImage, origin).toString());
-  }
+  setMetaTag('name', 'twitter:card', 'summary_large_image');
 
   // 5. Canonical Link
   updateCanonicalUrl(canonicalUrl);
@@ -407,7 +414,42 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
     }
   };
 
-  setPageJsonLdSchema(articleSchema);
+  const graph: Array<Record<string, unknown>> = [articleSchema];
+  if (article.breadcrumbs?.length) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: article.breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.url, SITE_ORIGIN).toString(),
+      })),
+    });
+  }
+  const faqItems = article.faqItems?.filter((item) => item.question.trim() && item.answer.trim()) || [];
+  if (faqItems.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${canonicalUrl}#faq`,
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    });
+  }
+
+  setPageJsonLdSchema(
+    graph.length === 1
+      ? articleSchema
+      : {
+          '@context': 'https://schema.org',
+          '@graph': graph.map((schema) =>
+            Object.fromEntries(Object.entries(schema).filter(([key]) => key !== '@context')),
+          ),
+        },
+  );
 }
 
 function removeBlogJsonLdSchema(): void {

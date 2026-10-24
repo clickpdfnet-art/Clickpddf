@@ -4,6 +4,7 @@ import { BookOpen, ArrowRight, ArrowLeft, X, Calendar, Clock, User, ShieldCheck,
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { HIDDEN_TOOL_IDS, PUBLIC_PDF_TOOLS } from '../data/toolsData';
+import ReducePdfAssignmentArticle from './ReducePdfAssignmentArticle';
 
 interface BlogSectionProps {
   articles: BlogPost[];
@@ -348,6 +349,23 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     return post.locale === (hasCurrentLocale ? language : 'en');
   });
 
+  const standaloneArticle = activeArticleSlug
+    ? articles.find((post) => post.slug === activeArticleSlug && post.routePath)
+    : undefined;
+
+  if (standaloneArticle) {
+    return (
+      <ReducePdfAssignmentArticle
+        article={standaloneArticle}
+        articles={articles}
+        onBackToHome={onBackToHome}
+        onCloseArticle={handleCloseArticle}
+        onSelectTool={onSelectTool}
+        onSelectArticle={handleOpenArticle}
+      />
+    );
+  }
+
   return (
     <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 border-t border-slate-200 dark:border-slate-800 transition-colors">
       {/* Subtle Progress Bar at the top of BlogSection when an article is open */}
@@ -436,7 +454,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
               <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 leading-snug">
                 <a
-                  href={`/blog/${encodeURIComponent(post.slug)}`}
+                  href={post.routePath || `/blog/${encodeURIComponent(post.slug)}`}
                   onClick={(e) => {
                     e.preventDefault();
                     handleOpenArticle(post);
@@ -455,7 +473,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
               <span>{post.date}</span>
               <a
-                href={`/blog/${encodeURIComponent(post.slug)}`}
+                href={post.routePath || `/blog/${encodeURIComponent(post.slug)}`}
                 onClick={(e) => {
                   e.preventDefault();
                   handleOpenArticle(post);

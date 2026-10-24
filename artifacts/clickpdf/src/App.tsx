@@ -366,7 +366,7 @@ function AppContent() {
   const handleSelectArticle = (article: BlogPost) => {
     setActiveArticleSlug(article.slug);
     applyBlogSeo(article);
-    navigateToBlogUrl(article.slug);
+    navigateToBlogUrl(article.slug, false, article.routePath);
   };
 
   const handleCloseArticle = () => {

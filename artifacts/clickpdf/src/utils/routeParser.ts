@@ -1,5 +1,6 @@
 import { PDF_TOOLS } from '../data/toolsData';
 import { getToolSeoInfo } from '../data/toolSeoData';
+import { getActiveBlogArticles } from './blogLoader';
 
 const BASE_PATH = import.meta.env.BASE_URL;
 
@@ -80,6 +81,13 @@ export function parseCurrentRoute(): ParsedRoute {
       const foundTool = PDF_TOOLS.find((t) => t.id === directSlug);
       if (foundTool) {
         return { view: 'tool', toolId: foundTool.id };
+      }
+
+      const article = getActiveBlogArticles().find(
+        (post) => post.routePath?.replace(/\/+$/, '').toLowerCase() === effectivePathname.toLowerCase(),
+      );
+      if (article) {
+        return { view: 'blog', articleSlug: article.slug };
       }
     }
   }
@@ -179,11 +187,14 @@ export function navigateToToolUrl(toolId: string, replace = false): void {
 }
 
 /**
- * Push or replace clean dedicated blog post landing page URL (/blog/:slug) using HTML5 History API.
+ * Push or replace a blog post URL, honoring an optional preferred article route.
  */
-export function navigateToBlogUrl(slug: string, replace = false): void {
+export function navigateToBlogUrl(slug: string, replace = false, routePath?: string): void {
   if (typeof window === 'undefined') return;
-  const targetPath = buildAppPath(`/blog/${encodeURIComponent(slug)}`);
+  const safeRoutePath = routePath?.startsWith('/') && !routePath.startsWith('//')
+    ? routePath
+    : `/blog/${encodeURIComponent(slug)}`;
+  const targetPath = buildAppPath(safeRoutePath);
   if (replace) {
     window.history.replaceState({ blogSlug: slug }, '', targetPath);
   } else {

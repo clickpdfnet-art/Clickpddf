@@ -40,6 +40,9 @@ export interface BlogPost {
   seoDescription?: string;
   seoKeywords?: string;
   imageAlt?: string;
+  routePath?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  faqItems?: Array<{ question: string; answer: string }>;
   alternateUrls?: Array<{ locale: string; url: string }>;
 }
 

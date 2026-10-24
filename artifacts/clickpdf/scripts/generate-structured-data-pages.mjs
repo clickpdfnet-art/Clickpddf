@@ -99,6 +99,29 @@ function toIsoDate(value) {
   return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
+function parseJsonArray(value) {
+  if (!value) return [];
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function articlePath(article) {
+  const candidate = typeof article.routepath === 'string' ? article.routepath.trim() : '';
+  if (
+    candidate.startsWith('/') &&
+    !candidate.startsWith('//') &&
+    !/[?#]/.test(candidate) &&
+    !candidate.split('/').some((segment) => segment === '..' || segment === '.')
+  ) {
+    return `/${candidate.split('/').filter(Boolean).join('/')}/`;
+  }
+  return `/blog/${encodeURIComponent(article.slug)}`;
+}
+
 function makeSoftwareApplicationSchema({ name, description, url }) {
   return {
     '@context': 'https://schema.org',
@@ -155,6 +178,64 @@ function makeBlogPostingSchema(article, url) {
   };
 }
 
+function makeBreadcrumbListSchema(article, url) {
+  const breadcrumbs = parseJsonArray(article.breadcrumbs).filter(
+    (item) => item && typeof item.name === 'string' && typeof item.url === 'string',
+  );
+  const items = breadcrumbs.length
+    ? breadcrumbs
+    : [
+        { name: 'Home', url: `${siteOrigin}/` },
+        { name: 'Blog', url: `${siteOrigin}/blog` },
+        { name: article.title, url },
+      ];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.url, siteOrigin).toString(),
+    })),
+  };
+}
+
+function makeFaqPageSchema(article, url) {
+  const faqItems = parseJsonArray(article.faqitems).filter(
+    (item) => item && typeof item.question === 'string' && typeof item.answer === 'string',
+  );
+  if (!faqItems.length) return undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  };
+}
+
+function makeBlogSchema(article, url) {
+  const faqSchema = article.routepath ? makeFaqPageSchema(article, url) : undefined;
+  const schemas = [
+    makeBlogPostingSchema(article, url),
+    ...(article.routepath ? [makeBreadcrumbListSchema(article, url)] : []),
+    ...(faqSchema ? [faqSchema] : []),
+  ];
+  if (schemas.length === 1) return schemas[0];
+  return {
+    '@context': 'https://schema.org',
+    '@graph': schemas.map((schema) => {
+      const { '@context': _context, ...node } = schema;
+      return node;
+    }),
+  };
+}
+
 function setMeta(html, selector, content) {
   if (!content) return html;
   const escaped = content
@@ -168,7 +249,16 @@ function setMeta(html, selector, content) {
   return html.replace('</head>', `    ${tag}\n  </head>`);
 }
 
-function prepareRouteHtml(template, { url, title, description, schema, ogType = 'website' }) {
+function prepareRouteHtml(template, {
+  url,
+  title,
+  description,
+  schema,
+  ogType = 'website',
+  socialImage,
+  socialImageAlt,
+  robots,
+}) {
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   let html = template.replace(/<title>[\s\S]*?<\/title>/i, `<title>${safeTitle}</title>`);
   html = html.replace(
@@ -180,6 +270,18 @@ function prepareRouteHtml(template, { url, title, description, schema, ogType = 
   html = setMeta(html, 'property="og:description"', description);
   html = setMeta(html, 'property="og:url"', url);
   html = setMeta(html, 'property="og:type"', ogType);
+  if (robots) html = setMeta(html, 'name="robots"', robots);
+  if (socialImage) {
+    const absoluteImage = new URL(socialImage, siteOrigin).toString();
+    html = setMeta(html, 'property="og:site_name"', 'ClickPDF');
+    html = setMeta(html, 'property="og:image"', absoluteImage);
+    html = setMeta(html, 'property="og:image:alt"', socialImageAlt || title);
+    html = setMeta(html, 'name="twitter:card"', 'summary_large_image');
+    html = setMeta(html, 'name="twitter:title"', title);
+    html = setMeta(html, 'name="twitter:description"', description);
+    html = setMeta(html, 'name="twitter:image"', absoluteImage);
+    html = setMeta(html, 'name="twitter:image:alt"', socialImageAlt || title);
+  }
 
   const canonicalPattern = /<link\b[^>]*rel=["']canonical["'][^>]*>/i;
   const canonical = `<link rel="canonical" href="${url}" />`;
@@ -232,10 +334,11 @@ const blogFiles = await readdir(blogDir);
 for (const fileName of blogFiles.filter((name) => name.endsWith('.md'))) {
   const article = readFrontmatter(await readFile(path.join(blogDir, fileName), 'utf8'));
   if (!article.slug || !article.title) continue;
-  const url = `${siteOrigin}/blog/${encodeURIComponent(article.slug)}`;
+  const routePath = articlePath(article);
+  const url = `${siteOrigin}${routePath}`;
   const description = article.seodescription || article.summary || article.excerpt || article.title;
-  const schema = makeBlogPostingSchema(article, url);
-  const relativePath = path.join('blog', article.slug, 'index.html');
+  const schema = makeBlogSchema(article, url);
+  const relativePath = path.join(routePath.replace(/^\/|\/$/g, ''), 'index.html');
   const outputPath = path.join(outputDir, relativePath);
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(
@@ -246,6 +349,13 @@ for (const fileName of blogFiles.filter((name) => name.endsWith('.md'))) {
       description,
       schema,
       ogType: 'article',
+      ...(article.routepath
+        ? {
+            socialImage: article.coverimage,
+            socialImageAlt: article.imagealt,
+            robots: 'index,follow',
+          }
+        : {}),
     }),
     'utf8',
   );

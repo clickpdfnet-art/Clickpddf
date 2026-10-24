@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 53 URLs, including 27 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 54 URLs, including 28 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -871,6 +871,16 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Why In-Browser PDF Processing Is Fundamentally More Secure</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://clickpdf.net/reduce-pdf-assignment-file-size/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/reduce-pdf-assignment/hero.jpg</image:loc>
+      <image:title>How to Reduce PDF Assignment File Size Below 2MB for University LMS Portals</image:title>
     </image:image>
   </url>
   <url>

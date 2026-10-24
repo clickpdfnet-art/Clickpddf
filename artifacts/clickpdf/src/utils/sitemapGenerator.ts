@@ -142,9 +142,10 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   // 4. All Blog Posts (dynamically pulled from folder-based markdown posts or active storage)
   articles.forEach((article) => {
     const articleDate = formatIsoDate(article.date);
+    const articlePath = article.routePath || `/blog/${encodeURIComponent(article.slug)}`;
     entries.push({
-      loc: `${baseUrl}/blog/${encodeURIComponent(article.slug)}`,
-      path: `/blog/${encodeURIComponent(article.slug)}`,
+      loc: `${baseUrl}${articlePath}`,
+      path: articlePath,
       title: article.title,
       category: 'blog-post',
       lastmod: articleDate || today,

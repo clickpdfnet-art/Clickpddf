@@ -1,5 +1,60 @@
 import { BlogPost } from '../types';
 
+function normalizeArticleRoutePath(value?: string): string | undefined {
+  const candidate = value?.trim();
+  if (!candidate || !candidate.startsWith('/') || candidate.startsWith('//') || /[?#]/.test(candidate)) {
+    return undefined;
+  }
+
+  const segments = candidate.split('/').filter(Boolean);
+  if (!segments.length || segments.some((segment) => segment === '.' || segment === '..')) {
+    return undefined;
+  }
+
+  return `/${segments.join('/')}/`;
+}
+
+function parseFaqItems(value?: string): Array<{ question: string; answer: string }> | undefined {
+  if (!value) return undefined;
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return undefined;
+    const items = parsed.filter(
+      (item): item is { question: string; answer: string } =>
+        !!item &&
+        typeof item === 'object' &&
+        typeof (item as { question?: unknown }).question === 'string' &&
+        typeof (item as { answer?: unknown }).answer === 'string',
+    );
+    return items.length ? items : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function parseBreadcrumbs(value?: string): Array<{ name: string; url: string }> | undefined {
+  if (!value) return undefined;
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return undefined;
+    const items = parsed.flatMap((item) => {
+      if (
+        !item ||
+        typeof item !== 'object' ||
+        typeof (item as { name?: unknown }).name !== 'string' ||
+        typeof (item as { url?: unknown }).url !== 'string'
+      ) return [];
+      const name = (item as { name: string }).name.trim();
+      const url = (item as { url: string }).url.trim();
+      if (!name || !/^https?:\/\//i.test(url)) return [];
+      return [{ name, url }];
+    });
+    return items.length ? items : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 /**
  * Parses frontmatter and markdown body from raw file contents.
  * Supports standard YAML style:
@@ -94,6 +149,9 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
     seoDescription: frontmatter['seodescription'] || undefined,
     seoKeywords: frontmatter['seokeywords'] || undefined,
     imageAlt: frontmatter['imagealt'] || undefined,
+    routePath: normalizeArticleRoutePath(frontmatter['routepath']),
+    breadcrumbs: parseBreadcrumbs(frontmatter['breadcrumbs']),
+    faqItems: parseFaqItems(frontmatter['faqitems']),
   };
 }
 
@@ -165,7 +223,7 @@ export function loadAllBlogPostsFromFolder(): BlogPost[] {
       .filter((post) => post.locale)
       .map((post) => ({
         locale: post.locale!,
-        url: `https://clickpdf.net/blog/${encodeURIComponent(post.slug)}`,
+        url: `https://clickpdf.net${post.routePath || `/blog/${encodeURIComponent(post.slug)}`}`,
       }));
     group.forEach((post) => {
       post.alternateUrls = alternateUrls;
