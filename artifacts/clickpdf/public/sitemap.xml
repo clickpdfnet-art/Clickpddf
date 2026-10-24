@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 54 URLs, including 28 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 55 URLs, including 29 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -871,6 +871,16 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Why In-Browser PDF Processing Is Fundamentally More Secure</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://clickpdf.net/merge-handwritten-assignment-photos-into-pdf/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clickpdf.net/blog-assets/merge-handwritten-assignment/hero.webp</image:loc>
+      <image:title>How to Merge Multiple Handwritten Assignment Photos Into a Single PDF on Mobile</image:title>
     </image:image>
   </url>
   <url>

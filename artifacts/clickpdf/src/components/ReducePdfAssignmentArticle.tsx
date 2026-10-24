@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { BlogPost } from '../types';
 import {
   ArrowLeft,
@@ -29,12 +29,6 @@ type MarkdownBlock =
   | { type: 'list'; ordered: boolean; items: string[] };
 
 type ArticleSection = { title: string; id: string; blocks: MarkdownBlock[] };
-
-const imageByFilename: Record<string, string> = {
-  'compression.jpg': '/blog-assets/reduce-pdf-assignment/compression.jpg',
-  'scanned-pages.jpg': '/blog-assets/reduce-pdf-assignment/scanned-pages.jpg',
-  'submission.jpg': '/blog-assets/reduce-pdf-assignment/submission.jpg',
-};
 
 const slugify = (value: string) =>
   value
@@ -84,11 +78,10 @@ const parseMarkdown = (content: string) => {
     const image = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (image) {
       flushList();
-      const filename = image[2].split('/').pop() || '';
       destination().push({
         type: 'image',
         alt: image[1],
-        src: imageByFilename[filename] || image[2],
+        src: image[2],
       });
       continue;
     }
@@ -112,6 +105,15 @@ const parseMarkdown = (content: string) => {
 const InlineText: React.FC<{ text: string; onSelectTool?: (toolId: string) => void }> = ({ text, onSelectTool }) => {
   const pattern = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
   const parts = text.split(pattern);
+  const toolIdsByPath: Record<string, string> = {
+    '/tools/compress-pdf': 'compress',
+    '/tools/image-to-pdf': 'jpg-to-pdf',
+    '/tools/merge-pdf': 'merge',
+    '/tools/split-pdf': 'split',
+    '/tools/organize-pdf': 'organize',
+    '/tools/rotate-pdf': 'rotate',
+    '/tools/pdf-to-word': 'pdf-to-word',
+  };
   return (
     <>
       {parts.map((part, index) => {
@@ -119,7 +121,7 @@ const InlineText: React.FC<{ text: string; onSelectTool?: (toolId: string) => vo
         if (link) {
           const [, label, href] = link;
           const isTool = href.startsWith('/tools/');
-          const toolId = href.split('/').filter(Boolean).pop() || '';
+          const toolId = toolIdsByPath[href] || href.split('/').filter(Boolean).pop() || '';
           return (
             <a
               key={index}
@@ -165,6 +167,16 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
 }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const parsed = useMemo(() => parseMarkdown(article.content), [article.content]);
+  const isMobileAssignmentGuide = article.slug === 'merge-handwritten-assignment-photos-into-pdf';
+  const primaryToolHref = article.targetToolUrl || '/tools/compress-pdf';
+  const primaryToolId = article.targetTool || (
+    primaryToolHref === '/tools/image-to-pdf' ? 'jpg-to-pdf' : 'compress'
+  );
+  const primaryToolCta = article.targetToolCta || (
+    primaryToolHref === '/tools/image-to-pdf' ? 'Convert Photos to PDF' : 'Compress PDF Now'
+  );
+  const primaryToolIsConverter = primaryToolHref === '/tools/image-to-pdf';
+  const breadcrumbTitle = article.breadcrumbs?.[article.breadcrumbs.length - 1]?.name || article.title;
   const relatedArticles = articles
     .filter((item) => item.slug !== article.slug && (!item.locale || item.locale === article.locale))
     .slice(0, 3);
@@ -172,6 +184,22 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
     const parsedDate = new Date(article.date);
     return Number.isNaN(parsedDate.getTime()) ? undefined : parsedDate.toISOString().slice(0, 10);
   })();
+
+  useEffect(() => {
+    const rawHash = window.location.hash.slice(1);
+    if (!rawHash) return;
+
+    let targetId = rawHash;
+    try {
+      targetId = decodeURIComponent(rawHash);
+    } catch {
+      // Leave a malformed hash unchanged; it simply will not find a target.
+    }
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(targetId)?.scrollIntoView({ block: 'start' });
+    });
+  }, [article.slug]);
 
   const selectTool = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     if (!onSelectTool) return;
@@ -192,7 +220,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
     if (block.type === 'image') {
       return (
         <figure key={`image-${index}`} className="my-8 overflow-hidden rounded-2xl border border-[#dbe3ee] bg-[#f2f6fa]">
-          <img src={block.src} alt={block.alt || 'PDF assignment workflow illustration'} loading="lazy" decoding="async" className="block aspect-[16/9] w-full object-cover" />
+          <img src={block.src} alt={block.alt || 'PDF assignment workflow illustration'} width={1024} height={576} loading="lazy" decoding="async" className="block aspect-[16/9] w-full object-cover" />
           {block.alt && <figcaption className="px-4 py-3 text-xs leading-relaxed text-slate-500">{block.alt}</figcaption>}
         </figure>
       );
@@ -218,7 +246,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
           <span aria-hidden="true" className="text-slate-300">/</span>
           <a href="/" onClick={breadcrumbHomeClick} className="transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">PDF Tools</a>
           <span aria-hidden="true" className="text-slate-300">/</span>
-          <span aria-current="page" className="max-w-full truncate text-slate-700">{article.title}</span>
+          <span aria-current="page" className="max-w-full truncate text-slate-700">{breadcrumbTitle}</span>
         </nav>
 
         <header className="relative isolate overflow-hidden rounded-[1.65rem] border border-[#dce5f1] bg-[#eaf1fa] shadow-[0_14px_45px_-32px_rgba(23,43,77,0.35)]">
@@ -238,7 +266,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
             </div>
             <div className="relative min-h-[230px] overflow-hidden md:min-h-[340px]">
               <img
-                src="/blog-assets/reduce-pdf-assignment/hero.jpg"
+                src={article.coverImage || '/blog-assets/reduce-pdf-assignment/hero.jpg'}
                 alt={article.imageAlt || 'Student reviewing a PDF assignment on a laptop at a desk'}
                 width={1024}
                 height={576}
@@ -294,7 +322,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               </section>
             ))}
 
-            <section id="frequently-asked-questions" className="scroll-mt-24 pt-8">
+              {!isMobileAssignmentGuide && <section id="frequently-asked-questions" className="scroll-mt-24 pt-8">
               <div className="mb-5">
                 <p className="text-xs font-bold uppercase tracking-[0.15em] text-indigo-700">Quick answers</p>
                 <h2 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#172b4d]">Frequently asked questions</h2>
@@ -302,7 +330,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               <div className="divide-y divide-[#e6ebf2] border-y border-[#e6ebf2]">
                 {(article.faqItems || []).map((faq, index) => {
                   const isOpen = openFaq === index;
-                  const answerId = `assignment-faq-answer-${index + 1}`;
+                  const answerId = `${article.slug}-faq-answer-${index + 1}`;
                   return (
                     <div key={faq.question} className="py-1">
                       <h3>
@@ -322,21 +350,49 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                   );
                 })}
               </div>
-            </section>
+              </section>}
 
             <div className="mt-9 flex flex-col gap-4 rounded-2xl bg-[#eef5fb] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
               <div>
-                <p className="font-semibold text-[#1d385b]">Ready to make a smaller copy?</p>
-                <p className="mt-1 text-sm leading-6 text-slate-600">Compare the output with your original before submitting.</p>
+                <p className="font-semibold text-[#1d385b]">
+                  {primaryToolIsConverter ? 'Ready to turn your photos into one PDF?' : 'Ready to make a smaller copy?'}
+                </p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  {primaryToolIsConverter
+                    ? 'Select your assignment images, arrange them, and review the PDF before downloading.'
+                    : 'Compare the output with your original before submitting.'}
+                </p>
               </div>
-              <a href="/tools/compress-pdf" onClick={(event) => selectTool(event, 'compress')} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-700 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
-                Open PDF Compressor <ArrowRight size={16} />
+              <a href={primaryToolHref} onClick={(event) => selectTool(event, primaryToolId)} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-700 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
+                {primaryToolCta} <ArrowRight size={16} />
               </a>
             </div>
           </article>
 
-          <aside className="min-w-0 space-y-5 lg:sticky lg:top-6 lg:self-start">
-            <section aria-labelledby="compress-cta-heading" className="overflow-hidden rounded-2xl border border-[#d6e5f0] bg-[#eaf5fa] p-5 sm:p-6">
+          <aside className={`min-w-0 space-y-5 lg:self-start ${isMobileAssignmentGuide ? '' : 'lg:sticky lg:top-6'}`}>
+            {isMobileAssignmentGuide && (
+              <>
+                <section aria-labelledby="pdf-converter-heading" className="overflow-hidden rounded-2xl border border-[#d6e5f0] bg-[#eaf5fa] p-5 sm:p-6">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-cyan-800 shadow-sm"><Images size={19} /></div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">PDF Converter</p>
+                  <h2 id="pdf-converter-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Turn Assignment Photos Into a PDF</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">Arrange your handwritten pages and create one PDF for review and submission.</p>
+                  <a href="/tools/image-to-pdf" onClick={(event) => selectTool(event, 'jpg-to-pdf')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
+                    Open Image to PDF <ArrowRight size={16} />
+                  </a>
+                </section>
+                <section aria-labelledby="pdf-compressor-heading" className="overflow-hidden rounded-2xl border border-[#d6e5f0] bg-[#f3f4ff] p-5 sm:p-6">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-indigo-700 shadow-sm"><FileText size={19} /></div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-indigo-700">PDF Compressor</p>
+                  <h2 id="pdf-compressor-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Check the Final File Size</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">If your portal has a size limit, compress a copy and inspect the handwriting before uploading it.</p>
+                  <a href="/tools/compress-pdf" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-700 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
+                    Open PDF Compressor <ArrowRight size={16} />
+                  </a>
+                </section>
+              </>
+            )}
+            {!isMobileAssignmentGuide && <section aria-labelledby="compress-cta-heading" className="overflow-hidden rounded-2xl border border-[#d6e5f0] bg-[#eaf5fa] p-5 sm:p-6">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-cyan-800 shadow-sm"><FileText size={19} /></div>
               <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">ClickPDF tool</p>
               <h2 id="compress-cta-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Need to Compress Your PDF?</h2>
@@ -345,7 +401,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                 Compress PDF Now <ArrowRight size={16} />
               </a>
               <p className="mt-3 flex items-start gap-2 text-[11px] leading-5 text-slate-500"><ShieldCheck size={14} className="mt-0.5 shrink-0 text-cyan-700" />Review the tool’s processing and privacy details before adding a document.</p>
-            </section>
+            </section>}
 
             <section aria-labelledby="related-tools-heading" className="rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
               <h2 id="related-tools-heading" className="text-base font-bold text-[#172b4d]">Related Tools</h2>
@@ -379,6 +435,34 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                       <ArrowRight size={14} className="mt-1 shrink-0 text-slate-400 group-hover:text-indigo-700" />
                     </a>
                   ))}
+                </div>
+              </section>
+            )}
+            {isMobileAssignmentGuide && (article.faqItems?.length || 0) > 0 && (
+              <section id="frequently-asked-questions" aria-labelledby="handwritten-faq-heading" className="scroll-mt-24 rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
+                <h2 id="handwritten-faq-heading" className="text-base font-bold text-[#172b4d]">Frequently Asked Questions</h2>
+                <div className="mt-3 divide-y divide-[#edf1f6] border-y border-[#edf1f6]">
+                  {(article.faqItems || []).map((faq, index) => {
+                    const isOpen = openFaq === index;
+                    const answerId = `${article.slug}-sidebar-faq-answer-${index + 1}`;
+                    return (
+                      <div key={faq.question} className="py-1">
+                        <h3>
+                          <button
+                            type="button"
+                            aria-expanded={isOpen}
+                            aria-controls={answerId}
+                            onClick={() => setOpenFaq(isOpen ? null : index)}
+                            className="flex w-full items-center justify-between gap-4 py-3 text-left text-sm font-semibold leading-6 text-[#1b3556] transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                          >
+                            <span>{faq.question}</span>
+                            <ChevronDown size={17} aria-hidden="true" className={`shrink-0 text-indigo-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                        </h3>
+                        <div id={answerId} hidden={!isOpen} className="pb-3 pr-6 text-sm leading-6 text-slate-600">{faq.answer}</div>
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
             )}
