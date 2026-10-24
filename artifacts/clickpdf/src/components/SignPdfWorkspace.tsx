@@ -11,6 +11,7 @@ import '@fontsource/great-vibes/400.css';
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { PDFTool } from '../types';
+import { downloadFile } from '../utils/downloadFile';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
 import { AdsterraBanner } from './AdsterraBanner';
 import { SignaturePad } from './SignaturePad';
@@ -173,19 +174,6 @@ function makeTypedSignature(text: string, fontFamily: string, color: string) {
   });
 }
 
-function downloadBlob(blob: Blob, fileName: string) {
-  if (typeof URL.createObjectURL !== 'function') throw new Error('Downloads are not available in this browser.');
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  anchor.download = fileName;
-  anchor.style.display = 'none';
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
-}
-
 function pageBoundsForPlacement(placement: SignPdfPlacement, asset: SignatureAsset, pageWidth: number, pageHeight: number) {
   let width = placement.width;
   let height = width * pageWidth / pageHeight / Math.max(0.05, asset.aspectRatio);
@@ -228,6 +216,7 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
   const [zoom, setZoom] = useState(1);
   const [processing, setProcessing] = useState(false);
   const [zipProcessing, setZipProcessing] = useState(false);
+  const [preparedZip, setPreparedZip] = useState<Blob | null>(null);
   const [historyVersion, setHistoryVersion] = useState(0);
   const historyRef = useRef<Record<string, HistoryEntry>>({});
   const dragRef = useRef<DragState | null>(null);
@@ -260,6 +249,27 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
   const outputDocuments = documents.filter(document => document.output);
   const zipSize = outputDocuments.reduce((total, document) => total + (document.output?.size || 0), 0);
   const canDownloadZip = outputDocuments.length > 1 && zipSize <= MAX_ZIP_BYTES;
+  useEffect(() => {
+    if (!canDownloadZip || processing) {
+      setPreparedZip(null);
+      setZipProcessing(false);
+      return;
+    }
+
+    let active = true;
+    setZipProcessing(true);
+    const zip = new JSZip();
+    for (const document of documents) {
+      if (document.output && document.outputName) zip.file(document.outputName, document.output);
+    }
+    void zip.generateAsync({ type: 'blob', compression: 'STORE' })
+      .then(blob => { if (active) setPreparedZip(blob); })
+      .catch((error: any) => {
+        if (active) setNotice({ kind: 'error', text: error instanceof Error ? error.message : 'Could not prepare the ZIP. Individual PDF downloads are still available.' });
+      })
+      .finally(() => { if (active) setZipProcessing(false); });
+    return () => { active = false; };
+  }, [documents, processing, canDownloadZip]);
 
   const setActiveDocument = (documentId: string) => {
     activeDocumentIdRef.current = documentId;
@@ -717,29 +727,22 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
   const downloadSignedDocument = (document: SignDocument) => {
     if (!document.output || !document.outputName) return;
     try {
-      downloadBlob(document.output, document.outputName);
-      setNotice({ kind: 'success', text: `Download started for ${document.outputName}.` });
+      if (!downloadFile(document.output, document.outputName, 'application/pdf')) {
+        throw new Error('The browser could not start the download. Tap Download again or check the browser download permission.');
+      }
+      setNotice({ kind: 'success', text: `Download request sent for ${document.outputName}.` });
     } catch (error) {
       setNotice({ kind: 'error', text: error instanceof Error ? error.message : 'The browser could not start the download.' });
     }
   };
 
-  const downloadZip = async () => {
-    if (!canDownloadZip) return;
-    setZipProcessing(true);
-    try {
-      const zip = new JSZip();
-      for (const document of outputDocuments) {
-        if (document.output && document.outputName) zip.file(document.outputName, document.output);
-      }
-      const blob = await zip.generateAsync({ type: 'blob', compression: 'STORE' });
-      downloadBlob(blob, 'signed-pdfs.zip');
-      setNotice({ kind: 'success', text: `ZIP download started with ${outputDocuments.length} signed PDFs.` });
-    } catch (error) {
-      setNotice({ kind: 'error', text: error instanceof Error ? error.message : 'Could not create the ZIP. Individual PDF downloads are still available.' });
-    } finally {
-      setZipProcessing(false);
+  const downloadZip = () => {
+    if (!canDownloadZip || !preparedZip || zipProcessing) return;
+    if (!downloadFile(preparedZip, 'signed-pdfs.zip', 'application/zip')) {
+      setNotice({ kind: 'error', text: 'The browser could not start the ZIP download. Tap Download ZIP again or check the browser download permission.' });
+      return;
     }
+    setNotice({ kind: 'success', text: `ZIP download request sent with ${outputDocuments.length} signed PDFs.` });
   };
 
   const onChooseFiles = (files: FileList | null) => {
@@ -1083,7 +1086,7 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
               <p className="mt-1 text-xs text-emerald-800 dark:text-emerald-300">{outputDocuments.length} output{outputDocuments.length === 1 ? '' : 's'} · each PDF has its own download button above.</p>
             </div>
             {canDownloadZip
-              ? <button type="button" onClick={() => void downloadZip()} disabled={zipProcessing} className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2.5 text-xs font-bold text-white disabled:opacity-50"><Download className="h-4 w-4" /> {zipProcessing ? 'Preparing ZIP…' : `Download ${outputDocuments.length} as ZIP`}</button>
+              ? <button type="button" onClick={downloadZip} disabled={zipProcessing || !preparedZip} className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2.5 text-xs font-bold text-white disabled:opacity-50"><Download className="h-4 w-4" /> {zipProcessing ? 'Preparing ZIP…' : `Download ${outputDocuments.length} as ZIP`}</button>
               : outputDocuments.length > 1 && <span className="max-w-xs text-[11px] text-emerald-900 dark:text-emerald-300">ZIP is disabled above 100 MB total to avoid a second large in-memory copy. Download each PDF separately.</span>}
           </div>
         </section>

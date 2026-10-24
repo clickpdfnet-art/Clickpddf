@@ -1,3 +1,5 @@
+import { downloadFile } from './downloadFile';
+
 /**
  * Security Audit Logger
  * Records tamper-resistant administrative, security, and integrity events in local storage.
@@ -90,14 +92,7 @@ export function exportAuditLogsJson(): void {
   const logs = getAuditLogs();
   const jsonStr = JSON.stringify(logs, null, 2);
   const blob = new Blob([jsonStr], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `clickpdf-security-audit-${new Date().toISOString().slice(0, 10)}.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  downloadFile(blob, `clickpdf-security-audit-${new Date().toISOString().slice(0, 10)}.json`, 'application/json;charset=utf-8');
 }
 
 /**

@@ -864,6 +864,39 @@ export function generateStandaloneDecryptorHtml(
 
   <script>
     const ENCRYPTED_B64 = "${b64}";
+    let decryptedPdfBytes = null;
+
+    function requestDecryptedPdfDownload() {
+      if (!decryptedPdfBytes) return;
+      const sourceLink = document.getElementById('downloadLink');
+      const fileName = sourceLink && sourceLink.getAttribute('download') || 'unlocked.pdf';
+      const blob = new Blob([decryptedPdfBytes], { type: 'application/pdf' });
+      const objectUrl = URL.createObjectURL(blob);
+      const temporaryLink = document.createElement('a');
+      temporaryLink.href = objectUrl;
+      temporaryLink.download = fileName;
+      temporaryLink.type = 'application/pdf';
+      temporaryLink.rel = 'noopener noreferrer';
+      temporaryLink.target = '_self';
+      temporaryLink.style.position = 'fixed';
+      temporaryLink.style.left = '-10000px';
+      temporaryLink.style.top = '0';
+      temporaryLink.style.width = '1px';
+      temporaryLink.style.height = '1px';
+      temporaryLink.style.opacity = '0';
+      temporaryLink.style.pointerEvents = 'none';
+      document.body.appendChild(temporaryLink);
+      temporaryLink.click();
+      window.setTimeout(function() {
+        if (temporaryLink.parentNode) temporaryLink.parentNode.removeChild(temporaryLink);
+        URL.revokeObjectURL(objectUrl);
+      }, 120000);
+    }
+
+    document.getElementById('downloadLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      requestDecryptedPdfDownload();
+    });
 
     function b64ToUint8(base64) {
       const bin = atob(base64);
@@ -927,16 +960,13 @@ export function generateStandaloneDecryptorHtml(
           ciphertext
         );
 
-        const blob = new Blob([decrypted], { type: 'application/pdf' });
-        const url = URL.createObjectURL(blob);
-
-        downloadLink.href = url;
+        decryptedPdfBytes = decrypted;
         successBox.style.display = 'block';
         submitBtn.style.display = 'none';
         pwInput.disabled = true;
 
         // Auto trigger download
-        downloadLink.click();
+        requestDecryptedPdfDownload();
       } catch (err) {
         errorBox.textContent = 'Incorrect password or corrupted file. Decryption failed.';
         errorBox.style.display = 'block';

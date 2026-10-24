@@ -39,6 +39,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
   const [error, setError] = useState<string | null>(null);
   const [finished, setFinished] = useState(false);
   const [packing, setPacking] = useState(false);
+  const [zipData, setZipData] = useState<Uint8Array | null>(null);
   const [copied, setCopied] = useState(false);
   const input = useRef<HTMLInputElement>(null);
   const resultPreview = useRef<HTMLElement>(null);
@@ -50,6 +51,29 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
   const initialized = useRef(false);
   const mounted = useRef(true);
   useEffect(() => { setCopied(false); }, [activeId, previewFormat]);
+  useEffect(() => {
+    if (!finished || !Object.keys(results).length) {
+      setZipData(null);
+      return;
+    }
+
+    let active = true;
+    setPacking(true);
+    const zip = new OutputArchive();
+    for (const item of items) {
+      const result = results[item.id];
+      if (!result) continue;
+      zip.file(`${result.baseName}.txt`, result.text);
+      zip.file(`${result.baseName}.md`, result.markdown);
+    }
+    void zip.generateAsync({ type: 'uint8array' })
+      .then(data => { if (active) setZipData(data); })
+      .catch((failure: any) => {
+        if (active) setError(failure?.message || 'Could not create ZIP. Individual downloads are still available.');
+      })
+      .finally(() => { if (active) setPacking(false); });
+    return () => { active = false; };
+  }, [finished, items, results]);
 
   const cancelDownloads = () => {
     Object.values(timers.current).forEach(cancel => cancel());
@@ -70,6 +94,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
     setError(validation.errors.length ? validation.errors.join(' ') : null);
     if (!validation.validFiles.length) return;
     setItems(current => [...current, ...validation.validFiles.map(file => ({ file, id: createId() }))]);
+    setZipData(null); setPacking(false);
     setFinished(false);
   };
   useEffect(() => {
@@ -82,12 +107,17 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
   const reset = () => {
     cancelDownloads();
     setItems([]); setProcessed({}); setResults({}); setActiveId(null); setError(null); setFinished(false); setShowQuickPreview(false);
+    setZipData(null); setPacking(false);
   };
-  const downloadItem = (item: OrderedFile, info: ProcessedFileInfo) => {
+  const downloadItem = (item: OrderedFile, info: ProcessedFileInfo, automatic = false) => {
     timers.current[item.id]?.();
     delete timers.current[item.id];
-    if (!gate.current.claim(item.id)) return;
-    downloadBlob(info.data, info.fileName, info.fileName.endsWith('.md') ? 'text/markdown;charset=utf-8' : 'text/plain;charset=utf-8');
+    if (automatic && !gate.current.claim(item.id)) return;
+    const started = downloadBlob(info.data, info.fileName, info.fileName.endsWith('.md') ? 'text/markdown;charset=utf-8' : 'text/plain;charset=utf-8');
+    if (!started) {
+      setError('The browser could not start the download. Tap Download again or check the browser download permission.');
+      return;
+    }
     setProcessed(current => ({ ...current, [item.id]: { ...current[item.id], autoDownloadSeconds: 0, autoDownloaded: true } }));
   };
 
@@ -99,7 +129,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
     const batch = [...items];
     const names = uniqueTextOutputNames(batch.map(item => item.file.name));
     const selectedFormat = format;
-    setProcessing(true); setFinished(false); setError(null); setResults({}); setActiveId(null);
+    setProcessing(true); setFinished(false); setError(null); setResults({}); setActiveId(null); setZipData(null); setPacking(false);
     setProcessed(Object.fromEntries(batch.map(item => [item.id, { status: 'pending', data: new Uint8Array(), fileName: item.file.name }])));
     setProgress({ completed: 0, total: batch.length, page: 0, pages: 0, name: '' });
     try {
@@ -114,18 +144,20 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
           if (!mounted.current || abort.signal.aborted) break;
           const content = selectedFormat === 'txt' ? result.text : result.markdown;
           const data = new Blob([content], { type: selectedFormat === 'txt' ? 'text/plain;charset=utf-8' : 'text/markdown;charset=utf-8' });
-          const info: ProcessedFileInfo = { status: 'done', data, fileName: `${names[index]}.${selectedFormat}`, newSize: data.size, autoDownloadSeconds: 5, autoDownloaded: false };
+          const info: ProcessedFileInfo = { status: 'done', data, fileName: `${names[index]}.${selectedFormat}`, newSize: data.size, autoDownloadSeconds: batch.length === 1 ? 5 : 0, autoDownloaded: false };
           setResults(current => ({ ...current, [item.id]: { ...result, baseName: names[index] } }));
           setActiveId(current => current || item.id);
           setProcessed(current => ({ ...current, [item.id]: info }));
-          timers.current[item.id] = startDownloadCountdown(seconds => {
-            if (mounted.current) setProcessed(current => current[item.id]?.status === 'done' && !current[item.id].autoDownloaded
-              ? { ...current, [item.id]: { ...current[item.id], autoDownloadSeconds: seconds } } : current);
-          }, () => {
-            delete timers.current[item.id];
-            const latest = latestOutputs.current[item.id];
-            if (mounted.current && latest?.status === 'done' && !latest.autoDownloaded) downloadItem(item, latest);
-          });
+          if (batch.length === 1) {
+            timers.current[item.id] = startDownloadCountdown(seconds => {
+              if (mounted.current) setProcessed(current => current[item.id]?.status === 'done' && !current[item.id].autoDownloaded
+                ? { ...current, [item.id]: { ...current[item.id], autoDownloadSeconds: seconds } } : current);
+            }, () => {
+              delete timers.current[item.id];
+              const latest = latestOutputs.current[item.id];
+              if (mounted.current && latest?.status === 'done' && !latest.autoDownloaded) downloadItem(item, latest, true);
+            });
+          }
         } catch (failure: any) {
           if (!mounted.current) return;
           setProcessed(current => ({ ...current, [item.id]: {
@@ -147,19 +179,11 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
     }
   };
 
-  const downloadZip = async () => {
-    setPacking(true); setError(null);
-    try {
-      const zip = new OutputArchive();
-      for (const item of items) {
-        const result = results[item.id];
-        if (!result) continue;
-        zip.file(`${result.baseName}.txt`, result.text);
-        zip.file(`${result.baseName}.md`, result.markdown);
-      }
-      downloadBlob(await zip.generateAsync({ type: 'uint8array' }), 'extracted_text_and_markdown.zip', 'application/zip');
-    } catch (failure: any) { setError(failure?.message || 'Could not create ZIP. Individual downloads are still available.'); }
-    finally { if (mounted.current) setPacking(false); }
+  const downloadZip = () => {
+    if (!zipData || packing) return;
+    if (!downloadBlob(zipData, 'extracted_text_and_markdown.zip', 'application/zip')) {
+      setError('The browser could not start the ZIP download. Tap Download ZIP again or check the browser download permission.');
+    }
   };
   const done = Object.keys(results).length;
   const failed = Object.values(processed).filter(info => info.status === 'error').length;
@@ -170,6 +194,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
     if (items.length === 1) { reset(); return; }
     timers.current[id]?.(); delete timers.current[id];
     setItems(current => current.filter(item => item.id !== id));
+    setZipData(null);
     setResults(current => { const next = { ...current }; delete next[id]; return next; });
     setProcessed(current => { const next = { ...current }; delete next[id]; return next; });
     if (activeId === id) setActiveId(null);
@@ -247,7 +272,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
       {done ? <CheckCircle2 className="w-8 h-8 mx-auto mb-3" /> : <AlertCircle className="w-8 h-8 mx-auto mb-3" />}
       <h2 className="font-bold">{done ? 'Ready for Download!' : 'No text could be extracted'}</h2>
       <p className="text-xs mt-2">{done} of {items.length} PDFs extracted successfully.{failed ? ` ${failed} file(s) failed or were cancelled; check their error messages above.` : ''}</p>
-      {!!done && <><button type="button" onClick={downloadZip} disabled={packing || processing} className={`${button} mt-4 bg-emerald-600 text-white border-transparent`}>{packing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}Download All {done} Results as ZIP (TXT + Markdown)</button><p className="text-xs mt-2">ZIP contains both formats for each successful PDF and downloads only when clicked.</p></>}
+      {!!done && <><button type="button" onClick={downloadZip} disabled={packing || processing || !zipData} className={`${button} mt-4 bg-emerald-600 text-white border-transparent`}>{packing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}Download All {done} Results as ZIP (TXT + Markdown)</button><p className="text-xs mt-2">{packing ? 'Preparing the ZIP in your browser…' : 'ZIP contains both formats for each successful PDF and downloads only when clicked.'}</p></>}
       <button type="button" onClick={reset} disabled={packing || processing} className={`${button} mt-4 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300`}>{t.processAnotherBtn}</button>
     </div>}
     {!!done && <section ref={resultPreview} className="mt-6 p-4 sm:p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 min-w-0">

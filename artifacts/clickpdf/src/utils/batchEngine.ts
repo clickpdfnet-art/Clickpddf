@@ -285,6 +285,11 @@ export async function downloadAllBatchResultsAsZip(
   items: BatchItem[],
   zipFilename = 'clickpdf_batch_results.zip'
 ): Promise<void> {
+  const zipBlob = await createBatchResultsZip(items);
+  downloadBlob(zipBlob, zipFilename, 'application/zip');
+}
+
+export async function createBatchResultsZip(items: BatchItem[]): Promise<Uint8Array> {
   const completedItems = items.filter(i => i.status === 'completed' && i.resultData);
   if (completedItems.length === 0) {
     throw new Error('No completed files available to package.');
@@ -313,11 +318,9 @@ export async function downloadAllBatchResultsAsZip(
     }
   });
 
-  const zipBlob = await zip.generateAsync({
+  return zip.generateAsync({
     type: 'uint8array',
     compression: 'DEFLATE',
     compressionOptions: { level: 6 }
   });
-
-  downloadBlob(zipBlob, zipFilename, 'application/zip');
 }

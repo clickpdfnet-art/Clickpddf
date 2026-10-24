@@ -1,3 +1,5 @@
+import { downloadFile } from './downloadFile';
+
 import { PDFTool, BlogPost } from '../types';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { INITIAL_ARTICLES, getStoredArticles } from '../data/initialArticles';
@@ -223,12 +225,5 @@ Sitemap: ${normalized}/sitemap.xml
 export function downloadSitemapXmlFile(options?: SitemapOptions, filename = 'sitemap.xml'): void {
   const xml = generateSitemapXml(options);
   const blob = new Blob([xml], { type: 'application/xml;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  downloadFile(blob, filename, 'application/xml;charset=utf-8');
 }

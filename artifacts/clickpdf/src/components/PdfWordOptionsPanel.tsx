@@ -2,6 +2,7 @@ import React from 'react';
 import type { PdfWordOptions } from '../utils/pdfWordTypes';
 import { WORD_LANGUAGES, wordLanguageSupportText } from '../utils/pdfWordLanguages';
 import { inspectWordBrowser } from '../utils/pdfWordRuntimeChecks';
+import { downloadFile } from '../utils/downloadFile';
 
 export function PdfWordOptionsPanel({ value, onChange, disabled, onPreview, primaryLanguage, onPrimaryLanguageChange, files }: {
   value: PdfWordOptions; onChange: (value: PdfWordOptions) => void; disabled: boolean; onPreview: () => void;
@@ -12,12 +13,11 @@ export function PdfWordOptionsPanel({ value, onChange, disabled, onPreview, prim
   const selectedModels = WORD_LANGUAGES.filter(language => selectedLanguages.includes(language.id));
   const estimatedModelMb = selectedModels.reduce((total, language) => total + language.estimatedMB, 0);
   const downloadSupport = () => {
-    const url = URL.createObjectURL(new Blob([wordLanguageSupportText()], { type: 'text/plain;charset=utf-8' }));
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = 'clickpdf-pdf-to-word-browser-language-support.txt';
-    anchor.click();
-    window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    downloadFile(
+      new Blob([wordLanguageSupportText()], { type: 'text/plain;charset=utf-8' }),
+      'clickpdf-pdf-to-word-browser-language-support.txt',
+      'text/plain;charset=utf-8',
+    );
   };
   return <fieldset disabled={disabled} className="min-w-0 space-y-4 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50/60 dark:bg-blue-950/30 p-4">
     <legend className="px-2 text-sm font-bold text-slate-900 dark:text-white">Conversion mode</legend>

@@ -33,6 +33,7 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
   const [sourcePreview, setSourcePreview] = useState<File | null>(null);
   const [error, setError] = useState('');
   const [processing, setProcessing] = useState(false), [packing, setPacking] = useState(false);
+  const [zipData, setZipData] = useState<Uint8Array | null>(null);
   const [progress, setProgress] = useState({ file: 0, total: 0, page: 0, pages: 0, status: '' });
   const input = useRef<HTMLInputElement>(null);
   const initialized = useRef(false), mounted = useRef(true);
@@ -51,14 +52,17 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
     if (processing || packing) return;
     const batch = validateFileBatch(files, 'pdf');
     setError(batch.errors.join(' '));
-    if (batch.validFiles.length) setItems(previous => [...previous, ...batch.validFiles.map(file => ({ id: createId(), file }))]);
+    if (batch.validFiles.length) {
+      setItems(previous => [...previous, ...batch.validFiles.map(file => ({ id: createId(), file }))]);
+      setZipData(null);
+    }
   };
   useEffect(() => {
     if (initialFiles?.length && !initialized.current) { initialized.current = true; addFiles(initialFiles); }
   }, [initialFiles]);
   const reset = () => {
     if (processing || packing) return;
-    stopTimers(); setItems([]); setOutput({}); setResults({});
+    stopTimers(); setItems([]); setOutput({}); setResults({}); setZipData(null); setPacking(false);
     setActiveId(null); setSourcePreview(null); setError('');
     setProgress({ file: 0, total: 0, page: 0, pages: 0, status: '' });
   };
@@ -66,26 +70,31 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
     if (processing || packing) return;
     if (items.length === 1) { reset(); return; }
     timers.current[id]?.(); delete timers.current[id];
+    setZipData(null);
     setItems(previous => previous.filter(item => item.id !== id));
     setOutput(previous => { const next = { ...previous }; delete next[id]; return next; });
     setResults(previous => { const next = { ...previous }; delete next[id]; return next; });
     if (activeId === id) setActiveId(null);
   };
-  const downloadItem = (item: OrderedFile, info: ProcessedFileInfo) => {
-    if (info.status !== 'done' || !gate.current.claim(item.id)) return;
+  const downloadItem = (item: OrderedFile, info: ProcessedFileInfo, automatic = false) => {
+    if (info.status !== 'done' || (automatic && !gate.current.claim(item.id))) return;
     timers.current[item.id]?.(); delete timers.current[item.id];
-    downloadBlob(info.data, info.fileName, xlsxMime);
+    if (!downloadBlob(info.data, info.fileName, xlsxMime)) {
+      setError('The browser could not start the download. Tap Download again or check the browser download permission.');
+      return;
+    }
     setOutput(previous => previous[item.id]?.status === 'done'
       ? { ...previous, [item.id]: { ...previous[item.id], autoDownloadSeconds: 0, autoDownloaded: true } } : previous);
   };
   const process = async () => {
     if (processing || packing || !items.length) return;
     const batch = [...items], selected = { ...options };
-    stopTimers(); setProcessing(true); setError(''); setActiveId(null); setResults({});
+    stopTimers(); setProcessing(true); setError(''); setActiveId(null); setResults({}); setZipData(null); setPacking(false);
     setOutput(Object.fromEntries(batch.map(item => [item.id, { data: new Blob(), fileName: item.file.name, status: 'pending' as const }])));
     setProgress({ file: 0, total: batch.length, page: 0, pages: 0, status: 'Starting PDF to Excel conversion…' });
     const controller = new AbortController(); abort.current = controller;
     const names = new Set<string>();
+    const zipFiles: Array<{ fileName: string; data: Uint8Array | Blob }> = [];
     try {
       for (const [position, item] of batch.entries()) {
         if (controller.signal.aborted) break;
@@ -102,20 +111,23 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
           if (!mounted.current || controller.signal.aborted) break;
           const staged = await store.current!.put(result.data);
           if (!mounted.current || controller.signal.aborted) break;
+          zipFiles.push({ fileName, data: staged });
           const { data: _generated, ...preview } = result;
           setResults(previous => ({ ...previous, [item.id]: { ...preview, fileName } }));
           setActiveId(previous => previous || item.id);
           const info: ProcessedFileInfo = { data: staged, fileName, originalSize: item.file.size,
-            newSize: staged.size, status: 'done', autoDownloadSeconds: 5, autoDownloaded: false };
+            newSize: staged.size, status: 'done', autoDownloadSeconds: batch.length === 1 ? 5 : 0, autoDownloaded: false };
           setOutput(previous => ({ ...previous, [item.id]: info }));
-          timers.current[item.id] = startDownloadCountdown(seconds => {
-            if (mounted.current) setOutput(previous => previous[item.id]?.status === 'done' && !previous[item.id].autoDownloaded
-              ? { ...previous, [item.id]: { ...previous[item.id], autoDownloadSeconds: seconds } } : previous);
-          }, () => {
-            delete timers.current[item.id];
-            const current = latest.current[item.id];
-            if (mounted.current && current?.status === 'done' && !current.autoDownloaded) downloadItem(item, current);
-          });
+          if (batch.length === 1) {
+            timers.current[item.id] = startDownloadCountdown(seconds => {
+              if (mounted.current) setOutput(previous => previous[item.id]?.status === 'done' && !previous[item.id].autoDownloaded
+                ? { ...previous, [item.id]: { ...previous[item.id], autoDownloadSeconds: seconds } } : previous);
+            }, () => {
+              delete timers.current[item.id];
+              const current = latest.current[item.id];
+              if (mounted.current && current?.status === 'done' && !current.autoDownloaded) downloadItem(item, current, true);
+            });
+          }
         } catch (failure: any) {
           if (!mounted.current) return;
           setOutput(previous => ({ ...previous, [item.id]: { data: new Blob(), fileName, originalSize: item.file.size,
@@ -123,6 +135,19 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
         }
         if (mounted.current) setProgress(previous => ({ ...previous, file: position + 1, page: 0, pages: 0 }));
         await new Promise(resolve => setTimeout(resolve, 10));
+      }
+      if (zipFiles.length > 1 && mounted.current) {
+        setPacking(true);
+        try {
+          const zip = new OutputArchive();
+          for (const file of zipFiles) zip.file(file.fileName, file.data);
+          const archive = await zip.generateAsync({ type: 'uint8array' });
+          if (mounted.current) setZipData(archive);
+        } catch (failure: any) {
+          if (mounted.current) setError(failure?.message || 'ZIP creation failed; individual XLSX downloads remain available.');
+        } finally {
+          if (mounted.current) setPacking(false);
+        }
       }
     } finally {
       if (mounted.current) {
@@ -132,16 +157,12 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
       }
     }
   };
-  const downloadZip = async () => {
+  const downloadZip = () => {
     const completed = items.filter(item => output[item.id]?.status === 'done');
-    if (!completed.length || packing) return;
-    setPacking(true); setError('');
-    try {
-      const zip = new OutputArchive();
-      for (const item of completed) zip.file(output[item.id].fileName, output[item.id].data);
-      downloadBlob(await zip.generateAsync({ type: 'uint8array' }), `converted_excel_${completed.length}_files.zip`, 'application/zip');
-    } catch (failure: any) { setError(failure?.message || 'ZIP creation failed; individual XLSX downloads remain available.'); }
-    finally { if (mounted.current) setPacking(false); }
+    if (completed.length < 2 || !zipData || packing) return;
+    if (!downloadBlob(zipData, `converted_excel_${completed.length}_files.zip`, 'application/zip')) {
+      setError('The browser could not start the ZIP download. Tap Download ZIP again or check the browser download permission.');
+    }
   };
   const completed = items.filter(item => output[item.id]?.status === 'done');
   const failed = items.filter(item => output[item.id]?.status === 'error');
@@ -235,7 +256,7 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
             Convert {items.length > 1 ? `${items.length} PDFs` : 'PDF'} to Excel (.xlsx)
           </button>
           {processing && <button type="button" onClick={() => abort.current?.abort()} className={`${btn} text-rose-700 border-rose-200`}><X className="w-4 h-4" />Cancel</button>}
-          {completed.length > 1 && <button type="button" disabled={packing} onClick={() => void downloadZip()} className={`${btn} border-emerald-300 text-emerald-700 dark:text-emerald-300`}>
+          {completed.length > 1 && <button type="button" disabled={processing || packing || !zipData} onClick={downloadZip} className={`${btn} border-emerald-300 text-emerald-700 dark:text-emerald-300`}>
             {packing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}Download All {completed.length} as ZIP
           </button>}
         </div>

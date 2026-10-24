@@ -2,6 +2,7 @@ import { PDFDocument, degrees, rgb, StandardFonts } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { initPdfWorker } from './pdfWorkerSetup';
 import { runPdfBackground } from './pdfBackground';
+import { downloadFile } from './downloadFile';
 import {
   readSafeArrayBuffer,
   yieldToMainThread,
@@ -13,63 +14,7 @@ import {
  * Downloads a Uint8Array or Blob directly in browser with no server roundtrip.
  */
 export function downloadBlob(data: Uint8Array | Blob, fileName: string, mimeType?: string) {
-  try {
-    let resolvedMime = mimeType;
-    if (!resolvedMime || resolvedMime === 'application/pdf') {
-      const lower = fileName.toLowerCase();
-      if (lower.endsWith('.docx')) resolvedMime = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-      else if (lower.endsWith('.xlsx')) resolvedMime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-      else if (lower.endsWith('.pptx')) resolvedMime = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
-      else if (lower.endsWith('.zip')) resolvedMime = 'application/zip';
-      else resolvedMime = 'application/pdf';
-    }
-    const blob = new Blob([data as unknown as BlobPart], { type: resolvedMime });
-
-    // Handle legacy MS Edge / IE
-    if (typeof (window.navigator as any).msSaveOrOpenBlob === 'function') {
-      (window.navigator as any).msSaveOrOpenBlob(blob, fileName);
-      return;
-    }
-
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.style.position = 'fixed';
-    a.style.left = '-9999px';
-    a.style.top = '-9999px';
-    a.href = url;
-    a.setAttribute('download', fileName);
-    a.download = fileName;
-    a.rel = 'noopener noreferrer';
-    a.target = '_self';
-    document.body.appendChild(a);
-
-    // MouseEvent simulation ensures event propagation on iOS/mobile WebViews
-    try {
-      const evt = new MouseEvent('click', {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-      });
-      a.dispatchEvent(evt);
-    } catch {
-      a.click();
-    }
-
-    // Keep the object URL alive for 2 minutes (120,000 ms)
-    // On mobile devices (Android / iOS Safari), download managers stream the blob asynchronously.
-    // Revoking after 1000ms previously caused mobile downloads to abort or fail!
-    setTimeout(() => {
-      try {
-        if (document.body.contains(a)) {
-          document.body.removeChild(a);
-        }
-        URL.revokeObjectURL(url);
-      } catch {}
-    }, 120000);
-  } catch (err) {
-    console.error('Failed to download file via downloadBlob:', err);
-  }
+  return downloadFile(data, fileName, mimeType);
 }
 
 /**

@@ -39,11 +39,11 @@ The default Recommended compression option must attempt meaningful size reductio
 
 **How to apply:** Keep Recommended as the gentler visual-quality choice, distinguish it from explicit lossless optimization, disclose visual-compression tradeoffs, and report unchanged output honestly.
 
-Restore the expected five-second automatic download for each completed batch file; do not silently disable batch auto-downloads to avoid browser restrictions.
+Use the five-second automatic download only for a single output. Never schedule multiple individual downloads from one batch; keep each file and any ZIP available through explicit user clicks.
 
-**Why:** The user reported that completed compression results still showed “Auto: 5s” but no automatic download occurred.
+**Why:** The user reports that mobile and private browsers block background or simultaneous downloads and explicitly requested a fresh, manually initiated download link on every click.
 
-**How to apply:** Give each completed file its own cancellable countdown without retaining extra output buffers. Manual downloads must cancel pending duplicates. ZIP stays manual. Explain browser permission limits and label download requests honestly rather than claiming verified saves.
+**How to apply:** Keep multi-file results individually downloadable and prepare ZIPs before the button press. Every click must use a new DOM-attached link with the correct MIME type; retain its Blob URL for at least 60 seconds. A download request is not proof the browser saved the file, so state browser-policy limits honestly.
 
 Watermark placement, size, color, opacity, angle, type and page-range settings are shared across every selected PDF, not separate per-document edits.
 

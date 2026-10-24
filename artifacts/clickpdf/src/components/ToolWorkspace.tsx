@@ -585,8 +585,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       delete earlyDownloadTriggerRef.current[item.id];
     }
     const downloadName = info.fileName || `${item.file.name.replace(/\.[^/.]+$/, '')}_compressed.pdf`;
-    if (!downloadRequestGate.current.claim(item.id)) return;
-    downloadBlob(info.data, downloadName, getDownloadMimeType(downloadName));
+    if (!downloadBlob(info.data, downloadName, getDownloadMimeType(downloadName))) {
+      setErrorMessage(language === 'ur'
+        ? 'براؤزر ڈاؤن لوڈ شروع نہیں کر سکا۔ دوبارہ Download دبائیں یا براؤزر کی download اجازت چیک کریں۔'
+        : 'The browser could not start this download. Tap Download again or check the browser download permission.');
+      return;
+    }
     setProcessedFilesMap(prev => {
       const existing = prev[item.id];
       if (!existing) return prev;
@@ -610,8 +614,26 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     totalFiles: number,
     forceIndividual = false
   ) => {
+    if (totalFiles > 1) {
+      setProcessedFilesMap(prev => {
+        const existing = prev[item.id];
+        return existing?.status === 'done' && (existing.autoDownloadSeconds || 0) > 0
+          ? { ...prev, [item.id]: { ...existing, autoDownloadSeconds: 0 } }
+          : prev;
+      });
+      return;
+    }
+
     // Single-file results already have the workspace countdown. Never download twice.
-    if (totalFiles <= 1 && !forceIndividual) return;
+    if (!forceIndividual) {
+      setProcessedFilesMap(prev => {
+        const existing = prev[item.id];
+        return existing?.status === 'done' && (existing.autoDownloadSeconds || 0) > 0
+          ? { ...prev, [item.id]: { ...existing, autoDownloadSeconds: 0 } }
+          : prev;
+      });
+      return;
+    }
     earlyDownloadTriggerRef.current[item.id]?.();
     earlyDownloadTriggerRef.current[item.id] = startDownloadCountdown((s) => {
       setProcessedFilesMap(prev => {
@@ -3516,8 +3538,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           {files.length > 1 && hasIndividualDownloads && (
             <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 max-w-md mx-auto">
               {language === 'ur'
-                ? 'ہر تیار فائل کی خودکار ڈاؤن لوڈ 5 سیکنڈ بعد شروع کرنے کی کوشش ہوگی۔ اگر browser متعدد downloads روکے تو اجازت دیں، یا متعلقہ Download بٹن استعمال کریں۔ ZIP صرف بٹن دبانے پر ڈاؤن لوڈ ہوگی۔'
-                : 'Each completed file requests an automatic download after 5 seconds. If your browser blocks multiple downloads, allow them or use its Download button. The ZIP downloads only when clicked.'}
+                ? 'متعدد فائلوں کی خودکار ڈاؤن لوڈ بند ہے تاکہ browser انہیں block نہ کرے۔ ہر فائل الگ Download بٹن سے یا تمام فائلیں ZIP کے ایک بٹن سے ڈاؤن لوڈ کریں۔'
+                : 'Automatic downloads are off for multi-file batches to avoid browser blocks. Download files individually, or use the single ZIP button.'}
             </p>
           )}
 
@@ -3546,7 +3568,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 rounded-xl text-xs font-semibold border border-emerald-300 dark:border-emerald-800">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>
-                {'File auto-downloaded successfully!'}
+                {language === 'ur'
+                  ? 'ڈاؤن لوڈ کی درخواست بھیج دی گئی۔ فائل نہ ملے تو نیچے Download دوبارہ دبائیں۔'
+                  : 'Download requested. If the file does not appear, tap Download below to retry.'}
               </span>
             </div>
           )}
@@ -3571,12 +3595,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 type="button"
                 onClick={() => {
                   const blob = new Blob([encryptedPackageResult.vaultHtml], { type: 'text/html' });
-                  const url = URL.createObjectURL(blob);
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = encryptedPackageResult.vaultFileName || 'secure_vault.html';
-                  a.click();
-                  URL.revokeObjectURL(url);
+                  downloadBlob(blob, encryptedPackageResult.vaultFileName || 'secure_vault.html', 'text/html;charset=utf-8');
                 }}
                 className="inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-md transition-all cursor-pointer"
                 title="Download single-file offline HTML vault that any recipient can open to decrypt in any browser"

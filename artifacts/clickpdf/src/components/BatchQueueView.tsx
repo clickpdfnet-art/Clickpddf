@@ -29,7 +29,7 @@ import {
   BatchToolAction,
   BatchToolOptionConfig,
   processBatchSingleFile,
-  downloadAllBatchResultsAsZip
+  createBatchResultsZip
 } from '../utils/batchEngine';
 import { downloadBlob } from '../utils/pdfEngine';
 import {
@@ -61,10 +61,8 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
   const [isPaused, setIsPaused] = useState(false);
   const [activeProcessingId, setActiveProcessingId] = useState<string | null>(null);
   const [isPackagingZip, setIsPackagingZip] = useState(false);
-  const [autoDownloadSeconds, setAutoDownloadSeconds] = useState<number | null>(null);
-  const [autoDownloadCancelled, setAutoDownloadCancelled] = useState(false);
+  const [preparedZipData, setPreparedZipData] = useState<Uint8Array | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const autoDownloadTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Configuration options
   const [watermarkText, setWatermarkText] = useState('CONFIDENTIAL');
@@ -80,6 +78,33 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cancelRequestedRef = useRef(false);
   const consumedInitialFilesRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const batchFinished = items.length > 0
+      && items.every(item => item.status === 'completed' || item.status === 'error');
+    if (!batchFinished || isProcessingAll) {
+      setPreparedZipData(null);
+      setIsPackagingZip(false);
+      return;
+    }
+
+    const completedItems = items.filter(item => item.status === 'completed' && item.resultData);
+    if (!completedItems.length) {
+      setPreparedZipData(null);
+      setIsPackagingZip(false);
+      return;
+    }
+
+    let active = true;
+    setIsPackagingZip(true);
+    void createBatchResultsZip(completedItems)
+      .then(data => { if (active) setPreparedZipData(data); })
+      .catch((error: any) => {
+        if (active) setUploadError(error?.message || 'Failed to prepare the ZIP archive.');
+      })
+      .finally(() => { if (active) setIsPackagingZip(false); });
+    return () => { active = false; };
+  }, [items, isProcessingAll]);
 
   const retryItem = (id: string) => {
     setItems(prev => prev.map(it => it.id === id ? {
@@ -113,7 +138,10 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
         stepDescription: 'Waiting in queue',
         originalSize: file.size
       }));
-    if (newItems.length > 0) setItems(prev => [...prev, ...newItems]);
+    if (newItems.length > 0) {
+      setPreparedZipData(null);
+      setItems(prev => [...prev, ...newItems]);
+    }
     setUploadError(batch.errors[0] || null);
     onClearInitialFiles?.();
   }, [initialFiles, onClearInitialFiles, items]);
@@ -136,7 +164,10 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
       originalSize: file.size
     }));
 
-    if (newItems.length > 0) setItems(prev => [...prev, ...newItems]);
+    if (newItems.length > 0) {
+      setPreparedZipData(null);
+      setItems(prev => [...prev, ...newItems]);
+    }
     setUploadError(errors[0] || null);
   };
 
@@ -156,15 +187,18 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
   const removeItem = (id: string) => {
     if (activeProcessingId === id && isProcessingAll) return;
+    setPreparedZipData(null);
     setItems(prev => prev.filter(item => item.id !== id));
   };
 
   const clearQueue = () => {
     if (isProcessingAll) return;
+    setPreparedZipData(null);
     setItems([]);
   };
 
   const resetAllStatuses = () => {
+    setPreparedZipData(null);
     setItems(prev => prev.map(item => ({
       ...item,
       status: 'queued',
@@ -190,12 +224,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     cancelRequestedRef.current = false;
     setIsProcessingAll(true);
     setIsPaused(false);
-    setAutoDownloadCancelled(false);
-    setAutoDownloadSeconds(null);
-    if (autoDownloadTimerRef.current) {
-      clearInterval(autoDownloadTimerRef.current);
-      autoDownloadTimerRef.current = null;
-    }
+    setPreparedZipData(null);
 
     const optionsConfig: BatchToolOptionConfig = {
       watermarkText,
@@ -295,25 +324,6 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
         });
       } catch {}
 
-      // 5-second auto download of batch ZIP archive
-      if (!autoDownloadCancelled) {
-        setAutoDownloadSeconds(5);
-        if (autoDownloadTimerRef.current) clearInterval(autoDownloadTimerRef.current);
-        autoDownloadTimerRef.current = setInterval(() => {
-          setAutoDownloadSeconds(prev => {
-            if (prev === null) return null;
-            if (prev <= 1) {
-              if (autoDownloadTimerRef.current) {
-                clearInterval(autoDownloadTimerRef.current);
-                autoDownloadTimerRef.current = null;
-              }
-              handleDownloadAllZip();
-              return 0;
-            }
-            return prev - 1;
-          });
-        }, 1000);
-      }
     }
   };
 
@@ -329,20 +339,11 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     downloadBlob(item.resultData, item.outputFileName || 'document.pdf', isJson ? 'application/json' : 'application/pdf');
   };
 
-  const handleDownloadAllZip = async () => {
-    if (autoDownloadTimerRef.current) {
-      clearInterval(autoDownloadTimerRef.current);
-      autoDownloadTimerRef.current = null;
-    }
-    setAutoDownloadSeconds(null);
-    setIsPackagingZip(true);
-    try {
-      const actionLabel = selectedAction.replace('-', '_');
-      await downloadAllBatchResultsAsZip(items, `clickpdf_batch_${actionLabel}.zip`);
-    } catch (err: any) {
-      alert(err.message || 'Failed to generate ZIP archive.');
-    } finally {
-      setIsPackagingZip(false);
+  const handleDownloadAllZip = () => {
+    if (!preparedZipData || isPackagingZip) return;
+    const actionLabel = selectedAction.replace('-', '_');
+    if (!downloadBlob(preparedZipData, `clickpdf_batch_${actionLabel}.zip`, 'application/zip')) {
+      alert('The browser could not start the ZIP download. Tap Download All as ZIP again or check the browser download permission.');
     }
   };
 
@@ -739,29 +740,10 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                 </button>
               )}
 
-              {completedCount > 0 && autoDownloadSeconds !== null && autoDownloadSeconds > 0 && !autoDownloadCancelled && (
-                <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-700 flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-200">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 animate-spin text-emerald-600" />
-                    <span>Auto-downloading ZIP in <strong>{autoDownloadSeconds}s</strong>...</span>
-                  </div>
-                  <button
-                    onClick={() => {
-                      if (autoDownloadTimerRef.current) clearInterval(autoDownloadTimerRef.current);
-                      setAutoDownloadCancelled(true);
-                      setAutoDownloadSeconds(null);
-                    }}
-                    className="text-[11px] underline text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 cursor-pointer"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              )}
-
               {completedCount > 0 && (
                 <button
                   onClick={handleDownloadAllZip}
-                  disabled={isPackagingZip}
+                  disabled={isPackagingZip || !preparedZipData}
                   className="w-full py-2.5 px-4 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer border border-slate-700/50"
                 >
                   {isPackagingZip ? (

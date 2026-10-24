@@ -128,12 +128,7 @@ export const MetadataInspector: React.FC<MetadataInspectorProps> = ({ file, onPr
     ).join('\n');
     const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8' });
     const downloadName = `${file.name.replace(/\.pdf$/i, '')}_page_manifest.csv`;
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = downloadName;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadBlob(blob, downloadName, 'text/csv;charset=utf-8');
   };
 
   const handleDownloadTextReport = () => {
