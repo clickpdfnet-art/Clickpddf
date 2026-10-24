@@ -703,7 +703,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                 </div>
                 <div className="text-[11px] text-slate-500 truncate flex items-center gap-1">
                   <span className="w-3.5 h-3.5 rounded-full bg-slate-200 inline-block text-[9px] text-center font-bold">G</span>
-                  <span>{localSeo.canonicalUrl || 'https://clickpdf.net'}</span>
+                  <span>{localSeo.canonicalUrl || 'https://www.clickpdf.net'}</span>
                 </div>
                 <h4 className="text-sm sm:text-base font-semibold text-blue-700 hover:underline cursor-pointer truncate">
                   {localSeo.title}
@@ -772,7 +772,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                       value={localSeo.canonicalUrl}
                       onChange={(e) => setLocalSeo({ ...localSeo, canonicalUrl: e.target.value })}
                       className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs"
-                      placeholder="https://clickpdf.net"
+                      placeholder="https://www.clickpdf.net"
                     />
                   </div>
                 </div>

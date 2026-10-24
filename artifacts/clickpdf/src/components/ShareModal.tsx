@@ -23,7 +23,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   onClose,
   title = 'ClickPDF — Free In-Browser PDF Tools & Editor',
   text = 'Free, private, in-browser PDF tools suite. Merge, split, compress, convert, and protect PDFs with 100% privacy and zero server uploads.',
-  url = typeof window !== 'undefined' ? window.location.href : 'https://clickpdf.net'
+  url = typeof window !== 'undefined' ? window.location.href : 'https://www.clickpdf.net'
 }) => {
   const [copied, setCopied] = useState(false);
   const [supportsNativeShare, setSupportsNativeShare] = useState(false);
@@ -46,7 +46,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
 
   if (!isOpen) return null;
 
-  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://clickpdf.net');
+  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://www.clickpdf.net');
   const shareText = text || 'Check out ClickPDF for free and secure in-browser PDF editing!';
 
   const handleCopy = () => {

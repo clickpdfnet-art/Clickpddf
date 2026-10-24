@@ -26,7 +26,7 @@ export interface SitemapOptions {
   includeImages?: boolean;
 }
 
-export const PRODUCTION_BASE_URL = 'https://clickpdf.net';
+export const PRODUCTION_BASE_URL = 'https://www.clickpdf.net';
 
 /**
  * Normalizes base URL to ensure no trailing slash.

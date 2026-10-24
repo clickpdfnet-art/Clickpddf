@@ -6,7 +6,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
 const blogDir = path.join(appDir, 'src', 'blogs');
-const baseUrl = 'https://clickpdf.net';
+const baseUrl = 'https://www.clickpdf.net';
 
 function getArticlePath(meta) {
   const candidate = typeof meta.routepath === 'string' ? meta.routepath.trim() : '';
@@ -101,6 +101,7 @@ const blogUrlBlocks = articles.map((article) => {
 });
 
 let sitemap = await readFile(sitemapPath, 'utf8');
+sitemap = sitemap.replaceAll('https://clickpdf.net', baseUrl);
 sitemap = sitemap.replace(/\s+xmlns:xhtml="[^"]*"/, '');
 sitemap = sitemap.replace(
   /<urlset\b/,

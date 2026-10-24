@@ -46,6 +46,10 @@ test('hidden tools remain backed up but are excluded from public cards, searches
 test('default sitemap only contains public tools', async () => {
   const sitemapSource = (await readFile(new URL('../src/utils/sitemapGenerator.ts', import.meta.url), 'utf8'))
     .replace(
+      "import { downloadFile } from './downloadFile';",
+      'const downloadFile = () => true;'
+    )
+    .replace(
       "import { PUBLIC_PDF_TOOLS } from '../data/toolsData';",
       'const PUBLIC_PDF_TOOLS = globalThis.__PUBLIC_PDF_TOOLS__;'
     )
@@ -62,10 +66,11 @@ test('default sitemap only contains public tools', async () => {
   const entries = sitemap.getSitemapEntries({ articles: [] });
   const index = entries.map(entry => `${entry.path} ${entry.title} ${entry.description || ''}`).join('\n').toLowerCase();
 
-  assert.equal(sitemap.normalizeBaseUrl(), 'https://clickpdf.net');
-  assert.equal(sitemap.normalizeBaseUrl('https://m.sisko.replit.dev'), 'https://clickpdf.net');
-  assert.equal(sitemap.normalizeBaseUrl('https://www.clickpdf.net/'), 'https://clickpdf.net');
-  assert.ok(entries.every(entry => entry.loc.startsWith('https://clickpdf.net/')));
+  assert.equal(sitemap.normalizeBaseUrl(), 'https://www.clickpdf.net');
+  assert.equal(sitemap.normalizeBaseUrl('https://m.sisko.replit.dev'), 'https://www.clickpdf.net');
+  assert.equal(sitemap.normalizeBaseUrl('https://clickpdf.net/'), 'https://www.clickpdf.net');
+  assert.equal(sitemap.normalizeBaseUrl('https://www.clickpdf.net/'), 'https://www.clickpdf.net');
+  assert.ok(entries.every(entry => entry.loc.startsWith('https://www.clickpdf.net/')));
   assert.ok(entries.every(entry =>
     entry.path === '/' ||
     entry.path.startsWith('/tools/') ||

@@ -16,7 +16,7 @@ targettoolurl: /tools/image-to-pdf
 targettooltitle: Image to PDF Converter
 targettoolcta: Convert Assignment Photos to PDF
 locale: en
-breadcrumbs: '[{"name":"Home","url":"https://clickpdf.net/"},{"name":"PDF Tools","url":"https://clickpdf.net/"},{"name":"Merge Handwritten Assignment Photos Into PDF","url":"https://clickpdf.net/merge-handwritten-assignment-photos-into-pdf/"}]'
+breadcrumbs: '[{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/"},{"name":"Merge Handwritten Assignment Photos Into PDF","url":"https://www.clickpdf.net/merge-handwritten-assignment-photos-into-pdf/"}]'
 faqitems: '[{"question":"How can I merge handwritten assignment photos into one PDF on mobile?","answer":"Select your assignment photos in the correct order, use a compatible image-to-PDF tool, review the page layout, and download the resulting PDF."},{"question":"How can I make handwritten assignment photos easier to read?","answer":"Use good lighting, keep the camera parallel to the page, crop unnecessary edges, and check brightness and contrast without erasing handwriting."},{"question":"How can I reduce the PDF file size for an LMS portal?","answer":"Resize oversized images, use suitable image quality, and apply PDF compression if needed. Check the final file size and readability against your portal's requirements."},{"question":"Can I convert photos to PDF without uploading them to a server?","answer":"Yes, when you use a tool that performs conversion entirely in your browser or on your device. Check its processing behavior and privacy information before use."}]'
 ---
 

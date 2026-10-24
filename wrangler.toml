@@ -1,6 +1,13 @@
 name = "clickpddf"
+main = "artifacts/clickpdf/cloudflare-worker.mjs"
 compatibility_date = "2026-10-21"
+routes = [
+  { pattern = "clickpdf.net/*", zone_name = "clickpdf.net" },
+  { pattern = "www.clickpdf.net/*", zone_name = "clickpdf.net" }
+]
 
 [assets]
 directory = "./artifacts/clickpdf/dist/public"
+binding = "ASSETS"
 not_found_handling = "single-page-application"
+run_worker_first = true

@@ -8,7 +8,7 @@ export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
   ogDescription: 'Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
   ogImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
   keywords: 'pdf tools, click digital services, stay secure stay smart, 100% private pdf, merge pdf, split pdf, compress pdf, client side pdf, zero upload pdf, in browser pdf editor',
-  canonicalUrl: 'https://clickpdf.net',
+  canonicalUrl: 'https://www.clickpdf.net/',
   twitterCard: 'summary_large_image',
 };
 
@@ -18,7 +18,7 @@ const LEGACY_TOOL_SCHEMA_SCRIPT_ID = 'clickpdf-tool-schema';
 const LEGACY_BLOG_SCHEMA_SCRIPT_ID = 'clickpdf-blog-schema';
 const ORG_SCHEMA_SCRIPT_ID = 'clickpdf-org-schema';
 const HOME_FAQ_SCHEMA_SCRIPT_ID = 'clickpdf-home-faq-schema';
-const SITE_ORIGIN = 'https://clickpdf.net';
+const SITE_ORIGIN = 'https://www.clickpdf.net';
 let savedHomeFaqSchema: string | null = null;
 
 export function getStoredSeoConfig(): SeoMetaConfig {
@@ -61,7 +61,7 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
   setMetaTag('property', 'og:title', config.ogTitle || config.title);
   setMetaTag('property', 'og:description', config.ogDescription || config.description);
   setMetaTag('property', 'og:image', config.ogImage);
-  setMetaTag('property', 'og:url', config.canonicalUrl);
+  setMetaTag('property', 'og:url', canonicalizeClickPdfUrl(config.canonicalUrl));
   setMetaTag('property', 'og:type', 'website');
 
   // 4. Twitter Cards
@@ -72,7 +72,7 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
 
   // 5. Canonical link
   if (config.canonicalUrl) {
-    updateCanonicalUrl(config.canonicalUrl);
+    updateCanonicalUrl(canonicalizeClickPdfUrl(config.canonicalUrl));
   }
 }
 
@@ -232,7 +232,7 @@ function setAlternateLanguageLinks(alternates: Array<{ locale: string; url: stri
     const link = document.createElement('link');
     link.rel = 'alternate';
     link.hreflang = locale;
-    link.href = url;
+    link.href = canonicalizeClickPdfUrl(url);
     link.dataset.blogHreflang = locale;
     link.id = `${BLOG_HREFLANG_LINK_PREFIX}${locale}`;
     document.head.appendChild(link);
@@ -252,7 +252,7 @@ function clearAlternateLanguageLinks(): void {
   document.querySelectorAll(`link[id^="${BLOG_HREFLANG_LINK_PREFIX}"]`).forEach((link) => link.remove());
 }
 
-export function injectHomeOrganizationJsonLd(originUrl: string = 'https://clickpdf.net'): void {
+export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.clickpdf.net'): void {
   if (typeof document === 'undefined') return;
 
   const orgSchema = {
@@ -317,7 +317,20 @@ function updateCanonicalUrl(url: string): void {
     canonical.rel = 'canonical';
     document.head.appendChild(canonical);
   }
-  canonical.href = url;
+  canonical.href = canonicalizeClickPdfUrl(url);
+}
+
+function canonicalizeClickPdfUrl(value: string): string {
+  try {
+    const url = new URL(value, SITE_ORIGIN);
+    if (url.hostname.toLowerCase() === 'clickpdf.net') {
+      url.hostname = 'www.clickpdf.net';
+      url.protocol = 'https:';
+    }
+    return url.toString();
+  } catch {
+    return value;
+  }
 }
 
 function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): void {
@@ -423,7 +436,7 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        item: new URL(item.url, SITE_ORIGIN).toString(),
+        item: canonicalizeClickPdfUrl(new URL(item.url, SITE_ORIGIN).toString()),
       })),
     });
   }

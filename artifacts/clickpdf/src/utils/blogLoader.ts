@@ -223,7 +223,7 @@ export function loadAllBlogPostsFromFolder(): BlogPost[] {
       .filter((post) => post.locale)
       .map((post) => ({
         locale: post.locale!,
-        url: `https://clickpdf.net${post.routePath || `/blog/${encodeURIComponent(post.slug)}`}`,
+        url: `https://www.clickpdf.net${post.routePath || `/blog/${encodeURIComponent(post.slug)}`}`,
       }));
     group.forEach((post) => {
       post.alternateUrls = alternateUrls;

@@ -116,7 +116,7 @@ function AppContent() {
             applyStandaloneToolSchema(
               found.title,
               found.description,
-              `https://clickpdf.net${getToolCanonicalPath(found.id)}`,
+              `https://www.clickpdf.net${getToolCanonicalPath(found.id)}`,
             );
           }
           return;
@@ -307,7 +307,7 @@ function AppContent() {
       applyStandaloneToolSchema(
         tool.title,
         tool.description,
-        `https://clickpdf.net${getToolCanonicalPath(tool.id)}`,
+        `https://www.clickpdf.net${getToolCanonicalPath(tool.id)}`,
       );
     }
     navigateToToolUrl(tool.id);

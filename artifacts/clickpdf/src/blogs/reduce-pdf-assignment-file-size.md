@@ -16,7 +16,7 @@ targettoolurl: /tools/compress-pdf
 targettooltitle: PDF Compressor
 targettoolcta: Compress PDF Now
 locale: en
-breadcrumbs: '[{"name":"Home","url":"https://clickpdf.net/"},{"name":"PDF Tools","url":"https://clickpdf.net/"},{"name":"Reduce PDF Assignment File Size","url":"https://clickpdf.net/reduce-pdf-assignment-file-size/"}]'
+breadcrumbs: '[{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/"},{"name":"Reduce PDF Assignment File Size","url":"https://www.clickpdf.net/reduce-pdf-assignment-file-size/"}]'
 faqitems: '[{"question":"Why must an assignment PDF be below 2MB?","answer":"Some university LMS portals enforce a maximum upload size of 2MB. Check your course instructions because the actual limit may differ."},{"question":"How can I reduce a PDF below 2MB?","answer":"Compress images, optimize scanned pages, remove unnecessary content and metadata, and use a suitable PDF compression tool. Verify the resulting file size and readability."},{"question":"Can I compress a PDF without losing quality?","answer":"Some structural optimizations reduce file size without changing visible content. Image downsampling and lossy compression may reduce quality, so inspect the output before submission."},{"question":"Can I compress a PDF in my browser?","answer":"Yes, if the selected browser tool supports PDF compression. Client-side processing can keep files on your device, but check the tool's privacy and processing details."}]'
 ---
 

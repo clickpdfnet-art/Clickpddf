@@ -9,7 +9,7 @@ const outputDir = path.join(appDir, 'dist', 'public');
 const sitemapPath = path.join(outputDir, 'sitemap.xml');
 const toolSeoPath = path.join(appDir, 'src', 'data', 'toolSeoData.ts');
 const blogDir = path.join(appDir, 'src', 'blogs');
-const siteOrigin = 'https://clickpdf.net';
+const siteOrigin = 'https://www.clickpdf.net';
 const pageSchemaId = 'clickpdf-page-schema';
 
 function decodeXml(value) {
@@ -308,8 +308,9 @@ const toolSeoRegistry = readStaticToolSeoRegistry(await readFile(toolSeoPath, 'u
 const generated = [];
 
 for (const rawLoc of sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)) {
-  const absoluteUrl = decodeXml(rawLoc[1].trim());
-  const url = new URL(absoluteUrl);
+  const sourceUrl = new URL(decodeXml(rawLoc[1].trim()));
+  const url = new URL(sourceUrl.pathname + sourceUrl.search, siteOrigin);
+  const absoluteUrl = url.toString();
   const match = url.pathname.match(/^\/tools\/([^/]+)\/?$/);
   if (!match) continue;
 
