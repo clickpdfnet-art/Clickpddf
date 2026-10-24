@@ -13,9 +13,13 @@ export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
 };
 
 const SEO_STORAGE_KEY = 'clickpdf_seo_meta_config';
-const TOOL_SCHEMA_SCRIPT_ID = 'clickpdf-tool-schema';
-const BLOG_SCHEMA_SCRIPT_ID = 'clickpdf-blog-schema';
+const PAGE_SCHEMA_SCRIPT_ID = 'clickpdf-page-schema';
+const LEGACY_TOOL_SCHEMA_SCRIPT_ID = 'clickpdf-tool-schema';
+const LEGACY_BLOG_SCHEMA_SCRIPT_ID = 'clickpdf-blog-schema';
 const ORG_SCHEMA_SCRIPT_ID = 'clickpdf-org-schema';
+const HOME_FAQ_SCHEMA_SCRIPT_ID = 'clickpdf-home-faq-schema';
+const SITE_ORIGIN = 'https://clickpdf.net';
+let savedHomeFaqSchema: string | null = null;
 
 export function getStoredSeoConfig(): SeoMetaConfig {
   if (typeof window === 'undefined') return DEFAULT_SEO_CONFIG;
@@ -79,7 +83,8 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
 export function applyToolSeo(toolSeo: ToolSeoInfo): void {
   if (typeof document === 'undefined') return;
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://clickpdf.net';
+  removeHomeFaqJsonLdSchema();
+  const origin = SITE_ORIGIN;
   const canonicalUrl = `${origin}/tools/${toolSeo.slug}`;
 
   // 1. Dynamic Page Title
@@ -104,19 +109,49 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
   updateCanonicalUrl(canonicalUrl);
   clearAlternateLanguageLinks();
 
-  // 6. Schema.org JSON-LD Structured Data (WebApplication + HowTo + FAQPage)
-  removeBlogJsonLdSchema();
+  // 6. Schema.org JSON-LD Structured Data (SoftwareApplication + HowTo + FAQPage)
   injectToolJsonLdSchema(toolSeo, canonicalUrl);
 }
 
 /**
- * Dynamically applies specialized SEO metadata, OpenGraph tags, and Schema.org
- * Article structured data for an individual Blog Post landing view (/blog/:slug).
+ * Adds SoftwareApplication structured data for tools that do not yet have
+ * dedicated long-form SEO metadata. This keeps new registry tools covered.
+ */
+export function applyStandaloneToolSchema(
+  name: string,
+  description: string,
+  canonicalUrl: string,
+): void {
+  if (typeof document === 'undefined') return;
+  removeHomeFaqJsonLdSchema();
+  setPageJsonLdSchema({
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${canonicalUrl}#software`,
+    name,
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Web',
+    description,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    creator: { '@id': `${SITE_ORIGIN}/#organization` },
+    publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+  });
+}
+
+/**
+ * Dynamically applies specialized SEO metadata, OpenGraph tags, and BlogPosting
+ * structured data for an individual blog post view (/blog/:slug).
  */
 export function applyBlogSeo(article: BlogPost): void {
   if (typeof document === 'undefined') return;
 
-  const origin = 'https://clickpdf.net';
+  removeHomeFaqJsonLdSchema();
+  const origin = SITE_ORIGIN;
   const canonicalUrl = `${origin}/blog/${encodeURIComponent(article.slug)}`;
   const fullTitle = article.seoTitle || `${article.title} — ClickPDF`;
 
@@ -150,7 +185,7 @@ export function applyBlogSeo(article: BlogPost): void {
   updateCanonicalUrl(canonicalUrl);
   setAlternateLanguageLinks(article.alternateUrls || []);
 
-  // 6. Schema.org Article JSON-LD
+  // 6. Schema.org BlogPosting JSON-LD
   removeToolJsonLdSchema();
   injectBlogJsonLdSchema(article, canonicalUrl);
 }
@@ -162,7 +197,7 @@ export function resetHomeSeo(customConfig?: SeoMetaConfig): void {
   if (typeof document === 'undefined') return;
 
   const config = customConfig || getStoredSeoConfig();
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://clickpdf.net';
+  const origin = SITE_ORIGIN;
   const homeCanonical = `${origin}/`;
 
   applySeoConfigToDom({
@@ -170,10 +205,12 @@ export function resetHomeSeo(customConfig?: SeoMetaConfig): void {
     canonicalUrl: homeCanonical,
   });
 
-  // Remove tool-specific & blog-specific JSON-LD schemas
+  // Clear legacy route-specific schemas and restore the homepage application schema.
   clearAlternateLanguageLinks();
   removeToolJsonLdSchema();
   removeBlogJsonLdSchema();
+  injectHomeSoftwareApplicationJsonLd(homeCanonical, config.description);
+  restoreHomeFaqJsonLdSchema();
 
   // Inject Organization & Brand JSON-LD schema linking ClickPDF.net to Click Digital Services
   injectHomeOrganizationJsonLd(origin);
@@ -211,14 +248,6 @@ function clearAlternateLanguageLinks(): void {
 export function injectHomeOrganizationJsonLd(originUrl: string = 'https://clickpdf.net'): void {
   if (typeof document === 'undefined') return;
 
-  let script = document.getElementById(ORG_SCHEMA_SCRIPT_ID) as HTMLScriptElement;
-  if (!script) {
-    script = document.createElement('script');
-    script.id = ORG_SCHEMA_SCRIPT_ID;
-    script.type = 'application/ld+json';
-    document.head.appendChild(script);
-  }
-
   const orgSchema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -251,7 +280,27 @@ export function injectHomeOrganizationJsonLd(originUrl: string = 'https://clickp
     ]
   };
 
-  script.textContent = JSON.stringify(orgSchema);
+  setJsonLdScript(ORG_SCHEMA_SCRIPT_ID, orgSchema);
+}
+
+function injectHomeSoftwareApplicationJsonLd(canonicalUrl: string, description: string): void {
+  setPageJsonLdSchema({
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${canonicalUrl}#software`,
+    name: 'ClickPDF',
+    url: canonicalUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Web',
+    description,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    creator: { '@id': `${SITE_ORIGIN}/#organization` },
+    publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+  });
 }
 
 function updateCanonicalUrl(url: string): void {
@@ -265,38 +314,20 @@ function updateCanonicalUrl(url: string): void {
 }
 
 function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): void {
-  let script = document.getElementById(TOOL_SCHEMA_SCRIPT_ID) as HTMLScriptElement;
-  if (!script) {
-    script = document.createElement('script');
-    script.id = TOOL_SCHEMA_SCRIPT_ID;
-    script.type = 'application/ld+json';
-    document.head.appendChild(script);
-  }
-
-  // Schema.org WebApplication + HowTo + FAQPage rich graph
+  // Schema.org SoftwareApplication + HowTo + FAQPage rich graph
   const schemaGraph = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         '@id': `${canonicalUrl}#software`,
         name: toolSeo.h1Title,
         url: canonicalUrl,
         applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'All (Chrome, Safari, Firefox, Edge, iOS, Android)',
+        operatingSystem: 'Web',
         description: toolSeo.metaDescription,
-        creator: {
-          '@type': 'Organization',
-          name: 'Click Digital Services',
-          slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
-          url: 'https://clickpdf.net'
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: 'Click Digital Services',
-          slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
-          url: 'https://clickpdf.net'
-        },
+        creator: { '@id': `${SITE_ORIGIN}/#organization` },
+        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -331,64 +362,96 @@ function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): voi
     ]
   };
 
-  script.textContent = JSON.stringify(schemaGraph);
+  setPageJsonLdSchema(schemaGraph);
 }
 
 function removeToolJsonLdSchema(): void {
-  const script = document.getElementById(TOOL_SCHEMA_SCRIPT_ID);
-  if (script) {
-    script.remove();
-  }
+  document.getElementById(LEGACY_TOOL_SCHEMA_SCRIPT_ID)?.remove();
 }
 
 function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
-  let script = document.getElementById(BLOG_SCHEMA_SCRIPT_ID) as HTMLScriptElement;
-  if (!script) {
-    script = document.createElement('script');
-    script.id = BLOG_SCHEMA_SCRIPT_ID;
-    script.type = 'application/ld+json';
-    document.head.appendChild(script);
-  }
-
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
+    '@id': `${canonicalUrl}#blogposting`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': canonicalUrl
     },
+    url: canonicalUrl,
     headline: article.title,
-    description: article.excerpt,
+    ...(article.seoTitle && article.seoTitle !== article.title
+      ? { alternativeHeadline: article.seoTitle }
+      : {}),
+    description: article.seoDescription || article.excerpt,
     inLanguage: article.locale || 'en',
     image: article.coverImage
-      ? [new URL(article.coverImage, 'https://clickpdf.net').toString()]
-      : ['https://clickpdf.net/icon.svg'],
-    datePublished: article.date,
-    dateModified: article.date,
+      ? [new URL(article.coverImage, SITE_ORIGIN).toString()]
+      : [`${SITE_ORIGIN}/icon.svg`],
+    ...(toIsoDate(article.date) ? { datePublished: toIsoDate(article.date) } : {}),
+    ...(article.seoKeywords ? { keywords: article.seoKeywords } : {}),
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: article.author || 'ClickPDF Security & Editorial Team'
     },
     publisher: {
       '@type': 'Organization',
       name: 'Click Digital Services',
-      url: 'https://clickpdf.net',
+      '@id': `${SITE_ORIGIN}/#organization`,
+      url: SITE_ORIGIN,
       slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://clickpdf.net/icon.svg'
+        url: `${SITE_ORIGIN}/icon.svg`
       }
     }
   };
 
-  script.textContent = JSON.stringify(articleSchema);
+  setPageJsonLdSchema(articleSchema);
 }
 
 function removeBlogJsonLdSchema(): void {
-  const script = document.getElementById(BLOG_SCHEMA_SCRIPT_ID);
-  if (script) {
-    script.remove();
+  document.getElementById(LEGACY_BLOG_SCHEMA_SCRIPT_ID)?.remove();
+}
+
+function removeHomeFaqJsonLdSchema(): void {
+  const script = document.getElementById(HOME_FAQ_SCHEMA_SCRIPT_ID) as HTMLScriptElement | null;
+  if (!script) return;
+  savedHomeFaqSchema = script.textContent;
+  script.remove();
+}
+
+function restoreHomeFaqJsonLdSchema(): void {
+  if (!savedHomeFaqSchema || document.getElementById(HOME_FAQ_SCHEMA_SCRIPT_ID)) return;
+  setJsonLdScript(HOME_FAQ_SCHEMA_SCRIPT_ID, JSON.parse(savedHomeFaqSchema));
+  savedHomeFaqSchema = null;
+}
+
+function setPageJsonLdSchema(schema: Record<string, unknown>): void {
+  document.getElementById(LEGACY_TOOL_SCHEMA_SCRIPT_ID)?.remove();
+  document.getElementById(LEGACY_BLOG_SCHEMA_SCRIPT_ID)?.remove();
+  setJsonLdScript(PAGE_SCHEMA_SCRIPT_ID, schema);
+}
+
+function setJsonLdScript(id: string, schema: Record<string, unknown>): void {
+  let script = document.getElementById(id) as HTMLScriptElement | null;
+  if (!script) {
+    script = document.createElement('script');
+    script.id = id;
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
   }
+  script.textContent = JSON.stringify(schema).replace(/</g, '\\u003c');
+}
+
+function toIsoDate(value: string): string | undefined {
+  const fullDate =
+    /^\d{4}-\d{2}-\d{2}$/.test(value) ||
+    /^[A-Za-z]+\s+\d{1,2},\s+\d{4}$/.test(value);
+  if (!fullDate) return undefined;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return undefined;
+  return date.toISOString();
 }
 
 function setMetaTag(attrName: 'name' | 'property', attrValue: string, contentValue: string): void {

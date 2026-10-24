@@ -31,6 +31,7 @@
     <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
     <title>ClickPDF — Free In-Browser PDF Tools & Editor | Click Digital Services</title>
     <meta name="description" content="Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads." />
+    <link rel="canonical" href="https://clickpdf.net/" />
     <meta property="og:title" content="ClickPDF — Stay Secure, Stay Smart | 100% Private In-Browser PDF Tools" />
     <meta property="og:description" content="Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads." />
     <meta property="og:type" content="website" />
@@ -40,7 +41,7 @@
     <meta name="twitter:description" content="Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads." />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="%BASE_URL%sitemap.xml" />
     <!-- Organization & Brand Schema -->
-    <script type="application/ld+json">
+    <script id="clickpdf-org-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -59,13 +60,15 @@
       }
     }
     </script>
-    <script type="application/ld+json">
+    <script id="clickpdf-page-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
+      "@id": "https://clickpdf.net/#software",
       "name": "ClickPDF",
+      "url": "https://clickpdf.net/",
       "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "Web",
       "description": "Fast, private, client-side PDF utility suite by Click Digital Services. Merge, split, compress, convert, watermark, rotate, and organize PDFs 100% in your browser with zero server uploads.",
       "creator": {
         "@type": "Organization",
@@ -96,7 +99,7 @@
       ]
     }
     </script>
-    <script type="application/ld+json">
+    <script id="clickpdf-home-faq-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",

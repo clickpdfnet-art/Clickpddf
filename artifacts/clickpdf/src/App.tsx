@@ -3,8 +3,8 @@ import { PDFTool, ToolCategory, BlogPost, SeoMetaConfig } from './types';
 import { HIDDEN_TOOL_IDS, PDF_TOOLS, PUBLIC_PDF_TOOLS } from './data/toolsData';
 import { getStoredArticles, saveArticles } from './data/initialArticles';
 import { getActiveBlogArticles } from './utils/blogLoader';
-import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyBlogSeo, resetHomeSeo } from './utils/seoManager';
-import { getToolSeoInfo } from './data/toolSeoData';
+import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyStandaloneToolSchema, applyBlogSeo, resetHomeSeo } from './utils/seoManager';
+import { getToolCanonicalPath, getToolSeoInfo } from './data/toolSeoData';
 import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
 
 import { Header } from './components/Header';
@@ -112,6 +112,12 @@ function AppContent() {
           const seo = getToolSeoInfo(found.id);
           if (seo) {
             applyToolSeo(seo);
+          } else {
+            applyStandaloneToolSchema(
+              found.title,
+              found.description,
+              `https://clickpdf.net${getToolCanonicalPath(found.id)}`,
+            );
           }
           return;
         }
@@ -297,6 +303,12 @@ function AppContent() {
     const toolSeo = getToolSeoInfo(tool.id);
     if (toolSeo) {
       applyToolSeo(toolSeo);
+    } else {
+      applyStandaloneToolSchema(
+        tool.title,
+        tool.description,
+        `https://clickpdf.net${getToolCanonicalPath(tool.id)}`,
+      );
     }
     navigateToToolUrl(tool.id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
