@@ -119,7 +119,7 @@ function articlePath(article) {
   ) {
     return `/${candidate.split('/').filter(Boolean).join('/')}/`;
   }
-  return `/blog/${encodeURIComponent(article.slug)}`;
+  return `/blog/${encodeURIComponent(article.slug)}/`;
 }
 
 function makeSoftwareApplicationSchema({ name, description, url }) {
@@ -186,7 +186,7 @@ function makeBreadcrumbListSchema(article, url) {
     ? breadcrumbs
     : [
         { name: 'Home', url: `${siteOrigin}/` },
-        { name: 'Blog', url: `${siteOrigin}/blog` },
+        { name: 'Blog', url: `${siteOrigin}/blog/` },
         { name: article.title, url },
       ];
   return {
@@ -310,6 +310,7 @@ const generated = [];
 for (const rawLoc of sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)) {
   const sourceUrl = new URL(decodeXml(rawLoc[1].trim()));
   const url = new URL(sourceUrl.pathname + sourceUrl.search, siteOrigin);
+  if (url.pathname !== '/' && !url.pathname.endsWith('/')) url.pathname += '/';
   const absoluteUrl = url.toString();
   const match = url.pathname.match(/^\/tools\/([^/]+)\/?$/);
   if (!match) continue;

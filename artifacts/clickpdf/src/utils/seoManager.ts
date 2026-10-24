@@ -85,7 +85,7 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
 
   removeHomeFaqJsonLdSchema();
   const origin = SITE_ORIGIN;
-  const canonicalUrl = `${origin}/tools/${toolSeo.slug}`;
+  const canonicalUrl = `${origin}/tools/${toolSeo.slug}/`;
 
   // 1. Dynamic Page Title
   document.title = toolSeo.metaTitle;
@@ -123,13 +123,14 @@ export function applyStandaloneToolSchema(
   canonicalUrl: string,
 ): void {
   if (typeof document === 'undefined') return;
+  const pageUrl = canonicalizeClickPdfUrl(canonicalUrl);
   removeHomeFaqJsonLdSchema();
   setPageJsonLdSchema({
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    '@id': `${canonicalUrl}#software`,
+    '@id': `${pageUrl}#software`,
     name,
-    url: canonicalUrl,
+    url: pageUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
     description,
@@ -152,10 +153,10 @@ export function applyBlogSeo(article: BlogPost): void {
 
   removeHomeFaqJsonLdSchema();
   const origin = SITE_ORIGIN;
-  const canonicalUrl = new URL(
+  const canonicalUrl = canonicalizeClickPdfUrl(new URL(
     article.routePath || `/blog/${encodeURIComponent(article.slug)}`,
     origin,
-  ).toString();
+  ).toString());
   const fullTitle = article.seoTitle || `${article.title} — ClickPDF`;
 
   // 1. Dynamic Page Title
@@ -326,6 +327,9 @@ function canonicalizeClickPdfUrl(value: string): string {
     if (url.hostname.toLowerCase() === 'clickpdf.net') {
       url.hostname = 'www.clickpdf.net';
       url.protocol = 'https:';
+    }
+    if (url.hostname.toLowerCase() === 'www.clickpdf.net' && url.pathname !== '/' && !url.pathname.endsWith('/')) {
+      url.pathname += '/';
     }
     return url.toString();
   } catch {

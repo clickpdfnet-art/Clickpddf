@@ -111,7 +111,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   tools.forEach((tool) => {
     const isHighPriority = ['merge', 'split', 'compress', 'rotate', 'organize', 'jpg-to-pdf'].includes(tool.id);
     const seo = getToolSeoInfo(tool.id);
-    const toolPath = seo ? `/tools/${seo.slug}` : `/?tool=${encodeURIComponent(tool.id)}`;
+    const toolPath = seo ? `/tools/${seo.slug}/` : `/?tool=${encodeURIComponent(tool.id)}`;
     const pageTitle = seo ? seo.metaTitle : `${tool.title} — Online PDF Tool`;
     const pageDesc = seo ? seo.metaDescription : tool.description;
 
@@ -130,8 +130,8 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
 
   // 3. Blog Hub / Educational Guides index
   entries.push({
-    loc: `${baseUrl}/blog`,
-    path: '/blog',
+    loc: `${baseUrl}/blog/`,
+    path: '/blog/',
     title: 'ClickPDF Knowledge Base & Privacy Guides',
     category: 'blog-index',
     lastmod: today,
@@ -144,10 +144,12 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   // 4. All Blog Posts (dynamically pulled from folder-based markdown posts or active storage)
   articles.forEach((article) => {
     const articleDate = formatIsoDate(article.date);
-    const articlePath = article.routePath || `/blog/${encodeURIComponent(article.slug)}`;
+    const articlePath = article.routePath || `/blog/${encodeURIComponent(article.slug)}/`;
+    const canonicalArticlePath =
+      articlePath !== '/' && !articlePath.endsWith('/') ? `${articlePath}/` : articlePath;
     entries.push({
-      loc: `${baseUrl}${articlePath}`,
-      path: articlePath,
+      loc: `${baseUrl}${canonicalArticlePath}`,
+      path: canonicalArticlePath,
       title: article.title,
       category: 'blog-post',
       lastmod: articleDate || today,

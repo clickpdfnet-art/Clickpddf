@@ -18,7 +18,15 @@ function getArticlePath(meta) {
   ) {
     return `/${candidate.split('/').filter(Boolean).join('/')}/`;
   }
-  return `/blog/${encodeURIComponent(meta.slug)}`;
+  return `/blog/${encodeURIComponent(meta.slug)}/`;
+}
+
+function normalizePageUrl(value) {
+  const url = new URL(value);
+  if (url.hostname === 'www.clickpdf.net' && url.pathname !== '/' && !url.pathname.endsWith('/')) {
+    url.pathname += '/';
+  }
+  return url.toString();
 }
 
 function readFrontmatter(markdown) {
@@ -102,6 +110,8 @@ const blogUrlBlocks = articles.map((article) => {
 
 let sitemap = await readFile(sitemapPath, 'utf8');
 sitemap = sitemap.replaceAll('https://clickpdf.net', baseUrl);
+sitemap = sitemap.replace(/<loc>(https:\/\/www\.clickpdf\.net\/[^<]*)<\/loc>/g, (_match, url) => `<loc>${normalizePageUrl(url)}</loc>`);
+sitemap = sitemap.replace(/(<xhtml:link\b[^>]*\bhref=")(https:\/\/www\.clickpdf\.net\/[^"]+)(")/g, (_match, prefix, url, suffix) => `${prefix}${normalizePageUrl(url)}${suffix}`);
 sitemap = sitemap.replace(/\s+xmlns:xhtml="[^"]*"/, '');
 sitemap = sitemap.replace(
   /<urlset\b/,
@@ -115,7 +125,7 @@ const retainedBlocks = urlBlocks.filter((block) => {
   return !/\/blog\/[^<]+/.test(loc) && !generatedArticleLocs.has(loc);
 });
 const blogIndexIndex = retainedBlocks.findIndex((block) =>
-  /<loc>https:\/\/clickpdf\.net\/blog\/?<\/loc>/.test(block),
+  /<loc>https:\/\/www\.clickpdf\.net\/blog\/?<\/loc>/.test(block),
 );
 retainedBlocks.splice(blogIndexIndex >= 0 ? blogIndexIndex + 1 : retainedBlocks.length, 0, ...blogUrlBlocks);
 
