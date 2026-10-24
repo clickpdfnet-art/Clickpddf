@@ -1,9 +1,11 @@
 /** Temporary browser-local disk cache; never uploads document bytes. */
+import { createId } from './createId';
+
 export class LocalOutputStore {
   private directory?: Promise<FileSystemDirectoryHandle>;
   private entries = new WeakMap<Uint8Array | Blob, Promise<Blob>>();
   private disposed = false;
-  private readonly name = `clickpdf-output-${crypto.randomUUID()}`;
+  private readonly name = createId('clickpdf-output');
 
   constructor(private onWarning?: (message: string) => void) {}
 
@@ -23,7 +25,7 @@ export class LocalOutputStore {
         root.getDirectoryHandle(this.name, { create: true }));
       const directory = await this.directory;
       if (this.disposed) return blob;
-      const handle = await directory.getFileHandle(crypto.randomUUID(), { create: true });
+      const handle = await directory.getFileHandle(createId(), { create: true });
       const writable = await handle.createWritable();
       try {
         await writable.write(blob);

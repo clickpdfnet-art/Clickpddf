@@ -12,6 +12,7 @@ import { OutputArchive } from '../utils/outputArchive';
 import { startDownloadCountdown, DownloadRequestGate } from '../utils/downloadCountdown';
 import { extractPdfText, PdfTextResult } from '../utils/pdfTextExtraction';
 import { uniqueTextOutputNames } from '../utils/pdfTextFormatting';
+import { createId } from '../utils/createId';
 
 interface Props {
   tool: PDFTool;
@@ -68,7 +69,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
     const validation = validateFileBatch(files, 'pdf');
     setError(validation.errors.length ? validation.errors.join(' ') : null);
     if (!validation.validFiles.length) return;
-    setItems(current => [...current, ...validation.validFiles.map(file => ({ file, id: crypto.randomUUID() }))]);
+    setItems(current => [...current, ...validation.validFiles.map(file => ({ file, id: createId() }))]);
     setFinished(false);
   };
   useEffect(() => {

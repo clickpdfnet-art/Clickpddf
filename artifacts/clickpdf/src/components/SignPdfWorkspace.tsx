@@ -14,6 +14,7 @@ import { PDFTool } from '../types';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
 import { AdsterraBanner } from './AdsterraBanner';
 import { SignaturePad } from './SignaturePad';
+import { createId } from '../utils/createId';
 import {
   applySignPdfPlacements, createSignPdfPreviewTask, inspectSignPdfFile,
   LARGE_SIGN_PDF_WARNING_BYTES, MAX_SIGN_PDF_FILE_BYTES, MAX_SIGN_PNG_FILE_BYTES,
@@ -77,7 +78,7 @@ const SIGNATURE_FONTS = [
 const MAX_ZIP_BYTES = 100 * 1024 * 1024;
 
 function makeId(prefix: string) {
-  return `${prefix}-${typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`}`;
+  return createId(prefix);
 }
 
 function clonePlacements(placements: SignPdfPlacement[]) {

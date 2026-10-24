@@ -12,6 +12,7 @@ import { downloadBlob } from '../utils/pdfEngine';
 import { OutputArchive } from '../utils/outputArchive';
 import { DownloadRequestGate, startDownloadCountdown } from '../utils/downloadCountdown';
 import { LocalOutputStore } from '../utils/localOutputStore';
+import { createId } from '../utils/createId';
 import { SUPPORTED_OCR_LANGUAGES } from '../utils/ocrLanguages';
 import { convertAdvancedPdfToExcel } from '../utils/pdfExcelConverter';
 import { DEFAULT_PDF_EXCEL_OPTIONS, type PdfExcelOptions, type PdfExcelResult } from '../utils/pdfExcelTypes';
@@ -50,7 +51,7 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
     if (processing || packing) return;
     const batch = validateFileBatch(files, 'pdf');
     setError(batch.errors.join(' '));
-    if (batch.validFiles.length) setItems(previous => [...previous, ...batch.validFiles.map(file => ({ id: crypto.randomUUID(), file }))]);
+    if (batch.validFiles.length) setItems(previous => [...previous, ...batch.validFiles.map(file => ({ id: createId(), file }))]);
   };
   useEffect(() => {
     if (initialFiles?.length && !initialized.current) { initialized.current = true; addFiles(initialFiles); }
