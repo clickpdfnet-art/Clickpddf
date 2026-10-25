@@ -7,6 +7,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
 const llmsPath = path.join(appDir, 'public', 'llms.txt');
+const llmsFullPath = path.join(appDir, 'public', 'llms-full.txt');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const watermarkMapPath = path.join(appDir, 'src', 'data', 'blogWatermarkMap.json');
 const legalPagesPath = path.join(appDir, 'src', 'data', 'legalPages.json');
@@ -76,6 +77,20 @@ function markdownLabel(value = '') {
   return plainText(value).replace(/([\\[\]])/g, '\\$1');
 }
 
+const documentProcessingPrivacyNote =
+  "For supported PDF tools, document file contents are processed locally in your browser on your device rather than uploaded to ClickPDF's document-processing service. This describes document processing only: the website may still make standard network requests for its code, fonts, workers, images, and other page resources. Enabled advertising or other third-party features may also make standard requests and receive associated connection metadata under their own policies. This is not a claim of zero network traffic or anonymity. Processing capacity depends on the tool, browser, device memory, and file size.";
+
+function accuratePrivacyCopy(value = '') {
+  return plainText(value)
+    .replace(/\b(?:zero|no)\s+(?:server|cloud)\s+uploads?\b/gi,
+      'selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers')
+    .replace(/\b100%\s+client-side\s+privacy\b/gi, 'local browser processing of selected files')
+    .replace(/\b(?:100%|complete|total|guaranteed)\s+privacy\b/gi, 'local browser processing of selected files')
+    .replace(/\b100%\s+private\b/gi, 'local browser processing of selected files')
+    .replace(/\b100%\s+in-browser\s+security\b/gi, 'browser-based encryption')
+    .replace(/\bmilitary-grade\b/gi, 'AES-256');
+}
+
 const markdownFiles = (await readdir(blogDir)).filter((name) => name.endsWith('.md'));
 const articles = [];
 for (const fileName of markdownFiles) {
@@ -101,18 +116,18 @@ const llms = [
   '',
   '## Overview',
   '',
-  'ClickPDF provides tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. PDF file processing is performed in the browser for supported tools; the website may still load page resources and enabled third-party services. Device and browser limits apply.',
+  `ClickPDF provides ${activeTools.length} browser-based tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. ${documentProcessingPrivacyNote}`,
   '',
   '## PDF tools',
   '',
   ...activeTools.map((tool) =>
-    `- [${markdownLabel(tool.name)}](${baseUrl}/tools/${encodeURIComponent(tool.slug)}/): ${plainText(tool.description)}`,
+    `- [${markdownLabel(tool.name)}](${baseUrl}/tools/${encodeURIComponent(tool.slug)}/): ${accuratePrivacyCopy(tool.description)}`,
   ),
   '',
   '## Guides and articles',
   '',
   ...articles.map((article) =>
-    `- [${markdownLabel(article.title)}](${article.url}): ${plainText(article.summary || article.seodescription || article.excerpt || article.title)}`,
+    `- [${markdownLabel(article.title)}](${article.url}): ${accuratePrivacyCopy(article.summary || article.seodescription || article.excerpt || article.title)}`,
   ),
   '',
   '## Other pages',
@@ -120,11 +135,81 @@ const llms = [
   `- [Frequently asked questions](${baseUrl}/faq/)`,
   `- [Batch processing queue](${baseUrl}/batch/)`,
   `- [All guides](${baseUrl}/blog/)`,
-  ...legalPages.map((page) => `- [${markdownLabel(page.heading)}](${baseUrl}${page.path})`),
+  ...legalPages.map((page) => `- [${markdownLabel(page.heading)}](${baseUrl}${page.path}): ${accuratePrivacyCopy(page.description)}`),
+  '',
+  '## Machine-readable indexes',
+  '',
+  `- [Canonical homepage](${baseUrl}/)`,
   `- [XML sitemap](${baseUrl}/sitemap.xml)`,
+  `- [Full site guide for language models](${baseUrl}/llms-full.txt)`,
   '',
 ].join('\n');
 await writeFile(llmsPath, llms, 'utf8');
+
+const llmsFull = [
+  '# ClickPDF — Full Site Guide',
+  '',
+  `Canonical homepage: ${baseUrl}/`,
+  'Publisher: Click Digital Services',
+  `Public PDF tools: ${activeTools.length}`,
+  `Published Markdown articles: ${articles.length}`,
+  '',
+  '## Overview',
+  '',
+  'ClickPDF is a browser-based suite of PDF utilities. The tools cover document organization, optimization, conversion, text extraction, metadata, signatures, and protection. The tool list below is generated from the active public tool registry; hidden tools are excluded.',
+  '',
+  '## Document processing and network requests',
+  '',
+  documentProcessingPrivacyNote,
+  '',
+  'PDF operations may use significant browser memory and processing time, especially for large or image-heavy files. Results and supported features vary by tool, PDF structure, browser, device, and available memory. Scanned documents may require OCR; extraction quality depends on the scan and available OCR resources.',
+  '',
+  '## PDF tools',
+  '',
+  ...activeTools.flatMap((tool) => {
+    const route = `${baseUrl}/tools/${encodeURIComponent(tool.slug)}/`;
+    const features = [...new Set((tool.benefits || []).map((benefit) =>
+      accuratePrivacyCopy(benefit.title || ''),
+    ).filter(Boolean))];
+    const steps = (tool.steps || []).map((step) => accuratePrivacyCopy(step));
+    const questions = (tool.faqs || []).map((faq) => accuratePrivacyCopy(faq.question || '')).filter(Boolean);
+    return [
+      `### ${markdownLabel(tool.name)}`,
+      `URL: ${route}`,
+      `Description: ${accuratePrivacyCopy(tool.description)}`,
+      ...(features.length ? [`Key capabilities: ${features.join('; ')}`] : []),
+      ...(steps.length ? [`Typical workflow: ${steps.join(' → ')}`] : []),
+      ...(questions.length ? [`Common questions: ${questions.join(' | ')}`] : []),
+      '',
+    ];
+  }),
+  '## Guides and articles',
+  '',
+  ...articles.map((article) =>
+    `- [${markdownLabel(article.title)}](${article.url}): ${accuratePrivacyCopy(article.summary || article.seodescription || article.excerpt || article.title)}`,
+  ),
+  '',
+  '## Other public pages',
+  '',
+  `- [Home](${baseUrl}/)`,
+  `- [PDF tools catalog](${baseUrl}/tools/)`,
+  `- [Frequently asked questions](${baseUrl}/faq/)`,
+  `- [Batch processing queue](${baseUrl}/batch/)`,
+  `- [Blog and guides](${baseUrl}/blog/)`,
+  ...legalPages.map((page) =>
+    `- [${markdownLabel(page.heading)}](${baseUrl}${page.path}): ${accuratePrivacyCopy(page.description)}`,
+  ),
+  '',
+  '## Machine-readable indexes',
+  '',
+  `- Canonical homepage: ${baseUrl}/`,
+  `- XML sitemap: ${baseUrl}/sitemap.xml`,
+  `- Short LLM index: ${baseUrl}/llms.txt`,
+  `- Full LLM guide: ${baseUrl}/llms-full.txt`,
+  `- Robots policy: ${baseUrl}/robots.txt`,
+  '',
+].join('\n');
+await writeFile(llmsFullPath, llmsFull, 'utf8');
 
 const groups = new Map();
 for (const article of articles) {

@@ -4,30 +4,30 @@
 
 ## Overview
 
-ClickPDF provides tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. PDF file processing is performed in the browser for supported tools; the website may still load page resources and enabled third-party services. Device and browser limits apply.
+ClickPDF provides 21 browser-based tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. For supported PDF tools, document file contents are processed locally in your browser on your device rather than uploaded to ClickPDF's document-processing service. This describes document processing only: the website may still make standard network requests for its code, fonts, workers, images, and other page resources. Enabled advertising or other third-party features may also make standard requests and receive associated connection metadata under their own policies. This is not a claim of zero network traffic or anonymity. Processing capacity depends on the tool, browser, device memory, and file size.
 
 ## PDF tools
 
-- [Merge PDF Files Online — 100% Free & In-Browser](https://www.clickpdf.net/tools/merge-pdf/): Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and zero server uploads.
-- [Split PDF Online — Extract Pages into Separate Files Free](https://www.clickpdf.net/tools/split-pdf/): Split PDF files into individual pages or custom page ranges for free. Fast, client-side extraction in your browser with zero server uploads and 100% privacy.
-- [Compress PDF Online — Reduce File Size 100% In-Browser](https://www.clickpdf.net/tools/compress-pdf/): Reduce PDF file size online without compromising readability. Free, client-side PDF compression in your browser with zero server uploads and complete privacy.
-- [Convert Images to PDF Online — JPG, PNG & WebP to PDF](https://www.clickpdf.net/tools/image-to-pdf/): Convert JPG, PNG, and WebP images to high-resolution PDF documents online for free. Fast, in-browser conversion with zero server uploads and custom orientation.
-- [Convert PDF to Images Online — Export PDF Pages as PNG](https://www.clickpdf.net/tools/pdf-to-image/): Convert PDF pages to PNG images in your browser. Add multiple PDFs, reorder, rotate, copy or remove pages, then download images in a ZIP with a folder for each document.
-- [Rotate PDF Online — Permanently Rotate PDF Pages Free](https://www.clickpdf.net/tools/rotate-pdf/): Rotate individual pages or entire PDF documents clockwise or counter-clockwise online. Free in-browser PDF rotation with instant visual preview and zero server uploads.
-- [Watermark PDF Online — Add Confidential & Custom Marks Free](https://www.clickpdf.net/tools/watermark-pdf/): Add custom text watermarks to your PDF documents online for free. Adjust text, opacity, angle, and position in your browser with zero server uploads.
-- [Add Page Numbers to PDF Online — Free In-Browser Pagination](https://www.clickpdf.net/tools/page-numbers-pdf/): Insert dynamic page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Clean, client-side pagination with zero server uploads.
-- [Organize PDF Pages Online — Reorder, Rotate & Delete Pages](https://www.clickpdf.net/tools/organize-pdf/): Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with zero server uploads.
-- [Edit PDF Metadata Online — Modify Author, Title & Properties](https://www.clickpdf.net/tools/edit-pdf-metadata/): Inspect, edit, or wipe PDF document properties like Title, Author, Subject, and Producer online for free. 100% in-browser editing with zero server uploads.
-- [In-Browser PDF OCR, Page Counter & Text Analysis](https://www.clickpdf.net/tools/ocr-pdf-analysis/): Extract text from scanned PDF images using in-browser Tesseract.js OCR, count pages, and inspect document dimensions 100% locally with zero server uploads.
-- [Protect PDF Online — Web Crypto AES-256 Password Encryption](https://www.clickpdf.net/tools/protect-pdf-password/): Password protect and encrypt PDF files using military-grade browser Web Crypto AES-256. 100% in-browser security with zero server uploads and zero password transmission.
-- [Unlock PDF Online — Decrypt Password-Protected Documents Free](https://www.clickpdf.net/tools/unlock-pdf-password/): Unlock and decrypt password-protected PDF files online for free. Fast, client-side Web Crypto decryption in your browser with zero server uploads.
-- [Convert PDF to Text & Markdown Online — Free Text Extraction](https://www.clickpdf.net/tools/pdf-to-text/): Extract formatted plain text and markdown from PDF documents online for free. Fast in-browser text extraction with zero server uploads and 100% privacy.
-- [PDF to Word (DOCX) Converter — 100% Free & In-Browser](https://www.clickpdf.net/tools/pdf-to-word/): Convert PDF to editable Microsoft Word (.docx) online 100% free with genuine text extraction, headings, and formatting. Private client-side conversion with zero server uploads.
-- [PDF to Excel (XLSX) Converter — Extract Tables Online Free](https://www.clickpdf.net/tools/pdf-to-excel/): Convert PDF tables, financial statements, and receipts to Microsoft Excel (.xlsx) online for free. In-browser coordinate grid detection with zero server uploads.
-- [PDF to PowerPoint (PPTX) Converter — 100% Free & In-Browser](https://www.clickpdf.net/tools/pdf-to-powerpoint/): Convert PDF pages to editable Microsoft PowerPoint (.pptx) slides online 100% free. 16:9 widescreen presentation layout, editable text shapes, and zero server uploads.
+- [Merge PDF Files Online — 100% Free & In-Browser](https://www.clickpdf.net/tools/merge-pdf/): Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Split PDF Online — Extract Pages into Separate Files Free](https://www.clickpdf.net/tools/split-pdf/): Split PDF files into individual pages or custom ranges for free. Client-side extraction processes selected files locally in your browser.
+- [Compress PDF Online — Reduce File Size 100% In-Browser](https://www.clickpdf.net/tools/compress-pdf/): Reduce PDF file size online while preserving readability. Free, client-side compression processes selected files locally in your browser.
+- [Convert Images to PDF Online — JPG, PNG & WebP to PDF](https://www.clickpdf.net/tools/image-to-pdf/): Convert JPG, PNG, and WebP images to high-resolution PDF documents online for free. Fast, in-browser conversion with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers and custom orientation.
+- [Convert PDF to Images Online — Export PDF Pages as PNG](https://www.clickpdf.net/tools/pdf-to-image/): Export PDF pages as PNG images in your browser. Select multiple PDFs, reorder, rotate, copy, or remove pages, then download a ZIP.
+- [Rotate PDF Online — Permanently Rotate PDF Pages Free](https://www.clickpdf.net/tools/rotate-pdf/): Rotate PDF pages or entire documents clockwise or counter-clockwise in your browser, with a visual preview and instant download.
+- [Watermark PDF Online — Add Confidential & Custom Marks Free](https://www.clickpdf.net/tools/watermark-pdf/): Add custom text watermarks to your PDF documents online for free. Adjust text, opacity, angle, and position in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Add Page Numbers to PDF Online — Free In-Browser Pagination](https://www.clickpdf.net/tools/page-numbers-pdf/): Insert dynamic page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Clean, client-side pagination with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Organize PDF Pages Online — Reorder, Rotate & Delete Pages](https://www.clickpdf.net/tools/organize-pdf/): Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Edit PDF Metadata Online — Modify Author, Title & Properties](https://www.clickpdf.net/tools/edit-pdf-metadata/): Inspect, edit, or wipe PDF document properties like Title, Author, Subject, and Producer online for free. 100% in-browser editing with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [In-Browser PDF OCR, Page Counter & Text Analysis](https://www.clickpdf.net/tools/ocr-pdf-analysis/): Extract text from scanned PDF images using in-browser Tesseract.js OCR, count pages, and inspect document dimensions 100% locally with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Protect PDF Online — Web Crypto AES-256 Password Encryption](https://www.clickpdf.net/tools/protect-pdf-password/): Password-protect PDFs with browser Web Crypto AES-256. Document encryption runs locally; the page may still request site resources or third-party services.
+- [Unlock PDF Online — Decrypt Password-Protected Documents Free](https://www.clickpdf.net/tools/unlock-pdf-password/): Unlock and decrypt password-protected PDF files online for free. Fast, client-side Web Crypto decryption in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Convert PDF to Text & Markdown Online — Free Text Extraction](https://www.clickpdf.net/tools/pdf-to-text/): Extract formatted plain text and Markdown from PDFs for free. Text extraction runs locally in your browser on the selected document.
+- [PDF to Word (DOCX) Converter — 100% Free & In-Browser](https://www.clickpdf.net/tools/pdf-to-word/): Convert PDFs to editable Word (.docx) with browser-based text extraction for headings and formatting. Selected files are processed locally.
+- [PDF to Excel (XLSX) Converter — Extract Tables Online Free](https://www.clickpdf.net/tools/pdf-to-excel/): Convert PDF tables, statements, and receipts to Excel (.xlsx) with in-browser table detection; selected files are processed locally.
+- [PDF to PowerPoint (PPTX) Converter — 100% Free & In-Browser](https://www.clickpdf.net/tools/pdf-to-powerpoint/): Convert PDF pages into editable PowerPoint (.pptx) slides in the browser with a 16:9 layout; selected files are processed locally.
 - [Word to PDF Converter Online — Free DOCX to PDF In-Browser](https://www.clickpdf.net/tools/word-to-pdf/): Convert Word (.docx) documents to readable, high-resolution PDF pages in your browser. Tables, lists, and embedded images are supported locally.
-- [Word to Excel Converter — Extract DOCX Tables to XLSX](https://www.clickpdf.net/tools/word-to-excel/): Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; no server upload.
-- [Excel to PDF Converter Online — Paginated Tables Free](https://www.clickpdf.net/tools/excel-to-pdf/): Convert Excel spreadsheets (.xlsx, .xls, .csv) to styled landscape PDF tables online 100% free. Auto-fit columns, zebra stripes, and zero server uploads.
+- [Word to Excel Converter — Extract DOCX Tables to XLSX](https://www.clickpdf.net/tools/word-to-excel/): Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+- [Excel to PDF Converter Online — Paginated Tables Free](https://www.clickpdf.net/tools/excel-to-pdf/): Convert Excel spreadsheets (.xlsx, .xls, .csv) to styled landscape PDF tables online 100% free. Auto-fit columns, zebra stripes, and selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
 - [Add a Visual Signature to PDF — Draw, Type or Upload](https://www.clickpdf.net/tools/sign-pdf-online/): Draw, type, or upload a visual signature mark and embed it into PDF pages in your browser. Files and signature images stay on your device.
 
 ## Guides and articles
@@ -67,10 +67,15 @@ ClickPDF provides tools for merging, splitting, compressing, converting, organiz
 - [Frequently asked questions](https://www.clickpdf.net/faq/)
 - [Batch processing queue](https://www.clickpdf.net/batch/)
 - [All guides](https://www.clickpdf.net/blog/)
-- [About ClickPDF](https://www.clickpdf.net/about/)
-- [Contact ClickPDF](https://www.clickpdf.net/contact/)
-- [Privacy Policy](https://www.clickpdf.net/privacy-policy/)
-- [Terms of Service](https://www.clickpdf.net/terms-of-service/)
-- [Cookies Policy](https://www.clickpdf.net/cookies/)
-- [Disclaimer](https://www.clickpdf.net/disclaimer/)
+- [About ClickPDF](https://www.clickpdf.net/about/): Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools available on the site.
+- [Contact ClickPDF](https://www.clickpdf.net/contact/): Contact ClickPDF support about technical issues, feedback, privacy questions, or business inquiries.
+- [Privacy Policy](https://www.clickpdf.net/privacy-policy/): Learn how ClickPDF processes PDF files in the browser, handles local preferences, and works with advertising and other website services.
+- [Terms of Service](https://www.clickpdf.net/terms-of-service/): Review ClickPDF's permitted uses, user responsibilities, intellectual property, and service availability.
+- [Cookies Policy](https://www.clickpdf.net/cookies/): See how ClickPDF uses browser storage and third-party advertising cookies, plus ways to manage cookie preferences.
+- [Disclaimer](https://www.clickpdf.net/disclaimer/): Read limitations on ClickPDF information, PDF processing results, warranties, compatibility, and service availability.
+
+## Machine-readable indexes
+
+- [Canonical homepage](https://www.clickpdf.net/)
 - [XML sitemap](https://www.clickpdf.net/sitemap.xml)
+- [Full site guide for language models](https://www.clickpdf.net/llms-full.txt)

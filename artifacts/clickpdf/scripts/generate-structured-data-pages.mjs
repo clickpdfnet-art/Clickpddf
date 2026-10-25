@@ -176,12 +176,20 @@ function makeToolSchema({ tool, name, title, description, url }) {
     name: tool.stepsHeading || `How to use ${name}`,
     description: `Steps for using ${name} in the ClickPDF browser application.`,
     inLanguage: 'en',
-    step: tool.steps.map((step, index) => ({
-      '@type': 'HowToStep',
-      position: Number(step.step) || index + 1,
-      name: step.title,
-      text: step.description,
-    })),
+    step: tool.steps.map((step, index) => {
+      const stepName = typeof step === 'string'
+        ? step
+        : step?.title || step?.name || `Step ${index + 1}`;
+      const stepText = typeof step === 'string'
+        ? step
+        : step?.description || step?.text || stepName;
+      return {
+        '@type': 'HowToStep',
+        position: Number(step?.step) || index + 1,
+        name: stepName,
+        text: stepText,
+      };
+    }),
   };
   const faq = makeFaqPageSchema(tool.faqs, url);
   return {
@@ -313,7 +321,7 @@ function makeHomepageSchema(toolPages) {
         url: `${siteOrigin}/`,
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Web',
-        description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and securing documents without uploading files to a processing server.',
+        description: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; the page may also make standard requests for resources and enabled third-party services, including advertising.',
         creator: { '@id': `${siteOrigin}/#organization` },
         publisher: { '@id': `${siteOrigin}/#organization` },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -586,9 +594,9 @@ for (const absoluteUrl of sitemapUrls) {
   const slug = decodeURIComponent(match[1]);
   const tool = toolSeoRegistry.get(slug);
   if (!tool) throw new Error(`Public tool ${slug} has no entry in TOOL_SEO_REGISTRY`);
-  const name = tool.h1Title || tool.metaTitle || slug;
-  const title = tool.metaTitle || name;
-  const description = tool.metaDescription || `Use ${name} in your browser with ClickPDF.`;
+  const name = tool.name || slug;
+  const title = tool.title || name;
+  const description = tool.description || `Use ${name} in your browser with ClickPDF.`;
   const schema = makeToolSchema({ tool, name, title, description, url: absoluteUrl });
   const relativePath = path.join('tools', slug, 'index.html');
   const outputPath = path.join(outputDir, relativePath);
@@ -759,7 +767,7 @@ const homeTemplate = removeJsonLdScripts(template, [pageSchemaId, homeFaqSchemaI
 const homeHtml = prepareRouteHtml(homeTemplate, {
   url: `${siteOrigin}/`,
   title: 'ClickPDF — Free In-Browser PDF Tools',
-  description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and organizing documents.',
+  description: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; pages may load ads and other third-party resources.',
   schema: makeHomepageSchema(toolPages),
   schemaId: homeSiteSchemaId,
   staticContent: renderHomeFallback(activeTools, articles),

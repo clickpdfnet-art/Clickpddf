@@ -149,9 +149,16 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
   assert.ok(!types.has('FAQPage'), 'homepage does not claim FAQ content that is not shown there');
   const organization = nodes.find((node) => node['@type'] === 'Organization' && node.name === 'Click Digital Services');
   const website = nodes.find((node) => node['@type'] === 'WebSite');
+  const application = nodes.find((node) => node['@type'] === 'WebApplication');
   assert.equal(organization?.logo?.url, `${siteOrigin}/icon-512.png`);
   assert.equal(organization?.logo?.width, 512);
   assert.equal(website?.image?.url, `${siteOrigin}/icon-512.png`);
+  assert.match(application?.description || '', /processed locally in your browser/i);
+  assert.match(application?.description || '', /third-party services/i);
+  assert.match(
+    html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i)?.[1] || '',
+    /processed locally in your browser.*third-party resources/i,
+  );
   const toolsList = nodes.find((node) => node['@type'] === 'ItemList' && node['@id'] === `${siteOrigin}/#tools`);
   assert.equal(toolsList?.numberOfItems, activeTools.length);
   assert.equal(toolsList?.itemListElement?.length, activeTools.length);
@@ -171,6 +178,11 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
     const slug = new URL(url).pathname.split('/').filter(Boolean).at(-1);
     const tool = activeTools.find((item) => item.slug === slug);
     assert.ok(tool, `active tool registry includes ${url}`);
+    const staticDescription = html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i)?.[1] || '';
+    assert.equal(decodeXml(staticDescription), tool.description, `${url} uses its registry description in static HTML`);
+    const howTo = nodes.find((node) => node['@type'] === 'HowTo');
+    assert.equal(howTo?.step?.length, tool.steps.length, `${url} schema has every workflow step`);
+    assert.ok(howTo?.step?.every((step) => step.name && step.text), `${url} has readable HowTo step names and text`);
     assert.equal((content.match(/<details>/g) || []).length, tool.faqs.length, `${url} renders every current FAQ`);
   }
 });
@@ -243,11 +255,23 @@ test('all sitemap URLs resolve to generated static HTML files', async () => {
 test('robots, llms.txt, and the social image are generated for production', async () => {
   const robots = await readFile(path.join(publicDir, 'robots.txt'), 'utf8');
   const llms = await readFile(path.join(publicDir, 'llms.txt'), 'utf8');
+  const llmsFull = await readFile(path.join(publicDir, 'llms-full.txt'), 'utf8');
   const toolsSection = llms.split('## PDF tools\n')[1]?.split('\n## ')[0] || '';
   const guidesSection = llms.split('## Guides and articles\n')[1]?.split('\n## ')[0] || '';
   const otherPagesSection = llms.split('## Other pages\n')[1]?.split('\n## ')[0] || '';
+  const machineIndexesSection = llms.split('## Machine-readable indexes\n')[1]?.split('\n## ')[0] || '';
+  const fullToolsSection = llmsFull.split('## PDF tools\n')[1]?.split('\n## ')[0] || '';
+  const fullGuidesSection = llmsFull.split('## Guides and articles\n')[1]?.split('\n## ')[0] || '';
+  const fullPagesSection = llmsFull.split('## Other public pages\n')[1]?.split('\n## ')[0] || '';
+  const fullIndexesSection = llmsFull.split('## Machine-readable indexes\n')[1]?.split('\n## ')[0] || '';
   assert.match(robots, /Sitemap:\s*https:\/\/www\.clickpdf\.net\/sitemap\.xml/i);
   assert.match(robots, /https:\/\/www\.clickpdf\.net\/llms\.txt/i);
+  assert.match(llms, /document file contents are processed locally in your browser/i);
+  assert.match(llms, /standard network requests/i);
+  assert.match(llms, /advertising or other third-party features/i);
+  assert.match(machineIndexesSection, new RegExp(`\\[Canonical homepage\\]\\(${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/\\)`));
+  assert.match(machineIndexesSection, new RegExp(`\\[XML sitemap\\]\\(${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/sitemap\\.xml\\)`));
+  assert.match(machineIndexesSection, new RegExp(`\\[Full site guide for language models\\]\\(${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/llms-full\\.txt\\)`));
   assert.equal(
     (toolsSection.match(/^- \[/gm) || []).length,
     activeTools.length,
@@ -261,6 +285,33 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   for (const page of legalPages) {
     assert.ok(otherPagesSection.includes(`${siteOrigin}${page.path}`), `llms.txt includes ${page.path}`);
   }
+  assert.match(llmsFull, /^# ClickPDF — Full Site Guide/m, 'llms-full.txt is a real text guide rather than SPA HTML');
+  assert.doesNotMatch(llmsFull, /<!doctype html|<html\b/i, 'llms-full.txt contains no HTML fallback document');
+  assert.equal(
+    (fullToolsSection.match(/^### /gm) || []).length,
+    activeTools.length,
+    'llms-full.txt has an expanded entry for every active public tool',
+  );
+  for (const tool of activeTools) {
+    assert.ok(
+      fullToolsSection.includes(`${siteOrigin}/tools/${tool.slug}/`),
+      `llms-full.txt includes the canonical tool URL for ${tool.slug}`,
+    );
+  }
+  assert.equal(
+    (fullGuidesSection.match(/^- \[/gm) || []).length,
+    blogFiles.length,
+    'llms-full.txt includes every Markdown article',
+  );
+  assert.match(llmsFull, /document file contents are processed locally in your browser/i);
+  assert.match(llmsFull, /standard network requests/i);
+  assert.match(llmsFull, /enabled advertising or other third-party features/i);
+  for (const page of legalPages) {
+    assert.ok(fullPagesSection.includes(`${siteOrigin}${page.path}`), `llms-full.txt includes ${page.path}`);
+  }
+  assert.match(fullIndexesSection, new RegExp(`Canonical homepage: ${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/`));
+  assert.match(fullIndexesSection, new RegExp(`XML sitemap: ${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/sitemap\\.xml`));
+  assert.match(fullIndexesSection, new RegExp(`Short LLM index: ${siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/llms\\.txt`));
   await access(path.join(publicDir, 'social', 'clickpdf-social-1200x630.png'));
   const manifest = JSON.parse(await readFile(path.join(publicDir, 'manifest.json'), 'utf8'));
   assert.ok(manifest.icons.some((icon) => icon.src === '/icon-192.png'));

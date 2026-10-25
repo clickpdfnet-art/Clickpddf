@@ -4,11 +4,11 @@ import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 
 export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
   title: 'ClickPDF — Free In-Browser PDF Tools & Editor | Click Digital Services',
-  description: 'Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
-  ogTitle: 'ClickPDF — Stay Secure, Stay Smart | 100% Private In-Browser PDF Tools',
-  ogDescription: 'Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
+  description: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; pages may load ads and other third-party resources.',
+  ogTitle: 'ClickPDF — In-Browser PDF Tools | Click Digital Services',
+  ogDescription: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; pages may load ads and other third-party resources.',
   ogImage: 'https://www.clickpdf.net/social/clickpdf-social-1200x630.png',
-  keywords: 'pdf tools, click digital services, stay secure stay smart, 100% private pdf, merge pdf, split pdf, compress pdf, client side pdf, zero upload pdf, in browser pdf editor',
+  keywords: 'pdf tools, click digital services, stay secure stay smart, browser-based pdf processing, merge pdf, split pdf, compress pdf, client side pdf, in browser pdf editor',
   canonicalUrl: 'https://www.clickpdf.net/',
   twitterCard: 'summary_large_image',
 };
@@ -338,12 +338,12 @@ export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.cl
           height: 512,
         },
         image: logoUrl,
-        slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
-        description: 'Technology studio and creator of ClickPDF.net, engineering 100% in-browser, zero-server privacy utilities.',
+        slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy',
+        description: 'Technology studio and creator of ClickPDF.net. Supported document files are processed locally in the browser; the website may still request page resources and enabled third-party services.',
         brand: {
           '@type': 'Brand',
           name: 'ClickPDF',
-          slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
+          slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy',
           url: originUrl
         }
       }
@@ -391,7 +391,7 @@ function injectHomeSiteJsonLdSchema(): void {
         url: `${SITE_ORIGIN}/`,
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Web',
-        description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and securing documents without uploading files to a processing server.',
+        description: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; the page may also make standard requests for resources and enabled third-party services, including advertising.',
         creator: { '@id': `${SITE_ORIGIN}/#organization` },
         publisher: { '@id': `${SITE_ORIGIN}/#organization` },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
