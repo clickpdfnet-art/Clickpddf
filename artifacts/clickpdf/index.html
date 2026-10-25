@@ -25,10 +25,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="ClickPDF" />
-    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%apple-touch-icon.png" />
     <link rel="manifest" href="%BASE_URL%manifest.json" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%icon.svg" />
     <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
+    <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="%BASE_URL%icon-512.png" />
     <title>ClickPDF — Free In-Browser PDF Tools & Editor | Click Digital Services</title>
     <meta name="description" content="Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads." />
     <link rel="canonical" href="https://www.clickpdf.net/" />
@@ -40,12 +42,12 @@
     <meta property="og:image" content="https://www.clickpdf.net/social/clickpdf-social-1200x630.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="ClickPDF — PDF tools in your browser" />
+    <meta property="og:image:alt" content="ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ClickPDF — Stay Secure, Stay Smart | Click Digital Services" />
     <meta name="twitter:description" content="Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads." />
     <meta name="twitter:image" content="https://www.clickpdf.net/social/clickpdf-social-1200x630.png" />
-    <meta name="twitter:image:alt" content="ClickPDF — PDF tools in your browser" />
+    <meta name="twitter:image:alt" content="ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="%BASE_URL%sitemap.xml" />
     <!-- Organization & Brand Schema -->
     <script id="clickpdf-org-schema" type="application/ld+json">
@@ -56,7 +58,15 @@
       "name": "Click Digital Services",
       "legalName": "Click Digital Services",
       "url": "https://www.clickpdf.net",
-      "logo": "https://www.clickpdf.net/icon.svg",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.clickpdf.net/#logo",
+        "url": "https://www.clickpdf.net/icon-512.png",
+        "contentUrl": "https://www.clickpdf.net/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.clickpdf.net/icon-512.png",
       "slogan": "Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private",
       "description": "Technology studio and creator of ClickPDF.net, engineering 100% in-browser, zero-server privacy utilities.",
       "brand": {
@@ -79,15 +89,19 @@
       "description": "Fast, private, client-side PDF utility suite by Click Digital Services. Merge, split, compress, convert, watermark, rotate, and organize PDFs 100% in your browser with zero server uploads.",
       "creator": {
         "@type": "Organization",
+        "@id": "https://www.clickpdf.net/#organization",
         "name": "Click Digital Services",
         "slogan": "Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private",
-        "url": "https://www.clickpdf.net"
+        "url": "https://www.clickpdf.net",
+        "logo": "https://www.clickpdf.net/icon-512.png"
       },
       "publisher": {
         "@type": "Organization",
+        "@id": "https://www.clickpdf.net/#organization",
         "name": "Click Digital Services",
         "slogan": "Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private",
-        "url": "https://www.clickpdf.net"
+        "url": "https://www.clickpdf.net",
+        "logo": "https://www.clickpdf.net/icon-512.png"
       },
       "offers": {
         "@type": "Offer",

@@ -88,6 +88,10 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     assert.equal(twitterImage, ogImage);
     assert.match(html, /property=["']og:image:width["']\s+content=["']1200["']/i);
     assert.match(html, /property=["']og:image:height["']\s+content=["']630["']/i);
+    assert.match(html, /rel=["']icon["'][^>]*href=["']\/favicon\.ico["']/i);
+    assert.match(html, /rel=["']apple-touch-icon["'][^>]*href=["']\/apple-touch-icon\.png["']/i);
+    assert.match(html, /sizes=["']192x192["'][^>]*href=["']\/icon-192\.png["']/i);
+    assert.match(html, /sizes=["']512x512["'][^>]*href=["']\/icon-512\.png["']/i);
     staticMain(html, url);
     assert.match(html, /<div id=["']root["']><\/div>/i, 'React createRoot mount remains empty and unchanged');
   }
@@ -101,6 +105,11 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
     assert.ok(types.has(required), `homepage schema includes ${required}`);
   }
   assert.ok(!types.has('FAQPage'), 'homepage does not claim FAQ content that is not shown there');
+  const organization = nodes.find((node) => node['@type'] === 'Organization' && node.name === 'Click Digital Services');
+  const website = nodes.find((node) => node['@type'] === 'WebSite');
+  assert.equal(organization?.logo?.url, `${siteOrigin}/icon-512.png`);
+  assert.equal(organization?.logo?.width, 512);
+  assert.equal(website?.image?.url, `${siteOrigin}/icon-512.png`);
   const toolsList = nodes.find((node) => node['@type'] === 'ItemList' && node['@id'] === `${siteOrigin}/#tools`);
   assert.equal(toolsList?.numberOfItems, activeTools.length);
   assert.equal(toolsList?.itemListElement?.length, activeTools.length);
@@ -137,6 +146,11 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
       assert.match(content, /<article>/i, `${url} contains semantic article body`);
       assert.match(content, /<h2\b/i, `${url} contains semantic section headings`);
       assert.match(content, /<a href=/i, `${url} contains crawlable article links`);
+      if (content.includes('<figure>')) {
+        assert.match(content, /<img src="\/icon\.svg" alt="" aria-hidden="true"/i, `${url} displays the official logo watermark`);
+      }
+      const posting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
+      assert.equal(posting?.publisher?.logo?.url, `${siteOrigin}/icon-512.png`, `${url} publisher uses the official logo`);
     }
     if (new URL(url).pathname === '/blog/') {
       assert.ok(types.has('CollectionPage'));
@@ -179,4 +193,24 @@ test('robots, llms.txt, and the social image are generated for production', asyn
     'llms.txt contains every Markdown article',
   );
   await access(path.join(publicDir, 'social', 'clickpdf-social-1200x630.png'));
+  const manifest = JSON.parse(await readFile(path.join(publicDir, 'manifest.json'), 'utf8'));
+  assert.ok(manifest.icons.some((icon) => icon.src === '/icon-192.png'));
+  assert.ok(manifest.icons.some((icon) => icon.src === '/icon-512.png'));
+  const serviceWorker = await readFile(path.join(publicDir, 'sw.js'), 'utf8');
+  assert.match(serviceWorker, /clickpdf-v3/);
+  assert.match(serviceWorker, /icon-192\.png/);
+  assert.match(serviceWorker, /icon-512\.png/);
+  for (const [fileName, width, height] of [
+    ['icon-192.png', 192, 192],
+    ['icon-512.png', 512, 512],
+    ['apple-touch-icon.png', 180, 180],
+    ['social/clickpdf-social-1200x630.png', 1200, 630],
+  ]) {
+    const image = await readFile(path.join(publicDir, fileName));
+    assert.equal(image.readUInt32BE(16), width, `${fileName} width`);
+    assert.equal(image.readUInt32BE(20), height, `${fileName} height`);
+  }
+  const favicon = await readFile(path.join(publicDir, 'favicon.ico'));
+  assert.equal(favicon.readUInt16LE(0), 0);
+  assert.equal(favicon.readUInt16LE(2), 1);
 });

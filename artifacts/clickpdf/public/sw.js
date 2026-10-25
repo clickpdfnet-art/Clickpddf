@@ -2,7 +2,7 @@
 // Enables instantaneous repeat visits via Stale-While-Revalidate for static assets,
 // while strictly maintaining Network-First for real-time live navigation and ad banners.
 
-const CACHE_VERSION = 'clickpdf-v2';
+const CACHE_VERSION = 'clickpdf-v3';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const APP_SCOPE = self.registration.scope;
@@ -12,6 +12,8 @@ const PRECACHE_URLS = [
   APP_SCOPE,
   `${APP_SCOPE}manifest.json`,
   `${APP_SCOPE}icon.svg`,
+  `${APP_SCOPE}icon-192.png`,
+  `${APP_SCOPE}icon-512.png`,
   `${APP_SCOPE}favicon.ico`,
   `${APP_SCOPE}apple-touch-icon.png`
 ];

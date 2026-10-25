@@ -22,7 +22,19 @@ const HOME_FAQ_SCHEMA_SCRIPT_ID = 'clickpdf-home-faq-schema';
 const HOME_SITE_SCHEMA_SCRIPT_ID = 'clickpdf-home-site-schema';
 const SITE_ORIGIN = 'https://www.clickpdf.net';
 const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social/clickpdf-social-1200x630.png`;
-const SOCIAL_IMAGE_ALT = 'ClickPDF — PDF tools in your browser';
+const SOCIAL_IMAGE_ALT = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools';
+const BRAND_LOGO_URL = `${SITE_ORIGIN}/icon-512.png`;
+
+function brandLogoImage(origin = SITE_ORIGIN): Record<string, unknown> {
+  const url = `${origin}/icon-512.png`;
+  return {
+    '@type': 'ImageObject',
+    url,
+    contentUrl: url,
+    width: 512,
+    height: 512,
+  };
+}
 
 function applySocialImageTags(): void {
   setMetaTag('property', 'og:image', SOCIAL_IMAGE_URL);
@@ -298,6 +310,7 @@ function clearAlternateLanguageLinks(): void {
 
 export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.clickpdf.net'): void {
   if (typeof document === 'undefined') return;
+  const logoUrl = `${originUrl}/icon-512.png`;
 
   const orgSchema = {
     '@context': 'https://schema.org',
@@ -308,7 +321,15 @@ export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.cl
         name: 'Click Digital Services',
         legalName: 'Click Digital Services',
         url: originUrl,
-        logo: `${originUrl}/icon.svg`,
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${originUrl}/#logo`,
+          url: logoUrl,
+          contentUrl: logoUrl,
+          width: 512,
+          height: 512,
+        },
+        image: logoUrl,
         slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
         description: 'Technology studio and creator of ClickPDF.net, engineering 100% in-browser, zero-server privacy utilities.',
         brand: {
@@ -344,6 +365,7 @@ function injectHomeSiteJsonLdSchema(): void {
         name: 'ClickPDF',
         alternateName: 'ClickPDF by Click Digital Services',
         url: `${SITE_ORIGIN}/`,
+        image: brandLogoImage(),
         publisher: { '@id': `${SITE_ORIGIN}/#organization` },
       },
       {
@@ -498,7 +520,7 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
     inLanguage: article.locale || 'en',
     image: article.coverImage
       ? [new URL(article.coverImage, SITE_ORIGIN).toString()]
-      : [`${SITE_ORIGIN}/icon.svg`],
+      : [BRAND_LOGO_URL],
     ...(toIsoDate(article.date) ? { datePublished: toIsoDate(article.date) } : {}),
     ...(article.seoKeywords ? { keywords: article.seoKeywords } : {}),
     author: {
@@ -512,8 +534,7 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
       url: SITE_ORIGIN,
       slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
       logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_ORIGIN}/icon.svg`
+        ...brandLogoImage(),
       }
     }
   };

@@ -19,6 +19,7 @@ const faqDataPath = path.join(appDir, 'src', 'data', 'faqData.ts');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
 const socialImage = `${siteOrigin}/social/clickpdf-social-1200x630.png`;
+const logoUrl = `${siteOrigin}/icon-512.png`;
 const pageSchemaId = 'clickpdf-page-schema';
 const homeSiteSchemaId = 'clickpdf-home-site-schema';
 const homeFaqSchemaId = 'clickpdf-home-faq-schema';
@@ -110,6 +111,16 @@ function makeBreadcrumbListSchema(url, crumbs) {
       name: crumb.name,
       item: absoluteSiteUrl(crumb.url),
     })),
+  };
+}
+
+function brandLogoImage() {
+  return {
+    '@type': 'ImageObject',
+    url: logoUrl,
+    contentUrl: logoUrl,
+    width: 512,
+    height: 512,
   };
 }
 
@@ -229,7 +240,7 @@ function makeBlogSchema(article, url) {
       '@id': `${siteOrigin}/#organization`,
       name: 'Click Digital Services',
       url: siteOrigin,
-      logo: { '@type': 'ImageObject', url: `${siteOrigin}/icon.svg` },
+      logo: brandLogoImage(),
     },
   };
   const faq = makeFaqPageSchema(
@@ -276,6 +287,7 @@ function makeHomepageSchema(toolPages) {
         name: 'ClickPDF',
         alternateName: 'ClickPDF by Click Digital Services',
         url: `${siteOrigin}/`,
+        image: brandLogoImage(),
         publisher: { '@id': `${siteOrigin}/#organization` },
       },
       {
@@ -470,7 +482,7 @@ function prepareRouteHtml(template, {
   staticContent = '',
   ogType = 'website',
   socialImage: pageSocialImage = socialImage,
-  socialImageAlt = 'ClickPDF — PDF tools in your browser',
+  socialImageAlt = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools',
   robots,
 }) {
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
