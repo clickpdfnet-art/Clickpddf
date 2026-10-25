@@ -1,0 +1,198 @@
+[
+  {
+    "id": "about",
+    "path": "/about/",
+    "title": "About ClickPDF | Click Digital Services",
+    "heading": "About ClickPDF",
+    "description": "Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools available on the site.",
+    "schemaType": "AboutPage",
+    "sections": [
+      {
+        "heading": "Publisher and purpose",
+        "paragraphs": [
+          "ClickPDF is a browser-based PDF utility website published and operated by Click Digital Services.",
+          "The site provides tools for common document tasks such as merging, splitting, compressing, converting, organizing, and inspecting PDF files."
+        ]
+      },
+      {
+        "heading": "How the tools work",
+        "paragraphs": [
+          "PDF processing is performed in the browser for supported tools. The specific features and device requirements vary by tool.",
+          "The website may still load page resources and enabled third-party services. Review the Privacy Policy and each tool's instructions before processing sensitive documents."
+        ]
+      },
+      {
+        "heading": "Open standards and support",
+        "paragraphs": [
+          "ClickPDF uses browser technologies and established document libraries to provide its tools. For questions, feedback, or technical issues, use the Contact page."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "path": "/contact/",
+    "title": "Contact ClickPDF Support",
+    "heading": "Contact ClickPDF",
+    "description": "Contact ClickPDF support about technical issues, feedback, privacy questions, or business inquiries.",
+    "schemaType": "ContactPage",
+    "contactEmail": "clickpdfnet@gmail.com",
+    "sections": [
+      {
+        "heading": "Support and inquiries",
+        "paragraphs": [
+          "Contact ClickPDF for technical assistance, to report an unexpected issue, to suggest a tool, or to discuss a business inquiry."
+        ]
+      },
+      {
+        "heading": "Email support",
+        "paragraphs": [
+          "Send a message to the support address below. Include the name of the tool and your browser when reporting a technical problem. Do not email confidential documents unless you have independently reviewed the risks."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "privacy",
+    "path": "/privacy-policy/",
+    "title": "Privacy Policy | ClickPDF",
+    "heading": "Privacy Policy",
+    "description": "Learn how ClickPDF processes PDF files in the browser, handles local preferences, and works with advertising and other website services.",
+    "schemaType": "WebPage",
+    "sections": [
+      {
+        "heading": "Document processing",
+        "paragraphs": [
+          "For supported tools, document operations are performed in the browser on your device. Processing behavior can vary by tool and browser; review the instructions shown on the tool page.",
+          "This describes document processing and does not mean the webpage makes no network requests. The site may load its own page resources and enabled third-party services."
+        ]
+      },
+      {
+        "heading": "Preferences and local browser storage",
+        "paragraphs": [
+          "The site may use browser storage, such as LocalStorage or IndexedDB, for settings and functional preferences. These values remain subject to your browser's storage and privacy controls."
+        ]
+      },
+      {
+        "heading": "Advertising and third-party services",
+        "paragraphs": [
+          "Advertising or other third-party services may use their own technologies under their respective policies. See the Cookies Policy for more information and ways to manage browser cookie settings."
+        ]
+      },
+      {
+        "heading": "Questions",
+        "paragraphs": [
+          "For privacy questions, contact ClickPDF through the Contact page."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "terms",
+    "path": "/terms-of-service/",
+    "title": "Terms of Service | ClickPDF",
+    "heading": "Terms of Service",
+    "description": "Review ClickPDF's permitted uses, user responsibilities, intellectual property, and service availability.",
+    "schemaType": "WebPage",
+    "sections": [
+      {
+        "heading": "Permitted use",
+        "paragraphs": [
+          "ClickPDF provides browser-based PDF utilities for personal, educational, and business document workflows. You are responsible for using the service in accordance with applicable laws."
+        ]
+      },
+      {
+        "heading": "Your files and responsibilities",
+        "paragraphs": [
+          "You must have the rights and permissions needed to process documents that you select. Do not use the service to process or distribute unlawful, fraudulent, defamatory, or infringing material."
+        ]
+      },
+      {
+        "heading": "Intellectual property",
+        "paragraphs": [
+          "The ClickPDF name, website design, custom code, documentation, and original visual assets belong to Click Digital Services or their respective rights holders. Open-source components remain subject to their own licenses."
+        ]
+      },
+      {
+        "heading": "Service availability",
+        "paragraphs": [
+          "The service is provided on an as-is and as-available basis. Compatibility and results may depend on the source file, browser, device resources, and supported features. Keep a copy of important original files and verify generated documents."
+        ]
+      },
+      {
+        "heading": "Related information",
+        "paragraphs": [
+          "Read the Disclaimer for additional information about service limitations and document results."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cookies",
+    "path": "/cookies/",
+    "title": "Cookies Policy | ClickPDF",
+    "heading": "Cookies Policy",
+    "description": "See how ClickPDF uses browser storage and third-party advertising cookies, plus ways to manage cookie preferences.",
+    "schemaType": "WebPage",
+    "sections": [
+      {
+        "heading": "Cookies and local storage",
+        "paragraphs": [
+          "Cookies are small data files stored by a website. ClickPDF may also use browser storage, including LocalStorage or IndexedDB, to retain functional settings such as interface preferences and consent choices."
+        ]
+      },
+      {
+        "heading": "Advertising and third parties",
+        "paragraphs": [
+          "Third-party advertising services may use cookies or similar technologies to deliver or measure ads under their own privacy policies. The site's consent controls explain the available advertising choice."
+        ]
+      },
+      {
+        "heading": "Managing your choices",
+        "paragraphs": [
+          "You can manage or clear stored data through your browser settings. Blocking cookies may affect some website preferences or third-party services."
+        ]
+      },
+      {
+        "heading": "More information",
+        "paragraphs": [
+          "For details about document processing and other website data, read the Privacy Policy. You can contact ClickPDF with questions."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "disclaimer",
+    "path": "/disclaimer/",
+    "title": "Disclaimer | ClickPDF",
+    "heading": "Disclaimer",
+    "description": "Read limitations on ClickPDF information, PDF processing results, warranties, compatibility, and service availability.",
+    "schemaType": "WebPage",
+    "sections": [
+      {
+        "heading": "Information and professional advice",
+        "paragraphs": [
+          "ClickPDF guides and website information are provided for general informational purposes and are not legal, financial, medical, or other professional advice."
+        ]
+      },
+      {
+        "heading": "Processing results",
+        "paragraphs": [
+          "Output can depend on the source document, file structure, browser, and available device resources. Review the result before relying on it, and keep an independent copy of important originals."
+        ]
+      },
+      {
+        "heading": "Availability and warranties",
+        "paragraphs": [
+          "ClickPDF is provided on an as-is and as-available basis. Click Digital Services does not guarantee uninterrupted operation, error-free results, or compatibility with every file or device."
+        ]
+      },
+      {
+        "heading": "Third-party services",
+        "paragraphs": [
+          "The website may include links to or resources from third parties. Those services are governed by their own terms and privacy policies."
+        ]
+      }
+    ]
+  }
+]

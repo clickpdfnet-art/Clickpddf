@@ -1,6 +1,7 @@
 import { PDF_TOOLS } from '../data/toolsData';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { getActiveBlogArticles } from './blogLoader';
+import { getLegalPageByPath, LegalPageId } from '../data/legalPages';
 
 const BASE_PATH = import.meta.env.BASE_URL;
 
@@ -22,9 +23,10 @@ export function buildAppPath(path: string): string {
 }
 
 export interface ParsedRoute {
-  view: 'home' | 'tool' | 'blog' | 'batch' | 'faq';
+  view: 'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
   toolId?: string;
   articleSlug?: string;
+  legalPageId?: LegalPageId;
   isSitemapModalOpen?: boolean;
 }
 
@@ -52,6 +54,11 @@ export function parseCurrentRoute(): ParsedRoute {
     if (extracted) {
       effectivePathname = extracted.startsWith('/') ? extracted : `/${extracted}`;
     }
+  }
+
+  const legalPage = getLegalPageByPath(effectivePathname);
+  if (legalPage) {
+    return { view: 'legal', legalPageId: legalPage.id };
   }
 
   // 1. Check Pathname Routing (/tools/:slug or /tool/:slug)

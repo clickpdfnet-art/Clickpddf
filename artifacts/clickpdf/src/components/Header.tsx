@@ -15,7 +15,7 @@ interface HeaderProps {
   onOpenCommandPalette?: () => void;
   onOpenBatchQueue?: () => void;
   onOpenShare?: () => void;
-  activeView: 'home' | 'tool' | 'blog' | 'batch' | 'faq';
+  activeView: 'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
 }
 
 export const Header: React.FC<HeaderProps> = ({

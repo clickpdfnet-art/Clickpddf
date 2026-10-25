@@ -9,6 +9,7 @@ import {
   renderBlogIndexFallback,
   renderFaqFallback,
   renderHomeFallback,
+  renderLegalPageFallback,
   renderToolFallback,
 } from './static-page-content.mjs';
 
@@ -17,6 +18,7 @@ const appDir = path.resolve(scriptDir, '..');
 const outputDir = path.join(appDir, 'dist', 'public');
 const sitemapPath = path.join(outputDir, 'sitemap.xml');
 const faqDataPath = path.join(appDir, 'src', 'data', 'faqData.ts');
+const legalPagesPath = path.join(appDir, 'src', 'data', 'legalPages.json');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
 const socialImage = `${siteOrigin}/social/clickpdf-social-1200x630.png`;
@@ -24,6 +26,7 @@ const logoUrl = `${siteOrigin}/icon-512.png`;
 const blogWatermarkMap = JSON.parse(
   await readFile(path.join(appDir, 'src', 'data', 'blogWatermarkMap.json'), 'utf8'),
 );
+const legalPages = JSON.parse(await readFile(legalPagesPath, 'utf8'));
 const defaultBlogCover = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 const pageSchemaId = 'clickpdf-page-schema';
 const homeSiteSchemaId = 'clickpdf-home-site-schema';
@@ -409,6 +412,37 @@ function makeBatchRouteSchema(url) {
   };
 }
 
+function makeLegalPageSchema(page, url) {
+  const breadcrumb = makeBreadcrumbListSchema(url, [
+    { name: 'Home', url: `${siteOrigin}/` },
+    { name: page.heading, url },
+  ]);
+  const mainEntity = page.id === 'about'
+    ? { '@id': `${siteOrigin}/#organization` }
+    : page.id === 'contact' && page.contactEmail
+      ? {
+          '@type': 'ContactPoint',
+          contactType: 'Customer Support',
+          email: page.contactEmail,
+        }
+      : undefined;
+  const pageSchema = {
+    '@type': page.schemaType,
+    '@id': `${url}#webpage`,
+    url,
+    name: page.heading,
+    description: page.description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${siteOrigin}/#website` },
+    ...(mainEntity ? { mainEntity } : {}),
+    breadcrumb: { '@id': breadcrumb['@id'] },
+  };
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [pageSchema, breadcrumb],
+  };
+}
+
 function makeBlogIndexSchema(articles, url) {
   const breadcrumb = makeBreadcrumbListSchema(url, [
     { name: 'Home', url: `${siteOrigin}/` },
@@ -488,6 +522,7 @@ function prepareRouteHtml(template, {
   ogType = 'website',
   socialImage: pageSocialImage = socialImage,
   socialImageAlt = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools',
+  hreflangAlternates = [],
   robots,
 }) {
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -516,6 +551,15 @@ function prepareRouteHtml(template, {
   html = canonicalPattern.test(html)
     ? html.replace(canonicalPattern, canonical)
     : html.replace('</head>', `    ${canonical}\n  </head>`);
+
+  if (hreflangAlternates.length) {
+    const alternateLinks = hreflangAlternates.map(({ locale, url: alternateUrl }) => {
+      const safeLocale = String(locale).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+      const safeUrl = String(alternateUrl).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+      return `    <link rel="alternate" hreflang="${safeLocale}" href="${safeUrl}" id="clickpdf-blog-hreflang-${safeLocale}" data-blog-hreflang="${safeLocale}" />`;
+    }).join('\n');
+    html = html.replace('</head>', `${alternateLinks}\n  </head>`);
+  }
 
   html = setJsonLdScript(html, schemaId, schema);
   if (staticContent) {
@@ -578,6 +622,24 @@ for (const fileName of blogFiles) {
   articles.push(article);
 }
 
+const translatedGroups = new Map();
+for (const article of articles) {
+  if (!article.translationgroup || !article.locale) continue;
+  const group = translatedGroups.get(article.translationgroup) || [];
+  group.push(article);
+  translatedGroups.set(article.translationgroup, group);
+}
+const alternatesBySlug = new Map();
+for (const group of translatedGroups.values()) {
+  const alternates = group.map((article) => ({
+    locale: article.locale,
+    url: absoluteSiteUrl(`${siteOrigin}${article.path}`),
+  }));
+  const defaultUrl = alternates.find((alternate) => alternate.locale === 'en')?.url;
+  const links = defaultUrl ? [...alternates, { locale: 'x-default', url: defaultUrl }] : alternates;
+  group.forEach((article) => alternatesBySlug.set(article.slug, links));
+}
+
 const unicodeRouteMap = {};
 for (const article of articles) {
   const routePath = articlePath(article);
@@ -594,6 +656,7 @@ for (const article of articles) {
     ogType: 'article',
     socialImage: article.coverimage || socialImage,
     socialImageAlt: article.imagealt || article.title,
+    hreflangAlternates: alternatesBySlug.get(article.slug) || [],
     robots: 'index,follow',
     staticContent: renderBlogFallback(article, articles),
   });
@@ -671,6 +734,26 @@ await writeFile(
 );
 generated.push('batch/index.html');
 
+for (const page of legalPages) {
+  const url = absoluteSiteUrl(`${siteOrigin}${page.path}`);
+  const relativePath = path.join(page.path.replace(/^\/|\/$/g, ''), 'index.html');
+  const outputPath = path.join(outputDir, relativePath);
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(
+    outputPath,
+    prepareRouteHtml(template, {
+      url,
+      title: page.title,
+      description: page.description,
+      schema: makeLegalPageSchema(page, url),
+      robots: 'index,follow',
+      staticContent: renderLegalPageFallback(page, legalPages),
+    }),
+    'utf8',
+  );
+  generated.push(relativePath);
+}
+
 const homeIndexPath = path.join(outputDir, 'index.html');
 const homeTemplate = removeJsonLdScripts(template, [pageSchemaId, homeFaqSchemaId]);
 const homeHtml = prepareRouteHtml(homeTemplate, {
@@ -685,5 +768,5 @@ await writeFile(homeIndexPath, homeHtml, 'utf8');
 
 if (!faqItems.length) throw new Error('FAQ_DATA contains no usable question and answer pairs');
 console.log(
-  `Generated raw-head Schema.org JSON-LD for ${toolPages.length} tools, ${articles.length} blog posts, blog index, FAQ page, batch page, and homepage.`,
+  `Generated raw-head Schema.org JSON-LD for ${toolPages.length} tools, ${articles.length} blog posts, ${legalPages.length} legal pages, blog index, FAQ page, batch page, and homepage.`,
 );

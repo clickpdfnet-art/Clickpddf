@@ -205,3 +205,30 @@ export function renderBatchFallback(tools) {
     content: `<p>Use the batch queue to process multiple documents in the browser and download available results individually or as a ZIP. File capacity depends on the device and browser.</p>${linkList(links, 'Available PDF tools')}`,
   });
 }
+
+export function renderLegalPageFallback(page, legalPages = []) {
+  const sections = (page.sections || []).map((section, index) => {
+    const paragraphs = (section.paragraphs || [])
+      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .join('');
+    const email = page.id === 'contact' && section.heading === 'Email support' && page.contactEmail
+      ? `<p><a href="mailto:${escapeHtml(page.contactEmail)}">${escapeHtml(page.contactEmail)}</a></p>`
+      : '';
+    return `<section aria-labelledby="legal-section-${index + 1}"><h2 id="legal-section-${index + 1}">${escapeHtml(section.heading)}</h2>${paragraphs}${email}</section>`;
+  }).join('');
+  const links = linkList(
+    legalPages
+      .filter((candidate) => candidate.id !== page.id)
+      .map((candidate) => ({
+        name: candidate.heading,
+        url: safeLocalPath(candidate.path),
+        description: candidate.description,
+      })),
+    'Related company and policy pages',
+  );
+  return fallbackPage({
+    title: page.heading,
+    description: page.description,
+    content: `<article>${sections}</article>${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
+  });
+}

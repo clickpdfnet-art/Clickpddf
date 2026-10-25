@@ -25,6 +25,7 @@ import { GlobalDropOverlay } from './components/GlobalDropOverlay';
 import { FileActionModal } from './components/FileActionModal';
 import { BatchQueueView } from './components/BatchQueueView';
 import { LegalModal, LegalModalTab } from './components/LegalModal';
+import { LegalPage } from './components/LegalPage';
 import { CookieConsentBanner } from './components/CookieConsentBanner';
 import { ShareModal } from './components/ShareModal';
 import { FloatingShareButton } from './components/FloatingShareButton';
@@ -34,6 +35,7 @@ import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Language, SUPPORTED_LANGUAGES } from './i18n/translations';
 import { ThemeProvider } from './context/ThemeContext';
+import { getLegalPageById, LegalPageDefinition, LegalPageId } from './data/legalPages';
 
 const SITE_ORIGIN = 'https://www.clickpdf.net';
 const FAQ_PAGE_URL = `${SITE_ORIGIN}/faq/`;
@@ -47,6 +49,37 @@ function breadcrumbSchema(url: string, currentLabel: string) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_ORIGIN}/` },
       { '@type': 'ListItem', position: 2, name: currentLabel, item: url },
+    ],
+  };
+}
+
+function makeLegalPageJsonLd(page: LegalPageDefinition): Record<string, unknown> {
+  const url = `${SITE_ORIGIN}${page.path}`;
+  const breadcrumb = breadcrumbSchema(url, page.heading);
+  const mainEntity = page.id === 'about'
+    ? { '@id': `${SITE_ORIGIN}/#organization` }
+    : page.id === 'contact' && page.contactEmail
+      ? {
+          '@type': 'ContactPoint',
+          contactType: 'Customer Support',
+          email: page.contactEmail,
+        }
+      : undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': page.schemaType,
+        '@id': `${url}#webpage`,
+        url,
+        name: page.heading,
+        description: page.description,
+        inLanguage: 'en',
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        ...(mainEntity ? { mainEntity } : {}),
+        breadcrumb: { '@id': breadcrumb['@id'] },
+      },
+      breadcrumb,
     ],
   };
 }
@@ -156,11 +189,12 @@ function AppContent() {
     document.getElementById('seo-static-content')?.remove();
   }, []);
 
-  const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal'>('home');
   const [selectedTool, setSelectedTool] = useState<PDFTool | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeArticleSlug, setActiveArticleSlug] = useState<string | null>(null);
+  const [activeLegalPageId, setActiveLegalPageId] = useState<LegalPageId | null>(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSitemapModalOpen, setIsSitemapModalOpen] = useState(false);
@@ -215,6 +249,24 @@ function AppContent() {
   const syncFromUrl = () => {
     try {
       const route = parseCurrentRoute();
+
+      if (route.view === 'legal' && route.legalPageId) {
+        const page = getLegalPageById(route.legalPageId);
+        if (page) {
+          setSelectedTool(null);
+          setActiveArticleSlug(null);
+          setActiveLegalPageId(page.id);
+          setActiveView('legal');
+          setIsLegalModalOpen(false);
+          applyStructuredPageSeo({
+            title: page.title,
+            description: page.description,
+            canonicalUrl: `${SITE_ORIGIN}${page.path}`,
+            schema: makeLegalPageJsonLd(page),
+          });
+          return;
+        }
+      }
 
       if (route.view === 'tool' && route.toolId) {
         if (HIDDEN_TOOL_IDS.has(route.toolId)) {
@@ -622,6 +674,7 @@ function AppContent() {
       getToolDescription(tool).toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase());
     return matchesCategory && matchesSearch;
   });
+  const activeLegalPage = activeLegalPageId ? getLegalPageById(activeLegalPageId) : undefined;
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/60 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-200">
@@ -682,6 +735,8 @@ function AppContent() {
               isStandaloneView={true}
             />
           </div>
+        ) : activeView === 'legal' && activeLegalPage ? (
+          <LegalPage page={activeLegalPage} />
         ) : activeView === 'blog' ? (
           <div className="py-6 min-h-[75vh]">
             <BlogSection

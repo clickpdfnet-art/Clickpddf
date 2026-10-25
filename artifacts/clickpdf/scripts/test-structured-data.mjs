@@ -68,6 +68,7 @@ const urls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)]
 const activeTools = await readActiveToolRegistry(appDir);
 const toolUrls = urls.filter((value) => new URL(value).pathname.startsWith('/tools/'));
 const blogFiles = (await readdir(path.join(appDir, 'src', 'blogs'))).filter((name) => name.endsWith('.md'));
+const legalPages = JSON.parse(await readFile(path.join(appDir, 'src', 'data', 'legalPages.json'), 'utf8'));
 
 test('sitemap routes have static metadata and parseable head JSON-LD', async () => {
   assert.equal(new Set(urls).size, urls.length, 'sitemap URLs are unique');
@@ -103,6 +104,39 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     staticMain(html, url);
     assert.match(html, /<div id=["']root["']><\/div>/i, 'React createRoot mount remains empty and unchanged');
   }
+});
+
+test('localized blog sitemap alternates are repeated in each raw HTML head', async () => {
+  const sitemapBlocks = [...sitemap.matchAll(/<url>[\s\S]*?<\/url>/g)].map((match) => match[0]);
+  const translatedBlocks = sitemapBlocks.filter((block) => /<xhtml:link\b[^>]*hreflang=/i.test(block));
+  assert.equal(translatedBlocks.length, 21, 'all 21 localized article routes declare hreflang alternates');
+
+  let alternateCount = 0;
+  for (const block of translatedBlocks) {
+    const pageUrl = decodeXml(block.match(/<loc>([\s\S]*?)<\/loc>/i)?.[1]?.trim() || '');
+    const expected = [...block.matchAll(/<xhtml:link\b[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/gi)]
+      .map((match) => ({ locale: match[1], url: decodeXml(match[2]) }))
+      .sort((a, b) => a.locale.localeCompare(b.locale));
+    const { html } = await readHeadSchemas(pageUrl);
+    const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] || '';
+    const actual = [...head.matchAll(/<link\b(?=[^>]*rel=["']alternate["'])[^>]*>/gi)]
+      .map((match) => ({
+        locale: match[0].match(/\bhreflang=["']([^"']+)["']/i)?.[1] || '',
+        url: match[0].match(/\bhref=["']([^"']+)["']/i)?.[1] || '',
+      }))
+      .sort((a, b) => a.locale.localeCompare(b.locale));
+
+    assert.equal(expected.length, 22, `${pageUrl} has 21 locales and x-default in sitemap`);
+    assert.ok(expected.some((item) => item.locale === 'x-default'), `${pageUrl} includes sitemap x-default`);
+    assert.deepEqual(actual, expected, `${pageUrl} head alternates exactly match sitemap alternates`);
+    assert.ok(
+      [...head.matchAll(/<link\b(?=[^>]*rel=["']alternate["'])[^>]*>/gi)]
+        .every((match) => /id=["']clickpdf-blog-hreflang-/.test(match[0])),
+      `${pageUrl} static alternate links are replaceable during SPA navigation`,
+    );
+    alternateCount += actual.length;
+  }
+  assert.equal(alternateCount, 462, 'the 21 translated article pages expose all 462 sitemap alternates in HTML heads');
 });
 
 test('homepage contains brand, WebSite, WebApplication, navigation, and the full tool list', async () => {
@@ -180,6 +214,26 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
   assert.equal(blogPostPages, blogFiles.length, 'every Markdown blog post has static BlogPosting data');
 });
 
+test('all policy and company pages are standalone sitemap routes with accurate schemas', async () => {
+  assert.equal(legalPages.length, 6);
+  for (const page of legalPages) {
+    const url = `${siteOrigin}${page.path}`;
+    assert.ok(urls.includes(url), `${page.path} is present in the sitemap`);
+    const { html, nodes } = await readHeadSchemas(url);
+    const types = schemaTypes(nodes);
+    const content = staticMain(html, url);
+    assert.ok(types.has(page.schemaType), `${url} includes ${page.schemaType}`);
+    assert.ok(types.has('BreadcrumbList'), `${url} includes BreadcrumbList`);
+    assert.ok(content.includes(`<h1>${page.heading}</h1>`), `${url} renders its visible heading`);
+    for (const otherPage of legalPages.filter((candidate) => candidate.id !== page.id)) {
+      assert.ok(content.includes(`href="${otherPage.path}"`), `${url} links to ${otherPage.path}`);
+    }
+    if (page.contactEmail) {
+      assert.ok(content.includes(`mailto:${page.contactEmail}`), `${url} has the published support email`);
+    }
+  }
+});
+
 test('all sitemap URLs resolve to generated static HTML files', async () => {
   for (const url of urls) {
     await access(pageFileForUrl(url));
@@ -191,6 +245,7 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   const llms = await readFile(path.join(publicDir, 'llms.txt'), 'utf8');
   const toolsSection = llms.split('## PDF tools\n')[1]?.split('\n## ')[0] || '';
   const guidesSection = llms.split('## Guides and articles\n')[1]?.split('\n## ')[0] || '';
+  const otherPagesSection = llms.split('## Other pages\n')[1]?.split('\n## ')[0] || '';
   assert.match(robots, /Sitemap:\s*https:\/\/www\.clickpdf\.net\/sitemap\.xml/i);
   assert.match(robots, /https:\/\/www\.clickpdf\.net\/llms\.txt/i);
   assert.equal(
@@ -203,6 +258,9 @@ test('robots, llms.txt, and the social image are generated for production', asyn
     blogFiles.length,
     'llms.txt contains every Markdown article',
   );
+  for (const page of legalPages) {
+    assert.ok(otherPagesSection.includes(`${siteOrigin}${page.path}`), `llms.txt includes ${page.path}`);
+  }
   await access(path.join(publicDir, 'social', 'clickpdf-social-1200x630.png'));
   const manifest = JSON.parse(await readFile(path.join(publicDir, 'manifest.json'), 'utf8'));
   assert.ok(manifest.icons.some((icon) => icon.src === '/icon-192.png'));

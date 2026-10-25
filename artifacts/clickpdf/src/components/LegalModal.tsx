@@ -17,8 +17,17 @@ import {
   Sliders,
   Check
 } from 'lucide-react';
+import { buildAppPath } from '../utils/routeParser';
 
 export type LegalModalTab = 'about' | 'contact' | 'privacy' | 'terms' | 'cookies';
+
+const LEGAL_PAGE_PATHS: Record<LegalModalTab, string> = {
+  about: '/about/',
+  contact: '/contact/',
+  privacy: '/privacy-policy/',
+  terms: '/terms-of-service/',
+  cookies: '/cookies/',
+};
 
 interface LegalModalProps {
   isOpen: boolean;
@@ -91,6 +100,14 @@ export const LegalModal: React.FC<LegalModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
+            <a
+              href={buildAppPath(LEGAL_PAGE_PATHS[activeTab])}
+              className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-indigo-600 hover:bg-indigo-50 dark:text-indigo-300 dark:hover:bg-indigo-950/50"
+              title="Open this section as a dedicated page"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">Open full page</span>
+            </a>
             <button
               onClick={onClose}
               className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors cursor-pointer"
@@ -624,6 +641,9 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">4. Disclaimer of Warranties</h4>
                 <p>
                   ClickPDF.net is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied. While our algorithms strictly observe the ISO 32000 international standard for PDF documents, Click Digital Services does not guarantee that the Service will be completely uninterrupted, error-free, or compatible with corrupt or non-standard third-party file streams. Users are encouraged to maintain independent backups of original files.
+                </p>
+                <p className="mt-2">
+                  Read the separate <a href={buildAppPath('/disclaimer/')} className="font-bold text-indigo-600 underline hover:text-indigo-700 dark:text-indigo-400">Disclaimer</a> page for additional information about service limitations and document results.
                 </p>
               </div>
 

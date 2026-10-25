@@ -9,9 +9,11 @@ const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
 const llmsPath = path.join(appDir, 'public', 'llms.txt');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const watermarkMapPath = path.join(appDir, 'src', 'data', 'blogWatermarkMap.json');
+const legalPagesPath = path.join(appDir, 'src', 'data', 'legalPages.json');
 const baseUrl = 'https://www.clickpdf.net';
 const defaultCoverImage = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 const blogWatermarkMap = JSON.parse(await readFile(watermarkMapPath, 'utf8'));
+const legalPages = JSON.parse(await readFile(legalPagesPath, 'utf8'));
 
 function getArticlePath(meta) {
   const candidate = typeof meta.routepath === 'string' ? meta.routepath.trim() : '';
@@ -118,6 +120,7 @@ const llms = [
   `- [Frequently asked questions](${baseUrl}/faq/)`,
   `- [Batch processing queue](${baseUrl}/batch/)`,
   `- [All guides](${baseUrl}/blog/)`,
+  ...legalPages.map((page) => `- [${markdownLabel(page.heading)}](${baseUrl}${page.path})`),
   `- [XML sitemap](${baseUrl}/sitemap.xml)`,
   '',
 ].join('\n');
@@ -173,6 +176,12 @@ const utilityPageBlocks = [
     description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
     priority: '0.6',
   },
+  ...legalPages.map((page) => ({
+    path: page.path,
+    title: page.title,
+    description: page.description,
+    priority: '0.5',
+  })),
 ].map(({ path: route, priority }) =>
   `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
 );
@@ -195,7 +204,7 @@ let retainedBlocks = urlBlocks.filter((block) => {
     !/\?tool=/.test(loc) &&
     !/\/blog\/[^<]+/.test(loc) &&
     !generatedArticleLocs.has(loc) &&
-    !/\/(?:faq|batch)\/?<\/loc>/.test(block);
+    !/\/(?:faq|batch|privacy-policy|terms-of-service|about|contact|cookies|disclaimer)\/?<\/loc>/.test(block);
 });
 
 const homeIndex = retainedBlocks.findIndex((block) =>
@@ -218,5 +227,5 @@ sitemap = `${namespaceSafeHeader}${countComment}${retainedBlocks.join('\n')}\n${
 
 await writeFile(sitemapPath, sitemap, 'utf8');
 console.log(
-  `Generated sitemap routes for ${toolUrlBlocks.length} public tools, ${articles.length} Markdown articles, FAQ, and batch queue.`,
+  `Generated sitemap routes for ${toolUrlBlocks.length} public tools, ${articles.length} Markdown articles, FAQ, batch queue, and ${legalPages.length} legal pages.`,
 );
