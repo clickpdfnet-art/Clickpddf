@@ -159,6 +159,7 @@ export async function readActiveToolRegistry(appDir) {
       steps: seo.steps,
       faqs: seo.faqs,
       benefits: seo.benefits || [],
+      relatedToolIds: seo.relatedToolIds || [],
     };
   });
 }
