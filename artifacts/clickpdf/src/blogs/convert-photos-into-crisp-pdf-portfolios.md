@@ -1,6 +1,7 @@
 ---
 id: art-4
 title: How to Build Elegant Photo Portfolios and Lookbooks as Standard PDFs
+seoTitle: Create a PDF Photo Portfolio | ClickPDF
 slug: convert-photos-into-crisp-pdf-portfolios
 category: Creative Design
 date: April 06, 2026

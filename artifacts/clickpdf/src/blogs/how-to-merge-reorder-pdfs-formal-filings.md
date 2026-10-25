@@ -1,6 +1,8 @@
 ---
 id: art-2
 title: A Practical Guide to Compiling Clean PDF Packages for Visas, Courts, and Tax Filings
+seoTitle: Merge PDFs for Visas, Courts & Tax Filings | ClickPDF
+seoDescription: Merge contracts and identity records into one PDF package for visa, court, or tax submissions.
 slug: how-to-merge-reorder-pdfs-formal-filings
 category: Productivity
 date: April 02, 2026

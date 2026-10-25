@@ -185,7 +185,7 @@ export function applyBlogSeo(article: BlogPost): void {
     article.routePath || `/blog/${encodeURIComponent(article.slug)}`,
     origin,
   ).toString());
-  const fullTitle = article.seoTitle || `${article.title} — ClickPDF`;
+  const fullTitle = article.seoTitle || article.title;
 
   // 1. Dynamic Page Title
   document.title = fullTitle;
@@ -203,13 +203,21 @@ export function applyBlogSeo(article: BlogPost): void {
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'article');
   setMetaTag('property', 'og:site_name', 'ClickPDF');
-  applySocialImageTags();
+  const socialImageUrl = article.coverImage
+    ? new URL(article.coverImage, origin).toString()
+    : SOCIAL_IMAGE_URL;
+  const socialImageAlt = article.imageAlt?.trim() || article.title;
+  setMetaTag('property', 'og:image', socialImageUrl);
+  setMetaTag('property', 'og:image:width', '1200');
+  setMetaTag('property', 'og:image:height', '630');
+  setMetaTag('property', 'og:image:alt', socialImageAlt);
 
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
   setMetaTag('name', 'twitter:title', fullTitle);
   setMetaTag('name', 'twitter:description', description);
-  setMetaTag('name', 'twitter:card', 'summary_large_image');
+  setMetaTag('name', 'twitter:image', socialImageUrl);
+  setMetaTag('name', 'twitter:image:alt', socialImageAlt);
 
   // 5. Canonical Link
   updateCanonicalUrl(canonicalUrl);

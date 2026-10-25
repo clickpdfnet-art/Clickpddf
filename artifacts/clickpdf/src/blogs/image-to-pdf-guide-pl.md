@@ -5,7 +5,7 @@ translationGroup: image-to-pdf-guide
 title: "Jak konwertować obrazy JPG, PNG i WebP do PDF w przeglądarce"
 slug: "jak-konwertowac-obrazy-jpg-png-webp-do-pdf-w-przegladarce"
 seoTitle: "Konwertuj obrazy JPG, PNG i WebP do PDF | ClickPDF"
-seoDescription: "Dowiedz się, jak połączyć obrazy JPG, PNG i WebP w PDF w przeglądarce. Poznaj informacje o prywatności, układzie stron, praktycznych limitach plików i rozwiązywaniu problemów."
+seoDescription: "Połącz obrazy JPG, PNG i WebP w PDF w przeglądarce. Sprawdź wskazówki dotyczące prywatności, układu stron i limitów plików."
 seoKeywords: "konwersja obrazu do PDF, JPG do PDF, PNG do PDF, WebP do PDF, konwerter obrazów w przeglądarce"
 imageAlt: "Obrazy JPG, PNG i WebP konwertowane w przeglądarce do jednego pliku PDF"
 category: "Konwersja obrazów"

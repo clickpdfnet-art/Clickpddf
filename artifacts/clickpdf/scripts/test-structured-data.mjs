@@ -81,12 +81,18 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
 
   for (const url of urls) {
     assert.ok(url.startsWith(`${siteOrigin}/`), `production canonical host is used: ${url}`);
-    const { html } = await readHeadSchemas(url);
+    const { html, nodes } = await readHeadSchemas(url);
     const canonical = html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
     assert.equal(canonical, url, `canonical matches its static route: ${url}`);
+    const title = decodeXml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+    const description = decodeXml(html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i)?.[1] || '');
+    assert.ok(title.length > 0 && title.length <= 60, `${url} has a concise title (${title.length} characters)`);
+    assert.ok(description.length > 0 && description.length <= 160, `${url} has a concise description (${description.length} characters)`);
     const ogImage = html.match(/<meta\b[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
     const twitterImage = html.match(/<meta\b[^>]*name=["']twitter:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
-    assert.equal(ogImage, `${siteOrigin}/social/clickpdf-social-1200x630.png`);
+    const blogPosting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
+    const expectedImage = blogPosting?.image?.[0] || `${siteOrigin}/social/clickpdf-social-1200x630.png`;
+    assert.equal(ogImage, expectedImage, `${url} Open Graph image matches the page's article image or site default`);
     assert.equal(twitterImage, ogImage);
     assert.match(html, /property=["']og:image:width["']\s+content=["']1200["']/i);
     assert.match(html, /property=["']og:image:height["']\s+content=["']630["']/i);

@@ -5,7 +5,7 @@ translationGroup: image-to-pdf-guide
 title: "JPG-, PNG- und WebP-Bilder im Browser in PDF umwandeln"
 slug: "jpg-png-webp-bilder-im-browser-in-pdf-umwandeln"
 seoTitle: "JPG-, PNG- und WebP-Bilder in PDF umwandeln | ClickPDF"
-seoDescription: "Erfahren Sie, wie Sie JPG-, PNG- und WebP-Bilder im Browser zu einer PDF zusammenführen – mit Hinweisen zu Datenschutz, Seitenlayout, praktischen Dateigrenzen und Fehlerbehebung."
+seoDescription: "JPG-, PNG- und WebP-Bilder im Browser zu einer PDF zusammenführen. Hinweise zu Datenschutz, Seitenlayout und Dateigrenzen."
 seoKeywords: "Bilder in PDF umwandeln, JPG zu PDF, PNG zu PDF, WebP zu PDF, Bildkonverter im Browser"
 imageAlt: "JPG-, PNG- und WebP-Bilder werden im Browser in eine PDF umgewandelt"
 category: "Bildkonvertierung"

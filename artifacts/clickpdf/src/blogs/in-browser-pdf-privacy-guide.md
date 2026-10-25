@@ -8,6 +8,7 @@ readTime: 5 min read
 author: Asad Tariq, Security Engineer
 coverImage: https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80
 summary: Traditional web converters upload your contracts and financial statements to third-party cloud instances. Discover how browser memory execution keeps every byte of your documents strictly on your device.
+seoDescription: Learn how browser-based PDF tools process files on your device, and what data may still be sent by webpage resources.
 targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Compress PDF Tool

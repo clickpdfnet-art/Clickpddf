@@ -592,6 +592,8 @@ for (const article of articles) {
     description,
     schema,
     ogType: 'article',
+    socialImage: article.coverimage || socialImage,
+    socialImageAlt: article.imagealt || article.title,
     robots: 'index,follow',
     staticContent: renderBlogFallback(article, articles),
   });

@@ -1,6 +1,7 @@
 ---
 id: art-5
 title: Turning Scanned Paper into Searchable Text with In-Browser Character Recognition
+seoTitle: Make Scanned PDFs Searchable with OCR | ClickPDF
 slug: scanned-paper-to-searchable-text-ocr
 category: Document Workflow
 date: April 07, 2026

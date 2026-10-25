@@ -5,7 +5,7 @@ translationGroup: image-to-pdf-guide
 title: "Как преобразовать изображения JPG, PNG и WebP в PDF в браузере"
 slug: "preobrazovat-jpg-png-webp-izobrazheniya-v-pdf-v-brauzere"
 seoTitle: "Преобразование JPG, PNG и WebP в PDF | ClickPDF"
-seoDescription: "Узнайте, как объединить изображения JPG, PNG и WebP в PDF прямо в браузере. Руководство по конфиденциальности, макету страниц, практическим ограничениям и устранению ошибок."
+seoDescription: "Объединяйте изображения JPG, PNG и WebP в PDF в браузере. Советы по конфиденциальности, оформлению страниц и ограничениям файлов."
 seoKeywords: "изображения в PDF, JPG в PDF, PNG в PDF, WebP в PDF, конвертер изображений в браузере"
 imageAlt: "Изображения JPG, PNG и WebP преобразуются в один PDF в браузере"
 category: "Преобразование изображений"
