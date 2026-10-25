@@ -10,3 +10,4 @@
 - [Cloudflare custom-domain routing](cloudflare-custom-domain.md) — a www Worker route needs proxied DNS plus both DNS and Worker deployment permissions.
 - [ClickPDF localization rollout](clickpdf-localization-rollout.md) — support all 21 existing locales through manual, staged translation without adding AI translation.
 - [ClickPDF structured data](clickpdf-structured-data.md) — emit schemas only for content and canonical routes that actually exist and are visible on that page.
+- [ClickPDF Unicode routes on Cloudflare](clickpdf-cloudflare-unicode-routes.md) — deploy percent-encoded non-Latin slugs with generated ASCII HTML aliases and an automatic Worker route map.

@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { readActiveToolRegistry, readTypeScriptExport } from './static-tool-registry.mjs';
 import {
@@ -571,6 +572,7 @@ for (const fileName of blogFiles) {
   articles.push(article);
 }
 
+const unicodeRouteMap = {};
 for (const article of articles) {
   const routePath = articlePath(article);
   const url = absoluteSiteUrl(`${siteOrigin}${routePath}`);
@@ -578,22 +580,33 @@ for (const article of articles) {
   const schema = makeBlogSchema(article, url);
   const relativePath = path.join(routePath.replace(/^\/|\/$/g, ''), 'index.html');
   const outputPath = path.join(outputDir, relativePath);
+  const routeHtml = prepareRouteHtml(template, {
+    url,
+    title: article.seotitle || article.title,
+    description,
+    schema,
+    ogType: 'article',
+    robots: 'index,follow',
+    staticContent: renderBlogFallback(article, articles),
+  });
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(
-    outputPath,
-    prepareRouteHtml(template, {
-      url,
-      title: article.seotitle || article.title,
-      description,
-      schema,
-      ogType: 'article',
-      robots: 'index,follow',
-      staticContent: renderBlogFallback(article, articles),
-    }),
-    'utf8',
-  );
+  await writeFile(outputPath, routeHtml, 'utf8');
   generated.push(relativePath);
+  const decodedRoutePath = decodeURIComponent(routePath);
+  if (/[^\u0000-\u007f]/.test(decodedRoutePath)) {
+    const hashedPath = `__unicode_routes__/${createHash('sha256').update(routePath).digest('hex').slice(0, 20)}.html`;
+    const hashedOutputPath = path.join(outputDir, hashedPath);
+    await mkdir(path.dirname(hashedOutputPath), { recursive: true });
+    await writeFile(hashedOutputPath, routeHtml, 'utf8');
+    unicodeRouteMap[decodedRoutePath] = `/${hashedPath}`;
+  }
 }
+
+await writeFile(
+  path.join(outputDir, '__unicode_routes.json'),
+  JSON.stringify(unicodeRouteMap),
+  'utf8',
+);
 
 const blogIndexUrl = `${siteOrigin}/blog/`;
 const blogIndexSchema = makeBlogIndexSchema(articles, blogIndexUrl);

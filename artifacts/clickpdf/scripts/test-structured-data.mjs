@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { readActiveToolRegistry } from './static-tool-registry.mjs';
+import worker from '../cloudflare-worker.mjs';
 
 const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(appDir, 'dist', 'public');
@@ -213,4 +214,38 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   const favicon = await readFile(path.join(publicDir, 'favicon.ico'));
   assert.equal(favicon.readUInt16LE(0), 0);
   assert.equal(favicon.readUInt16LE(2), 1);
+});
+
+test('Cloudflare worker resolves percent-encoded Unicode blog routes to their own static pages', async () => {
+  const routeMap = JSON.parse(await readFile(path.join(publicDir, '__unicode_routes.json'), 'utf8'));
+  assert.ok(Object.keys(routeMap).length >= 5, 'localized non-Latin blog routes are mapped');
+
+  for (const [decodedPath, routeAssetPath] of Object.entries(routeMap)) {
+    const request = new Request(new URL(decodedPath, siteOrigin));
+    const env = {
+      ASSETS: {
+        async fetch(assetRequest) {
+          const assetUrl = new URL(assetRequest.url);
+          const relativePath = assetUrl.pathname.replace(/^\/+/, '');
+          try {
+            const body = await readFile(path.join(publicDir, relativePath));
+            return new Response(body, {
+              status: 200,
+              headers: { 'content-type': assetUrl.pathname.endsWith('.json') ? 'application/json' : 'text/html; charset=utf-8' },
+            });
+          } catch {
+            return new Response('Not found', { status: 404 });
+          }
+        },
+      },
+    };
+    const response = await worker.fetch(request, env);
+    const html = await response.text();
+    const expectedCanonical = new URL(decodedPath, siteOrigin).href;
+    assert.equal(response.status, 200, `${decodedPath} resolves`);
+    assert.match(html, new RegExp(`<link rel="canonical" href="${expectedCanonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
+    assert.match(html, /<main id="seo-static-content"/);
+    assert.doesNotMatch(html, /<h1>Stay Secure, Stay Smart<\/h1>/);
+    assert.ok(routeAssetPath.startsWith('/__unicode_routes__/'));
+  }
 });
