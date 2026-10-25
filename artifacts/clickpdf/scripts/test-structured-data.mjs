@@ -3,6 +3,7 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
+import sharp from 'sharp';
 import { readActiveToolRegistry } from './static-tool-registry.mjs';
 import worker from '../cloudflare-worker.mjs';
 
@@ -147,11 +148,14 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
       assert.match(content, /<article>/i, `${url} contains semantic article body`);
       assert.match(content, /<h2\b/i, `${url} contains semantic section headings`);
       assert.match(content, /<a href=/i, `${url} contains crawlable article links`);
-      if (content.includes('<figure>')) {
-        assert.match(content, /<img src="\/icon\.svg" alt="" aria-hidden="true"/i, `${url} displays the official logo watermark`);
-      }
       const posting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
       assert.equal(posting?.publisher?.logo?.url, `${siteOrigin}/icon-512.png`, `${url} publisher uses the official logo`);
+      const featuredImage = content.match(/<figure><img src="([^"]+)"/i)?.[1];
+      assert.match(featuredImage || '', /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/, `${url} uses a permanently watermarked featured image`);
+      assert.ok(
+        posting?.image?.some((image) => image === `${siteOrigin}${featuredImage}`),
+        `${url} structured data references its watermarked featured image`,
+      );
     }
     if (new URL(url).pathname === '/blog/') {
       assert.ok(types.has('CollectionPage'));
@@ -214,6 +218,24 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   const favicon = await readFile(path.join(publicDir, 'favicon.ico'));
   assert.equal(favicon.readUInt16LE(0), 0);
   assert.equal(favicon.readUInt16LE(2), 1);
+});
+
+test('each unique blog cover has a baked 1200x630 WebP logo-watermarked derivative', async () => {
+  const watermarkMap = JSON.parse(await readFile(path.join(appDir, 'src', 'data', 'blogWatermarkMap.json'), 'utf8'));
+  const sitemap = await readFile(path.join(publicDir, 'sitemap.xml'), 'utf8');
+  assert.ok(Object.keys(watermarkMap).length >= 9, 'all current unique covers, including the fallback, are mapped');
+
+  for (const [source, publicPath] of Object.entries(watermarkMap)) {
+    assert.ok(source.startsWith('/') || source.startsWith('https://'), `${source} is a local path or HTTPS image`);
+    assert.match(publicPath, /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/);
+    const imagePath = path.join(publicDir, publicPath.slice(1));
+    const image = await readFile(imagePath);
+    const metadata = await sharp(image).metadata();
+    assert.equal(metadata.format, 'webp', `${publicPath} is an actual WebP image`);
+    assert.equal(metadata.width, 1200, `${publicPath} width`);
+    assert.equal(metadata.height, 630, `${publicPath} height`);
+    assert.ok(sitemap.includes(`${siteOrigin}${publicPath}`), `${publicPath} appears in the image sitemap`);
+  }
 });
 
 test('Cloudflare worker resolves percent-encoded Unicode blog routes to their own static pages', async () => {

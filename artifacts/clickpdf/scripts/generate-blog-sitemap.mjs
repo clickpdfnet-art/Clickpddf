@@ -8,7 +8,10 @@ const appDir = path.resolve(scriptDir, '..');
 const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
 const llmsPath = path.join(appDir, 'public', 'llms.txt');
 const blogDir = path.join(appDir, 'src', 'blogs');
+const watermarkMapPath = path.join(appDir, 'src', 'data', 'blogWatermarkMap.json');
 const baseUrl = 'https://www.clickpdf.net';
+const defaultCoverImage = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
+const blogWatermarkMap = JSON.parse(await readFile(watermarkMapPath, 'utf8'));
 
 function getArticlePath(meta) {
   const candidate = typeof meta.routepath === 'string' ? meta.routepath.trim() : '';
@@ -78,8 +81,10 @@ for (const fileName of markdownFiles) {
   const meta = readFrontmatter(raw);
   if (!meta.slug || !meta.title) continue;
   const articlePath = getArticlePath(meta);
+  const coverSource = meta.coverimage || meta.image || defaultCoverImage;
   articles.push({
     ...meta,
+    coverimage: blogWatermarkMap[coverSource] || coverSource,
     locale: meta.locale || 'en',
     slug: meta.slug,
     url: `${baseUrl}${articlePath}`,

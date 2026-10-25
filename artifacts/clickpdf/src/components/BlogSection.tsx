@@ -435,12 +435,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       (e.currentTarget as HTMLElement).style.display = 'none';
                     }}
                   />
-                  <img
-                    src="/icon.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="pointer-events-none absolute bottom-2 right-2 z-10 h-12 w-12 object-contain drop-shadow-lg"
-                  />
                   <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/75 backdrop-blur-xs text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">
                     {post.category}
                   </div>
@@ -513,12 +507,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   src={activeArticle.coverImage}
                   alt={activeArticle.imageAlt || activeArticle.title}
                   className="w-full h-full object-cover"
-                />
-                <img
-                  src="/icon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="pointer-events-none absolute bottom-3 right-3 z-10 h-14 w-14 object-contain drop-shadow-lg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                 <button

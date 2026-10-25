@@ -145,7 +145,7 @@ export function renderToolFallback(tool, tools) {
 export function renderBlogFallback(article, articles) {
   const coverImageUrl = safeImageUrl(article.coverimage);
   const coverImage = coverImageUrl
-    ? `<figure><div style="position:relative;aspect-ratio:1200/630;overflow:hidden"><img src="${escapeHtml(coverImageUrl)}" alt="${escapeHtml(article.imagealt || article.title)}" width="1200" height="630" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover" /><img src="/icon.svg" alt="" aria-hidden="true" width="64" height="64" style="position:absolute;right:12px;bottom:12px;width:64px;height:64px;object-fit:contain;pointer-events:none" /></div><figcaption>${escapeHtml(article.imagealt || article.title)}</figcaption></figure>`
+    ? `<figure><img src="${escapeHtml(coverImageUrl)}" alt="${escapeHtml(article.imagealt || article.title)}" width="1200" height="630" loading="lazy" style="display:block;width:100%;height:auto" /><figcaption>${escapeHtml(article.imagealt || article.title)}</figcaption></figure>`
     : '';
   const metadata = `<p><span>${escapeHtml(article.author || 'ClickPDF Editorial Team')}</span>${article.date ? ` · <time>${escapeHtml(article.date)}</time>` : ''}${article.category ? ` · <span>${escapeHtml(article.category)}</span>` : ''}</p>`;
   const targetToolUrl = safeLocalPath(article.targettoolurl || article.targettoollink || article.toollink, '');

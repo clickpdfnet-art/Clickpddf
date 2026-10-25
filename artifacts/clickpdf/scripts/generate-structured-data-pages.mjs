@@ -21,6 +21,10 @@ const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
 const socialImage = `${siteOrigin}/social/clickpdf-social-1200x630.png`;
 const logoUrl = `${siteOrigin}/icon-512.png`;
+const blogWatermarkMap = JSON.parse(
+  await readFile(path.join(appDir, 'src', 'data', 'blogWatermarkMap.json'), 'utf8'),
+);
+const defaultBlogCover = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 const pageSchemaId = 'clickpdf-page-schema';
 const homeSiteSchemaId = 'clickpdf-home-site-schema';
 const homeFaqSchemaId = 'clickpdf-home-faq-schema';
@@ -569,6 +573,8 @@ for (const fileName of blogFiles) {
   const frontmatter = raw.match(/^---\r?\n[\s\S]*?\r?\n---\s*/);
   article.body = frontmatter ? raw.slice(frontmatter[0].length).trim() : raw.trim();
   article.path = articlePath(article);
+  const coverSource = article.coverimage || article.image || defaultBlogCover;
+  article.coverimage = blogWatermarkMap[coverSource] || coverSource;
   articles.push(article);
 }
 

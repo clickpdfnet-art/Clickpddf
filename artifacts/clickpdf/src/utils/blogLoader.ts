@@ -1,4 +1,8 @@
 import { BlogPost } from '../types';
+import generatedBlogWatermarks from '../data/blogWatermarkMap.json';
+
+const blogWatermarks: Record<string, string> = generatedBlogWatermarks;
+const defaultCoverImage = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 
 function normalizeArticleRoutePath(value?: string): string | undefined {
   const candidate = value?.trim();
@@ -127,6 +131,7 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
   }
 
   const targetToolCta = frontmatter['targettoolcta'] || frontmatter['toolcta'] || (targetToolTitle ? `Open ${targetToolTitle} In-Browser` : undefined);
+  const coverSource = frontmatter['coverimage'] || frontmatter['image'] || defaultCoverImage;
 
   return {
     id: frontmatter['id'] || `art-${derivedSlug}`,
@@ -136,7 +141,7 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
     date: frontmatter['date'] || 'April 2026',
     readTime: frontmatter['readtime'] || calculatedReadTime,
     author: frontmatter['author'] || 'ClickPDF Editorial Team',
-    coverImage: frontmatter['coverimage'] || frontmatter['image'] || 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    coverImage: blogWatermarks[coverSource] || coverSource,
     excerpt,
     content: bodyContent,
     targetTool: frontmatter['targettool'] || undefined,
