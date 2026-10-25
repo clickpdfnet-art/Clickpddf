@@ -13,7 +13,6 @@ import { getToolSeoInfo } from '../data/toolSeoData';
 import { PDFTool } from '../types';
 import { downloadFile } from '../utils/downloadFile';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
-import { AdsterraBanner } from './AdsterraBanner';
 import { SignaturePad } from './SignaturePad';
 import { createId } from '../utils/createId';
 import {
@@ -772,7 +771,6 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
 
   return (
     <div className="mx-auto max-w-5xl px-3 py-5 sm:px-6 sm:py-8">
-      <AdsterraBanner className="mb-4" />
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <button
           type="button"

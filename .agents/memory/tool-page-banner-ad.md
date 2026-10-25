@@ -3,10 +3,12 @@ name: Global ClickPDF tool-page banner ad
 description: Project-wide placement, privacy, and fill-detection rules for the third-party banner.
 ---
 
-Every individual tool page and the batch queue must use the reusable 320×50 AdsterraBanner immediately after the global header and before the Back button. Standard tools inherit it from ToolWorkspace; independent workspaces such as Sign PDF must include it in their own layout. Homepage, catalog, and non-tool pages must not show it.
+Show a single centered 320×50 banner directly below the global header and before the Back control on individual tool pages and the batch queue. Keep the homepage, catalog, blog, legal pages, and other non-tool views ad-free, and do not duplicate the banner during tool navigation.
 
-The single Adsterra banner is enabled by default unless the visitor explicitly rejects advertising cookies. A normal dismissal is not an opt-out. Keep the cookie notice and make rejection explicit. Reveal the slot after the provider-created banner iframe loads, without inspecting cross-origin creative contents; collapse it if no valid 320×50 provider iframe loads before timeout.
+The single Adsterra banner loads by default unless the visitor explicitly rejects advertising cookies. Dismissing the notice is not an opt-out. Keep the cookie notice visible and make rejection explicit. Keep the provider in an isolated sandbox without `allow-same-origin`; never send document contents to the ad provider.
 
-**Why:** the user requested default-on loading for the approved, active single banner, an explicit opt-out, and removal of cross-origin content inspection.
+Adsterra's supplied script does not expose a verifiable fill callback. A nested iframe load can be used only as a compatible visibility proxy; it does not prove that an actual creative filled. Collapse the slot when no frame signal arrives before timeout, and never claim verified impressions or pixel content.
 
-**How to apply:** preserve one reusable AdsterraBanner and do not mount a second route-level instance. Keep the provider script sandboxed without `allow-same-origin`, and pass only the site origin as referrer so the provider can validate the approved domain. An iframe `load` event confirms only that the frame navigated, not that an actual ad filled; do not claim verified impressions or pixel content without a provider fill signal.
+**Why:** the user requested default-on loading for the single active banner, an explicit advertising opt-out, and no cross-origin inspection of the creative.
+
+**How to apply:** preserve the shared ad placement and consent notice behavior. Keep file processing isolated from ad scripts. Use an official provider fill signal if one becomes available; otherwise describe the fallback as frame-load detection only.

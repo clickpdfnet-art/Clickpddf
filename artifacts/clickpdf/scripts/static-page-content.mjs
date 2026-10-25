@@ -31,19 +31,38 @@ markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
   return defaultImageRenderer(tokens, index, options, env, renderer);
 };
 
-for (const ruleName of ['heading_open', 'heading_close']) {
-  const defaultRule = markdown.renderer.rules[ruleName] ||
-    ((tokens, index, options, _env, renderer) => renderer.renderToken(tokens, index, options));
-  markdown.renderer.rules[ruleName] = (tokens, index, options, env, renderer) => {
-    const token = tokens[index];
-    const previousTag = token.tag;
-    const level = Number(previousTag.slice(1)) || 1;
-    token.tag = `h${Math.min(6, level)}`;
-    const rendered = defaultRule(tokens, index, options, env, renderer);
-    token.tag = previousTag;
-    return rendered;
-  };
-}
+markdown.core.ruler.push('clickpdf-blog-heading-hierarchy', (state) => {
+  let previousSourceLevel = null;
+  let previousOutputLevel = 1;
+  let activeOutputLevel = 2;
+
+  for (const token of state.tokens) {
+    if (token.type === 'heading_open') {
+      const sourceLevel = Number(token.tag.slice(1)) || 1;
+      let outputLevel = 2;
+
+      if (previousSourceLevel !== null) {
+        if (sourceLevel > previousSourceLevel) {
+          outputLevel = Math.min(6, previousOutputLevel + 1);
+        } else if (sourceLevel === previousSourceLevel) {
+          outputLevel = previousOutputLevel;
+        } else {
+          outputLevel = Math.max(
+            2,
+            previousOutputLevel - (previousSourceLevel - sourceLevel),
+          );
+        }
+      }
+
+      activeOutputLevel = outputLevel;
+      previousSourceLevel = sourceLevel;
+      previousOutputLevel = outputLevel;
+      token.tag = `h${outputLevel}`;
+    } else if (token.type === 'heading_close') {
+      token.tag = `h${activeOutputLevel}`;
+    }
+  }
+});
 
 export function escapeHtml(value = '') {
   return String(value)
@@ -210,7 +229,7 @@ export function renderBlogIndexFallback(articles) {
   }));
   return fallbackPage({
     title: 'ClickPDF Knowledge Base & Privacy Guides',
-    description: 'Practical guides about PDF tools, document privacy, and browser-based workflows.',
+    description: 'Explore ClickPDF guides on browser-based PDF tools, privacy, document processing, file formats, compression, everyday workflows, and troubleshooting.',
     content: `${linkList(articleList, 'ClickPDF guides and articles')}<p><a href="/">Browse all ClickPDF tools</a></p>`,
   });
 }
@@ -221,7 +240,7 @@ export function renderFaqFallback(faqItems) {
     .join('')}</section><p><a href="/">Browse all ClickPDF tools</a></p>`;
   return fallbackPage({
     title: 'Frequently Asked Questions',
-    description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+    description: 'Find answers about browser-based PDF processing, privacy and third-party network requests, tool capabilities, file limits, compatibility, and downloads.',
     content,
   });
 }
@@ -234,7 +253,7 @@ export function renderBatchFallback(tools) {
   }));
   return fallbackPage({
     title: 'Batch Processing Queue',
-    description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
+    description: 'Process several documents sequentially in your browser, apply a selected tool to each file, and download results individually or together as a ZIP file.',
     content: `<p>Use the batch queue to process multiple documents in the browser and download available results individually or as a ZIP. File capacity depends on the device and browser.</p>${linkList(links, 'Available PDF tools')}`,
   });
 }

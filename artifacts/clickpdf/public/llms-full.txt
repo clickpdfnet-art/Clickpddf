@@ -19,8 +19,8 @@ PDF operations may use significant browser memory and processing time, especiall
 
 ### Merge PDF Files Online — 100% Free & In-Browser
 URL: https://www.clickpdf.net/tools/merge-pdf/
-Description: Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
-Key capabilities: local browser processing of selected files; Lossless Formatting; Instant Processing; Works Completely Offline
+Description: Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and local processing of document content in the browser.
+Key capabilities: local processing of document content in the browser; Lossless Formatting; Instant Processing; Works Completely Offline
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Is there a limit on how many PDF files I can merge at once? | Are my private documents uploaded to any remote server? | Will merging PDFs degrade visual quality or break hyperlinks? | Can I reorder individual pages within the merged files?
 
@@ -34,13 +34,13 @@ Common questions: Can I extract multiple non-consecutive page ranges at once? | 
 ### Compress PDF Online — Reduce File Size 100% In-Browser
 URL: https://www.clickpdf.net/tools/compress-pdf/
 Description: Reduce PDF file size online while preserving readability. Free, client-side compression processes selected files locally in your browser.
-Key capabilities: Real-time Size Savings; selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers Delay; High Visual Clarity; Strict Confidentiality
+Key capabilities: Real-time Size Savings; local processing of document content in the browser Delay; High Visual Clarity; Strict Confidentiality
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Will compressing my PDF make the text blurry or unreadable? | Can I batch compress multiple PDFs together? | Why is client-side compression faster than cloud compressors?
 
 ### Convert Images to PDF Online — JPG, PNG & WebP to PDF
 URL: https://www.clickpdf.net/tools/image-to-pdf/
-Description: Convert JPG, PNG, and WebP images to high-resolution PDF documents online for free. Fast, in-browser conversion with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers and custom orientation.
+Description: Convert JPG, PNG, and WebP images to high-resolution PDF files online for free. Fast in-browser conversion with local processing and custom page orientation.
 Key capabilities: Multi-Image Stitching; Orientation Control; No Mobile Data Waste; Instant Processing
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Can I combine multiple pictures into a single multi-page PDF? | What image file formats are supported? | Does the converter reduce photo resolution or compress colors?
@@ -61,35 +61,35 @@ Common questions: Is this rotation permanent or just a temporary view zoom? | Ca
 
 ### Watermark PDF Online — Add Confidential & Custom Marks Free
 URL: https://www.clickpdf.net/tools/watermark-pdf/
-Description: Add custom text watermarks to your PDF documents online for free. Adjust text, opacity, angle, and position in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Add custom text watermarks to your PDF documents online for free. Adjust text, opacity, angle, and position in your browser with document content processed locally in the browser.
 Key capabilities: Full Opacity & Angle Tuning; Vector-Sharp Typography; Zero Cloud Storage; Instant Live Preview
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Can the watermark be easily erased by recipients? | Can I watermark only specific pages? | Can I customize the opacity so the text underneath remains readable?
 
 ### Add Page Numbers to PDF Online — Free In-Browser Pagination
 URL: https://www.clickpdf.net/tools/page-numbers-pdf/
-Description: Insert dynamic page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Clean, client-side pagination with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Insert dynamic page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Clean, client-side pagination with document content processed locally in the browser.
 Key capabilities: Flexible Positions; Custom Formats; Cover Page Exclusion; Client-Side Speed
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Can I skip numbering on the cover page? | Can I start numbering at a custom number like page 25? | Does this overwrite existing footer text?
 
 ### Organize PDF Pages Online — Reorder, Rotate & Delete Pages
 URL: https://www.clickpdf.net/tools/organize-pdf/
-Description: Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with document content processed locally in the browser.
 Key capabilities: Intuitive Drag & Drop; One-Click Page Deletion; Local Rendering; Enterprise Privacy
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Can I delete multiple pages at once? | Can I undo accidental page deletions or moves? | Does organizing pages break document bookmarks?
 
 ### Edit PDF Metadata Online — Modify Author, Title & Properties
 URL: https://www.clickpdf.net/tools/edit-pdf-metadata/
-Description: Inspect, edit, or wipe PDF document properties like Title, Author, Subject, and Producer online for free. 100% in-browser editing with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Inspect, edit, or wipe PDF document properties like Title, Author, Subject, and Producer online for free. 100% in-browser editing with document content processed locally in the browser.
 Key capabilities: Complete Metadata Inspection; One-Click Anonymization; SEO Keyword Stamping; Instant In-Browser Save
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Why should I wipe metadata before sending a PDF? | Does changing the author modify the visual contents of the pages? | Can I add SEO keywords to my PDF document?
 
 ### In-Browser PDF OCR, Page Counter & Text Analysis
 URL: https://www.clickpdf.net/tools/ocr-pdf-analysis/
-Description: Extract text from scanned PDF images using in-browser Tesseract.js OCR, count pages, and inspect document dimensions 100% locally with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Extract text from scanned PDF images using in-browser Tesseract.js OCR, count pages, and inspect document dimensions 100% locally with document content processed locally in the browser.
 Key capabilities: Zero Cloud AI Costs; Local WebAssembly Engine; Comprehensive Diagnostics; One-Click Text Copy
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Does this OCR send my images to cloud AI servers like OpenAI or Google? | What scanning resolution produces the best OCR results? | Can I inspect page dimensions and PDF version details?
@@ -103,7 +103,7 @@ Common questions: Does ClickPDF store or remember my password? | What encryption
 
 ### Unlock PDF Online — Decrypt Password-Protected Documents Free
 URL: https://www.clickpdf.net/tools/unlock-pdf-password/
-Description: Unlock and decrypt password-protected PDF files online for free. Fast, client-side Web Crypto decryption in your browser with selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Unlock and decrypt password-protected PDF files online for free. Fast, client-side Web Crypto decryption in your browser with document content processed locally in the browser.
 Key capabilities: 100% In-Browser Decryption; Preserves File Integrity; Instant Unlock; Cross-Device Compatible
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Is my password sent to any remote server for verification? | What if I forgot my password? | Can I unlock standard Adobe Acrobat encrypted PDFs?
@@ -118,7 +118,7 @@ Common questions: Can this extract text from scanned paper documents? | Does tex
 ### PDF to Word (DOCX) Converter — 100% Free & In-Browser
 URL: https://www.clickpdf.net/tools/pdf-to-word/
 Description: Convert PDFs to editable Word (.docx) with browser-based text extraction for headings and formatting. Selected files are processed locally.
-Key capabilities: Real Editable Text; local browser processing of selected files & Local; Universal Compatibility; Batch Queue Processing
+Key capabilities: Real Editable Text; processed locally in the browser & Local; Universal Compatibility; Batch Queue Processing
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Does this tool extract real text or just image screenshots? | Is my document uploaded to any remote server or AI cloud? | Can I open and edit the output in Microsoft Word and Google Docs? | Can I convert multiple PDF documents to Word in bulk? | What happens if my PDF is a flat scanned image with no text?
 
@@ -139,20 +139,20 @@ Common questions: Are the generated slides editable in Microsoft PowerPoint? | W
 ### Word to PDF Converter Online — Free DOCX to PDF In-Browser
 URL: https://www.clickpdf.net/tools/word-to-pdf/
 Description: Convert Word (.docx) documents to readable, high-resolution PDF pages in your browser. Tables, lists, and embedded images are supported locally.
-Key capabilities: No Office License Required; High-Resolution Output; local browser processing of selected files; Batch Queue Ready
+Key capabilities: No Office License Required; High-Resolution Output; local processing of document content in the browser; Batch Queue Ready
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Does Word to PDF conversion require Microsoft Office installed? | What Word document formats are accepted? | Will formatting and paragraphs be preserved? | Are my resumes and private contracts kept private? | Can I convert multiple Word files to PDF simultaneously?
 
 ### Word to Excel Converter — Extract DOCX Tables to XLSX
 URL: https://www.clickpdf.net/tools/word-to-excel/
-Description: Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; local processing of document content in the browser.
 Key capabilities: Separate Worksheets; Text Worksheet; Local Processing; Multiple Documents
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: Which Word file formats can I convert? | How are tables and paragraphs organized in Excel? | Does the workbook preserve the original Word page layout? | Can I convert multiple Word documents?
 
 ### Excel to PDF Converter Online — Paginated Tables Free
 URL: https://www.clickpdf.net/tools/excel-to-pdf/
-Description: Convert Excel spreadsheets (.xlsx, .xls, .csv) to styled landscape PDF tables online 100% free. Auto-fit columns, zebra stripes, and selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers.
+Description: Convert Excel spreadsheets (.xlsx, .xls, .csv) to styled landscape PDF tables online 100% free. Auto-fit columns, zebra stripes, and local processing of document content in the browser.
 Key capabilities: Professional Table Styling; Automatic Multi-Page Overflow; 100% In-Browser Privacy; Auto-Fit Column Widths
 Typical workflow: [object Object] → [object Object] → [object Object]
 Common questions: How does ClickPDF handle wide spreadsheets with many columns? | What happens if a table has hundreds of rows? | Which spreadsheet formats can I convert? | Are proprietary accounting numbers uploaded to the internet? | Can I convert multiple spreadsheet files at the same time?
@@ -203,12 +203,12 @@ Common questions: Does this create a verified or certificate-backed digital sign
 - [Frequently asked questions](https://www.clickpdf.net/faq/)
 - [Batch processing queue](https://www.clickpdf.net/batch/)
 - [Blog and guides](https://www.clickpdf.net/blog/)
-- [About ClickPDF](https://www.clickpdf.net/about/): Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools available on the site.
-- [Contact ClickPDF](https://www.clickpdf.net/contact/): Contact ClickPDF support about technical issues, feedback, privacy questions, or business inquiries.
+- [About ClickPDF](https://www.clickpdf.net/about/): Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools and support available on this site.
+- [Contact ClickPDF](https://www.clickpdf.net/contact/): Contact ClickPDF support for technical issues, feedback, privacy questions, or business inquiries about our browser-based PDF tools.
 - [Privacy Policy](https://www.clickpdf.net/privacy-policy/): Learn how ClickPDF processes PDF files in the browser, handles local preferences, and works with advertising and other website services.
-- [Terms of Service](https://www.clickpdf.net/terms-of-service/): Review ClickPDF's permitted uses, user responsibilities, intellectual property, and service availability.
-- [Cookies Policy](https://www.clickpdf.net/cookies/): See how ClickPDF uses browser storage and third-party advertising cookies, plus ways to manage cookie preferences.
-- [Disclaimer](https://www.clickpdf.net/disclaimer/): Read limitations on ClickPDF information, PDF processing results, warranties, compatibility, and service availability.
+- [Terms of Service](https://www.clickpdf.net/terms-of-service/): Review ClickPDF's terms for permitted use, user responsibilities, intellectual property, service availability, and limits of browser-based PDF tools.
+- [Cookies Policy](https://www.clickpdf.net/cookies/): See how ClickPDF uses browser storage and third-party advertising cookies, and learn how to manage your consent and cookie preferences.
+- [Disclaimer](https://www.clickpdf.net/disclaimer/): Read limitations on ClickPDF information and processing results, including warranties, browser compatibility, file limits, and service availability.
 
 ## Machine-readable indexes
 

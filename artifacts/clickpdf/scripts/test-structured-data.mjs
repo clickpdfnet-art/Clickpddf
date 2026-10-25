@@ -86,9 +86,20 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     const canonical = html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
     assert.equal(canonical, url, `canonical matches its static route: ${url}`);
     const title = decodeXml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
-    const description = decodeXml(html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i)?.[1] || '');
-    assert.ok(title.length > 0 && title.length <= 60, `${url} has a concise title (${title.length} characters)`);
-    assert.ok(description.length > 0 && description.length <= 160, `${url} has a concise description (${description.length} characters)`);
+    const descriptionTag = html.match(
+      /<meta\b(?=[^>]*\bname=["']description["'])[^>]*>/i,
+    )?.[0] || '';
+    const description = decodeXml(
+      descriptionTag.match(/\bcontent=(["'])([\s\S]*?)\1/i)?.[2] || '',
+    );
+    assert.ok(
+      Array.from(title).length >= 30 && Array.from(title).length <= 60,
+      `${url} has a 30–60 character title (${Array.from(title).length})`,
+    );
+    assert.ok(
+      Array.from(description).length >= 120 && Array.from(description).length <= 158,
+      `${url} has a 120–158 character description (${Array.from(description).length})`,
+    );
     const ogImage = html.match(/<meta\b[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
     const twitterImage = html.match(/<meta\b[^>]*name=["']twitter:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
     const blogPosting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
@@ -169,6 +180,11 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
   for (const url of toolUrls) {
     const { html, nodes } = await readHeadSchemas(url);
     const content = staticMain(html, url);
+    assert.doesNotMatch(
+      content,
+      /href=["']\/tools\/(?:protect-pdf|pdf-metadata)(?:\/|["'?#])/i,
+      `${url} does not publish stale Protect PDF or metadata routes`,
+    );
     const types = schemaTypes(nodes);
     for (const required of ['SoftwareApplication', 'WebApplication', 'HowTo', 'FAQPage', 'BreadcrumbList']) {
       assert.ok(types.has(required), `${url} schema includes ${required}`);
@@ -385,4 +401,112 @@ test('Cloudflare worker resolves percent-encoded Unicode blog routes to their ow
     assert.doesNotMatch(html, /<h1>Stay Secure, Stay Smart<\/h1>/);
     assert.ok(routeAssetPath.startsWith('/__unicode_routes__/'));
   }
+});
+
+test('all 60 public routes keep localized heads, verified article metadata, headings, and image dimensions', async () => {
+  assert.equal(urls.length, 60, 'sitemap contains the expected 21 tools, 29 blog posts, and 10 other pages');
+
+  const expectedPersonAuthors = new Set(['Sarah Jenkins', 'Khurram Shah', 'Asad Tariq']);
+  let articleCount = 0;
+  for (const url of urls) {
+    const { html, nodes } = await readHeadSchemas(url);
+    const posting = nodes.find((node) =>
+      Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'),
+    );
+    if (!posting) continue;
+    articleCount += 1;
+
+    assert.ok(posting.datePublished, `${url} has datePublished`);
+    assert.ok(posting.dateModified, `${url} has dateModified`);
+    assert.ok(
+      new Date(posting.dateModified).getTime() >= new Date(posting.datePublished).getTime(),
+      `${url} modification date does not precede publication`,
+    );
+    const language = posting.inLanguage || 'en';
+    assert.match(html, new RegExp(`<html\\b[^>]*\\blang=["']${language}["']`, 'i'), `${url} root language matches its article`);
+
+    const content = staticMain(html, url);
+    const headingLevels = [...content.matchAll(/<h([1-6])\b/gi)].map((match) => Number(match[1]));
+    assert.equal(headingLevels.filter((level) => level === 1).length, 1, `${url} has one H1`);
+    for (let index = 1; index < headingLevels.length; index += 1) {
+      assert.ok(
+        headingLevels[index] <= headingLevels[index - 1] + 1,
+        `${url} heading hierarchy does not skip from H${headingLevels[index - 1]} to H${headingLevels[index]}`,
+      );
+    }
+
+    for (const imageTag of content.matchAll(/<img\b[^>]*>/gi)) {
+      assert.match(imageTag[0], /\bwidth=["']\d+["']/i, `${url} image has intrinsic width`);
+      assert.match(imageTag[0], /\bheight=["']\d+["']/i, `${url} image has intrinsic height`);
+    }
+
+    const authorName = posting.author?.name || '';
+    const expectedAuthorType = expectedPersonAuthors.has(authorName) ? 'Person' : 'Organization';
+    assert.equal(posting.author?.['@type'], expectedAuthorType, `${url} author type reflects a person or publishing organization`);
+  }
+  assert.equal(articleCount, 29, 'all 29 article pages have BlogPosting schema');
+
+  const home = staticMain((await readHeadSchemas(`${siteOrigin}/`)).html, `${siteOrigin}/`);
+  const footerSource = await readFile(path.join(appDir, 'src', 'components', 'Footer.tsx'), 'utf8');
+  const blogSectionSource = await readFile(
+    path.join(appDir, 'src', 'components', 'BlogSection.tsx'),
+    'utf8',
+  );
+  for (const page of legalPages) {
+    assert.ok(home.includes(`href="${page.path}"`), `homepage raw HTML links to ${page.path}`);
+    assert.ok(
+      footerSource.includes(`buildAppPath('${page.path}')`),
+      `website footer has a canonical anchor to ${page.path}`,
+    );
+  }
+  assert.match(footerSource, /handleLegalLink\(event,\s*'(?:about|contact|cookies|privacy|terms)'\)/);
+  assert.match(footerSource, /event\.preventDefault\(\);\s*onOpenLegal\(tab\)/);
+  assert.match(blogSectionSource, /toolUrl = '\/tools\/protect-pdf-password\/'/);
+  assert.match(blogSectionSource, /toolUrl = '\/tools\/ocr-pdf-analysis\/'/);
+  assert.doesNotMatch(blogSectionSource, /toolUrl = '\/tools\/(?:protect-pdf|pdf-metadata)(?:\/|')/);
+
+  const llms = await readFile(path.join(publicDir, 'llms.txt'), 'utf8');
+  const llmsFull = await readFile(path.join(publicDir, 'llms-full.txt'), 'utf8');
+  assert.doesNotMatch(
+    `${llms}\n${llmsFull}`,
+    /selected files are processed locally in the browser instead of being uploaded/i,
+    'machine-readable descriptions do not contain the previous awkward replacement phrase',
+  );
+});
+
+test('legacy tool links redirect to canonical tools and unknown tool paths return a true 404', async () => {
+  const env = {
+    ASSETS: {
+      async fetch(assetRequest) {
+        const path = new URL(assetRequest.url).pathname;
+        const canonicalPath = path === '/tools/merge-pdf/'
+          ? '/tools/merge-pdf/'
+          : '/';
+        return new Response(
+          `<html><head><link rel="canonical" href="${siteOrigin}${canonicalPath}" /></head></html>`,
+          { headers: { 'content-type': 'text/html; charset=utf-8' } },
+        );
+      },
+    },
+  };
+
+  const known = await worker.fetch(new Request(`${siteOrigin}/tools/merge-pdf/`), env);
+  assert.equal(known.status, 200, 'valid tool route continues to its static page');
+
+  const unknown = await worker.fetch(new Request(`${siteOrigin}/tools/not-a-real-tool/`), env);
+  assert.equal(unknown.status, 404, 'SPA fallback is not served as a false tool page');
+  assert.match(unknown.headers.get('content-type') || '', /text\/plain/i);
+  assert.match(unknown.headers.get('x-robots-tag') || '', /noindex/i);
+
+  const oldProtectRoute = await worker.fetch(new Request(`${siteOrigin}/tools/protect-pdf/`), env);
+  assert.equal(oldProtectRoute.status, 301);
+  assert.equal(oldProtectRoute.headers.get('location'), `${siteOrigin}/tools/protect-pdf-password/`);
+
+  const oldMetadataRoute = await worker.fetch(new Request(`${siteOrigin}/tools/pdf-metadata/`), env);
+  assert.equal(oldMetadataRoute.status, 301);
+  assert.equal(oldMetadataRoute.headers.get('location'), `${siteOrigin}/tools/edit-pdf-metadata/`);
+
+  const slashless = await worker.fetch(new Request(`${siteOrigin}/tools/merge-pdf`), env);
+  assert.equal(slashless.status, 301);
+  assert.equal(slashless.headers.get('location'), `${siteOrigin}/tools/merge-pdf/`);
 });

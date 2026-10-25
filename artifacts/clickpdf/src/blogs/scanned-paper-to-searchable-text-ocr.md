@@ -11,7 +11,7 @@ author: ClickPDF Research Group
 coverImage: https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80
 summary: Unlock static scans, receipts, and historical records with browser-based optical character recognition that transforms flat images into live, copyable text.
 targetTool: metadata
-targetToolUrl: /tools/pdf-metadata
+targetToolUrl: /tools/ocr-pdf-analysis/
 targetToolTitle: Inspect & Metadata Tool
 targetToolCta: Inspect & Extract Searchable Text from Scanned PDFs
 ---

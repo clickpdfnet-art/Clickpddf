@@ -9,6 +9,7 @@ import { FAQ_DATA } from './data/faqData';
 import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
 
 import { Header } from './components/Header';
+import { AdsterraBanner } from './components/AdsterraBanner';
 import { MobileDrawer } from './components/MobileDrawer';
 import { ToolGrid } from './components/ToolGrid';
 import { ToolWorkspace } from './components/ToolWorkspace';
@@ -697,6 +698,9 @@ function AppContent() {
 
       {/* Main Viewport Content */}
       <main className="flex-1">
+        {((activeView === 'tool' && Boolean(selectedTool)) || activeView === 'batch') && (
+          <AdsterraBanner className="mb-4" />
+        )}
         {activeView === 'tool' && selectedTool ? (
           <ErrorBoundary fallbackTitle="PDF Workspace Protected" onReset={handleBackToHome}>
             {selectedTool.id === 'sign' ? (

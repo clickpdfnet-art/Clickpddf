@@ -98,10 +98,10 @@ try {
       hasHeader: Boolean(document.querySelector('header'))
     };
   })()`);
-  assert.equal(initialState.state, 'consent-required');
+  assert.equal(initialState.state, 'loading');
   assert.equal(initialState.display, 'none');
   assert.equal(initialState.height, 0);
-  assert.equal(initialState.iframes, 0, 'no provider request should be made before cookie consent');
+  assert.equal(initialState.iframes, 1, 'the banner loads by default while the cookie notice remains available');
   assert.equal(initialState.hasHeader, true, 'global header should be present');
   assert.equal(await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
@@ -119,7 +119,7 @@ try {
       frameCount: ad?.querySelectorAll('iframe').length,
       sandbox: frame?.getAttribute('sandbox'),
       referrerPolicy: frame?.getAttribute('referrerpolicy'),
-      exactProviderTag: frame?.getAttribute('srcdoc')?.includes('<script src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>'),
+      exactProviderTag: frame?.getAttribute('srcdoc')?.includes('src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"'),
       isIsolated: frame?.hasAttribute('sandbox') && !frame.getAttribute('sandbox').includes('allow-same-origin')
     };
   })()`);
@@ -187,7 +187,7 @@ try {
     return { display: getComputedStyle(ad).display, width: ad.getBoundingClientRect().width, height: ad.getBoundingClientRect().height, iframes: ad.querySelectorAll('iframe').length };
   })()`);
   assert.deepEqual(noFill, { display: 'none', width: 0, height: 0, iframes: 0 }, 'no-fill must remove the full wrapper and its reserved space');
-  console.log('PASS: home has no ad; Merge and Sign share one isolated, consent-gated slot; a simulated provider fill signal shows at 320×50 and scales on 280px mobile; empty provider response returns to display:none with zero height. Real provider fill was not available to verify.');
+  console.log('PASS: home has no ad; tool views share one isolated slot that loads by default; a simulated frame signal shows at 320×50 and scales on 280px mobile; empty provider response returns to display:none with zero height. Real provider fill was not available to verify.');
 } finally {
   if (socket?.readyState === WebSocket.OPEN) socket.close();
   if (browser) {

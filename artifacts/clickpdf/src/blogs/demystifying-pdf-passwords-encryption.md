@@ -11,7 +11,7 @@ authorType: Person
 coverImage: https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80
 summary: Understand how AES-256 client-side cryptography protects confidential financial and legal files without relying on server-side master keys.
 targetTool: protect
-targetToolUrl: /tools/protect-pdf
+targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 Protect PDF Tool
 targetToolCta: Password-Protect PDF with Zero-Knowledge Encryption
 ---

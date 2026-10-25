@@ -145,7 +145,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         ctaText = 'Stamp Confidential Watermarks on Your PDFs';
       } else if (textCorpus.includes('encrypt') || textCorpus.includes('password') || textCorpus.includes('protect')) {
         toolId = 'protect';
-        toolUrl = '/tools/protect-pdf';
+        toolUrl = '/tools/protect-pdf-password/';
         toolTitle = 'AES-256 PDF Protect Tool';
         ctaText = 'Password-Protect PDF with Zero-Knowledge';
       } else if (textCorpus.includes('photo') || textCorpus.includes('image') || textCorpus.includes('portfolio')) {
@@ -154,9 +154,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         toolTitle = 'Image to PDF Converter';
         ctaText = 'Convert Images & Photos to PDF Portfolios';
       } else if (textCorpus.includes('ocr') || textCorpus.includes('scanned') || textCorpus.includes('character recognition')) {
-        toolId = 'metadata';
-        toolUrl = '/tools/pdf-metadata';
-        toolTitle = 'Inspect & OCR Tool';
+        const ocrToolSeo = getToolSeoInfo('ocr-pdf-analysis');
+        toolId = ocrToolSeo?.toolId || 'ocr';
+        toolUrl = '/tools/ocr-pdf-analysis/';
+        toolTitle = ocrToolSeo?.h1Title || 'PDF OCR Analysis';
         ctaText = 'Inspect & Extract Text from Scanned PDFs';
       } else {
         toolId = 'compress';
