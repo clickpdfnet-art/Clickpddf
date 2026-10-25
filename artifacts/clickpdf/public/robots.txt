@@ -4,9 +4,12 @@ Allow: /
 Allow: /tools/*
 Allow: /blog/*
 Allow: /blog
+Allow: /faq/
+Allow: /batch/
 Allow: /?tool=*
 Allow: /?view=*
 Allow: /?article=*
 
-# Dynamic XML Sitemap
+# XML sitemap and AI-readable site guide
 Sitemap: https://www.clickpdf.net/sitemap.xml
+# https://www.clickpdf.net/llms.txt

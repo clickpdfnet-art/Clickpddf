@@ -2,6 +2,14 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readActiveToolRegistry, readTypeScriptExport } from './static-tool-registry.mjs';
+import {
+  renderBatchFallback,
+  renderBlogFallback,
+  renderBlogIndexFallback,
+  renderFaqFallback,
+  renderHomeFallback,
+  renderToolFallback,
+} from './static-page-content.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
@@ -10,6 +18,7 @@ const sitemapPath = path.join(outputDir, 'sitemap.xml');
 const faqDataPath = path.join(appDir, 'src', 'data', 'faqData.ts');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
+const socialImage = `${siteOrigin}/social/clickpdf-social-1200x630.png`;
 const pageSchemaId = 'clickpdf-page-schema';
 const homeSiteSchemaId = 'clickpdf-home-site-schema';
 const homeFaqSchemaId = 'clickpdf-home-faq-schema';
@@ -457,9 +466,11 @@ function prepareRouteHtml(template, {
   title,
   description,
   schema,
+  schemaId = pageSchemaId,
+  staticContent = '',
   ogType = 'website',
-  socialImage,
-  socialImageAlt,
+  socialImage: pageSocialImage = socialImage,
+  socialImageAlt = 'ClickPDF — PDF tools in your browser',
   robots,
 }) {
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -471,17 +482,17 @@ function prepareRouteHtml(template, {
   html = setMeta(html, 'property="og:url"', url);
   html = setMeta(html, 'property="og:type"', ogType);
   if (robots) html = setMeta(html, 'name="robots"', robots);
-  if (socialImage) {
-    const absoluteImage = new URL(socialImage, siteOrigin).toString();
-    html = setMeta(html, 'property="og:site_name"', 'ClickPDF');
-    html = setMeta(html, 'property="og:image"', absoluteImage);
-    html = setMeta(html, 'property="og:image:alt"', socialImageAlt || title);
-    html = setMeta(html, 'name="twitter:card"', 'summary_large_image');
-    html = setMeta(html, 'name="twitter:title"', title);
-    html = setMeta(html, 'name="twitter:description"', description);
-    html = setMeta(html, 'name="twitter:image"', absoluteImage);
-    html = setMeta(html, 'name="twitter:image:alt"', socialImageAlt || title);
-  }
+  const absoluteImage = new URL(pageSocialImage, siteOrigin).toString();
+  html = setMeta(html, 'property="og:site_name"', 'ClickPDF');
+  html = setMeta(html, 'property="og:image"', absoluteImage);
+  html = setMeta(html, 'property="og:image:alt"', socialImageAlt || title);
+  html = setMeta(html, 'property="og:image:width"', '1200');
+  html = setMeta(html, 'property="og:image:height"', '630');
+  html = setMeta(html, 'name="twitter:card"', 'summary_large_image');
+  html = setMeta(html, 'name="twitter:title"', title);
+  html = setMeta(html, 'name="twitter:description"', description);
+  html = setMeta(html, 'name="twitter:image"', absoluteImage);
+  html = setMeta(html, 'name="twitter:image:alt"', socialImageAlt || title);
 
   const canonicalPattern = /<link\b[^>]*rel=["']canonical["'][^>]*>/i;
   const canonical = `<link rel="canonical" href="${url}" />`;
@@ -489,14 +500,17 @@ function prepareRouteHtml(template, {
     ? html.replace(canonicalPattern, canonical)
     : html.replace('</head>', `    ${canonical}\n  </head>`);
 
-  return setJsonLdScript(html, pageSchemaId, schema);
+  html = setJsonLdScript(html, schemaId, schema);
+  if (staticContent) {
+    html = html.replace('</body>', `${staticContent}\n  </body>`);
+  }
+  return html;
 }
 
 const template = await readFile(path.join(outputDir, 'index.html'), 'utf8');
 const sitemap = await readFile(sitemapPath, 'utf8');
-const toolSeoRegistry = new Map(
-  (await readActiveToolRegistry(appDir)).map((tool) => [tool.slug, tool]),
-);
+const activeTools = await readActiveToolRegistry(appDir);
+const toolSeoRegistry = new Map(activeTools.map((tool) => [tool.slug, tool]));
 const faqData = await readTypeScriptExport(faqDataPath, 'FAQ_DATA');
 const generated = [];
 const sitemapUrls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)].map((match) =>
@@ -520,7 +534,13 @@ for (const absoluteUrl of sitemapUrls) {
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(
     outputPath,
-    prepareRouteHtml(template, { url: absoluteUrl, title, description, schema }),
+    prepareRouteHtml(template, {
+      url: absoluteUrl,
+      title,
+      description,
+      schema,
+      staticContent: renderToolFallback(tool, activeTools),
+    }),
     'utf8',
   );
   generated.push(relativePath);
@@ -530,8 +550,12 @@ for (const absoluteUrl of sitemapUrls) {
 const blogFiles = (await readdir(blogDir)).filter((name) => name.endsWith('.md')).sort();
 const articles = [];
 for (const fileName of blogFiles) {
-  const article = readFrontmatter(await readFile(path.join(blogDir, fileName), 'utf8'));
+  const raw = await readFile(path.join(blogDir, fileName), 'utf8');
+  const article = readFrontmatter(raw);
   if (!article.slug || !article.title) continue;
+  const frontmatter = raw.match(/^---\r?\n[\s\S]*?\r?\n---\s*/);
+  article.body = frontmatter ? raw.slice(frontmatter[0].length).trim() : raw.trim();
+  article.path = articlePath(article);
   articles.push(article);
 }
 
@@ -551,9 +575,8 @@ for (const article of articles) {
       description,
       schema,
       ogType: 'article',
-      socialImage: article.coverimage,
-      socialImageAlt: article.imagealt,
       robots: 'index,follow',
+      staticContent: renderBlogFallback(article, articles),
     }),
     'utf8',
   );
@@ -572,6 +595,7 @@ await writeFile(
     description: 'Practical guides about PDF tools, document privacy, and browser-based workflows.',
     schema: blogIndexSchema,
     robots: 'index,follow',
+    staticContent: renderBlogIndexFallback(articles),
   }),
   'utf8',
 );
@@ -591,6 +615,7 @@ await writeFile(
     description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
     schema: makeFaqRouteSchema(faqItems, faqUrl),
     robots: 'index,follow',
+    staticContent: renderFaqFallback(faqItems),
   }),
   'utf8',
 );
@@ -607,14 +632,22 @@ await writeFile(
     description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
     schema: makeBatchRouteSchema(batchUrl),
     robots: 'index,follow',
+    staticContent: renderBatchFallback(activeTools),
   }),
   'utf8',
 );
 generated.push('batch/index.html');
 
 const homeIndexPath = path.join(outputDir, 'index.html');
-let homeHtml = removeJsonLdScripts(template, [pageSchemaId, homeFaqSchemaId]);
-homeHtml = setJsonLdScript(homeHtml, homeSiteSchemaId, makeHomepageSchema(toolPages));
+const homeTemplate = removeJsonLdScripts(template, [pageSchemaId, homeFaqSchemaId]);
+const homeHtml = prepareRouteHtml(homeTemplate, {
+  url: `${siteOrigin}/`,
+  title: 'ClickPDF — Free In-Browser PDF Tools',
+  description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and organizing documents.',
+  schema: makeHomepageSchema(toolPages),
+  schemaId: homeSiteSchemaId,
+  staticContent: renderHomeFallback(activeTools, articles),
+});
 await writeFile(homeIndexPath, homeHtml, 'utf8');
 
 if (!faqItems.length) throw new Error('FAQ_DATA contains no usable question and answer pairs');

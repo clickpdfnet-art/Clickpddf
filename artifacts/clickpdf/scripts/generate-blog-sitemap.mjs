@@ -6,6 +6,7 @@ import { readActiveToolRegistry } from './static-tool-registry.mjs';
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const sitemapPath = path.join(appDir, 'public', 'sitemap.xml');
+const llmsPath = path.join(appDir, 'public', 'llms.txt');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const baseUrl = 'https://www.clickpdf.net';
 
@@ -62,6 +63,14 @@ function xmlDate(value) {
   return Number.isNaN(date.getTime()) ? new Date().toISOString().slice(0, 10) : date.toISOString().slice(0, 10);
 }
 
+function plainText(value = '') {
+  return String(value).replace(/\s+/g, ' ').trim();
+}
+
+function markdownLabel(value = '') {
+  return plainText(value).replace(/([\\[\]])/g, '\\$1');
+}
+
 const markdownFiles = (await readdir(blogDir)).filter((name) => name.endsWith('.md'));
 const articles = [];
 for (const fileName of markdownFiles) {
@@ -76,6 +85,38 @@ for (const fileName of markdownFiles) {
     url: `${baseUrl}${articlePath}`,
   });
 }
+
+const activeTools = await readActiveToolRegistry(appDir);
+const llms = [
+  '# ClickPDF',
+  '',
+  '> A browser-based PDF toolkit by Click Digital Services.',
+  '',
+  '## Overview',
+  '',
+  'ClickPDF provides tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. PDF file processing is performed in the browser for supported tools; the website may still load page resources and enabled third-party services. Device and browser limits apply.',
+  '',
+  '## PDF tools',
+  '',
+  ...activeTools.map((tool) =>
+    `- [${markdownLabel(tool.name)}](${baseUrl}/tools/${encodeURIComponent(tool.slug)}/): ${plainText(tool.description)}`,
+  ),
+  '',
+  '## Guides and articles',
+  '',
+  ...articles.map((article) =>
+    `- [${markdownLabel(article.title)}](${article.url}): ${plainText(article.summary || article.seodescription || article.excerpt || article.title)}`,
+  ),
+  '',
+  '## Other pages',
+  '',
+  `- [Frequently asked questions](${baseUrl}/faq/)`,
+  `- [Batch processing queue](${baseUrl}/batch/)`,
+  `- [All guides](${baseUrl}/blog/)`,
+  `- [XML sitemap](${baseUrl}/sitemap.xml)`,
+  '',
+].join('\n');
+await writeFile(llmsPath, llms, 'utf8');
 
 const groups = new Map();
 for (const article of articles) {
@@ -109,7 +150,7 @@ const blogUrlBlocks = articles.map((article) => {
   return `  <url>\n    <loc>${escapeXml(article.url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imageXml}${alternateXml}${defaultXml}\n  </url>`;
 });
 
-const toolUrlBlocks = (await readActiveToolRegistry(appDir)).map((tool) => {
+const toolUrlBlocks = activeTools.map((tool) => {
   const route = `/tools/${encodeURIComponent(tool.slug)}/`;
   return `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
 });

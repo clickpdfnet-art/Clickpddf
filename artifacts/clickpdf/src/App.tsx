@@ -151,6 +151,11 @@ function makeBlogIndexJsonLd(posts: BlogPost[]): Record<string, unknown> {
 
 function AppContent() {
   const { getToolTitle, getToolDescription, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    document.getElementById('seo-static-content')?.remove();
+  }, []);
+
   const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq'>('home');
   const [selectedTool, setSelectedTool] = useState<PDFTool | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory>('all');

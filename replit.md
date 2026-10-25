@@ -33,6 +33,17 @@ ClickPDF is a privacy-focused browser PDF toolkit for editing, converting, organ
 
 - PDF operations are client-side; user documents should not be sent to a server.
 
+## SEO & Static Route Contract
+
+- The public tool set comes from `BASE_PDF_TOOLS` after `HIDDEN_TOOL_IDS` filtering; tool SEO, canonical slugs, steps, FAQs, benefits, and related-tool links belong in `TOOL_SEO_REGISTRY`. Keep backup/hidden tools out of public cards, search, sitemap, `llms.txt`, and schema.
+- Blog routes are generated from Markdown files in `artifacts/clickpdf/src/blogs/`. Add complete frontmatter, locale/translation metadata where relevant, a clear excerpt, image alt text, canonical route, and links to relevant tools and guides.
+- For every new public PDF tool or guide, write original, accurate SEO content: a high-intent title under 60 characters, a meta description under 160 characters, one H1 with a logical H2/H3 hierarchy, three useful How-to steps, five relevant FAQs, key features, and contextual internal links. Do not invent capabilities, limits, encryption compatibility, privacy guarantees, or performance claims; qualify client-side claims to the selected-file processing behavior where appropriate.
+- When adding a tool, update relevant existing tools' `relatedToolIds` and related guides' links as well as the tool's own related links. The homepage/category cards derive from the public registry; maintain their destination routes and descriptions.
+- `pnpm --filter @workspace/clickpdf run build` generates the sitemap, `llms.txt`, route-specific raw `<head>` metadata and JSON-LD, and semantic HTML fallbacks for every sitemap route. Keep `#root` empty for the existing React `createRoot` mount; static fallback content must be a sibling, accurately mirror user-visible content, and be removed after React mounts. Do not hide crawler-only text or introduce cloaking.
+- Every public HTML page uses the verified 1200×630 ClickPDF social preview for Open Graph and Twitter image tags unless a real page-specific image is supplied with verified dimensions and meaningful alt text.
+- Validate canonical URLs, static HTML content, JSON-LD, sitemap, `robots.txt`, and `llms.txt` in the build tests. Keep heavy PDF engines code-split/lazy-loaded where possible, preserve existing layouts, and provide descriptive image `alt` text and control `aria-label`s.
+- After a user explicitly requests production deployment, build and verify the site, deploy the Cloudflare Worker, then check representative live routes and raw HTML. Do not deploy automatically on every code change.
+
 ## Product
 
 - ClickPDF provides in-browser PDF editing, organization, conversion, inspection, OCR, and protection tools.

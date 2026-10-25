@@ -7,7 +7,7 @@ export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
   description: 'Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
   ogTitle: 'ClickPDF — Stay Secure, Stay Smart | 100% Private In-Browser PDF Tools',
   ogDescription: 'Stay Secure, Stay Smart — Your Data, Your Privacy - 100% Private. Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
-  ogImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+  ogImage: 'https://www.clickpdf.net/social/clickpdf-social-1200x630.png',
   keywords: 'pdf tools, click digital services, stay secure stay smart, 100% private pdf, merge pdf, split pdf, compress pdf, client side pdf, zero upload pdf, in browser pdf editor',
   canonicalUrl: 'https://www.clickpdf.net/',
   twitterCard: 'summary_large_image',
@@ -21,6 +21,17 @@ const ORG_SCHEMA_SCRIPT_ID = 'clickpdf-org-schema';
 const HOME_FAQ_SCHEMA_SCRIPT_ID = 'clickpdf-home-faq-schema';
 const HOME_SITE_SCHEMA_SCRIPT_ID = 'clickpdf-home-site-schema';
 const SITE_ORIGIN = 'https://www.clickpdf.net';
+const SOCIAL_IMAGE_URL = `${SITE_ORIGIN}/social/clickpdf-social-1200x630.png`;
+const SOCIAL_IMAGE_ALT = 'ClickPDF — PDF tools in your browser';
+
+function applySocialImageTags(): void {
+  setMetaTag('property', 'og:image', SOCIAL_IMAGE_URL);
+  setMetaTag('property', 'og:image:width', '1200');
+  setMetaTag('property', 'og:image:height', '630');
+  setMetaTag('property', 'og:image:alt', SOCIAL_IMAGE_ALT);
+  setMetaTag('name', 'twitter:image', SOCIAL_IMAGE_URL);
+  setMetaTag('name', 'twitter:image:alt', SOCIAL_IMAGE_ALT);
+}
 
 export function getStoredSeoConfig(): SeoMetaConfig {
   if (typeof window === 'undefined') return DEFAULT_SEO_CONFIG;
@@ -61,7 +72,7 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
   // 3. Open Graph Tags
   setMetaTag('property', 'og:title', config.ogTitle || config.title);
   setMetaTag('property', 'og:description', config.ogDescription || config.description);
-  setMetaTag('property', 'og:image', config.ogImage);
+  applySocialImageTags();
   setMetaTag('property', 'og:url', canonicalizeClickPdfUrl(config.canonicalUrl));
   setMetaTag('property', 'og:type', 'website');
 
@@ -69,7 +80,6 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
   setMetaTag('name', 'twitter:card', config.twitterCard);
   setMetaTag('name', 'twitter:title', config.ogTitle || config.title);
   setMetaTag('name', 'twitter:description', config.ogDescription || config.description);
-  setMetaTag('name', 'twitter:image', config.ogImage);
 
   // 5. Canonical link
   if (config.canonicalUrl) {
@@ -101,6 +111,8 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
   setMetaTag('property', 'og:description', toolSeo.metaDescription);
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'website');
+  setMetaTag('property', 'og:site_name', 'ClickPDF');
+  applySocialImageTags();
 
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
@@ -179,13 +191,7 @@ export function applyBlogSeo(article: BlogPost): void {
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'article');
   setMetaTag('property', 'og:site_name', 'ClickPDF');
-  if (article.coverImage) {
-    const imageUrl = new URL(article.coverImage, origin).toString();
-    setMetaTag('property', 'og:image', imageUrl);
-    setMetaTag('property', 'og:image:alt', article.imageAlt || article.title);
-    setMetaTag('name', 'twitter:image', imageUrl);
-    setMetaTag('name', 'twitter:image:alt', article.imageAlt || article.title);
-  }
+  applySocialImageTags();
 
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
@@ -250,7 +256,8 @@ export function applyStructuredPageSeo({
   setMetaTag('property', 'og:url', canonicalizeClickPdfUrl(canonicalUrl));
   setMetaTag('property', 'og:type', 'website');
   setMetaTag('property', 'og:site_name', 'ClickPDF');
-  setMetaTag('name', 'twitter:card', 'summary');
+  applySocialImageTags();
+  setMetaTag('name', 'twitter:card', 'summary_large_image');
   setMetaTag('name', 'twitter:title', title);
   setMetaTag('name', 'twitter:description', description);
   updateCanonicalUrl(canonicalizeClickPdfUrl(canonicalUrl));

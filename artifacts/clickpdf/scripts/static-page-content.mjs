@@ -188,6 +188,6 @@ export function renderBatchFallback(tools) {
   return fallbackPage({
     title: 'Batch Processing Queue',
     description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
-    content: `<section><h2>How the batch queue works</h2><ol><li><h3>Choose a PDF tool</h3><p>Select a supported PDF utility to run on the documents in your queue.</p></li><li><h3>Add documents</h3><p>Choose the files and settings for the selected tool. Processing limits depend on browser and device resources.</p></li><li><h3>Process and download</h3><p>Review completed results and download the available output files.</p></li></ol></section>${linkList(links, 'Available PDF tools')}`,
+    content: `<p>Use the batch queue to process multiple documents in the browser and download available results individually or as a ZIP. File capacity depends on the device and browser.</p>${linkList(links, 'Available PDF tools')}`,
   });
 }
