@@ -10,6 +10,7 @@ seoKeywords: "Bilder in PDF umwandeln, JPG zu PDF, PNG zu PDF, WebP zu PDF, Bild
 imageAlt: "JPG-, PNG- und WebP-Bilder werden im Browser in eine PDF umgewandelt"
 category: "Bildkonvertierung"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Erfahren Sie, wie Sie JPG-, PNG- und WebP-Bilder im Browser in einer PDF zusammenführen. Die ausgewählten Bilder werden auf Ihrem Gerät verarbeitet; die praktische Stapelgröße hängt vom Browser und dem verfügbaren Speicher ab."

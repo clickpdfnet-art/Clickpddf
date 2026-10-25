@@ -5,6 +5,7 @@ seoTitle: Watermark Sensitive PDF Reports | ClickPDF
 slug: watermarking-confidential-pdf-reports
 category: Document Safety
 date: April 05, 2026
+dateModified: 2026-10-25
 readTime: 6 min read
 author: Document Forensics Lab
 coverImage: https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80

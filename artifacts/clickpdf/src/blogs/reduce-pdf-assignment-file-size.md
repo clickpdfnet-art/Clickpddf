@@ -4,6 +4,7 @@ slug: reduce-pdf-assignment-file-size
 routepath: /reduce-pdf-assignment-file-size/
 category: Student Guides
 date: October 24, 2026
+dateModified: 2026-10-24
 author: Click Digital Services
 summary: Practical ways to reduce PDF assignment file size below 2MB for university LMS portals while checking readability, image quality, and upload rules.
 seotitle: Reduce PDF Assignment Size Below 2MB for LMS Uploads

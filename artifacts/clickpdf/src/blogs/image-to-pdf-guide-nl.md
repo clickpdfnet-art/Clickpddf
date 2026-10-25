@@ -10,6 +10,7 @@ seoKeywords: "afbeeldingen naar PDF, JPG naar PDF, PNG naar PDF, WebP naar PDF, 
 imageAlt: "JPG-, PNG- en WebP-afbeeldingen worden in de browser omgezet naar één PDF"
 category: "Afbeeldingsconversie"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Ontdek hoe je JPG-, PNG- en WebP-afbeeldingen in de browser samenvoegt tot één PDF. De geselecteerde afbeeldingen worden op je apparaat verwerkt; de praktische batchgrootte hangt af van de browser en het beschikbare geheugen."

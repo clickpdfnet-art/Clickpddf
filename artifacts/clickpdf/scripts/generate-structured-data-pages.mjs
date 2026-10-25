@@ -247,10 +247,20 @@ function makeBlogSchema(article, url) {
       : [`${siteOrigin}/icon.svg`],
     ...(published ? { datePublished: published } : {}),
     ...(modified ? { dateModified: modified } : {}),
-    author: {
-      '@type': 'Organization',
-      name: article.author || 'ClickPDF Editorial Team',
-    },
+    author: article.authortype === 'Person'
+      ? {
+          '@type': 'Person',
+          name: article.authorname || article.author?.split(',')[0].trim() || 'ClickPDF Author',
+          ...(article.authorjobtitle
+            ? { jobTitle: article.authorjobtitle }
+            : article.author?.includes(',')
+              ? { jobTitle: article.author.split(',').slice(1).join(',').trim() }
+              : {}),
+        }
+      : {
+          '@type': 'Organization',
+          name: article.author || 'ClickPDF Editorial Team',
+        },
     publisher: {
       '@type': 'Organization',
       '@id': `${siteOrigin}/#organization`,
@@ -375,7 +385,7 @@ function makeFaqRouteSchema(faqItems, url) {
         '@id': `${url}#webpage`,
         url,
         name: 'Frequently Asked Questions | ClickPDF',
-        description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+        description: 'Find answers about browser-based PDF processing, privacy and third-party network requests, tool capabilities, file limits, compatibility, and downloads.',
         isPartOf: { '@id': `${siteOrigin}/#website` },
         breadcrumb: { '@id': breadcrumb['@id'] },
         mainEntity: { '@id': faq['@id'] },
@@ -398,7 +408,7 @@ function makeBatchRouteSchema(url) {
     url,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
-    description: 'Process a batch of documents in the browser using a selected transformation, then download results individually or in a ZIP file.',
+    description: 'Process several documents sequentially in your browser, apply a selected tool to each file, and download results individually or together as a ZIP file.',
     isPartOf: { '@id': `${siteOrigin}/#webapplication` },
   };
   return {
@@ -477,7 +487,7 @@ function makeBlogIndexSchema(articles, url) {
         '@id': `${url}#webpage`,
         url,
         name: 'ClickPDF Knowledge Base & Privacy Guides',
-        description: 'Practical guides about PDF tools, document privacy, and browser-based workflows.',
+        description: 'Explore ClickPDF guides on browser-based PDF tools, privacy, document processing, file formats, compression, everyday workflows, and troubleshooting.',
         isPartOf: { '@id': `${siteOrigin}/#website` },
         breadcrumb: { '@id': breadcrumb['@id'] },
         mainEntity: { '@id': itemList['@id'] },
@@ -495,10 +505,30 @@ function setMeta(html, selector, content) {
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
-  const pattern = new RegExp(`(<meta\\b[^>]*${selector}[^>]*content=["'])[^"']*(["'][^>]*>)`, 'i');
-  if (pattern.test(html)) return html.replace(pattern, (_match, prefix, suffix) => `${prefix}${escaped}${suffix}`);
+  const pattern = new RegExp(`(<meta\\b[^>]*${selector}[^>]*content=)(["'])([\\s\\S]*?)\\2([^>]*>)`, 'i');
+  if (pattern.test(html)) {
+    return html.replace(pattern, (_match, prefix, quote, _current, suffix) =>
+      `${prefix}${quote}${escaped}${quote}${suffix}`,
+    );
+  }
   const tag = `<meta ${selector} content="${escaped}" />`;
   return html.replace('</head>', `    ${tag}\n  </head>`);
+}
+
+function metadataLength(value) {
+  return Array.from(String(value || '')).length;
+}
+
+function setHtmlLanguage(html, language) {
+  const safeLanguage = /^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(language || '')
+    ? language
+    : 'en';
+  return html.replace(/<html\b([^>]*)>/i, (_match, attributes) => {
+    const withLanguage = /\blang\s*=/i.test(attributes)
+      ? attributes.replace(/\blang\s*=\s*(["'])[^"']*\1/i, `lang="${safeLanguage}"`)
+      : `${attributes} lang="${safeLanguage}"`;
+    return `<html${withLanguage}>`;
+  });
 }
 
 function setJsonLdScript(html, id, schema) {
@@ -532,9 +562,21 @@ function prepareRouteHtml(template, {
   socialImageAlt = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools',
   hreflangAlternates = [],
   robots,
+  lang = 'en',
 }) {
+  const titleLength = metadataLength(title);
+  const descriptionLength = metadataLength(description);
+  if (titleLength < 30 || titleLength > 60) {
+    throw new Error(`Title length for ${url} must be 30–60 characters; received ${titleLength}.`);
+  }
+  if (descriptionLength < 120 || descriptionLength > 158) {
+    throw new Error(`Description length for ${url} must be 120–158 characters; received ${descriptionLength}.`);
+  }
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  let html = removeJsonLdScripts(template, [homeSiteSchemaId, homeFaqSchemaId]);
+  let html = setHtmlLanguage(
+    removeJsonLdScripts(template, [homeSiteSchemaId, homeFaqSchemaId]),
+    lang,
+  );
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${safeTitle}</title>`);
   html = setMeta(html, 'name="description"', description);
   html = setMeta(html, 'property="og:title"', title);
@@ -667,6 +709,7 @@ for (const article of articles) {
     hreflangAlternates: alternatesBySlug.get(article.slug) || [],
     robots: 'index,follow',
     staticContent: renderBlogFallback(article, articles),
+    lang: article.locale || 'en',
   });
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, routeHtml, 'utf8');
@@ -696,7 +739,7 @@ await writeFile(
   prepareRouteHtml(template, {
     url: blogIndexUrl,
     title: 'ClickPDF Knowledge Base & Privacy Guides',
-    description: 'Practical guides about PDF tools, document privacy, and browser-based workflows.',
+    description: 'Explore ClickPDF guides on browser-based PDF tools, privacy, document processing, file formats, compression, everyday workflows, and troubleshooting.',
     schema: blogIndexSchema,
     robots: 'index,follow',
     staticContent: renderBlogIndexFallback(articles),
@@ -716,7 +759,7 @@ await writeFile(
   prepareRouteHtml(template, {
     url: faqUrl,
     title: 'Frequently Asked Questions | ClickPDF',
-    description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+    description: 'Find answers about browser-based PDF processing, privacy and third-party network requests, tool capabilities, file limits, compatibility, and downloads.',
     schema: makeFaqRouteSchema(faqItems, faqUrl),
     robots: 'index,follow',
     staticContent: renderFaqFallback(faqItems),
@@ -733,7 +776,7 @@ await writeFile(
   prepareRouteHtml(template, {
     url: batchUrl,
     title: 'Batch Processing Queue | ClickPDF',
-    description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
+    description: 'Process several documents sequentially in your browser, apply a selected tool to each file, and download results individually or together as a ZIP file.',
     schema: makeBatchRouteSchema(batchUrl),
     robots: 'index,follow',
     staticContent: renderBatchFallback(activeTools),

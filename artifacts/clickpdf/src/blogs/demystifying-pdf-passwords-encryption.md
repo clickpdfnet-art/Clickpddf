@@ -4,8 +4,10 @@ title: Demystifying PDF Passwords and Zero-Knowledge Encryption
 slug: demystifying-pdf-passwords-encryption
 category: Security Architecture
 date: April 08, 2026
+dateModified: 2026-10-19
 readTime: 5 min read
 author: Khurram Shah, Cryptography Analyst
+authorType: Person
 coverImage: https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1200&q=80
 summary: Understand how AES-256 client-side cryptography protects confidential financial and legal files without relying on server-side master keys.
 targetTool: protect

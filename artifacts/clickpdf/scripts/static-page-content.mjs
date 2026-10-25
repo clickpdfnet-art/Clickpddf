@@ -7,6 +7,30 @@ const markdown = new MarkdownIt({
   breaks: false,
 });
 
+const inlineImageDimensions = new Map([
+  ['/blog-assets/image-to-pdf/image-to-pdf-workflow.png', [1800, 840]],
+  ['/blog-assets/image-to-pdf/image-to-pdf-file-processing.png', [1800, 974]],
+  ['/blog-assets/merge-handwritten-assignment/page-order.webp', [1024, 576]],
+  ['/blog-assets/merge-handwritten-assignment/scanning.webp', [1024, 576]],
+  ['/blog-assets/merge-handwritten-assignment/submission.webp', [1024, 576]],
+  ['/blog-assets/reduce-pdf-assignment/compression.jpg', [1600, 900]],
+  ['/blog-assets/reduce-pdf-assignment/scanned-pages.jpg', [1600, 900]],
+  ['/blog-assets/reduce-pdf-assignment/submission.jpg', [1600, 900]],
+]);
+
+const defaultImageRenderer = markdown.renderer.rules.image;
+markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
+  const token = tokens[index];
+  const source = token.attrGet('src')?.split('?')[0];
+  const dimensions = source ? inlineImageDimensions.get(source) : undefined;
+  if (dimensions) {
+    token.attrSet('width', String(dimensions[0]));
+    token.attrSet('height', String(dimensions[1]));
+  }
+  token.attrSet('loading', 'lazy');
+  return defaultImageRenderer(tokens, index, options, env, renderer);
+};
+
 for (const ruleName of ['heading_open', 'heading_close']) {
   const defaultRule = markdown.renderer.rules[ruleName] ||
     ((tokens, index, options, _env, renderer) => renderer.renderToken(tokens, index, options));
@@ -14,7 +38,7 @@ for (const ruleName of ['heading_open', 'heading_close']) {
     const token = tokens[index];
     const previousTag = token.tag;
     const level = Number(previousTag.slice(1)) || 1;
-    token.tag = `h${Math.min(6, level + 1)}`;
+    token.tag = `h${Math.min(6, level)}`;
     const rendered = defaultRule(tokens, index, options, env, renderer);
     token.tag = previousTag;
     return rendered;
@@ -96,12 +120,21 @@ export function renderHomeFallback(tools, articles) {
     url: article.path,
     description: article.summary || article.seodescription || article.title,
   }));
+  const legalItems = [
+    { name: 'About ClickPDF', url: '/about/' },
+    { name: 'Contact ClickPDF', url: '/contact/' },
+    { name: 'Privacy Policy', url: '/privacy-policy/' },
+    { name: 'Terms of Service', url: '/terms-of-service/' },
+    { name: 'Cookies Policy', url: '/cookies/' },
+    { name: 'Disclaimer', url: '/disclaimer/' },
+  ];
   const content = [
     '<section aria-labelledby="seo-home-tools"><h2 id="seo-home-tools">PDF tools</h2><ul>',
     ...toolItems.map((tool) => `<li><article><h3><a href="${escapeHtml(tool.url)}">${escapeHtml(tool.name)}</a></h3><p>${escapeHtml(tool.description)}</p></article></li>`),
     '</ul></section>',
     '<section aria-labelledby="seo-home-privacy"><h2 id="seo-home-privacy">In-browser document tools</h2><p>ClickPDF tools process selected document contents in the browser where supported. The website may still load page resources or enabled third-party services; review each tool’s details and privacy information.</p></section>',
     linkList(blogItems, 'Recent ClickPDF guides'),
+    linkList(legalItems, 'Company and policy pages'),
     '<nav aria-label="Site pages"><ul><li><a href="/faq/">Frequently asked questions</a></li><li><a href="/blog/">Guides and articles</a></li><li><a href="/batch/">Batch processing queue</a></li></ul></nav>',
   ].join('');
   return fallbackPage({

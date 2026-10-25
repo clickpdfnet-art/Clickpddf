@@ -10,6 +10,7 @@ seoKeywords: "ubah gambar ke PDF, JPG ke PDF, PNG ke PDF, WebP ke PDF, konverter
 imageAlt: "Gambar JPG, PNG, dan WebP diubah menjadi satu PDF di browser"
 category: "Konversi Gambar"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Pelajari cara menggabungkan gambar JPG, PNG, dan WebP menjadi satu PDF di browser. Gambar yang dipilih diproses di perangkat Anda; ukuran batch praktis bergantung pada browser dan memori yang tersedia."

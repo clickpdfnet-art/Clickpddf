@@ -10,6 +10,7 @@ seoKeywords: "تصاویر سے PDF، JPG سے PDF، PNG سے PDF، WebP سے PD
 imageAlt: "JPG، PNG اور WebP تصاویر براؤزر میں ایک PDF میں تبدیل ہوتی ہوئی"
 category: "تصاویر کی تبدیلی"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG، PNG اور WebP تصاویر کو اپنے براؤزر میں ایک PDF میں جمع کرنے کا طریقہ جانیں۔ منتخب تصاویر آپ کے آلے پر پروسیس ہوتی ہیں؛ ایک وقت میں کتنی فائلیں کامیاب ہوں گی، اس کا انحصار براؤزر اور دستیاب میموری پر ہے۔"

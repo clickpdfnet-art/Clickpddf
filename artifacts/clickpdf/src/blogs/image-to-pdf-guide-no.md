@@ -10,6 +10,7 @@ seoKeywords: "konvertere bilder til PDF, JPG til PDF, PNG til PDF, WebP til PDF,
 imageAlt: "JPG-, PNG- og WebP-bilder konverteres til én PDF i nettleseren"
 category: "Bildekonvertering"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Lær hvordan du samler JPG-, PNG- og WebP-bilder i én PDF i nettleseren. De valgte bildene behandles på enheten din; praktisk batchstørrelse avhenger av nettleseren og tilgjengelig minne."

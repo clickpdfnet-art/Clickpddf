@@ -4,7 +4,7 @@
     "path": "/about/",
     "title": "About ClickPDF | Click Digital Services",
     "heading": "About ClickPDF",
-    "description": "Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools available on the site.",
+    "description": "Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools and support available on this site.",
     "schemaType": "AboutPage",
     "sections": [
       {
@@ -32,9 +32,9 @@
   {
     "id": "contact",
     "path": "/contact/",
-    "title": "Contact ClickPDF Support",
+    "title": "Contact ClickPDF Support — Help & Inquiries",
     "heading": "Contact ClickPDF",
-    "description": "Contact ClickPDF support about technical issues, feedback, privacy questions, or business inquiries.",
+    "description": "Contact ClickPDF support for technical issues, feedback, privacy questions, or business inquiries about our browser-based PDF tools.",
     "schemaType": "ContactPage",
     "contactEmail": "clickpdfnet@gmail.com",
     "sections": [
@@ -55,7 +55,7 @@
   {
     "id": "privacy",
     "path": "/privacy-policy/",
-    "title": "Privacy Policy | ClickPDF",
+    "title": "ClickPDF Privacy Policy — Local PDF Processing",
     "heading": "Privacy Policy",
     "description": "Learn how ClickPDF processes PDF files in the browser, handles local preferences, and works with advertising and other website services.",
     "schemaType": "WebPage",
@@ -90,9 +90,9 @@
   {
     "id": "terms",
     "path": "/terms-of-service/",
-    "title": "Terms of Service | ClickPDF",
+    "title": "ClickPDF Terms of Service — Usage & Availability",
     "heading": "Terms of Service",
-    "description": "Review ClickPDF's permitted uses, user responsibilities, intellectual property, and service availability.",
+    "description": "Review ClickPDF's terms for permitted use, user responsibilities, intellectual property, service availability, and limits of browser-based PDF tools.",
     "schemaType": "WebPage",
     "sections": [
       {
@@ -130,9 +130,9 @@
   {
     "id": "cookies",
     "path": "/cookies/",
-    "title": "Cookies Policy | ClickPDF",
+    "title": "ClickPDF Cookies Policy — Storage & Advertising",
     "heading": "Cookies Policy",
-    "description": "See how ClickPDF uses browser storage and third-party advertising cookies, plus ways to manage cookie preferences.",
+    "description": "See how ClickPDF uses browser storage and third-party advertising cookies, and learn how to manage your consent and cookie preferences.",
     "schemaType": "WebPage",
     "sections": [
       {
@@ -164,9 +164,9 @@
   {
     "id": "disclaimer",
     "path": "/disclaimer/",
-    "title": "Disclaimer | ClickPDF",
+    "title": "ClickPDF Disclaimer — PDF Results & Limitations",
     "heading": "Disclaimer",
-    "description": "Read limitations on ClickPDF information, PDF processing results, warranties, compatibility, and service availability.",
+    "description": "Read limitations on ClickPDF information and processing results, including warranties, browser compatibility, file limits, and service availability.",
     "schemaType": "WebPage",
     "sections": [
       {

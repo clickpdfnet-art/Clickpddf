@@ -10,6 +10,7 @@ seoKeywords: "convert images to PDF, JPG to PDF, PNG to PDF, WebP to PDF, browse
 imageAlt: "JPG, PNG, and WebP image files being converted into a PDF in the browser"
 category: Image Conversion
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Learn how to combine JPG, PNG, and WebP images into a PDF in your browser. Image files are processed on your device; practical batch size depends on your browser and available memory."

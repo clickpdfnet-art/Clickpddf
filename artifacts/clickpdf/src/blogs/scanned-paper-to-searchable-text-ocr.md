@@ -5,6 +5,7 @@ seoTitle: Make Scanned PDFs Searchable with OCR | ClickPDF
 slug: scanned-paper-to-searchable-text-ocr
 category: Document Workflow
 date: April 07, 2026
+dateModified: 2026-10-25
 readTime: 5 min read
 author: ClickPDF Research Group
 coverImage: https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80

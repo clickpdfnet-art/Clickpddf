@@ -214,7 +214,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['jpg-to-pdf', 'png-to-pdf', 'images-to-pdf', 'convert-jpg-to-pdf'],
     h1Title: 'Convert Images to PDF Online — JPG, PNG & WebP to PDF',
     metaTitle: 'Image to PDF Converter — JPG, PNG, WebP | ClickPDF',
-    metaDescription: 'Convert JPG, PNG, and WebP images to high-resolution PDF documents online for free. Fast, in-browser conversion with zero server uploads and custom orientation.',
+    metaDescription: 'Convert JPG, PNG, and WebP images to high-resolution PDF files online for free. Fast in-browser conversion with local processing and custom page orientation.',
     keywords: 'image to pdf, convert jpg to pdf, png to pdf online free, photos to pdf, client side image converter',
     targetKeywords: ['image to pdf', 'jpg to pdf', 'png to pdf', 'convert photos to pdf'],
     badge: 'High-Res Vector Layout',

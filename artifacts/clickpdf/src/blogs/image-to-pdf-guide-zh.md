@@ -5,11 +5,12 @@ translationGroup: image-to-pdf-guide
 title: "如何在浏览器中将 JPG、PNG 和 WebP 图片转换为 PDF"
 slug: "浏览器中将-jpg-png-webp-图片转换为-pdf"
 seoTitle: "将 JPG、PNG 和 WebP 图片转换为 PDF | ClickPDF"
-seoDescription: "了解如何在浏览器中将 JPG、PNG 和 WebP 图片合并为 PDF，并查看隐私、页面布局、实际文件限制和故障排除建议。"
+seoDescription: "了解如何在浏览器中合并 JPG、PNG 和 WebP 图片，并设置页面方向与布局。本文介绍本地处理方式、实用文件限制、转换后检查步骤和常见问题的解决建议，帮助你创建适合分享或保存的 PDF 文件，也说明如何核对页面顺序、图片清晰度和最终文件大小。"
 seoKeywords: "图片转PDF，JPG转PDF，PNG转PDF，WebP转PDF，浏览器图片转换器"
 imageAlt: "在浏览器中将 JPG、PNG 和 WebP 图片转换为一个 PDF"
 category: "图片转换"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "了解如何在浏览器中将 JPG、PNG 和 WebP 图片合并为 PDF。所选图片在设备上处理；实际可处理的批量大小取决于浏览器和可用内存。"

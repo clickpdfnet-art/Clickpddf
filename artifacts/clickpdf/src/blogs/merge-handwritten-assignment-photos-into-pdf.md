@@ -4,6 +4,7 @@ slug: merge-handwritten-assignment-photos-into-pdf
 routepath: /merge-handwritten-assignment-photos-into-pdf/
 category: Student Guides
 date: October 24, 2026
+dateModified: 2026-10-24
 author: Click Digital Services
 summary: Merge handwritten assignment photos into one readable PDF on your phone. Organize page order, check clarity, and prepare a file for university submission.
 seotitle: Merge Handwritten Assignment Photos Into PDF on Mobile

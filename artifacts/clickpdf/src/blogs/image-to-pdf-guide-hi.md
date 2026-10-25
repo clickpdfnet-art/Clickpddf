@@ -10,6 +10,7 @@ seoKeywords: "छवि से PDF, JPG से PDF, PNG से PDF, WebP से 
 imageAlt: "ब्राउज़र में JPG, PNG और WebP छवियों को एक PDF में बदला जा रहा है"
 category: "छवि रूपांतरण"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG, PNG और WebP छवियों को ब्राउज़र में एक PDF में जोड़ने का तरीका जानें। चुनी हुई छवियां आपके डिवाइस पर प्रोसेस होती हैं; एक बार में कितनी फ़ाइलें सफल होंगी, यह ब्राउज़र और उपलब्ध मेमोरी पर निर्भर करता है।"

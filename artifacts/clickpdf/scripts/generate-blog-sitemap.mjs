@@ -82,12 +82,14 @@ const documentProcessingPrivacyNote =
 
 function accuratePrivacyCopy(value = '') {
   return plainText(value)
+    .replace(/\bwith\s+(?:zero|no)\s+(?:server|cloud)\s+uploads?\b/gi,
+      'with document content processed locally in the browser')
     .replace(/\b(?:zero|no)\s+(?:server|cloud)\s+uploads?\b/gi,
-      'selected files are processed locally in the browser instead of being uploaded to ClickPDF processing servers')
-    .replace(/\b100%\s+client-side\s+privacy\b/gi, 'local browser processing of selected files')
-    .replace(/\b(?:100%|complete|total|guaranteed)\s+privacy\b/gi, 'local browser processing of selected files')
-    .replace(/\b100%\s+private\b/gi, 'local browser processing of selected files')
-    .replace(/\b100%\s+in-browser\s+security\b/gi, 'browser-based encryption')
+      'local processing of document content in the browser')
+    .replace(/\b100%\s+client-side\s+privacy\b/gi, 'local processing of document content in the browser')
+    .replace(/\b(?:100%|complete|total|guaranteed)\s+privacy\b/gi, 'local processing of document content in the browser')
+    .replace(/\b100%\s+private\b/gi, 'processed locally in the browser')
+    .replace(/\b100%\s+in-browser\s+security\b/gi, 'browser-side document processing')
     .replace(/\bmilitary-grade\b/gi, 'AES-256');
 }
 

@@ -5,11 +5,12 @@ translationGroup: image-to-pdf-guide
 title: "Cómo convertir imágenes JPG, PNG y WebP a PDF en el navegador"
 slug: "convertir-imagenes-jpg-png-webp-a-pdf-en-el-navegador"
 seoTitle: "Convertir imágenes JPG, PNG y WebP a PDF | ClickPDF"
-seoDescription: "Combina imágenes JPG, PNG y WebP en un PDF desde el navegador. Consejos sobre privacidad, diseño y límites de archivos."
+seoDescription: "Combina imágenes JPG, PNG y WebP en un PDF desde el navegador. Guía de privacidad, diseño, límites prácticos y revisión del archivo final."
 seoKeywords: "convertir imágenes a PDF, JPG a PDF, PNG a PDF, WebP a PDF, convertidor de imágenes en navegador"
 imageAlt: "Imágenes JPG, PNG y WebP convertidas en un PDF dentro del navegador"
 category: "Conversión de imágenes"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Aprende a combinar imágenes JPG, PNG y WebP en un PDF desde el navegador. Las imágenes seleccionadas se procesan en tu dispositivo; el tamaño práctico de cada lote depende del navegador y la memoria disponible."

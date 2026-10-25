@@ -5,11 +5,12 @@ translationGroup: image-to-pdf-guide
 title: "Tarayıcıda JPG, PNG ve WebP Görselleri PDF'ye Dönüştürme"
 slug: "tarayicida-jpg-png-webp-gorselleri-pdfye-donusturme"
 seoTitle: "JPG, PNG ve WebP Görselleri PDF'ye Dönüştürün | ClickPDF"
-seoDescription: "JPG, PNG ve WebP görsellerini tarayıcıda tek bir PDF'de birleştirmeyi öğrenin. Gizlilik, sayfa düzeni, pratik dosya sınırları ve sorun giderme bilgileri."
+seoDescription: "Tarayıcıda JPG, PNG ve WebP görsellerini tek PDF'de birleştirin. Sayfa düzeni, yerel işleme, dosya sınırları ve sonuç kontrolü için pratik ipuçlarını öğrenin."
 seoKeywords: "görseli PDF'ye dönüştürme, JPG PDF, PNG PDF, WebP PDF, tarayıcı görsel dönüştürücü"
 imageAlt: "Tarayıcıda JPG, PNG ve WebP görsellerinin tek bir PDF'ye dönüştürülmesi"
 category: "Görsel Dönüştürme"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG, PNG ve WebP görsellerini tarayıcıda tek bir PDF'de birleştirmeyi öğrenin. Seçilen görseller cihazınızda işlenir; pratik toplu işlem boyutu tarayıcıya ve kullanılabilir belleğe bağlıdır."

@@ -24,10 +24,49 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenBatchQueue,
   onOpenLegal
 }) => {
-  const { t, ui, getToolTitle } = useLanguage();
+  const { t, ui, language, getToolTitle } = useLanguage();
+  const disclaimerLabels: Record<string, string> = {
+    en: 'Disclaimer',
+    ur: 'دستبرداری',
+    ar: 'إخلاء المسؤولية',
+    de: 'Haftungsausschluss',
+    es: 'Aviso legal',
+    fr: 'Avertissement',
+    hi: 'अस्वीकरण',
+    id: 'Penafian',
+    it: 'Avvertenza',
+    ja: '免責事項',
+    ko: '면책 조항',
+    nl: 'Disclaimer',
+    no: 'Ansvarsfraskrivelse',
+    pl: 'Zastrzeżenie',
+    pt: 'Aviso legal',
+    ru: 'Отказ от ответственности',
+    sv: 'Ansvarsfriskrivning',
+    tl: 'Pahayag ng pagtanggi',
+    tr: 'Sorumluluk Reddi',
+    vi: 'Tuyên bố miễn trừ trách nhiệm',
+    zh: '免责声明',
+  };
 
   const handleOpenBlog = () => {
     onOpenBlog();
+  };
+
+  const handleLegalLink = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    tab: LegalModalTab,
+  ) => {
+    if (
+      !onOpenLegal ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) return;
+    event.preventDefault();
+    onOpenLegal(tab);
   };
 
   const handleOpenFaq = () => {
@@ -131,55 +170,64 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-1 sm:space-y-1.5 text-slate-400">
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenLegal ? onOpenLegal('about') : null}
+                <a
+                  href={buildAppPath('/about/')}
+                  onClick={(event) => handleLegalLink(event, 'about')}
                   className="hover:text-white transition-colors cursor-pointer text-slate-300 hover:text-white flex items-center gap-1.5"
                 >
                   <Info className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                   <span>{t.aboutUs}</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenLegal ? onOpenLegal('contact') : null}
+                <a
+                  href={buildAppPath('/contact/')}
+                  onClick={(event) => handleLegalLink(event, 'contact')}
                   className="hover:text-white transition-colors cursor-pointer text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 font-medium"
                 >
                   <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                   <span>{t.contactUs}</span>
                   <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-300 font-bold">24/7</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenLegal ? onOpenLegal('cookies') : null}
+                <a
+                  href={buildAppPath('/cookies/')}
+                  onClick={(event) => handleLegalLink(event, 'cookies')}
                   className="hover:text-white transition-colors cursor-pointer text-amber-400 hover:text-amber-300 flex items-center gap-1.5"
                 >
                   <Cookie className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>{t.cookiesPolicy}</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenLegal ? onOpenLegal('privacy') : null}
+                <a
+                  href={buildAppPath('/privacy-policy/')}
+                  onClick={(event) => handleLegalLink(event, 'privacy')}
                   className="hover:text-white transition-colors cursor-pointer text-slate-300 hover:text-white flex items-center gap-1.5"
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>{t.privacyPolicy}</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenLegal ? onOpenLegal('terms') : null}
+                <a
+                  href={buildAppPath('/terms-of-service/')}
+                  onClick={(event) => handleLegalLink(event, 'terms')}
                   className="hover:text-white transition-colors cursor-pointer text-slate-300 hover:text-white flex items-center gap-1.5"
                 >
                   <FileText className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                   <span>{t.termsOfService}</span>
-                </button>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={buildAppPath('/disclaimer/')}
+                  className="hover:text-white transition-colors cursor-pointer text-slate-300 hover:text-white flex items-center gap-1.5"
+                >
+                  <Info className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <span>{disclaimerLabels[language] || 'Disclaimer'}</span>
+                </a>
               </li>
             </ul>
           </div>

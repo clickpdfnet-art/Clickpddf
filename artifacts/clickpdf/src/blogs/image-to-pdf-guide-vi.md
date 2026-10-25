@@ -10,6 +10,7 @@ seoKeywords: "chuyển ảnh sang PDF, JPG sang PDF, PNG sang PDF, WebP sang PDF
 imageAlt: "Ảnh JPG, PNG và WebP được chuyển thành một tệp PDF trong trình duyệt"
 category: "Chuyển đổi hình ảnh"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Tìm hiểu cách gộp ảnh JPG, PNG và WebP thành một PDF trong trình duyệt. Ảnh đã chọn được xử lý trên thiết bị của bạn; quy mô lô thực tế phụ thuộc vào trình duyệt và bộ nhớ khả dụng."

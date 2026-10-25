@@ -5,11 +5,12 @@ translationGroup: image-to-pdf-guide
 title: "ブラウザーでJPG・PNG・WebP画像をPDFに変換する方法"
 slug: "ブラウザーでjpg-png-webp画像をpdfに変換"
 seoTitle: "JPG・PNG・WebP画像をPDFに変換 | ClickPDF"
-seoDescription: "ブラウザーでJPG・PNG・WebP画像をPDFにまとめる方法を解説します。プライバシー、ページレイアウト、実用上のファイル制限、トラブル対処も紹介します。"
+seoDescription: "ブラウザーでJPG・PNG・WebP画像を1つのPDFにまとめる手順を紹介します。ページの向きや配置、プライバシー、実用的なファイル制限、変換時のトラブル対処も確認できます。画像選択前の準備や、作成したPDFを確認するポイントも説明します。"
 seoKeywords: "画像をPDFに変換、JPG PDF、PNG PDF、WebP PDF、ブラウザー画像変換"
 imageAlt: "ブラウザー内でJPG・PNG・WebP画像を1つのPDFに変換"
 category: "画像変換"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG・PNG・WebP画像をブラウザーで1つのPDFにまとめる方法を紹介します。選択した画像は端末上で処理され、実際に扱える一括処理量はブラウザーと使用可能なメモリーによって異なります。"

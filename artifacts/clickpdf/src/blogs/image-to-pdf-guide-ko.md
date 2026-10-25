@@ -5,11 +5,12 @@ translationGroup: image-to-pdf-guide
 title: "브라우저에서 JPG, PNG, WebP 이미지를 PDF로 변환하는 방법"
 slug: "브라우저에서-jpg-png-webp-이미지를-pdf로-변환"
 seoTitle: "JPG, PNG, WebP 이미지를 PDF로 변환 | ClickPDF"
-seoDescription: "브라우저에서 JPG, PNG, WebP 이미지를 하나의 PDF로 합치는 방법과 개인정보 보호, 페이지 레이아웃, 실제 파일 한도 및 문제 해결 방법을 알아보세요."
+seoDescription: "브라우저에서 JPG, PNG, WebP 이미지를 하나의 PDF로 합치는 방법을 알아보세요. 개인정보 보호, 페이지 레이아웃, 실제 파일 한도와 문제 해결 방법을 설명하고, 변환 후 PDF를 확인하는 팁도 제공합니다."
 seoKeywords: "이미지 PDF 변환, JPG PDF, PNG PDF, WebP PDF, 브라우저 이미지 변환기"
 imageAlt: "브라우저에서 JPG, PNG, WebP 이미지를 하나의 PDF로 변환하는 모습"
 category: "이미지 변환"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "브라우저에서 JPG, PNG, WebP 이미지를 하나의 PDF로 합치는 방법을 알아보세요. 선택한 이미지는 기기에서 처리되며, 실제 처리 가능한 묶음 크기는 브라우저와 사용 가능한 메모리에 따라 달라집니다."

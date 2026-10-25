@@ -10,6 +10,7 @@ seoKeywords: "تحويل الصور إلى PDF، JPG إلى PDF، PNG إلى PDF
 imageAlt: "تحويل صور JPG وPNG وWebP إلى ملف PDF واحد داخل المتصفح"
 category: "تحويل الصور"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "تعلّم جمع صور JPG وPNG وWebP في ملف PDF واحد داخل المتصفح. تُعالَج الصور المحددة على جهازك؛ ويتوقف حجم الدفعة العملي على المتصفح والذاكرة المتاحة."

@@ -10,6 +10,7 @@ seoKeywords: "converter imagem para PDF, JPG para PDF, PNG para PDF, WebP para P
 imageAlt: "Imagens JPG, PNG e WebP convertidas em um único PDF no navegador"
 category: "Conversão de imagens"
 date: October 23, 2026
+dateModified: 2026-10-23
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Saiba como reunir imagens JPG, PNG e WebP em um PDF no navegador. As imagens selecionadas são processadas no seu dispositivo; o tamanho prático de cada lote depende do navegador e da memória disponível."

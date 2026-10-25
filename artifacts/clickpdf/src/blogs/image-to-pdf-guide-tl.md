@@ -10,6 +10,7 @@ seoKeywords: "image to PDF, JPG to PDF, PNG to PDF, WebP to PDF, browser image c
 imageAlt: "Mga JPG, PNG, at WebP image na kino-convert sa iisang PDF sa browser"
 category: "Image Conversion"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Alamin kung paano pagsamahin ang JPG, PNG, at WebP images sa isang PDF sa browser. Sa device mo pinoproseso ang mga piniling image; nakadepende sa browser at available memory ang praktikal na laki ng batch."

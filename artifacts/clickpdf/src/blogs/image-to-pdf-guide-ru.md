@@ -10,6 +10,7 @@ seoKeywords: "изображения в PDF, JPG в PDF, PNG в PDF, WebP в PDF
 imageAlt: "Изображения JPG, PNG и WebP преобразуются в один PDF в браузере"
 category: "Преобразование изображений"
 date: October 23, 2026
+dateModified: 2026-10-25
 author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Узнайте, как объединить изображения JPG, PNG и WebP в PDF в браузере. Выбранные изображения обрабатываются на вашем устройстве; практический размер пакета зависит от браузера и доступной памяти."

@@ -5,8 +5,10 @@ seoTitle: Create a PDF Photo Portfolio | ClickPDF
 slug: convert-photos-into-crisp-pdf-portfolios
 category: Creative Design
 date: April 06, 2026
+dateModified: 2026-10-25
 readTime: 4 min read
 author: Sarah Jenkins, Creative Director
+authorType: Person
 coverImage: https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80
 summary: Turn smartphone photography, architectural renderings, and design mockups into uniform PDF portfolios with true aspect ratios and zero distortion.
 targetTool: jpg-to-pdf
