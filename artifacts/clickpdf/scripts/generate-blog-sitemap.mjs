@@ -1,6 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readActiveToolRegistry } from './static-tool-registry.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
@@ -108,6 +109,28 @@ const blogUrlBlocks = articles.map((article) => {
   return `  <url>\n    <loc>${escapeXml(article.url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imageXml}${alternateXml}${defaultXml}\n  </url>`;
 });
 
+const toolUrlBlocks = (await readActiveToolRegistry(appDir)).map((tool) => {
+  const route = `/tools/${encodeURIComponent(tool.slug)}/`;
+  return `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+});
+
+const utilityPageBlocks = [
+  {
+    path: '/faq/',
+    title: 'Frequently Asked Questions | ClickPDF',
+    description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+    priority: '0.5',
+  },
+  {
+    path: '/batch/',
+    title: 'Batch Processing Queue | ClickPDF',
+    description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
+    priority: '0.6',
+  },
+].map(({ path: route, priority }) =>
+  `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+);
+
 let sitemap = await readFile(sitemapPath, 'utf8');
 sitemap = sitemap.replaceAll('https://clickpdf.net', baseUrl);
 sitemap = sitemap.replace(/<loc>(https:\/\/www\.clickpdf\.net\/[^<]*)<\/loc>/g, (_match, url) => `<loc>${normalizePageUrl(url)}</loc>`);
@@ -120,10 +143,20 @@ sitemap = sitemap.replace(
 
 const urlBlocks = sitemap.match(/  <url>[\s\S]*?<\/url>/g) || [];
 const generatedArticleLocs = new Set(articles.map((article) => escapeXml(article.url)));
-const retainedBlocks = urlBlocks.filter((block) => {
+let retainedBlocks = urlBlocks.filter((block) => {
   const loc = block.match(/<loc>(.*?)<\/loc>/)?.[1] || '';
-  return !/\/blog\/[^<]+/.test(loc) && !generatedArticleLocs.has(loc);
+  return !/\/tools\/[^<]+/.test(loc) &&
+    !/\?tool=/.test(loc) &&
+    !/\/blog\/[^<]+/.test(loc) &&
+    !generatedArticleLocs.has(loc) &&
+    !/\/(?:faq|batch)\/?<\/loc>/.test(block);
 });
+
+const homeIndex = retainedBlocks.findIndex((block) =>
+  /<loc>https:\/\/www\.clickpdf\.net\/<\/loc>/.test(block),
+);
+retainedBlocks.splice(homeIndex >= 0 ? homeIndex + 1 : 0, 0, ...toolUrlBlocks, ...utilityPageBlocks);
+
 const blogIndexIndex = retainedBlocks.findIndex((block) =>
   /<loc>https:\/\/www\.clickpdf\.net\/blog\/?<\/loc>/.test(block),
 );
@@ -131,11 +164,13 @@ retainedBlocks.splice(blogIndexIndex >= 0 ? blogIndexIndex + 1 : retainedBlocks.
 
 const preservedHeader = sitemap.slice(0, sitemap.indexOf('  <url>'));
 const preservedFooter = sitemap.slice(sitemap.lastIndexOf('</urlset>'));
-const countComment = `<!-- Generated sitemap: ${retainedBlocks.length} URLs, including ${articles.length} Markdown blog posts and localized alternates. -->\n`;
+const countComment = `<!-- Generated sitemap: ${retainedBlocks.length} URLs, including ${toolUrlBlocks.length} public tools, ${articles.length} Markdown blog posts and localized alternates. -->\n`;
 const namespaceSafeHeader = preservedHeader
   .replace(/<!--\s*Total URLs:[\s\S]*?-->\s*/i, '')
   .replace(/<!--[\s\S]*?-->\s*$/, '');
 sitemap = `${namespaceSafeHeader}${countComment}${retainedBlocks.join('\n')}\n${preservedFooter}`;
 
 await writeFile(sitemapPath, sitemap, 'utf8');
-console.log(`Generated sitemap blog URLs for ${articles.length} Markdown articles.`);
+console.log(
+  `Generated sitemap routes for ${toolUrlBlocks.length} public tools, ${articles.length} Markdown articles, FAQ, and batch queue.`,
+);

@@ -77,22 +77,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
     { id: 'features', label: 'Features & OCR', count: FAQ_DATA.filter(f => f.category === 'features').length }
   ];
 
-  // Schema.org FAQPage JSON-LD for rich snippets and SEO
-  const faqSchema = useMemo(() => {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: FAQ_DATA.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.answer
-        }
-      }))
-    };
-  }, []);
-
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'security':
@@ -110,12 +94,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
 
   return (
     <section id="faq-section" className="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16 sm:py-20 transition-colors">
-      {/* Embedded Schema.org FAQPage for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Standalone View Back Navigation */}
         {isStandaloneView && onBackToHome && (

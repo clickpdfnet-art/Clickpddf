@@ -64,8 +64,8 @@
     <script id="clickpdf-page-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "@id": "https://www.clickpdf.net/#software",
+      "@type": "WebApplication",
+      "@id": "https://www.clickpdf.net/#webapplication",
       "name": "ClickPDF",
       "url": "https://www.clickpdf.net/",
       "applicationCategory": "UtilitiesApplication",
@@ -100,53 +100,8 @@
       ]
     }
     </script>
-    <script id="clickpdf-home-faq-schema" type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Are my PDF files ever uploaded to a remote server or saved in the cloud?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Never. 100% of the document processing takes place directly inside your web browser. ClickPDF never uploads, transfers, or mirrors your PDF files to any remote server or external cloud storage. When you load a file, it remains exclusively in your device's local memory (RAM) and is purged the moment you close or refresh the page."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do PDF tools work entirely inside the browser without a backend?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Modern web browsers are capable of running near-native compiled binary instructions using WebAssembly (WASM) and high-speed JavaScript runtimes. ClickPDF executes battle-tested PDF parsing libraries (such as pdf-lib and PDF.js) and Web Workers directly on your local CPU without relying on remote server queues."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is ClickPDF safe for sensitive legal, financial, and healthcare documents?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Because your files never traverse the public internet to third-party processing servers, your organization avoids third-party data processor risks under GDPR, HIPAA, FERPA, and corporate non-disclosure agreements (NDAs)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does client-side OCR extract text from scanned PDFs without cloud AI APIs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our OCR analysis tool uses Tesseract.js compiled into WebAssembly. The browser renders the scanned pages to an in-memory high-resolution canvas, feeds pixel data to a local WebAssembly neural worker, and recognizes text patterns entirely on your machine."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use ClickPDF without an internet connection or on mobile devices?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Once the application assets are cached in your browser, the processing engines run entirely on your local machine. You can disconnect your Wi-Fi or turn on Airplane Mode, and tools like Merge, Split, Rotate, Watermark, and Page Count continue functioning normally."
-          }
-        }
-      ]
-    }
+    <script id="clickpdf-home-site-schema" type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.clickpdf.net/#website","name":"ClickPDF","alternateName":"ClickPDF by Click Digital Services","url":"https://www.clickpdf.net/","publisher":{"@id":"https://www.clickpdf.net/#organization"}},{"@type":"WebPage","@id":"https://www.clickpdf.net/#webpage","url":"https://www.clickpdf.net/","name":"ClickPDF — Free In-Browser PDF Tools","isPartOf":{"@id":"https://www.clickpdf.net/#website"},"mainEntity":{"@id":"https://www.clickpdf.net/#webapplication"}},{"@type":"ItemList","@id":"https://www.clickpdf.net/#tools","name":"ClickPDF PDF tools","itemListOrder":"https://schema.org/ItemListOrderAscending","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"name":"Merge PDF Files Online — 100% Free & In-Browser","url":"https://www.clickpdf.net/tools/merge-pdf/"},{"@type":"ListItem","position":2,"name":"Split PDF Online — Extract Pages into Separate Files Free","url":"https://www.clickpdf.net/tools/split-pdf/"},{"@type":"ListItem","position":3,"name":"Compress PDF Online — Reduce File Size 100% In-Browser","url":"https://www.clickpdf.net/tools/compress-pdf/"},{"@type":"ListItem","position":4,"name":"Convert Images to PDF Online — JPG, PNG & WebP to PDF","url":"https://www.clickpdf.net/tools/image-to-pdf/"},{"@type":"ListItem","position":5,"name":"Convert PDF to Images Online — Export PDF Pages as PNG","url":"https://www.clickpdf.net/tools/pdf-to-image/"},{"@type":"ListItem","position":6,"name":"Rotate PDF Online — Permanently Rotate PDF Pages Free","url":"https://www.clickpdf.net/tools/rotate-pdf/"},{"@type":"ListItem","position":7,"name":"Watermark PDF Online — Add Confidential & Custom Marks Free","url":"https://www.clickpdf.net/tools/watermark-pdf/"},{"@type":"ListItem","position":8,"name":"Add Page Numbers to PDF Online — Free In-Browser Pagination","url":"https://www.clickpdf.net/tools/page-numbers-pdf/"},{"@type":"ListItem","position":9,"name":"Organize PDF Pages Online — Reorder, Rotate & Delete Pages","url":"https://www.clickpdf.net/tools/organize-pdf/"},{"@type":"ListItem","position":10,"name":"Edit PDF Metadata Online — Modify Author, Title & Properties","url":"https://www.clickpdf.net/tools/edit-pdf-metadata/"},{"@type":"ListItem","position":11,"name":"In-Browser PDF OCR, Page Counter & Text Analysis","url":"https://www.clickpdf.net/tools/ocr-pdf-analysis/"},{"@type":"ListItem","position":12,"name":"Protect PDF Online — Web Crypto AES-256 Password Encryption","url":"https://www.clickpdf.net/tools/protect-pdf-password/"},{"@type":"ListItem","position":13,"name":"Unlock PDF Online — Decrypt Password-Protected Documents Free","url":"https://www.clickpdf.net/tools/unlock-pdf-password/"},{"@type":"ListItem","position":14,"name":"Convert PDF to Text & Markdown Online — Free Text Extraction","url":"https://www.clickpdf.net/tools/pdf-to-text/"},{"@type":"ListItem","position":15,"name":"PDF to Word (DOCX) Converter — 100% Free & In-Browser","url":"https://www.clickpdf.net/tools/pdf-to-word/"},{"@type":"ListItem","position":16,"name":"PDF to Excel (XLSX) Converter — Extract Tables Online Free","url":"https://www.clickpdf.net/tools/pdf-to-excel/"},{"@type":"ListItem","position":17,"name":"PDF to PowerPoint (PPTX) Converter — 100% Free & In-Browser","url":"https://www.clickpdf.net/tools/pdf-to-powerpoint/"},{"@type":"ListItem","position":18,"name":"Word to PDF Converter Online — Free DOCX to PDF In-Browser","url":"https://www.clickpdf.net/tools/word-to-pdf/"},{"@type":"ListItem","position":19,"name":"Word to Excel Converter — Extract DOCX Tables to XLSX","url":"https://www.clickpdf.net/tools/word-to-excel/"},{"@type":"ListItem","position":20,"name":"Excel to PDF Converter Online — Paginated Tables Free","url":"https://www.clickpdf.net/tools/excel-to-pdf/"},{"@type":"ListItem","position":21,"name":"Add a Visual Signature to PDF — Draw, Type or Upload","url":"https://www.clickpdf.net/tools/sign-pdf-online/"}]},{"@type":"SiteNavigationElement","@id":"https://www.clickpdf.net/#site-navigation","name":"ClickPDF main navigation","hasPart":[{"@type":"WebPage","name":"Home","url":"https://www.clickpdf.net/"},{"@type":"WebPage","name":"PDF Tools","url":"https://www.clickpdf.net/"},{"@type":"WebPage","name":"FAQ","url":"https://www.clickpdf.net/faq/"},{"@type":"WebPage","name":"Batch Processing Queue","url":"https://www.clickpdf.net/batch/"},{"@type":"WebPage","name":"Blog","url":"https://www.clickpdf.net/blog/"}]}]}
     </script>
   </head>
   <body>

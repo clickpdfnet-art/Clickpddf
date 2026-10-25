@@ -84,7 +84,7 @@ export function formatIsoDate(dateInput?: Date | string): string {
 }
 
 /**
- * Returns structured metadata for all indexed URLs (Homepage, public PDF tools, blog hub, all articles).
+ * Returns structured metadata for all indexed URLs (homepage, public tools, utility pages, and articles).
  */
 export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   const baseUrl = normalizeBaseUrl(options?.baseUrl);
@@ -107,7 +107,31 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
     badge: 'Core'
   });
 
-  // 2. Public PDF tools (dynamic iteration over the visible catalog)
+  entries.push({
+    loc: `${baseUrl}/faq/`,
+    path: '/faq/',
+    title: 'Frequently Asked Questions | ClickPDF',
+    category: 'core',
+    lastmod: today,
+    changefreq: 'monthly',
+    priority: '0.5',
+    description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+    badge: 'FAQ'
+  });
+
+  entries.push({
+    loc: `${baseUrl}/batch/`,
+    path: '/batch/',
+    title: 'Batch Processing Queue | ClickPDF',
+    category: 'core',
+    lastmod: today,
+    changefreq: 'weekly',
+    priority: '0.6',
+    description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
+    badge: 'Batch'
+  });
+
+  // Public PDF tools (dynamic iteration over the visible catalog)
   tools.forEach((tool) => {
     const isHighPriority = ['merge', 'split', 'compress', 'rotate', 'organize', 'jpg-to-pdf'].includes(tool.id);
     const seo = getToolSeoInfo(tool.id);

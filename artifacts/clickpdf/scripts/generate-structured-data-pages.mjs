@@ -1,13 +1,12 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import ts from 'typescript';
+import { readActiveToolRegistry, readTypeScriptExport } from './static-tool-registry.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const outputDir = path.join(appDir, 'dist', 'public');
 const sitemapPath = path.join(outputDir, 'sitemap.xml');
-const toolSeoPath = path.join(appDir, 'src', 'data', 'toolSeoData.ts');
 const faqDataPath = path.join(appDir, 'src', 'data', 'faqData.ts');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
@@ -37,73 +36,6 @@ function readFrontmatter(markdown) {
       return [[key, value]];
     }),
   );
-}
-
-function propertyName(property, source) {
-  const name = property.name;
-  if (ts.isIdentifier(name) || ts.isStringLiteral(name) || ts.isNumericLiteral(name)) return name.text;
-  return name ? name.getText(source).replace(/^['"]|['"]$/g, '') : '';
-}
-
-function readTypeScriptLiteral(node, source) {
-  if (ts.isParenthesizedExpression(node) || ts.isAsExpression(node) || ts.isSatisfiesExpression(node)) {
-    return readTypeScriptLiteral(node.expression, source);
-  }
-  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text;
-  if (ts.isNumericLiteral(node)) return Number(node.text);
-  if (node.kind === ts.SyntaxKind.TrueKeyword) return true;
-  if (node.kind === ts.SyntaxKind.FalseKeyword) return false;
-  if (node.kind === ts.SyntaxKind.NullKeyword) return null;
-  if (ts.isPrefixUnaryExpression(node) && node.operator === ts.SyntaxKind.MinusToken) {
-    const value = readTypeScriptLiteral(node.operand, source);
-    return typeof value === 'number' ? -value : undefined;
-  }
-  if (ts.isArrayLiteralExpression(node)) {
-    return node.elements.map((element) => readTypeScriptLiteral(element, source));
-  }
-  if (ts.isObjectLiteralExpression(node)) {
-    const value = {};
-    for (const item of node.properties) {
-      if (ts.isPropertyAssignment(item)) {
-        value[propertyName(item, source)] = readTypeScriptLiteral(item.initializer, source);
-      } else if (ts.isShorthandPropertyAssignment(item)) {
-        value[item.name.text] = undefined;
-      }
-    }
-    return value;
-  }
-  return undefined;
-}
-
-async function readStaticExport(sourcePath, exportName) {
-  const sourceText = await readFile(sourcePath, 'utf8');
-  const source = ts.createSourceFile(sourcePath, sourceText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
-  let initializer;
-  function visit(node) {
-    if (
-      ts.isVariableDeclaration(node) &&
-      ts.isIdentifier(node.name) &&
-      node.name.text === exportName
-    ) {
-      initializer = node.initializer;
-    }
-    ts.forEachChild(node, visit);
-  }
-  visit(source);
-  if (!initializer) throw new Error(`Could not read ${exportName} from ${path.basename(sourcePath)}`);
-  return readTypeScriptLiteral(initializer, source);
-}
-
-async function readStaticToolSeoRegistry() {
-  const entries = await readStaticExport(toolSeoPath, 'TOOL_SEO_REGISTRY');
-  if (!entries || typeof entries !== 'object' || Array.isArray(entries)) {
-    throw new Error('TOOL_SEO_REGISTRY is not a static object');
-  }
-  const registry = new Map();
-  for (const info of Object.values(entries)) {
-    if (info?.slug) registry.set(info.slug, info);
-  }
-  return registry;
 }
 
 function decodeXml(value) {
@@ -321,7 +253,7 @@ function makeBlogSchema(article, url) {
 function makeHomepageSchema(toolPages) {
   const navigation = [
     { name: 'Home', url: `${siteOrigin}/` },
-    { name: 'PDF Tools', url: `${siteOrigin}/` },
+    { name: 'PDF Tools', url: `${siteOrigin}/#global-search-input` },
     { name: 'FAQ', url: `${siteOrigin}/faq/` },
     { name: 'Batch Processing Queue', url: `${siteOrigin}/batch/` },
     { name: 'Blog', url: `${siteOrigin}/blog/` },
@@ -562,8 +494,10 @@ function prepareRouteHtml(template, {
 
 const template = await readFile(path.join(outputDir, 'index.html'), 'utf8');
 const sitemap = await readFile(sitemapPath, 'utf8');
-const toolSeoRegistry = await readStaticToolSeoRegistry();
-const faqData = await readStaticExport(faqDataPath, 'FAQ_DATA');
+const toolSeoRegistry = new Map(
+  (await readActiveToolRegistry(appDir)).map((tool) => [tool.slug, tool]),
+);
+const faqData = await readTypeScriptExport(faqDataPath, 'FAQ_DATA');
 const generated = [];
 const sitemapUrls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)].map((match) =>
   absoluteSiteUrl(decodeXml(match[1].trim())),

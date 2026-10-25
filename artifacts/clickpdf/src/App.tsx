@@ -3,8 +3,9 @@ import { PDFTool, ToolCategory, BlogPost, SeoMetaConfig } from './types';
 import { HIDDEN_TOOL_IDS, PDF_TOOLS, PUBLIC_PDF_TOOLS } from './data/toolsData';
 import { getStoredArticles, saveArticles } from './data/initialArticles';
 import { getActiveBlogArticles } from './utils/blogLoader';
-import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyStandaloneToolSchema, applyBlogSeo, resetHomeSeo } from './utils/seoManager';
+import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyStandaloneToolSchema, applyBlogSeo, applyStructuredPageSeo, resetHomeSeo } from './utils/seoManager';
 import { getToolCanonicalPath, getToolSeoInfo } from './data/toolSeoData';
+import { FAQ_DATA } from './data/faqData';
 import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
 
 import { Header } from './components/Header';
@@ -33,6 +34,120 @@ import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Language, SUPPORTED_LANGUAGES } from './i18n/translations';
 import { ThemeProvider } from './context/ThemeContext';
+
+const SITE_ORIGIN = 'https://www.clickpdf.net';
+const FAQ_PAGE_URL = `${SITE_ORIGIN}/faq/`;
+const BATCH_PAGE_URL = `${SITE_ORIGIN}/batch/`;
+const BLOG_INDEX_URL = `${SITE_ORIGIN}/blog/`;
+
+function breadcrumbSchema(url: string, currentLabel: string) {
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: currentLabel, item: url },
+    ],
+  };
+}
+
+function makeFaqRouteJsonLd(): Record<string, unknown> {
+  const breadcrumb = breadcrumbSchema(FAQ_PAGE_URL, 'Frequently Asked Questions');
+  const faqId = `${FAQ_PAGE_URL}#faq`;
+  const description = 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.';
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${FAQ_PAGE_URL}#webpage`,
+        url: FAQ_PAGE_URL,
+        name: 'Frequently Asked Questions | ClickPDF',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': faqId },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': faqId,
+        mainEntity: FAQ_DATA.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      },
+      breadcrumb,
+    ],
+  };
+}
+
+function makeBatchRouteJsonLd(): Record<string, unknown> {
+  const breadcrumb = breadcrumbSchema(BATCH_PAGE_URL, 'Batch Processing Queue');
+  const appId = `${BATCH_PAGE_URL}#application`;
+  const description = 'Process a batch of documents in the browser using a selected transformation, then download results individually or in a ZIP file.';
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${BATCH_PAGE_URL}#webpage`,
+        url: BATCH_PAGE_URL,
+        name: 'Batch Processing Queue | ClickPDF',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': appId },
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': appId,
+        name: 'ClickPDF Batch Processing Queue',
+        url: BATCH_PAGE_URL,
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Web',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#webapplication` },
+      },
+      breadcrumb,
+    ],
+  };
+}
+
+function makeBlogIndexJsonLd(posts: BlogPost[]): Record<string, unknown> {
+  const breadcrumb = breadcrumbSchema(BLOG_INDEX_URL, 'Blog');
+  const itemListId = `${BLOG_INDEX_URL}#articles`;
+  const description = 'Practical guides about PDF tools, document privacy, and browser-based workflows.';
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${BLOG_INDEX_URL}#webpage`,
+        url: BLOG_INDEX_URL,
+        name: 'ClickPDF Knowledge Base & Privacy Guides',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': itemListId },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': itemListId,
+        name: 'ClickPDF Guides and Articles',
+        numberOfItems: posts.length,
+        itemListOrder: 'https://schema.org/ItemListOrderDescending',
+        itemListElement: posts.map((post, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: post.title,
+          url: new URL(post.routePath || `/blog/${encodeURIComponent(post.slug)}/`, SITE_ORIGIN).toString(),
+        })),
+      },
+      breadcrumb,
+    ],
+  };
+}
 
 function AppContent() {
   const { getToolTitle, getToolDescription, setLanguage } = useLanguage();
@@ -138,8 +253,13 @@ function AppContent() {
             return;
           }
         }
-        resetHomeSeo(seoConfig);
-        document.title = 'ClickPDF Knowledge Base & Privacy Blog';
+        const posts = getActiveBlogArticles();
+        applyStructuredPageSeo({
+          title: 'ClickPDF Knowledge Base & Privacy Guides',
+          description: 'Practical guides about PDF tools, document privacy, and browser-based workflows.',
+          canonicalUrl: BLOG_INDEX_URL,
+          schema: makeBlogIndexJsonLd(posts),
+        });
         return;
       }
 
@@ -147,7 +267,12 @@ function AppContent() {
         setSelectedTool(null);
         setActiveArticleSlug(null);
         setActiveView('batch');
-        resetHomeSeo(seoConfig);
+        applyStructuredPageSeo({
+          title: 'Batch Processing Queue | ClickPDF',
+          description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
+          canonicalUrl: BATCH_PAGE_URL,
+          schema: makeBatchRouteJsonLd(),
+        });
         return;
       }
 
@@ -155,7 +280,12 @@ function AppContent() {
         setSelectedTool(null);
         setActiveArticleSlug(null);
         setActiveView('faq');
-        resetHomeSeo(seoConfig);
+        applyStructuredPageSeo({
+          title: 'Frequently Asked Questions | ClickPDF',
+          description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
+          canonicalUrl: FAQ_PAGE_URL,
+          schema: makeFaqRouteJsonLd(),
+        });
         return;
       }
 

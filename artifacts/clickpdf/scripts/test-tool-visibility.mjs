@@ -75,6 +75,8 @@ test('default sitemap only contains public tools', async () => {
     entry.path === '/' ||
     entry.path.startsWith('/tools/') ||
     entry.path.startsWith('/blog') ||
+    entry.path === '/faq/' ||
+    entry.path === '/batch/' ||
     entry.path.startsWith('/?tool=')
   ));
 

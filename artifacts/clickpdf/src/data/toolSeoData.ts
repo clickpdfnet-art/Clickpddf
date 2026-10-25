@@ -1347,6 +1347,65 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     relatedToolIds: ['pdf-to-word', 'compress', 'merge', 'protect']
   },
 
+  'word-to-excel': {
+    slug: 'word-to-excel',
+    toolId: 'word-to-excel',
+    aliases: ['word-to-excel', 'docx-to-xlsx', 'convert-word-tables-to-excel'],
+    h1Title: 'Word to Excel Converter — Extract DOCX Tables to XLSX',
+    metaTitle: 'Word to Excel Online — Convert DOCX Tables to XLSX | ClickPDF',
+    metaDescription: 'Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; no server upload.',
+    keywords: 'word to excel, docx to xlsx, extract word tables, convert word table to excel, browser word to excel',
+    targetKeywords: ['word to excel', 'docx to xlsx', 'extract tables from word'],
+    badge: 'DOCX to XLSX',
+    overviewHeading: 'Move Word Tables and Document Text into an Excel Workbook',
+    overview: 'ClickPDF reads a .docx document in your browser, places each detected table in its own Excel worksheet, and collects document paragraphs and lists in a separate Text worksheet.',
+    secondaryOverview: 'The conversion uses the document content available in the Word OpenXML file. Complex page styling and visual layout are not recreated as spreadsheet formatting.',
+    privacyHighlight: 'Private in-browser conversion: your Word document is processed locally in the browser and is not uploaded to a document-processing server.',
+    stepsHeading: 'How to Convert Word Documents to Excel',
+    steps: [
+      {
+        step: 1,
+        title: 'Choose a Word document',
+        description: 'Select one or more .docx files from your device. Legacy .doc files must first be saved as .docx.'
+      },
+      {
+        step: 2,
+        title: 'Extract tables and text',
+        description: 'ClickPDF places each detected table in a separate worksheet and puts document paragraphs and lists in a Text worksheet.'
+      },
+      {
+        step: 3,
+        title: 'Download the Excel workbook',
+        description: 'Download the generated .xlsx workbook. When converting multiple documents, the results are packaged as a ZIP file.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Which Word file formats can I convert?',
+        answer: 'This tool accepts Microsoft Word OpenXML (.docx) files. Save older .doc files as .docx before uploading.'
+      },
+      {
+        question: 'How are tables and paragraphs organized in Excel?',
+        answer: 'Each detected table is placed in its own worksheet. Paragraphs and lists are collected in a separate Text worksheet.'
+      },
+      {
+        question: 'Does the workbook preserve the original Word page layout?',
+        answer: 'No. The tool extracts document tables and text into spreadsheet worksheets; it does not reproduce Word page styling or pagination.'
+      },
+      {
+        question: 'Can I convert multiple Word documents?',
+        answer: 'Yes. Select multiple .docx documents to convert them in sequence and download the resulting workbooks together as a ZIP archive.'
+      }
+    ],
+    benefits: [
+      { title: 'Separate Worksheets', desc: 'Each detected Word table is placed in its own worksheet.', iconName: 'FileSpreadsheet' },
+      { title: 'Text Worksheet', desc: 'Document paragraphs and lists are collected in a separate worksheet.', iconName: 'FileText' },
+      { title: 'Local Processing', desc: 'The conversion runs in your browser without uploading the document to a processing server.', iconName: 'ShieldCheck' },
+      { title: 'Multiple Documents', desc: 'Convert a selection of DOCX files and package the workbooks in a ZIP.', iconName: 'Layers' }
+    ],
+    relatedToolIds: ['word-to-pdf', 'pdf-to-excel', 'excel-to-pdf']
+  },
+
   'excel-to-pdf': {
     slug: 'excel-to-pdf',
     toolId: 'excel-to-pdf',

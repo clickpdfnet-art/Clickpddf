@@ -1,5 +1,6 @@
 import { SeoMetaConfig, BlogPost } from '../types';
-import { ToolSeoInfo } from '../data/toolSeoData';
+import { getToolSeoInfo, ToolSeoInfo } from '../data/toolSeoData';
+import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 
 export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
   title: 'ClickPDF — Free In-Browser PDF Tools & Editor | Click Digital Services',
@@ -18,8 +19,8 @@ const LEGACY_TOOL_SCHEMA_SCRIPT_ID = 'clickpdf-tool-schema';
 const LEGACY_BLOG_SCHEMA_SCRIPT_ID = 'clickpdf-blog-schema';
 const ORG_SCHEMA_SCRIPT_ID = 'clickpdf-org-schema';
 const HOME_FAQ_SCHEMA_SCRIPT_ID = 'clickpdf-home-faq-schema';
+const HOME_SITE_SCHEMA_SCRIPT_ID = 'clickpdf-home-site-schema';
 const SITE_ORIGIN = 'https://www.clickpdf.net';
-let savedHomeFaqSchema: string | null = null;
 
 export function getStoredSeoConfig(): SeoMetaConfig {
   if (typeof window === 'undefined') return DEFAULT_SEO_CONFIG;
@@ -84,6 +85,7 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
   if (typeof document === 'undefined') return;
 
   removeHomeFaqJsonLdSchema();
+  removeHomeSiteJsonLdSchema();
   const origin = SITE_ORIGIN;
   const canonicalUrl = `${origin}/tools/${toolSeo.slug}/`;
 
@@ -125,6 +127,7 @@ export function applyStandaloneToolSchema(
   if (typeof document === 'undefined') return;
   const pageUrl = canonicalizeClickPdfUrl(canonicalUrl);
   removeHomeFaqJsonLdSchema();
+  removeHomeSiteJsonLdSchema();
   setPageJsonLdSchema({
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -152,6 +155,7 @@ export function applyBlogSeo(article: BlogPost): void {
   if (typeof document === 'undefined') return;
 
   removeHomeFaqJsonLdSchema();
+  removeHomeSiteJsonLdSchema();
   const origin = SITE_ORIGIN;
   const canonicalUrl = canonicalizeClickPdfUrl(new URL(
     article.routePath || `/blog/${encodeURIComponent(article.slug)}`,
@@ -217,11 +221,43 @@ export function resetHomeSeo(customConfig?: SeoMetaConfig): void {
   clearAlternateLanguageLinks();
   removeToolJsonLdSchema();
   removeBlogJsonLdSchema();
-  injectHomeSoftwareApplicationJsonLd(homeCanonical, config.description);
-  restoreHomeFaqJsonLdSchema();
+  document.getElementById(PAGE_SCHEMA_SCRIPT_ID)?.remove();
+  injectHomeSiteJsonLdSchema();
 
   // Inject Organization & Brand JSON-LD schema linking ClickPDF.net to Click Digital Services
   injectHomeOrganizationJsonLd(origin);
+}
+
+export function applyStructuredPageSeo({
+  title,
+  description,
+  canonicalUrl,
+  schema,
+}: {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  schema: Record<string, unknown>;
+}): void {
+  if (typeof document === 'undefined') return;
+  removeHomeFaqJsonLdSchema();
+  removeHomeSiteJsonLdSchema();
+  document.title = title;
+  setMetaTag('name', 'description', description);
+  setMetaTag('name', 'robots', 'index,follow');
+  setMetaTag('property', 'og:title', title);
+  setMetaTag('property', 'og:description', description);
+  setMetaTag('property', 'og:url', canonicalizeClickPdfUrl(canonicalUrl));
+  setMetaTag('property', 'og:type', 'website');
+  setMetaTag('property', 'og:site_name', 'ClickPDF');
+  setMetaTag('name', 'twitter:card', 'summary');
+  setMetaTag('name', 'twitter:title', title);
+  setMetaTag('name', 'twitter:description', description);
+  updateCanonicalUrl(canonicalizeClickPdfUrl(canonicalUrl));
+  clearAlternateLanguageLinks();
+  removeToolJsonLdSchema();
+  removeBlogJsonLdSchema();
+  setPageJsonLdSchema(schema);
 }
 
 const BLOG_HREFLANG_LINK_PREFIX = 'clickpdf-blog-hreflang-';
@@ -274,16 +310,6 @@ export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.cl
           slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
           url: originUrl
         }
-      },
-      {
-        '@type': 'WebSite',
-        '@id': `${originUrl}/#website`,
-        url: `${originUrl}/`,
-        name: 'ClickPDF.net',
-        description: 'Fast, private, client-side PDF utility suite by Click Digital Services with zero server uploads.',
-        publisher: {
-          '@id': `${originUrl}/#organization`
-        }
       }
     ]
   };
@@ -291,23 +317,77 @@ export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.cl
   setJsonLdScript(ORG_SCHEMA_SCRIPT_ID, orgSchema);
 }
 
-function injectHomeSoftwareApplicationJsonLd(canonicalUrl: string, description: string): void {
-  setPageJsonLdSchema({
+function injectHomeSiteJsonLdSchema(): void {
+  const toolListItems = PUBLIC_PDF_TOOLS.flatMap((tool, index) => {
+    const seo = getToolSeoInfo(tool.id);
+    if (!seo) return [];
+    return [{
+      '@type': 'ListItem',
+      position: index + 1,
+      name: seo.h1Title || tool.title,
+      url: `${SITE_ORIGIN}/tools/${seo.slug}/`,
+    }];
+  });
+  setJsonLdScript(HOME_SITE_SCHEMA_SCRIPT_ID, {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    '@id': `${canonicalUrl}#software`,
-    name: 'ClickPDF',
-    url: canonicalUrl,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Web',
-    description,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    creator: { '@id': `${SITE_ORIGIN}/#organization` },
-    publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_ORIGIN}/#website`,
+        name: 'ClickPDF',
+        alternateName: 'ClickPDF by Click Digital Services',
+        url: `${SITE_ORIGIN}/`,
+        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_ORIGIN}/#webpage`,
+        url: `${SITE_ORIGIN}/`,
+        name: 'ClickPDF — Free In-Browser PDF Tools',
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        mainEntity: { '@id': `${SITE_ORIGIN}/#webapplication` },
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': `${SITE_ORIGIN}/#webapplication`,
+        name: 'ClickPDF',
+        url: `${SITE_ORIGIN}/`,
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Web',
+        description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and securing documents without uploading files to a processing server.',
+        creator: { '@id': `${SITE_ORIGIN}/#organization` },
+        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        featureList: [
+          'Merge and reorder PDF files',
+          'Split PDF pages and extract page ranges',
+          'Compress PDF documents in the browser',
+          'Convert documents and images to and from PDF',
+          'Edit, sign, rotate and organize PDF pages',
+          'Protect documents and inspect PDF metadata',
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${SITE_ORIGIN}/#tools`,
+        name: 'ClickPDF PDF tools',
+        itemListOrder: 'https://schema.org/ItemListOrderAscending',
+        numberOfItems: toolListItems.length,
+        itemListElement: toolListItems,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        '@id': `${SITE_ORIGIN}/#site-navigation`,
+        name: 'ClickPDF main navigation',
+        hasPart: [
+          { name: 'Home', url: `${SITE_ORIGIN}/` },
+          { name: 'PDF Tools', url: `${SITE_ORIGIN}/#global-search-input` },
+          { name: 'FAQ', url: `${SITE_ORIGIN}/faq/` },
+          { name: 'Batch Processing Queue', url: `${SITE_ORIGIN}/batch/` },
+          { name: 'Blog', url: `${SITE_ORIGIN}/blog/` },
+        ].map((item) => ({ '@type': 'WebPage', ...item })),
+      },
+    ],
   });
 }
 
@@ -474,16 +554,11 @@ function removeBlogJsonLdSchema(): void {
 }
 
 function removeHomeFaqJsonLdSchema(): void {
-  const script = document.getElementById(HOME_FAQ_SCHEMA_SCRIPT_ID) as HTMLScriptElement | null;
-  if (!script) return;
-  savedHomeFaqSchema = script.textContent;
-  script.remove();
+  document.getElementById(HOME_FAQ_SCHEMA_SCRIPT_ID)?.remove();
 }
 
-function restoreHomeFaqJsonLdSchema(): void {
-  if (!savedHomeFaqSchema || document.getElementById(HOME_FAQ_SCHEMA_SCRIPT_ID)) return;
-  setJsonLdScript(HOME_FAQ_SCHEMA_SCRIPT_ID, JSON.parse(savedHomeFaqSchema));
-  savedHomeFaqSchema = null;
+function removeHomeSiteJsonLdSchema(): void {
+  document.getElementById(HOME_SITE_SCHEMA_SCRIPT_ID)?.remove();
 }
 
 function setPageJsonLdSchema(schema: Record<string, unknown>): void {
