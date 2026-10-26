@@ -2,6 +2,16 @@ const APEX_HOST = 'clickpdf.net';
 const CANONICAL_HOST = 'www.clickpdf.net';
 const UNICODE_ROUTE_MAP_PATH = '/__unicode_routes.json';
 const BLOG_ROUTE_MAP_PATH = '/__blog_routes.json';
+const PUBLIC_STATIC_PAGE_PATHS = new Set([
+  '/faq',
+  '/batch',
+  '/about',
+  '/contact',
+  '/privacy-policy',
+  '/terms-of-service',
+  '/cookies',
+  '/disclaimer',
+]);
 export const TOOL_ROUTE_REDIRECTS = new Map([
   ['/merge-pdf', '/tools/merge-pdf/'],
   ['/split-pdf', '/tools/split-pdf/'],
@@ -129,8 +139,12 @@ export default {
 
     if (!canonicalPath && !isToolRoute && decodedPath && !decodedPath.endsWith('/')) {
       const blogRouteKey = `/${decodedPath.replace(/^\/+|\/+$/g, '')}`;
-      const routeMap = await getBlogRouteMap(url, env);
-      canonicalPath = routeMap?.[blogRouteKey] || null;
+      if (PUBLIC_STATIC_PAGE_PATHS.has(blogRouteKey)) {
+        canonicalPath = `${blogRouteKey}/`;
+      } else {
+        const routeMap = await getBlogRouteMap(url, env);
+        canonicalPath = routeMap?.[blogRouteKey] || null;
+      }
     }
 
     if (!canonicalPath && isToolRoute && !url.pathname.endsWith('/')) {

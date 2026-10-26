@@ -82,6 +82,25 @@ test('apex homepage and canonical slash routes require only the host redirect', 
   }
 });
 
+test('known public page URLs without a slash redirect once to their existing canonical slash URL', async () => {
+  const cases = [
+    ['https://clickpdf.net/faq?source=test', 'https://www.clickpdf.net/faq/?source=test'],
+    ['https://www.clickpdf.net/privacy-policy', 'https://www.clickpdf.net/privacy-policy/'],
+    ['https://clickpdf.net/about/', 'https://www.clickpdf.net/about/'],
+  ];
+  const env = {
+    ASSETS: {
+      fetch: async () => assert.fail('Known page aliases should redirect before static asset lookup'),
+    },
+  };
+
+  for (const [requestUrl, expectedLocation] of cases) {
+    const response = await worker.fetch(new Request(requestUrl), env);
+    assert.equal(response.status, 301, requestUrl);
+    assert.equal(response.headers.get('location'), expectedLocation, requestUrl);
+  }
+});
+
 test('www requests are served from the static asset binding without redirect', async () => {
   let passedRequest;
   const expectedResponse = new Response('static page', { status: 200 });
