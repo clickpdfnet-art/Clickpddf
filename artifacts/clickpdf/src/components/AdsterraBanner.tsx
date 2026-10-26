@@ -163,7 +163,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
 
   const scaledWidth = Math.round(BANNER_WIDTH * scale);
   const scaledHeight = Math.round(BANNER_HEIGHT * scale);
-  const isRendered = adsAllowed && adState === 'rendered';
+  const isSlotVisible = adsAllowed && adState !== 'empty';
 
   return (
     <div
@@ -171,12 +171,12 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
       data-testid="tool-page-banner-ad"
       data-ad-state={adsAllowed ? adState : 'empty'}
       style={{
-        display: isRendered ? 'flex' : 'none',
+        display: isSlotVisible ? 'flex' : 'none',
         justifyContent: 'center',
         alignItems: 'center',
-        width: isRendered ? scaledWidth : 0,
-        height: isRendered ? scaledHeight : 0,
-        margin: isRendered ? undefined : 0,
+        width: isSlotVisible ? scaledWidth : 0,
+        height: isSlotVisible ? scaledHeight : 0,
+        margin: isSlotVisible ? undefined : 0,
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: 0,
