@@ -60,6 +60,39 @@ async function getBlogRouteMap(requestUrl, env) {
   }
 }
 
+async function fetchUnicodeRouteAsset(request, env, routeAssetPath) {
+  let assetUrl = new URL(routeAssetPath, request.url);
+  let response = await env.ASSETS.fetch(new Request(assetUrl, request));
+  if (request.method !== 'GET' && request.method !== 'HEAD') return response;
+
+  // Cloudflare Static Assets may redirect a generated .html asset to its
+  // extensionless form. Follow only that internal mapped-asset redirect so
+  // the public Unicode URL can return the page directly.
+  for (let redirects = 0; redirects < 2 && response.status >= 300 && response.status < 400; redirects += 1) {
+    const location = response.headers.get('location');
+    if (!location) return response;
+
+    let redirectedUrl;
+    try {
+      redirectedUrl = new URL(location, assetUrl);
+    } catch {
+      return response;
+    }
+
+    if (
+      redirectedUrl.origin !== assetUrl.origin ||
+      !redirectedUrl.pathname.startsWith('/__unicode_routes__/')
+    ) {
+      return response;
+    }
+
+    assetUrl = redirectedUrl;
+    response = await env.ASSETS.fetch(new Request(assetUrl, request));
+  }
+
+  return response;
+}
+
 function normalizedToolPath(pathname) {
   return pathname.replace(/\/+$/, '');
 }
@@ -113,8 +146,7 @@ export default {
       const routeMap = await getUnicodeRouteMap(url, env);
       const routeAssetPath = routeMap?.[routeKey];
       if (routeAssetPath) {
-        const routeAssetUrl = new URL(routeAssetPath, url.origin);
-        return env.ASSETS.fetch(new Request(routeAssetUrl, request));
+        return fetchUnicodeRouteAsset(request, env, routeAssetPath);
       }
     }
 

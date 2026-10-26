@@ -440,7 +440,16 @@ test('Cloudflare worker resolves percent-encoded Unicode blog routes to their ow
       ASSETS: {
         async fetch(assetRequest) {
           const assetUrl = new URL(assetRequest.url);
-          const relativePath = assetUrl.pathname.replace(/^\/+/, '');
+          const requestedPath = assetUrl.pathname.replace(/^\/+/, '');
+          if (requestedPath.startsWith('__unicode_routes__/') && requestedPath.endsWith('.html')) {
+            return Response.redirect(
+              new URL(requestedPath.slice(0, -5), assetUrl.origin),
+              307,
+            );
+          }
+          const relativePath = requestedPath.startsWith('__unicode_routes__/')
+            ? `${requestedPath}.html`
+            : requestedPath;
           try {
             const body = await readFile(path.join(publicDir, relativePath));
             return new Response(body, {
