@@ -198,8 +198,29 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
     assert.equal(decodeXml(staticDescription), tool.description, `${url} uses its registry description in static HTML`);
     const howTo = nodes.find((node) => node['@type'] === 'HowTo');
     assert.equal(howTo?.step?.length, tool.steps.length, `${url} schema has every workflow step`);
+    assert.equal(howTo?.step?.length, 3, `${url} HowTo uses the requested three-step workflow`);
     assert.ok(howTo?.step?.every((step) => step.name && step.text), `${url} has readable HowTo step names and text`);
-    assert.equal((content.match(/<details>/g) || []).length, tool.faqs.length, `${url} renders every current FAQ`);
+    assert.equal(tool.faqs.length, 3, `${url} has exactly three targeted FAQs`);
+    assert.match(tool.faqs[0].question, /^Does .+ upload my files to a server\?$/i, `${url} has a privacy FAQ`);
+    assert.match(tool.faqs[1].question, /^Is .+ free, and is there a file-size limit\?$/i, `${url} has a cost and limits FAQ`);
+    assert.match(tool.faqs[2].question, /^Can I use .+ on Android, iPhone, and PC\?$/i, `${url} has a compatibility FAQ`);
+    assert.equal((content.match(/<details>/g) || []).length, 3, `${url} visibly renders the same three FAQs`);
+    const faqSchema = nodes.find((node) => node['@type'] === 'FAQPage');
+    assert.deepEqual(
+      faqSchema?.mainEntity?.map((item) => item.name),
+      tool.faqs.map((faq) => faq.question),
+      `${url} visible FAQ data is mirrored by its JSON-LD FAQPage`,
+    );
+    const answerStart = content.indexOf('<section aria-label="Quick answer"');
+    const howToStart = content.indexOf('id="seo-tool-steps"');
+    assert.ok(answerStart >= 0 && howToStart > answerStart, `${url} has a quick answer before the How-To section`);
+    const answerBlock = content.slice(answerStart, howToStart);
+    assert.match(answerBlock, /Use .+ to .+\./i, `${url} quick answer describes the tool action`);
+    assert.match(answerBlock, /processed locally in your browser/i, `${url} quick answer describes local processing`);
+    assert.match(answerBlock, /device memory/i, `${url} quick answer describes practical device limits`);
+    const orderedSteps = howTo?.step || [];
+    assert.match(`${orderedSteps[0]?.name} ${orderedSteps[0]?.text}`, /select|upload|drop|choose|open|add/i, `${url} starts by selecting files`);
+    assert.match(`${orderedSteps[2]?.name} ${orderedSteps[2]?.text}`, /download|save|copy|export|generate/i, `${url} ends with an output action`);
   }
 });
 
@@ -322,6 +343,17 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   assert.match(llmsFull, /document file contents are processed locally in your browser/i);
   assert.match(llmsFull, /standard network requests/i);
   assert.match(llmsFull, /enabled advertising or other third-party features/i);
+  assert.doesNotMatch(fullToolsSection, /\[object Object\]/, 'llms-full.txt renders How-To steps as readable text');
+  for (const tool of activeTools) {
+    assert.ok(
+      fullToolsSection.includes(`${siteOrigin}/tools/${tool.slug}/`),
+      `llms-full.txt includes the canonical tool URL for ${tool.slug}`,
+    );
+    assert.ok(
+      tool.faqs.every((faq) => fullToolsSection.includes(faq.question)),
+      `llms-full.txt lists the three visible FAQs for ${tool.slug}`,
+    );
+  }
   for (const page of legalPages) {
     assert.ok(fullPagesSection.includes(`${siteOrigin}${page.path}`), `llms-full.txt includes ${page.path}`);
   }

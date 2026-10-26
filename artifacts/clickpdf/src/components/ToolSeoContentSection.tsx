@@ -11,8 +11,22 @@ import { PDFTool } from '../types';
 import { ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
+import toolSeoFaqTemplates from '../data/toolSeoFaqTemplates.json';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
+
+function firstSentence(value: string): string {
+  const text = value.trim();
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (!'.!?'.includes(character)) continue;
+    if (character === '.' && /(?:e|i)\.g$/i.test(text.slice(0, index))) continue;
+    if (index === text.length - 1 || /\s/.test(text[index + 1])) {
+      return text.slice(0, index + 1);
+    }
+  }
+  return text;
+}
 
 interface ToolSeoContentSectionProps {
   tool: PDFTool;
@@ -91,7 +105,17 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     <article className="w-full mt-12 pt-10 border-t border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100">
       {/* 1. Tool Overview & In-Browser Privacy Hero Section */}
       <div className="max-w-4xl mx-auto space-y-8">
-        
+        <section
+          aria-label={toolSeoFaqTemplates.directAnswerLabel}
+          className="rounded-xl border border-indigo-100 dark:border-indigo-900/70 bg-indigo-50/60 dark:bg-indigo-950/30 px-5 py-4 text-sm text-slate-700 dark:text-slate-200 leading-relaxed"
+        >
+          <p>
+            <strong className="text-slate-900 dark:text-white">{toolSeoFaqTemplates.directAnswerLabel}:</strong>{' '}
+            Use {getToolTitle(tool)} to {firstSentence(getToolDescription(tool)).replace(/[.!?]\s*$/, '').replace(/^./, (character) => character.toLowerCase())}.{' '}
+            {toolSeoFaqTemplates.directAnswerSecondSentence}
+          </p>
+        </section>
+
         {/* Keyword-Rich Heading and Badges */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">

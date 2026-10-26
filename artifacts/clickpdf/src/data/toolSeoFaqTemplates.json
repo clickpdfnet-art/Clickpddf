@@ -1,0 +1,21 @@
+{
+  "directAnswerLabel": "Quick answer",
+  "directAnswerSecondSentence": "Selected files are processed locally in your browser; performance depends on browser support and available device memory.",
+  "faqs": [
+    {
+      "id": "privacy",
+      "question": "Does {toolName} upload my files to a server?",
+      "answer": "Document processing happens locally in your browser, and file contents are not sent to ClickPDF's document-processing servers. The website may still make standard network requests for page resources and enabled third-party services, such as ads."
+    },
+    {
+      "id": "limits",
+      "question": "Is {toolName} free, and is there a file-size limit?",
+      "answer": "ClickPDF is free to use without an account, and it does not add a branding watermark by default. There is no single file-size limit for every tool; practical limits depend on the file, browser support, and available device memory. Watermark PDF adds a mark only when you choose to apply one."
+    },
+    {
+      "id": "compatibility",
+      "question": "Can I use {toolName} on Android, iPhone, and PC?",
+      "answer": "Yes. Use a modern browser on Android, iPhone or iPad, or a desktop computer; supported features and performance vary with the browser and available device memory. No app installation is required."
+    }
+  ]
+}

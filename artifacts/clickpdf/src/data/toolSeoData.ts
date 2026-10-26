@@ -1,4 +1,5 @@
 import { getPluginSeoInfo } from '../tools/plugins/pluginLoader';
+import toolSeoFaqTemplates from './toolSeoFaqTemplates.json';
 
 export interface ToolFaq {
   question: string;
@@ -36,6 +37,27 @@ export interface ToolSeoInfo {
   faqs: ToolFaq[];
   benefits: ToolBenefit[];
   relatedToolIds: string[];
+}
+
+function fillToolSeoTemplate(template: string, toolName: string): string {
+  return template.replaceAll('{toolName}', toolName);
+}
+
+function getStandardToolFaqs(info: ToolSeoInfo): ToolFaq[] {
+  const toolName = info.h1Title
+    .split(/[—–|]/, 1)[0]
+    .replace(/\b(online|free|100%|in-browser)\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim() || 'ClickPDF';
+
+  return toolSeoFaqTemplates.faqs.map(({ question, answer }) => ({
+    question: fillToolSeoTemplate(question, toolName),
+    answer,
+  }));
+}
+
+function withStandardToolFaqs(info: ToolSeoInfo): ToolSeoInfo {
+  return { ...info, faqs: getStandardToolFaqs(info) };
 }
 
 export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
@@ -1539,20 +1561,20 @@ export function getToolSeoInfo(toolIdOrSlug: string): ToolSeoInfo | undefined {
   
   // Direct toolId lookup
   if (TOOL_SEO_REGISTRY[normalized]) {
-    return TOOL_SEO_REGISTRY[normalized];
+    return withStandardToolFaqs(TOOL_SEO_REGISTRY[normalized]);
   }
 
   // Slug or alias lookup
   for (const info of Object.values(TOOL_SEO_REGISTRY)) {
-    if (info.slug === normalized) return info;
-    if (info.aliases.includes(normalized)) return info;
+    if (info.slug === normalized) return withStandardToolFaqs(info);
+    if (info.aliases.includes(normalized)) return withStandardToolFaqs(info);
   }
 
   // Check auto-discovered plugins in src/tools/plugins/*.tsx
   try {
     const pluginInfo = getPluginSeoInfo(normalized);
     if (pluginInfo) {
-      return pluginInfo;
+      return withStandardToolFaqs(pluginInfo);
     }
   } catch {
     // fallback

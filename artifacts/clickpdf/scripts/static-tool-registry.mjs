@@ -102,11 +102,13 @@ export async function readActiveToolRegistry(appDir) {
   const toolsPath = path.join(dataDir, 'toolsData.ts');
   const seoPath = path.join(dataDir, 'toolSeoData.ts');
   const pluginDir = path.join(appDir, 'src', 'tools', 'plugins');
-  const [baseTools, hiddenValue, seoObject] = await Promise.all([
+  const [baseTools, hiddenValue, seoObject, faqTemplateText] = await Promise.all([
     readTypeScriptExport(toolsPath, 'BASE_PDF_TOOLS'),
     readTypeScriptExport(toolsPath, 'HIDDEN_TOOL_IDS'),
     readTypeScriptExport(seoPath, 'TOOL_SEO_REGISTRY'),
+    readFile(path.join(dataDir, 'toolSeoFaqTemplates.json'), 'utf8'),
   ]);
+  const faqTemplates = JSON.parse(faqTemplateText);
 
   if (!Array.isArray(baseTools) || !seoObject || typeof seoObject !== 'object') {
     throw new Error('Could not read the static PDF tool registry and SEO data.');
@@ -149,15 +151,27 @@ export async function readActiveToolRegistry(appDir) {
     if (!seo?.slug || !seo.steps?.length || !seo.faqs?.length) {
       throw new Error(`Public tool "${tool.id}" requires a canonical slug, HowTo steps, and FAQs.`);
     }
+    const faqToolName = (seo.h1Title || tool.title || 'ClickPDF')
+      .split(/[—–|]/, 1)[0]
+      .replace(/\b(online|free|100%|in-browser)\b/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim() || 'ClickPDF';
     return {
       id: tool.id,
       slug: seo.slug,
+      toolLabel: tool.title || seo.h1Title,
       name: seo.h1Title || tool.title || seo.metaTitle,
       title: seo.metaTitle || tool.title,
       description: seo.metaDescription || tool.description || '',
+      shortDescription: tool.description || '',
       stepsHeading: seo.stepsHeading,
       steps: seo.steps,
-      faqs: seo.faqs,
+      faqs: faqTemplates.faqs.map(({ question, answer }) => ({
+        question: question.replaceAll('{toolName}', faqToolName),
+        answer,
+      })),
+      directAnswerLabel: faqTemplates.directAnswerLabel,
+      directAnswerSecondSentence: faqTemplates.directAnswerSecondSentence,
       benefits: seo.benefits || [],
       relatedToolIds: seo.relatedToolIds || [],
     };

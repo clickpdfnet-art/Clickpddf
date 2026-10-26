@@ -124,6 +124,19 @@ function linkList(items, label) {
     .join('')}</ul></nav>`;
 }
 
+function firstSentence(value) {
+  const text = String(value || '').trim();
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (!'.!?'.includes(character)) continue;
+    if (character === '.' && /(?:e|i)\.g$/i.test(text.slice(0, index))) continue;
+    if (index === text.length - 1 || /\s/.test(text[index + 1])) {
+      return text.slice(0, index + 1);
+    }
+  }
+  return text;
+}
+
 function fallbackPage({ title, description, content, lang = 'en' }) {
   return `<main id="seo-static-content" lang="${escapeHtml(lang)}" aria-label="${escapeHtml(title)}"><header><a href="https://www.clickpdf.net/">ClickPDF</a><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p></header>${content}</main>`;
 }
@@ -176,6 +189,10 @@ export function renderToolFallback(tool, tools) {
   const steps = `<section aria-labelledby="seo-tool-steps"><h2 id="seo-tool-steps">${escapeHtml(tool.stepsHeading || `How to use ${tool.name}`)}</h2><ol>${tool.steps
     .map((step) => `<li><h3>${escapeHtml(step.title)}</h3><p>${escapeHtml(step.description)}</p></li>`)
     .join('')}</ol></section>`;
+  const directAction = firstSentence(tool.shortDescription || tool.description || '')
+    .replace(/[.!?]\s*$/, '')
+    .replace(/^./, (character) => character.toLowerCase());
+  const directAnswer = `<section aria-label="${escapeHtml(tool.directAnswerLabel || 'Quick answer')}"><p><strong>${escapeHtml(tool.directAnswerLabel || 'Quick answer')}:</strong> Use ${escapeHtml(tool.toolLabel || tool.name)} to ${escapeHtml(directAction)}. ${escapeHtml(tool.directAnswerSecondSentence || 'Selected files are processed locally in your browser; performance depends on browser support and available device memory.')}</p></section>`;
   const faqs = `<section aria-labelledby="seo-tool-faq"><h2 id="seo-tool-faq">Frequently asked questions</h2>${tool.faqs
     .map((faq) => `<details><summary>${escapeHtml(faq.question)}</summary><p>${escapeHtml(faq.answer)}</p></details>`)
     .join('')}</section>`;
@@ -190,7 +207,7 @@ export function renderToolFallback(tool, tools) {
   return fallbackPage({
     title: tool.name,
     description: tool.description,
-    content: `${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
+    content: `${directAnswer}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
   });
 }
 

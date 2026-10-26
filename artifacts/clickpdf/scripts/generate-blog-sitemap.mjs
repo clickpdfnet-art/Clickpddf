@@ -173,7 +173,9 @@ const llmsFull = [
     const features = [...new Set((tool.benefits || []).map((benefit) =>
       accuratePrivacyCopy(benefit.title || ''),
     ).filter(Boolean))];
-    const steps = (tool.steps || []).map((step) => accuratePrivacyCopy(step));
+    const steps = (tool.steps || []).map((step) => accuratePrivacyCopy(
+      typeof step === 'string' ? step : [step?.title, step?.description].filter(Boolean).join(': '),
+    ));
     const questions = (tool.faqs || []).map((faq) => accuratePrivacyCopy(faq.question || '')).filter(Boolean);
     return [
       `### ${markdownLabel(tool.name)}`,
