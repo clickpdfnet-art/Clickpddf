@@ -1,6 +1,7 @@
 const APEX_HOST = 'clickpdf.net';
 const CANONICAL_HOST = 'www.clickpdf.net';
 const UNICODE_ROUTE_MAP_PATH = '/__unicode_routes.json';
+const BLOG_ROUTE_MAP_PATH = '/__blog_routes.json';
 export const TOOL_ROUTE_REDIRECTS = new Map([
   ['/merge-pdf', '/tools/merge-pdf/'],
   ['/split-pdf', '/tools/split-pdf/'],
@@ -31,6 +32,7 @@ export const TOOL_ROUTE_REDIRECTS = new Map([
 ]);
 
 let unicodeRouteMap;
+let blogRouteMap;
 
 async function getUnicodeRouteMap(requestUrl, env) {
   if (unicodeRouteMap) return unicodeRouteMap;
@@ -40,6 +42,19 @@ async function getUnicodeRouteMap(requestUrl, env) {
   try {
     unicodeRouteMap = await response.json();
     return unicodeRouteMap;
+  } catch {
+    return null;
+  }
+}
+
+async function getBlogRouteMap(requestUrl, env) {
+  if (blogRouteMap) return blogRouteMap;
+  const mapUrl = new URL(BLOG_ROUTE_MAP_PATH, requestUrl);
+  const response = await env.ASSETS.fetch(new Request(mapUrl));
+  if (!response.ok) return null;
+  try {
+    blogRouteMap = await response.json();
+    return blogRouteMap;
   } catch {
     return null;
   }
@@ -81,6 +96,16 @@ export default {
     if (aliasDestination) {
       url.pathname = aliasDestination;
       return Response.redirect(url.toString(), 301);
+    }
+
+    if (decodedPath && !decodedPath.endsWith('/')) {
+      const blogRouteKey = `/${decodedPath.replace(/^\/+|\/+$/g, '')}`;
+      const routeMap = await getBlogRouteMap(url, env);
+      const canonicalPath = routeMap?.[blogRouteKey];
+      if (canonicalPath) {
+        url.pathname = canonicalPath;
+        return Response.redirect(url.toString(), 301);
+      }
     }
 
     if (decodedPath && /[^\u0000-\u007f]/.test(decodedPath)) {

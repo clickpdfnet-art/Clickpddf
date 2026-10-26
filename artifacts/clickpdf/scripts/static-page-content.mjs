@@ -137,11 +137,41 @@ function firstSentence(value) {
   return text;
 }
 
+const quickAnswerLabels = {
+  en: 'Quick answer',
+  ar: 'إجابة سريعة',
+  de: 'Kurzantwort',
+  es: 'Respuesta rápida',
+  fr: 'Réponse rapide',
+  hi: 'संक्षिप्त उत्तर',
+  id: 'Jawaban singkat',
+  it: 'Risposta rapida',
+  ja: '簡単な回答',
+  ko: '빠른 답변',
+  nl: 'Kort antwoord',
+  no: 'Kort svar',
+  pl: 'Krótka odpowiedź',
+  pt: 'Resposta rápida',
+  ru: 'Краткий ответ',
+  sv: 'Snabbt svar',
+  tl: 'Mabilis na sagot',
+  tr: 'Kısa yanıt',
+  ur: 'مختصر جواب',
+  vi: 'Câu trả lời nhanh',
+  zh: '简要回答',
+};
+
+function renderFaqItems(faqItems) {
+  return faqItems
+    .map((item, index) => `<details><summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p></details>`)
+    .join('');
+}
+
 function fallbackPage({ title, description, content, lang = 'en' }) {
   return `<main id="seo-static-content" lang="${escapeHtml(lang)}" aria-label="${escapeHtml(title)}"><header><a href="https://www.clickpdf.net/">ClickPDF</a><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p></header>${content}</main>`;
 }
 
-export function renderHomeFallback(tools, articles) {
+export function renderHomeFallback(tools, articles, faqItems = []) {
   const toolItems = tools.map((tool) => ({
     name: tool.name,
     url: `/tools/${encodeURIComponent(tool.slug)}/`,
@@ -166,6 +196,9 @@ export function renderHomeFallback(tools, articles) {
     '</ul></section>',
     '<section aria-labelledby="seo-home-privacy"><h2 id="seo-home-privacy">In-browser document tools</h2><p>ClickPDF tools process selected document contents in the browser where supported. The website may still load page resources or enabled third-party services; review each tool’s details and privacy information.</p></section>',
     linkList(blogItems, 'Recent ClickPDF guides'),
+    faqItems.length
+      ? `<section aria-labelledby="seo-home-faq"><h2 id="seo-home-faq">Frequently asked questions</h2>${renderFaqItems(faqItems)}</section>`
+      : '',
     linkList(legalItems, 'Company and policy pages'),
     '<nav aria-label="Site pages"><ul><li><a href="/faq/">Frequently asked questions</a></li><li><a href="/blog/">Guides and articles</a></li><li><a href="/batch/">Batch processing queue</a></li></ul></nav>',
   ].join('');
@@ -217,6 +250,9 @@ export function renderBlogFallback(article, articles) {
     ? `<figure><img src="${escapeHtml(coverImageUrl)}" alt="${escapeHtml(article.imagealt || article.title)}" width="1200" height="630" loading="lazy" style="display:block;width:100%;height:auto" /><figcaption>${escapeHtml(article.imagealt || article.title)}</figcaption></figure>`
     : '';
   const metadata = `<p><span>${escapeHtml(article.author || 'ClickPDF Editorial Team')}</span>${article.date ? ` · <time>${escapeHtml(article.date)}</time>` : ''}${article.category ? ` · <span>${escapeHtml(article.category)}</span>` : ''}</p>`;
+  const quickAnswer = article.quickanswer || article.summary || article.excerpt || article.seodescription || article.title;
+  const quickAnswerLabel = quickAnswerLabels[article.locale] || quickAnswerLabels.en;
+  const quickAnswerBox = `<aside aria-labelledby="blog-quick-answer-heading" style="margin:1.25rem 0;padding:1rem 1.125rem;border:1px solid #c7d2fe;border-left:4px solid #4f46e5;border-radius:0.875rem;background:linear-gradient(135deg,#f5f7ff 0%,#ffffff 100%);box-shadow:0 4px 14px rgba(30,41,59,.06)"><h2 id="blog-quick-answer-heading" style="margin:0 0 .4rem;color:#3730a3;font-size:1.05rem;line-height:1.4">${escapeHtml(quickAnswerLabel)}</h2><p style="margin:0;color:#334155;line-height:1.65">${escapeHtml(quickAnswer)}</p></aside>`;
   const targetToolUrl = safeLocalPath(article.targettoolurl || article.targettoollink || article.toollink, '');
   const targetTool = targetToolUrl
     ? `<p><a href="${escapeHtml(targetToolUrl.endsWith('/') ? targetToolUrl : `${targetToolUrl}/`)}">${escapeHtml(article.targettoolcta || article.targettooltitle || 'Open the related PDF tool')}</a></p>`
@@ -229,7 +265,7 @@ export function renderBlogFallback(article, articles) {
       url: candidate.path,
       description: candidate.summary || candidate.seodescription || '',
     }));
-  const content = `<article>${metadata}${coverImage}<p>${escapeHtml(article.summary || article.excerpt || article.seodescription || '')}</p>${renderMarkdownBody(article.body, article.title)}${targetTool}</article>${linkList(relatedPosts, 'Related ClickPDF guides')}<p><a href="/blog/">Browse all ClickPDF guides</a></p>`;
+  const content = `<article>${quickAnswerBox}${metadata}${coverImage}<p>${escapeHtml(article.summary || article.excerpt || article.seodescription || '')}</p>${renderMarkdownBody(article.body, article.title)}${targetTool}</article>${linkList(relatedPosts, 'Related ClickPDF guides')}<p><a href="/blog/">Browse all ClickPDF guides</a></p>`;
   return fallbackPage({
     title: article.title,
     description: article.seodescription || article.summary || article.excerpt || article.title,
@@ -252,9 +288,7 @@ export function renderBlogIndexFallback(articles) {
 }
 
 export function renderFaqFallback(faqItems) {
-  const content = `<section aria-labelledby="seo-faq-list"><h2 id="seo-faq-list">Questions and answers</h2>${faqItems
-    .map((item) => `<details><summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p></details>`)
-    .join('')}</section><p><a href="/">Browse all ClickPDF tools</a></p>`;
+  const content = `<section aria-labelledby="seo-faq-list"><h2 id="seo-faq-list">Questions and answers</h2>${renderFaqItems(faqItems)}</section><p><a href="/">Browse all ClickPDF tools</a></p>`;
   return fallbackPage({
     title: 'Frequently Asked Questions',
     description: 'Find answers about browser-based PDF processing, privacy and third-party network requests, tool capabilities, file limits, compatibility, and downloads.',

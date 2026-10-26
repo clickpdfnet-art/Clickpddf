@@ -132,11 +132,11 @@ function brandLogoImage() {
   };
 }
 
-function makeFaqPageSchema(faqItems, url) {
+function makeFaqPageSchema(faqItems, url, id = `${url}#faq`) {
   if (!faqItems.length) return undefined;
   return {
     '@type': 'FAQPage',
-    '@id': `${url}#faq`,
+    '@id': id,
     mainEntity: faqItems.map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -296,7 +296,7 @@ function makeBlogSchema(article, url) {
   };
 }
 
-function makeHomepageSchema(toolPages) {
+function makeHomepageSchema(toolPages, faqItems) {
   const navigation = [
     { name: 'Home', url: `${siteOrigin}/` },
     { name: 'PDF Tools', url: `${siteOrigin}/#global-search-input` },
@@ -304,6 +304,7 @@ function makeHomepageSchema(toolPages) {
     { name: 'Batch Processing Queue', url: `${siteOrigin}/batch/` },
     { name: 'Blog', url: `${siteOrigin}/blog/` },
   ];
+  const homeFaq = makeFaqPageSchema(faqItems, `${siteOrigin}/`, `${siteOrigin}/#faq`);
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -323,6 +324,7 @@ function makeHomepageSchema(toolPages) {
         name: 'ClickPDF — Free In-Browser PDF Tools',
         isPartOf: { '@id': `${siteOrigin}/#website` },
         mainEntity: { '@id': `${siteOrigin}/#webapplication` },
+        ...(homeFaq ? { hasPart: { '@id': homeFaq['@id'] } } : {}),
       },
       {
         '@type': 'WebApplication',
@@ -367,6 +369,7 @@ function makeHomepageSchema(toolPages) {
           url: item.url,
         })),
       },
+      ...(homeFaq ? [homeFaq] : []),
     ],
   };
 }
@@ -691,9 +694,19 @@ for (const group of translatedGroups.values()) {
 }
 
 const unicodeRouteMap = {};
+const blogRouteMap = {
+  '/blog': '/blog/',
+};
 for (const article of articles) {
   const routePath = articlePath(article);
   const url = absoluteSiteUrl(`${siteOrigin}${routePath}`);
+  const decodedRoutePath = decodeURIComponent(routePath);
+  const normalizedBlogRoute = `/${decodedRoutePath.replace(/^\/+|\/+$/g, '')}`;
+  const canonicalBlogPath = new URL(routePath, siteOrigin).pathname;
+  if (blogRouteMap[normalizedBlogRoute]) {
+    throw new Error(`Duplicate blog route detected: ${normalizedBlogRoute}`);
+  }
+  blogRouteMap[normalizedBlogRoute] = canonicalBlogPath;
   const description = article.seodescription || article.summary || article.excerpt || article.title;
   const schema = makeBlogSchema(article, url);
   const relativePath = path.join(routePath.replace(/^\/|\/$/g, ''), 'index.html');
@@ -714,7 +727,6 @@ for (const article of articles) {
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, routeHtml, 'utf8');
   generated.push(relativePath);
-  const decodedRoutePath = decodeURIComponent(routePath);
   if (/[^\u0000-\u007f]/.test(decodedRoutePath)) {
     const hashedPath = `__unicode_routes__/${createHash('sha256').update(routePath).digest('hex').slice(0, 20)}.html`;
     const hashedOutputPath = path.join(outputDir, hashedPath);
@@ -727,6 +739,11 @@ for (const article of articles) {
 await writeFile(
   path.join(outputDir, '__unicode_routes.json'),
   JSON.stringify(unicodeRouteMap),
+  'utf8',
+);
+await writeFile(
+  path.join(outputDir, '__blog_routes.json'),
+  JSON.stringify(blogRouteMap),
   'utf8',
 );
 
@@ -811,9 +828,9 @@ const homeHtml = prepareRouteHtml(homeTemplate, {
   url: `${siteOrigin}/`,
   title: 'ClickPDF — Free In-Browser PDF Tools',
   description: 'Free browser-based PDF tools. Supported document files are processed locally in your browser; pages may load ads and other third-party resources.',
-  schema: makeHomepageSchema(toolPages),
+  schema: makeHomepageSchema(toolPages, faqItems),
   schemaId: homeSiteSchemaId,
-  staticContent: renderHomeFallback(activeTools, articles),
+  staticContent: renderHomeFallback(activeTools, articles, faqItems),
 });
 await writeFile(homeIndexPath, homeHtml, 'utf8');
 

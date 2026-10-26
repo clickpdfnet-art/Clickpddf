@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -15,12 +15,24 @@ function createAssetsBinding() {
   return {
     async fetch(request) {
       const url = new URL(request.url);
-      const assetPath = path.join(publicDir, url.pathname, 'index.html');
+      let decodedPath;
+      try {
+        decodedPath = decodeURIComponent(url.pathname);
+      } catch {
+        return new Response('Not Found', { status: 404 });
+      }
+      const relativePath = decodedPath.replace(/^\/+/, '');
+      const assetPath = /\.(?:json|html)$/i.test(relativePath)
+        ? path.join(publicDir, relativePath)
+        : path.join(publicDir, relativePath, 'index.html');
       try {
         const html = await readFile(assetPath, 'utf8');
+        const contentType = relativePath.endsWith('.json')
+          ? 'application/json; charset=utf-8'
+          : 'text/html; charset=utf-8';
         return new Response(html, {
           status: 200,
-          headers: { 'content-type': 'text/html; charset=utf-8' },
+          headers: { 'content-type': contentType },
         });
       } catch {
         return new Response('Not Found', { status: 404 });
@@ -69,4 +81,36 @@ test('legacy tool aliases redirect to their current canonical tool routes', asyn
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/pdf-metadata'), '/tools/edit-pdf-metadata/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/protect-pdf'), '/tools/protect-pdf-password/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/pdf-metadata'), '/tools/edit-pdf-metadata/');
+});
+
+test('all published blog article aliases permanently redirect to their canonical trailing-slash routes', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  const blogRouteMap = JSON.parse(await readFile(path.join(publicDir, '__blog_routes.json'), 'utf8'));
+  const articleRoutes = Object.entries(blogRouteMap).filter(([key]) => key !== '/blog');
+  const markdownArticles = (await readdir(path.join(appDir, 'src', 'blogs')))
+    .filter((name) => name.endsWith('.md'));
+
+  assert.equal(articleRoutes.length, markdownArticles.length, 'each Markdown article has one generated no-slash route alias');
+  assert.equal(blogRouteMap['/blog'], '/blog/', 'the blog index also has its canonical slash route');
+
+  for (const [aliasPath, canonicalPath] of Object.entries(blogRouteMap)) {
+    const response = await worker.fetch(
+      new Request(`https://www.clickpdf.net${aliasPath}?source=redirect-test`),
+      env,
+    );
+    assert.equal(response.status, 301, `${aliasPath} uses a permanent redirect`);
+    assert.equal(
+      response.headers.get('location'),
+      `https://www.clickpdf.net${canonicalPath}?source=redirect-test`,
+      `${aliasPath} redirects to its generated canonical route and preserves query parameters`,
+    );
+
+    const canonicalResponse = await worker.fetch(
+      new Request(response.headers.get('location')),
+      env,
+    );
+    assert.equal(canonicalResponse.status, 200, `${canonicalPath} resolves to its static article page`);
+    const html = await canonicalResponse.text();
+    assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']https:\\/\\/www\\.clickpdf\\.net${canonicalPath.replaceAll('/', '\\/')}["']`));
+  }
 });

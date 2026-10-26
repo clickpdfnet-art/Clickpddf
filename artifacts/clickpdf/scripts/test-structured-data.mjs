@@ -20,6 +20,15 @@ function decodeXml(value) {
     .replace(/&apos;/g, "'");
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function schemaNodes(schema) {
   if (!schema || typeof schema !== 'object') return [];
   return Array.isArray(schema['@graph']) ? schema['@graph'] : [schema];
@@ -154,10 +163,9 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
   const { html, nodes } = await readHeadSchemas(`${siteOrigin}/`);
   const content = staticMain(html, `${siteOrigin}/`);
   const types = schemaTypes(nodes);
-  for (const required of ['Organization', 'WebSite', 'WebPage', 'WebApplication', 'ItemList', 'SiteNavigationElement']) {
+  for (const required of ['Organization', 'WebSite', 'WebPage', 'WebApplication', 'ItemList', 'SiteNavigationElement', 'FAQPage']) {
     assert.ok(types.has(required), `homepage schema includes ${required}`);
   }
-  assert.ok(!types.has('FAQPage'), 'homepage does not claim FAQ content that is not shown there');
   const organization = nodes.find((node) => node['@type'] === 'Organization' && node.name === 'Click Digital Services');
   const website = nodes.find((node) => node['@type'] === 'WebSite');
   const application = nodes.find((node) => node['@type'] === 'WebApplication');
@@ -174,6 +182,8 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
   assert.equal(toolsList?.numberOfItems, activeTools.length);
   assert.equal(toolsList?.itemListElement?.length, activeTools.length);
   assert.equal((content.match(/<a href="\/tools\//g) || []).length, activeTools.length);
+  assert.match(content, /<section aria-labelledby="seo-home-faq"><h2 id="seo-home-faq">Frequently asked questions<\/h2>/);
+  assert.ok((content.match(/<details><summary>/g) || []).length > 0, 'homepage FAQ answers are visible in static HTML');
 });
 
 test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and BreadcrumbList schemas', async () => {
@@ -235,6 +245,11 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
       assert.ok(types.has('Article'), `${url} includes Article`);
       assert.ok(types.has('BreadcrumbList'), `${url} includes BreadcrumbList`);
       assert.match(content, /<article>/i, `${url} contains semantic article body`);
+      assert.match(
+        content,
+        /<article><aside aria-labelledby="blog-quick-answer-heading"[^>]*>[\s\S]*?<h2 id="blog-quick-answer-heading"[^>]*>[^<]+<\/h2><p\b[^>]*>[^<]+<\/p><\/aside>/i,
+        `${url} starts its article with a clearly labeled Quick Answer callout`,
+      );
       assert.match(content, /<h2\b/i, `${url} contains semantic section headings`);
       assert.match(content, /<a href=/i, `${url} contains crawlable article links`);
       const posting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
@@ -261,6 +276,20 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
     }
   }
   assert.equal(blogPostPages, blogFiles.length, 'every Markdown blog post has static BlogPosting data');
+
+  const homePage = await readHeadSchemas(`${siteOrigin}/`);
+  const faqPage = await readHeadSchemas(`${siteOrigin}/faq/`);
+  const homeFaq = homePage.nodes.find((node) => node['@type'] === 'FAQPage');
+  const routeFaq = faqPage.nodes.find((node) => node['@type'] === 'FAQPage');
+  assert.deepEqual(homeFaq?.mainEntity, routeFaq?.mainEntity, 'homepage and /faq/ JSON-LD contain the exact same questions and answers');
+  const homepageFaqContent = staticMain(homePage.html, `${siteOrigin}/`);
+  const faqRouteContent = staticMain(faqPage.html, `${siteOrigin}/faq/`);
+  for (const item of routeFaq?.mainEntity || []) {
+    assert.ok(homepageFaqContent.includes(`<summary>${escapeHtml(item.name)}</summary>`), 'each schema question is visible on homepage');
+    assert.ok(homepageFaqContent.includes(`<p>${escapeHtml(item.acceptedAnswer.text)}</p>`), 'each schema answer is visible on homepage');
+    assert.ok(faqRouteContent.includes(`<summary>${escapeHtml(item.name)}</summary>`), 'each schema question is visible on /faq/');
+    assert.ok(faqRouteContent.includes(`<p>${escapeHtml(item.acceptedAnswer.text)}</p>`), 'each schema answer is visible on /faq/');
+  }
 });
 
 test('all policy and company pages are standalone sitemap routes with accurate schemas', async () => {
