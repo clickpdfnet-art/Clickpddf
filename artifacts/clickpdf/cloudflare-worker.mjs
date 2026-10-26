@@ -111,12 +111,7 @@ function toolNotFound(request) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
-    if (url.hostname.toLowerCase() === APEX_HOST) {
-      url.protocol = 'https:';
-      url.hostname = CANONICAL_HOST;
-      return Response.redirect(url.toString(), 301);
-    }
+    const isApexHost = url.hostname.toLowerCase() === APEX_HOST;
 
     let decodedPath;
     try {
@@ -125,20 +120,28 @@ export default {
       decodedPath = null;
     }
 
+    const isToolRoute = url.pathname.startsWith('/tools/') && url.pathname !== '/tools/';
+    let canonicalPath = null;
     const aliasDestination = TOOL_ROUTE_REDIRECTS.get(normalizedToolPath(url.pathname));
     if (aliasDestination) {
-      url.pathname = aliasDestination;
-      return Response.redirect(url.toString(), 301);
+      canonicalPath = aliasDestination;
     }
 
-    if (decodedPath && !decodedPath.endsWith('/')) {
+    if (!canonicalPath && !isToolRoute && decodedPath && !decodedPath.endsWith('/')) {
       const blogRouteKey = `/${decodedPath.replace(/^\/+|\/+$/g, '')}`;
       const routeMap = await getBlogRouteMap(url, env);
-      const canonicalPath = routeMap?.[blogRouteKey];
-      if (canonicalPath) {
-        url.pathname = canonicalPath;
-        return Response.redirect(url.toString(), 301);
-      }
+      canonicalPath = routeMap?.[blogRouteKey] || null;
+    }
+
+    if (!canonicalPath && isToolRoute && !url.pathname.endsWith('/')) {
+      canonicalPath = `${normalizedToolPath(url.pathname)}/`;
+    }
+
+    if (isApexHost || canonicalPath) {
+      if (canonicalPath) url.pathname = canonicalPath;
+      url.protocol = 'https:';
+      url.hostname = CANONICAL_HOST;
+      return Response.redirect(url.toString(), 301);
     }
 
     if (decodedPath && /[^\u0000-\u007f]/.test(decodedPath)) {
@@ -150,14 +153,9 @@ export default {
       }
     }
 
-    const isToolRoute = url.pathname.startsWith('/tools/') && url.pathname !== '/tools/';
     if (!isToolRoute) return env.ASSETS.fetch(request);
 
     const normalizedPath = normalizedToolPath(url.pathname);
-    if (!url.pathname.endsWith('/')) {
-      url.pathname = `${normalizedPath}/`;
-      return Response.redirect(url.toString(), 301);
-    }
 
     const response = await env.ASSETS.fetch(request);
     if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) {
