@@ -203,8 +203,8 @@ export function renderHomeFallback(tools, articles, faqItems = []) {
     '<nav aria-label="Site pages"><ul><li><a href="/faq/">Frequently asked questions</a></li><li><a href="/blog/">Guides and articles</a></li><li><a href="/batch/">Batch processing queue</a></li></ul></nav>',
   ].join('');
   return fallbackPage({
-    title: 'Stay Secure, Stay Smart',
-    description: 'Free browser-based PDF tools for merging, splitting, compressing, converting, editing and organizing documents.',
+    title: 'Free PDF tools that work in your browser',
+    description: 'Convert, compress, merge, and edit PDFs online with free browser-based tools. Your files are processed in your browser whenever supported, helping keep your documents private.',
     content,
   });
 }

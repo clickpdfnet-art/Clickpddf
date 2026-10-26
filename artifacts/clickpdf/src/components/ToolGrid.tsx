@@ -54,10 +54,10 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
 
           {/* Sub-Motto Badge */}
           <div className="flex items-center justify-center">
-            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-cyan-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] sm:text-xs font-bold shadow-xs backdrop-blur-sm">
-              <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
+            <p className="flex w-full max-w-2xl items-start justify-center gap-1.5 text-xs sm:text-sm leading-relaxed text-indigo-100/90">
+              <Lock className="mt-0.5 w-3 h-3 text-emerald-400 shrink-0" />
               <span>{ui.homePrivacyBadge}</span>
-            </span>
+            </p>
           </div>
         </div>
       </section>

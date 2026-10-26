@@ -47,7 +47,7 @@ async function evaluate(expression) {
 async function navigate(path) {
   await send('Page.navigate', { url: `http://127.0.0.1:21606${path}` });
   await waitFor(() => evaluate(`document.readyState === 'complete' && Boolean(document.body?.innerText)`), `route ${path}`);
-  const expectedText = path === '/blog' ? 'Back to PDF Tools' : 'Stay Secure, Stay Smart';
+  const expectedText = path === '/blog' ? 'Back to PDF Tools' : 'Free PDF tools that work in your browser';
   await waitFor(() => evaluate(`document.body?.innerText.includes(${JSON.stringify(expectedText)})`), `app content on ${path}`);
 }
 

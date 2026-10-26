@@ -162,6 +162,11 @@ test('localized blog sitemap alternates are repeated in each raw HTML head', asy
 test('homepage contains brand, WebSite, WebApplication, navigation, and the full tool list', async () => {
   const { html, nodes } = await readHeadSchemas(`${siteOrigin}/`);
   const content = staticMain(html, `${siteOrigin}/`);
+  assert.match(content, /<h1>Free PDF tools that work in your browser<\/h1>/);
+  assert.match(
+    content,
+    /<p>Convert, compress, merge, and edit PDFs online with free browser-based tools\. Your files are processed in your browser whenever supported, helping keep your documents private\.<\/p>/,
+  );
   const types = schemaTypes(nodes);
   for (const required of ['Organization', 'WebSite', 'WebPage', 'WebApplication', 'ItemList', 'SiteNavigationElement', 'FAQPage']) {
     assert.ok(types.has(required), `homepage schema includes ${required}`);

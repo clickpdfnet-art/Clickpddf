@@ -82,7 +82,7 @@ try {
   await send('Page.enable');
   await send('Runtime.enable');
   await send('Page.navigate', { url: 'http://127.0.0.1:21606/' });
-  await waitFor(() => evaluate(`!!document.body?.innerText.includes('Stay Secure, Stay Smart')`), 'home page');
+  await waitFor(() => evaluate(`!!document.body?.innerText.includes('Free PDF tools that work in your browser')`), 'home page');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 0, 'home page must not mount the ad');
 
   await goTo('/tools/merge');
@@ -176,7 +176,7 @@ try {
   assert.equal(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`), 'rendered');
 
   await goTo('/');
-  await waitFor(() => evaluate(`document.body?.innerText.includes('Stay Secure, Stay Smart')`), 'return to home');
+  await waitFor(() => evaluate(`document.body?.innerText.includes('Free PDF tools that work in your browser')`), 'return to home');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 0, 'returning to the homepage must unmount the ad');
 
   await goTo('/tools/merge');

@@ -69,7 +69,8 @@ export type WorkspaceStrings = Pick<TranslationDict, WorkspaceTranslationKey>;
 
 const rows: Record<Language, readonly string[]> = {
   en: [
-    'Stay Secure, Stay Smart', 'Your Data, Your Privacy · 100% Private',
+    'Free PDF tools that work in your browser',
+    'Convert, compress, merge, and edit PDFs online with free browser-based tools. Your files are processed in your browser whenever supported, helping keep your documents private.',
     'Need to process multiple PDF files at once?', 'Choose any tool below to add multiple files and process them privately in your browser.',
     'New', 'Related PDF Tools You May Need', '100% In-Browser', '100% Free & Unlimited',
     'Frequently Asked Questions About', 'How to use', 'About this tool', 'Open Tool',
