@@ -128,16 +128,34 @@ try {
     const frame = ad?.querySelector('iframe');
     return {
       frameCount: ad?.querySelectorAll('iframe').length,
+      framePath: frame ? new URL(frame.src).pathname : null,
+      hasSrcDoc: Boolean(frame?.hasAttribute('srcdoc')),
       sandbox: frame?.getAttribute('sandbox'),
-      referrerPolicy: frame?.getAttribute('referrerpolicy'),
-      exactProviderTag: frame?.getAttribute('srcdoc')?.includes('src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"'),
+      referrerPolicy: frame?.referrerPolicy,
       isIsolated: frame?.hasAttribute('sandbox') && !frame.getAttribute('sandbox').includes('allow-same-origin')
     };
   })()`);
   assert.equal(frameState.frameCount, 1);
-  assert.equal(frameState.referrerPolicy, 'no-referrer');
-  assert.equal(frameState.exactProviderTag, true, 'the supplied provider script URL should be present exactly');
+  assert.equal(frameState.framePath, '/ad-320x50.html', 'the banner must load from its standalone static document');
+  assert.equal(frameState.hasSrcDoc, false, 'the provider document must not use srcDoc');
+  assert.equal(frameState.referrerPolicy, 'strict-origin');
   assert.equal(frameState.isIsolated, true, 'provider code must not share the application origin');
+  const staticAdPage = await evaluate(`(async () => {
+    const response = await fetch('/ad-320x50.html');
+    const html = await response.text();
+    return {
+      status: response.status,
+      providerUrl: html.includes('https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc'),
+      publisherKey: html.includes('3221c27a7eae6feed96313cf6813cfcc'),
+      parserInsertedScript: /<script[^>]+src="https:\\/\\/bauval\\.org\\/22\\/3221c27a7eae6feed96313cf6813cfcc"/.test(html),
+      referrerPolicy: html.includes('<meta name="referrer" content="strict-origin"')
+    };
+  })()`);
+  assert.equal(staticAdPage.status, 200, 'the standalone banner document should be served directly');
+  assert.equal(staticAdPage.providerUrl, true, 'the existing Adsterra URL must remain unchanged');
+  assert.equal(staticAdPage.publisherKey, true, 'the existing publisher key must remain unchanged');
+  assert.equal(staticAdPage.parserInsertedScript, true, 'the provider script must remain parser-inserted for document.write compatibility');
+  assert.equal(staticAdPage.referrerPolicy, true, 'the standalone ad document must send only the site origin as referrer');
 
   await send('Emulation.setDeviceMetricsOverride', { width: 280, height: 800, deviceScaleFactor: 2, mobile: true, screenWidth: 280, screenHeight: 800 });
   await waitFor(() => evaluate(`window.innerWidth === 280`), 'narrow mobile viewport');

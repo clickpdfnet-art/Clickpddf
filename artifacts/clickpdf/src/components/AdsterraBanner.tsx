@@ -30,74 +30,6 @@ function getAdsAllowed(): boolean {
   }
 }
 
-function createProviderFrameDocument(nonce: string): string {
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <base target="_blank">
-  <meta name="viewport" content="width=320, initial-scale=1">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      width: 320px;
-      height: 50px;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    iframe { border: none !important; }
-  </style>
-</head>
-<body>
-  <script>
-    const nonce = ${JSON.stringify(nonce)};
-    const signal = (state) => parent.postMessage({
-      channel: '${SIGNAL_CHANNEL}',
-      nonce,
-      state
-    }, '*');
-    window.__clickpdfBannerSignal = signal;
-    (function watchCreativeFrames() {
-      const observedFrames = new WeakSet();
-      const scan = () => document.querySelectorAll('iframe').forEach((creativeFrame) => {
-        if (observedFrames.has(creativeFrame)) return;
-        observedFrames.add(creativeFrame);
-        creativeFrame.addEventListener('load', () => {
-          if (creativeFrame.getBoundingClientRect().width > 0 &&
-              creativeFrame.getBoundingClientRect().height > 0) {
-            signal('rendered');
-          }
-        }, { once: true });
-      });
-      new MutationObserver(scan).observe(document.documentElement, {
-        childList: true,
-        subtree: true
-      });
-      window.addEventListener('load', scan);
-      window.setTimeout(scan, 0);
-    })();
-  </script>
-  <div style="width:320px;height:50px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '3221c27a7eae6feed96313cf6813cfcc',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc" onerror="window.__clickpdfBannerSignal('empty')"></script>
-  </div>
-</body>
-</html>`;
-}
-
 export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }) => {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [scale, setScale] = useState(1);
@@ -107,7 +39,10 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
   );
   const adsAllowedRef = useRef(adsAllowed);
   const nonce = useMemo(getSignalNonce, []);
-  const srcDoc = useMemo(() => createProviderFrameDocument(nonce), [nonce]);
+  const frameSrc = useMemo(
+    () => `/ad-320x50.html#${encodeURIComponent(nonce)}`,
+    [nonce],
+  );
 
   useEffect(() => {
     const handleConsentChange = () => {
@@ -188,9 +123,9 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
         <iframe
           ref={frameRef}
           title="Advertisement"
-          srcDoc={srcDoc}
+          src={frameSrc}
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
-          referrerPolicy="no-referrer"
+          referrerPolicy="strict-origin"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}
           scrolling="no"
