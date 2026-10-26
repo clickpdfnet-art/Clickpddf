@@ -1,116 +1,151 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-
-const BANNER_WIDTH = 320;
-const BANNER_HEIGHT = 50;
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AdsterraBannerProps {
   className?: string;
 }
 
-function createProviderFrameDocument(): string {
-  return `<!doctype html>
-<html lang="en">
+export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasFailed, setHasFailed] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(false);
+    setHasFailed(false);
+
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    // Listen for postMessage from the isolated iframe
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'adsterra-status') {
+        if (event.data.status === 'loaded') {
+          setIsLoaded(true);
+        } else {
+          setHasFailed(true);
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    // Isolated HTML document running Adsterra with real-time delivery detection
+    const adHtml = `<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <base target="_blank">
-  <meta name="viewport" content="width=320, initial-scale=1">
+  <meta name="referrer" content="no-referrer-when-downgrade">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 320px;
-      height: 50px;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
       background: transparent;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    iframe { border: none !important; }
+    iframe {
+      border: none !important;
+      outline: none !important;
+    }
   </style>
 </head>
 <body>
-  <div style="width:320px;height:50px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '3221c27a7eae6feed96313cf6813cfcc',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
-  </div>
+  <div id="ad-wrapper" style="width:320px;height:50px;overflow:hidden;display:flex;align-items:center;justify-content:center;"></div>
+  <script type="text/javascript">
+    function notify(status) {
+      try {
+        window.parent.postMessage({ type: 'adsterra-status', status: status }, '*');
+      } catch (err) {}
+    }
+
+    window.atOptions = {
+      'key' : '3221c27a7eae6feed96313cf6813cfcc',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc';
+    script.referrerPolicy = 'no-referrer-when-downgrade';
+    script.onload = function() {
+      setTimeout(function() {
+        var iframes = document.getElementsByTagName('iframe');
+        if (iframes.length > 0 || (document.body && document.body.innerText.trim().length > 0)) {
+          notify('loaded');
+        } else {
+          notify('empty');
+        }
+      }, 700);
+    };
+    script.onerror = function() {
+      notify('error');
+    };
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>`;
-}
 
-export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }) => {
-  const frameRef = useRef<HTMLIFrameElement>(null);
-  const [scale, setScale] = useState(1);
-  const srcDoc = useMemo(() => createProviderFrameDocument(), []);
+    try {
+      iframe.srcdoc = adHtml;
+    } catch {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow?.document;
+        if (doc) {
+          doc.open();
+          doc.write(adHtml);
+          doc.close();
+        }
+      } catch {
+        setHasFailed(true);
+      }
+    }
 
-  // Responsive scaling for mobile devices
-  useEffect(() => {
-    const updateScale = () => {
-      const padding = 24;
-      const availableWidth = window.innerWidth - padding;
-      setScale(Math.min(1, Math.max(0.7, availableWidth / BANNER_WIDTH)));
+    const timeoutTimer = setTimeout(() => {
+      setIsLoaded((prev) => {
+        if (!prev) {
+          setHasFailed(true);
+        }
+        return prev;
+      });
+    }, 5000);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      clearTimeout(timeoutTimer);
     };
-    updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
   }, []);
 
-  const scaledWidth = Math.round(BANNER_WIDTH * scale);
-  const scaledHeight = Math.round(BANNER_HEIGHT * scale);
+  if (hasFailed) {
+    return null;
+  }
 
   return (
     <div
-      className={className}
-      data-testid="adsterra-banner"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        minHeight: scaledHeight,
-        margin: '8px 0',
-      }}
+      className={
+        isLoaded
+          ? `w-full flex items-center justify-center my-2 sm:my-3 transition-opacity duration-300 ${className}`
+          : 'fixed top-0 left-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none'
+      }
+      style={isLoaded ? undefined : { width: 0, height: 0, margin: 0, padding: 0 }}
+      aria-label="Advertisement"
     >
-      <div
-        style={{
-          position: 'relative',
-          width: scaledWidth,
-          height: scaledHeight,
-          overflow: 'hidden',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="relative w-[320px] h-[50px] max-w-full overflow-hidden flex items-center justify-center bg-transparent">
         <iframe
-          ref={frameRef}
+          ref={iframeRef}
           title="Advertisement"
-          srcDoc={srcDoc}
-          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
-          width={BANNER_WIDTH}
-          height={BANNER_HEIGHT}
+          width="320"
+          height="50"
           scrolling="no"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: BANNER_WIDTH,
-            height: BANNER_HEIGHT,
-            border: 0,
-            margin: 0,
-            padding: 0,
-            transform: scale < 1 ? `scale(${scale})` : undefined,
-            transformOrigin: 'top left',
-          }}
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+          className="border-0 overflow-hidden bg-transparent w-[320px] h-[50px]"
+          style={{ border: 'none', background: 'transparent' }}
         />
       </div>
     </div>
