@@ -146,4 +146,53 @@ for (const [locale, localeNode] of missingToolTable) {
   }
 }
 
+const legalPageDefinitions = JSON.parse(fs.readFileSync(path.join(root, 'src/data/legalPages.json'), 'utf8'));
+const legalPageTranslations = JSON.parse(fs.readFileSync(path.join(root, 'src/i18n/legalPageTranslations.json'), 'utf8'));
+const legalInterfaceTranslations = JSON.parse(fs.readFileSync(path.join(root, 'src/i18n/legalInterfaceTranslations.json'), 'utf8'));
+const legalIds = legalPageDefinitions.map((page) => page.id).sort();
+assert.equal(legalIds.length, 6, 'All six public legal pages must be represented');
+assert.deepEqual(Object.keys(legalPageTranslations).sort(), [...localeCodes].sort(), 'Legal page translations must cover all supported locales');
+assert.deepEqual(Object.keys(legalInterfaceTranslations).sort(), [...localeCodes].sort(), 'Legal modal labels must cover all supported locales');
+
+const englishLegalPageTranslations = legalPageTranslations.en;
+const legalInterfaceKeys = Object.keys(legalInterfaceTranslations.en).sort();
+for (const locale of localeCodes) {
+  assert.deepEqual(Object.keys(legalPageTranslations[locale]).sort(), legalIds, `Legal page set mismatch for ${locale}`);
+  assert.deepEqual(Object.keys(legalInterfaceTranslations[locale]).sort(), legalInterfaceKeys, `Legal interface keys mismatch for ${locale}`);
+
+  for (const page of legalPageDefinitions) {
+    const copy = legalPageTranslations[locale][page.id];
+    assert.ok(copy.heading.trim() && copy.description.trim(), `Missing legal heading or description for ${locale}/${page.id}`);
+    assert.equal(copy.sections.length, page.sections.length, `Legal section count mismatch for ${locale}/${page.id}`);
+    copy.sections.forEach((section, sectionIndex) => {
+      assert.ok(section.heading.trim(), `Missing legal section heading for ${locale}/${page.id}/${sectionIndex}`);
+      assert.equal(
+        section.paragraphs.length,
+        page.sections[sectionIndex].paragraphs.length,
+        `Legal paragraph count mismatch for ${locale}/${page.id}/${sectionIndex}`,
+      );
+      section.paragraphs.forEach((paragraph) => assert.ok(paragraph.trim(), `Empty legal paragraph for ${locale}/${page.id}`));
+    });
+
+    if (locale !== 'en') {
+      const sameHeadingIsValid = page.id === 'disclaimer' && ['nl', 'tl'].includes(locale);
+      if (!sameHeadingIsValid) {
+        assert.notEqual(copy.heading, englishLegalPageTranslations[page.id].heading, `Legal heading is still English for ${locale}/${page.id}`);
+      }
+      assert.notEqual(copy.description, englishLegalPageTranslations[page.id].description, `Legal description is still English for ${locale}/${page.id}`);
+    }
+  }
+
+  for (const [key, value] of Object.entries(legalInterfaceTranslations[locale])) {
+    assert.equal(typeof value, 'string', `Legal UI value must be text for ${locale}/${key}`);
+    assert.ok(value.trim(), `Legal UI value is empty for ${locale}/${key}`);
+  }
+  assert.ok(legalInterfaceTranslations[locale].successBody.includes('{name}'), `Success-message placeholder missing for ${locale}`);
+}
+
+const legalPageComponent = fs.readFileSync(path.join(root, 'src/components/LegalPage.tsx'), 'utf8');
+const legalModalComponent = fs.readFileSync(path.join(root, 'src/components/LegalModal.tsx'), 'utf8');
+assert.ok(legalPageComponent.includes('getLocalizedLegalPage'), 'Standalone legal pages must use the selected language');
+assert.ok(legalModalComponent.includes('getLocalizedLegalPage'), 'Legal modal tabs must use the selected language');
+
 console.log(`i18n coverage tables passed: ${localeCodes.length} languages, ${uiKeysCount} shared UI labels, ${siteCopyKeysCount} homepage/footer strings, ${toolPageKeysCount} tool-page strings, 25 workspace labels, 8 tool cards.`);

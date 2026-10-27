@@ -1,0 +1,3635 @@
+{
+  "en": {
+    "about": {
+      "heading": "About ClickPDF",
+      "description": "Learn about ClickPDF, its publisher Click Digital Services, and the browser-based PDF tools and support available on this site.",
+      "sections": [
+        {
+          "heading": "Publisher and purpose",
+          "paragraphs": [
+            "ClickPDF is a browser-based PDF utility website published and operated by Click Digital Services.",
+            "The site provides tools for common document tasks such as merging, splitting, compressing, converting, organizing, and inspecting PDF files."
+          ]
+        },
+        {
+          "heading": "How the tools work",
+          "paragraphs": [
+            "PDF processing is performed in the browser for supported tools. The specific features and device requirements vary by tool.",
+            "The website may still load page resources and enabled third-party services. Review the Privacy Policy and each tool's instructions before processing sensitive documents."
+          ]
+        },
+        {
+          "heading": "Open standards and support",
+          "paragraphs": [
+            "ClickPDF uses browser technologies and established document libraries to provide its tools. For questions, feedback, or technical issues, use the Contact page."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Contact ClickPDF",
+      "description": "Contact ClickPDF support for technical issues, feedback, privacy questions, or business inquiries about our browser-based PDF tools.",
+      "sections": [
+        {
+          "heading": "Support and inquiries",
+          "paragraphs": [
+            "Contact ClickPDF for technical assistance, to report an unexpected issue, to suggest a tool, or to discuss a business inquiry."
+          ]
+        },
+        {
+          "heading": "Email support",
+          "paragraphs": [
+            "Send a message to the support address below. Include the name of the tool and your browser when reporting a technical problem. Do not email confidential documents unless you have independently reviewed the risks."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Privacy Policy",
+      "description": "Learn how ClickPDF processes PDF files in the browser, handles local preferences, and works with advertising and other website services.",
+      "sections": [
+        {
+          "heading": "Document processing",
+          "paragraphs": [
+            "For supported tools, document operations are performed in the browser on your device. Processing behavior can vary by tool and browser; review the instructions shown on the tool page.",
+            "This describes document processing and does not mean the webpage makes no network requests. The site may load its own page resources and enabled third-party services."
+          ]
+        },
+        {
+          "heading": "Preferences and local browser storage",
+          "paragraphs": [
+            "The site may use browser storage, such as LocalStorage or IndexedDB, for settings and functional preferences. These values remain subject to your browser's storage and privacy controls."
+          ]
+        },
+        {
+          "heading": "Advertising and third-party services",
+          "paragraphs": [
+            "Advertising or other third-party services may use their own technologies under their respective policies. See the Cookies Policy for more information and ways to manage browser cookie settings."
+          ]
+        },
+        {
+          "heading": "Questions",
+          "paragraphs": [
+            "For privacy questions, contact ClickPDF through the Contact page."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Terms of Service",
+      "description": "Review ClickPDF's terms for permitted use, user responsibilities, intellectual property, service availability, and limits of browser-based PDF tools.",
+      "sections": [
+        {
+          "heading": "Permitted use",
+          "paragraphs": [
+            "ClickPDF provides browser-based PDF utilities for personal, educational, and business document workflows. You are responsible for using the service in accordance with applicable laws."
+          ]
+        },
+        {
+          "heading": "Your files and responsibilities",
+          "paragraphs": [
+            "You must have the rights and permissions needed to process documents that you select. Do not use the service to process or distribute unlawful, fraudulent, defamatory, or infringing material."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "paragraphs": [
+            "The ClickPDF name, website design, custom code, documentation, and original visual assets belong to Click Digital Services or their respective rights holders. Open-source components remain subject to their own licenses."
+          ]
+        },
+        {
+          "heading": "Service availability",
+          "paragraphs": [
+            "The service is provided on an as-is and as-available basis. Compatibility and results may depend on the source file, browser, device resources, and supported features. Keep a copy of important original files and verify generated documents."
+          ]
+        },
+        {
+          "heading": "Related information",
+          "paragraphs": [
+            "Read the Disclaimer for additional information about service limitations and document results."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Cookies Policy",
+      "description": "See how ClickPDF uses browser storage and third-party advertising cookies, and learn how to manage your consent and cookie preferences.",
+      "sections": [
+        {
+          "heading": "Cookies and local storage",
+          "paragraphs": [
+            "Cookies are small data files stored by a website. ClickPDF may also use browser storage, including LocalStorage or IndexedDB, to retain functional settings such as interface preferences and consent choices."
+          ]
+        },
+        {
+          "heading": "Advertising and third parties",
+          "paragraphs": [
+            "Third-party advertising services may use cookies or similar technologies to deliver or measure ads under their own privacy policies. The site's consent controls explain the available advertising choice."
+          ]
+        },
+        {
+          "heading": "Managing your choices",
+          "paragraphs": [
+            "You can manage or clear stored data through your browser settings. Blocking cookies may affect some website preferences or third-party services."
+          ]
+        },
+        {
+          "heading": "More information",
+          "paragraphs": [
+            "For details about document processing and other website data, read the Privacy Policy. You can contact ClickPDF with questions."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Disclaimer",
+      "description": "Read limitations on ClickPDF information and processing results, including warranties, browser compatibility, file limits, and service availability.",
+      "sections": [
+        {
+          "heading": "Information and professional advice",
+          "paragraphs": [
+            "ClickPDF guides and website information are provided for general informational purposes and are not legal, financial, medical, or other professional advice."
+          ]
+        },
+        {
+          "heading": "Processing results",
+          "paragraphs": [
+            "Output can depend on the source document, file structure, browser, and available device resources. Review the result before relying on it, and keep an independent copy of important originals."
+          ]
+        },
+        {
+          "heading": "Availability and warranties",
+          "paragraphs": [
+            "ClickPDF is provided on an as-is and as-available basis. Click Digital Services does not guarantee uninterrupted operation, error-free results, or compatibility with every file or device."
+          ]
+        },
+        {
+          "heading": "Third-party services",
+          "paragraphs": [
+            "The website may include links to or resources from third parties. Those services are governed by their own terms and privacy policies."
+          ]
+        }
+      ]
+    }
+  },
+  "ur": {
+    "about": {
+      "heading": "ClickPDF کے بارے میں",
+      "description": "ClickPDF، اس کے پبلشر Click Digital Services، اور اس سائٹ پر دستیاب براؤزر پر مبنی PDF ٹولز اور سپورٹ کے بارے میں جانیں۔",
+      "sections": [
+        {
+          "heading": "پبلشر اور مقصد",
+          "paragraphs": [
+            "ClickPDF ایک براؤزر پر مبنی PDF یوٹیلیٹی ویب سائٹ ہے جسے Click Digital Services نے شائع اور آپریٹ کیا ہے۔",
+            "یہ سائٹ عام دستاویز کے کاموں جیسے کہ مرج کرنا، تقسیم کرنا، کمپریس کرنا، تبدیل کرنا، منظم کرنا، اور PDF فائلوں کا معائنہ کرنے کے لیے ٹولز فراہم کرتی ہے۔"
+          ]
+        },
+        {
+          "heading": "ٹولز کیسے کام کرتے ہیں",
+          "paragraphs": [
+            "PDF پروسیسنگ تعاون یافتہ ٹولز کے لیے براؤزر میں کی جاتی ہے۔ مخصوص خصوصیات اور ڈیوائس کی ضروریات ٹول کے لحاظ سے مختلف ہوتی ہیں۔",
+            "ویب سائٹ اب بھی صفحہ کے وسائل اور فعال تھرڈ پارٹی سروسز لوڈ کر سکتی ہے۔ حساس دستاویزات پر کارروائی کرنے سے پہلے رازداری کی پالیسی اور ہر ٹول کی ہدایات کا جائزہ لیں۔"
+          ]
+        },
+        {
+          "heading": "اوپن اسٹینڈرڈز اور سپورٹ",
+          "paragraphs": [
+            "ClickPDF اپنے ٹولز فراہم کرنے کے لیے براؤزر ٹیکنالوجیز اور قائم شدہ ڈاکومنٹ لائبریریز کا استعمال کرتا ہے۔ سوالات، فیڈ بیک، یا تکنیکی مسائل کے لیے، رابطہ کا صفحہ استعمال کریں۔"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "ClickPDF سے رابطہ کریں",
+      "description": "تکنیکی مسائل، آراء، رازداری کے سوالات، یا ہمارے براؤزر پر مبنی PDF ٹولز کے بارے میں کاروباری پوچھ گچھ کے لیے ClickPDF سپورٹ سے رابطہ کریں۔",
+      "sections": [
+        {
+          "heading": "سپورٹ اور پوچھ گچھ",
+          "paragraphs": [
+            "تکنیکی مدد کے لیے، کسی غیر متوقع مسئلے کی اطلاع دینے کے لیے، کسی ٹول کا مشورہ دینے کے لیے، یا کاروباری پوچھ گچھ پر بات کرنے کے لیے ClickPDF سے رابطہ کریں۔"
+          ]
+        },
+        {
+          "heading": "ای میل سپورٹ",
+          "paragraphs": [
+            "ذیل میں دیے گئے سپورٹ ایڈریس پر پیغام بھیجیں۔ تکنیکی مسئلے کی اطلاع دیتے وقت ٹول کا نام اور اپنے براؤزر کا ذکر کریں۔ خفیہ دستاویزات تب تک ای میل نہ کریں جب تک کہ آپ نے آزادانہ طور پر خطرات کا جائزہ نہ لیا ہو۔"
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "رازداری کی پالیسی",
+      "description": "جانیں کہ ClickPDF براؤزر میں پی ڈی ایف فائلز کو کیسے پروسیس کرتا ہے، مقامی ترجیحات کو سنبھالتا ہے، اور اشتہارات اور ویب سائٹ کی دیگر خدمات کے ساتھ کیسے کام کرتا ہے۔",
+      "sections": [
+        {
+          "heading": "دستاویز کی پروسیسنگ",
+          "paragraphs": [
+            "معاون ٹولز کے لیے، دستاویز کے کام آپ کے آلے پر براؤزر میں انجام دیے جاتے ہیں۔ پروسیسنگ کا رویہ ٹول اور براؤزر کے لحاظ سے مختلف ہو سکتا ہے؛ ٹول پیج پر دکھائے گئے ہدایات کا جائزہ لیں۔",
+            "یہ دستاویز کی پروسیسنگ کو بیان کرتا ہے اور اس کا مطلب یہ نہیں ہے کہ ویب پیج کوئی نیٹ ورک ریکوئسٹ نہیں کرتا۔ سائٹ اپنے پیج کے وسائل اور فعال تھرڈ پارٹی سروسز لوڈ کر سکتی ہے۔"
+          ]
+        },
+        {
+          "heading": "ترجیحات اور مقامی براؤزر اسٹوریج",
+          "paragraphs": [
+            "سائٹ ترتیبات اور فنکشنل ترجیحات کے لیے براؤزر اسٹوریج، جیسے LocalStorage یا IndexedDB، استعمال کر سکتی ہے۔ یہ اقدار آپ کے براؤزر کے اسٹوریج اور رازداری کے کنٹرول کے تابع رہتی ہیں۔"
+          ]
+        },
+        {
+          "heading": "اشتہارات اور تھرڈ پارٹی سروسز",
+          "paragraphs": [
+            "اشتہارات یا دیگر تھرڈ پارٹی سروسز اپنی پالیسیوں کے تحت اپنی ٹیکنالوجیز استعمال کر سکتی ہیں۔ مزید معلومات اور براؤزر کوکی سیٹنگز کو منظم کرنے کے طریقوں کے لیے کوکیز پالیسی دیکھیں۔"
+          ]
+        },
+        {
+          "heading": "سوالات",
+          "paragraphs": [
+            "رازداری کے سوالات کے لیے، رابطہ صفحہ کے ذریعے ClickPDF سے رابطہ کریں۔"
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "سروس کی شرائط",
+      "description": "ClickPDF کی شرائط کا جائزہ لیں جن میں مجاز استعمال، صارف کی ذمہ داریاں، دانشورانہ املاک، سروس کی دستیابی، اور براؤزر پر مبنی پی ڈی ایف ٹولز کی حدود شامل ہیں۔",
+      "sections": [
+        {
+          "heading": "مجاز استعمال",
+          "paragraphs": [
+            "ClickPDF ذاتی، تعلیمی اور کاروباری دستاویز کے ورک فلو کے لیے براؤزر پر مبنی پی ڈی ایف یوٹیلیٹیز فراہم کرتا ہے۔ آپ قابل اطلاق قوانین کے مطابق سروس استعمال کرنے کے ذمہ دار ہیں۔"
+          ]
+        },
+        {
+          "heading": "آپ کی فائلیں اور ذمہ داریاں",
+          "paragraphs": [
+            "آپ کے پاس ان دستاویزات پر کارروائی کرنے کے لیے ضروری حقوق اور اجازت ہونی چاہیے جنہیں آپ منتخب کرتے ہیں۔ غیر قانونی، دھوکہ دہی، ہتک آمیز، یا خلاف ورزی کرنے والے مواد پر کارروائی یا تقسیم کرنے کے لیے سروس کا استعمال نہ کریں۔"
+          ]
+        },
+        {
+          "heading": "دانشورانہ املاک",
+          "paragraphs": [
+            "ClickPDF کا نام، ویب سائٹ ڈیزائن، کسٹم کوڈ، دستاویزات، اور اصل بصری اثاثے Click Digital Services یا ان کے متعلقہ حقوق کے حاملین کی ملکیت ہیں۔ اوپن سورس اجزاء اپنے متعلقہ لائسنس کے تابع رہتے ہیں۔"
+          ]
+        },
+        {
+          "heading": "سروس کی دستیابی",
+          "paragraphs": [
+            "سروس 'جیسا ہے' اور 'دستیابی کی بنیاد پر' فراہم کی جاتی ہے۔ مطابقت اور نتائج کا انحصار سورس فائل، براؤزر، ڈیوائس کے وسائل، اور معاون فیچرز پر ہو سکتا ہے۔ اہم اصل فائلوں کی ایک کاپی رکھیں اور تیار کردہ دستاویزات کی تصدیق کریں۔"
+          ]
+        },
+        {
+          "heading": "متعلقہ معلومات",
+          "paragraphs": [
+            "سروس کی حدود اور دستاویز کے نتائج کے بارے میں اضافی معلومات کے لیے ڈس کلیمر پڑھیں۔"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "کوکیز کی پالیسی",
+      "description": "دیکھیں کہ ClickPDF براؤزر اسٹوریج اور فریق ثالث کے اشتہاری کوکیز کا استعمال کیسے کرتا ہے، اور اپنی رضامندی اور کوکی کی ترجیحات کا نظم کرنا سیکھیں۔",
+      "sections": [
+        {
+          "heading": "کوکیز اور لوکل اسٹوریج",
+          "paragraphs": [
+            "کوکیز ویب سائٹ کی طرف سے ذخیرہ شدہ چھوٹی ڈیٹا فائلیں ہیں۔ ClickPDF فنکشنل ترتیبات جیسے انٹرفیس کی ترجیحات اور رضامندی کے انتخاب کو برقرار رکھنے کے لیے براؤزر اسٹوریج، بشمول LocalStorage یا IndexedDB، کا استعمال بھی کر سکتا ہے۔"
+          ]
+        },
+        {
+          "heading": "اشتہارات اور فریق ثالث",
+          "paragraphs": [
+            "فریق ثالث کی اشتہاری خدمات اپنی رازداری کی پالیسیوں کے تحت اشتہارات کی فراہمی یا پیمائش کے لیے کوکیز یا اسی طرح کی ٹیکنالوجیز کا استعمال کر سکتی ہیں۔ سائٹ کے رضامندی کے کنٹرول دستیاب اشتہاری انتخاب کی وضاحت کرتے ہیں۔"
+          ]
+        },
+        {
+          "heading": "اپنے انتخاب کا انتظام",
+          "paragraphs": [
+            "آپ اپنے براؤزر کی ترتیبات کے ذریعے ذخیرہ شدہ ڈیٹا کا انتظام یا اسے صاف کر سکتے ہیں۔ کوکیز کو بلاک کرنے سے ویب سائٹ کی کچھ ترجیحات یا فریق ثالث کی خدمات متاثر ہو سکتی ہیں۔"
+          ]
+        },
+        {
+          "heading": "مزید معلومات",
+          "paragraphs": [
+            "دستاویز کی پروسیسنگ اور ویب سائٹ کے دیگر ڈیٹا کے بارے میں تفصیلات کے لیے، پرائیویسی پالیسی پڑھیں۔ آپ سوالات کے لیے ClickPDF سے رابطہ کر سکتے ہیں۔"
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "اعلان",
+      "description": "ClickPDF معلومات اور پروسیسنگ کے نتائج پر حدود پڑھیں، بشمول وارنٹی، براؤزر کی مطابقت، فائل کی حدود، اور سروس کی دستیابی۔",
+      "sections": [
+        {
+          "heading": "معلومات اور پیشہ ورانہ مشورہ",
+          "paragraphs": [
+            "ClickPDF گائیڈز اور ویب سائٹ کی معلومات صرف عمومی معلوماتی مقاصد کے لیے فراہم کی جاتی ہیں اور یہ قانونی، مالی، طبی، یا دیگر پیشہ ورانہ مشورہ نہیں ہیں۔"
+          ]
+        },
+        {
+          "heading": "پروسیسنگ کے نتائج",
+          "paragraphs": [
+            "آؤٹ پٹ کا انحصار سورس دستاویز، فائل کی ساخت، براؤزر، اور دستیاب ڈیوائس کے وسائل پر ہو سکتا ہے۔ انحصار کرنے سے پہلے نتیجے کا جائزہ لیں، اور اہم اصلی دستاویزات کی ایک آزاد کاپی اپنے پاس رکھیں۔"
+          ]
+        },
+        {
+          "heading": "دستیابی اور وارنٹی",
+          "paragraphs": [
+            "ClickPDF 'جیسا ہے' اور 'جیسا دستیاب ہے' کی بنیاد پر فراہم کیا جاتا ہے۔ Click Digital Services بلا تعطل آپریشن، غلطی سے پاک نتائج، یا ہر فائل یا ڈیوائس کے ساتھ مطابقت کی ضمانت نہیں دیتا۔"
+          ]
+        },
+        {
+          "heading": "فریق ثالث کی خدمات",
+          "paragraphs": [
+            "ویب سائٹ میں فریق ثالث کے لنکس یا وسائل شامل ہو سکتے ہیں۔ وہ خدمات ان کی اپنی شرائط اور رازداری کی پالیسیوں کے تحت چلتی ہیں۔"
+          ]
+        }
+      ]
+    }
+  },
+  "hi": {
+    "about": {
+      "heading": "ClickPDF के बारे में",
+      "description": "ClickPDF, इसके प्रकाशक Click Digital Services, और इस साइट पर उपलब्ध ब्राउज़र-आधारित PDF टूल और सहायता के बारे में जानें।",
+      "sections": [
+        {
+          "heading": "प्रकाशक और उद्देश्य",
+          "paragraphs": [
+            "ClickPDF एक ब्राउज़र-आधारित PDF उपयोगिता वेबसाइट है जिसे Click Digital Services द्वारा प्रकाशित और संचालित किया जाता है।",
+            "यह साइट PDF फ़ाइलों को मर्ज करने, विभाजित करने, संपीड़ित करने, परिवर्तित करने, व्यवस्थित करने और निरीक्षण करने जैसे सामान्य दस्तावेज़ कार्यों के लिए उपकरण प्रदान करती है।"
+          ]
+        },
+        {
+          "heading": "टूल कैसे काम करते हैं",
+          "paragraphs": [
+            "समर्थित टूल के लिए PDF प्रोसेसिंग ब्राउज़र में की जाती है। विशिष्ट सुविधाएँ और डिवाइस आवश्यकताएँ टूल के अनुसार भिन्न होती हैं।",
+            "वेबसाइट अभी भी पेज संसाधन और सक्षम तृतीय-पक्ष सेवाएँ लोड कर सकती है। संवेदनशील दस्तावेज़ों को प्रोसेस करने से पहले गोपनीयता नीति और प्रत्येक टूल के निर्देशों की समीक्षा करें।"
+          ]
+        },
+        {
+          "heading": "ओपन स्टैंडर्ड और समर्थन",
+          "paragraphs": [
+            "ClickPDF अपने टूल प्रदान करने के लिए ब्राउज़र प्रौद्योगिकियों और स्थापित दस्तावेज़ पुस्तकालयों का उपयोग करता है। प्रश्नों, प्रतिक्रिया या तकनीकी समस्याओं के लिए, संपर्क पृष्ठ का उपयोग करें।"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "ClickPDF से संपर्क करें",
+      "description": "तकनीकी समस्याओं, प्रतिक्रिया, गोपनीयता संबंधी प्रश्नों, या हमारे ब्राउज़र-आधारित PDF टूल के बारे में व्यावसायिक पूछताछ के लिए ClickPDF सहायता से संपर्क करें।",
+      "sections": [
+        {
+          "heading": "सहायता और पूछताछ",
+          "paragraphs": [
+            "तकनीकी सहायता के लिए, किसी अप्रत्याशित समस्या की रिपोर्ट करने के लिए, किसी टूल का सुझाव देने के लिए, या व्यावसायिक पूछताछ पर चर्चा करने के लिए ClickPDF से संपर्क करें।"
+          ]
+        },
+        {
+          "heading": "ईमेल सहायता",
+          "paragraphs": [
+            "नीचे दिए गए सहायता पते पर संदेश भेजें। तकनीकी समस्या की रिपोर्ट करते समय टूल का नाम और अपने ब्राउज़र का उल्लेख करें। गोपनीय दस्तावेज़ों को ईमेल न करें जब तक कि आपने स्वतंत्र रूप से जोखिमों की समीक्षा न कर ली हो।"
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "गोपनीयता नीति",
+      "description": "जानें कि ClickPDF ब्राउज़र में PDF फ़ाइलों को कैसे प्रोसेस करता है, स्थानीय प्राथमिकताओं को संभालता है, और विज्ञापन व अन्य वेबसाइट सेवाओं के साथ कैसे काम करता है।",
+      "sections": [
+        {
+          "heading": "दस्तावेज़ प्रोसेसिंग",
+          "paragraphs": [
+            "समर्थित टूल के लिए, दस्तावेज़ संचालन आपके डिवाइस पर ब्राउज़र में किए जाते हैं। प्रोसेसिंग व्यवहार टूल और ब्राउज़र के अनुसार भिन्न हो सकता है; टूल पेज पर दिखाई गई निर्देशों की समीक्षा करें।",
+            "यह दस्तावेज़ प्रोसेसिंग का वर्णन करता है और इसका मतलब यह नहीं है कि वेबपेज कोई नेटवर्क अनुरोध नहीं करता है। साइट अपने स्वयं के पेज संसाधनों और सक्षम तृतीय-पक्ष सेवाओं को लोड कर सकती है।"
+          ]
+        },
+        {
+          "heading": "प्राथमिकताएं और स्थानीय ब्राउज़र स्टोरेज",
+          "paragraphs": [
+            "साइट सेटिंग्स और कार्यात्मक प्राथमिकताओं के लिए ब्राउज़र स्टोरेज, जैसे LocalStorage या IndexedDB का उपयोग कर सकती है। ये मान आपके ब्राउज़र के स्टोरेज और गोपनीयता नियंत्रणों के अधीन रहते हैं।"
+          ]
+        },
+        {
+          "heading": "विज्ञापन और तृतीय-पक्ष सेवाएं",
+          "paragraphs": [
+            "विज्ञापन या अन्य तृतीय-पक्ष सेवाएं अपनी नीतियों के तहत अपनी तकनीकों का उपयोग कर सकती हैं। अधिक जानकारी और ब्राउज़र कुकी सेटिंग्स को प्रबंधित करने के तरीकों के लिए कुकीज़ नीति देखें।"
+          ]
+        },
+        {
+          "heading": "प्रश्न",
+          "paragraphs": [
+            "गोपनीयता संबंधी प्रश्नों के लिए, संपर्क पृष्ठ के माध्यम से ClickPDF से संपर्क करें।"
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "सेवा की शर्तें",
+      "description": "ClickPDF की अनुमत उपयोग, उपयोगकर्ता जिम्मेदारियों, बौद्धिक संपदा, सेवा उपलब्धता, और ब्राउज़र-आधारित PDF टूल की सीमाओं के लिए शर्तें समीक्षा करें।",
+      "sections": [
+        {
+          "heading": "अनुमत उपयोग",
+          "paragraphs": [
+            "ClickPDF व्यक्तिगत, शैक्षिक, और व्यावसायिक दस्तावेज़ वर्कफ़्लो के लिए ब्राउज़र-आधारित PDF उपयोगिताएँ प्रदान करता है। आप लागू कानूनों के अनुसार सेवा का उपयोग करने के लिए जिम्मेदार हैं।"
+          ]
+        },
+        {
+          "heading": "आपकी फाइलें और जिम्मेदारियाँ",
+          "paragraphs": [
+            "आपके पास उन दस्तावेज़ों को संसाधित करने के लिए आवश्यक अधिकार और अनुमतियाँ होनी चाहिए जिन्हें आप चुनते हैं। अवैध, कपटपूर्ण, मानहानिकारक, या उल्लंघनकारी सामग्री को संसाधित या वितरित करने के लिए सेवा का उपयोग न करें।"
+          ]
+        },
+        {
+          "heading": "बौद्धिक संपदा",
+          "paragraphs": [
+            "ClickPDF नाम, वेबसाइट डिज़ाइन, कस्टम कोड, दस्तावेज़, और मूल दृश्य संपत्ति Click Digital Services या उनके संबंधित अधिकार धारकों की हैं। ओपन-सोर्स घटक अपने स्वयं के लाइसेंस के अधीन हैं।"
+          ]
+        },
+        {
+          "heading": "सेवा उपलब्धता",
+          "paragraphs": [
+            "सेवा 'जैसी है' और 'उपलब्धता के आधार पर' प्रदान की जाती है। अनुकूलता और परिणाम स्रोत फ़ाइल, ब्राउज़र, डिवाइस संसाधनों और समर्थित सुविधाओं पर निर्भर कर सकते हैं। महत्वपूर्ण मूल फ़ाइलों की एक प्रति रखें और उत्पन्न दस्तावेज़ों को सत्यापित करें।"
+          ]
+        },
+        {
+          "heading": "संबंधित जानकारी",
+          "paragraphs": [
+            "सेवा सीमाओं और दस्तावेज़ परिणामों के बारे में अतिरिक्त जानकारी के लिए अस्वीकरण (Disclaimer) पढ़ें।"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "कुकीज़ नीति",
+      "description": "देखें कि ClickPDF ब्राउज़र स्टोरेज और तृतीय-पक्ष विज्ञापन कुकीज़ का उपयोग कैसे करता है, और अपनी सहमति और कुकी वरीयताओं को प्रबंधित करना सीखें।",
+      "sections": [
+        {
+          "heading": "कुकीज़ और लोकल स्टोरेज",
+          "paragraphs": [
+            "कुकीज़ वेबसाइट द्वारा संग्रहीत छोटी डेटा फ़ाइलें हैं। ClickPDF कार्यात्मक सेटिंग्स जैसे इंटरफ़ेस वरीयताएँ और सहमति विकल्पों को बनाए रखने के लिए ब्राउज़र स्टोरेज, जिसमें LocalStorage या IndexedDB शामिल हैं, का भी उपयोग कर सकता है।"
+          ]
+        },
+        {
+          "heading": "विज्ञापन और तृतीय-पक्ष",
+          "paragraphs": [
+            "तृतीय-पक्ष विज्ञापन सेवाएँ अपनी गोपनीयता नीतियों के तहत विज्ञापन देने या मापने के लिए कुकीज़ या समान तकनीकों का उपयोग कर सकती हैं। साइट के सहमति नियंत्रण उपलब्ध विज्ञापन विकल्प की व्याख्या करते हैं।"
+          ]
+        },
+        {
+          "heading": "अपनी पसंद का प्रबंधन",
+          "paragraphs": [
+            "आप अपने ब्राउज़र सेटिंग्स के माध्यम से संग्रहीत डेटा को प्रबंधित या साफ़ कर सकते हैं। कुकीज़ को ब्लॉक करने से कुछ वेबसाइट वरीयताएँ या तृतीय-पक्ष सेवाएँ प्रभावित हो सकती हैं।"
+          ]
+        },
+        {
+          "heading": "अधिक जानकारी",
+          "paragraphs": [
+            "दस्तावेज़ प्रसंस्करण और अन्य वेबसाइट डेटा के बारे में विवरण के लिए, गोपनीयता नीति पढ़ें। आप प्रश्नों के लिए ClickPDF से संपर्क कर सकते हैं।"
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "अस्वीकरण",
+      "description": "ClickPDF जानकारी और प्रसंस्करण परिणामों पर सीमाओं को पढ़ें, जिसमें वारंटी, ब्राउज़र संगतता, फ़ाइल सीमाएं और सेवा उपलब्धता शामिल हैं।",
+      "sections": [
+        {
+          "heading": "जानकारी और पेशेवर सलाह",
+          "paragraphs": [
+            "ClickPDF गाइड और वेबसाइट की जानकारी केवल सामान्य सूचनात्मक उद्देश्यों के लिए प्रदान की जाती है और यह कानूनी, वित्तीय, चिकित्सा या अन्य पेशेवर सलाह नहीं है।"
+          ]
+        },
+        {
+          "heading": "प्रसंस्करण परिणाम",
+          "paragraphs": [
+            "आउटपुट स्रोत दस्तावेज़, फ़ाइल संरचना, ब्राउज़र और उपलब्ध डिवाइस संसाधनों पर निर्भर कर सकता है। उस पर भरोसा करने से पहले परिणाम की समीक्षा करें, और महत्वपूर्ण मूल दस्तावेजों की एक स्वतंत्र प्रति रखें।"
+          ]
+        },
+        {
+          "heading": "उपलब्धता और वारंटी",
+          "paragraphs": [
+            "ClickPDF को 'जैसा है' और 'जैसा उपलब्ध है' के आधार पर प्रदान किया जाता है। Click Digital Services निर्बाध संचालन, त्रुटि-मुक्त परिणामों, या हर फ़ाइल या डिवाइस के साथ संगतता की गारंटी नहीं देता है।"
+          ]
+        },
+        {
+          "heading": "तृतीय-पक्ष सेवाएं",
+          "paragraphs": [
+            "वेबसाइट में तृतीय पक्षों के लिंक या संसाधन शामिल हो सकते हैं। उन सेवाओं को उनकी अपनी शर्तों और गोपनीयता नीतियों द्वारा नियंत्रित किया जाता है।"
+          ]
+        }
+      ]
+    }
+  },
+  "ar": {
+    "about": {
+      "heading": "حول ClickPDF",
+      "description": "تعرف على ClickPDF، والناشر Click Digital Services، وأدوات PDF المستندة إلى المتصفح والدعم المتاح على هذا الموقع.",
+      "sections": [
+        {
+          "heading": "الناشر والغرض",
+          "paragraphs": [
+            "ClickPDF هو موقع ويب لأدوات PDF المستندة إلى المتصفح يتم نشره وتشغيله بواسطة Click Digital Services.",
+            "يوفر الموقع أدوات لمهام المستندات الشائعة مثل دمج وتقسيم وضغط وتحويل وتنظيم وفحص ملفات PDF."
+          ]
+        },
+        {
+          "heading": "كيف تعمل الأدوات",
+          "paragraphs": [
+            "يتم إجراء معالجة PDF في المتصفح للأدوات المدعومة. تختلف الميزات المحددة ومتطلبات الجهاز حسب الأداة.",
+            "قد لا يزال الموقع يقوم بتحميل موارد الصفحة وخدمات الجهات الخارجية الممكّنة. راجع سياسة الخصوصية وتعليمات كل أداة قبل معالجة المستندات الحساسة."
+          ]
+        },
+        {
+          "heading": "المعايير المفتوحة والدعم",
+          "paragraphs": [
+            "يستخدم ClickPDF تقنيات المتصفح ومكتبات المستندات الراسخة لتوفير أدواته. للأسئلة أو التعليقات أو المشكلات الفنية، استخدم صفحة الاتصال."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "اتصل بـ ClickPDF",
+      "description": "تواصل مع دعم ClickPDF للمشكلات التقنية، أو الملاحظات، أو أسئلة الخصوصية، أو الاستفسارات التجارية حول أدوات PDF المعتمدة على المتصفح.",
+      "sections": [
+        {
+          "heading": "الدعم والاستفسارات",
+          "paragraphs": [
+            "اتصل بـ ClickPDF للحصول على المساعدة التقنية، أو للإبلاغ عن مشكلة غير متوقعة، أو لاقتراح أداة، أو لمناقشة استفسار تجاري."
+          ]
+        },
+        {
+          "heading": "دعم البريد الإلكتروني",
+          "paragraphs": [
+            "أرسل رسالة إلى عنوان الدعم أدناه. اذكر اسم الأداة والمتصفح الخاص بك عند الإبلاغ عن مشكلة تقنية. لا تقم بإرسال مستندات سرية عبر البريد الإلكتروني إلا إذا قمت بمراجعة المخاطر بشكل مستقل."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "سياسة الخصوصية",
+      "description": "تعرف على كيفية معالجة ClickPDF لملفات PDF في المتصفح، وإدارة التفضيلات المحلية، والعمل مع الإعلانات وخدمات المواقع الأخرى.",
+      "sections": [
+        {
+          "heading": "معالجة المستندات",
+          "paragraphs": [
+            "بالنسبة للأدوات المدعومة، يتم تنفيذ عمليات المستندات في المتصفح على جهازك. قد يختلف سلوك المعالجة حسب الأداة والمتصفح؛ راجع التعليمات الموضحة في صفحة الأداة.",
+            "يصف هذا معالجة المستندات ولا يعني أن صفحة الويب لا تقوم بأي طلبات شبكة. قد تقوم الموقع بتحميل موارد الصفحة الخاصة به وخدمات الطرف الثالث المفعلة."
+          ]
+        },
+        {
+          "heading": "التفضيلات وتخزين المتصفح المحلي",
+          "paragraphs": [
+            "قد يستخدم الموقع تخزين المتصفح، مثل LocalStorage أو IndexedDB، للإعدادات والتفضيلات الوظيفية. تظل هذه القيم خاضعة لعناصر التحكم في التخزين والخصوصية في متصفحك."
+          ]
+        },
+        {
+          "heading": "الإعلانات وخدمات الطرف الثالث",
+          "paragraphs": [
+            "قد تستخدم الإعلانات أو خدمات الطرف الثالث الأخرى تقنياتها الخاصة بموجب سياساتها المعنية. راجع سياسة ملفات تعريف الارتباط لمزيد من المعلومات وطرق إدارة إعدادات ملفات تعريف الارتباط في المتصفح."
+          ]
+        },
+        {
+          "heading": "أسئلة",
+          "paragraphs": [
+            "لأسئلة الخصوصية، اتصل بـ ClickPDF من خلال صفحة الاتصال."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "شروط الخدمة",
+      "description": "راجع شروط ClickPDF للاستخدام المسموح به، ومسؤوليات المستخدم، والملكية الفكرية، وتوافر الخدمة، وقيود أدوات PDF المستندة إلى المتصفح.",
+      "sections": [
+        {
+          "heading": "الاستخدام المسموح به",
+          "paragraphs": [
+            "توفر ClickPDF أدوات PDF مستندة إلى المتصفح لسير عمل المستندات الشخصية والتعليمية والتجارية. أنت مسؤول عن استخدام الخدمة وفقًا للقوانين المعمول بها."
+          ]
+        },
+        {
+          "heading": "ملفاتك ومسؤولياتك",
+          "paragraphs": [
+            "يجب أن يكون لديك الحقوق والأذونات اللازمة لمعالجة المستندات التي تختارها. لا تستخدم الخدمة لمعالجة أو توزيع مواد غير قانونية أو احتيالية أو تشهيرية أو منتهكة."
+          ]
+        },
+        {
+          "heading": "الملكية الفكرية",
+          "paragraphs": [
+            "اسم ClickPDF، وتصميم الموقع الإلكتروني، والكود المخصص، والوثائق، والأصول المرئية الأصلية مملوكة لشركة Click Digital Services أو أصحاب الحقوق المعنيين. تظل مكونات المصادر المفتوحة خاضعة لتراخيصها الخاصة."
+          ]
+        },
+        {
+          "heading": "توافر الخدمة",
+          "paragraphs": [
+            "يتم توفير الخدمة على أساس 'كما هي' و'حسب توافرها'. قد يعتمد التوافق والنتائج على الملف المصدر، والمتصفح، وموارد الجهاز، والميزات المدعومة. احتفظ بنسخة من الملفات الأصلية المهمة وتحقق من المستندات التي تم إنشاؤها."
+          ]
+        },
+        {
+          "heading": "معلومات ذات صلة",
+          "paragraphs": [
+            "اقرأ إخلاء المسؤولية للحصول على معلومات إضافية حول قيود الخدمة ونتائج المستندات."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "سياسة ملفات تعريف الارتباط",
+      "description": "تعرف على كيفية استخدام ClickPDF لتخزين المتصفح وملفات تعريف الارتباط الخاصة بالإعلانات من جهات خارجية، وتعلم كيفية إدارة موافقتك وتفضيلات ملفات تعريف الارتباط.",
+      "sections": [
+        {
+          "heading": "ملفات تعريف الارتباط والتخزين المحلي",
+          "paragraphs": [
+            "ملفات تعريف الارتباط هي ملفات بيانات صغيرة يتم تخزينها بواسطة موقع ويب. قد تستخدم ClickPDF أيضًا تخزين المتصفح، بما في ذلك LocalStorage أو IndexedDB، للاحتفاظ بالإعدادات الوظيفية مثل تفضيلات الواجهة وخيارات الموافقة."
+          ]
+        },
+        {
+          "heading": "الإعلانات والجهات الخارجية",
+          "paragraphs": [
+            "قد تستخدم خدمات الإعلانات التابعة لجهات خارجية ملفات تعريف الارتباط أو تقنيات مشابهة لتقديم أو قياس الإعلانات بموجب سياسات الخصوصية الخاصة بها. تشرح عناصر التحكم في الموافقة الخاصة بالموقع خيار الإعلان المتاح."
+          ]
+        },
+        {
+          "heading": "إدارة اختياراتك",
+          "paragraphs": [
+            "يمكنك إدارة أو مسح البيانات المخزنة من خلال إعدادات متصفحك. قد يؤدي حظر ملفات تعريف الارتباط إلى التأثير على بعض تفضيلات الموقع أو خدمات الجهات الخارجية."
+          ]
+        },
+        {
+          "heading": "مزيد من المعلومات",
+          "paragraphs": [
+            "للحصول على تفاصيل حول معالجة المستندات وبيانات الموقع الأخرى، اقرأ سياسة الخصوصية. يمكنك الاتصال بـ ClickPDF لطرح الأسئلة."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "إخلاء المسؤولية",
+      "description": "اقرأ القيود المفروضة على معلومات ClickPDF ونتائج المعالجة، بما في ذلك الضمانات وتوافق المتصفح وحدود الملفات وتوفر الخدمة.",
+      "sections": [
+        {
+          "heading": "المعلومات والمشورة المهنية",
+          "paragraphs": [
+            "يتم توفير أدلة ومعلومات موقع ClickPDF لأغراض إعلامية عامة فقط ولا تشكل مشورة قانونية أو مالية أو طبية أو غيرها من المشورة المهنية."
+          ]
+        },
+        {
+          "heading": "نتائج المعالجة",
+          "paragraphs": [
+            "قد تعتمد النتائج على المستند المصدر وهيكل الملف والمتصفح وموارد الجهاز المتاحة. راجع النتيجة قبل الاعتماد عليها، واحتفظ بنسخة مستقلة من المستندات الأصلية الهامة."
+          ]
+        },
+        {
+          "heading": "التوفر والضمانات",
+          "paragraphs": [
+            "يتم توفير ClickPDF على أساس 'كما هو' و 'كما هو متاح'. لا تضمن Click Digital Services التشغيل دون انقطاع، أو النتائج الخالية من الأخطاء، أو التوافق مع كل ملف أو جهاز."
+          ]
+        },
+        {
+          "heading": "خدمات الطرف الثالث",
+          "paragraphs": [
+            "قد يتضمن الموقع روابط أو موارد من أطراف ثالثة. تخضع هذه الخدمات لشروطها وسياسات الخصوصية الخاصة بها."
+          ]
+        }
+      ]
+    }
+  },
+  "zh": {
+    "about": {
+      "heading": "关于 ClickPDF",
+      "description": "了解 ClickPDF、其发布商 Click Digital Services 以及本网站提供的基于浏览器的 PDF 工具和支持。",
+      "sections": [
+        {
+          "heading": "发布商与宗旨",
+          "paragraphs": [
+            "ClickPDF 是一个基于浏览器的 PDF 工具网站，由 Click Digital Services 发布和运营。",
+            "该网站提供用于合并、拆分、压缩、转换、整理和检查 PDF 文件等常见文档任务的工具。"
+          ]
+        },
+        {
+          "heading": "工具的工作原理",
+          "paragraphs": [
+            "支持的工具在浏览器中执行 PDF 处理。具体功能和设备要求因工具而异。",
+            "网站仍可能加载页面资源和启用的第三方服务。在处理敏感文档之前，请查看隐私政策和每个工具的说明。"
+          ]
+        },
+        {
+          "heading": "开放标准与支持",
+          "paragraphs": [
+            "ClickPDF 使用浏览器技术和成熟的文档库来提供其工具。如有疑问、反馈或技术问题，请使用联系页面。"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "联系 ClickPDF",
+      "description": "针对技术问题、反馈、隐私问题或有关我们基于浏览器的 PDF 工具的业务咨询，请联系 ClickPDF 支持。",
+      "sections": [
+        {
+          "heading": "支持与查询",
+          "paragraphs": [
+            "联系 ClickPDF 以获取技术援助、报告意外问题、建议工具或讨论业务咨询。"
+          ]
+        },
+        {
+          "heading": "电子邮件支持",
+          "paragraphs": [
+            "将消息发送至下方的支持地址。在报告技术问题时，请包含工具名称和您的浏览器。除非您已独立评估风险，否则请勿发送机密文档。"
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "隐私政策",
+      "description": "了解 ClickPDF 如何在浏览器中处理 PDF 文件、管理本地偏好设置，以及如何与广告和其他网站服务协同工作。",
+      "sections": [
+        {
+          "heading": "文档处理",
+          "paragraphs": [
+            "对于受支持的工具，文档操作是在您设备上的浏览器中完成的。处理行为可能因工具和浏览器而异；请查看工具页面上显示的说明。",
+            "这描述了文档处理，并不意味着该网页不进行任何网络请求。本网站可能会加载其自身的页面资源和已启用的第三方服务。"
+          ]
+        },
+        {
+          "heading": "偏好设置与本地浏览器存储",
+          "paragraphs": [
+            "本网站可能会使用浏览器存储（如 LocalStorage 或 IndexedDB）来进行设置和功能偏好设置。这些值仍受限于您浏览器的存储和隐私控制。"
+          ]
+        },
+        {
+          "heading": "广告与第三方服务",
+          "paragraphs": [
+            "广告或其他第三方服务可能会根据其各自的政策使用其自身的技术。请参阅 Cookie 政策以获取更多信息及管理浏览器 Cookie 设置的方法。"
+          ]
+        },
+        {
+          "heading": "疑问",
+          "paragraphs": [
+            "如有隐私相关疑问，请通过联系页面与 ClickPDF 取得联系。"
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "服务条款",
+      "description": "查阅 ClickPDF 关于允许使用、用户责任、知识产权、服务可用性以及基于浏览器的 PDF 工具限制的条款。",
+      "sections": [
+        {
+          "heading": "允许使用",
+          "paragraphs": [
+            "ClickPDF 提供用于个人、教育和商业文档工作流程的浏览器 PDF 实用程序。您有责任按照适用法律使用本服务。"
+          ]
+        },
+        {
+          "heading": "您的文件与责任",
+          "paragraphs": [
+            "您必须拥有处理您所选文档所需的权利和许可。请勿使用本服务处理或分发非法、欺诈、诽谤或侵权材料。"
+          ]
+        },
+        {
+          "heading": "知识产权",
+          "paragraphs": [
+            "ClickPDF 名称、网站设计、自定义代码、文档和原始视觉资产归 Click Digital Services 或其各自的权利持有者所有。开源组件仍受其各自许可的约束。"
+          ]
+        },
+        {
+          "heading": "服务可用性",
+          "paragraphs": [
+            "本服务按“现状”和“可用”基础提供。兼容性和结果可能取决于源文件、浏览器、设备资源和受支持的功能。请保留重要原始文件的副本并验证生成的文档。"
+          ]
+        },
+        {
+          "heading": "相关信息",
+          "paragraphs": [
+            "阅读免责声明以获取有关服务限制和文档结果的更多信息。"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Cookie 政策",
+      "description": "了解 ClickPDF 如何使用浏览器存储和第三方广告 Cookie，并学习如何管理您的同意和 Cookie 偏好。",
+      "sections": [
+        {
+          "heading": "Cookie 和本地存储",
+          "paragraphs": [
+            "Cookie 是由网站存储的小型数据文件。ClickPDF 也可能使用浏览器存储（包括 LocalStorage 或 IndexedDB）来保留界面偏好和同意选择等功能设置。"
+          ]
+        },
+        {
+          "heading": "广告和第三方",
+          "paragraphs": [
+            "第三方广告服务可能会根据其自身的隐私政策使用 Cookie 或类似技术来投放或衡量广告。网站的同意控件解释了可用的广告选项。"
+          ]
+        },
+        {
+          "heading": "管理您的选择",
+          "paragraphs": [
+            "您可以通过浏览器设置管理或清除存储的数据。阻止 Cookie 可能会影响某些网站偏好或第三方服务。"
+          ]
+        },
+        {
+          "heading": "更多信息",
+          "paragraphs": [
+            "有关文档处理和其他网站数据的详细信息，请阅读隐私政策。如有疑问，您可以联系 ClickPDF。"
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "免责声明",
+      "description": "阅读有关 ClickPDF 信息和处理结果的限制，包括保证、浏览器兼容性、文件限制和服务可用性。",
+      "sections": [
+        {
+          "heading": "信息与专业建议",
+          "paragraphs": [
+            "ClickPDF 指南和网站信息仅供一般参考，不构成法律、财务、医疗或其他专业建议。"
+          ]
+        },
+        {
+          "heading": "处理结果",
+          "paragraphs": [
+            "输出结果取决于源文档、文件结构、浏览器和可用设备资源。在依赖结果之前请进行审查，并保留重要原始文件的独立副本。"
+          ]
+        },
+        {
+          "heading": "可用性与保证",
+          "paragraphs": [
+            "ClickPDF 按“现状”和“可用”基础提供。Click Digital Services 不保证不间断运行、无错误结果或与每个文件或设备的兼容性。"
+          ]
+        },
+        {
+          "heading": "第三方服务",
+          "paragraphs": [
+            "网站可能包含来自第三方的链接或资源。这些服务受其自身的条款和隐私政策约束。"
+          ]
+        }
+      ]
+    }
+  },
+  "ja": {
+    "about": {
+      "heading": "ClickPDFについて",
+      "description": "ClickPDF、発行元のClick Digital Services、およびこのサイトで利用可能なブラウザベースのPDFツールとサポートについて説明します。",
+      "sections": [
+        {
+          "heading": "発行元と目的",
+          "paragraphs": [
+            "ClickPDFは、Click Digital Servicesが発行および運営するブラウザベースのPDFユーティリティウェブサイトです。",
+            "当サイトは、PDFファイルの結合、分割、圧縮、変換、整理、検査などの一般的なドキュメントタスクのためのツールを提供します。"
+          ]
+        },
+        {
+          "heading": "ツールの仕組み",
+          "paragraphs": [
+            "サポートされているツールについては、ブラウザ内でPDF処理が行われます。具体的な機能やデバイスの要件はツールによって異なります。",
+            "ウェブサイトは、ページリソースや有効になっているサードパーティサービスを引き続き読み込む場合があります。機密性の高いドキュメントを処理する前に、プライバシーポリシーと各ツールの手順を確認してください。"
+          ]
+        },
+        {
+          "heading": "オープン標準とサポート",
+          "paragraphs": [
+            "ClickPDFは、ブラウザ技術と確立されたドキュメントライブラリを使用してツールを提供しています。質問、フィードバック、技術的な問題については、お問い合わせページを使用してください。"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "ClickPDFへのお問い合わせ",
+      "description": "技術的な問題、フィードバック、プライバシーに関するご質問、または当社のブラウザベースのPDFツールに関するビジネス上の照会については、ClickPDFサポートまでお問い合わせください。",
+      "sections": [
+        {
+          "heading": "サポートと照会",
+          "paragraphs": [
+            "技術サポートが必要な場合、予期せぬ問題を報告する場合、ツールを提案する場合、またはビジネス上の照会について議論する場合は、ClickPDFまでご連絡ください。"
+          ]
+        },
+        {
+          "heading": "メールサポート",
+          "paragraphs": [
+            "以下のサポート用メールアドレスにメッセージを送信してください。技術的な問題を報告する際は、ツール名とブラウザ名を明記してください。機密書類は、リスクを独自に検討した場合を除き、メールで送信しないでください。"
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "プライバシーポリシー",
+      "description": "ClickPDFがブラウザ内でどのようにPDFファイルを処理し、ローカル設定を管理し、広告やその他のウェブサイトサービスと連携するかについて説明します。",
+      "sections": [
+        {
+          "heading": "ドキュメント処理",
+          "paragraphs": [
+            "サポートされているツールについては、ドキュメント操作はお使いのデバイスのブラウザ内で行われます。処理の動作はツールやブラウザによって異なる場合があります。ツールページに表示される手順を確認してください。",
+            "これはドキュメント処理についての説明であり、ウェブページがネットワークリクエストを行わないという意味ではありません。本サイトは、独自のページリソースや有効なサードパーティサービスを読み込む場合があります。"
+          ]
+        },
+        {
+          "heading": "設定とローカルブラウザストレージ",
+          "paragraphs": [
+            "本サイトでは、設定や機能的な優先設定のために、LocalStorageやIndexedDBなどのブラウザストレージを使用する場合があります。これらの値は、お使いのブラウザのストレージおよびプライバシー設定に従います。"
+          ]
+        },
+        {
+          "heading": "広告およびサードパーティサービス",
+          "paragraphs": [
+            "広告やその他のサードパーティサービスは、各々のポリシーに基づき独自の技術を使用する場合があります。詳細やブラウザのCookie設定の管理方法については、Cookieポリシーを参照してください。"
+          ]
+        },
+        {
+          "heading": "質問",
+          "paragraphs": [
+            "プライバシーに関するご質問は、お問い合わせページからClickPDFまでご連絡ください。"
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "利用規約",
+      "description": "許可された利用、ユーザーの責任、知的財産、サービスの可用性、およびブラウザベースのPDFツールの制限に関するClickPDFの規約を確認してください。",
+      "sections": [
+        {
+          "heading": "許可された利用",
+          "paragraphs": [
+            "ClickPDFは、個人、教育、およびビジネスのドキュメントワークフロー向けのブラウザベースのPDFユーティリティを提供します。お客様は、適用法に従って本サービスを利用する責任があります。"
+          ]
+        },
+        {
+          "heading": "ファイルおよび責任",
+          "paragraphs": [
+            "お客様は、選択したドキュメントを処理するために必要な権利および許可を持っている必要があります。違法、詐欺的、名誉毀損、または権利を侵害する資料を処理または配布するために本サービスを利用しないでください。"
+          ]
+        },
+        {
+          "heading": "知的財産",
+          "paragraphs": [
+            "ClickPDFの名前、ウェブサイトデザイン、カスタムコード、ドキュメント、およびオリジナルのビジュアル資産は、Click Digital Servicesまたはそれぞれの権利者に帰属します。オープンソースコンポーネントは、独自のライセンスに従うものとします。"
+          ]
+        },
+        {
+          "heading": "サービスの可用性",
+          "paragraphs": [
+            "本サービスは「現状有姿」かつ「利用可能な状態」で提供されます。互換性および結果は、ソースファイル、ブラウザ、デバイスリソース、およびサポートされている機能に依存する場合があります。重要なオリジナルファイルのコピーを保管し、生成されたドキュメントを確認してください。"
+          ]
+        },
+        {
+          "heading": "関連情報",
+          "paragraphs": [
+            "サービスの制限およびドキュメントの結果に関する詳細については、免責事項をお読みください。"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "クッキーポリシー",
+      "description": "ClickPDF がブラウザストレージやサードパーティの広告用クッキーをどのように使用しているかを確認し、同意とクッキーの設定を管理する方法を学びます。",
+      "sections": [
+        {
+          "heading": "クッキーとローカルストレージ",
+          "paragraphs": [
+            "クッキーはウェブサイトによって保存される小さなデータファイルです。ClickPDF は、インターフェースの好みや同意の選択などの機能的な設定を保持するために、LocalStorage や IndexedDB を含むブラウザストレージを使用する場合もあります。"
+          ]
+        },
+        {
+          "heading": "広告とサードパーティ",
+          "paragraphs": [
+            "サードパーティの広告サービスは、独自のプライバシーポリシーに基づいて、広告の配信や測定のためにクッキーや類似の技術を使用する場合があります。サイトの同意コントロールには、利用可能な広告オプションが説明されています。"
+          ]
+        },
+        {
+          "heading": "設定の管理",
+          "paragraphs": [
+            "ブラウザの設定を通じて、保存されたデータを管理または消去できます。クッキーをブロックすると、一部のウェブサイトの好みやサードパーティのサービスに影響を与える可能性があります。"
+          ]
+        },
+        {
+          "heading": "詳細情報",
+          "paragraphs": [
+            "ドキュメントの処理やその他のウェブサイトデータに関する詳細については、プライバシーポリシーをお読みください。ご不明な点がございましたら、ClickPDF までお問い合わせください。"
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "免責事項",
+      "description": "ClickPDFの情報および処理結果に関する制限（保証、ブラウザの互換性、ファイル制限、サービスの可用性を含む）をお読みください。",
+      "sections": [
+        {
+          "heading": "情報および専門的アドバイス",
+          "paragraphs": [
+            "ClickPDFのガイドおよびウェブサイトの情報は一般的な情報提供のみを目的としており、法的、財務的、医学的、またはその他の専門的なアドバイスではありません。"
+          ]
+        },
+        {
+          "heading": "処理結果",
+          "paragraphs": [
+            "出力は、ソースドキュメント、ファイル構造、ブラウザ、および使用可能なデバイスリソースに依存する場合があります。結果に依存する前に確認を行い、重要な原本の独立したコピーを保管してください。"
+          ]
+        },
+        {
+          "heading": "可用性と保証",
+          "paragraphs": [
+            "ClickPDFは「現状有姿」および「提供可能な範囲」で提供されます。Click Digital Servicesは、中断のない動作、エラーのない結果、またはすべてのファイルやデバイスとの互換性を保証するものではありません。"
+          ]
+        },
+        {
+          "heading": "サードパーティサービス",
+          "paragraphs": [
+            "ウェブサイトには、サードパーティのリンクやリソースが含まれている場合があります。それらのサービスは、それぞれの利用規約およびプライバシーポリシーに準拠します。"
+          ]
+        }
+      ]
+    }
+  },
+  "tl": {
+    "about": {
+      "heading": "Tungkol sa ClickPDF",
+      "description": "Alamin ang tungkol sa ClickPDF, ang publisher nitong Click Digital Services, at ang mga tool sa PDF na nakabase sa browser at suportang available sa site na ito.",
+      "sections": [
+        {
+          "heading": "Publisher at layunin",
+          "paragraphs": [
+            "Ang ClickPDF ay isang website ng utility para sa PDF na nakabase sa browser na inilathala at pinapatakbo ng Click Digital Services.",
+            "Nagbibigay ang site ng mga tool para sa mga karaniwang gawain sa dokumento tulad ng pagsasama-sama, paghahati, pag-compress, pag-convert, pag-aayos, at pag-inspeksyon ng mga PDF file."
+          ]
+        },
+        {
+          "heading": "Paano gumagana ang mga tool",
+          "paragraphs": [
+            "Ang pagpoproseso ng PDF ay ginagawa sa browser para sa mga suportadong tool. Ang mga partikular na feature at kinakailangan sa device ay nag-iiba depende sa tool.",
+            "Maaari pa ring mag-load ang website ng mga resources ng page at mga naka-enable na third-party services. Basahin ang Patakaran sa Privacy at ang mga tagubilin ng bawat tool bago iproseso ang mga sensitibong dokumento."
+          ]
+        },
+        {
+          "heading": "Mga bukas na pamantayan at suporta",
+          "paragraphs": [
+            "Gumagamit ang ClickPDF ng mga teknolohiya sa browser at mga itinatag na library ng dokumento upang ibigay ang mga tool nito. Para sa mga tanong, feedback, o teknikal na isyu, gamitin ang pahina ng Contact."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Makipag-ugnayan sa ClickPDF",
+      "description": "Makipag-ugnayan sa suporta ng ClickPDF para sa mga teknikal na isyu, feedback, mga tanong sa privacy, o mga pagtatanong sa negosyo tungkol sa aming mga PDF tool na nakabase sa browser.",
+      "sections": [
+        {
+          "heading": "Suporta at mga katanungan",
+          "paragraphs": [
+            "Makipag-ugnayan sa ClickPDF para sa teknikal na tulong, upang mag-ulat ng hindi inaasahang isyu, upang magmungkahi ng tool, o upang talakayin ang isang pagtatanong sa negosyo."
+          ]
+        },
+        {
+          "heading": "Suporta sa email",
+          "paragraphs": [
+            "Magpadala ng mensahe sa address ng suporta sa ibaba. Isama ang pangalan ng tool at ang iyong browser kapag nag-uulat ng teknikal na problema. Huwag mag-email ng mga kumpidensyal na dokumento maliban kung independyente mong nasuri ang mga panganib."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Patakaran sa Pagkapribado",
+      "description": "Alamin kung paano pinoproseso ng ClickPDF ang mga PDF file sa browser, pinamamahalaan ang mga lokal na kagustuhan, at gumagana sa mga ad at iba pang serbisyo ng website.",
+      "sections": [
+        {
+          "heading": "Pagproseso ng dokumento",
+          "paragraphs": [
+            "Para sa mga suportadong tool, ang mga operasyon sa dokumento ay isinasagawa sa loob ng browser sa iyong device. Maaaring mag-iba ang pag-uugali ng pagproseso depende sa tool at browser; suriin ang mga tagubiling ipinapakita sa pahina ng tool.",
+            "Inilalarawan nito ang pagproseso ng dokumento at hindi nangangahulugang walang ginagawang network request ang webpage. Maaaring mag-load ang site ng sarili nitong mga resource ng page at mga naka-enable na third-party service."
+          ]
+        },
+        {
+          "heading": "Mga kagustuhan at lokal na storage ng browser",
+          "paragraphs": [
+            "Maaaring gumamit ang site ng storage ng browser, gaya ng LocalStorage o IndexedDB, para sa mga setting at functional na kagustuhan. Ang mga value na ito ay nananatiling napapailalim sa mga kontrol sa storage at privacy ng iyong browser."
+          ]
+        },
+        {
+          "heading": "Mga Ad at third-party service",
+          "paragraphs": [
+            "Maaaring gumamit ang mga ad o iba pang third-party service ng sarili nilang mga teknolohiya sa ilalim ng kani-kanilang mga patakaran. Tingnan ang Patakaran sa Cookies para sa higit pang impormasyon at mga paraan upang pamahalaan ang mga setting ng cookies sa browser."
+          ]
+        },
+        {
+          "heading": "Mga Tanong",
+          "paragraphs": [
+            "Para sa mga tanong tungkol sa privacy, makipag-ugnayan sa ClickPDF sa pamamagitan ng pahina ng Contact."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Mga Tuntunin ng Serbisyo",
+      "description": "Suriin ang mga tuntunin ng ClickPDF para sa pinahihintulutang paggamit, mga responsibilidad ng user, intelektwal na ari-arian, availability ng serbisyo, at mga limitasyon ng mga PDF tool na nakabase sa browser.",
+      "sections": [
+        {
+          "heading": "Pinahihintulutang paggamit",
+          "paragraphs": [
+            "Nagbibigay ang ClickPDF ng mga PDF utility na nakabase sa browser para sa personal, pang-edukasyon, at pang-negosyong workflow ng dokumento. Responsibilidad mong gamitin ang serbisyo alinsunod sa mga naaangkop na batas."
+          ]
+        },
+        {
+          "heading": "Iyong mga file at responsibilidad",
+          "paragraphs": [
+            "Dapat kang magkaroon ng mga karapatan at pahintulot na kailangan upang iproseso ang mga dokumentong pipiliin mo. Huwag gamitin ang serbisyo upang iproseso o ipamahagi ang mga ilegal, mapanlinlang, mapanirang-puri, o nakakasagabal na materyal."
+          ]
+        },
+        {
+          "heading": "Intelektwal na ari-arian",
+          "paragraphs": [
+            "Ang pangalang ClickPDF, disenyo ng website, custom na code, dokumentasyon, at orihinal na visual asset ay pagmamay-ari ng Click Digital Services o ng kani-kanilang mga may hawak ng karapatan. Ang mga open-source na bahagi ay nananatiling napapailalim sa kanilang sariling mga lisensya."
+          ]
+        },
+        {
+          "heading": "Availability ng serbisyo",
+          "paragraphs": [
+            "Ang serbisyo ay ibinibigay sa batayang 'as-is' at 'as-available'. Ang compatibility at mga resulta ay maaaring depende sa source file, browser, mga resource ng device, at mga suportadong feature. Magtabi ng kopya ng mahahalagang orihinal na file at i-verify ang mga nagawang dokumento."
+          ]
+        },
+        {
+          "heading": "Kaugnay na impormasyon",
+          "paragraphs": [
+            "Basahin ang Disclaimer para sa karagdagang impormasyon tungkol sa mga limitasyon ng serbisyo at mga resulta ng dokumento."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Patakaran sa Cookies",
+      "description": "Alamin kung paano gumagamit ang ClickPDF ng imbakan ng browser at mga third-party na advertising cookie, at matutong pamahalaan ang iyong pahintulot at mga kagustuhan sa cookie.",
+      "sections": [
+        {
+          "heading": "Mga Cookie at lokal na imbakan",
+          "paragraphs": [
+            "Ang mga cookie ay maliliit na file ng data na iniimbak ng isang website. Maaari ring gumamit ang ClickPDF ng imbakan ng browser, kabilang ang LocalStorage o IndexedDB, upang panatilihin ang mga functional setting gaya ng mga kagustuhan sa interface at mga pagpipiliang pahintulot."
+          ]
+        },
+        {
+          "heading": "Pag-aanunsyo at mga third party",
+          "paragraphs": [
+            "Maaaring gumamit ang mga third-party na serbisyo sa pag-aanunsyo ng mga cookie o katulad na teknolohiya upang maghatid o sumukat ng mga ad sa ilalim ng kanilang sariling mga patakaran sa privacy. Ipinapaliwanag ng mga kontrol sa pahintulot ng site ang magagamit na pagpipilian sa pag-aanunsyo."
+          ]
+        },
+        {
+          "heading": "Pamamahala sa iyong mga pagpipilian",
+          "paragraphs": [
+            "Maaari mong pamahalaan o i-clear ang nakaimbak na data sa pamamagitan ng mga setting ng iyong browser. Ang pag-block sa mga cookie ay maaaring makaapekto sa ilang kagustuhan sa website o mga third-party na serbisyo."
+          ]
+        },
+        {
+          "heading": "Karagdagang impormasyon",
+          "paragraphs": [
+            "Para sa mga detalye tungkol sa pagproseso ng dokumento at iba pang data ng website, basahin ang Patakaran sa Privacy. Maaari kang makipag-ugnayan sa ClickPDF para sa mga tanong."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Disclaimer",
+      "description": "Basahin ang mga limitasyon sa impormasyon ng ClickPDF at mga resulta ng pagpoproseso, kabilang ang mga warranty, compatibility ng browser, mga limitasyon ng file, at availability ng serbisyo.",
+      "sections": [
+        {
+          "heading": "Impormasyon at propesyonal na payo",
+          "paragraphs": [
+            "Ang mga gabay at impormasyon sa website ng ClickPDF ay ibinibigay para sa pangkalahatang layuning pang-impormasyon lamang at hindi legal, pinansyal, medikal, o iba pang propesyonal na payo."
+          ]
+        },
+        {
+          "heading": "Mga resulta ng pagpoproseso",
+          "paragraphs": [
+            "Ang output ay maaaring depende sa source document, istruktura ng file, browser, at magagamit na resources ng device. Suriin ang resulta bago umasa rito, at magtabi ng independiyenteng kopya ng mga mahahalagang orihinal."
+          ]
+        },
+        {
+          "heading": "Availability at mga warranty",
+          "paragraphs": [
+            "Ang ClickPDF ay ibinibigay sa 'as-is' at 'as-available' na batayan. Hindi ginagarantiyahan ng Click Digital Services ang walang patid na operasyon, mga resulta na walang error, o compatibility sa bawat file o device."
+          ]
+        },
+        {
+          "heading": "Mga serbisyo ng third-party",
+          "paragraphs": [
+            "Ang website ay maaaring magsama ng mga link o resources mula sa mga third party. Ang mga serbisyong iyon ay pinamamahalaan ng kanilang sariling mga tuntunin at patakaran sa privacy."
+          ]
+        }
+      ]
+    }
+  },
+  "de": {
+    "about": {
+      "heading": "Über ClickPDF",
+      "description": "Erfahren Sie mehr über ClickPDF, den Herausgeber Click Digital Services sowie die browserbasierten PDF-Tools und den Support auf dieser Website.",
+      "sections": [
+        {
+          "heading": "Herausgeber und Zweck",
+          "paragraphs": [
+            "ClickPDF ist eine browserbasierte PDF-Utility-Website, die von Click Digital Services herausgegeben und betrieben wird.",
+            "Die Website bietet Tools für allgemeine Dokumentaufgaben wie das Zusammenführen, Teilen, Komprimieren, Konvertieren, Organisieren und Prüfen von PDF-Dateien."
+          ]
+        },
+        {
+          "heading": "Funktionsweise der Tools",
+          "paragraphs": [
+            "Die PDF-Verarbeitung erfolgt bei unterstützten Tools im Browser. Spezifische Funktionen und Geräteanforderungen variieren je nach Tool.",
+            "Die Website kann weiterhin Seitenressourcen und aktivierte Dienste Dritter laden. Überprüfen Sie die Datenschutzrichtlinie und die Anweisungen des jeweiligen Tools, bevor Sie sensible Dokumente verarbeiten."
+          ]
+        },
+        {
+          "heading": "Offene Standards und Support",
+          "paragraphs": [
+            "ClickPDF verwendet Browser-Technologien und bewährte Dokumentbibliotheken zur Bereitstellung seiner Tools. Für Fragen, Feedback oder technische Probleme nutzen Sie bitte die Kontaktseite."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Kontaktieren Sie ClickPDF",
+      "description": "Wenden Sie sich bei technischen Problemen, Feedback, Fragen zum Datenschutz oder geschäftlichen Anfragen zu unseren browserbasierten PDF-Tools an den ClickPDF-Support.",
+      "sections": [
+        {
+          "heading": "Support und Anfragen",
+          "paragraphs": [
+            "Kontaktieren Sie ClickPDF für technische Unterstützung, um ein unerwartetes Problem zu melden, ein Tool vorzuschlagen oder eine geschäftliche Anfrage zu besprechen."
+          ]
+        },
+        {
+          "heading": "E-Mail-Support",
+          "paragraphs": [
+            "Senden Sie eine Nachricht an die unten stehende Support-Adresse. Geben Sie bei der Meldung eines technischen Problems den Namen des Tools und Ihren Browser an. Senden Sie keine vertraulichen Dokumente per E-Mail, es sei denn, Sie haben die Risiken eigenständig geprüft."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Datenschutzrichtlinie",
+      "description": "Erfahren Sie, wie ClickPDF PDF-Dateien im Browser verarbeitet, lokale Präferenzen verwaltet und mit Werbung sowie anderen Website-Diensten zusammenarbeitet.",
+      "sections": [
+        {
+          "heading": "Dokumentenverarbeitung",
+          "paragraphs": [
+            "Für unterstützte Tools werden Dokumentvorgänge im Browser auf Ihrem Gerät ausgeführt. Das Verarbeitungsverhalten kann je nach Tool und Browser variieren; überprüfen Sie die Anweisungen auf der Tool-Seite.",
+            "Dies beschreibt die Dokumentenverarbeitung und bedeutet nicht, dass die Webseite keine Netzwerkanfragen stellt. Die Website kann eigene Seitenressourcen und aktivierte Dienste Dritter laden."
+          ]
+        },
+        {
+          "heading": "Präferenzen und lokaler Browserspeicher",
+          "paragraphs": [
+            "Die Website kann Browserspeicher wie LocalStorage oder IndexedDB für Einstellungen und funktionale Präferenzen verwenden. Diese Werte unterliegen weiterhin den Speicher- und Datenschutzeinstellungen Ihres Browsers."
+          ]
+        },
+        {
+          "heading": "Werbung und Dienste Dritter",
+          "paragraphs": [
+            "Werbung oder andere Dienste Dritter können ihre eigenen Technologien gemäß ihren jeweiligen Richtlinien verwenden. Weitere Informationen und Möglichkeiten zur Verwaltung der Cookie-Einstellungen im Browser finden Sie in der Cookie-Richtlinie."
+          ]
+        },
+        {
+          "heading": "Fragen",
+          "paragraphs": [
+            "Bei Fragen zum Datenschutz kontaktieren Sie ClickPDF bitte über die Kontaktseite."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Nutzungsbedingungen",
+      "description": "Überprüfen Sie die Bedingungen von ClickPDF hinsichtlich zulässiger Nutzung, Benutzerverantwortung, geistigem Eigentum, Dienstverfügbarkeit und Einschränkungen browserbasierter PDF-Tools.",
+      "sections": [
+        {
+          "heading": "Zulässige Nutzung",
+          "paragraphs": [
+            "ClickPDF bietet browserbasierte PDF-Dienstprogramme für persönliche, schulische und geschäftliche Dokumenten-Workflows. Sie sind dafür verantwortlich, den Dienst in Übereinstimmung mit geltendem Recht zu nutzen."
+          ]
+        },
+        {
+          "heading": "Ihre Dateien und Verantwortlichkeiten",
+          "paragraphs": [
+            "Sie müssen über die erforderlichen Rechte und Berechtigungen verfügen, um die von Ihnen ausgewählten Dokumente zu verarbeiten. Verwenden Sie den Dienst nicht zur Verarbeitung oder Verbreitung rechtswidriger, betrügerischer, verleumderischer oder rechtsverletzender Materialien."
+          ]
+        },
+        {
+          "heading": "Geistiges Eigentum",
+          "paragraphs": [
+            "Der Name ClickPDF, das Website-Design, der benutzerdefinierte Code, die Dokumentation und die originalen visuellen Assets gehören Click Digital Services oder deren jeweiligen Rechteinhabern. Open-Source-Komponenten unterliegen ihren eigenen Lizenzen."
+          ]
+        },
+        {
+          "heading": "Dienstverfügbarkeit",
+          "paragraphs": [
+            "Der Dienst wird 'wie besehen' und 'nach Verfügbarkeit' bereitgestellt. Kompatibilität und Ergebnisse können von der Quelldatei, dem Browser, den Geräteressourcen und den unterstützten Funktionen abhängen. Bewahren Sie eine Kopie wichtiger Originaldateien auf und überprüfen Sie die generierten Dokumente."
+          ]
+        },
+        {
+          "heading": "Zugehörige Informationen",
+          "paragraphs": [
+            "Lesen Sie den Haftungsausschluss für weitere Informationen zu Dienstbeschränkungen und Dokumentergebnissen."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Cookie-Richtlinie",
+      "description": "Erfahren Sie, wie ClickPDF Browser-Speicher und Werbe-Cookies von Drittanbietern verwendet, und lernen Sie, wie Sie Ihre Zustimmung und Cookie-Einstellungen verwalten.",
+      "sections": [
+        {
+          "heading": "Cookies und lokaler Speicher",
+          "paragraphs": [
+            "Cookies sind kleine Datendateien, die von einer Website gespeichert werden. ClickPDF kann auch Browser-Speicher wie LocalStorage oder IndexedDB verwenden, um funktionale Einstellungen wie Oberflächenpräferenzen und Zustimmungsentscheidungen beizubehalten."
+          ]
+        },
+        {
+          "heading": "Werbung und Drittanbieter",
+          "paragraphs": [
+            "Werbedienste von Drittanbietern können Cookies oder ähnliche Technologien verwenden, um Anzeigen gemäß ihren eigenen Datenschutzrichtlinien bereitzustellen oder zu messen. Die Zustimmungssteuerung der Website erläutert die verfügbare Werbeoption."
+          ]
+        },
+        {
+          "heading": "Verwaltung Ihrer Auswahl",
+          "paragraphs": [
+            "Sie können gespeicherte Daten über Ihre Browsereinstellungen verwalten oder löschen. Das Blockieren von Cookies kann einige Website-Präferenzen oder Dienste von Drittanbietern beeinträchtigen."
+          ]
+        },
+        {
+          "heading": "Weitere Informationen",
+          "paragraphs": [
+            "Einzelheiten zur Dokumentenverarbeitung und anderen Website-Daten finden Sie in der Datenschutzrichtlinie. Bei Fragen können Sie sich an ClickPDF wenden."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Haftungsausschluss",
+      "description": "Lesen Sie die Einschränkungen bezüglich der ClickPDF-Informationen und Verarbeitungsergebnisse, einschließlich Garantien, Browser-Kompatibilität, Dateibeschränkungen und Serviceverfügbarkeit.",
+      "sections": [
+        {
+          "heading": "Informationen und professionelle Beratung",
+          "paragraphs": [
+            "ClickPDF-Anleitungen und Website-Informationen dienen nur zu allgemeinen Informationszwecken und stellen keine rechtliche, finanzielle, medizinische oder andere professionelle Beratung dar."
+          ]
+        },
+        {
+          "heading": "Verarbeitungsergebnisse",
+          "paragraphs": [
+            "Die Ausgabe kann vom Quelldokument, der Dateistruktur, dem Browser und den verfügbaren Geräteressourcen abhängen. Überprüfen Sie das Ergebnis, bevor Sie sich darauf verlassen, und bewahren Sie eine unabhängige Kopie wichtiger Originale auf."
+          ]
+        },
+        {
+          "heading": "Verfügbarkeit und Garantien",
+          "paragraphs": [
+            "ClickPDF wird 'wie besehen' und 'nach Verfügbarkeit' bereitgestellt. Click Digital Services garantiert keinen ununterbrochenen Betrieb, fehlerfreie Ergebnisse oder Kompatibilität mit jeder Datei oder jedem Gerät."
+          ]
+        },
+        {
+          "heading": "Dienste Dritter",
+          "paragraphs": [
+            "Die Website kann Links oder Ressourcen von Dritten enthalten. Diese Dienste unterliegen deren eigenen Bedingungen und Datenschutzrichtlinien."
+          ]
+        }
+      ]
+    }
+  },
+  "fr": {
+    "about": {
+      "heading": "À propos de ClickPDF",
+      "description": "En savoir plus sur ClickPDF, son éditeur Click Digital Services, ainsi que sur les outils PDF basés sur le navigateur et l'assistance disponibles sur ce site.",
+      "sections": [
+        {
+          "heading": "Éditeur et objectif",
+          "paragraphs": [
+            "ClickPDF est un site Web d'utilitaires PDF basé sur le navigateur, publié et exploité par Click Digital Services.",
+            "Le site fournit des outils pour des tâches documentaires courantes telles que la fusion, la division, la compression, la conversion, l'organisation et l'inspection de fichiers PDF."
+          ]
+        },
+        {
+          "heading": "Comment fonctionnent les outils",
+          "paragraphs": [
+            "Le traitement PDF est effectué dans le navigateur pour les outils pris en charge. Les fonctionnalités spécifiques et les exigences de l'appareil varient selon l'outil.",
+            "Le site Web peut toujours charger des ressources de page et des services tiers activés. Consultez la politique de confidentialité et les instructions de chaque outil avant de traiter des documents sensibles."
+          ]
+        },
+        {
+          "heading": "Normes ouvertes et support",
+          "paragraphs": [
+            "ClickPDF utilise des technologies de navigateur et des bibliothèques de documents établies pour fournir ses outils. Pour des questions, des commentaires ou des problèmes techniques, utilisez la page de contact."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Contacter ClickPDF",
+      "description": "Contactez le support ClickPDF pour les problèmes techniques, vos commentaires, vos questions sur la confidentialité ou vos demandes commerciales concernant nos outils PDF basés sur navigateur.",
+      "sections": [
+        {
+          "heading": "Support et demandes",
+          "paragraphs": [
+            "Contactez ClickPDF pour obtenir une assistance technique, signaler un problème inattendu, suggérer un outil ou discuter d'une demande commerciale."
+          ]
+        },
+        {
+          "heading": "Support par e-mail",
+          "paragraphs": [
+            "Envoyez un message à l'adresse de support ci-dessous. Indiquez le nom de l'outil et votre navigateur lors du signalement d'un problème technique. N'envoyez pas de documents confidentiels par e-mail à moins d'avoir évalué les risques de manière indépendante."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Politique de confidentialité",
+      "description": "Découvrez comment ClickPDF traite les fichiers PDF dans le navigateur, gère les préférences locales et interagit avec la publicité et d'autres services de sites Web.",
+      "sections": [
+        {
+          "heading": "Traitement des documents",
+          "paragraphs": [
+            "Pour les outils pris en charge, les opérations sur les documents sont effectuées dans le navigateur sur votre appareil. Le comportement de traitement peut varier selon l'outil et le navigateur ; consultez les instructions affichées sur la page de l'outil.",
+            "Ceci décrit le traitement des documents et ne signifie pas que la page Web n'effectue aucune requête réseau. Le site peut charger ses propres ressources de page et des services tiers activés."
+          ]
+        },
+        {
+          "heading": "Préférences et stockage local du navigateur",
+          "paragraphs": [
+            "Le site peut utiliser le stockage du navigateur, tel que LocalStorage ou IndexedDB, pour les paramètres et les préférences fonctionnelles. Ces valeurs restent soumises aux contrôles de stockage et de confidentialité de votre navigateur."
+          ]
+        },
+        {
+          "heading": "Publicité et services tiers",
+          "paragraphs": [
+            "La publicité ou d'autres services tiers peuvent utiliser leurs propres technologies conformément à leurs politiques respectives. Consultez la Politique relative aux cookies pour plus d'informations et pour savoir comment gérer les paramètres des cookies du navigateur."
+          ]
+        },
+        {
+          "heading": "Questions",
+          "paragraphs": [
+            "Pour toute question relative à la confidentialité, contactez ClickPDF via la page Contact."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Conditions d'utilisation",
+      "description": "Consultez les conditions de ClickPDF concernant l'utilisation autorisée, les responsabilités de l'utilisateur, la propriété intellectuelle, la disponibilité du service et les limites des outils PDF basés sur navigateur.",
+      "sections": [
+        {
+          "heading": "Utilisation autorisée",
+          "paragraphs": [
+            "ClickPDF fournit des utilitaires PDF basés sur navigateur pour les flux de documents personnels, éducatifs et professionnels. Vous êtes responsable de l'utilisation du service conformément aux lois en vigueur."
+          ]
+        },
+        {
+          "heading": "Vos fichiers et responsabilités",
+          "paragraphs": [
+            "Vous devez disposer des droits et autorisations nécessaires pour traiter les documents que vous sélectionnez. N'utilisez pas le service pour traiter ou distribuer des documents illégaux, frauduleux, diffamatoires ou contrefaisants."
+          ]
+        },
+        {
+          "heading": "Propriété intellectuelle",
+          "paragraphs": [
+            "Le nom ClickPDF, la conception du site web, le code personnalisé, la documentation et les actifs visuels originaux appartiennent à Click Digital Services ou à leurs détenteurs de droits respectifs. Les composants open source restent soumis à leurs propres licences."
+          ]
+        },
+        {
+          "heading": "Disponibilité du service",
+          "paragraphs": [
+            "Le service est fourni 'tel quel' et selon la disponibilité. La compatibilité et les résultats peuvent dépendre du fichier source, du navigateur, des ressources de l'appareil et des fonctionnalités prises en charge. Conservez une copie des fichiers originaux importants et vérifiez les documents générés."
+          ]
+        },
+        {
+          "heading": "Informations connexes",
+          "paragraphs": [
+            "Lisez l'avertissement pour plus d'informations sur les limites du service et les résultats des documents."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Politique de cookies",
+      "description": "Découvrez comment ClickPDF utilise le stockage du navigateur et les cookies publicitaires tiers, et apprenez à gérer votre consentement et vos préférences en matière de cookies.",
+      "sections": [
+        {
+          "heading": "Cookies et stockage local",
+          "paragraphs": [
+            "Les cookies sont de petits fichiers de données stockés par un site web. ClickPDF peut également utiliser le stockage du navigateur, y compris LocalStorage ou IndexedDB, pour conserver des paramètres fonctionnels tels que les préférences d'interface et les choix de consentement."
+          ]
+        },
+        {
+          "heading": "Publicité et tiers",
+          "paragraphs": [
+            "Les services publicitaires tiers peuvent utiliser des cookies ou des technologies similaires pour diffuser ou mesurer des publicités conformément à leurs propres politiques de confidentialité. Les contrôles de consentement du site expliquent l'option publicitaire disponible."
+          ]
+        },
+        {
+          "heading": "Gestion de vos choix",
+          "paragraphs": [
+            "Vous pouvez gérer ou effacer les données stockées via les paramètres de votre navigateur. Le blocage des cookies peut affecter certaines préférences du site web ou des services tiers."
+          ]
+        },
+        {
+          "heading": "Plus d'informations",
+          "paragraphs": [
+            "Pour plus de détails sur le traitement des documents et autres données du site web, lisez la Politique de confidentialité. Vous pouvez contacter ClickPDF pour toute question."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Avis de non-responsabilité",
+      "description": "Lisez les limites concernant les informations de ClickPDF et les résultats de traitement, y compris les garanties, la compatibilité des navigateurs, les limites de fichiers et la disponibilité du service.",
+      "sections": [
+        {
+          "heading": "Informations et conseils professionnels",
+          "paragraphs": [
+            "Les guides et les informations du site Web ClickPDF sont fournis à des fins d'information générale uniquement et ne constituent pas des conseils juridiques, financiers, médicaux ou autres conseils professionnels."
+          ]
+        },
+        {
+          "heading": "Résultats de traitement",
+          "paragraphs": [
+            "Le résultat peut dépendre du document source, de la structure du fichier, du navigateur et des ressources disponibles sur l'appareil. Examinez le résultat avant de vous y fier, et conservez une copie indépendante des originaux importants."
+          ]
+        },
+        {
+          "heading": "Disponibilité et garanties",
+          "paragraphs": [
+            "ClickPDF est fourni 'tel quel' et 'tel que disponible'. Click Digital Services ne garantit pas un fonctionnement ininterrompé, des résultats sans erreur, ni la compatibilité avec chaque fichier ou appareil."
+          ]
+        },
+        {
+          "heading": "Services tiers",
+          "paragraphs": [
+            "Le site Web peut inclure des liens ou des ressources provenant de tiers. Ces services sont régis par leurs propres conditions et politiques de confidentialité."
+          ]
+        }
+      ]
+    }
+  },
+  "es": {
+    "about": {
+      "heading": "Acerca de ClickPDF",
+      "description": "Obtenga información sobre ClickPDF, su editor Click Digital Services, y las herramientas de PDF basadas en navegador y el soporte disponibles en este sitio.",
+      "sections": [
+        {
+          "heading": "Editor y propósito",
+          "paragraphs": [
+            "ClickPDF es un sitio web de utilidades de PDF basado en navegador publicado y operado por Click Digital Services.",
+            "El sitio proporciona herramientas para tareas documentales comunes como fusionar, dividir, comprimir, convertir, organizar e inspeccionar archivos PDF."
+          ]
+        },
+        {
+          "heading": "Cómo funcionan las herramientas",
+          "paragraphs": [
+            "El procesamiento de PDF se realiza en el navegador para las herramientas compatibles. Las funciones específicas y los requisitos del dispositivo varían según la herramienta.",
+            "Es posible que el sitio web siga cargando recursos de la página y servicios de terceros habilitados. Revise la Política de privacidad y las instrucciones de cada herramienta antes de procesar documentos confidenciales."
+          ]
+        },
+        {
+          "heading": "Estándares abiertos y soporte",
+          "paragraphs": [
+            "ClickPDF utiliza tecnologías de navegador y bibliotecas de documentos establecidas para proporcionar sus herramientas. Para preguntas, comentarios o problemas técnicos, utilice la página de contacto."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Contacte con ClickPDF",
+      "description": "Póngase en contacto con el soporte de ClickPDF para problemas técnicos, comentarios, preguntas sobre privacidad o consultas comerciales sobre nuestras herramientas PDF basadas en navegador.",
+      "sections": [
+        {
+          "heading": "Soporte y consultas",
+          "paragraphs": [
+            "Póngase en contacto con ClickPDF para obtener asistencia técnica, informar de un problema inesperado, sugerir una herramienta o discutir una consulta comercial."
+          ]
+        },
+        {
+          "heading": "Soporte por correo electrónico",
+          "paragraphs": [
+            "Envíe un mensaje a la dirección de soporte que aparece a continuación. Incluya el nombre de la herramienta y su navegador al informar de un problema técnico. No envíe documentos confidenciales por correo electrónico a menos que haya revisado los riesgos de forma independiente."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Política de privacidad",
+      "description": "Conozca cómo ClickPDF procesa archivos PDF en el navegador, gestiona las preferencias locales y trabaja con la publicidad y otros servicios del sitio web.",
+      "sections": [
+        {
+          "heading": "Procesamiento de documentos",
+          "paragraphs": [
+            "Para las herramientas compatibles, las operaciones con documentos se realizan en el navegador de su dispositivo. El comportamiento de procesamiento puede variar según la herramienta y el navegador; revise las instrucciones que se muestran en la página de la herramienta.",
+            "Esto describe el procesamiento de documentos y no significa que la página web no realice solicitudes de red. El sitio puede cargar sus propios recursos de página y servicios de terceros habilitados."
+          ]
+        },
+        {
+          "heading": "Preferencias y almacenamiento local del navegador",
+          "paragraphs": [
+            "El sitio puede utilizar almacenamiento del navegador, como LocalStorage o IndexedDB, para la configuración y las preferencias funcionales. Estos valores siguen estando sujetos a los controles de almacenamiento y privacidad de su navegador."
+          ]
+        },
+        {
+          "heading": "Publicidad y servicios de terceros",
+          "paragraphs": [
+            "La publicidad u otros servicios de terceros pueden utilizar sus propias tecnologías bajo sus respectivas políticas. Consulte la Política de cookies para obtener más información y formas de gestionar la configuración de las cookies del navegador."
+          ]
+        },
+        {
+          "heading": "Preguntas",
+          "paragraphs": [
+            "Para preguntas sobre privacidad, póngase en contacto con ClickPDF a través de la página de contacto."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Términos de servicio",
+      "description": "Revise los términos de ClickPDF para el uso permitido, responsabilidades del usuario, propiedad intelectual, disponibilidad del servicio y limitaciones de las herramientas PDF basadas en navegador.",
+      "sections": [
+        {
+          "heading": "Uso permitido",
+          "paragraphs": [
+            "ClickPDF proporciona utilidades PDF basadas en navegador para flujos de trabajo de documentos personales, educativos y empresariales. Usted es responsable de utilizar el servicio de acuerdo con las leyes aplicables."
+          ]
+        },
+        {
+          "heading": "Sus archivos y responsabilidades",
+          "paragraphs": [
+            "Usted debe tener los derechos y permisos necesarios para procesar los documentos que seleccione. No utilice el servicio para procesar o distribuir material ilegal, fraudulento, difamatorio o infractor."
+          ]
+        },
+        {
+          "heading": "Propiedad intelectual",
+          "paragraphs": [
+            "El nombre ClickPDF, el diseño del sitio web, el código personalizado, la documentación y los activos visuales originales pertenecen a Click Digital Services o a sus respectivos titulares de derechos. Los componentes de código abierto siguen sujetos a sus propias licencias."
+          ]
+        },
+        {
+          "heading": "Disponibilidad del servicio",
+          "paragraphs": [
+            "El servicio se proporciona 'tal cual' y 'según disponibilidad'. La compatibilidad y los resultados pueden depender del archivo de origen, el navegador, los recursos del dispositivo y las funciones compatibles. Guarde una copia de los archivos originales importantes y verifique los documentos generados."
+          ]
+        },
+        {
+          "heading": "Información relacionada",
+          "paragraphs": [
+            "Lea la exención de responsabilidad para obtener información adicional sobre las limitaciones del servicio y los resultados de los documentos."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Política de cookies",
+      "description": "Vea cómo ClickPDF utiliza el almacenamiento del navegador y las cookies publicitarias de terceros, y aprenda a administrar su consentimiento y sus preferencias de cookies.",
+      "sections": [
+        {
+          "heading": "Cookies y almacenamiento local",
+          "paragraphs": [
+            "Las cookies son pequeños archivos de datos almacenados por un sitio web. ClickPDF también puede utilizar el almacenamiento del navegador, incluidos LocalStorage o IndexedDB, para conservar configuraciones funcionales como las preferencias de interfaz y las elecciones de consentimiento."
+          ]
+        },
+        {
+          "heading": "Publicidad y terceros",
+          "paragraphs": [
+            "Los servicios de publicidad de terceros pueden utilizar cookies o tecnologías similares para entregar o medir anuncios bajo sus propias políticas de privacidad. Los controles de consentimiento del sitio explican la opción publicitaria disponible."
+          ]
+        },
+        {
+          "heading": "Gestión de sus elecciones",
+          "paragraphs": [
+            "Puede administrar o borrar los datos almacenados a través de la configuración de su navegador. Bloquear las cookies puede afectar algunas preferencias del sitio web o servicios de terceros."
+          ]
+        },
+        {
+          "heading": "Más información",
+          "paragraphs": [
+            "Para obtener detalles sobre el procesamiento de documentos y otros datos del sitio web, lea la Política de privacidad. Puede contactar a ClickPDF si tiene preguntas."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Descargo de responsabilidad",
+      "description": "Lea las limitaciones sobre la información y los resultados de procesamiento de ClickPDF, incluidas las garantías, la compatibilidad del navegador, los límites de archivos y la disponibilidad del servicio.",
+      "sections": [
+        {
+          "heading": "Información y asesoramiento profesional",
+          "paragraphs": [
+            "Las guías y la información del sitio web de ClickPDF se proporcionan únicamente con fines informativos generales y no constituyen asesoramiento legal, financiero, médico u otro tipo de asesoramiento profesional."
+          ]
+        },
+        {
+          "heading": "Resultados del procesamiento",
+          "paragraphs": [
+            "El resultado puede depender del documento de origen, la estructura del archivo, el navegador y los recursos disponibles del dispositivo. Revise el resultado antes de confiar en él y guarde una copia independiente de los originales importantes."
+          ]
+        },
+        {
+          "heading": "Disponibilidad y garantías",
+          "paragraphs": [
+            "ClickPDF se proporciona 'tal cual' y 'según disponibilidad'. Click Digital Services no garantiza un funcionamiento ininterrumpido, resultados libres de errores ni la compatibilidad con todos los archivos o dispositivos."
+          ]
+        },
+        {
+          "heading": "Servicios de terceros",
+          "paragraphs": [
+            "El sitio web puede incluir enlaces o recursos de terceros. Dichos servicios se rigen por sus propios términos y políticas de privacidad."
+          ]
+        }
+      ]
+    }
+  },
+  "it": {
+    "about": {
+      "heading": "Informazioni su ClickPDF",
+      "description": "Scopri di più su ClickPDF, sul suo editore Click Digital Services e sugli strumenti PDF basati su browser e sul supporto disponibili su questo sito.",
+      "sections": [
+        {
+          "heading": "Editore e scopo",
+          "paragraphs": [
+            "ClickPDF è un sito web di utilità PDF basato su browser pubblicato e gestito da Click Digital Services.",
+            "Il sito fornisce strumenti per attività comuni sui documenti come unire, dividere, comprimere, convertire, organizzare e ispezionare file PDF."
+          ]
+        },
+        {
+          "heading": "Come funzionano gli strumenti",
+          "paragraphs": [
+            "L'elaborazione dei PDF viene eseguita nel browser per gli strumenti supportati. Le funzionalità specifiche e i requisiti del dispositivo variano a seconda dello strumento.",
+            "Il sito web potrebbe comunque caricare risorse della pagina e servizi di terze parti abilitati. Consulta l'Informativa sulla privacy e le istruzioni di ciascuno strumento prima di elaborare documenti sensibili."
+          ]
+        },
+        {
+          "heading": "Standard aperti e supporto",
+          "paragraphs": [
+            "ClickPDF utilizza tecnologie del browser e librerie di documenti consolidate per fornire i propri strumenti. Per domande, feedback o problemi tecnici, utilizza la pagina Contatti."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Contatta ClickPDF",
+      "description": "Contatta l'assistenza di ClickPDF per problemi tecnici, feedback, domande sulla privacy o richieste commerciali sui nostri strumenti PDF basati su browser.",
+      "sections": [
+        {
+          "heading": "Assistenza e richieste",
+          "paragraphs": [
+            "Contatta ClickPDF per ricevere assistenza tecnica, segnalare un problema imprevisto, suggerire uno strumento o discutere una richiesta commerciale."
+          ]
+        },
+        {
+          "heading": "Assistenza via email",
+          "paragraphs": [
+            "Invia un messaggio all'indirizzo di assistenza riportato di seguito. Includi il nome dello strumento e il browser utilizzato quando segnali un problema tecnico. Non inviare documenti riservati via email a meno di aver valutato autonomamente i rischi."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Informativa sulla privacy",
+      "description": "Scopri come ClickPDF elabora i file PDF nel browser, gestisce le preferenze locali e interagisce con la pubblicità e altri servizi del sito web.",
+      "sections": [
+        {
+          "heading": "Elaborazione dei documenti",
+          "paragraphs": [
+            "Per gli strumenti supportati, le operazioni sui documenti vengono eseguite nel browser sul tuo dispositivo. Il comportamento di elaborazione può variare a seconda dello strumento e del browser; consulta le istruzioni mostrate nella pagina dello strumento.",
+            "Questo descrive l'elaborazione dei documenti e non significa che la pagina web non effettui richieste di rete. Il sito può caricare le proprie risorse di pagina e servizi di terze parti abilitati."
+          ]
+        },
+        {
+          "heading": "Preferenze e archiviazione locale del browser",
+          "paragraphs": [
+            "Il sito può utilizzare l'archiviazione del browser, come LocalStorage o IndexedDB, per impostazioni e preferenze funzionali. Questi valori rimangono soggetti ai controlli di archiviazione e privacy del tuo browser."
+          ]
+        },
+        {
+          "heading": "Pubblicità e servizi di terze parti",
+          "paragraphs": [
+            "La pubblicità o altri servizi di terze parti possono utilizzare le proprie tecnologie secondo le rispettive politiche. Consulta la Politica sui cookie per ulteriori informazioni e modi per gestire le impostazioni dei cookie del browser."
+          ]
+        },
+        {
+          "heading": "Domande",
+          "paragraphs": [
+            "Per domande sulla privacy, contatta ClickPDF tramite la pagina Contatti."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Termini di servizio",
+      "description": "Rivedi i termini di ClickPDF per l'uso consentito, le responsabilità dell'utente, la proprietà intellettuale, la disponibilità del servizio e i limiti degli strumenti PDF basati su browser.",
+      "sections": [
+        {
+          "heading": "Uso consentito",
+          "paragraphs": [
+            "ClickPDF fornisce utility PDF basate su browser per flussi di lavoro di documenti personali, educativi e aziendali. Sei responsabile dell'utilizzo del servizio in conformità con le leggi applicabili."
+          ]
+        },
+        {
+          "heading": "I tuoi file e responsabilità",
+          "paragraphs": [
+            "Devi avere i diritti e le autorizzazioni necessari per elaborare i documenti che selezioni. Non utilizzare il servizio per elaborare o distribuire materiale illegale, fraudolento, diffamatorio o lesivo."
+          ]
+        },
+        {
+          "heading": "Proprietà intellettuale",
+          "paragraphs": [
+            "Il nome ClickPDF, il design del sito web, il codice personalizzato, la documentazione e gli asset visivi originali appartengono a Click Digital Services o ai rispettivi titolari dei diritti. I componenti open source rimangono soggetti alle proprie licenze."
+          ]
+        },
+        {
+          "heading": "Disponibilità del servizio",
+          "paragraphs": [
+            "Il servizio viene fornito 'così com'è' e 'in base alla disponibilità'. La compatibilità e i risultati possono dipendere dal file sorgente, dal browser, dalle risorse del dispositivo e dalle funzionalità supportate. Conserva una copia dei file originali importanti e verifica i documenti generati."
+          ]
+        },
+        {
+          "heading": "Informazioni correlate",
+          "paragraphs": [
+            "Leggi la clausola di esclusione della responsabilità per ulteriori informazioni sulle limitazioni del servizio e sui risultati dei documenti."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Informativa sui cookie",
+      "description": "Scopri come ClickPDF utilizza l'archiviazione del browser e i cookie pubblicitari di terze parti e impara a gestire il tuo consenso e le preferenze sui cookie.",
+      "sections": [
+        {
+          "heading": "Cookie e archiviazione locale",
+          "paragraphs": [
+            "I cookie sono piccoli file di dati memorizzati da un sito web. ClickPDF può anche utilizzare l'archiviazione del browser, inclusi LocalStorage o IndexedDB, per conservare impostazioni funzionali come le preferenze dell'interfaccia e le scelte di consenso."
+          ]
+        },
+        {
+          "heading": "Pubblicità e terze parti",
+          "paragraphs": [
+            "I servizi pubblicitari di terze parti possono utilizzare cookie o tecnologie simili per fornire o misurare annunci in base alle proprie politiche sulla privacy. I controlli sul consenso del sito spiegano le opzioni pubblicitarie disponibili."
+          ]
+        },
+        {
+          "heading": "Gestione delle tue scelte",
+          "paragraphs": [
+            "Puoi gestire o cancellare i dati archiviati tramite le impostazioni del tuo browser. Il blocco dei cookie potrebbe influire su alcune preferenze del sito web o su servizi di terze parti."
+          ]
+        },
+        {
+          "heading": "Ulteriori informazioni",
+          "paragraphs": [
+            "Per dettagli sull'elaborazione dei documenti e altri dati del sito web, leggi l'Informativa sulla privacy. Puoi contattare ClickPDF per eventuali domande."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Esclusione di responsabilità",
+      "description": "Leggi le limitazioni relative alle informazioni e ai risultati di elaborazione di ClickPDF, incluse garanzie, compatibilità del browser, limiti dei file e disponibilità del servizio.",
+      "sections": [
+        {
+          "heading": "Informazioni e consulenza professionale",
+          "paragraphs": [
+            "Le guide e le informazioni sul sito Web ClickPDF sono fornite solo a scopo informativo generale e non costituiscono consulenza legale, finanziaria, medica o di altro tipo professionale."
+          ]
+        },
+        {
+          "heading": "Risultati dell'elaborazione",
+          "paragraphs": [
+            "L'output può dipendere dal documento sorgente, dalla struttura del file, dal browser e dalle risorse disponibili sul dispositivo. Esamina il risultato prima di farvi affidamento e conserva una copia indipendente degli originali importanti."
+          ]
+        },
+        {
+          "heading": "Disponibilità e garanzie",
+          "paragraphs": [
+            "ClickPDF è fornito 'così com'è' e 'come disponibile'. Click Digital Services non garantisce un funzionamento ininterrotto, risultati privi di errori o la compatibilità con ogni file o dispositivo."
+          ]
+        },
+        {
+          "heading": "Servizi di terze parti",
+          "paragraphs": [
+            "Il sito Web può includere collegamenti o risorse di terze parti. Tali servizi sono regolati dai loro termini e politiche sulla privacy."
+          ]
+        }
+      ]
+    }
+  },
+  "no": {
+    "about": {
+      "heading": "Om ClickPDF",
+      "description": "Lær om ClickPDF, utgiveren Click Digital Services, samt nettleserbaserte PDF-verktøy og støtte tilgjengelig på dette nettstedet.",
+      "sections": [
+        {
+          "heading": "Utgiver og formål",
+          "paragraphs": [
+            "ClickPDF er et nettleserbasert PDF-verktøynettsted som utgis og drives av Click Digital Services.",
+            "Nettstedet tilbyr verktøy for vanlige dokumentoppgaver som å slå sammen, dele, komprimere, konvertere, organisere og inspisere PDF-filer."
+          ]
+        },
+        {
+          "heading": "Hvordan verktøyene fungerer",
+          "paragraphs": [
+            "PDF-behandling utføres i nettleseren for støttede verktøy. Spesifikke funksjoner og enhetskrav varierer fra verktøy til verktøy.",
+            "Nettstedet kan fortsatt laste inn sideressurser og aktiverte tredjepartstjenester. Gå gjennom personvernerklæringen og instruksjonene for hvert verktøy før du behandler sensitive dokumenter."
+          ]
+        },
+        {
+          "heading": "Åpne standarder og støtte",
+          "paragraphs": [
+            "ClickPDF bruker nettleserteknologier og etablerte dokumentbiblioteker for å levere verktøyene sine. For spørsmål, tilbakemeldinger eller tekniske problemer, bruk kontaktsiden."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Kontakt ClickPDF",
+      "description": "Kontakt ClickPDF-støtte for tekniske problemer, tilbakemeldinger, personvernspørsmål eller forretningshenvendelser om våre nettleserbaserte PDF-verktøy.",
+      "sections": [
+        {
+          "heading": "Støtte og henvendelser",
+          "paragraphs": [
+            "Kontakt ClickPDF for teknisk assistanse, for å rapportere et uventet problem, for å foreslå et verktøy eller for å diskutere en forretningshenvendelse."
+          ]
+        },
+        {
+          "heading": "E-poststøtte",
+          "paragraphs": [
+            "Send en melding til støtteadressen nedenfor. Inkluder navnet på verktøyet og nettleseren din når du rapporterer et teknisk problem. Ikke send konfidensielle dokumenter på e-post med mindre du selvstendig har vurdert risikoen."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Personvernerklæring",
+      "description": "Lær hvordan ClickPDF behandler PDF-filer i nettleseren, håndterer lokale preferanser, og fungerer med reklame og andre nettstedstjenester.",
+      "sections": [
+        {
+          "heading": "Dokumentbehandling",
+          "paragraphs": [
+            "For støttede verktøy utføres dokumentoperasjoner i nettleseren på enheten din. Behandlingsatferden kan variere etter verktøy og nettleser; se instruksjonene på verktøysiden.",
+            "Dette beskriver dokumentbehandling og betyr ikke at nettsiden ikke gjør noen nettverksforespørsler. Nettstedet kan laste inn egne sideressurser og aktiverte tredjepartstjenester."
+          ]
+        },
+        {
+          "heading": "Preferanser og lokal nettleserlagring",
+          "paragraphs": [
+            "Nettstedet kan bruke nettleserlagring, som LocalStorage eller IndexedDB, for innstillinger og funksjonelle preferanser. Disse verdiene forblir underlagt nettleserens lagrings- og personvernkontroller."
+          ]
+        },
+        {
+          "heading": "Reklame og tredjepartstjenester",
+          "paragraphs": [
+            "Reklame eller andre tredjepartstjenester kan bruke sine egne teknologier under deres respektive retningslinjer. Se retningslinjene for informasjonskapsler for mer informasjon og måter å administrere nettleserens innstillinger for informasjonskapsler på."
+          ]
+        },
+        {
+          "heading": "Spørsmål",
+          "paragraphs": [
+            "For spørsmål om personvern, kontakt ClickPDF via kontaktsiden."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Brukervilkår",
+      "description": "Gjennomgå ClickPDFs vilkår for tillatt bruk, brukeransvar, åndsverk, tjenestetilgjengelighet og begrensninger for nettleserbaserte PDF-verktøy.",
+      "sections": [
+        {
+          "heading": "Tillatt bruk",
+          "paragraphs": [
+            "ClickPDF tilbyr nettleserbaserte PDF-verktøy for personlige, utdanningsmessige og forretningsmessige dokumentarbeidsflyter. Du er ansvarlig for å bruke tjenesten i samsvar med gjeldende lover."
+          ]
+        },
+        {
+          "heading": "Dine filer og ansvar",
+          "paragraphs": [
+            "Du må ha de nødvendige rettighetene og tillatelsene for å behandle dokumentene du velger. Ikke bruk tjenesten til å behandle eller distribuere ulovlig, uredelig, ærekrenkende eller krenkende materiale."
+          ]
+        },
+        {
+          "heading": "Åndsverk",
+          "paragraphs": [
+            "ClickPDF-navnet, nettsidedesignet, tilpasset kode, dokumentasjon og originale visuelle elementer tilhører Click Digital Services eller deres respektive rettighetshavere. Åpen kildekode-komponenter er fortsatt underlagt sine egne lisenser."
+          ]
+        },
+        {
+          "heading": "Tjenestetilgjengelighet",
+          "paragraphs": [
+            "Tjenesten leveres på 'som den er' og 'etter tilgjengelighet'-basis. Kompatibilitet og resultater kan avhenge av kildefilen, nettleseren, enhetens ressurser og støttede funksjoner. Oppbevar en kopi av viktige originalfiler og bekreft genererte dokumenter."
+          ]
+        },
+        {
+          "heading": "Relatert informasjon",
+          "paragraphs": [
+            "Les ansvarsfraskrivelsen for ytterligere informasjon om tjenestebegrensninger og dokumentresultater."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Informasjonskapselretningslinjer",
+      "description": "Se hvordan ClickPDF bruker nettleserlagring og tredjeparts annonseringskapsler, og lær hvordan du administrerer ditt samtykke og dine preferanser for informasjonskapsler.",
+      "sections": [
+        {
+          "heading": "Informasjonskapsler og lokal lagring",
+          "paragraphs": [
+            "Informasjonskapsler er små datafiler som lagres av et nettsted. ClickPDF kan også bruke nettleserlagring, inkludert LocalStorage eller IndexedDB, for å beholde funksjonelle innstillinger som grensesnittpreferanser og valg om samtykke."
+          ]
+        },
+        {
+          "heading": "Annonsering og tredjeparter",
+          "paragraphs": [
+            "Tredjeparts annonseringstjenester kan bruke informasjonskapsler eller lignende teknologier for å levere eller måle annonser under deres egne personvernregler. Nettstedets samtykkekontroller forklarer det tilgjengelige annonseringsvalget."
+          ]
+        },
+        {
+          "heading": "Administrering av dine valg",
+          "paragraphs": [
+            "Du kan administrere eller slette lagrede data via nettleserinnstillingene dine. Blokkering av informasjonskapsler kan påvirke enkelte nettstedpreferanser eller tredjepartstjenester."
+          ]
+        },
+        {
+          "heading": "Mer informasjon",
+          "paragraphs": [
+            "For detaljer om dokumentbehandling og andre nettsteddata, les personvernerklæringen. Du kan kontakte ClickPDF hvis du har spørsmål."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Ansvarsfraskrivelse",
+      "description": "Les begrensningene for ClickPDF-informasjon og behandlingsresultater, inkludert garantier, nettleserkompatibilitet, filbegrensninger og tjenestetilgjengelighet.",
+      "sections": [
+        {
+          "heading": "Informasjon og profesjonell rådgivning",
+          "paragraphs": [
+            "ClickPDF-veiledninger og nettsideinformasjon er kun gitt for generelle informasjonsformål og utgjør ikke juridisk, økonomisk, medisinsk eller annen profesjonell rådgivning."
+          ]
+        },
+        {
+          "heading": "Behandlingsresultater",
+          "paragraphs": [
+            "Resultatet kan avhenge av kildedokumentet, filstrukturen, nettleseren og tilgjengelige enhetsressurser. Gå gjennom resultatet før du stoler på det, og oppbevar en uavhengig kopi av viktige originaler."
+          ]
+        },
+        {
+          "heading": "Tilgjengelighet og garantier",
+          "paragraphs": [
+            "ClickPDF leveres 'som den er' og 'som tilgjengelig'. Click Digital Services garanterer ikke uavbrutt drift, feilfrie resultater eller kompatibilitet med alle filer eller enheter."
+          ]
+        },
+        {
+          "heading": "Tredjepartstjenester",
+          "paragraphs": [
+            "Nettstedet kan inneholde lenker eller ressurser fra tredjeparter. Disse tjenestene styres av deres egne vilkår og personvernregler."
+          ]
+        }
+      ]
+    }
+  },
+  "pt": {
+    "about": {
+      "heading": "Sobre o ClickPDF",
+      "description": "Saiba mais sobre o ClickPDF, seu editor Click Digital Services, e as ferramentas de PDF baseadas em navegador e suporte disponíveis neste site.",
+      "sections": [
+        {
+          "heading": "Editor e propósito",
+          "paragraphs": [
+            "ClickPDF é um site de utilitários PDF baseado em navegador publicado e operado pela Click Digital Services.",
+            "O site fornece ferramentas para tarefas comuns de documentos, como mesclar, dividir, compactar, converter, organizar e inspecionar arquivos PDF."
+          ]
+        },
+        {
+          "heading": "Como as ferramentas funcionam",
+          "paragraphs": [
+            "O processamento de PDF é realizado no navegador para as ferramentas suportadas. Os recursos específicos e os requisitos do dispositivo variam de acordo com a ferramenta.",
+            "O site ainda pode carregar recursos da página e serviços de terceiros habilitados. Revise a Política de Privacidade e as instruções de cada ferramenta antes de processar documentos confidenciais."
+          ]
+        },
+        {
+          "heading": "Padrões abertos e suporte",
+          "paragraphs": [
+            "O ClickPDF usa tecnologias de navegador e bibliotecas de documentos estabelecidas para fornecer suas ferramentas. Para perguntas, comentários ou problemas técnicos, use a página de contato."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Contacte a ClickPDF",
+      "description": "Contacte o suporte da ClickPDF para questões técnicas, feedback, dúvidas sobre privacidade ou consultas comerciais sobre as nossas ferramentas PDF baseadas no navegador.",
+      "sections": [
+        {
+          "heading": "Suporte e consultas",
+          "paragraphs": [
+            "Contacte a ClickPDF para obter assistência técnica, para comunicar um problema inesperado, para sugerir uma ferramenta ou para discutir uma consulta comercial."
+          ]
+        },
+        {
+          "heading": "Suporte por e-mail",
+          "paragraphs": [
+            "Envie uma mensagem para o endereço de suporte abaixo. Inclua o nome da ferramenta e o seu navegador ao comunicar um problema técnico. Não envie documentos confidenciais por e-mail, a menos que tenha analisado os riscos de forma independente."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Política de Privacidade",
+      "description": "Saiba como o ClickPDF processa arquivos PDF no navegador, gerencia preferências locais e trabalha com publicidade e outros serviços do site.",
+      "sections": [
+        {
+          "heading": "Processamento de documentos",
+          "paragraphs": [
+            "Para ferramentas compatíveis, as operações de documentos são realizadas no navegador do seu dispositivo. O comportamento de processamento pode variar dependendo da ferramenta e do navegador; consulte as instruções mostradas na página da ferramenta.",
+            "Isso descreve o processamento de documentos e não significa que a página da web não faça solicitações de rede. O site pode carregar seus próprios recursos de página e serviços de terceiros habilitados."
+          ]
+        },
+        {
+          "heading": "Preferências e armazenamento local do navegador",
+          "paragraphs": [
+            "O site pode usar o armazenamento do navegador, como LocalStorage ou IndexedDB, para configurações e preferências funcionais. Esses valores permanecem sujeitos aos controles de armazenamento e privacidade do seu navegador."
+          ]
+        },
+        {
+          "heading": "Publicidade e serviços de terceiros",
+          "paragraphs": [
+            "A publicidade ou outros serviços de terceiros podem usar suas próprias tecnologias sob suas respectivas políticas. Consulte a Política de Cookies para obter mais informações e formas de gerenciar as configurações de cookies do navegador."
+          ]
+        },
+        {
+          "heading": "Perguntas",
+          "paragraphs": [
+            "Para perguntas sobre privacidade, entre em contato com o ClickPDF através da página de contato."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Termos de serviço",
+      "description": "Revise os termos do ClickPDF para uso permitido, responsabilidades do usuário, propriedade intelectual, disponibilidade do serviço e limitações das ferramentas de PDF baseadas em navegador.",
+      "sections": [
+        {
+          "heading": "Uso permitido",
+          "paragraphs": [
+            "O ClickPDF fornece utilitários de PDF baseados em navegador para fluxos de trabalho de documentos pessoais, educacionais e comerciais. Você é responsável por usar o serviço de acordo com as leis aplicáveis."
+          ]
+        },
+        {
+          "heading": "Seus arquivos e responsabilidades",
+          "paragraphs": [
+            "Você deve ter os direitos e permissões necessários para processar os documentos que selecionar. Não use o serviço para processar ou distribuir material ilegal, fraudulento, difamatório ou infrator."
+          ]
+        },
+        {
+          "heading": "Propriedade intelectual",
+          "paragraphs": [
+            "O nome ClickPDF, o design do site, o código personalizado, a documentação e os ativos visuais originais pertencem à Click Digital Services ou aos seus respectivos detentores de direitos. Os componentes de código aberto permanecem sujeitos às suas próprias licenças."
+          ]
+        },
+        {
+          "heading": "Disponibilidade do serviço",
+          "paragraphs": [
+            "O serviço é fornecido 'no estado em que se encontra' e 'conforme disponibilidade'. A compatibilidade e os resultados podem depender do arquivo de origem, do navegador, dos recursos do dispositivo e dos recursos suportados. Mantenha uma cópia dos arquivos originais importantes e verifique os documentos gerados."
+          ]
+        },
+        {
+          "heading": "Informações relacionadas",
+          "paragraphs": [
+            "Leia a isenção de responsabilidade para obter informações adicionais sobre as limitações do serviço e os resultados dos documentos."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Política de Cookies",
+      "description": "Veja como a ClickPDF utiliza o armazenamento do navegador e cookies de publicidade de terceiros, e aprenda a gerir o seu consentimento e preferências de cookies.",
+      "sections": [
+        {
+          "heading": "Cookies e armazenamento local",
+          "paragraphs": [
+            "Os cookies são pequenos ficheiros de dados armazenados por um site. A ClickPDF também pode usar o armazenamento do navegador, incluindo LocalStorage ou IndexedDB, para manter configurações funcionais, como preferências de interface e escolhas de consentimento."
+          ]
+        },
+        {
+          "heading": "Publicidade e terceiros",
+          "paragraphs": [
+            "Serviços de publicidade de terceiros podem usar cookies ou tecnologias semelhantes para entregar ou medir anúncios sob as suas próprias políticas de privacidade. Os controlos de consentimento do site explicam a opção de publicidade disponível."
+          ]
+        },
+        {
+          "heading": "Gestão das suas escolhas",
+          "paragraphs": [
+            "Pode gerir ou limpar dados armazenados através das definições do seu navegador. Bloquear cookies pode afetar algumas preferências do site ou serviços de terceiros."
+          ]
+        },
+        {
+          "heading": "Mais informações",
+          "paragraphs": [
+            "Para obter detalhes sobre o processamento de documentos e outros dados do site, leia a Política de Privacidade. Pode contactar a ClickPDF para perguntas."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Isenção de responsabilidade",
+      "description": "Leia as limitações sobre as informações e os resultados de processamento do ClickPDF, incluindo garantias, compatibilidade do navegador, limites de arquivos e disponibilidade do serviço.",
+      "sections": [
+        {
+          "heading": "Informações e aconselhamento profissional",
+          "paragraphs": [
+            "Os guias e as informações do site ClickPDF são fornecidos apenas para fins informativos gerais e não constituem aconselhamento jurídico, financeiro, médico ou outro tipo de aconselhamento profissional."
+          ]
+        },
+        {
+          "heading": "Resultados do processamento",
+          "paragraphs": [
+            "O resultado pode depender do documento de origem, da estrutura do arquivo, do navegador e dos recursos disponíveis no dispositivo. Revise o resultado antes de confiar nele e mantenha uma cópia independente de originais importantes."
+          ]
+        },
+        {
+          "heading": "Disponibilidade e garantias",
+          "paragraphs": [
+            "O ClickPDF é fornecido 'como está' e 'conforme disponível'. A Click Digital Services não garante operação ininterrupta, resultados sem erros ou compatibilidade com todos os arquivos ou dispositivos."
+          ]
+        },
+        {
+          "heading": "Serviços de terceiros",
+          "paragraphs": [
+            "O site pode incluir links ou recursos de terceiros. Esses serviços são regidos por seus próprios termos e políticas de privacidade."
+          ]
+        }
+      ]
+    }
+  },
+  "ru": {
+    "about": {
+      "heading": "О ClickPDF",
+      "description": "Узнайте больше о ClickPDF, его издателе Click Digital Services, а также о PDF-инструментах на базе браузера и поддержке, доступных на этом сайте.",
+      "sections": [
+        {
+          "heading": "Издатель и цель",
+          "paragraphs": [
+            "ClickPDF — это веб-сайт с PDF-утилитами на базе браузера, публикуемый и управляемый Click Digital Services.",
+            "Сайт предоставляет инструменты для выполнения стандартных задач с документами, таких как объединение, разделение, сжатие, преобразование, систематизация и проверка PDF-файлов."
+          ]
+        },
+        {
+          "heading": "Как работают инструменты",
+          "paragraphs": [
+            "Обработка PDF для поддерживаемых инструментов выполняется в браузере. Конкретные функции и требования к устройству зависят от инструмента.",
+            "Сайт может загружать ресурсы страницы и сторонние службы. Ознакомьтесь с Политикой конфиденциальности и инструкциями к каждому инструменту перед обработкой конфиденциальных документов."
+          ]
+        },
+        {
+          "heading": "Открытые стандарты и поддержка",
+          "paragraphs": [
+            "ClickPDF использует браузерные технологии и проверенные библиотеки документов для предоставления своих инструментов. Для вопросов, отзывов или технических проблем используйте страницу «Контакты»."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Свяжитесь с ClickPDF",
+      "description": "Обратитесь в службу поддержки ClickPDF по техническим вопросам, отзывам, вопросам конфиденциальности или коммерческим запросам относительно наших PDF-инструментов на базе браузера.",
+      "sections": [
+        {
+          "heading": "Поддержка и запросы",
+          "paragraphs": [
+            "Свяжитесь с ClickPDF для получения технической помощи, чтобы сообщить о неожиданной проблеме, предложить инструмент или обсудить коммерческий запрос."
+          ]
+        },
+        {
+          "heading": "Поддержка по электронной почте",
+          "paragraphs": [
+            "Отправьте сообщение на адрес службы поддержки ниже. При сообщении о технической проблеме укажите название инструмента и ваш браузер. Не отправляйте конфиденциальные документы по электронной почте, если вы не оценили риски самостоятельно."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Политика конфиденциальности",
+      "description": "Узнайте, как ClickPDF обрабатывает PDF-файлы в браузере, управляет локальными предпочтениями, а также работает с рекламой и другими веб-сервисами.",
+      "sections": [
+        {
+          "heading": "Обработка документов",
+          "paragraphs": [
+            "Для поддерживаемых инструментов операции с документами выполняются в браузере на вашем устройстве. Поведение обработки может варьироваться в зависимости от инструмента и браузера; ознакомьтесь с инструкциями, указанными на странице инструмента.",
+            "Это описание обработки документов, и это не означает, что веб-страница не делает никаких сетевых запросов. Сайт может загружать собственные ресурсы страницы и включенные сторонние сервисы."
+          ]
+        },
+        {
+          "heading": "Предпочтения и локальное хранилище браузера",
+          "paragraphs": [
+            "Сайт может использовать хранилище браузера, такое как LocalStorage или IndexedDB, для настроек и функциональных предпочтений. Эти значения остаются под контролем настроек хранилища и конфиденциальности вашего браузера."
+          ]
+        },
+        {
+          "heading": "Реклама и сторонние сервисы",
+          "paragraphs": [
+            "Реклама или другие сторонние сервисы могут использовать свои собственные технологии в соответствии со своими политиками. Ознакомьтесь с Политикой в отношении файлов cookie для получения дополнительной информации и способов управления настройками файлов cookie браузера."
+          ]
+        },
+        {
+          "heading": "Вопросы",
+          "paragraphs": [
+            "По вопросам конфиденциальности обращайтесь в ClickPDF через страницу контактов."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Условия использования",
+      "description": "Ознакомьтесь с условиями ClickPDF в отношении разрешенного использования, ответственности пользователя, интеллектуальной собственности, доступности сервиса и ограничений браузерных PDF-инструментов.",
+      "sections": [
+        {
+          "heading": "Разрешенное использование",
+          "paragraphs": [
+            "ClickPDF предоставляет браузерные PDF-утилиты для рабочих процессов с документами личного, образовательного и делового характера. Вы несете ответственность за использование сервиса в соответствии с применимым законодательством."
+          ]
+        },
+        {
+          "heading": "Ваши файлы и ответственность",
+          "paragraphs": [
+            "У вас должны быть права и разрешения, необходимые для обработки выбранных вами документов. Не используйте сервис для обработки или распространения незаконных, мошеннических, дискредитирующих или нарушающих авторские права материалов."
+          ]
+        },
+        {
+          "heading": "Интеллектуальная собственность",
+          "paragraphs": [
+            "Название ClickPDF, дизайн веб-сайта, пользовательский код, документация и оригинальные визуальные активы принадлежат Click Digital Services или их соответствующим правообладателям. Компоненты с открытым исходным кодом остаются предметом их собственных лицензий."
+          ]
+        },
+        {
+          "heading": "Доступность сервиса",
+          "paragraphs": [
+            "Сервис предоставляется на условиях «как есть» и «по мере доступности». Совместимость и результаты могут зависеть от исходного файла, браузера, ресурсов устройства и поддерживаемых функций. Сохраняйте копию важных оригинальных файлов и проверяйте созданные документы."
+          ]
+        },
+        {
+          "heading": "Связанная информация",
+          "paragraphs": [
+            "Прочитайте отказ от ответственности для получения дополнительной информации об ограничениях сервиса и результатах работы с документами."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Политика использования файлов cookie",
+      "description": "Узнайте, как ClickPDF использует хранилище браузера и рекламные файлы cookie третьих сторон, а также научитесь управлять своим согласием и предпочтениями в отношении файлов cookie.",
+      "sections": [
+        {
+          "heading": "Файлы cookie и локальное хранилище",
+          "paragraphs": [
+            "Файлы cookie — это небольшие файлы данных, хранящиеся на веб-сайте. ClickPDF также может использовать хранилище браузера, включая LocalStorage или IndexedDB, для сохранения функциональных настроек, таких как предпочтения интерфейса и выбор согласия."
+          ]
+        },
+        {
+          "heading": "Реклама и третьи стороны",
+          "paragraphs": [
+            "Рекламные службы третьих сторон могут использовать файлы cookie или аналогичные технологии для показа или измерения рекламы в соответствии со своими собственными политиками конфиденциальности. Элементы управления согласием на сайте объясняют доступные варианты рекламы."
+          ]
+        },
+        {
+          "heading": "Управление вашим выбором",
+          "paragraphs": [
+            "Вы можете управлять сохраненными данными или удалять их через настройки вашего браузера. Блокировка файлов cookie может повлиять на некоторые предпочтения веб-сайта или сторонние службы."
+          ]
+        },
+        {
+          "heading": "Дополнительная информация",
+          "paragraphs": [
+            "Для получения подробной информации об обработке документов и других данных веб-сайта прочитайте Политику конфиденциальности. Вы можете связаться с ClickPDF по любым вопросам."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Отказ от ответственности",
+      "description": "Ознакомьтесь с ограничениями, касающимися информации и результатов обработки ClickPDF, включая гарантии, совместимость с браузером, ограничения файлов и доступность сервиса.",
+      "sections": [
+        {
+          "heading": "Информация и профессиональные советы",
+          "paragraphs": [
+            "Руководства и информация на веб-сайте ClickPDF предоставляются только для общих ознакомительных целей и не являются юридической, финансовой, медицинской или другой профессиональной консультацией."
+          ]
+        },
+        {
+          "heading": "Результаты обработки",
+          "paragraphs": [
+            "Результат может зависеть от исходного документа, структуры файла, браузера и доступных ресурсов устройства. Проверьте результат перед тем, как полагаться на него, и храните независимую копию важных оригиналов."
+          ]
+        },
+        {
+          "heading": "Доступность и гарантии",
+          "paragraphs": [
+            "ClickPDF предоставляется на условиях 'как есть' и 'как доступно'. Click Digital Services не гарантирует бесперебойную работу, безошибочные результаты или совместимость с каждым файлом или устройством."
+          ]
+        },
+        {
+          "heading": "Сторонние сервисы",
+          "paragraphs": [
+            "Веб-сайт может содержать ссылки или ресурсы третьих лиц. Эти сервисы регулируются их собственными условиями и политиками конфиденциальности."
+          ]
+        }
+      ]
+    }
+  },
+  "ko": {
+    "about": {
+      "heading": "ClickPDF 소개",
+      "description": "ClickPDF, 게시자인 Click Digital Services, 이 사이트에서 제공되는 브라우저 기반 PDF 도구 및 지원에 대해 알아보세요.",
+      "sections": [
+        {
+          "heading": "게시자 및 목적",
+          "paragraphs": [
+            "ClickPDF는 Click Digital Services에서 게시 및 운영하는 브라우저 기반 PDF 유틸리티 웹사이트입니다.",
+            "이 사이트는 PDF 파일 병합, 분할, 압축, 변환, 정리 및 검사와 같은 일반적인 문서 작업을 위한 도구를 제공합니다."
+          ]
+        },
+        {
+          "heading": "도구 작동 방식",
+          "paragraphs": [
+            "지원되는 도구의 경우 PDF 처리가 브라우저 내에서 수행됩니다. 특정 기능 및 장치 요구 사항은 도구마다 다릅니다.",
+            "웹사이트는 페이지 리소스와 활성화된 타사 서비스를 계속 로드할 수 있습니다. 민감한 문서를 처리하기 전에 개인정보 처리방침과 각 도구의 지침을 검토하세요."
+          ]
+        },
+        {
+          "heading": "개방형 표준 및 지원",
+          "paragraphs": [
+            "ClickPDF는 브라우저 기술과 검증된 문서 라이브러리를 사용하여 도구를 제공합니다. 질문, 피드백 또는 기술적인 문제가 있는 경우 문의 페이지를 사용하세요."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "ClickPDF에 문의",
+      "description": "기술 문제, 피드백, 개인정보 보호 관련 질문 또는 브라우저 기반 PDF 도구에 대한 비즈니스 문의는 ClickPDF 지원팀에 문의하십시오.",
+      "sections": [
+        {
+          "heading": "지원 및 문의",
+          "paragraphs": [
+            "기술 지원이 필요하거나, 예기치 않은 문제를 보고하거나, 도구를 제안하거나, 비즈니스 문의를 논의하려면 ClickPDF에 문의하십시오."
+          ]
+        },
+        {
+          "heading": "이메일 지원",
+          "paragraphs": [
+            "아래 지원 주소로 메시지를 보내십시오. 기술 문제를 보고할 때는 도구 이름과 브라우저를 포함하십시오. 위험을 독립적으로 검토하지 않은 경우 기밀 문서를 이메일로 보내지 마십시오."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "개인정보 처리방침",
+      "description": "ClickPDF가 브라우저에서 PDF 파일을 처리하고, 로컬 환경 설정을 관리하며, 광고 및 기타 웹사이트 서비스와 상호 작용하는 방법을 알아보세요.",
+      "sections": [
+        {
+          "heading": "문서 처리",
+          "paragraphs": [
+            "지원되는 도구의 경우, 문서 작업은 장치의 브라우저에서 수행됩니다. 처리 방식은 도구 및 브라우저에 따라 다를 수 있습니다. 도구 페이지에 표시된 지침을 검토하세요.",
+            "이는 문서 처리에 대한 설명이며 웹페이지가 네트워크 요청을 전혀 하지 않는다는 의미는 아닙니다. 사이트는 자체 페이지 리소스와 활성화된 타사 서비스를 로드할 수 있습니다."
+          ]
+        },
+        {
+          "heading": "환경 설정 및 로컬 브라우저 저장소",
+          "paragraphs": [
+            "사이트는 설정 및 기능적 환경 설정을 위해 LocalStorage 또는 IndexedDB와 같은 브라우저 저장소를 사용할 수 있습니다. 이러한 값은 브라우저의 저장소 및 개인정보 보호 제어의 적용을 받습니다."
+          ]
+        },
+        {
+          "heading": "광고 및 타사 서비스",
+          "paragraphs": [
+            "광고나 기타 타사 서비스는 각자의 정책에 따라 자체 기술을 사용할 수 있습니다. 쿠키 정책에서 자세한 내용과 브라우저 쿠키 설정을 관리하는 방법을 확인하세요."
+          ]
+        },
+        {
+          "heading": "문의",
+          "paragraphs": [
+            "개인정보 보호 관련 질문은 연락처 페이지를 통해 ClickPDF에 문의하세요."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "서비스 약관",
+      "description": "허용된 사용, 사용자 책임, 지적 재산권, 서비스 가용성 및 브라우저 기반 PDF 도구의 제한 사항에 대한 ClickPDF 약관을 검토하십시오.",
+      "sections": [
+        {
+          "heading": "허용된 사용",
+          "paragraphs": [
+            "ClickPDF는 개인, 교육 및 비즈니스 문서 워크플로를 위한 브라우저 기반 PDF 유틸리티를 제공합니다. 귀하는 관련 법률에 따라 서비스를 사용할 책임이 있습니다."
+          ]
+        },
+        {
+          "heading": "귀하의 파일 및 책임",
+          "paragraphs": [
+            "귀하는 선택한 문서를 처리하는 데 필요한 권리와 허가를 가지고 있어야 합니다. 불법, 사기, 명예 훼손 또는 침해 자료를 처리하거나 배포하기 위해 서비스를 사용하지 마십시오."
+          ]
+        },
+        {
+          "heading": "지적 재산권",
+          "paragraphs": [
+            "ClickPDF 이름, 웹사이트 디자인, 사용자 지정 코드, 문서 및 원본 시각적 자산은 Click Digital Services 또는 해당 권리 소유자의 자산입니다. 오픈 소스 구성 요소는 자체 라이선스를 따릅니다."
+          ]
+        },
+        {
+          "heading": "서비스 가용성",
+          "paragraphs": [
+            "서비스는 '있는 그대로' 및 '가용성'에 따라 제공됩니다. 호환성 및 결과는 소스 파일, 브라우저, 장치 리소스 및 지원되는 기능에 따라 달라질 수 있습니다. 중요한 원본 파일의 사본을 보관하고 생성된 문서를 확인하십시오."
+          ]
+        },
+        {
+          "heading": "관련 정보",
+          "paragraphs": [
+            "서비스 제한 및 문서 결과에 대한 자세한 내용은 면책 조항을 읽어보십시오."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "쿠키 정책",
+      "description": "ClickPDF가 브라우저 저장소 및 제3자 광고 쿠키를 사용하는 방식을 확인하고 동의 및 쿠키 기본 설정을 관리하는 방법을 알아보세요.",
+      "sections": [
+        {
+          "heading": "쿠키 및 로컬 저장소",
+          "paragraphs": [
+            "쿠키는 웹사이트에 의해 저장되는 작은 데이터 파일입니다. ClickPDF는 인터페이스 기본 설정 및 동의 선택과 같은 기능적 설정을 유지하기 위해 LocalStorage 또는 IndexedDB를 포함한 브라우저 저장소를 사용할 수도 있습니다."
+          ]
+        },
+        {
+          "heading": "광고 및 제3자",
+          "paragraphs": [
+            "제3자 광고 서비스는 자체 개인정보 보호정책에 따라 쿠키 또는 유사한 기술을 사용하여 광고를 제공하거나 측정할 수 있습니다. 사이트의 동의 제어는 사용 가능한 광고 옵션을 설명합니다."
+          ]
+        },
+        {
+          "heading": "선택 사항 관리",
+          "paragraphs": [
+            "브라우저 설정을 통해 저장된 데이터를 관리하거나 지울 수 있습니다. 쿠키를 차단하면 일부 웹사이트 기본 설정이나 제3자 서비스에 영향을 줄 수 있습니다."
+          ]
+        },
+        {
+          "heading": "추가 정보",
+          "paragraphs": [
+            "문서 처리 및 기타 웹사이트 데이터에 대한 자세한 내용은 개인정보 처리방침을 읽어보세요. 질문이 있으시면 ClickPDF에 문의하실 수 있습니다."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "면책 조항",
+      "description": "보증, 브라우저 호환성, 파일 제한 및 서비스 가용성을 포함하여 ClickPDF 정보 및 처리 결과에 대한 제한 사항을 읽어보십시오.",
+      "sections": [
+        {
+          "heading": "정보 및 전문적인 조언",
+          "paragraphs": [
+            "ClickPDF 가이드 및 웹사이트 정보는 일반적인 정보 제공 목적으로만 제공되며 법적, 재정적, 의료적 또는 기타 전문적인 조언이 아닙니다."
+          ]
+        },
+        {
+          "heading": "처리 결과",
+          "paragraphs": [
+            "결과는 소스 문서, 파일 구조, 브라우저 및 사용 가능한 장치 리소스에 따라 달라질 수 있습니다. 결과에 의존하기 전에 검토하고 중요한 원본의 독립적인 사본을 보관하십시오."
+          ]
+        },
+        {
+          "heading": "가용성 및 보증",
+          "paragraphs": [
+            "ClickPDF는 '있는 그대로' 및 '사용 가능한 상태로' 제공됩니다. Click Digital Services는 중단 없는 작동, 오류 없는 결과 또는 모든 파일이나 장치와의 호환성을 보장하지 않습니다."
+          ]
+        },
+        {
+          "heading": "타사 서비스",
+          "paragraphs": [
+            "웹사이트에는 타사의 링크나 리소스가 포함될 수 있습니다. 해당 서비스는 각 서비스의 약관 및 개인정보 처리방침의 적용을 받습니다."
+          ]
+        }
+      ]
+    }
+  },
+  "tr": {
+    "about": {
+      "heading": "ClickPDF Hakkında",
+      "description": "ClickPDF, yayıncısı Click Digital Services ve bu sitede sunulan tarayıcı tabanlı PDF araçları ve destek hakkında bilgi edinin.",
+      "sections": [
+        {
+          "heading": "Yayıncı ve amaç",
+          "paragraphs": [
+            "ClickPDF, Click Digital Services tarafından yayınlanan ve işletilen tarayıcı tabanlı bir PDF yardımcı programı web sitesidir.",
+            "Site, PDF dosyalarını birleştirme, bölme, sıkıştırma, dönüştürme, düzenleme ve inceleme gibi yaygın belge görevleri için araçlar sağlar."
+          ]
+        },
+        {
+          "heading": "Araçlar nasıl çalışır",
+          "paragraphs": [
+            "Desteklenen araçlar için PDF işleme tarayıcı içinde gerçekleştirilir. Belirli özellikler ve cihaz gereksinimleri araca göre değişir.",
+            "Web sitesi yine de sayfa kaynaklarını ve etkinleştirilmiş üçüncü taraf hizmetlerini yükleyebilir. Hassas belgeleri işlemeden önce Gizlilik Politikasını ve her aracın talimatlarını inceleyin."
+          ]
+        },
+        {
+          "heading": "Açık standartlar ve destek",
+          "paragraphs": [
+            "ClickPDF, araçlarını sağlamak için tarayıcı teknolojilerini ve yerleşik belge kitaplıklarını kullanır. Sorular, geri bildirim veya teknik sorunlar için İletişim sayfasını kullanın."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "ClickPDF ile İletişime Geçin",
+      "description": "Teknik sorunlar, geri bildirimler, gizlilik soruları veya tarayıcı tabanlı PDF araçlarımız hakkındaki ticari sorularınız için ClickPDF desteği ile iletişime geçin.",
+      "sections": [
+        {
+          "heading": "Destek ve sorular",
+          "paragraphs": [
+            "Teknik destek almak, beklenmedik bir sorunu bildirmek, bir araç önermek veya ticari bir konuyu görüşmek için ClickPDF ile iletişime geçin."
+          ]
+        },
+        {
+          "heading": "E-posta desteği",
+          "paragraphs": [
+            "Aşağıdaki destek adresine bir mesaj gönderin. Teknik bir sorunu bildirirken aracın adını ve tarayıcınızı ekleyin. Riskleri bağımsız olarak incelemediyseniz gizli belgeleri e-posta ile göndermeyin."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Gizlilik Politikası",
+      "description": "ClickPDF'in tarayıcıda PDF dosyalarını nasıl işlediğini, yerel tercihleri nasıl yönettiğini ve reklamlar ile diğer web sitesi hizmetleriyle nasıl çalıştığını öğrenin.",
+      "sections": [
+        {
+          "heading": "Belge işleme",
+          "paragraphs": [
+            "Desteklenen araçlar için belge işlemleri, cihazınızdaki tarayıcıda gerçekleştirilir. İşleme davranışı araca ve tarayıcıya göre değişebilir; araç sayfasında gösterilen talimatları inceleyin.",
+            "Bu, belge işlemeyi tanımlar ve web sayfasının hiçbir ağ isteğinde bulunmadığı anlamına gelmez. Site, kendi sayfa kaynaklarını ve etkinleştirilmiş üçüncü taraf hizmetlerini yükleyebilir."
+          ]
+        },
+        {
+          "heading": "Tercihler ve yerel tarayıcı depolama alanı",
+          "paragraphs": [
+            "Site, ayarlar ve işlevsel tercihler için LocalStorage veya IndexedDB gibi tarayıcı depolama alanını kullanabilir. Bu değerler, tarayıcınızın depolama ve gizlilik kontrollerine tabidir."
+          ]
+        },
+        {
+          "heading": "Reklam ve üçüncü taraf hizmetleri",
+          "paragraphs": [
+            "Reklamlar veya diğer üçüncü taraf hizmetleri, kendi politikaları kapsamında kendi teknolojilerini kullanabilir. Daha fazla bilgi ve tarayıcı çerez ayarlarını yönetme yolları için Çerez Politikası'na bakın."
+          ]
+        },
+        {
+          "heading": "Sorular",
+          "paragraphs": [
+            "Gizlilikle ilgili sorularınız için İletişim sayfası aracılığıyla ClickPDF ile iletişime geçin."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Hizmet Şartları",
+      "description": "İzin verilen kullanım, kullanıcı sorumlulukları, fikri mülkiyet, hizmet kullanılabilirliği ve tarayıcı tabanlı PDF araçlarının sınırlamaları ile ilgili ClickPDF şartlarını inceleyin.",
+      "sections": [
+        {
+          "heading": "İzin verilen kullanım",
+          "paragraphs": [
+            "ClickPDF, kişisel, eğitimsel ve iş belgesi iş akışları için tarayıcı tabanlı PDF yardımcı programları sağlar. Hizmeti yürürlükteki yasalara uygun olarak kullanmaktan siz sorumlusunuz."
+          ]
+        },
+        {
+          "heading": "Dosyalarınız ve sorumluluklarınız",
+          "paragraphs": [
+            "Seçtiğiniz belgeleri işlemek için gerekli haklara ve izinlere sahip olmalısınız. Hizmeti yasa dışı, hileli, karalayıcı veya ihlal edici materyalleri işlemek veya dağıtmak için kullanmayın."
+          ]
+        },
+        {
+          "heading": "Fikri mülkiyet",
+          "paragraphs": [
+            "ClickPDF adı, web sitesi tasarımı, özel kod, belgeler ve orijinal görsel varlıklar Click Digital Services veya ilgili hak sahiplerine aittir. Açık kaynak bileşenler kendi lisanslarına tabidir."
+          ]
+        },
+        {
+          "heading": "Hizmet kullanılabilirliği",
+          "paragraphs": [
+            "Hizmet 'olduğu gibi' ve 'kullanılabilirlik' temelinde sağlanır. Uyumluluk ve sonuçlar kaynak dosyaya, tarayıcıya, cihaz kaynaklarına ve desteklenen özelliklere bağlı olabilir. Önemli orijinal dosyaların bir kopyasını saklayın ve oluşturulan belgeleri doğrulayın."
+          ]
+        },
+        {
+          "heading": "İlgili bilgiler",
+          "paragraphs": [
+            "Hizmet sınırlamaları ve belge sonuçları hakkında ek bilgi için Sorumluluk Reddi'ni okuyun."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Çerez Politikası",
+      "description": "ClickPDF'in tarayıcı depolama alanını ve üçüncü taraf reklam çerezlerini nasıl kullandığını görün ve onayınızı ve çerez tercihlerinizi nasıl yöneteceğinizi öğrenin.",
+      "sections": [
+        {
+          "heading": "Çerezler ve yerel depolama",
+          "paragraphs": [
+            "Çerezler, bir web sitesi tarafından depolanan küçük veri dosyalarıdır. ClickPDF, arayüz tercihleri ve onay seçimleri gibi işlevsel ayarları korumak için LocalStorage veya IndexedDB dahil olmak üzere tarayıcı depolama alanını da kullanabilir."
+          ]
+        },
+        {
+          "heading": "Reklamcılık ve üçüncü taraflar",
+          "paragraphs": [
+            "Üçüncü taraf reklam hizmetleri, kendi gizlilik politikaları kapsamında reklam sunmak veya ölçmek için çerezleri veya benzer teknolojileri kullanabilir. Sitenin onay kontrolleri, mevcut reklam seçeneğini açıklar."
+          ]
+        },
+        {
+          "heading": "Seçimlerinizi yönetme",
+          "paragraphs": [
+            "Depolanan verileri tarayıcı ayarlarınız aracılığıyla yönetebilir veya silebilirsiniz. Çerezleri engellemek, bazı web sitesi tercihlerini veya üçüncü taraf hizmetlerini etkileyebilir."
+          ]
+        },
+        {
+          "heading": "Daha fazla bilgi",
+          "paragraphs": [
+            "Belge işleme ve diğer web sitesi verileri hakkında ayrıntılar için Gizlilik Politikasını okuyun. Sorularınız için ClickPDF ile iletişime geçebilirsiniz."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Sorumluluk Reddi",
+      "description": "Garantiler, tarayıcı uyumluluğu, dosya sınırlamaları ve hizmet kullanılabilirliği dahil olmak üzere ClickPDF bilgileri ve işleme sonuçları hakkındaki sınırlamaları okuyun.",
+      "sections": [
+        {
+          "heading": "Bilgi ve profesyonel tavsiye",
+          "paragraphs": [
+            "ClickPDF kılavuzları ve web sitesi bilgileri yalnızca genel bilgilendirme amaçlıdır ve yasal, mali, tıbbi veya diğer profesyonel tavsiyeler teşkil etmez."
+          ]
+        },
+        {
+          "heading": "İşleme sonuçları",
+          "paragraphs": [
+            "Çıktı; kaynak belgeye, dosya yapısına, tarayıcıya ve mevcut cihaz kaynaklarına bağlı olabilir. Sonuca güvenmeden önce inceleyin ve önemli orijinallerin bağımsız bir kopyasını saklayın."
+          ]
+        },
+        {
+          "heading": "Kullanılabilirlik ve garantiler",
+          "paragraphs": [
+            "ClickPDF 'olduğu gibi' ve 'mevcut olduğu şekilde' sağlanır. Click Digital Services kesintisiz çalışma, hatasız sonuçlar veya her dosya veya cihazla uyumluluk garantisi vermez."
+          ]
+        },
+        {
+          "heading": "Üçüncü taraf hizmetleri",
+          "paragraphs": [
+            "Web sitesi üçüncü taraflara ait bağlantılar veya kaynaklar içerebilir. Bu hizmetler, kendi şartlarına ve gizlilik politikalarına tabidir."
+          ]
+        }
+      ]
+    }
+  },
+  "nl": {
+    "about": {
+      "heading": "Over ClickPDF",
+      "description": "Leer meer over ClickPDF, de uitgever Click Digital Services, en de browsergebaseerde PDF-tools en ondersteuning die op deze site beschikbaar zijn.",
+      "sections": [
+        {
+          "heading": "Uitgever en doel",
+          "paragraphs": [
+            "ClickPDF is een browsergebaseerde PDF-utility-website die wordt uitgegeven en beheerd door Click Digital Services.",
+            "De site biedt tools voor algemene documenttaken zoals het samenvoegen, splitsen, comprimeren, converteren, ordenen en inspecteren van PDF-bestanden."
+          ]
+        },
+        {
+          "heading": "Hoe de tools werken",
+          "paragraphs": [
+            "PDF-verwerking wordt voor ondersteunde tools in de browser uitgevoerd. Specifieke functies en apparaatvereisten variëren per tool.",
+            "De website kan nog steeds paginabronnen en ingeschakelde services van derden laden. Raadpleeg het Privacybeleid en de instructies van elke tool voordat u gevoelige documenten verwerkt."
+          ]
+        },
+        {
+          "heading": "Open standaarden en ondersteuning",
+          "paragraphs": [
+            "ClickPDF maakt gebruik van browsertechnologieën en gevestigde documentbibliotheken om zijn tools aan te bieden. Voor vragen, feedback of technische problemen kunt u de contactpagina gebruiken."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Neem contact op met ClickPDF",
+      "description": "Neem contact op met de ClickPDF-ondersteuning voor technische problemen, feedback, privacyvragen of zakelijke vragen over onze browsergebaseerde PDF-tools.",
+      "sections": [
+        {
+          "heading": "Ondersteuning en vragen",
+          "paragraphs": [
+            "Neem contact op met ClickPDF voor technische hulp, om een onverwacht probleem te melden, een tool voor te stellen of een zakelijke vraag te bespreken."
+          ]
+        },
+        {
+          "heading": "E-mailondersteuning",
+          "paragraphs": [
+            "Stuur een bericht naar het onderstaande ondersteuningsadres. Vermeld bij het melden van een technisch probleem de naam van de tool en uw browser. E-mail geen vertrouwelijke documenten, tenzij u de risico's zelfstandig hebt beoordeeld."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Privacybeleid",
+      "description": "Ontdek hoe ClickPDF PDF-bestanden in de browser verwerkt, lokale voorkeuren beheert en samenwerkt met advertenties en andere websitediensten.",
+      "sections": [
+        {
+          "heading": "Documentverwerking",
+          "paragraphs": [
+            "Voor ondersteunde tools worden documentbewerkingen uitgevoerd in de browser op uw apparaat. Het verwerkingsgedrag kan variëren per tool en browser; bekijk de instructies op de toolpagina.",
+            "Dit beschrijft documentverwerking en betekent niet dat de webpagina geen netwerkverzoeken doet. De site kan eigen paginabronnen en ingeschakelde diensten van derden laden."
+          ]
+        },
+        {
+          "heading": "Voorkeuren en lokale browseropslag",
+          "paragraphs": [
+            "De site kan browseropslag, zoals LocalStorage of IndexedDB, gebruiken voor instellingen en functionele voorkeuren. Deze waarden blijven onderworpen aan de opslag- en privacyinstellingen van uw browser."
+          ]
+        },
+        {
+          "heading": "Advertenties en diensten van derden",
+          "paragraphs": [
+            "Advertenties of andere diensten van derden kunnen hun eigen technologieën gebruiken onder hun respectieve beleid. Raadpleeg het Cookiebeleid voor meer informatie en manieren om de cookie-instellingen van de browser te beheren."
+          ]
+        },
+        {
+          "heading": "Vragen",
+          "paragraphs": [
+            "Voor privacyvragen kunt u contact opnemen met ClickPDF via de contactpagina."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Servicevoorwaarden",
+      "description": "Bekijk de voorwaarden van ClickPDF voor toegestaan gebruik, gebruikersverantwoordelijkheden, intellectueel eigendom, servicebeschikbaarheid en beperkingen van browsergebaseerde PDF-tools.",
+      "sections": [
+        {
+          "heading": "Toegestaan gebruik",
+          "paragraphs": [
+            "ClickPDF biedt browsergebaseerde PDF-hulpprogramma's voor persoonlijke, educatieve en zakelijke documentworkflows. U bent verantwoordelijk voor het gebruik van de dienst in overeenstemming met de toepasselijke wetgeving."
+          ]
+        },
+        {
+          "heading": "Uw bestanden en verantwoordelijkheden",
+          "paragraphs": [
+            "U moet beschikken over de rechten en machtigingen die nodig zijn om de documenten die u selecteert te verwerken. Gebruik de dienst niet om onwettig, frauduleus, lasterlijk of inbreukmakend materiaal te verwerken of te verspreiden."
+          ]
+        },
+        {
+          "heading": "Intellectueel eigendom",
+          "paragraphs": [
+            "De naam ClickPDF, het websiteontwerp, aangepaste code, documentatie en originele visuele activa behoren toe aan Click Digital Services of hun respectieve rechthebbenden. Open-sourcecomponenten blijven onderworpen aan hun eigen licenties."
+          ]
+        },
+        {
+          "heading": "Servicebeschikbaarheid",
+          "paragraphs": [
+            "De dienst wordt geleverd op een 'as-is' en 'as-available' basis. Compatibiliteit en resultaten kunnen afhangen van het bronbestand, de browser, apparaatbronnen en ondersteunde functies. Bewaar een kopie van belangrijke originele bestanden en controleer gegenereerde documenten."
+          ]
+        },
+        {
+          "heading": "Gerelateerde informatie",
+          "paragraphs": [
+            "Lees de Disclaimer voor aanvullende informatie over servicebeperkingen en documentresultaten."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Cookiebeleid",
+      "description": "Bekijk hoe ClickPDF browseropslag en advertentiecookies van derden gebruikt, en leer hoe u uw toestemming en cookievoorkeuren kunt beheren.",
+      "sections": [
+        {
+          "heading": "Cookies en lokale opslag",
+          "paragraphs": [
+            "Cookies zijn kleine gegevensbestanden die door een website worden opgeslagen. ClickPDF kan ook browseropslag, inclusief LocalStorage of IndexedDB, gebruiken om functionele instellingen zoals interfacevoorkeuren en toestemmingskeuzes te behouden."
+          ]
+        },
+        {
+          "heading": "Advertenties en derden",
+          "paragraphs": [
+            "Advertentiediensten van derden kunnen cookies of vergelijkbare technologieën gebruiken om advertenties te leveren of te meten onder hun eigen privacybeleid. De toestemmingscontroles van de site leggen de beschikbare advertentieoptie uit."
+          ]
+        },
+        {
+          "heading": "Uw keuzes beheren",
+          "paragraphs": [
+            "U kunt opgeslagen gegevens beheren of wissen via uw browserinstellingen. Het blokkeren van cookies kan van invloed zijn op sommige websitevoorkeuren of diensten van derden."
+          ]
+        },
+        {
+          "heading": "Meer informatie",
+          "paragraphs": [
+            "Voor details over documentverwerking en andere websitedata, lees het Privacybeleid. U kunt contact opnemen met ClickPDF voor vragen."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Disclaimer",
+      "description": "Lees de beperkingen met betrekking tot ClickPDF-informatie en verwerkingsresultaten, inclusief garanties, browsercompatibiliteit, bestandsbeperkingen en servicebeschikbaarheid.",
+      "sections": [
+        {
+          "heading": "Informatie en professioneel advies",
+          "paragraphs": [
+            "ClickPDF-handleidingen en website-informatie zijn uitsluitend bedoeld voor algemene informatieve doeleinden en vormen geen juridisch, financieel, medisch of ander professioneel advies."
+          ]
+        },
+        {
+          "heading": "Verwerkingsresultaten",
+          "paragraphs": [
+            "De uitvoer kan afhangen van het brondocument, de bestandsstructuur, de browser en de beschikbare apparaatbronnen. Controleer het resultaat voordat u erop vertrouwt en bewaar een onafhankelijke kopie van belangrijke originelen."
+          ]
+        },
+        {
+          "heading": "Beschikbaarheid en garanties",
+          "paragraphs": [
+            "ClickPDF wordt geleverd 'zoals het is' en 'zoals beschikbaar'. Click Digital Services garandeert geen ononderbroken werking, foutloze resultaten of compatibiliteit met elk bestand of apparaat."
+          ]
+        },
+        {
+          "heading": "Diensten van derden",
+          "paragraphs": [
+            "De website kan links of bronnen van derden bevatten. Die diensten vallen onder hun eigen voorwaarden en privacybeleid."
+          ]
+        }
+      ]
+    }
+  },
+  "pl": {
+    "about": {
+      "heading": "O ClickPDF",
+      "description": "Dowiedz się więcej o ClickPDF, wydawcy Click Digital Services oraz dostępnych na tej stronie narzędziach PDF działających w przeglądarce i wsparciu.",
+      "sections": [
+        {
+          "heading": "Wydawca i cel",
+          "paragraphs": [
+            "ClickPDF to serwis z narzędziami PDF działający w przeglądarce, wydawany i obsługiwany przez Click Digital Services.",
+            "Serwis udostępnia narzędzia do typowych zadań związanych z dokumentami, takich jak łączenie, dzielenie, kompresowanie, konwertowanie, porządkowanie i sprawdzanie plików PDF."
+          ]
+        },
+        {
+          "heading": "Jak działają narzędzia",
+          "paragraphs": [
+            "Przetwarzanie plików PDF odbywa się w przeglądarce dla obsługiwanych narzędzi. Szczegółowe funkcje i wymagania systemowe różnią się w zależności od narzędzia.",
+            "Serwis może nadal ładować zasoby strony i włączone usługi stron trzecich. Przed przetwarzaniem poufnych dokumentów zapoznaj się z Polityką prywatności oraz instrukcjami każdego narzędzia."
+          ]
+        },
+        {
+          "heading": "Otwarte standardy i wsparcie",
+          "paragraphs": [
+            "ClickPDF wykorzystuje technologie przeglądarkowe i sprawdzone biblioteki dokumentów, aby dostarczać swoje narzędzia. W przypadku pytań, opinii lub problemów technicznych skorzystaj ze strony Kontakt."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Skontaktuj się z ClickPDF",
+      "description": "Skontaktuj się z obsługą ClickPDF w sprawie problemów technicznych, opinii, pytań dotyczących prywatności lub zapytań biznesowych dotyczących naszych narzędzi PDF opartych na przeglądarce.",
+      "sections": [
+        {
+          "heading": "Wsparcie i zapytania",
+          "paragraphs": [
+            "Skontaktuj się z ClickPDF, aby uzyskać pomoc techniczną, zgłosić nieoczekiwany problem, zasugerować narzędzie lub omówić zapytanie biznesowe."
+          ]
+        },
+        {
+          "heading": "Wsparcie mailowe",
+          "paragraphs": [
+            "Wyślij wiadomość na poniższy adres wsparcia. Zgłaszając problem techniczny, podaj nazwę narzędzia i przeglądarkę. Nie wysyłaj poufnych dokumentów e-mailem, chyba że samodzielnie ocenisz ryzyko."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Polityka prywatności",
+      "description": "Dowiedz się, jak ClickPDF przetwarza pliki PDF w przeglądarce, zarządza lokalnymi preferencjami oraz współpracuje z reklamami i innymi usługami witryny.",
+      "sections": [
+        {
+          "heading": "Przetwarzanie dokumentów",
+          "paragraphs": [
+            "W przypadku obsługiwanych narzędzi operacje na dokumentach są wykonywane w przeglądarce na Twoim urządzeniu. Zachowanie podczas przetwarzania może się różnić w zależności od narzędzia i przeglądarki; zapoznaj się z instrukcjami wyświetlanymi na stronie narzędzia.",
+            "Opis ten dotyczy przetwarzania dokumentów i nie oznacza, że strona internetowa nie wysyła żadnych żądań sieciowych. Witryna może ładować własne zasoby strony oraz włączone usługi stron trzecich."
+          ]
+        },
+        {
+          "heading": "Preferencje i lokalna pamięć przeglądarki",
+          "paragraphs": [
+            "Witryna może korzystać z pamięci przeglądarki, takiej jak LocalStorage lub IndexedDB, w celu zapisywania ustawień i preferencji funkcjonalnych. Wartości te pozostają pod kontrolą ustawień pamięci i prywatności Twojej przeglądarki."
+          ]
+        },
+        {
+          "heading": "Reklamy i usługi stron trzecich",
+          "paragraphs": [
+            "Reklamy lub inne usługi stron trzecich mogą wykorzystywać własne technologie zgodnie z odpowiednimi politykami. Aby uzyskać więcej informacji i dowiedzieć się, jak zarządzać ustawieniami plików cookie w przeglądarce, zapoznaj się z Polityką plików cookie."
+          ]
+        },
+        {
+          "heading": "Pytania",
+          "paragraphs": [
+            "W razie pytań dotyczących prywatności skontaktuj się z ClickPDF za pośrednictwem strony kontaktowej."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Warunki korzystania z usługi",
+      "description": "Zapoznaj się z warunkami ClickPDF dotyczącymi dozwolonego użytkowania, odpowiedzialności użytkownika, własności intelektualnej, dostępności usługi oraz ograniczeń narzędzi PDF opartych na przeglądarce.",
+      "sections": [
+        {
+          "heading": "Dozwolone użytkowanie",
+          "paragraphs": [
+            "ClickPDF zapewnia narzędzia PDF oparte na przeglądarce do obsługi dokumentów osobistych, edukacyjnych i biznesowych. Użytkownik jest odpowiedzialny za korzystanie z usługi zgodnie z obowiązującymi przepisami."
+          ]
+        },
+        {
+          "heading": "Twoje pliki i obowiązki",
+          "paragraphs": [
+            "Musisz posiadać prawa i uprawnienia niezbędne do przetwarzania wybranych dokumentów. Nie używaj usługi do przetwarzania lub rozpowszechniania materiałów niezgodnych z prawem, oszukańczych, zniesławiających lub naruszających prawa osób trzecich."
+          ]
+        },
+        {
+          "heading": "Własność intelektualna",
+          "paragraphs": [
+            "Nazwa ClickPDF, projekt strony internetowej, niestandardowy kod, dokumentacja i oryginalne zasoby wizualne należą do Click Digital Services lub ich odpowiednich właścicieli praw. Komponenty open-source podlegają własnym licencjom."
+          ]
+        },
+        {
+          "heading": "Dostępność usługi",
+          "paragraphs": [
+            "Usługa jest dostarczana w stanie 'takim, jaki jest' i 'w miarę dostępności'. Kompatybilność i wyniki mogą zależeć od pliku źródłowego, przeglądarki, zasobów urządzenia i obsługiwanych funkcji. Zachowaj kopię ważnych oryginalnych plików i weryfikuj wygenerowane dokumenty."
+          ]
+        },
+        {
+          "heading": "Powiązane informacje",
+          "paragraphs": [
+            "Przeczytaj zastrzeżenie prawne, aby uzyskać dodatkowe informacje na temat ograniczeń usługi i wyników dokumentów."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Polityka plików cookie",
+      "description": "Zobacz, jak ClickPDF wykorzystuje pamięć przeglądarki i pliki cookie reklamowe stron trzecich, oraz dowiedz się, jak zarządzać swoimi ustawieniami zgody i plików cookie.",
+      "sections": [
+        {
+          "heading": "Pliki cookie i pamięć lokalna",
+          "paragraphs": [
+            "Pliki cookie to małe pliki danych przechowywane przez witrynę internetową. ClickPDF może również używać pamięci przeglądarki, w tym LocalStorage lub IndexedDB, do zachowania ustawień funkcjonalnych, takich jak preferencje interfejsu i wybory dotyczące zgody."
+          ]
+        },
+        {
+          "heading": "Reklamy i strony trzecie",
+          "paragraphs": [
+            "Usługi reklamowe stron trzecich mogą używać plików cookie lub podobnych technologii do dostarczania lub mierzenia reklam zgodnie z własnymi politykami prywatności. Kontrolki zgody w witrynie wyjaśniają dostępne opcje reklamowe."
+          ]
+        },
+        {
+          "heading": "Zarządzanie swoimi wyborami",
+          "paragraphs": [
+            "Możesz zarządzać zapisanymi danymi lub je usunąć za pomocą ustawień przeglądarki. Blokowanie plików cookie może wpłynąć na niektóre preferencje witryny lub usługi stron trzecich."
+          ]
+        },
+        {
+          "heading": "Więcej informacji",
+          "paragraphs": [
+            "Aby uzyskać szczegółowe informacje na temat przetwarzania dokumentów i innych danych witryny, przeczytaj Politykę prywatności. W razie pytań możesz skontaktować się z ClickPDF."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Zastrzeżenie",
+      "description": "Przeczytaj ograniczenia dotyczące informacji i wyników przetwarzania ClickPDF, w tym gwarancje, kompatybilność z przeglądarką, limity plików i dostępność usług.",
+      "sections": [
+        {
+          "heading": "Informacje i porady profesjonalne",
+          "paragraphs": [
+            "Przewodniki i informacje na stronie ClickPDF służą wyłącznie do celów informacyjnych i nie stanowią porady prawnej, finansowej, medycznej ani innej profesjonalnej."
+          ]
+        },
+        {
+          "heading": "Wyniki przetwarzania",
+          "paragraphs": [
+            "Dane wyjściowe mogą zależeć od dokumentu źródłowego, struktury pliku, przeglądarki i dostępnych zasobów urządzenia. Przed poleganiem na wyniku przejrzyj go i zachowaj niezależną kopię ważnych oryginałów."
+          ]
+        },
+        {
+          "heading": "Dostępność i gwarancje",
+          "paragraphs": [
+            "ClickPDF jest dostarczany w stanie 'takim, jaki jest' i 'w miarę dostępności'. Click Digital Services nie gwarantuje nieprzerwanego działania, bezbłędnych wyników ani kompatybilności z każdym plikiem lub urządzeniem."
+          ]
+        },
+        {
+          "heading": "Usługi stron trzecich",
+          "paragraphs": [
+            "Strona internetowa może zawierać linki lub zasoby stron trzecich. Usługi te podlegają własnym warunkom i politykom prywatności."
+          ]
+        }
+      ]
+    }
+  },
+  "sv": {
+    "about": {
+      "heading": "Om ClickPDF",
+      "description": "Lär dig mer om ClickPDF, utgivaren Click Digital Services samt de webbläsarbaserade PDF-verktyg och support som finns på denna webbplats.",
+      "sections": [
+        {
+          "heading": "Utgivare och syfte",
+          "paragraphs": [
+            "ClickPDF är en webbläsarbaserad PDF-verktygswebbplats som ges ut och drivs av Click Digital Services.",
+            "Webbplatsen tillhandahåller verktyg för vanliga dokumentuppgifter såsom att slå samman, dela, komprimera, konvertera, organisera och inspektera PDF-filer."
+          ]
+        },
+        {
+          "heading": "Hur verktygen fungerar",
+          "paragraphs": [
+            "PDF-bearbetning utförs i webbläsaren för verktyg som stöds. Specifika funktioner och enhetskrav varierar beroende på verktyg.",
+            "Webbplatsen kan fortfarande läsa in sidresurser och aktiverade tredjepartstjänster. Granska integritetspolicyn och instruktionerna för varje verktyg innan du bearbetar känsliga dokument."
+          ]
+        },
+        {
+          "heading": "Öppna standarder och support",
+          "paragraphs": [
+            "ClickPDF använder webbläsarteknik och etablerade dokumentbibliotek för att tillhandahålla sina verktyg. För frågor, feedback eller tekniska problem, använd kontaktsidan."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Kontakta ClickPDF",
+      "description": "Kontakta ClickPDF-supporten för tekniska problem, feedback, integritetsfrågor eller affärsförfrågningar om våra webbläsarbaserade PDF-verktyg.",
+      "sections": [
+        {
+          "heading": "Support och frågor",
+          "paragraphs": [
+            "Kontakta ClickPDF för teknisk assistans, för att rapportera ett oväntat problem, för att föreslå ett verktyg eller för att diskutera en affärsförfrågan."
+          ]
+        },
+        {
+          "heading": "E-postsupport",
+          "paragraphs": [
+            "Skicka ett meddelande till supportadressen nedan. Inkludera verktygets namn och din webbläsare när du rapporterar ett tekniskt problem. Skicka inte konfidentiella dokument via e-post om du inte självständigt har granskat riskerna."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Integritetspolicy",
+      "description": "Lär dig hur ClickPDF bearbetar PDF-filer i webbläsaren, hanterar lokala inställningar och fungerar med annonser och andra webbplatstjänster.",
+      "sections": [
+        {
+          "heading": "Dokumentbearbetning",
+          "paragraphs": [
+            "För stödda verktyg utförs dokumentoperationer i webbläsaren på din enhet. Bearbetningsbeteendet kan variera beroende på verktyg och webbläsare; granska instruktionerna som visas på verktygssidan.",
+            "Detta beskriver dokumentbearbetning och innebär inte att webbsidan inte gör några nätverksanrop. Webbplatsen kan ladda egna sidresurser och aktiverade tredjepartstjänster."
+          ]
+        },
+        {
+          "heading": "Inställningar och lokal webbläsarlagring",
+          "paragraphs": [
+            "Webbplatsen kan använda webbläsarlagring, såsom LocalStorage eller IndexedDB, för inställningar och funktionella preferenser. Dessa värden förblir underställda din webbläsares lagrings- och integritetskontroller."
+          ]
+        },
+        {
+          "heading": "Annonser och tredjepartstjänster",
+          "paragraphs": [
+            "Annonser eller andra tredjepartstjänster kan använda sina egna tekniker enligt respektive policyer. Se cookie-policyn för mer information och sätt att hantera webbläsarens cookie-inställningar."
+          ]
+        },
+        {
+          "heading": "Frågor",
+          "paragraphs": [
+            "För frågor om integritet, kontakta ClickPDF via kontaktsidan."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Användarvillkor",
+      "description": "Granska ClickPDFs villkor för tillåten användning, användaransvar, immateriella rättigheter, tjänstetillgänglighet och begränsningar för webbläsarbaserade PDF-verktyg.",
+      "sections": [
+        {
+          "heading": "Tillåten användning",
+          "paragraphs": [
+            "ClickPDF tillhandahåller webbläsarbaserade PDF-verktyg för personliga, utbildningsmässiga och affärsmässiga dokumentarbetsflöden. Du ansvarar för att använda tjänsten i enlighet med gällande lagar."
+          ]
+        },
+        {
+          "heading": "Dina filer och ansvar",
+          "paragraphs": [
+            "Du måste ha de nödvändiga rättigheterna och tillstånden för att bearbeta de dokument du väljer. Använd inte tjänsten för att bearbeta eller distribuera olagligt, bedrägligt, förtalande eller kränkande material."
+          ]
+        },
+        {
+          "heading": "Immateriella rättigheter",
+          "paragraphs": [
+            "Namnet ClickPDF, webbplatsdesign, anpassad kod, dokumentation och ursprungliga visuella tillgångar tillhör Click Digital Services eller deras respektive rättighetshavare. Komponenter med öppen källkod omfattas fortfarande av sina egna licenser."
+          ]
+        },
+        {
+          "heading": "Tjänstetillgänglighet",
+          "paragraphs": [
+            "Tjänsten tillhandahålls i befintligt skick och i mån av tillgänglighet. Kompatibilitet och resultat kan bero på källfilen, webbläsaren, enhetens resurser och funktioner som stöds. Spara en kopia av viktiga originalfiler och verifiera genererade dokument."
+          ]
+        },
+        {
+          "heading": "Relaterad information",
+          "paragraphs": [
+            "Läs ansvarsfriskrivningen för ytterligare information om tjänstebegränsningar och dokumentresultat."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Cookie-policy",
+      "description": "Se hur ClickPDF använder webbläsarlagring och tredjeparts-cookies för annonsering, och lär dig hur du hanterar ditt samtycke och dina cookie-inställningar.",
+      "sections": [
+        {
+          "heading": "Cookies och lokal lagring",
+          "paragraphs": [
+            "Cookies är små datafiler som lagras av en webbplats. ClickPDF kan också använda webbläsarlagring, inklusive LocalStorage eller IndexedDB, för att behålla funktionella inställningar såsom gränssnittspreferenser och val om samtycke."
+          ]
+        },
+        {
+          "heading": "Annonsering och tredje part",
+          "paragraphs": [
+            "Tredjeparts annonseringstjänster kan använda cookies eller liknande tekniker för att leverera eller mäta annonser enligt sina egna integritetspolicyer. Webbplatsens samtyckeskontroller förklarar tillgängliga annonseringsval."
+          ]
+        },
+        {
+          "heading": "Hantera dina val",
+          "paragraphs": [
+            "Du kan hantera eller rensa lagrad data via dina webbläsarinställningar. Att blockera cookies kan påverka vissa webbplatsinställningar eller tredjepartstjänster."
+          ]
+        },
+        {
+          "heading": "Mer information",
+          "paragraphs": [
+            "För detaljer om dokumenthantering och annan webbplatsdata, läs integritetspolicyn. Du kan kontakta ClickPDF vid frågor."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Ansvarsfriskrivning",
+      "description": "Läs begränsningarna för ClickPDF-information och behandlingsresultat, inklusive garantier, webbläsarkompatibilitet, filbegränsningar och tjänstetillgänglighet.",
+      "sections": [
+        {
+          "heading": "Information och professionell rådgivning",
+          "paragraphs": [
+            "ClickPDF-guider och webbplatsinformation tillhandahålls endast för allmänna informationsändamål och utgör inte juridisk, ekonomisk, medicinsk eller annan professionell rådgivning."
+          ]
+        },
+        {
+          "heading": "Behandlingsresultat",
+          "paragraphs": [
+            "Utmatningen kan bero på källdokumentet, filstrukturen, webbläsaren och tillgängliga enhetsresurser. Granska resultatet innan du förlitar dig på det, och behåll en oberoende kopia av viktiga original."
+          ]
+        },
+        {
+          "heading": "Tillgänglighet och garantier",
+          "paragraphs": [
+            "ClickPDF tillhandahålls i 'befintligt skick' och 'i mån av tillgänglighet'. Click Digital Services garanterar inte oavbruten drift, felfria resultat eller kompatibilitet med varje fil eller enhet."
+          ]
+        },
+        {
+          "heading": "Tredjepartstjänster",
+          "paragraphs": [
+            "Webbplatsen kan innehålla länkar eller resurser från tredje part. Dessa tjänster styrs av deras egna villkor och integritetspolicyer."
+          ]
+        }
+      ]
+    }
+  },
+  "id": {
+    "about": {
+      "heading": "Tentang ClickPDF",
+      "description": "Pelajari tentang ClickPDF, penerbitnya Click Digital Services, serta alat PDF berbasis browser dan dukungan yang tersedia di situs ini.",
+      "sections": [
+        {
+          "heading": "Penerbit dan tujuan",
+          "paragraphs": [
+            "ClickPDF adalah situs web utilitas PDF berbasis browser yang diterbitkan dan dioperasikan oleh Click Digital Services.",
+            "Situs ini menyediakan alat untuk tugas dokumen umum seperti menggabungkan, membagi, mengompresi, mengonversi, mengatur, dan memeriksa file PDF."
+          ]
+        },
+        {
+          "heading": "Cara kerja alat",
+          "paragraphs": [
+            "Pemrosesan PDF dilakukan di browser untuk alat yang didukung. Fitur khusus dan persyaratan perangkat bervariasi tergantung pada alatnya.",
+            "Situs web mungkin tetap memuat sumber daya halaman dan layanan pihak ketiga yang diaktifkan. Tinjau Kebijakan Privasi dan petunjuk setiap alat sebelum memproses dokumen sensitif."
+          ]
+        },
+        {
+          "heading": "Standar terbuka dan dukungan",
+          "paragraphs": [
+            "ClickPDF menggunakan teknologi browser dan pustaka dokumen mapan untuk menyediakan alat-alatnya. Untuk pertanyaan, masukan, atau masalah teknis, gunakan halaman Kontak."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Hubungi ClickPDF",
+      "description": "Hubungi dukungan ClickPDF untuk masalah teknis, umpan balik, pertanyaan privasi, atau pertanyaan bisnis tentang alat PDF berbasis browser kami.",
+      "sections": [
+        {
+          "heading": "Dukungan dan pertanyaan",
+          "paragraphs": [
+            "Hubungi ClickPDF untuk bantuan teknis, untuk melaporkan masalah yang tidak terduga, untuk menyarankan alat, atau untuk mendiskusikan pertanyaan bisnis."
+          ]
+        },
+        {
+          "heading": "Dukungan email",
+          "paragraphs": [
+            "Kirim pesan ke alamat dukungan di bawah ini. Sertakan nama alat dan browser Anda saat melaporkan masalah teknis. Jangan mengirim dokumen rahasia melalui email kecuali Anda telah meninjau risikonya secara mandiri."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Kebijakan Privasi",
+      "description": "Pelajari bagaimana ClickPDF memproses file PDF di browser, mengelola preferensi lokal, serta bekerja dengan iklan dan layanan situs web lainnya.",
+      "sections": [
+        {
+          "heading": "Pemrosesan dokumen",
+          "paragraphs": [
+            "Untuk alat yang didukung, operasi dokumen dilakukan di browser pada perangkat Anda. Perilaku pemrosesan dapat bervariasi tergantung pada alat dan browser; tinjau instruksi yang ditampilkan di halaman alat.",
+            "Ini menjelaskan pemrosesan dokumen dan tidak berarti halaman web tidak melakukan permintaan jaringan. Situs mungkin memuat sumber daya halaman miliknya sendiri dan layanan pihak ketiga yang diaktifkan."
+          ]
+        },
+        {
+          "heading": "Preferensi dan penyimpanan browser lokal",
+          "paragraphs": [
+            "Situs dapat menggunakan penyimpanan browser, seperti LocalStorage atau IndexedDB, untuk pengaturan dan preferensi fungsional. Nilai-nilai ini tetap tunduk pada kontrol penyimpanan dan privasi browser Anda."
+          ]
+        },
+        {
+          "heading": "Iklan dan layanan pihak ketiga",
+          "paragraphs": [
+            "Iklan atau layanan pihak ketiga lainnya dapat menggunakan teknologi mereka sendiri berdasarkan kebijakan masing-masing. Lihat Kebijakan Cookie untuk informasi lebih lanjut dan cara mengelola pengaturan cookie browser."
+          ]
+        },
+        {
+          "heading": "Pertanyaan",
+          "paragraphs": [
+            "Untuk pertanyaan privasi, hubungi ClickPDF melalui halaman Kontak."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Ketentuan Layanan",
+      "description": "Tinjau ketentuan ClickPDF untuk penggunaan yang diizinkan, tanggung jawab pengguna, kekayaan intelektual, ketersediaan layanan, dan batasan alat PDF berbasis browser.",
+      "sections": [
+        {
+          "heading": "Penggunaan yang diizinkan",
+          "paragraphs": [
+            "ClickPDF menyediakan utilitas PDF berbasis browser untuk alur kerja dokumen pribadi, pendidikan, dan bisnis. Anda bertanggung jawab untuk menggunakan layanan sesuai dengan hukum yang berlaku."
+          ]
+        },
+        {
+          "heading": "File dan tanggung jawab Anda",
+          "paragraphs": [
+            "Anda harus memiliki hak dan izin yang diperlukan untuk memproses dokumen yang Anda pilih. Jangan gunakan layanan untuk memproses atau mendistribusikan materi yang melanggar hukum, menipu, memfitnah, atau melanggar hak cipta."
+          ]
+        },
+        {
+          "heading": "Kekayaan intelektual",
+          "paragraphs": [
+            "Nama ClickPDF, desain situs web, kode khusus, dokumentasi, dan aset visual asli adalah milik Click Digital Services atau pemegang hak masing-masing. Komponen sumber terbuka tetap tunduk pada lisensinya sendiri."
+          ]
+        },
+        {
+          "heading": "Ketersediaan layanan",
+          "paragraphs": [
+            "Layanan disediakan atas dasar 'apa adanya' dan 'ketersediaan'. Kompatibilitas dan hasil dapat bergantung pada file sumber, browser, sumber daya perangkat, dan fitur yang didukung. Simpan salinan file asli yang penting dan verifikasi dokumen yang dihasilkan."
+          ]
+        },
+        {
+          "heading": "Informasi terkait",
+          "paragraphs": [
+            "Baca Penafian untuk informasi tambahan mengenai batasan layanan dan hasil dokumen."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Kebijakan Cookie",
+      "description": "Lihat bagaimana ClickPDF menggunakan penyimpanan browser dan cookie iklan pihak ketiga, serta pelajari cara mengelola persetujuan dan preferensi cookie Anda.",
+      "sections": [
+        {
+          "heading": "Cookie dan penyimpanan lokal",
+          "paragraphs": [
+            "Cookie adalah file data kecil yang disimpan oleh situs web. ClickPDF juga dapat menggunakan penyimpanan browser, termasuk LocalStorage atau IndexedDB, untuk mempertahankan pengaturan fungsional seperti preferensi antarmuka dan pilihan persetujuan."
+          ]
+        },
+        {
+          "heading": "Iklan dan pihak ketiga",
+          "paragraphs": [
+            "Layanan iklan pihak ketiga dapat menggunakan cookie atau teknologi serupa untuk menayangkan atau mengukur iklan di bawah kebijakan privasi mereka sendiri. Kontrol persetujuan situs menjelaskan pilihan iklan yang tersedia."
+          ]
+        },
+        {
+          "heading": "Mengelola pilihan Anda",
+          "paragraphs": [
+            "Anda dapat mengelola atau menghapus data yang disimpan melalui pengaturan browser Anda. Memblokir cookie dapat memengaruhi beberapa preferensi situs web atau layanan pihak ketiga."
+          ]
+        },
+        {
+          "heading": "Informasi lebih lanjut",
+          "paragraphs": [
+            "Untuk detail tentang pemrosesan dokumen dan data situs web lainnya, baca Kebijakan Privasi. Anda dapat menghubungi ClickPDF jika ada pertanyaan."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Penafian",
+      "description": "Baca batasan mengenai informasi dan hasil pemrosesan ClickPDF, termasuk jaminan, kompatibilitas browser, batasan file, dan ketersediaan layanan.",
+      "sections": [
+        {
+          "heading": "Informasi dan saran profesional",
+          "paragraphs": [
+            "Panduan dan informasi situs web ClickPDF disediakan hanya untuk tujuan informasi umum dan bukan merupakan nasihat hukum, keuangan, medis, atau profesional lainnya."
+          ]
+        },
+        {
+          "heading": "Hasil pemrosesan",
+          "paragraphs": [
+            "Output dapat bergantung pada dokumen sumber, struktur file, browser, dan sumber daya perangkat yang tersedia. Tinjau hasilnya sebelum mengandalkannya, dan simpan salinan independen dari dokumen asli yang penting."
+          ]
+        },
+        {
+          "heading": "Ketersediaan dan jaminan",
+          "paragraphs": [
+            "ClickPDF disediakan secara 'apa adanya' dan 'sebagaimana tersedia'. Click Digital Services tidak menjamin pengoperasian tanpa gangguan, hasil bebas kesalahan, atau kompatibilitas dengan setiap file atau perangkat."
+          ]
+        },
+        {
+          "heading": "Layanan pihak ketiga",
+          "paragraphs": [
+            "Situs web dapat menyertakan tautan atau sumber daya dari pihak ketiga. Layanan tersebut diatur oleh ketentuan dan kebijakan privasi mereka sendiri."
+          ]
+        }
+      ]
+    }
+  },
+  "vi": {
+    "about": {
+      "heading": "Giới thiệu về ClickPDF",
+      "description": "Tìm hiểu về ClickPDF, nhà xuất bản Click Digital Services cùng các công cụ PDF dựa trên trình duyệt và hỗ trợ sẵn có trên trang web này.",
+      "sections": [
+        {
+          "heading": "Nhà xuất bản và mục đích",
+          "paragraphs": [
+            "ClickPDF là một trang web tiện ích PDF dựa trên trình duyệt được xuất bản và vận hành bởi Click Digital Services.",
+            "Trang web cung cấp các công cụ cho các tác vụ tài liệu phổ biến như hợp nhất, chia nhỏ, nén, chuyển đổi, sắp xếp và kiểm tra các tệp PDF."
+          ]
+        },
+        {
+          "heading": "Cách các công cụ hoạt động",
+          "paragraphs": [
+            "Việc xử lý PDF được thực hiện trong trình duyệt đối với các công cụ được hỗ trợ. Các tính năng cụ thể và yêu cầu thiết bị khác nhau tùy theo từng công cụ.",
+            "Trang web vẫn có thể tải tài nguyên trang và các dịch vụ của bên thứ ba được bật. Hãy xem lại Chính sách bảo mật và hướng dẫn của từng công cụ trước khi xử lý các tài liệu nhạy cảm."
+          ]
+        },
+        {
+          "heading": "Các tiêu chuẩn mở và hỗ trợ",
+          "paragraphs": [
+            "ClickPDF sử dụng các công nghệ trình duyệt và các thư viện tài liệu đã được thiết lập để cung cấp các công cụ của mình. Nếu có câu hỏi, phản hồi hoặc vấn đề kỹ thuật, hãy sử dụng trang Liên hệ."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "heading": "Liên hệ với ClickPDF",
+      "description": "Liên hệ với bộ phận hỗ trợ của ClickPDF để giải quyết các vấn đề kỹ thuật, phản hồi, các câu hỏi về quyền riêng tư hoặc các thắc mắc kinh doanh về các công cụ PDF trên trình duyệt của chúng tôi.",
+      "sections": [
+        {
+          "heading": "Hỗ trợ và thắc mắc",
+          "paragraphs": [
+            "Liên hệ với ClickPDF để được hỗ trợ kỹ thuật, báo cáo sự cố bất ngờ, đề xuất công cụ hoặc thảo luận về thắc mắc kinh doanh."
+          ]
+        },
+        {
+          "heading": "Hỗ trợ qua email",
+          "paragraphs": [
+            "Gửi tin nhắn đến địa chỉ hỗ trợ bên dưới. Hãy bao gồm tên công cụ và trình duyệt của bạn khi báo cáo vấn đề kỹ thuật. Đừng gửi tài liệu mật qua email trừ khi bạn đã tự mình đánh giá các rủi ro."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "heading": "Chính sách quyền riêng tư",
+      "description": "Tìm hiểu cách ClickPDF xử lý các tệp PDF trong trình duyệt, quản lý các tùy chọn cục bộ và hoạt động với quảng cáo cũng như các dịch vụ trang web khác.",
+      "sections": [
+        {
+          "heading": "Xử lý tài liệu",
+          "paragraphs": [
+            "Đối với các công cụ được hỗ trợ, các thao tác trên tài liệu được thực hiện trong trình duyệt trên thiết bị của bạn. Hành vi xử lý có thể thay đổi tùy theo công cụ và trình duyệt; hãy xem lại các hướng dẫn hiển thị trên trang công cụ.",
+            "Đây là mô tả về việc xử lý tài liệu và không có nghĩa là trang web không thực hiện bất kỳ yêu cầu mạng nào. Trang web có thể tải tài nguyên trang của riêng mình và các dịch vụ của bên thứ ba được bật."
+          ]
+        },
+        {
+          "heading": "Tùy chọn và bộ nhớ trình duyệt cục bộ",
+          "paragraphs": [
+            "Trang web có thể sử dụng bộ nhớ trình duyệt, chẳng hạn như LocalStorage hoặc IndexedDB, cho các cài đặt và tùy chọn chức năng. Các giá trị này vẫn tuân theo các biện pháp kiểm soát quyền riêng tư và lưu trữ của trình duyệt của bạn."
+          ]
+        },
+        {
+          "heading": "Quảng cáo và dịch vụ của bên thứ ba",
+          "paragraphs": [
+            "Quảng cáo hoặc các dịch vụ của bên thứ ba khác có thể sử dụng công nghệ riêng của họ theo chính sách tương ứng của họ. Xem Chính sách Cookie để biết thêm thông tin và cách quản lý cài đặt cookie của trình duyệt."
+          ]
+        },
+        {
+          "heading": "Câu hỏi",
+          "paragraphs": [
+            "Đối với các câu hỏi về quyền riêng tư, hãy liên hệ với ClickPDF qua trang Liên hệ."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "heading": "Điều khoản dịch vụ",
+      "description": "Xem xét các điều khoản của ClickPDF về việc sử dụng được phép, trách nhiệm của người dùng, quyền sở hữu trí tuệ, tính khả dụng của dịch vụ và các giới hạn của các công cụ PDF trên trình duyệt.",
+      "sections": [
+        {
+          "heading": "Sử dụng được phép",
+          "paragraphs": [
+            "ClickPDF cung cấp các tiện ích PDF trên trình duyệt cho quy trình làm việc với tài liệu cá nhân, giáo dục và kinh doanh. Bạn chịu trách nhiệm sử dụng dịch vụ theo luật hiện hành."
+          ]
+        },
+        {
+          "heading": "Tệp tin và trách nhiệm của bạn",
+          "paragraphs": [
+            "Bạn phải có các quyền và sự cho phép cần thiết để xử lý các tài liệu mà bạn chọn. Không sử dụng dịch vụ để xử lý hoặc phân phối tài liệu bất hợp pháp, lừa đảo, phỉ báng hoặc vi phạm."
+          ]
+        },
+        {
+          "heading": "Quyền sở hữu trí tuệ",
+          "paragraphs": [
+            "Tên ClickPDF, thiết kế trang web, mã tùy chỉnh, tài liệu và tài sản hình ảnh gốc thuộc sở hữu của Click Digital Services hoặc các chủ sở hữu quyền tương ứng của họ. Các thành phần mã nguồn mở vẫn tuân theo giấy phép riêng của chúng."
+          ]
+        },
+        {
+          "heading": "Tính khả dụng của dịch vụ",
+          "paragraphs": [
+            "Dịch vụ được cung cấp trên cơ sở 'nguyên trạng' và 'tùy theo khả dụng'. Khả năng tương thích và kết quả có thể phụ thuộc vào tệp nguồn, trình duyệt, tài nguyên thiết bị và các tính năng được hỗ trợ. Giữ một bản sao của các tệp gốc quan trọng và xác minh các tài liệu đã tạo."
+          ]
+        },
+        {
+          "heading": "Thông tin liên quan",
+          "paragraphs": [
+            "Đọc Tuyên bố từ chối trách nhiệm để biết thêm thông tin về các giới hạn dịch vụ và kết quả tài liệu."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "heading": "Chính sách Cookie",
+      "description": "Xem cách ClickPDF sử dụng lưu trữ trình duyệt và cookie quảng cáo của bên thứ ba, và tìm hiểu cách quản lý sự đồng ý cũng như tùy chọn cookie của bạn.",
+      "sections": [
+        {
+          "heading": "Cookie và lưu trữ cục bộ",
+          "paragraphs": [
+            "Cookie là các tệp dữ liệu nhỏ được lưu trữ bởi một trang web. ClickPDF cũng có thể sử dụng lưu trữ trình duyệt, bao gồm LocalStorage hoặc IndexedDB, để giữ lại các cài đặt chức năng như tùy chọn giao diện và lựa chọn đồng ý."
+          ]
+        },
+        {
+          "heading": "Quảng cáo và bên thứ ba",
+          "paragraphs": [
+            "Các dịch vụ quảng cáo của bên thứ ba có thể sử dụng cookie hoặc các công nghệ tương tự để phân phối hoặc đo lường quảng cáo theo chính sách quyền riêng tư của riêng họ. Các điều khiển đồng ý của trang web giải thích tùy chọn quảng cáo có sẵn."
+          ]
+        },
+        {
+          "heading": "Quản lý lựa chọn của bạn",
+          "paragraphs": [
+            "Bạn có thể quản lý hoặc xóa dữ liệu đã lưu thông qua cài đặt trình duyệt của mình. Việc chặn cookie có thể ảnh hưởng đến một số tùy chọn trang web hoặc dịch vụ của bên thứ ba."
+          ]
+        },
+        {
+          "heading": "Thông tin thêm",
+          "paragraphs": [
+            "Để biết chi tiết về việc xử lý tài liệu và dữ liệu trang web khác, hãy đọc Chính sách Quyền riêng tư. Bạn có thể liên hệ với ClickPDF nếu có câu hỏi."
+          ]
+        }
+      ]
+    },
+    "disclaimer": {
+      "heading": "Tuyên bố miễn trừ trách nhiệm",
+      "description": "Đọc các giới hạn về thông tin ClickPDF và kết quả xử lý, bao gồm các bảo hành, khả năng tương thích của trình duyệt, giới hạn tệp và tính khả dụng của dịch vụ.",
+      "sections": [
+        {
+          "heading": "Thông tin và tư vấn chuyên môn",
+          "paragraphs": [
+            "Các hướng dẫn và thông tin trên trang web ClickPDF chỉ được cung cấp cho mục đích thông tin chung và không cấu thành tư vấn pháp lý, tài chính, y tế hoặc tư vấn chuyên môn khác."
+          ]
+        },
+        {
+          "heading": "Kết quả xử lý",
+          "paragraphs": [
+            "Đầu ra có thể phụ thuộc vào tài liệu nguồn, cấu trúc tệp, trình duyệt và tài nguyên thiết bị khả dụng. Hãy xem xét kết quả trước khi tin tưởng vào nó và giữ một bản sao độc lập của các bản gốc quan trọng."
+          ]
+        },
+        {
+          "heading": "Tính khả dụng và bảo hành",
+          "paragraphs": [
+            "ClickPDF được cung cấp trên cơ sở 'nguyên trạng' và 'tùy theo tình trạng sẵn có'. Click Digital Services không đảm bảo hoạt động không bị gián đoạn, kết quả không có lỗi hoặc khả năng tương thích với mọi tệp hoặc thiết bị."
+          ]
+        },
+        {
+          "heading": "Dịch vụ của bên thứ ba",
+          "paragraphs": [
+            "Trang web có thể bao gồm các liên kết hoặc tài nguyên từ bên thứ ba. Các dịch vụ đó được điều chỉnh bởi các điều khoản và chính sách bảo mật của riêng họ."
+          ]
+        }
+      ]
+    }
+  }
+}
