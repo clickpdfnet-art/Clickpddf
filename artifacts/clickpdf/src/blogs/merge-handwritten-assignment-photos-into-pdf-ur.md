@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-ur
 locale: ur
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: موبائل پر ہاتھ سے لکھے ہوئے اسائنمنٹ کی متعدد تصاویر کو ایک پی ڈی ایف میں ضم کرنے کا طریقہ
-slug: merge-handwritten-assignment-photos-into-pdf-ur
+slug: merge-handwritten-assignment-photos-into-pdf-ur-ur
 category: طلباء کے لیے گائیڈز
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: امیج ٹو پی ڈی ایف کنورٹر
 targetToolCta: اسائنمنٹ کی تصاویر کو پی ڈی ایف میں بدلیں
-breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"موبائل پر ہاتھ سے لکھے ہوئے اسائنمنٹ کی متعدد تصاویر کو ایک پی ڈی ایف میں ضم کرنے کا طریقہ","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ur/"}]
+breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"موبائل پر ہاتھ سے لکھے ہوئے اسائنمنٹ کی متعدد تصاویر کو ایک پی ڈی ایف میں ضم کرنے کا طریقہ","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ur-ur/"}]
 faqItems: [{"answer":"اپنے اسائنمنٹ کی تصاویر کو صحیح ترتیب میں منتخب کریں، ایک ہم آہنگ امیج ٹو پی ڈی ایف ٹول استعمال کریں، صفحہ لے آؤٹ کا جائزہ لیں، اور بننے والی پی ڈی ایف ڈاؤن لوڈ کریں۔","question":"میں موبائل پر ہاتھ سے لکھے ہوئے اسائنمنٹ کی تصاویر کو ایک پی ڈی ایف میں کیسے ضم کر سکتا ہوں؟"},{"answer":"اچھی روشنی کا استعمال کریں، کیمرے کو صفحہ کے متوازی رکھیں، غیر ضروری کناروں کو تراشیں، اور لکھائی کو مٹائے بغیر چمک اور کنٹراسٹ کو چیک کریں۔","question":"میں ہاتھ سے لکھے ہوئے اسائنمنٹ کی تصاویر کو پڑھنے میں آسان کیسے بنا سکتا ہوں؟"},{"answer":"بڑی تصاویر کا سائز تبدیل کریں، مناسب امیج کوالٹی استعمال کریں، اور ضرورت پڑنے پر پی ڈی ایف کمپریشن لگائیں۔ حتمی فائل کا سائز اور پڑھنے کی اہلیت کو اپنے پورٹل کی ضروریات کے مطابق چیک کریں۔","question":"میں ایل ایم ایس پورٹل کے لیے پی ڈی ایف فائل کا سائز کیسے کم کر سکتا ہوں؟"},{"answer":"جی ہاں، جب آپ ایسا ٹول استعمال کرتے ہیں جو مکمل طور پر آپ کے براؤزر یا ڈیوائس پر تبدیلی کرتا ہے۔ استعمال سے پہلے اس کے پروسیسنگ رویے اور پرائیویسی کی معلومات چیک کریں۔","question":"کیا میں تصاویر کو سرور پر اپ لوڈ کیے بغیر پی ڈی ایف میں تبدیل کر سکتا ہوں؟"}]
 ---
 

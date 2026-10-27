@@ -3,7 +3,7 @@ id: art-1-ja
 locale: ja
 translationGroup: in-browser-pdf-privacy-guide
 title: ブラウザ内PDF処理が本質的に安全である理由
-slug: browser-nai-pdf-privacy-guide
+slug: browser-nai-pdf-privacy-guide-ja
 category: プライバシーとセキュリティ
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF圧縮ツール
 targetToolCta: ブラウザで安全にPDFを圧縮（アップロード不要）
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"ブラウザ内PDF処理が本質的に安全である理由","url":"https://www.clickpdf.net/blog/browser-nai-pdf-privacy-guide/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"ブラウザ内PDF処理が本質的に安全である理由","url":"https://www.clickpdf.net/blog/browser-nai-pdf-privacy-guide-ja/"}]
 ---
 
 確定申告書、医療用フォーム、または署名済みの雇用契約書を一般的なオンラインPDF変換ツールにアップロードすると、その文書はインターネットを通じて見えない旅に出ます。文書はサードパーティのルーティングノードを通過し、馴染みのない企業が管理するクラウドサーバーに到着します。サービス側が1〜2時間後にファイルを削除すると約束していても、データは一時的にリモートドライブに存在し、従業員のミスやクラウドの設定不備、または自動バックアップによって流出する可能性があります。

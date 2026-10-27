@@ -3,7 +3,7 @@ id: art-6-id
 locale: id
 translationGroup: demystifying-pdf-passwords-encryption
 title: Demistifikasi Kata Sandi PDF dan Enkripsi Zero-Knowledge
-slug: demistifikasi-kata-sandi-pdf-dan-enkripsi-zero-knowledge
+slug: demistifikasi-kata-sandi-pdf-dan-enkripsi-zero-knowledge-id
 category: Arsitektur Keamanan
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Alat Perlindungan PDF AES-256
 targetToolCta: Lindungi PDF dengan Kata Sandi menggunakan Enkripsi Zero-Knowledge
-breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistifikasi Kata Sandi PDF dan Enkripsi Zero-Knowledge","url":"https://www.clickpdf.net/blog/demistifikasi-kata-sandi-pdf-dan-enkripsi-zero-knowledge/"}]
+breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistifikasi Kata Sandi PDF dan Enkripsi Zero-Knowledge","url":"https://www.clickpdf.net/blog/demistifikasi-kata-sandi-pdf-dan-enkripsi-zero-knowledge-id/"}]
 ---
 
 Melindungi perkiraan keuangan sensitif atau perjanjian pribadi memerlukan pemahaman tentang bagaimana enkripsi PDF sebenarnya bekerja. Banyak orang berasumsi bahwa semua perlindungan kata sandi itu sama, tetapi mekanisme dasarnya membuat perbedaan yang sangat besar.

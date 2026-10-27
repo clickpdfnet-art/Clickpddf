@@ -3,7 +3,7 @@ id: art-4-no
 locale: no
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Slik lager du elegante fotoporteføljer og lookbøker som standard PDF-filer
-slug: konverter-bilder-til-skarpe-pdf-portefoljer
+slug: konverter-bilder-til-skarpe-pdf-portefoljer-no
 category: Kreativt design
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Bilde til PDF-konverterer
 targetToolCta: Konverter bilder og fotos til PDF-porteføljer
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik lager du elegante fotoporteføljer og lookbøker som standard PDF-filer","url":"https://www.clickpdf.net/blog/konverter-bilder-til-skarpe-pdf-portefoljer/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik lager du elegante fotoporteføljer og lookbøker som standard PDF-filer","url":"https://www.clickpdf.net/blog/konverter-bilder-til-skarpe-pdf-portefoljer-no/"}]
 ---
 
 Fotografer, arkitekter, interiørarkitekter og visuelle kunstnere trenger ofte å dele arbeidseksempler med kunder og potensielle arbeidsgivere. Selv om nettbaserte gallerier er flotte, ber kunder i bedriftsmiljøer nesten alltid om en enkelt nedlastbar PDF-portefølje som de kan gå gjennom i styrerommet eller sende videre til beslutningstakere.

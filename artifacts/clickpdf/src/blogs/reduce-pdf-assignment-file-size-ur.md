@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-ur
 locale: ur
 translationGroup: reduce-pdf-assignment-file-size
 title: یونیورسٹی ایل ایم ایس پورٹلز کے لیے پی ڈی ایف اسائنمنٹ کا سائز 2 ایم بی سے کم کرنے کا طریقہ
-slug: pdf-assignment-file-size-kam-karein
+slug: pdf-assignment-file-size-kam-karein-ur
 category: طلباء کے لیے رہنما
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: پی ڈی ایف کمپریسر
 targetToolCta: ابھی پی ڈی ایف کمپریس کریں
-breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"یونیورسٹی ایل ایم ایس پورٹلز کے لیے پی ڈی ایف اسائنمنٹ کا سائز 2 ایم بی سے کم کرنے کا طریقہ","url":"https://www.clickpdf.net/blog/pdf-assignment-file-size-kam-karein/"}]
+breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"یونیورسٹی ایل ایم ایس پورٹلز کے لیے پی ڈی ایف اسائنمنٹ کا سائز 2 ایم بی سے کم کرنے کا طریقہ","url":"https://www.clickpdf.net/blog/pdf-assignment-file-size-kam-karein-ur/"}]
 faqItems: [{"answer":"کچھ یونیورسٹی ایل ایم ایس پورٹلز اپ لوڈ کا زیادہ سے زیادہ سائز 2 ایم بی مقرر کرتے ہیں۔ اپنے کورس کی ہدایات چیک کریں کیونکہ اصل حد مختلف ہو سکتی ہے۔","question":"اسائنمنٹ پی ڈی ایف کا 2 ایم بی سے کم ہونا کیوں ضروری ہے؟"},{"answer":"تصاویر کو کمپریس کریں، سکین شدہ صفحات کو آپٹمائز کریں، غیر ضروری مواد اور میٹا ڈیٹا کو ہٹائیں، اور ایک مناسب پی ڈی ایف کمپریشن ٹول استعمال کریں۔ نتیجے میں فائل کے سائز اور پڑھنے کی اہلیت کی تصدیق کریں۔","question":"میں پی ڈی ایف کو 2 ایم بی سے کم کیسے کر سکتا ہوں؟"},{"answer":"کچھ ساختی اصلاحات ظاہری مواد کو تبدیل کیے بغیر فائل کا سائز کم کرتی ہیں۔ امیج ڈاؤن سیمپلنگ اور لوسی کمپریشن معیار کو کم کر سکتے ہیں، لہذا جمع کرانے سے پہلے آؤٹ پٹ کو چیک کریں۔","question":"کیا میں معیار کھوئے بغیر پی ڈی ایف کو کمپریس کر سکتا ہوں؟"},{"answer":"جی ہاں، اگر منتخب کردہ براؤزر ٹول پی ڈی ایف کمپریشن کو سپورٹ کرتا ہے۔ کلائنٹ سائیڈ پروسیسنگ آپ کی فائلوں کو آپ کے آلے پر رکھ سکتی ہے، لیکن ٹول کی رازداری اور پروسیسنگ کی تفصیلات چیک کریں۔","question":"کیا میں اپنے براؤزر میں پی ڈی ایف کو کمپریس کر سکتا ہوں؟"}]
 ---
 

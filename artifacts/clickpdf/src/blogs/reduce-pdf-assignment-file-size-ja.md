@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-ja
 locale: ja
 translationGroup: reduce-pdf-assignment-file-size
 title: 大学LMSポータル向けにPDF課題のファイルサイズを2MB以下に抑える方法
-slug: reduce-pdf-assignment-file-size-ja
+slug: reduce-pdf-assignment-file-size-ja-ja
 category: 学生向けガイド
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF圧縮ツール
 targetToolCta: 今すぐPDFを圧縮
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"大学LMSポータル向けにPDF課題のファイルサイズを2MB以下に抑える方法","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ja/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"大学LMSポータル向けにPDF課題のファイルサイズを2MB以下に抑える方法","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ja-ja/"}]
 faqItems: [{"answer":"大学のLMSポータルの中には、最大アップロードサイズを2MBに制限しているものがあります。実際の制限は異なる可能性があるため、コースの指示を確認してください。","question":"なぜ課題のPDFは2MB以下である必要があるのですか？"},{"answer":"画像の圧縮、スキャンページの最適化、不要なコンテンツやメタデータの削除を行い、適切なPDF圧縮ツールを使用してください。結果として得られたファイルのサイズと可読性を確認してください。","question":"PDFを2MB以下に圧縮するにはどうすればよいですか？"},{"answer":"構造的な最適化により、表示内容を変更せずにファイルサイズを小さくできる場合があります。画像のリサンプリングや非可逆圧縮は品質を低下させる可能性があるため、提出前に出力を確認してください。","question":"品質を落とさずにPDFを圧縮できますか？"},{"answer":"はい、選択したブラウザツールがPDF圧縮に対応していれば可能です。クライアントサイド処理であればファイルをデバイス内に留めておけますが、ツールのプライバシーと処理の詳細を確認してください。","question":"ブラウザでPDFを圧縮できますか？"}]
 ---
 

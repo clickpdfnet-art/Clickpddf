@@ -3,7 +3,7 @@ id: art-1-no
 locale: no
 translationGroup: in-browser-pdf-privacy-guide
 title: Hvorfor PDF-behandling i nettleseren er fundamentalt tryggere
-slug: personvernguide-pdf-nettleser
+slug: personvernguide-pdf-nettleser-no
 category: Personvern og sikkerhet
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Verktøy for PDF-komprimering
 targetToolCta: Komprimer PDF-er trygt i nettleseren (Ingen opplastinger)
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvorfor PDF-behandling i nettleseren er fundamentalt tryggere","url":"https://www.clickpdf.net/blog/personvernguide-pdf-nettleser/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvorfor PDF-behandling i nettleseren er fundamentalt tryggere","url":"https://www.clickpdf.net/blog/personvernguide-pdf-nettleser-no/"}]
 ---
 
 Hver gang du laster opp en skattemelding, et medisinsk skjema eller en signert arbeidskontrakt til en vanlig PDF-konverterer på nett, legger dokumentet ut på en usynlig reise over internett. Det reiser gjennom tredjeparts ruting-noder og havner på en nettsky-server administrert av et ukjent selskap. Selv når tjenester lover å slette filer etter en time eller to, ligger dataene dine midlertidig på eksterne stasjoner der ansattes feil, feilkonfigureringer i nettskyen eller automatiserte sikkerhetskopier kan gjøre dem eksponert.

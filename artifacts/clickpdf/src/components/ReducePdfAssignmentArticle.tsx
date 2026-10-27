@@ -1,6 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import type { BlogPost } from '../types';
 import {
+  formatLocalizedByline,
+  formatLocalizedDate,
+  formatLocalizedReadTime,
+} from '../utils/formatLocalizedDate';
+import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
@@ -259,9 +264,9 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               <h1 className="max-w-3xl text-[clamp(2rem,4.4vw,3.55rem)] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#132847]">{article.title}</h1>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">{article.excerpt}</p>
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[#d4dfec] pt-5 text-xs font-medium text-slate-600 sm:text-sm">
-                <span className="inline-flex items-center gap-2"><CalendarDays size={15} className="text-indigo-600" /><time dateTime={pubDate}>{article.date}</time></span>
-                <span className="inline-flex items-center gap-2"><Clock3 size={15} className="text-indigo-600" />{article.readTime}</span>
-                <span className="text-slate-500">By {article.author}</span>
+                <span className="inline-flex items-center gap-2"><CalendarDays size={15} className="text-indigo-600" /><time dateTime={pubDate}>{formatLocalizedDate(article.date, article.locale || 'en')}</time></span>
+                <span className="inline-flex items-center gap-2"><Clock3 size={15} className="text-indigo-600" />{formatLocalizedReadTime(article.readTime, article.locale || 'en')}</span>
+                <span className="text-slate-500">{formatLocalizedByline(article.author, article.locale || 'en')}</span>
               </div>
             </div>
             <div className="relative min-h-[230px] overflow-hidden md:min-h-[340px]">
@@ -430,7 +435,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                       <span className="mt-0.5 text-cyan-700"><BookOpen size={16} /></span>
                       <span className="min-w-0 flex-1">
                         <span className="block text-sm font-semibold leading-5 text-[#29415f] group-hover:text-indigo-700">{item.title}</span>
-                        <span className="mt-1 block text-xs text-slate-500">{item.readTime}</span>
+                        <span className="mt-1 block text-xs text-slate-500">{formatLocalizedReadTime(item.readTime, item.locale || article.locale || 'en')}</span>
                       </span>
                       <ArrowRight size={14} className="mt-1 shrink-0 text-slate-400 group-hover:text-indigo-700" />
                     </a>

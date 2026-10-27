@@ -3,7 +3,7 @@ id: art-2-tl
 locale: tl
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Isang Praktikal na Gabay sa Pagbuo ng Malinis na PDF Package para sa mga Visa, Korte, at Tax Filings
-slug: how-to-merge-reorder-pdfs-formal-filings-tl
+slug: how-to-merge-reorder-pdfs-formal-filings-tl-tl
 category: Pagiging Produktibo
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Tool sa Pag-merge ng PDF
 targetToolCta: I-merge at I-reorder ang mga Filing Documents Ngayon
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Isang Praktikal na Gabay sa Pagbuo ng Malinis na PDF Package para sa mga Visa, Korte, at Tax Filings","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-tl/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Isang Praktikal na Gabay sa Pagbuo ng Malinis na PDF Package para sa mga Visa, Korte, at Tax Filings","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-tl-tl/"}]
 ---
 
 Kakaunti ang mga bagay na mas nakakainis kaysa sa ma-reject ang isang immigration visa application, court submission, o mortgage packet dahil lamang sa maling format ng dokumento. Ang mga opisyal na portal ay madalas na nagpapatupad ng mahigpit na mga alituntunin sa pagpapasa, at ang pagpasa ng magulo na koleksyon ng mga attachment ang pinakamabilis na paraan para maantala ang pag-apruba.

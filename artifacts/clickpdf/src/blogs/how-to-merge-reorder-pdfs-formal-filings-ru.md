@@ -3,7 +3,7 @@ id: art-2-ru
 locale: ru
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Практическое руководство по составлению аккуратных PDF-досье для виз, судов и налоговых органов
-slug: kak-obedinyat-i-uporyadochivat-pdf-dlya-ofitsialnykh-podach
+slug: kak-obedinyat-i-uporyadochivat-pdf-dlya-ofitsialnykh-podach-ru
 category: Продуктивность
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Инструмент объединения PDF
 targetToolCta: Объединить и упорядочить документы для подачи
-breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF-инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Практическое руководство по составлению аккуратных PDF-досье для виз, судов и налоговых органов","url":"https://www.clickpdf.net/blog/kak-obedinyat-i-uporyadochivat-pdf-dlya-ofitsialnykh-podach/"}]
+breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF-инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Практическое руководство по составлению аккуратных PDF-досье для виз, судов и налоговых органов","url":"https://www.clickpdf.net/blog/kak-obedinyat-i-uporyadochivat-pdf-dlya-ofitsialnykh-podach-ru/"}]
 ---
 
 Мало что может быть более неприятным, чем отказ в приеме заявления на иммиграционную визу, судебного иска или пакета документов для ипотеки из-за ошибок в оформлении. Официальные порталы часто выдвигают строгие требования, и отправка беспорядочного набора файлов — верный способ затянуть одобрение.

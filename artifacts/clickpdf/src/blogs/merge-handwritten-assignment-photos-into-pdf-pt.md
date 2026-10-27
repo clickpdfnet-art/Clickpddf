@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-pt
 locale: pt
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Como juntar várias fotos de trabalhos escritos à mão em um único PDF no celular
-slug: juntar-fotos-trabalhos-manuais-pdf-celular
+slug: juntar-fotos-trabalhos-manuais-pdf-celular-pt
 category: Guias para estudantes
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Conversor de imagem para PDF
 targetToolCta: Converter fotos de trabalhos para PDF
-breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas","url":"https://www.clickpdf.net/#tools"},{"name":"Como juntar várias fotos de trabalhos escritos à mão em um único PDF no celular","url":"https://www.clickpdf.net/blog/juntar-fotos-trabalhos-manuais-pdf-celular/"}]
+breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas","url":"https://www.clickpdf.net/#tools"},{"name":"Como juntar várias fotos de trabalhos escritos à mão em um único PDF no celular","url":"https://www.clickpdf.net/blog/juntar-fotos-trabalhos-manuais-pdf-celular-pt/"}]
 faqItems: [{"answer":"Selecione as fotos do seu trabalho na ordem correta, use uma ferramenta compatível de imagem para PDF, revise o layout das páginas e baixe o PDF resultante.","question":"Como posso juntar fotos de trabalhos escritos à mão em um único PDF no celular?"},{"answer":"Use boa iluminação, mantenha a câmera paralela à página, recorte bordas desnecessárias e ajuste o brilho e contraste sem apagar a escrita.","question":"Como posso tornar as fotos de trabalhos escritos à mão mais fáceis de ler?"},{"answer":"Redimensione imagens grandes, use uma qualidade de imagem adequada e aplique compressão de PDF se necessário. Verifique o tamanho final e a legibilidade conforme os requisitos do portal.","question":"Como posso reduzir o tamanho do arquivo PDF para um portal acadêmico?"},{"answer":"Sim, ao usar uma ferramenta que realiza a conversão inteiramente no seu navegador ou dispositivo. Verifique o comportamento de processamento e as informações de privacidade antes do uso.","question":"Posso converter fotos para PDF sem enviá-las para um servidor?"}]
 ---
 

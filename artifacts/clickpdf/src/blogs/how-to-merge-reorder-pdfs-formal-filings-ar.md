@@ -3,7 +3,7 @@ id: art-2-ar
 locale: ar
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: دليل عملي لتجميع حزم PDF نظيفة للتأشيرات والمحاكم والإقرارات الضريبية
-slug: how-to-merge-reorder-pdfs-formal-filings-ar
+slug: how-to-merge-reorder-pdfs-formal-filings-ar-ar
 category: الإنتاجية
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: أداة دمج PDF
 targetToolCta: ادمجي وأعيدي ترتيب مستندات التقديم الآن
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"دليل عملي لتجميع حزم PDF نظيفة للتأشيرات والمحاكم والإقرارات الضريبية","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ar/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"دليل عملي لتجميع حزم PDF نظيفة للتأشيرات والمحاكم والإقرارات الضريبية","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ar-ar/"}]
 ---
 
 لا يوجد شيء أكثر إحباطًا من رفض طلب تأشيرة هجرة أو تقديم للمحكمة أو حزمة رهن عقاري بسبب أخطاء في تنسيق المستندات. غالبًا ما تفرض البوابات الرسمية إرشادات تقديم صارمة، ويعد تقديم مجموعة غير منظمة من المرفقات أسرع طريقة لتأخير الموافقة.

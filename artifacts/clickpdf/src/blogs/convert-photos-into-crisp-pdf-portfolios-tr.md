@@ -3,7 +3,7 @@ id: art-4-tr
 locale: tr
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Şık Fotoğraf Portfolyoları ve Lookbookları Standart PDF Olarak Nasıl Oluşturulur
-slug: fotograflari-sik-pdf-portfolyolara-donusturme
+slug: fotograflari-sik-pdf-portfolyolara-donusturme-tr
 category: Yaratıcı Tasarım
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Görselden PDF'e Dönüştürücü
 targetToolCta: Görselleri ve Fotoğrafları PDF Portfolyolara Dönüştür
-breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Şık Fotoğraf Portfolyoları ve Lookbookları Standart PDF Olarak Nasıl Oluşturulur","url":"https://www.clickpdf.net/blog/fotograflari-sik-pdf-portfolyolara-donusturme/"}]
+breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Şık Fotoğraf Portfolyoları ve Lookbookları Standart PDF Olarak Nasıl Oluşturulur","url":"https://www.clickpdf.net/blog/fotograflari-sik-pdf-portfolyolara-donusturme-tr/"}]
 ---
 
 Fotoğrafçılar, mimarlar, iç mimarlar ve görsel sanatçılar çalışmalarının örneklerini müşterilerle ve potansiyel işverenlerle sık sık paylaşmak zorundadır. Çevrimiçi galeriler harika olsa da, kurumsal ortamlardaki müşteriler neredeyse her zaman toplantı odalarında inceleyebilecekleri veya karar vericilere iletebilecekleri tek bir indirilebilir PDF portfolyo talep ederler.

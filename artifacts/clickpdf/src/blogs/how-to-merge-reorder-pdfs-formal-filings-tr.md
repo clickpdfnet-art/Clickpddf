@@ -3,7 +3,7 @@ id: art-2-tr
 locale: tr
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Vize, Mahkeme ve Vergi Başvuruları İçin Temiz PDF Paketleri Hazırlama Rehberi
-slug: vize-mahkeme-vergi-icin-pdf-birlestirme-ve-duzenleme
+slug: vize-mahkeme-vergi-icin-pdf-birlestirme-ve-duzenleme-tr
 category: Üretkenlik
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF Birleştirme Aracı
 targetToolCta: Başvuru Belgelerini Şimdi Birleştir ve Sırala
-breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Vize, Mahkeme ve Vergi Başvuruları İçin Temiz PDF Paketleri Hazırlama Rehberi","url":"https://www.clickpdf.net/blog/vize-mahkeme-vergi-icin-pdf-birlestirme-ve-duzenleme/"}]
+breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Vize, Mahkeme ve Vergi Başvuruları İçin Temiz PDF Paketleri Hazırlama Rehberi","url":"https://www.clickpdf.net/blog/vize-mahkeme-vergi-icin-pdf-birlestirme-ve-duzenleme-tr/"}]
 ---
 
 Göçmenlik vizesi başvurunuzun, mahkeme sunumunuzun veya ipotek paketinizin belge biçimlendirme hataları nedeniyle reddedilmesinden daha sinir bozucu çok az şey vardır. Resmi portallar genellikle katı gönderim kuralları uygular ve düzensiz eklerden oluşan bir koleksiyon sunmak, onayı geciktirmenin en hızlı yoludur.

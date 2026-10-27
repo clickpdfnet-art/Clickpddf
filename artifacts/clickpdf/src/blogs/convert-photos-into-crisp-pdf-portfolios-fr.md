@@ -3,7 +3,7 @@ id: art-4-fr
 locale: fr
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Comment créer des portfolios photo et des lookbooks élégants en PDF standard
-slug: creer-des-portfolios-photo-pdf-elegants
+slug: creer-des-portfolios-photo-pdf-elegants-fr
 category: Design créatif
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Convertisseur d'images en PDF
 targetToolCta: Convertir des images et photos en portfolios PDF
-breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment créer des portfolios photo et des lookbooks élégants en PDF standard","url":"https://www.clickpdf.net/blog/creer-des-portfolios-photo-pdf-elegants/"}]
+breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment créer des portfolios photo et des lookbooks élégants en PDF standard","url":"https://www.clickpdf.net/blog/creer-des-portfolios-photo-pdf-elegants-fr/"}]
 ---
 
 Les photographes, architectes, décorateurs d'intérieur et artistes visuels ont souvent besoin de partager des échantillons de travail avec des clients et des employeurs potentiels. Bien que les galeries en ligne soient excellentes, les clients en entreprise demandent presque toujours un seul portfolio PDF téléchargeable qu'ils peuvent examiner en salle de réunion ou transmettre aux décideurs.

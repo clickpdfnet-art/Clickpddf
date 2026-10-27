@@ -3,7 +3,7 @@ id: art-4-it
 locale: it
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Come creare eleganti portfolio fotografici e lookbook come PDF standard
-slug: convertire-foto-in-portfolio-pdf-nitidi
+slug: convertire-foto-in-portfolio-pdf-nitidi-it
 category: Design creativo
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Convertitore da immagini a PDF
 targetToolCta: Converti immagini e foto in portfolio PDF
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Come creare eleganti portfolio fotografici e lookbook come PDF standard","url":"https://www.clickpdf.net/blog/convertire-foto-in-portfolio-pdf-nitidi/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Come creare eleganti portfolio fotografici e lookbook come PDF standard","url":"https://www.clickpdf.net/blog/convertire-foto-in-portfolio-pdf-nitidi-it/"}]
 ---
 
 Fotografi, architetti, interior designer e artisti visivi devono spesso condividere campioni di lavoro con clienti e potenziali datori di lavoro. Sebbene le gallerie online siano ottime, i clienti in contesti aziendali richiedono quasi sempre un unico portfolio PDF scaricabile che possano esaminare nelle sale riunioni o inoltrare ai decision maker.

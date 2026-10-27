@@ -3,7 +3,7 @@ id: art-6-pl
 locale: pl
 translationGroup: demystifying-pdf-passwords-encryption
 title: Demistyfikacja haseł PDF i szyfrowania typu zero-knowledge
-slug: demistyfikacja-hasel-pdf-i-szyfrowania-zero-knowledge
+slug: demistyfikacja-hasel-pdf-i-szyfrowania-zero-knowledge-pl
 category: Architektura bezpieczeństwa
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Narzędzie do ochrony PDF za pomocą AES-256
 targetToolCta: Chroń plik PDF hasłem za pomocą szyfrowania zero-knowledge
-breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistyfikacja haseł PDF i szyfrowania typu zero-knowledge","url":"https://www.clickpdf.net/blog/demistyfikacja-hasel-pdf-i-szyfrowania-zero-knowledge/"}]
+breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistyfikacja haseł PDF i szyfrowania typu zero-knowledge","url":"https://www.clickpdf.net/blog/demistyfikacja-hasel-pdf-i-szyfrowania-zero-knowledge-pl/"}]
 ---
 
 Ochrona wrażliwych prognoz finansowych lub prywatnych umów wymaga zrozumienia, jak w rzeczywistości działa szyfrowanie PDF. Wiele osób zakłada, że każda ochrona hasłem jest identyczna, ale podstawowy mechanizm robi ogromną różnicę.

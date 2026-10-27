@@ -3,7 +3,7 @@ id: art-6-nl
 locale: nl
 translationGroup: demystifying-pdf-passwords-encryption
 title: Het ontrafelen van PDF-wachtwoorden en Zero-Knowledge versleuteling
-slug: pdf-wachtwoorden-en-zero-knowledge-versleuteling
+slug: pdf-wachtwoorden-en-zero-knowledge-versleuteling-nl
 category: Beveiligingsarchitectuur
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF Beveiligingstool
 targetToolCta: Beveilig PDF met wachtwoord via Zero-Knowledge versleuteling
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Het ontrafelen van PDF-wachtwoorden en Zero-Knowledge versleuteling","url":"https://www.clickpdf.net/blog/pdf-wachtwoorden-en-zero-knowledge-versleuteling/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Het ontrafelen van PDF-wachtwoorden en Zero-Knowledge versleuteling","url":"https://www.clickpdf.net/blog/pdf-wachtwoorden-en-zero-knowledge-versleuteling-nl/"}]
 ---
 
 Het beschermen van gevoelige financiële prognoses of privéovereenkomsten vereist inzicht in hoe PDF-versleuteling daadwerkelijk werkt. Veel mensen gaan ervan uit dat alle wachtwoordbeveiliging identiek is, maar het onderliggende mechanisme maakt een enorm verschil.

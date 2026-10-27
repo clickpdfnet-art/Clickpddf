@@ -3,7 +3,7 @@ id: art-2-sv
 locale: sv
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: En praktisk guide till att sammanställa snygga PDF-paket för visum, domstolsärenden och skattedeklarationer
-slug: hur-man-slar-ihop-och-sorterar-pdf-for-formella-ansokningar
+slug: hur-man-slar-ihop-och-sorterar-pdf-for-formella-ansokningar-sv
 category: Produktivitet
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Verktyg för att slå ihop PDF
 targetToolCta: Slå ihop och sortera dokument nu
-breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"En praktisk guide till att sammanställa snygga PDF-paket för visum, domstolsärenden och skattedeklarationer","url":"https://www.clickpdf.net/blog/hur-man-slar-ihop-och-sorterar-pdf-for-formella-ansokningar/"}]
+breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"En praktisk guide till att sammanställa snygga PDF-paket för visum, domstolsärenden och skattedeklarationer","url":"https://www.clickpdf.net/blog/hur-man-slar-ihop-och-sorterar-pdf-for-formella-ansokningar-sv/"}]
 ---
 
 Få saker är mer frustrerande än att få en visumansökan, en domstolsinlagan eller ett bolånedokument avvisat på grund av formateringsfel. Officiella portaler ställer ofta strikta krav på inlämning, och att skicka in en oordnad samling bilagor är det snabbaste sättet att fördröja ett godkännande.

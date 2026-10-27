@@ -3,7 +3,7 @@ id: art-4-de
 locale: de
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: So erstellen Sie elegante Fotoportfolios und Lookbooks als Standard-PDFs
-slug: erstellung-eleganter-pdf-fotoportfolios
+slug: erstellung-eleganter-pdf-fotoportfolios-de
 category: Kreatives Design
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Bild-zu-PDF-Konverter
 targetToolCta: Bilder und Fotos in PDF-Portfolios umwandeln
-breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So erstellen Sie elegante Fotoportfolios und Lookbooks als Standard-PDFs","url":"https://www.clickpdf.net/blog/erstellung-eleganter-pdf-fotoportfolios/"}]
+breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So erstellen Sie elegante Fotoportfolios und Lookbooks als Standard-PDFs","url":"https://www.clickpdf.net/blog/erstellung-eleganter-pdf-fotoportfolios-de/"}]
 ---
 
 Fotografen, Architekten, Innenarchitekten und bildende Künstler müssen regelmäßig Arbeitsproben mit Kunden und potenziellen Arbeitgebern teilen. Obwohl Online-Galerien großartig sind, wünschen sich Unternehmenskunden fast immer ein einzelnes, herunterladbares PDF-Portfolio, das sie in Konferenzräumen prüfen oder an Entscheidungsträger weiterleiten können.

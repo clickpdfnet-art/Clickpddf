@@ -3,7 +3,7 @@ id: art-6-zh
 locale: zh
 translationGroup: demystifying-pdf-passwords-encryption
 title: 解析 PDF 密码与零知识加密
-slug: pdf-passwords-zero-knowledge-encryption-zh
+slug: pdf-passwords-zero-knowledge-encryption-zh-zh
 category: 安全架构
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF 加密工具
 targetToolCta: 使用零知识加密保护 PDF 密码
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"解析 PDF 密码与零知识加密","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-zh/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"解析 PDF 密码与零知识加密","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-zh-zh/"}]
 ---
 
 保护敏感的财务预测或私人协议需要了解 PDF 加密的工作原理。许多人认为所有密码保护都是一样的，但其底层机制却有着巨大的差异。

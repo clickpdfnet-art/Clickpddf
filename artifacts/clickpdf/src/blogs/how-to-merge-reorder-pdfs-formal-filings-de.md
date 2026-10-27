@@ -3,7 +3,7 @@ id: art-2-de
 locale: de
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Ein praktischer Leitfaden für die Zusammenstellung sauberer PDF-Pakete für Visa, Gerichte und Steuererklärungen
-slug: how-to-merge-reorder-pdfs-formal-filings-de
+slug: how-to-merge-reorder-pdfs-formal-filings-de-de
 category: Produktivität
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF-Zusammenführungstool
 targetToolCta: Unterlagen jetzt zusammenführen & sortieren
-breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Ein praktischer Leitfaden für die Zusammenstellung sauberer PDF-Pakete für Visa, Gerichte und Steuererklärungen","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-de/"}]
+breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Ein praktischer Leitfaden für die Zusammenstellung sauberer PDF-Pakete für Visa, Gerichte und Steuererklärungen","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-de-de/"}]
 ---
 
 Es gibt nur wenige Dinge, die frustrierender sind, als wenn ein Visumantrag, ein gerichtlicher Schriftsatz oder eine Hypothekenunterlage aufgrund von Formatierungsfehlern abgelehnt wird. Offizielle Portale setzen oft strenge Einreichungsrichtlinien durch, und die Übermittlung einer ungeordneten Sammlung von Anhängen ist der schnellste Weg, um eine Genehmigung zu verzögern.

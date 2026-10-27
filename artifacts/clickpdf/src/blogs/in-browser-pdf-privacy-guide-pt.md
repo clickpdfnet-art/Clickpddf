@@ -3,7 +3,7 @@ id: art-1-pt
 locale: pt
 translationGroup: in-browser-pdf-privacy-guide
 title: Por que o processamento de PDF no navegador é fundamentalmente mais seguro
-slug: guia-privacidade-pdf-navegador
+slug: guia-privacidade-pdf-navegador-pt
 category: Privacidade e Segurança
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Ferramenta de Compressão de PDF
 targetToolCta: Comprima PDFs com segurança no navegador (Zero uploads)
-breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas de PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Por que o processamento de PDF no navegador é fundamentalmente mais seguro","url":"https://www.clickpdf.net/blog/guia-privacidade-pdf-navegador/"}]
+breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas de PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Por que o processamento de PDF no navegador é fundamentalmente mais seguro","url":"https://www.clickpdf.net/blog/guia-privacidade-pdf-navegador-pt/"}]
 ---
 
 Sempre que você carrega uma declaração de imposto, um formulário médico ou um contrato de trabalho assinado para um conversor de PDF online comum, esse documento embarca em uma jornada invisível pela internet. Ele viaja por nós de roteamento de terceiros e chega a um servidor em nuvem gerenciado por uma empresa desconhecida. Mesmo quando os serviços prometem apagar arquivos após uma ou duas horas, seus dados permanecem temporariamente em unidades remotas, onde erros de funcionários, configurações incorretas na nuvem ou backups automatizados podem deixá-los expostos.

@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-pl
 locale: pl
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Jak połączyć wiele zdjęć ręcznie pisanych zadań w jeden plik PDF na telefonie
-slug: polacz-zdjecia-recznie-pisanych-zadan-w-pdf
+slug: polacz-zdjecia-recznie-pisanych-zadan-w-pdf-pl
 category: Przewodniki dla studentów
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Konwerter obrazu do PDF
 targetToolCta: Konwertuj zdjęcia zadań do PDF
-breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak połączyć wiele zdjęć ręcznie pisanych zadań w jeden plik PDF na telefonie","url":"https://www.clickpdf.net/blog/polacz-zdjecia-recznie-pisanych-zadan-w-pdf/"}]
+breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak połączyć wiele zdjęć ręcznie pisanych zadań w jeden plik PDF na telefonie","url":"https://www.clickpdf.net/blog/polacz-zdjecia-recznie-pisanych-zadan-w-pdf-pl/"}]
 faqItems: [{"answer":"Wybierz zdjęcia zadań we właściwej kolejności, skorzystaj z odpowiedniego narzędzia do konwersji obrazu na PDF, sprawdź układ stron i pobierz wynikowy plik PDF.","question":"Jak połączyć zdjęcia odręcznych zadań w jeden plik PDF na telefonie?"},{"answer":"Zadbaj o dobre oświetlenie, trzymaj telefon równolegle do strony, przytnij zbędne krawędzie oraz sprawdź jasność i kontrast, nie usuwając odręcznego pisma.","question":"Jak sprawić, by zdjęcia odręcznych zadań były łatwiejsze do odczytania?"},{"answer":"Zmień rozmiar zbyt dużych obrazów, użyj odpowiedniej jakości obrazu i zastosuj kompresję PDF, jeśli jest to konieczne. Sprawdź ostateczny rozmiar pliku i czytelność zgodnie z wymaganiami portalu.","question":"Jak zmniejszyć rozmiar pliku PDF dla portalu LMS?"},{"answer":"Tak, korzystając z narzędzia, które przeprowadza konwersję całkowicie w przeglądarce lub na Twoim urządzeniu. Przed użyciem sprawdź zasady przetwarzania i informacje o prywatności.","question":"Czy mogę konwertować zdjęcia na PDF bez wysyłania ich na serwer?"}]
 ---
 

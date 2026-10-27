@@ -3,7 +3,7 @@ id: art-6-no
 locale: no
 translationGroup: demystifying-pdf-passwords-encryption
 title: Avmystifisering av PDF-passord og nullkunnskapskryptering
-slug: avmystifisering-pdf-passord-nullkunnskapskryptering
+slug: avmystifisering-pdf-passord-nullkunnskapskryptering-no
 category: Sikkerhetsarkitektur
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF-beskyttelsesverktøy
 targetToolCta: Passordbeskytt PDF med nullkunnskapskryptering
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Avmystifisering av PDF-passord og nullkunnskapskryptering","url":"https://www.clickpdf.net/blog/avmystifisering-pdf-passord-nullkunnskapskryptering/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Avmystifisering av PDF-passord og nullkunnskapskryptering","url":"https://www.clickpdf.net/blog/avmystifisering-pdf-passord-nullkunnskapskryptering-no/"}]
 ---
 
 Beskyttelse av sensitive økonomiske prognoser eller private avtaler krever forståelse for hvordan PDF-kryptering faktisk fungerer. Mange antar at all passordbeskyttelse er identisk, men den underliggende mekanismen utgjør en enorm forskjell.

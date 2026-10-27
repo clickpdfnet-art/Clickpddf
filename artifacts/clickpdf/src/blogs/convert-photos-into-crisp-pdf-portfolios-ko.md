@@ -3,7 +3,7 @@ id: art-4-ko
 locale: ko
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: 표준 PDF로 우아한 사진 포트폴리오 및 룩북 제작하기
-slug: seojin-eul-seup-pdf-potpolio-lo-byeonhwan-hagi
+slug: seojin-eul-seup-pdf-potpolio-lo-byeonhwan-hagi-ko
 category: 창의적인 디자인
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 이미지 PDF 변환기
 targetToolCta: 이미지 및 사진을 PDF 포트폴리오로 변환
-breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"표준 PDF로 우아한 사진 포트폴리오 및 룩북 제작하기","url":"https://www.clickpdf.net/blog/seojin-eul-seup-pdf-potpolio-lo-byeonhwan-hagi/"}]
+breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"표준 PDF로 우아한 사진 포트폴리오 및 룩북 제작하기","url":"https://www.clickpdf.net/blog/seojin-eul-seup-pdf-potpolio-lo-byeonhwan-hagi-ko/"}]
 ---
 
 사진작가, 건축가, 인테리어 디자이너 및 시각 예술가는 자신의 작업 샘플을 고객 및 잠재적 고용주와 공유해야 하는 경우가 많습니다. 온라인 갤러리도 좋지만, 기업 환경의 고객은 거의 항상 회의실에서 검토하거나 의사 결정권자에게 전달할 수 있는 단일 다운로드 가능 PDF 포트폴리오를 요청합니다.

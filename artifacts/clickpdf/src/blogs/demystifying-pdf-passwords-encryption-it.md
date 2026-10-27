@@ -3,7 +3,7 @@ id: art-6-it
 locale: it
 translationGroup: demystifying-pdf-passwords-encryption
 title: Demistificare le password PDF e la crittografia a conoscenza zero
-slug: demistificare-password-pdf-crittografia-conoscenza-zero
+slug: demistificare-password-pdf-crittografia-conoscenza-zero-it
 category: Architettura di sicurezza
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Strumento di protezione PDF AES-256
 targetToolCta: Proteggi PDF con password tramite crittografia a conoscenza zero
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistificare le password PDF e la crittografia a conoscenza zero","url":"https://www.clickpdf.net/blog/demistificare-password-pdf-crittografia-conoscenza-zero/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Demistificare le password PDF e la crittografia a conoscenza zero","url":"https://www.clickpdf.net/blog/demistificare-password-pdf-crittografia-conoscenza-zero-it/"}]
 ---
 
 Proteggere previsioni finanziarie sensibili o accordi privati richiede di capire come funziona realmente la crittografia PDF. Molti pensano che ogni protezione tramite password sia identica, ma il meccanismo sottostante fa una differenza enorme.

@@ -3,7 +3,7 @@ id: art-4-es
 locale: es
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Cómo crear elegantes portafolios y catálogos de fotos como archivos PDF estándar
-slug: crear-portafolios-de-fotos-en-pdf-nítidos
+slug: crear-portafolios-de-fotos-en-pdf-nítidos-es
 category: Diseño creativo
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Conversor de imágenes a PDF
 targetToolCta: Convertir imágenes y fotos a portafolios PDF
-breadcrumbs: [{"name":"Inicio","url":"https://www.clickpdf.net/"},{"name":"Herramientas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cómo crear elegantes portafolios y catálogos de fotos como archivos PDF estándar","url":"https://www.clickpdf.net/blog/crear-portafolios-de-fotos-en-pdf-n%C3%ADtidos/"}]
+breadcrumbs: [{"name":"Inicio","url":"https://www.clickpdf.net/"},{"name":"Herramientas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cómo crear elegantes portafolios y catálogos de fotos como archivos PDF estándar","url":"https://www.clickpdf.net/blog/crear-portafolios-de-fotos-en-pdf-n%C3%ADtidos-es/"}]
 ---
 
 Los fotógrafos, arquitectos, diseñadores de interiores y artistas visuales necesitan compartir frecuentemente muestras de su trabajo con clientes y posibles empleadores. Aunque las galerías en línea son excelentes, los clientes en entornos corporativos casi siempre solicitan un único portafolio en PDF descargable que puedan revisar en salas de juntas o enviar a quienes toman las decisiones.

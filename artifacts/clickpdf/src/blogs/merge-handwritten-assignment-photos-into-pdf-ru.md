@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-ru
 locale: ru
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Как объединить несколько фотографий рукописных заданий в один PDF на мобильном устройстве
-slug: obedinenie-foto-rukopisnykh-zadaniy-v-pdf
+slug: obedinenie-foto-rukopisnykh-zadaniy-v-pdf-ru
 category: Студенческие гиды
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Конвертер изображений в PDF
 targetToolCta: Конвертировать фото заданий в PDF
-breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"Инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как объединить несколько фотографий рукописных заданий в один PDF на мобильном устройстве","url":"https://www.clickpdf.net/blog/obedinenie-foto-rukopisnykh-zadaniy-v-pdf/"}]
+breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"Инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как объединить несколько фотографий рукописных заданий в один PDF на мобильном устройстве","url":"https://www.clickpdf.net/blog/obedinenie-foto-rukopisnykh-zadaniy-v-pdf-ru/"}]
 faqItems: [{"answer":"Выберите фотографии задания в правильном порядке, воспользуйтесь совместимым инструментом для преобразования изображений в PDF, проверьте макет страниц и скачайте полученный файл.","question":"Как объединить фотографии рукописных заданий в один PDF-файл на мобильном?"},{"answer":"Используйте хорошее освещение, держите камеру параллельно странице, обрежьте лишние края и настройте яркость и контрастность, не стирая при этом рукописный текст.","question":"Как сделать фотографии рукописных заданий более разборчивыми?"},{"answer":"Измените размер слишком больших изображений, используйте подходящее качество изображений и при необходимости примените сжатие PDF. Сверьте размер конечного файла и его читаемость с требованиями вашего портала.","question":"Как уменьшить размер PDF-файла для портала LMS?"},{"answer":"Да, если вы используете инструмент, который выполняет преобразование полностью в браузере или на вашем устройстве. Перед использованием проверьте его правила обработки данных и информацию о конфиденциальности.","question":"Можно ли конвертировать фото в PDF, не загружая их на сервер?"}]
 ---
 

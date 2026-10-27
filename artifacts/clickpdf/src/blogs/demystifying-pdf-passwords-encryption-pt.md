@@ -3,7 +3,7 @@ id: art-6-pt
 locale: pt
 translationGroup: demystifying-pdf-passwords-encryption
 title: Desmistificando senhas de PDF e criptografia de conhecimento zero
-slug: desmistificando-senhas-pdf-criptografia-conhecimento-zero
+slug: desmistificando-senhas-pdf-criptografia-conhecimento-zero-pt
 category: Arquitetura de segurança
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Ferramenta de proteção PDF AES-256
 targetToolCta: Proteja PDF com senha usando criptografia de conhecimento zero
-breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Desmistificando senhas de PDF e criptografia de conhecimento zero","url":"https://www.clickpdf.net/blog/desmistificando-senhas-pdf-criptografia-conhecimento-zero/"}]
+breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Desmistificando senhas de PDF e criptografia de conhecimento zero","url":"https://www.clickpdf.net/blog/desmistificando-senhas-pdf-criptografia-conhecimento-zero-pt/"}]
 ---
 
 Proteger previsões financeiras confidenciais ou acordos privados requer entender como a criptografia de PDF realmente funciona. Muitas pessoas presumem que toda proteção por senha é idêntica, mas o mecanismo subjacente faz uma diferença tremenda.

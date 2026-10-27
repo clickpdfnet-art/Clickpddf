@@ -3,7 +3,7 @@ id: art-6-fr
 locale: fr
 translationGroup: demystifying-pdf-passwords-encryption
 title: Démystification des mots de passe PDF et du chiffrement Zero-Knowledge
-slug: demystification-mots-de-passe-pdf-chiffrement-zero-knowledge
+slug: demystification-mots-de-passe-pdf-chiffrement-zero-knowledge-fr
 category: Architecture de sécurité
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Outil de protection PDF AES-256
 targetToolCta: Protéger un PDF par mot de passe avec chiffrement Zero-Knowledge
-breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Démystification des mots de passe PDF et du chiffrement Zero-Knowledge","url":"https://www.clickpdf.net/blog/demystification-mots-de-passe-pdf-chiffrement-zero-knowledge/"}]
+breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Démystification des mots de passe PDF et du chiffrement Zero-Knowledge","url":"https://www.clickpdf.net/blog/demystification-mots-de-passe-pdf-chiffrement-zero-knowledge-fr/"}]
 ---
 
 La protection de prévisions financières sensibles ou d'accords privés nécessite de comprendre comment fonctionne réellement le chiffrement PDF. Beaucoup supposent que toute protection par mot de passe est identique, mais le mécanisme sous-jacent fait une différence énorme.

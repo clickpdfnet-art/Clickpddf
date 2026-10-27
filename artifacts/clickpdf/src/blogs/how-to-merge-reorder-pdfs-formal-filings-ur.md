@@ -3,7 +3,7 @@ id: art-2-ur
 locale: ur
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: ویزا، عدالت، اور ٹیکس فائلنگ کے لیے صاف ستھرا پی ڈی ایف پیکج بنانے کے لیے ایک عملی رہنما
-slug: how-to-merge-reorder-pdfs-formal-filings-ur
+slug: how-to-merge-reorder-pdfs-formal-filings-ur-ur
 category: پیداواریت
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: پی ڈی ایف ضم کرنے کا ٹول
 targetToolCta: فائلنگ دستاویزات کو ابھی ضم اور ترتیب دیں
-breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"پی ڈی ایف ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"ویزا، عدالت، اور ٹیکس فائلنگ کے لیے صاف ستھرا پی ڈی ایف پیکج بنانے کے لیے ایک عملی رہنما","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ur/"}]
+breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"پی ڈی ایف ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"ویزا، عدالت، اور ٹیکس فائلنگ کے لیے صاف ستھرا پی ڈی ایف پیکج بنانے کے لیے ایک عملی رہنما","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ur-ur/"}]
 ---
 
 امیگریشن ویزا درخواست، عدالتی گذارش، یا مورگیج پیکٹ کے دستاویزات کی فارمیٹنگ کی غلطیوں کی وجہ سے مسترد ہونے سے زیادہ مایوس کن کچھ نہیں ہے۔ سرکاری پورٹلز اکثر جمع کرانے کے سخت رہنما خطوط نافذ کرتے ہیں، اور منسلکات کا غیر منظم مجموعہ جمع کرانا منظوری میں تاخیر کا سب سے تیز طریقہ ہے۔

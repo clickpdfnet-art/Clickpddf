@@ -3,7 +3,7 @@ id: art-1-zh
 locale: zh
 translationGroup: in-browser-pdf-privacy-guide
 title: 为什么浏览器内 PDF 处理在根本上更安全
-slug: 浏览器内-pdf-隐私指南
+slug: 浏览器内-pdf-隐私指南-zh
 category: 隐私与安全
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF 压缩工具
 targetToolCta: 在浏览器中安全地压缩 PDF（零上传）
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"为什么浏览器内 PDF 处理在根本上更安全","url":"https://www.clickpdf.net/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85-pdf-%E9%9A%90%E7%A7%81%E6%8C%87%E5%8D%97/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"为什么浏览器内 PDF 处理在根本上更安全","url":"https://www.clickpdf.net/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85-pdf-%E9%9A%90%E7%A7%81%E6%8C%87%E5%8D%97-zh/"}]
 ---
 
 每当您将税务申报表、医疗表格或签署的劳动合同上传到传统的在线 PDF 转换器时，该文档就会在互联网上开始一段隐形之旅。它会经过第三方路由节点，并最终到达一家陌生公司管理的云服务器上。即使服务承诺在这一两个小时后删除文件，您的数据仍会临时存储在远程驱动器上，在那里，员工失误、云配置错误或自动备份都可能导致数据泄露。

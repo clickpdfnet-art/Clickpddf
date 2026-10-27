@@ -3,7 +3,7 @@ id: art-4-pt
 locale: pt
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Como criar elegantes portfólios de fotos e lookbooks como PDFs padrão
-slug: converter-fotos-em-portfolios-pdf-nítidos
+slug: converter-fotos-em-portfolios-pdf-nítidos-pt
 category: Design criativo
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Conversor de imagem para PDF
 targetToolCta: Converter imagens e fotos para portfólios PDF
-breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Como criar elegantes portfólios de fotos e lookbooks como PDFs padrão","url":"https://www.clickpdf.net/blog/converter-fotos-em-portfolios-pdf-n%C3%ADtidos/"}]
+breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Como criar elegantes portfólios de fotos e lookbooks como PDFs padrão","url":"https://www.clickpdf.net/blog/converter-fotos-em-portfolios-pdf-n%C3%ADtidos-pt/"}]
 ---
 
 Fotógrafos, arquitetos, designers de interiores e artistas visuais frequentemente precisam compartilhar amostras de trabalho com clientes e potenciais empregadores. Embora galerias online sejam ótimas, clientes em ambientes corporativos quase sempre solicitam um único portfólio em PDF para download que possam revisar em salas de reuniões ou encaminhar para os tomadores de decisão.

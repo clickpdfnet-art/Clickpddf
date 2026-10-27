@@ -3,6 +3,8 @@ id: art-3
 title: The Psychology and Practical Strategy of Watermarking Sensitive PDF Reports
 seoTitle: Watermark Sensitive PDF Reports | ClickPDF
 slug: watermarking-confidential-pdf-reports
+locale: en
+translationGroup: watermarking-confidential-pdf-reports
 category: Document Safety
 date: April 05, 2026
 dateModified: 2026-10-25

@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-it
 locale: it
 translationGroup: reduce-pdf-assignment-file-size
 title: Come ridurre le dimensioni di un PDF di un compito a meno di 2 MB per i portali universitari
-slug: ridurre-dimensioni-file-pdf-compito
+slug: ridurre-dimensioni-file-pdf-compito-it
 category: Guide per studenti
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Compressore PDF
 targetToolCta: Comprimi PDF ora
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti","url":"https://www.clickpdf.net/#tools"},{"name":"Come ridurre le dimensioni di un PDF di un compito a meno di 2 MB per i portali universitari","url":"https://www.clickpdf.net/blog/ridurre-dimensioni-file-pdf-compito/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti","url":"https://www.clickpdf.net/#tools"},{"name":"Come ridurre le dimensioni di un PDF di un compito a meno di 2 MB per i portali universitari","url":"https://www.clickpdf.net/blog/ridurre-dimensioni-file-pdf-compito-it/"}]
 faqItems: [{"answer":"Alcuni portali LMS universitari impongono una dimensione massima di caricamento di 2 MB. Controlla le istruzioni del tuo corso perché il limite effettivo potrebbe differire.","question":"Perché un PDF di un compito deve essere inferiore a 2 MB?"},{"answer":"Comprimi le immagini, ottimizza le pagine scansionate, rimuovi contenuti e metadati non necessari e usa un apposito strumento di compressione PDF. Verifica la dimensione del file risultante e la leggibilità.","question":"Come posso ridurre un PDF sotto i 2 MB?"},{"answer":"Alcune ottimizzazioni strutturali riducono le dimensioni senza modificare il contenuto visibile. Il ricampionamento delle immagini e la compressione con perdita possono ridurre la qualità, quindi ispeziona l'output prima dell'invio.","question":"Posso comprimere un PDF senza perdere qualità?"},{"answer":"Sì, se lo strumento browser selezionato supporta la compressione PDF. L'elaborazione lato client può mantenere i file sul tuo dispositivo, ma controlla i dettagli sulla privacy e sull'elaborazione dello strumento.","question":"Posso comprimere un PDF nel mio browser?"}]
 ---
 

@@ -3,7 +3,7 @@ id: art-6-ar
 locale: ar
 translationGroup: demystifying-pdf-passwords-encryption
 title: توضيح كلمات مرور PDF وتشفير المعرفة الصفرية
-slug: pdf-passwords-zero-knowledge-encryption-ar
+slug: pdf-passwords-zero-knowledge-encryption-ar-ar
 category: هندسة الأمان
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: أداة حماية PDF بنظام AES-256
 targetToolCta: حماية PDF بكلمة مرور مع تشفير المعرفة الصفرية
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"توضيح كلمات مرور PDF وتشفير المعرفة الصفرية","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-ar/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"توضيح كلمات مرور PDF وتشفير المعرفة الصفرية","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-ar-ar/"}]
 ---
 
 لحماية التوقعات المالية الحساسة أو الاتفاقيات الخاصة، من الضروري فهم كيفية عمل تشفير PDF فعلياً. يفترض الكثيرون أن جميع حماية كلمات المرور متطابقة، لكن الآلية الأساسية تُحدث فرقاً هائلاً.

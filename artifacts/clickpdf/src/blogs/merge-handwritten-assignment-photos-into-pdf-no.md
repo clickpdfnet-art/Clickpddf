@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-no
 locale: no
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Slik slår du sammen håndskrevne oppgavebilder til en enkelt PDF på mobil
-slug: slå-sammen-håndskrevne-oppgavebilder-til-pdf
+slug: slå-sammen-håndskrevne-oppgavebilder-til-pdf-no
 category: Studentguider
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Bilde til PDF-konverterer
 targetToolCta: Konverter oppgavebilder til PDF
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik slår du sammen håndskrevne oppgavebilder til en enkelt PDF på mobil","url":"https://www.clickpdf.net/blog/sl%C3%A5-sammen-h%C3%A5ndskrevne-oppgavebilder-til-pdf/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik slår du sammen håndskrevne oppgavebilder til en enkelt PDF på mobil","url":"https://www.clickpdf.net/blog/sl%C3%A5-sammen-h%C3%A5ndskrevne-oppgavebilder-til-pdf-no/"}]
 faqItems: [{"answer":"Velg oppgavebildene dine i riktig rekkefølge, bruk et kompatibelt bilde-til-PDF-verktøy, gå gjennom sideoppsettet og last ned den resulterende PDF-filen.","question":"Hvordan kan jeg slå sammen håndskrevne oppgavebilder til én PDF på mobil?"},{"answer":"Bruk god belysning, hold kameraet parallelt med siden, beskjær unødvendige kanter og juster lysstyrke og kontrast uten å viske ut håndskriften.","question":"Hvordan kan jeg gjøre håndskrevne oppgavebilder lettere å lese?"},{"answer":"Endre størrelse på store bilder, bruk passende bildekvalitet og bruk PDF-komprimering om nødvendig. Sjekk den endelige filstørrelsen og lesbarheten mot portalens krav.","question":"Hvordan kan jeg redusere PDF-filstørrelsen for en LMS-portal?"},{"answer":"Ja, når du bruker et verktøy som utfører konverteringen helt i nettleseren eller på enheten din. Sjekk behandlingsmåten og personverninformasjonen før bruk.","question":"Kan jeg konvertere bilder til PDF uten å laste dem opp til en server?"}]
 ---
 

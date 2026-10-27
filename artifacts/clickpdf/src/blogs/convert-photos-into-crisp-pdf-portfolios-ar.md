@@ -3,7 +3,7 @@ id: art-4-ar
 locale: ar
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: كيفية إنشاء محافظ صور وكتيبات عرض أنيقة بتنسيق PDF
-slug: insha-maharif-suwar-pdf
+slug: insha-maharif-suwar-pdf-ar
 category: التصميم الإبداعي
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: محول الصور إلى PDF
 targetToolCta: تحويل الصور إلى محافظ PDF
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية إنشاء محافظ صور وكتيبات عرض أنيقة بتنسيق PDF","url":"https://www.clickpdf.net/blog/insha-maharif-suwar-pdf/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية إنشاء محافظ صور وكتيبات عرض أنيقة بتنسيق PDF","url":"https://www.clickpdf.net/blog/insha-maharif-suwar-pdf-ar/"}]
 ---
 
 يحتاج المصورون والمعماريون ومصممو الديكور والفنانون البصريون بانتظام إلى مشاركة عينات من أعمالهم مع العملاء وأصحاب العمل المحتملين. على الرغم من أن المعارض عبر الإنترنت رائعة، إلا أن العملاء في بيئات الشركات يطلبون دائمًا تقريبًا محفظة PDF واحدة قابلة للتنزيل يمكنهم مراجعتها في قاعات الاجتماعات أو إرسالها إلى صناع القرار.

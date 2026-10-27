@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-it
 locale: it
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Come unire più foto di compiti scritti a mano in un unico PDF su cellulare
-slug: unire-foto-compiti-manuali-pdf-cellulare
+slug: unire-foto-compiti-manuali-pdf-cellulare-it
 category: Guide per studenti
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Convertitore da immagine a PDF
 targetToolCta: Converti le foto dei compiti in PDF
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti","url":"https://www.clickpdf.net/#tools"},{"name":"Come unire più foto di compiti scritti a mano in un unico PDF su cellulare","url":"https://www.clickpdf.net/blog/unire-foto-compiti-manuali-pdf-cellulare/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti","url":"https://www.clickpdf.net/#tools"},{"name":"Come unire più foto di compiti scritti a mano in un unico PDF su cellulare","url":"https://www.clickpdf.net/blog/unire-foto-compiti-manuali-pdf-cellulare-it/"}]
 faqItems: [{"answer":"Seleziona le foto del compito nell'ordine corretto, utilizza uno strumento compatibile per convertire da immagine a PDF, controlla il layout delle pagine e scarica il PDF ottenuto.","question":"Come posso unire le foto di compiti scritti a mano in un unico PDF su cellulare?"},{"answer":"Usa una buona illuminazione, tieni la fotocamera parallela alla pagina, ritaglia i bordi non necessari e controlla luminosità e contrasto senza cancellare la grafia.","question":"Come posso rendere le foto dei compiti scritti a mano più facili da leggere?"},{"answer":"Ridimensiona le immagini troppo grandi, usa una qualità dell'immagine adeguata e applica la compressione PDF se necessario. Controlla la dimensione finale e la leggibilità in base ai requisiti del portale.","question":"Come posso ridurre la dimensione del file PDF per un portale LMS?"},{"answer":"Sì, quando usi uno strumento che esegue la conversione interamente nel tuo browser o sul tuo dispositivo. Verifica il comportamento di elaborazione e le informazioni sulla privacy prima dell'uso.","question":"Posso convertire foto in PDF senza caricarle su un server?"}]
 ---
 

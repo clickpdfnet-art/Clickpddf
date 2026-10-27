@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-de
 locale: de
 translationGroup: reduce-pdf-assignment-file-size
 title: Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren
-slug: pdf-hausarbeit-dateigroesse-reduzieren
+slug: pdf-hausarbeit-dateigroesse-reduzieren-de
 category: Studierenden-Guides
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF-Kompressor
 targetToolCta: PDF jetzt komprimieren
-breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren","url":"https://www.clickpdf.net/blog/pdf-hausarbeit-dateigroesse-reduzieren/"}]
+breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren","url":"https://www.clickpdf.net/blog/pdf-hausarbeit-dateigroesse-reduzieren-de/"}]
 faqItems: [{"answer":"Einige LMS-Portale der Universitäten schreiben eine maximale Upload-Größe von 2MB vor. Überprüfen Sie Ihre Kursanweisungen, da das tatsächliche Limit abweichen kann.","question":"Warum muss ein PDF für eine Hausarbeit unter 2MB groß sein?"},{"answer":"Komprimieren Sie Bilder, optimieren Sie gescannte Seiten, entfernen Sie unnötige Inhalte und Metadaten und verwenden Sie ein geeignetes PDF-Komprimierungstool. Überprüfen Sie die resultierende Dateigröße und die Lesbarkeit.","question":"Wie kann ich ein PDF auf unter 2MB verkleinern?"},{"answer":"Einige strukturelle Optimierungen verringern die Dateigröße, ohne den sichtbaren Inhalt zu verändern. Bild-Downsampling und verlustbehaftete Komprimierung können die Qualität beeinträchtigen, prüfen Sie daher das Ergebnis vor der Einreichung.","question":"Kann ich ein PDF komprimieren, ohne die Qualität zu beeinträchtigen?"},{"answer":"Ja, wenn das gewählte Browser-Tool PDF-Komprimierung unterstützt. Clientseitige Verarbeitung hält Dateien auf Ihrem Gerät, aber prüfen Sie die Datenschutz- und Verarbeitungsdetails des Tools.","question":"Kann ich ein PDF in meinem Browser komprimieren?"}]
 ---
 

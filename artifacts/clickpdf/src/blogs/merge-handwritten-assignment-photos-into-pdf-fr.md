@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-fr
 locale: fr
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Comment fusionner plusieurs photos de devoirs manuscrits en un seul PDF sur mobile
-slug: fusionner-photos-devoirs-manuscrits-pdf
+slug: fusionner-photos-devoirs-manuscrits-pdf-fr
 category: Guides pour étudiants
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Convertisseur Image vers PDF
 targetToolCta: Convertir les photos de devoirs en PDF
-breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils","url":"https://www.clickpdf.net/#tools"},{"name":"Comment fusionner plusieurs photos de devoirs manuscrits en un seul PDF sur mobile","url":"https://www.clickpdf.net/blog/fusionner-photos-devoirs-manuscrits-pdf/"}]
+breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils","url":"https://www.clickpdf.net/#tools"},{"name":"Comment fusionner plusieurs photos de devoirs manuscrits en un seul PDF sur mobile","url":"https://www.clickpdf.net/blog/fusionner-photos-devoirs-manuscrits-pdf-fr/"}]
 faqItems: [{"answer":"Sélectionnez vos photos de devoirs dans le bon ordre, utilisez un outil de conversion image-en-PDF compatible, vérifiez la mise en page, puis téléchargez le PDF résultant.","question":"Comment fusionner des photos de devoirs manuscrits en un seul PDF sur mobile ?"},{"answer":"Utilisez un bon éclairage, gardez l'appareil photo parallèle à la page, recadrez les bords inutiles et ajustez la luminosité et le contraste sans effacer l'écriture manuscrite.","question":"Comment rendre les photos de devoirs manuscrits plus lisibles ?"},{"answer":"Redimensionnez les images trop volumineuses, utilisez une qualité d'image appropriée et appliquez une compression PDF si nécessaire. Vérifiez la taille finale du fichier et la lisibilité par rapport aux exigences du portail.","question":"Comment réduire la taille du fichier PDF pour un portail LMS ?"},{"answer":"Oui, en utilisant un outil qui effectue la conversion entièrement dans votre navigateur ou sur votre appareil. Vérifiez le comportement de traitement et les informations de confidentialité avant utilisation.","question":"Puis-je convertir des photos en PDF sans les envoyer sur un serveur ?"}]
 ---
 

@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-nl
 locale: nl
 translationGroup: reduce-pdf-assignment-file-size
 title: Hoe je de PDF-bestandsgrootte van opdrachten verkleint tot onder 2 MB voor universiteitsportalen
-slug: pdf-opdracht-bestandsgrootte-verkleinen
+slug: pdf-opdracht-bestandsgrootte-verkleinen-nl
 category: Studentengidsen
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF-compressor
 targetToolCta: Comprimeer nu PDF
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je de PDF-bestandsgrootte van opdrachten verkleint tot onder 2 MB voor universiteitsportalen","url":"https://www.clickpdf.net/blog/pdf-opdracht-bestandsgrootte-verkleinen/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je de PDF-bestandsgrootte van opdrachten verkleint tot onder 2 MB voor universiteitsportalen","url":"https://www.clickpdf.net/blog/pdf-opdracht-bestandsgrootte-verkleinen-nl/"}]
 faqItems: [{"answer":"Sommige LMS-portalen van universiteiten hanteren een maximale uploadgrootte van 2 MB. Controleer je cursusinstructies, aangezien de werkelijke limiet kan afwijken.","question":"Waarom moet een PDF van een opdracht kleiner zijn dan 2 MB?"},{"answer":"Comprimeer afbeeldingen, optimaliseer gescande pagina's, verwijder onnodige inhoud en metadata en gebruik een geschikte PDF-compressietool. Controleer de resulterende bestandsgrootte en leesbaarheid.","question":"Hoe kan ik een PDF kleiner dan 2 MB maken?"},{"answer":"Sommige structurele optimalisaties verkleinen de bestandsgrootte zonder de zichtbare inhoud te wijzigen. Downsampling van afbeeldingen en compressie met verlies kunnen de kwaliteit verminderen, dus controleer de uitvoer vóór verzending.","question":"Kan ik een PDF comprimeren zonder kwaliteitsverlies?"},{"answer":"Ja, als de geselecteerde browsertool PDF-compressie ondersteunt. Client-side verwerking kan bestanden op je apparaat houden, maar controleer de privacy- en verwerkingsdetails van de tool.","question":"Kan ik een PDF in mijn browser comprimeren?"}]
 ---
 

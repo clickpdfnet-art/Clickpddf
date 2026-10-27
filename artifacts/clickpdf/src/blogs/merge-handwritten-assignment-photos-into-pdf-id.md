@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-id
 locale: id
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Cara Menggabungkan Banyak Foto Tugas Tulisan Tangan ke Satu PDF di Ponsel
-slug: gabungkan-foto-tugas-tulisan-tangan-ke-pdf
+slug: gabungkan-foto-tugas-tulisan-tangan-ke-pdf-id
 category: Panduan Mahasiswa
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Konverter Gambar ke PDF
 targetToolCta: Konversi Foto Tugas ke PDF
-breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Menggabungkan Banyak Foto Tugas Tulisan Tangan ke Satu PDF di Ponsel","url":"https://www.clickpdf.net/blog/gabungkan-foto-tugas-tulisan-tangan-ke-pdf/"}]
+breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Menggabungkan Banyak Foto Tugas Tulisan Tangan ke Satu PDF di Ponsel","url":"https://www.clickpdf.net/blog/gabungkan-foto-tugas-tulisan-tangan-ke-pdf-id/"}]
 faqItems: [{"answer":"Pilih foto tugas Anda dalam urutan yang benar, gunakan alat gambar-ke-PDF yang kompatibel, tinjau tata letak halaman, dan unduh hasil PDF tersebut.","question":"Bagaimana cara menggabungkan foto tugas tulisan tangan menjadi satu PDF di ponsel?"},{"answer":"Gunakan pencahayaan yang baik, pegang kamera sejajar dengan halaman, potong tepi yang tidak perlu, dan periksa kecerahan serta kontras tanpa menghapus tulisan tangan.","question":"Bagaimana cara membuat foto tugas tulisan tangan lebih mudah dibaca?"},{"answer":"Ubah ukuran gambar yang terlalu besar, gunakan kualitas gambar yang sesuai, dan terapkan kompresi PDF jika diperlukan. Periksa ukuran berkas akhir dan keterbacaan terhadap persyaratan portal Anda.","question":"Bagaimana cara mengurangi ukuran berkas PDF untuk portal LMS?"},{"answer":"Ya, saat Anda menggunakan alat yang melakukan konversi sepenuhnya di peramban atau di perangkat Anda. Periksa perilaku pemrosesan dan informasi privasi sebelum penggunaan.","question":"Bisakah saya mengonversi foto ke PDF tanpa mengunggahnya ke server?"}]
 ---
 

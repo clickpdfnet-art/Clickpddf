@@ -3,7 +3,7 @@ id: art-4-sv
 locale: sv
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Hur man skapar eleganta fotoportföljer och lookbooks som standard-PDF:er
-slug: skapa-eleganta-fotoportfoljer-som-pdf
+slug: skapa-eleganta-fotoportfoljer-som-pdf-sv
 category: Kreativ design
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Bild till PDF-konverterare
 targetToolCta: Konvertera bilder och foton till PDF-portföljer
-breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Hur man skapar eleganta fotoportföljer och lookbooks som standard-PDF:er","url":"https://www.clickpdf.net/blog/skapa-eleganta-fotoportfoljer-som-pdf/"}]
+breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Hur man skapar eleganta fotoportföljer och lookbooks som standard-PDF:er","url":"https://www.clickpdf.net/blog/skapa-eleganta-fotoportfoljer-som-pdf-sv/"}]
 ---
 
 Fotografer, arkitekter, inredningsdesigners och bildkonstnärer behöver ofta dela arbetsprover med kunder och potentiella arbetsgivare. Även om onlinegallerier är bra, ber kunder i företagsmiljöer nästan alltid om en enda nedladdningsbar PDF-portfölj som de kan granska i styrelserum eller vidarebefordra till beslutsfattare.

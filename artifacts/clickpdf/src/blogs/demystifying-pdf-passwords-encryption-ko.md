@@ -3,7 +3,7 @@ id: art-6-ko
 locale: ko
 translationGroup: demystifying-pdf-passwords-encryption
 title: PDF 비밀번호와 제로 지식 암호화의 이해
-slug: pdf-bimilbeonho-zero-knowledge-amhwohwa
+slug: pdf-bimilbeonho-zero-knowledge-amhwohwa-ko
 category: 보안 아키텍처
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF 보호 도구
 targetToolCta: 제로 지식 암호화로 PDF 비밀번호 설정
-breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"PDF 비밀번호와 제로 지식 암호화의 이해","url":"https://www.clickpdf.net/blog/pdf-bimilbeonho-zero-knowledge-amhwohwa/"}]
+breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"PDF 비밀번호와 제로 지식 암호화의 이해","url":"https://www.clickpdf.net/blog/pdf-bimilbeonho-zero-knowledge-amhwohwa-ko/"}]
 ---
 
 민감한 재무 예측이나 개인 계약을 보호하려면 PDF 암호화가 실제로 어떻게 작동하는지 이해해야 합니다. 많은 사람들이 모든 비밀번호 보호가 동일하다고 생각하지만, 근본적인 메커니즘은 엄청난 차이를 만듭니다.

@@ -3,7 +3,7 @@ id: art-4-hi
 locale: hi
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: PDF के रूप में सुंदर फोटो पोर्टफोलियो और लुकबुक कैसे बनाएं
-slug: tasveer-se-pdf-portfolio-banayein
+slug: tasveer-se-pdf-portfolio-banayein-hi
 category: क्रिएटिव डिज़ाइन
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: इमेज टू PDF कन्वर्टर
 targetToolCta: तस्वीरों को PDF पोर्टफोलियो में बदलें
-breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"PDF के रूप में सुंदर फोटो पोर्टफोलियो और लुकबुक कैसे बनाएं","url":"https://www.clickpdf.net/blog/tasveer-se-pdf-portfolio-banayein/"}]
+breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"PDF के रूप में सुंदर फोटो पोर्टफोलियो और लुकबुक कैसे बनाएं","url":"https://www.clickpdf.net/blog/tasveer-se-pdf-portfolio-banayein-hi/"}]
 ---
 
 फ़ोटोग्राफ़र, आर्किटेक्ट्स, इंटीरियर डिज़ाइनर्स और विज़ुअल आर्टिस्ट्स को अक्सर अपने काम के नमूने क्लाइंट्स और संभावित नियोक्ताओं के साथ साझा करने की आवश्यकता होती है। हालाँकि ऑनलाइन गैलरी बहुत अच्छी हैं, लेकिन कॉर्पोरेट वातावरण में क्लाइंट लगभग हमेशा एक ही डाउनलोड करने योग्य PDF पोर्टफोलियो मांगते हैं जिसे वे बोर्डरूम में देख सकें या निर्णय लेने वालों को भेज सकें।

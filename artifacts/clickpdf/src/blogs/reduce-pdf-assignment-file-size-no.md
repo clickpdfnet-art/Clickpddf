@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-no
 locale: no
 translationGroup: reduce-pdf-assignment-file-size
 title: Hvordan redusere størrelsen på en PDF-oppgave til under 2 MB for universitetsportaler
-slug: redusere-filstørrelse-pdf-oppgave
+slug: redusere-filstørrelse-pdf-oppgave-no
 category: Studentguider
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF-kompressor
 targetToolCta: Komprimer PDF nå
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvordan redusere størrelsen på en PDF-oppgave til under 2 MB for universitetsportaler","url":"https://www.clickpdf.net/blog/redusere-filst%C3%B8rrelse-pdf-oppgave/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvordan redusere størrelsen på en PDF-oppgave til under 2 MB for universitetsportaler","url":"https://www.clickpdf.net/blog/redusere-filst%C3%B8rrelse-pdf-oppgave-no/"}]
 faqItems: [{"answer":"Enkelte universitets-LMS-portaler har en maksimal opplastingsstørrelse på 2 MB. Sjekk kursinstruksjonene dine, da den faktiske grensen kan variere.","question":"Hvorfor må en PDF-oppgave være under 2 MB?"},{"answer":"Komprimer bilder, optimaliser skannede sider, fjern unødvendig innhold og metadata, og bruk et egnet PDF-komprimeringsverktøy. Kontroller filstørrelsen og lesbarheten på den ferdige filen.","question":"Hvordan kan jeg redusere en PDF til under 2 MB?"},{"answer":"Enkelte strukturelle optimaliseringer reduserer filstørrelsen uten å endre det synlige innholdet. Bilde-nedsampling og tapskomprimering kan redusere kvaliteten, så inspiser resultatet før du sender inn.","question":"Kan jeg komprimere en PDF uten å miste kvalitet?"},{"answer":"Ja, hvis det valgte nettleserverktøyet støtter PDF-komprimering. Klient-side prosessering kan holde filene på enheten din, men sjekk verktøyets personvern- og prosesseringsdetaljer.","question":"Kan jeg komprimere en PDF i nettleseren min?"}]
 ---
 

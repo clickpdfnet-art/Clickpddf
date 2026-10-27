@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-tl
 locale: tl
 translationGroup: reduce-pdf-assignment-file-size
 title: Paano Paliitin ang PDF Assignment File Size nang mas mababa sa 2MB para sa University LMS Portals
-slug: liitan-pdf-assignment-file-size
+slug: liitan-pdf-assignment-file-size-tl
 category: Gabay para sa Mag-aaral
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -17,9 +17,9 @@ seoKeywords: liitan ang PDF assignment file size, i-compress ang PDF nang mas ma
 imageAlt: Estudyante sa unibersidad na sinusuri ang isang PDF assignment sa laptop sa isang malinis na mesa sa natural na liwanag.
 targetTool: compress
 targetToolUrl: /tools/compress-pdf
-targetToolTitle: PDF Compressor
+targetToolTitle: Tagapag-compress ng PDF
 targetToolCta: I-compress ang PDF Ngayon
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Paliitin ang PDF Assignment File Size nang mas mababa sa 2MB para sa University LMS Portals","url":"https://www.clickpdf.net/blog/liitan-pdf-assignment-file-size/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Paliitin ang PDF Assignment File Size nang mas mababa sa 2MB para sa University LMS Portals","url":"https://www.clickpdf.net/blog/liitan-pdf-assignment-file-size-tl/"}]
 faqItems: [{"answer":"Ang ilang university LMS portal ay nagpapatupad ng maximum upload size na 2MB. Suriin ang mga tagubilin sa iyong kurso dahil maaaring magkaiba ang aktwal na limitasyon.","question":"Bakit dapat mas mababa sa 2MB ang isang assignment PDF?"},{"answer":"I-compress ang mga larawan, i-optimize ang mga na-scan na pahina, alisin ang hindi kinakailangang nilalaman at metadata, at gumamit ng angkop na PDF compression tool. I-verify ang resulta sa laki ng file at pagiging mababasa nito.","question":"Paano ko mapapaliit ang isang PDF nang mas mababa sa 2MB?"},{"answer":"Ang ilang structural optimization ay nagpapaliit ng file size nang hindi binabago ang nakikitang nilalaman. Ang image downsampling at lossy compression ay maaaring magpababa ng kalidad, kaya suriin ang output bago ipasa.","question":"Maaari ko bang i-compress ang isang PDF nang hindi nawawala ang kalidad?"},{"answer":"Oo, kung ang napiling browser tool ay sumusuporta sa PDF compression. Ang client-side processing ay makakapagpanatili ng mga file sa iyong device, ngunit suriin ang privacy at mga detalye ng pagproseso ng tool.","question":"Maaari ko bang i-compress ang isang PDF sa aking browser?"}]
 ---
 

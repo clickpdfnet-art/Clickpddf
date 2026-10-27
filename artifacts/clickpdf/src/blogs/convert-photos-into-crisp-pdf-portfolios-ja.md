@@ -3,7 +3,7 @@ id: art-4-ja
 locale: ja
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: エレガントな写真ポートフォリオやルックブックを標準PDFとして作成する方法
-slug: smart-photograph-pdf-portfolio-sakusei
+slug: smart-photograph-pdf-portfolio-sakusei-ja
 category: クリエイティブデザイン
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 画像からPDFへの変換ツール
 targetToolCta: 画像や写真をPDFポートフォリオに変換する
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"エレガントな写真ポートフォリオやルックブックを標準PDFとして作成する方法","url":"https://www.clickpdf.net/blog/smart-photograph-pdf-portfolio-sakusei/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"エレガントな写真ポートフォリオやルックブックを標準PDFとして作成する方法","url":"https://www.clickpdf.net/blog/smart-photograph-pdf-portfolio-sakusei-ja/"}]
 ---
 
 フォトグラファー、建築家、インテリアデザイナー、そしてビジュアルアーティストは、クライアントや見込み雇用主に作品サンプルを共有する必要が頻繁にあります。オンラインギャラリーも優れていますが、企業のクライアントは、会議室で確認したり、意思決定者に転送したりできる単一のダウンロード可能なPDFポートフォリオをほぼ常に求めています。

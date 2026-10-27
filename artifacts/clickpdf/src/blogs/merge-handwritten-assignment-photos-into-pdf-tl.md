@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-tl
 locale: tl
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Paano Pagsamahin ang Maramihang Larawan ng Sulat-kamay na Takdang-aralin sa Isang PDF sa Mobile
-slug: pagsamahin-larawan-takdang-aralin-pdf
+slug: pagsamahin-larawan-takdang-aralin-pdf-tl
 category: Gabay para sa mga Estudyante
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -17,9 +17,9 @@ seoKeywords: pagsamahin ang larawan ng takdang-aralin sa PDF sa mobile, sulat-ka
 imageAlt: Estudyante sa unibersidad na kinukuhanan ng larawan ang mga pahina ng sulat-kamay na takdang-aralin gamit ang smartphone sa isang malinis na mesa sa natural na liwanag.
 targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
-targetToolTitle: Image to PDF Converter
+targetToolTitle: Tagapag-convert ng Larawan sa PDF
 targetToolCta: I-convert ang mga Larawan ng Takdang-aralin sa PDF
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Pagsamahin ang Maramihang Larawan ng Sulat-kamay na Takdang-aralin sa Isang PDF sa Mobile","url":"https://www.clickpdf.net/blog/pagsamahin-larawan-takdang-aralin-pdf/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Pagsamahin ang Maramihang Larawan ng Sulat-kamay na Takdang-aralin sa Isang PDF sa Mobile","url":"https://www.clickpdf.net/blog/pagsamahin-larawan-takdang-aralin-pdf-tl/"}]
 faqItems: [{"answer":"Piliin ang iyong mga larawan ng takdang-aralin sa tamang pagkakasunod-sunod, gumamit ng compatible na tool para sa image-to-PDF, suriin ang layout ng pahina, at i-download ang nabuong PDF.","question":"Paano ko pagsasamahin ang mga larawan ng sulat-kamay na takdang-aralin sa isang PDF sa mobile?"},{"answer":"Gumamit ng magandang liwanag, panatilihing parallel ang camera sa pahina, i-crop ang mga hindi kailangang gilid, at suriin ang brightness at contrast nang hindi nabubura ang sulat-kamay.","question":"Paano ko gagawing mas madaling basahin ang mga larawan ng sulat-kamay na takdang-aralin?"},{"answer":"I-resize ang malalaking larawan, gumamit ng angkop na kalidad ng imahe, at mag-apply ng PDF compression kung kinakailangan. Suriin ang huling file size at pagbasa laban sa mga kinakailangan ng iyong portal.","question":"Paano ko liliitin ang file size ng PDF para sa LMS portal?"},{"answer":"Oo, kapag gumamit ka ng tool na nagsasagawa ng conversion nang buo sa iyong browser o sa iyong device. Suriin ang paraan ng pagproseso at impormasyon sa privacy bago gamitin.","question":"Maaari ko bang i-convert ang mga larawan sa PDF nang hindi nag-a-upload sa isang server?"}]
 ---
 

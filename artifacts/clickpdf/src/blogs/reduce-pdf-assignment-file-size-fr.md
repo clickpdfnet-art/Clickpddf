@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-fr
 locale: fr
 translationGroup: reduce-pdf-assignment-file-size
 title: Comment réduire la taille d'un fichier PDF de devoir universitaire à moins de 2 Mo pour les portails LMS
-slug: reduire-taille-fichier-pdf-devoir
+slug: reduire-taille-fichier-pdf-devoir-fr
 category: Guides pour les étudiants
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Compresseur PDF
 targetToolCta: Compresser un PDF maintenant
-breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment réduire la taille d'un fichier PDF de devoir universitaire à moins de 2 Mo pour les portails LMS","url":"https://www.clickpdf.net/blog/reduire-taille-fichier-pdf-devoir/"}]
+breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment réduire la taille d'un fichier PDF de devoir universitaire à moins de 2 Mo pour les portails LMS","url":"https://www.clickpdf.net/blog/reduire-taille-fichier-pdf-devoir-fr/"}]
 faqItems: [{"answer":"Certains portails LMS universitaires imposent une taille d'upload maximale de 2 Mo. Vérifiez les consignes de votre cours car la limite réelle peut varier.","question":"Pourquoi un PDF de devoir doit-il être inférieur à 2 Mo ?"},{"answer":"Compressez les images, optimisez les pages scannées, supprimez les contenus et métadonnées inutiles et utilisez un outil de compression PDF adapté. Vérifiez la taille du fichier et la lisibilité résultantes.","question":"Comment puis-je réduire un PDF sous 2 Mo ?"},{"answer":"Certaines optimisations structurelles réduisent la taille du fichier sans modifier le contenu visible. Le sous-échantillonnage d'images et la compression avec perte peuvent réduire la qualité, vérifiez donc le résultat avant la soumission.","question":"Puis-je compresser un PDF sans perdre en qualité ?"},{"answer":"Oui, si l'outil de navigation sélectionné prend en charge la compression PDF. Le traitement côté client permet de garder les fichiers sur votre appareil, mais vérifiez les détails de confidentialité et de traitement de l'outil.","question":"Puis-je compresser un PDF dans mon navigateur ?"}]
 ---
 

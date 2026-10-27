@@ -3,7 +3,7 @@ id: art-2-no
 locale: no
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: En praktisk guide til å kompilere rene PDF-pakker for visum, rettssaker og skattemeldinger
-slug: hvordan-slå-sammen-og-sortere-pdf-for-formelle-innleveringer
+slug: hvordan-slå-sammen-og-sortere-pdf-for-formelle-innleveringer-no
 category: Produktivitet
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Verktøy for å slå sammen PDF
 targetToolCta: Slå sammen og sorter dokumenter nå
-breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"En praktisk guide til å kompilere rene PDF-pakker for visum, rettssaker og skattemeldinger","url":"https://www.clickpdf.net/blog/hvordan-sl%C3%A5-sammen-og-sortere-pdf-for-formelle-innleveringer/"}]
+breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"En praktisk guide til å kompilere rene PDF-pakker for visum, rettssaker og skattemeldinger","url":"https://www.clickpdf.net/blog/hvordan-sl%C3%A5-sammen-og-sortere-pdf-for-formelle-innleveringer-no/"}]
 ---
 
 Det er få ting som er mer frustrerende enn å få en visumsøknad, en rettslig innsendelse eller en boliglånspakke avvist på grunn av feil i dokumentformateringen. Offisielle portaler håndhever ofte strenge retningslinjer for innsendelse, og å sende inn en uoversiktlig samling av vedlegg er den raskeste måten å forsinke en godkjenning på.

@@ -3,7 +3,7 @@ id: art-1-vi
 locale: vi
 translationGroup: in-browser-pdf-privacy-guide
 title: Tại sao xử lý PDF trong trình duyệt lại an toàn hơn về cơ bản
-slug: huong-dan-bao-mat-pdf-tren-trinh-duyet
+slug: huong-dan-bao-mat-pdf-tren-trinh-duyet-vi
 category: Quyền riêng tư và Bảo mật
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Công cụ nén PDF
 targetToolCta: Nén PDF an toàn trong trình duyệt (Không tải lên)
-breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Tại sao xử lý PDF trong trình duyệt lại an toàn hơn về cơ bản","url":"https://www.clickpdf.net/blog/huong-dan-bao-mat-pdf-tren-trinh-duyet/"}]
+breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Tại sao xử lý PDF trong trình duyệt lại an toàn hơn về cơ bản","url":"https://www.clickpdf.net/blog/huong-dan-bao-mat-pdf-tren-trinh-duyet-vi/"}]
 ---
 
 Bất cứ khi nào bạn tải tờ khai thuế, hồ sơ y tế hoặc hợp đồng lao động đã ký lên một công cụ chuyển đổi PDF trực tuyến thông thường, tài liệu đó sẽ bắt đầu một cuộc hành trình vô hình qua internet. Nó đi qua các nút định tuyến của bên thứ ba và hạ cánh trên một máy chủ đám mây do một công ty lạ quản lý. Ngay cả khi các dịch vụ hứa hẹn xóa tệp sau một hoặc hai giờ, dữ liệu của bạn vẫn tạm thời nằm trên các ổ đĩa từ xa, nơi lỗi nhân viên, cấu hình sai đám mây hoặc sao lưu tự động có thể khiến dữ liệu bị lộ.

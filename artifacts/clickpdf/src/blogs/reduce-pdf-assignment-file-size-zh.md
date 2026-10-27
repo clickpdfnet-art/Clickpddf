@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-zh
 locale: zh
 translationGroup: reduce-pdf-assignment-file-size
 title: 如何将大学 LMS 作业 PDF 文件大小缩减至 2MB 以下
-slug: reduce-pdf-assignment-file-size-locale
+slug: reduce-pdf-assignment-file-size-zh
 category: 学生指南
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF 压缩器
 targetToolCta: 立即压缩 PDF
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将大学 LMS 作业 PDF 文件大小缩减至 2MB 以下","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-locale/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将大学 LMS 作业 PDF 文件大小缩减至 2MB 以下","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-zh/"}]
 faqItems: [{"answer":"一些大学 LMS 门户网站强制执行 2MB 的最大上传限制。请查阅课程说明，因为实际限制可能有所不同。","question":"为什么作业 PDF 必须小于 2MB？"},{"answer":"压缩图像、优化扫描页面、移除不必要的内容和元数据，并使用合适的 PDF 压缩工具。验证所得文件的大小和可读性。","question":"我该如何将 PDF 缩减至 2MB 以下？"},{"answer":"一些结构优化可以在不改变可见内容的情况下减少文件大小。图像下采样和有损压缩可能会降低质量，因此提交前请检查输出。","question":"我可以在不损失质量的情况下压缩 PDF 吗？"},{"answer":"可以，如果所选的浏览器工具支持 PDF 压缩。客户端处理可以将文件保存在您的设备上，但请检查工具的隐私和处理细节。","question":"我可以在浏览器中压缩 PDF 吗？"}]
 ---
 

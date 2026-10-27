@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-hi
 locale: hi
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: मोबाइल पर हाथ से लिखे असाइनमेंट की कई तस्वीरों को एक PDF में मर्ज करने का तरीका
-slug: merge-handwritten-assignment-photos-into-pdf-hi
+slug: merge-handwritten-assignment-photos-into-pdf-hi-hi
 category: छात्र गाइड
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: इमेज टू PDF कन्वर्टर
 targetToolCta: असाइनमेंट की तस्वीरों को PDF में बदलें
-breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"मोबाइल पर हाथ से लिखे असाइनमेंट की कई तस्वीरों को एक PDF में मर्ज करने का तरीका","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-hi/"}]
+breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"मोबाइल पर हाथ से लिखे असाइनमेंट की कई तस्वीरों को एक PDF में मर्ज करने का तरीका","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-hi-hi/"}]
 faqItems: [{"answer":"अपने असाइनमेंट की तस्वीरों को सही क्रम में चुनें, एक संगत इमेज-टू-PDF टूल का उपयोग करें, पेज लेआउट की समीक्षा करें और परिणामी PDF डाउनलोड करें।","question":"मैं मोबाइल पर हाथ से लिखे असाइनमेंट की तस्वीरों को एक PDF में कैसे मर्ज कर सकता हूं?"},{"answer":"अच्छी रोशनी का उपयोग करें, कैमरे को पेज के समानांतर रखें, अनावश्यक किनारों को क्रॉप करें और लिखावट मिटाए बिना चमक और कंट्रास्ट की जांच करें।","question":"मैं हाथ से लिखे असाइनमेंट की तस्वीरों को पढ़ने में आसान कैसे बना सकता हूं?"},{"answer":"बहुत बड़ी तस्वीरों का आकार बदलें, उपयुक्त इमेज क्वालिटी का उपयोग करें और यदि आवश्यक हो तो PDF कम्प्रेशन लागू करें। अंतिम फाइल के आकार और पठनीयता की जांच पोर्टल की आवश्यकताओं के अनुसार करें।","question":"मैं LMS पोर्टल के लिए PDF फाइल का आकार कैसे कम कर सकता हूं?"},{"answer":"हां, जब आप किसी ऐसे टूल का उपयोग करते हैं जो पूरी तरह से आपके ब्राउज़र या डिवाइस पर कन्वर्जन करता है। उपयोग करने से पहले इसकी प्रोसेसिंग और गोपनीयता जानकारी की जांच करें।","question":"क्या मैं तस्वीरों को सर्वर पर अपलोड किए बिना PDF में बदल सकता हूं?"}]
 ---
 

@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-ar
 locale: ar
 translationGroup: reduce-pdf-assignment-file-size
 title: كيفية تقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة
-slug: reduce-pdf-assignment-file-size-locale
+slug: reduce-pdf-assignment-file-size-ar
 category: أدلة الطلاب
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: ضاغط PDF
 targetToolCta: ضغط ملف PDF الآن
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية تقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-locale/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية تقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ar/"}]
 faqItems: [{"answer":"تفرض بعض بوابات نظام إدارة التعلم بالجامعة حداً أقصى لحجم التحميل يبلغ 2 ميجابايت. تحقق من تعليمات الدورة التدريبية لأن الحد الفعلي قد يختلف.","question":"لماذا يجب أن يكون ملف PDF الخاص بالواجب أقل من 2 ميجابايت؟"},{"answer":"قم بضغط الصور، وتحسين الصفحات الممسوحة ضوئيًا، وإزالة المحتوى والبيانات الوصفية غير الضرورية، واستخدام أداة ضغط PDF مناسبة. تحقق من حجم الملف الناتج وقابليته للقراءة.","question":"كيف يمكنني تقليل ملف PDF إلى أقل من 2 ميجابايت؟"},{"answer":"تعمل بعض التحسينات الهيكلية على تقليل حجم الملف دون تغيير المحتوى المرئي. قد يؤدي أخذ عينات الصور والضغط المفقود إلى تقليل الجودة، لذا افحص المخرجات قبل التقديم.","question":"هل يمكنني ضغط ملف PDF دون فقدان الجودة؟"},{"answer":"نعم، إذا كانت أداة المتصفح المحددة تدعم ضغط PDF. يمكن للمعالجة من جانب العميل الاحتفاظ بالملفات على جهازك، ولكن تحقق من خصوصية الأداة وتفاصيل المعالجة.","question":"هل يمكنني ضغط ملف PDF في متصفحي؟"}]
 ---
 

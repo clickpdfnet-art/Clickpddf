@@ -3,7 +3,7 @@ id: art-2-nl
 locale: nl
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Praktische Gids voor het Samenstellen van Schone PDF-pakketten voor Visa, Rechtbank en Belastingaangiften
-slug: pdf-samenvoegen-sorteren-voor-formele-aanvragen
+slug: pdf-samenvoegen-sorteren-voor-formele-aanvragen-nl
 category: Productiviteit
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF Samenvoegtool
 targetToolCta: Documenten voor Aanvragen Samenvoegen en Sorteren
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF-tools","url":"https://www.clickpdf.net/#tools"},{"name":"Praktische Gids voor het Samenstellen van Schone PDF-pakketten voor Visa, Rechtbank en Belastingaangiften","url":"https://www.clickpdf.net/blog/pdf-samenvoegen-sorteren-voor-formele-aanvragen/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF-tools","url":"https://www.clickpdf.net/#tools"},{"name":"Praktische Gids voor het Samenstellen van Schone PDF-pakketten voor Visa, Rechtbank en Belastingaangiften","url":"https://www.clickpdf.net/blog/pdf-samenvoegen-sorteren-voor-formele-aanvragen-nl/"}]
 ---
 
 Er zijn weinig dingen frustrerender dan een afgewezen visumaanvraag, een rechtbankinzending of een hypotheekpakket vanwege fouten in de documentopmaak. Officiële portalen hanteren vaak strikte indieningsrichtlijnen, en het indienen van een ongeorganiseerde verzameling bijlagen is de snelste manier om een goedkeuring te vertragen.

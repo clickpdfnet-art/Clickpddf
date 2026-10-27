@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-nl
 locale: nl
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Hoe je meerdere handgeschreven opdrachtfoto's samenvoegt tot één PDF op mobiel
-slug: handgeschreven-opdrachtfotos-samenvoegen-pdf
+slug: handgeschreven-opdrachtfotos-samenvoegen-pdf-nl
 category: Studentengidsen
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Afbeelding naar PDF-omzetter
 targetToolCta: Zet opdrachtfoto's om naar PDF
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je meerdere handgeschreven opdrachtfoto's samenvoegt tot één PDF op mobiel","url":"https://www.clickpdf.net/blog/handgeschreven-opdrachtfotos-samenvoegen-pdf/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je meerdere handgeschreven opdrachtfoto's samenvoegt tot één PDF op mobiel","url":"https://www.clickpdf.net/blog/handgeschreven-opdrachtfotos-samenvoegen-pdf-nl/"}]
 faqItems: [{"answer":"Selecteer je opdrachtfoto's in de juiste volgorde, gebruik een compatibele afbeelding-naar-PDF-tool, controleer de paginalay-out en download de resulterende PDF.","question":"Hoe kan ik handgeschreven opdrachtfoto's samenvoegen tot één PDF op mobiel?"},{"answer":"Gebruik goede verlichting, houd de camera parallel aan de pagina, snijd onnodige randen bij en controleer de helderheid en het contrast zonder het handschrift te wissen.","question":"Hoe maak ik handgeschreven opdrachtfoto's makkelijker leesbaar?"},{"answer":"Wijzig de grootte van te grote afbeeldingen, gebruik een geschikte beeldkwaliteit en pas indien nodig PDF-compressie toe. Controleer de uiteindelijke bestandsgrootte en leesbaarheid tegen de vereisten van je portaal.","question":"Hoe kan ik de PDF-bestandsgrootte verkleinen voor een LMS-portaal?"},{"answer":"Ja, wanneer je een tool gebruikt die de conversie volledig in je browser of op je apparaat uitvoert. Controleer voor gebruik het verwerkingsgedrag en de privacyinformatie.","question":"Kan ik foto's naar PDF converteren zonder ze naar een server te uploaden?"}]
 ---
 

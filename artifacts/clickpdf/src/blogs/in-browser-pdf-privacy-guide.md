@@ -2,6 +2,8 @@
 id: art-1
 title: Why In-Browser PDF Processing Is Fundamentally More Secure
 slug: in-browser-pdf-privacy-guide
+locale: en
+translationGroup: in-browser-pdf-privacy-guide
 category: Privacy and Security
 date: March 28, 2026
 dateModified: 2026-10-25

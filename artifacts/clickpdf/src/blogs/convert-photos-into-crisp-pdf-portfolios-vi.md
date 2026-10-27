@@ -3,7 +3,7 @@ id: art-4-vi
 locale: vi
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Cách xây dựng danh mục ảnh và lookbook sang trọng dưới dạng PDF tiêu chuẩn
-slug: cach-tao-danh-muc-anh-pdf-sang-trong
+slug: cach-tao-danh-muc-anh-pdf-sang-trong-vi
 category: Thiết kế sáng tạo
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Công cụ chuyển đổi ảnh sang PDF
 targetToolCta: Chuyển đổi ảnh thành danh mục PDF
-breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách xây dựng danh mục ảnh và lookbook sang trọng dưới dạng PDF tiêu chuẩn","url":"https://www.clickpdf.net/blog/cach-tao-danh-muc-anh-pdf-sang-trong/"}]
+breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách xây dựng danh mục ảnh và lookbook sang trọng dưới dạng PDF tiêu chuẩn","url":"https://www.clickpdf.net/blog/cach-tao-danh-muc-anh-pdf-sang-trong-vi/"}]
 ---
 
 Các nhiếp ảnh gia, kiến trúc sư, nhà thiết kế nội thất và nghệ sĩ thị giác thường xuyên cần chia sẻ các mẫu tác phẩm của mình với khách hàng và nhà tuyển dụng tiềm năng. Mặc dù các phòng trưng bày trực tuyến rất tuyệt vời, nhưng khách hàng trong môi trường doanh nghiệp hầu như luôn yêu cầu một danh mục PDF duy nhất có thể tải xuống để họ có thể xem lại trong phòng họp hoặc chuyển tiếp cho những người ra quyết định.

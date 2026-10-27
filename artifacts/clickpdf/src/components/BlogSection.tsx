@@ -5,6 +5,11 @@ import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { HIDDEN_TOOL_IDS, PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import ReducePdfAssignmentArticle from './ReducePdfAssignmentArticle';
+import {
+  formatLocalizedByline,
+  formatLocalizedDate,
+  formatLocalizedReadTime,
+} from '../utils/formatLocalizedDate';
 
 interface BlogSectionProps {
   articles: BlogPost[];
@@ -450,7 +455,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     <span aria-hidden="true">·</span>
                   </>
                 )}
-                <span>{post.readTime}</span>
+                <span>{formatLocalizedReadTime(post.readTime, post.locale || language)}</span>
               </div>
 
               <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 leading-snug">
@@ -472,7 +477,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </div>
 
             <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
-              <span>{post.date}</span>
+              <span>{formatLocalizedDate(post.date, post.locale || language)}</span>
               <a
                 href={post.routePath || `/blog/${encodeURIComponent(post.slug)}`}
                 onClick={(e) => {
@@ -548,12 +553,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   {!activeArticle.coverImage && <span>{activeArticle.category} · </span>}
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
-                    {activeArticle.readTime}
+                    {formatLocalizedReadTime(activeArticle.readTime, activeArticle.locale || language)}
                   </span>
                   <span aria-hidden="true">·</span>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
-                    {activeArticle.date}
+                    {formatLocalizedDate(activeArticle.date, activeArticle.locale || language)}
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-snug">
@@ -561,7 +566,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1.5">
                   <User className="w-3 h-3" />
-                  <span>By {activeArticle.author}</span>
+                  <span>{formatLocalizedByline(activeArticle.author, activeArticle.locale || language)}</span>
                 </p>
               </div>
 

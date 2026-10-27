@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-ko
 locale: ko
 translationGroup: reduce-pdf-assignment-file-size
 title: 대학 LMS 포털을 위한 PDF 과제 파일 크기를 2MB 미만으로 줄이는 방법
-slug: pdf-gwaje-파일-크기-줄이기
+slug: pdf-gwaje-파일-크기-줄이기-ko
 category: 학생 가이드
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF 압축기
 targetToolCta: 지금 PDF 압축하기
-breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"대학 LMS 포털을 위한 PDF 과제 파일 크기를 2MB 미만으로 줄이는 방법","url":"https://www.clickpdf.net/blog/pdf-gwaje-%ED%8C%8C%EC%9D%BC-%ED%81%AC%EA%B8%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0/"}]
+breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"대학 LMS 포털을 위한 PDF 과제 파일 크기를 2MB 미만으로 줄이는 방법","url":"https://www.clickpdf.net/blog/pdf-gwaje-%ED%8C%8C%EC%9D%BC-%ED%81%AC%EA%B8%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0-ko/"}]
 faqItems: [{"answer":"일부 대학 LMS 포털은 최대 업로드 크기를 2MB로 제한합니다. 실제 제한은 다를 수 있으므로 강의 지침을 확인하세요.","question":"과제 PDF가 2MB 미만이어야 하는 이유는 무엇인가요?"},{"answer":"이미지 압축, 스캔 페이지 최적화, 불필요한 콘텐츠 및 메타데이터 제거, 적절한 PDF 압축 도구 사용 등을 활용하세요. 결과 파일의 크기와 가독성을 확인하십시오.","question":"PDF를 2MB 미만으로 줄이는 방법은 무엇인가요?"},{"answer":"일부 구조적 최적화는 시각적 콘텐츠 변경 없이 파일 크기를 줄입니다. 이미지 다운샘플링과 손실 압축은 품질을 저하시킬 수 있으므로 제출 전 결과물을 검토하세요.","question":"품질 손실 없이 PDF를 압축할 수 있나요?"},{"answer":"네, 선택한 브라우저 도구가 PDF 압축을 지원한다면 가능합니다. 클라이언트 측 처리는 파일을 기기에 유지할 수 있게 해주지만, 도구의 개인정보 보호 및 처리 세부 정보를 확인하세요.","question":"브라우저에서 PDF를 압축할 수 있나요?"}]
 ---
 

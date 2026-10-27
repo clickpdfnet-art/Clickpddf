@@ -3,7 +3,7 @@ id: art-6-tl
 locale: tl
 translationGroup: demystifying-pdf-passwords-encryption
 title: Pag-unawa sa mga PDF Password at Zero-Knowledge Encryption
-slug: pag-unawa-sa-pdf-password-encryption
+slug: pag-unawa-sa-pdf-password-encryption-tl
 category: Arkitektura ng Seguridad
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 Protektahan ang PDF Tool
 targetToolCta: I-password Protect ang PDF gamit ang Zero-Knowledge Encryption
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga PDF Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Pag-unawa sa mga PDF Password at Zero-Knowledge Encryption","url":"https://www.clickpdf.net/blog/pag-unawa-sa-pdf-password-encryption/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga PDF Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Pag-unawa sa mga PDF Password at Zero-Knowledge Encryption","url":"https://www.clickpdf.net/blog/pag-unawa-sa-pdf-password-encryption-tl/"}]
 ---
 
 Ang pagprotekta sa mga sensitibong pampinansyal na forecast o mga pribadong kasunduan ay nangangailangan ng pag-unawa kung paano talaga gumagana ang PDF encryption. Maraming tao ang nag-aakala na ang lahat ng password protection ay pare-pareho, ngunit ang mekanismong nasa ilalim nito ay nagdudulot ng malaking pagkakaiba.

@@ -3,7 +3,7 @@ id: art-2-vi
 locale: vi
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Hướng dẫn thực tế về cách biên soạn các gói PDF sạch cho thị thực, tòa án và hồ sơ thuế
-slug: cach-gop-sap-xep-lai-pdf-cho-ho-so-chinh-thuc
+slug: cach-gop-sap-xep-lai-pdf-cho-ho-so-chinh-thuc-vi
 category: Năng suất
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Công cụ Gộp PDF
 targetToolCta: Gộp & Sắp xếp lại Tài liệu Ngay
-breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Hướng dẫn thực tế về cách biên soạn các gói PDF sạch cho thị thực, tòa án và hồ sơ thuế","url":"https://www.clickpdf.net/blog/cach-gop-sap-xep-lai-pdf-cho-ho-so-chinh-thuc/"}]
+breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Hướng dẫn thực tế về cách biên soạn các gói PDF sạch cho thị thực, tòa án và hồ sơ thuế","url":"https://www.clickpdf.net/blog/cach-gop-sap-xep-lai-pdf-cho-ho-so-chinh-thuc-vi/"}]
 ---
 
 Ít có điều gì gây khó chịu hơn việc đơn xin thị thực nhập cư, hồ sơ nộp tòa án hoặc gói thế chấp bị từ chối do lỗi định dạng tài liệu. Các cổng thông tin chính thức thường thực thi các hướng dẫn nộp hồ sơ nghiêm ngặt, và việc nộp một tập hợp các tệp đính kèm không có thứ tự là cách nhanh nhất để trì hoãn việc phê duyệt.

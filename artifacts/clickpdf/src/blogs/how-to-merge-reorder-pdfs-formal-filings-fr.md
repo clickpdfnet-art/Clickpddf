@@ -3,7 +3,7 @@ id: art-2-fr
 locale: fr
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Guide pratique pour compiler des dossiers PDF propres pour les visas, les tribunaux et les déclarations fiscales
-slug: how-to-merge-reorder-pdfs-formal-filings-fr
+slug: how-to-merge-reorder-pdfs-formal-filings-fr-fr
 category: Productivité
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Outil de fusion PDF
 targetToolCta: Fusionner & réorganiser vos documents maintenant
-breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Guide pratique pour compiler des dossiers PDF propres pour les visas, les tribunaux et les déclarations fiscales","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-fr/"}]
+breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Guide pratique pour compiler des dossiers PDF propres pour les visas, les tribunaux et les déclarations fiscales","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-fr-fr/"}]
 ---
 
 Peu de choses sont plus frustrantes que de voir une demande de visa d'immigration, une soumission judiciaire ou un dossier de prêt hypothécaire rejetés en raison d'erreurs de formatage de document. Les portails officiels imposent souvent des directives de soumission strictes, et soumettre une collection désordonnée de pièces jointes est le moyen le plus rapide de retarder une approbation.

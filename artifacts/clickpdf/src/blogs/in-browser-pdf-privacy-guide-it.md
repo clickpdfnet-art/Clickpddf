@@ -3,7 +3,7 @@ id: art-1-it
 locale: it
 translationGroup: in-browser-pdf-privacy-guide
 title: Perché l'elaborazione dei PDF nel browser è fondamentalmente più sicura
-slug: guida-privacy-pdf-browser
+slug: guida-privacy-pdf-browser-it
 category: Privacy e sicurezza
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Strumento di compressione PDF
 targetToolCta: Comprimi PDF in modo sicuro nel browser (Zero caricamenti)
-breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Perché l'elaborazione dei PDF nel browser è fondamentalmente più sicura","url":"https://www.clickpdf.net/blog/guida-privacy-pdf-browser/"}]
+breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Perché l'elaborazione dei PDF nel browser è fondamentalmente più sicura","url":"https://www.clickpdf.net/blog/guida-privacy-pdf-browser-it/"}]
 ---
 
 Ogni volta che carichi una dichiarazione dei redditi, un modulo medico o un contratto di lavoro firmato su un tipico convertitore PDF online, quel documento intraprende un viaggio invisibile attraverso Internet. Viaggia attraverso nodi di routing di terze parti e approda su un server cloud gestito da un'azienda sconosciuta. Anche quando i servizi promettono di eliminare i file dopo un'ora o due, i tuoi dati risiedono temporaneamente su unità remote dove errori dei dipendenti, configurazioni errate del cloud o backup automatizzati possono lasciarli esposti.

@@ -3,7 +3,7 @@ id: art-6-hi
 locale: hi
 translationGroup: demystifying-pdf-passwords-encryption
 title: PDF पासवर्ड और ज़ीरो-नॉलेज एन्क्रिप्शन को समझना
-slug: pdf-passwords-zero-knowledge-encryption-hi
+slug: pdf-passwords-zero-knowledge-encryption-hi-hi
 category: सुरक्षा आर्किटेक्चर
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF सुरक्षा टूल
 targetToolCta: ज़ीरो-नॉलेज एन्क्रिप्शन के साथ PDF को पासवर्ड-सुरक्षित करें
-breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"PDF टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"PDF पासवर्ड और ज़ीरो-नॉलेज एन्क्रिप्शन को समझना","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-hi/"}]
+breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"PDF टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"PDF पासवर्ड और ज़ीरो-नॉलेज एन्क्रिप्शन को समझना","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-hi-hi/"}]
 ---
 
 संवेदनशील वित्तीय पूर्वानुमानों या निजी समझौतों की सुरक्षा के लिए यह समझना आवश्यक है कि PDF एन्क्रिप्शन वास्तव में कैसे काम करता है। कई लोग मानते हैं कि सभी पासवर्ड सुरक्षा एक समान होती है, लेकिन अंतर्निहित तंत्र एक बड़ा अंतर पैदा करता है।

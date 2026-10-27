@@ -3,7 +3,7 @@ id: art-6-ru
 locale: ru
 translationGroup: demystifying-pdf-passwords-encryption
 title: Демистификация PDF-паролей и шифрования с нулевым разглашением
-slug: demystifikatsiya-pdf-paroley-i-shifrovaniya
+slug: demystifikatsiya-pdf-paroley-i-shifrovaniya-ru
 category: Архитектура безопасности
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Инструмент защиты PDF с AES-256
 targetToolCta: Защитить PDF паролем с шифрованием нулевого разглашения
-breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF-инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Демистификация PDF-паролей и шифрования с нулевым разглашением","url":"https://www.clickpdf.net/blog/demystifikatsiya-pdf-paroley-i-shifrovaniya/"}]
+breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF-инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Демистификация PDF-паролей и шифрования с нулевым разглашением","url":"https://www.clickpdf.net/blog/demystifikatsiya-pdf-paroley-i-shifrovaniya-ru/"}]
 ---
 
 Защита конфиденциальных финансовых прогнозов или частных соглашений требует понимания того, как на самом деле работает шифрование PDF. Многие считают, что вся защита паролем идентична, но лежащий в основе механизм имеет огромное значение.

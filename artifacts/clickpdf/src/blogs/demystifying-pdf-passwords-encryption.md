@@ -2,6 +2,8 @@
 id: art-6
 title: Demystifying PDF Passwords and Zero-Knowledge Encryption
 slug: demystifying-pdf-passwords-encryption
+locale: en
+translationGroup: demystifying-pdf-passwords-encryption
 category: Security Architecture
 date: April 08, 2026
 dateModified: 2026-10-19

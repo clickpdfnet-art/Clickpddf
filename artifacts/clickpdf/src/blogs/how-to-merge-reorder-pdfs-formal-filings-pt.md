@@ -3,7 +3,7 @@ id: art-2-pt
 locale: pt
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: Guia prático para compilar pacotes PDF organizados para vistos, tribunais e declarações de impostos
-slug: como-combinar-reordenar-pdfs-para-documentacoes-formais
+slug: como-combinar-reordenar-pdfs-para-documentacoes-formais-pt
 category: Produtividade
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: Ferramenta para combinar PDF
 targetToolCta: Combinar e reordenar documentos agora
-breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Guia prático para compilar pacotes PDF organizados para vistos, tribunais e declarações de impostos","url":"https://www.clickpdf.net/blog/como-combinar-reordenar-pdfs-para-documentacoes-formais/"}]
+breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Guia prático para compilar pacotes PDF organizados para vistos, tribunais e declarações de impostos","url":"https://www.clickpdf.net/blog/como-combinar-reordenar-pdfs-para-documentacoes-formais-pt/"}]
 ---
 
 Poucas coisas são mais frustrantes do que ter um pedido de visto de imigração, uma submissão judicial ou um processo de hipoteca rejeitado devido a erros de formatação no documento. Os portais oficiais aplicam frequentemente diretrizes rigorosas de submissão, e enviar uma coleção desordenada de anexos é a forma mais rápida de atrasar uma aprovação.

@@ -3,7 +3,7 @@ id: art-6-de
 locale: de
 translationGroup: demystifying-pdf-passwords-encryption
 title: PDF-Passwörter und Zero-Knowledge-Verschlüsselung erklärt
-slug: pdf-passwoerter-und-zero-knowledge-verschluesselung-erklaert
+slug: pdf-passwoerter-und-zero-knowledge-verschluesselung-erklaert-de
 category: Sicherheitsarchitektur
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF-Schutz-Tool
 targetToolCta: PDF mit Zero-Knowledge-Verschlüsselung passwortschützen
-breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"PDF-Passwörter und Zero-Knowledge-Verschlüsselung erklärt","url":"https://www.clickpdf.net/blog/pdf-passwoerter-und-zero-knowledge-verschluesselung-erklaert/"}]
+breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"PDF-Passwörter und Zero-Knowledge-Verschlüsselung erklärt","url":"https://www.clickpdf.net/blog/pdf-passwoerter-und-zero-knowledge-verschluesselung-erklaert-de/"}]
 ---
 
 Das Schützen sensibler Finanzprognosen oder privater Verträge erfordert ein Verständnis dafür, wie PDF-Verschlüsselung tatsächlich funktioniert. Viele nehmen an, dass jeder Passwortschutz identisch ist, doch der zugrunde liegende Mechanismus macht einen enormen Unterschied.

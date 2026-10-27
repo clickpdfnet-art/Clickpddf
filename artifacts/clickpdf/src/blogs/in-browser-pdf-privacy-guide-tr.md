@@ -3,7 +3,7 @@ id: art-1-tr
 locale: tr
 translationGroup: in-browser-pdf-privacy-guide
 title: Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir
-slug: tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir
+slug: tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir-tr
 category: Gizlilik ve Güvenlik
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF Sıkıştırma Aracı
 targetToolCta: Tarayıcıda Güvenle PDF Sıkıştırın (Yükleme Yok)
-breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir","url":"https://www.clickpdf.net/blog/tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir/"}]
+breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir","url":"https://www.clickpdf.net/blog/tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir-tr/"}]
 ---
 
 Bir vergi beyannamesi, tıbbi form veya imzalı bir iş sözleşmesini standart bir çevrimiçi PDF dönüştürücüsüne her yüklediğinizde, bu belge internet genelinde görünmez bir yolculuğa çıkar. Üçüncü taraf yönlendirme düğümlerinden geçer ve alışılmadık bir şirket tarafından yönetilen bir bulut sunucusuna ulaşır. Hizmetler dosyaları bir veya iki saat sonra silme sözü verse bile, verileriniz çalışan hataları, bulut yapılandırma hataları veya otomatik yedeklemelerin maruz bırakabileceği uzak sürücülerde geçici olarak bekletilir.

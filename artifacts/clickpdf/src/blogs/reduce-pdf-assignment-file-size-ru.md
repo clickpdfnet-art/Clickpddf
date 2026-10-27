@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-ru
 locale: ru
 translationGroup: reduce-pdf-assignment-file-size
 title: Как уменьшить размер PDF-файла задания до 2 МБ для университетских порталов
-slug: kak-umenshit-razmer-pdf-fayla-zadaniya
+slug: kak-umenshit-razmer-pdf-fayla-zadaniya-ru
 category: Студенческие руководства
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF-компрессор
 targetToolCta: Сжать PDF сейчас
-breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"Инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как уменьшить размер PDF-файла задания до 2 МБ для университетских порталов","url":"https://www.clickpdf.net/blog/kak-umenshit-razmer-pdf-fayla-zadaniya/"}]
+breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"Инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как уменьшить размер PDF-файла задания до 2 МБ для университетских порталов","url":"https://www.clickpdf.net/blog/kak-umenshit-razmer-pdf-fayla-zadaniya-ru/"}]
 faqItems: [{"answer":"Некоторые университетские порталы LMS устанавливают ограничение максимального размера загрузки в 2 МБ. Проверьте инструкции к курсу, так как лимиты могут различаться.","question":"Почему PDF-файл задания должен быть менее 2 МБ?"},{"answer":"Сжимайте изображения, оптимизируйте отсканированные страницы, удаляйте ненужный контент и метаданные, а также используйте подходящий инструмент для сжатия PDF. Проверьте размер и читаемость полученного файла.","question":"Как уменьшить PDF до размера менее 2 МБ?"},{"answer":"Некоторые структурные оптимизации уменьшают размер файла без изменения видимого контента. Даунсемплинг изображений и сжатие с потерями могут снизить качество, поэтому проверяйте результат перед отправкой.","question":"Можно ли сжать PDF без потери качества?"},{"answer":"Да, если выбранный браузерный инструмент поддерживает сжатие PDF. Обработка на стороне клиента позволяет хранить файлы на вашем устройстве, но проверяйте конфиденциальность и детали обработки инструмента.","question":"Можно ли сжать PDF в браузере?"}]
 ---
 

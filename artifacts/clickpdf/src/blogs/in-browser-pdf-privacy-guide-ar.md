@@ -3,7 +3,7 @@ id: art-1-ar
 locale: ar
 translationGroup: in-browser-pdf-privacy-guide
 title: لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي
-slug: دليل-خصوصية-ملفات-pdf-داخل-المتصفح
+slug: دليل-خصوصية-ملفات-pdf-داخل-المتصفح-ar
 category: الخصوصية والأمان
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: أداة ضغط PDF
 targetToolCta: ضغط ملفات PDF بأمان داخل المتصفح (بدون رفع الملفات)
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي","url":"https://www.clickpdf.net/blog/%D8%AF%D9%84%D9%8A%D9%84-%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%85%D9%84%D9%81%D8%A7%D8%AA-pdf-%D8%AF%D8%A7%D8%AE%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي","url":"https://www.clickpdf.net/blog/%D8%AF%D9%84%D9%8A%D9%84-%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%85%D9%84%D9%81%D8%A7%D8%AA-pdf-%D8%AF%D8%A7%D8%AE%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD-ar/"}]
 ---
 
 كلما قمت بتحميل إقرار ضريبي، أو نموذج طبي، أو عقد توظيف موقع إلى محول PDF تقليدي عبر الإنترنت، فإن تلك المستندات تبدأ رحلة غير مرئية عبر الإنترنت. فهي تنتقل عبر عقد توجيه تابعة لجهات خارجية وتصل إلى خادم سحابي تديره شركة غير مألوفة. حتى عندما تعد الخدمات بمسح الملفات بعد ساعة أو ساعتين، تظل بياناتك مؤقتاً على محركات أقراص بعيدة حيث يمكن لأخطاء الموظفين، أو تكوينات السحابة الخاطئة، أو النسخ الاحتياطية التلقائية أن تعرضها للكشف.

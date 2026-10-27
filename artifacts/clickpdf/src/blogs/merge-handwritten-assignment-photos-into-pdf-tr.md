@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-tr
 locale: tr
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Mobil Cihazda Birden Fazla El Yazısı Ödevi Fotoğrafını Tek Bir PDF'e Dönüştürme
-slug: el-yazili-odev-fotograflarini-pdf-yapma
+slug: el-yazili-odev-fotograflarini-pdf-yapma-tr
 category: Öğrenci Rehberleri
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Görüntüden PDF'e Dönüştürücü
 targetToolCta: Ödev Fotoğraflarını PDF'e Dönüştür
-breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Mobil Cihazda Birden Fazla El Yazısı Ödevi Fotoğrafını Tek Bir PDF'e Dönüştürme","url":"https://www.clickpdf.net/blog/el-yazili-odev-fotograflarini-pdf-yapma/"}]
+breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Mobil Cihazda Birden Fazla El Yazısı Ödevi Fotoğrafını Tek Bir PDF'e Dönüştürme","url":"https://www.clickpdf.net/blog/el-yazili-odev-fotograflarini-pdf-yapma-tr/"}]
 faqItems: [{"answer":"Ödev fotoğraflarınızı doğru sırayla seçin, uyumlu bir görüntüden PDF'e dönüştürme aracı kullanın, sayfa düzenini gözden geçirin ve oluşan PDF'i indirin.","question":"El yazısı ödev fotoğraflarını mobil cihazda nasıl tek bir PDF'te birleştirebilirim?"},{"answer":"İyi bir aydınlatma kullanın, kamerayı sayfaya paralel tutun, gereksiz kenarları kırpın ve el yazısını silmeden parlaklık ve kontrast ayarlarını kontrol edin.","question":"El yazısı ödev fotoğraflarını nasıl daha okunabilir hale getirebilirim?"},{"answer":"Çok büyük görüntülerin boyutunu yeniden ayarlayın, uygun görüntü kalitesini kullanın ve gerekirse PDF sıkıştırma uygulayın. Dosya boyutunu ve okunabilirliğini portal gereksinimlerine göre kontrol edin.","question":"LMS portalı için PDF dosya boyutunu nasıl küçültebilirim?"},{"answer":"Evet, dönüşümü tamamen tarayıcınızda veya cihazınızda gerçekleştiren bir araç kullandığınızda bu mümkündür. Kullanmadan önce aracın veri işleme davranışını ve gizlilik politikasını kontrol edin.","question":"Fotoğrafları sunucuya yüklemeden PDF'e dönüştürebilir miyim?"}]
 ---
 

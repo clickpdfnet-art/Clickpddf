@@ -77,10 +77,55 @@ const urls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)]
 const activeTools = await readActiveToolRegistry(appDir);
 const toolUrls = urls.filter((value) => new URL(value).pathname.startsWith('/tools/'));
 const blogFiles = (await readdir(path.join(appDir, 'src', 'blogs'))).filter((name) => name.endsWith('.md'));
+const supportedBlogLocales = [
+  'en', 'ur', 'hi', 'ar', 'zh', 'ja', 'tl', 'de', 'fr', 'es', 'it',
+  'no', 'pt', 'ru', 'ko', 'tr', 'nl', 'pl', 'sv', 'id', 'vi',
+];
+const blogPosts = await Promise.all(blogFiles.map(async (file) => {
+  const raw = await readFile(path.join(appDir, 'src', 'blogs', file), 'utf8');
+  const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const metadata = Object.fromEntries((frontmatter?.[1] || '').split(/\r?\n/).flatMap((line) => {
+    const separator = line.indexOf(':');
+    if (separator <= 0) return [];
+    const key = line.slice(0, separator).trim().toLowerCase().replace(/[\s_-]+/g, '');
+    let value = line.slice(separator + 1).trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) value = value.slice(1, -1);
+    return [[key, value]];
+  }));
+  return {
+    file,
+    metadata,
+    body: raw.slice(frontmatter?.[0].length || 0).trim(),
+  };
+}));
+const blogTranslationGroups = new Map();
+for (const post of blogPosts) {
+  const group = post.metadata.translationgroup;
+  if (!group) continue;
+  const entries = blogTranslationGroups.get(group) || [];
+  entries.push(post);
+  blogTranslationGroups.set(group, entries);
+}
+const expectedLocalizedBlogPageCount = [...blogTranslationGroups.values()]
+  .reduce((count, group) => count + group.length, 0);
+const expectedBlogAlternateCount = [...blogTranslationGroups.values()]
+  .reduce(
+    (count, group) =>
+      count + group.length * (new Set(group.map((post) => post.metadata.locale || 'en')).size + 1),
+    0,
+  );
 const legalPages = JSON.parse(await readFile(path.join(appDir, 'src', 'data', 'legalPages.json'), 'utf8'));
 
 test('sitemap routes have static metadata and parseable head JSON-LD', async () => {
   assert.equal(new Set(urls).size, urls.length, 'sitemap URLs are unique');
+  assert.equal(
+    urls.length,
+    activeTools.length + blogFiles.length + 10,
+    'sitemap includes all tools, all blog routes, and ten shared public routes',
+  );
   assert.equal(toolUrls.length, activeTools.length, 'sitemap lists exactly the active public tools');
   for (const tool of activeTools) {
     assert.ok(
@@ -126,10 +171,60 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
   }
 });
 
+test('every blog translation group has complete cards and articles in all supported locales', async () => {
+  assert.equal(blogTranslationGroups.size, 9, 'the existing image guide and eight other article groups are localized');
+  for (const [groupName, group] of blogTranslationGroups) {
+    const locales = group.map((post) => post.metadata.locale || 'en').sort();
+    assert.equal(group.length, supportedBlogLocales.length, `${groupName} has one entry per supported locale`);
+    assert.deepEqual(
+      locales,
+      [...supportedBlogLocales].sort(),
+      `${groupName} covers all supported locales exactly once`,
+    );
+    const english = group.find((post) => (post.metadata.locale || 'en') === 'en');
+    assert.ok(english, `${groupName} has its English source article`);
+
+    for (const post of group) {
+      const locale = post.metadata.locale || 'en';
+      assert.ok(post.metadata.title, `${post.file} has a localized title`);
+      assert.ok(post.metadata.summary, `${post.file} has a localized card excerpt`);
+      assert.ok(post.body.length > 0, `${post.file} has full article content`);
+      if (locale === 'en') continue;
+
+      assert.notEqual(post.metadata.title, english.metadata.title, `${post.file} card title is translated`);
+      assert.notEqual(post.metadata.summary, english.metadata.summary, `${post.file} card excerpt is translated`);
+      for (const key of ['category', 'imagealt', 'targettooltitle', 'targettoolcta', 'seokeywords']) {
+        assert.ok(post.metadata[key], `${post.file} has localized ${key}`);
+        assert.notEqual(post.metadata[key], english.metadata[key], `${post.file} ${key} is translated`);
+      }
+      assert.notEqual(post.body, english.body, `${post.file} article body is translated`);
+      assert.ok(post.metadata.seotitle, `${post.file} has a localized SEO title`);
+      assert.ok(post.metadata.seodescription, `${post.file} has a localized SEO description`);
+      if (english.metadata.faqitems) {
+        const englishFaqs = JSON.parse(english.metadata.faqitems);
+        const localizedFaqs = JSON.parse(post.metadata.faqitems || '[]');
+        assert.equal(localizedFaqs.length, englishFaqs.length, `${post.file} keeps every FAQ`);
+        assert.notDeepEqual(localizedFaqs, englishFaqs, `${post.file} FAQ text is translated`);
+      }
+
+      const headingCount = (body) => (body.match(/^#{1,6}\s/gm) || []).length;
+      const links = (body) => [...body.matchAll(/\]\(([^)]+)\)/g)].map((match) => match[1]);
+      const codeSpans = (body) => [...body.matchAll(/`([^`]+)`/g)].map((match) => match[1]);
+      assert.equal(headingCount(post.body), headingCount(english.body), `${post.file} preserves heading hierarchy`);
+      assert.deepEqual(links(post.body), links(english.body), `${post.file} preserves link destinations`);
+      assert.deepEqual(codeSpans(post.body), codeSpans(english.body), `${post.file} preserves code spans`);
+    }
+  }
+});
+
 test('localized blog sitemap alternates are repeated in each raw HTML head', async () => {
   const sitemapBlocks = [...sitemap.matchAll(/<url>[\s\S]*?<\/url>/g)].map((match) => match[0]);
   const translatedBlocks = sitemapBlocks.filter((block) => /<xhtml:link\b[^>]*hreflang=/i.test(block));
-  assert.equal(translatedBlocks.length, 21, 'all 21 localized article routes declare hreflang alternates');
+  assert.equal(
+    translatedBlocks.length,
+    expectedLocalizedBlogPageCount,
+    'every localized article route declares hreflang alternates',
+  );
 
   let alternateCount = 0;
   for (const block of translatedBlocks) {
@@ -146,7 +241,15 @@ test('localized blog sitemap alternates are repeated in each raw HTML head', asy
       }))
       .sort((a, b) => a.locale.localeCompare(b.locale));
 
-    assert.equal(expected.length, 22, `${pageUrl} has 21 locales and x-default in sitemap`);
+    const group = [...blogTranslationGroups.values()].find((entries) =>
+      entries.some((entry) => `${siteOrigin}${entry.metadata.routepath || `/blog/${encodeURIComponent(entry.metadata.slug)}/`}` === pageUrl),
+    );
+    assert.ok(group, `${pageUrl} belongs to a localized blog group`);
+    assert.equal(
+      expected.length,
+      new Set(group.map((entry) => entry.metadata.locale || 'en')).size + 1,
+      `${pageUrl} has one alternate per locale and x-default`,
+    );
     assert.ok(expected.some((item) => item.locale === 'x-default'), `${pageUrl} includes sitemap x-default`);
     assert.deepEqual(actual, expected, `${pageUrl} head alternates exactly match sitemap alternates`);
     assert.ok(
@@ -156,7 +259,7 @@ test('localized blog sitemap alternates are repeated in each raw HTML head', asy
     );
     alternateCount += actual.length;
   }
-  assert.equal(alternateCount, 462, 'the 21 translated article pages expose all 462 sitemap alternates in HTML heads');
+  assert.equal(alternateCount, expectedBlogAlternateCount, 'all localized article pages expose their sitemap alternates in HTML heads');
 });
 
 test('homepage contains brand, WebSite, WebApplication, navigation, and the full tool list', async () => {
@@ -478,8 +581,12 @@ test('Cloudflare worker resolves percent-encoded Unicode blog routes to their ow
   }
 });
 
-test('all 60 public routes keep localized heads, verified article metadata, headings, and image dimensions', async () => {
-  assert.equal(urls.length, 60, 'sitemap contains the expected 21 tools, 29 blog posts, and 10 other pages');
+test('all public routes keep localized heads, verified article metadata, headings, and image dimensions', async () => {
+  assert.equal(
+    urls.length,
+    activeTools.length + blogFiles.length + 10,
+    'sitemap includes all tools, all blog posts, and ten shared public routes',
+  );
 
   const expectedPersonAuthors = new Set(['Sarah Jenkins', 'Khurram Shah', 'Asad Tariq']);
   let articleCount = 0;
@@ -519,12 +626,20 @@ test('all 60 public routes keep localized heads, verified article metadata, head
     const expectedAuthorType = expectedPersonAuthors.has(authorName) ? 'Person' : 'Organization';
     assert.equal(posting.author?.['@type'], expectedAuthorType, `${url} author type reflects a person or publishing organization`);
   }
-  assert.equal(articleCount, 29, 'all 29 article pages have BlogPosting schema');
+  assert.equal(articleCount, blogFiles.length, 'every Markdown article page has BlogPosting schema');
 
   const home = staticMain((await readHeadSchemas(`${siteOrigin}/`)).html, `${siteOrigin}/`);
   const footerSource = await readFile(path.join(appDir, 'src', 'components', 'Footer.tsx'), 'utf8');
   const blogSectionSource = await readFile(
     path.join(appDir, 'src', 'components', 'BlogSection.tsx'),
+    'utf8',
+  );
+  const standaloneArticleSource = await readFile(
+    path.join(appDir, 'src', 'components', 'ReducePdfAssignmentArticle.tsx'),
+    'utf8',
+  );
+  const dateFormattingSource = await readFile(
+    path.join(appDir, 'src', 'utils', 'formatLocalizedDate.ts'),
     'utf8',
   );
   for (const page of legalPages) {
@@ -539,6 +654,19 @@ test('all 60 public routes keep localized heads, verified article metadata, head
   assert.match(blogSectionSource, /toolUrl = '\/tools\/protect-pdf-password\/'/);
   assert.match(blogSectionSource, /toolUrl = '\/tools\/ocr-pdf-analysis\/'/);
   assert.doesNotMatch(blogSectionSource, /toolUrl = '\/tools\/(?:protect-pdf|pdf-metadata)(?:\/|')/);
+  assert.match(blogSectionSource, /post\.locale === \(hasCurrentLocale \? language : 'en'\)/);
+  assert.match(blogSectionSource, /formatLocalizedDate\(post\.date,\s*post\.locale \|\| language\)/);
+  assert.match(blogSectionSource, /formatLocalizedReadTime\(post\.readTime,\s*post\.locale \|\| language\)/);
+  assert.match(blogSectionSource, /formatLocalizedByline\(activeArticle\.author,\s*activeArticle\.locale \|\| language\)/);
+  assert.match(standaloneArticleSource, /formatLocalizedDate\(article\.date,\s*article\.locale \|\| 'en'\)/);
+  assert.match(standaloneArticleSource, /formatLocalizedReadTime\(article\.readTime,\s*article\.locale \|\| 'en'\)/);
+  assert.match(standaloneArticleSource, /formatLocalizedByline\(article\.author,\s*article\.locale \|\| 'en'\)/);
+  for (const locale of supportedBlogLocales) {
+    assert.ok(
+      dateFormattingSource.includes(`${locale}: (minutes) =>`),
+      `blog dates and reading labels support ${locale}`,
+    );
+  }
 
   const llms = await readFile(path.join(publicDir, 'llms.txt'), 'utf8');
   const llmsFull = await readFile(path.join(publicDir, 'llms-full.txt'), 'utf8');

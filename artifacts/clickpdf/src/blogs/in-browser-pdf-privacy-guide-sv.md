@@ -3,7 +3,7 @@ id: art-1-sv
 locale: sv
 translationGroup: in-browser-pdf-privacy-guide
 title: Varför PDF-behandling i webbläsaren är fundamentalt säkrare
-slug: guide-till-pdf-integritet-i-webblasaren
+slug: guide-till-pdf-integritet-i-webblasaren-sv
 category: Integritet och säkerhet
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Verktyg för PDF-komprimering
 targetToolCta: Komprimera PDF säkert i webbläsaren (inga uppladdningar)
-breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Varför PDF-behandling i webbläsaren är fundamentalt säkrare","url":"https://www.clickpdf.net/blog/guide-till-pdf-integritet-i-webblasaren/"}]
+breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Varför PDF-behandling i webbläsaren är fundamentalt säkrare","url":"https://www.clickpdf.net/blog/guide-till-pdf-integritet-i-webblasaren-sv/"}]
 ---
 
 Varje gång du laddar upp en deklaration, ett medicinskt formulär eller ett signerat anställningsavtal till en vanlig online-PDF-konverterare, påbörjar dokumentet en osynlig resa över internet. Det färdas genom routingsnoder från tredje part och landar på en molnserver som hanteras av ett okänt företag. Även när tjänster lovar att radera filer efter en timme eller två, ligger din data temporärt på fjärrdiskar där anställdas misstag, felkonfigurationer i molnet eller automatiska säkerhetskopior kan lämna den exponerad.

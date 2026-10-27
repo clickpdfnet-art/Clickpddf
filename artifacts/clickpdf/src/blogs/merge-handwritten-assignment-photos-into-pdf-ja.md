@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-ja
 locale: ja
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: 手書き課題の写真をスマートフォンで1つのPDFにまとめる方法
-slug: merge-handwritten-assignment-photos-into-pdf-ja
+slug: merge-handwritten-assignment-photos-into-pdf-ja-ja
 category: 学生向けガイド
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 画像PDF変換ツール
 targetToolCta: 課題写真をPDFに変換
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"ツール","url":"https://www.clickpdf.net/#tools"},{"name":"手書き課題の写真をスマートフォンで1つのPDFにまとめる方法","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ja/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"ツール","url":"https://www.clickpdf.net/#tools"},{"name":"手書き課題の写真をスマートフォンで1つのPDFにまとめる方法","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ja-ja/"}]
 faqItems: [{"answer":"課題の写真を正しい順序で選択し、対応する画像PDF変換ツールを使用してページレイアウトを確認し、作成されたPDFをダウンロードします。","question":"手書き課題の写真をスマホで1つのPDFにまとめるには？"},{"answer":"適切な照明の下でカメラをページと平行に保持し、不要な端をトリミングします。手書き文字を消さないよう注意しながら、明るさとコントラストを調整してください。","question":"手書き課題の写真を読みやすくするにはどうすればよいですか？"},{"answer":"大きすぎる画像のリサイズ、適切な画質設定、必要に応じてPDF圧縮を行います。最終的なファイルサイズと読みやすさがポータルの要件を満たしているか確認してください。","question":"LMSポータル用にPDFのファイルサイズを減らすには？"},{"answer":"はい、ブラウザ内または端末内で変換処理を行うツールを使用すれば可能です。使用前にツールの処理方法やプライバシー情報を確認してください。","question":"サーバーにアップロードせずに写真をPDFへ変換できますか？"}]
 ---
 

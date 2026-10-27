@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-vi
 locale: vi
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại
-slug: gop-anh-bai-tap-viet-tay-thanh-pdf
+slug: gop-anh-bai-tap-viet-tay-thanh-pdf-vi
 category: Hướng dẫn cho sinh viên
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Công cụ chuyển đổi hình ảnh sang PDF
 targetToolCta: Chuyển đổi ảnh bài tập sang PDF
-breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại","url":"https://www.clickpdf.net/blog/gop-anh-bai-tap-viet-tay-thanh-pdf/"}]
+breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại","url":"https://www.clickpdf.net/blog/gop-anh-bai-tap-viet-tay-thanh-pdf-vi/"}]
 faqItems: [{"answer":"Chọn ảnh bài tập của bạn theo đúng thứ tự, sử dụng công cụ hình ảnh sang PDF tương thích, xem lại bố cục trang và tải xuống file PDF kết quả.","question":"Làm thế nào để gộp ảnh bài tập viết tay thành một file PDF trên điện thoại?"},{"answer":"Sử dụng ánh sáng tốt, giữ camera song song với trang giấy, cắt bỏ các cạnh không cần thiết, kiểm tra độ sáng và độ tương phản mà không làm xóa mất chữ viết tay.","question":"Làm thế nào để làm cho ảnh bài tập viết tay dễ đọc hơn?"},{"answer":"Thay đổi kích thước hình ảnh quá lớn, sử dụng chất lượng hình ảnh phù hợp và áp dụng nén PDF nếu cần. Kiểm tra kích thước file cuối cùng và độ rõ nét theo yêu cầu của cổng thông tin.","question":"Làm thế nào để giảm kích thước file PDF cho cổng LMS?"},{"answer":"Có, khi bạn sử dụng công cụ thực hiện chuyển đổi hoàn toàn trong trình duyệt hoặc trên thiết bị của bạn. Hãy kiểm tra hành vi xử lý và thông tin bảo mật trước khi sử dụng.","question":"Tôi có thể chuyển đổi ảnh sang PDF mà không cần tải lên máy chủ không?"}]
 ---
 

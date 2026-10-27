@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-ar
 locale: ar
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: كيفية دمج صور الواجبات المكتوبة بخط اليد في ملف PDF واحد على الهاتف
-slug: merge-handwritten-assignment-photos-into-pdf-ar
+slug: merge-handwritten-assignment-photos-into-pdf-ar-ar
 category: أدلة الطلاب
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: محول الصور إلى PDF
 targetToolCta: تحويل صور الواجبات إلى PDF
-breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية دمج صور الواجبات المكتوبة بخط اليد في ملف PDF واحد على الهاتف","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ar/"}]
+breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية دمج صور الواجبات المكتوبة بخط اليد في ملف PDF واحد على الهاتف","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ar-ar/"}]
 faqItems: [{"answer":"حدد صور واجبك بالترتيب الصحيح، واستخدم أداة متوافقة لتحويل الصور إلى PDF، وراجع تخطيط الصفحة، ثم قم بتنزيل ملف PDF الناتج.","question":"كيف يمكنني دمج صور الواجبات المكتوبة بخط اليد في ملف PDF واحد على الجوال؟"},{"answer":"استخدم إضاءة جيدة، وأمسك الكاميرا بالتوازي مع الصفحة، وقص الحواف غير الضرورية، وتحقق من السطوع والتباين دون مسح الخط.","question":"كيف يمكنني جعل صور الواجبات المكتوبة بخط اليد أسهل في القراءة؟"},{"answer":"قم بتغيير حجم الصور الكبيرة، واستخدم جودة صور مناسبة، وقم بتطبيق ضغط PDF إذا لزم الأمر. تحقق من حجم الملف النهائي ووضوحه مقابل متطلبات بوابتك.","question":"كيف يمكنني تقليل حجم ملف PDF لبوابة نظام إدارة التعلم (LMS)؟"},{"answer":"نعم، عند استخدام أداة تقوم بالتحويل بالكامل داخل متصفحك أو على جهازك. تحقق من سلوك المعالجة ومعلومات الخصوصية قبل الاستخدام.","question":"هل يمكنني تحويل الصور إلى PDF دون رفعها إلى خادم؟"}]
 ---
 

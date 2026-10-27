@@ -3,7 +3,7 @@ id: art-6-sv
 locale: sv
 translationGroup: demystifying-pdf-passwords-encryption
 title: Demystifiering av PDF-lösenord och Zero-Knowledge-kryptering
-slug: demystifiering-av-pdf-losenord-och-zero-knowledge-kryptering
+slug: demystifiering-av-pdf-losenord-och-zero-knowledge-kryptering-sv
 category: Säkerhetsarkitektur
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Verktyg för AES-256 PDF-skydd
 targetToolCta: Lösenordsskydda PDF med Zero-Knowledge-kryptering
-breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Demystifiering av PDF-lösenord och Zero-Knowledge-kryptering","url":"https://www.clickpdf.net/blog/demystifiering-av-pdf-losenord-och-zero-knowledge-kryptering/"}]
+breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Demystifiering av PDF-lösenord och Zero-Knowledge-kryptering","url":"https://www.clickpdf.net/blog/demystifiering-av-pdf-losenord-och-zero-knowledge-kryptering-sv/"}]
 ---
 
 Att skydda känsliga finansiella prognoser eller privata avtal kräver förståelse för hur PDF-kryptering faktiskt fungerar. Många antar att alla lösenordsskydd är identiska, men den underliggande mekanismen gör en enorm skillnad.

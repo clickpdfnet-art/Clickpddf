@@ -3,7 +3,7 @@ id: art-6-vi
 locale: vi
 translationGroup: demystifying-pdf-passwords-encryption
 title: Giải mã Mật khẩu PDF và Mã hóa Zero-Knowledge
-slug: giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge
+slug: giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge-vi
 category: Kiến trúc Bảo mật
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: Công cụ Bảo vệ PDF AES-256
 targetToolCta: Bảo vệ PDF bằng Mật khẩu với Mã hóa Zero-Knowledge
-breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Giải mã Mật khẩu PDF và Mã hóa Zero-Knowledge","url":"https://www.clickpdf.net/blog/giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge/"}]
+breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Giải mã Mật khẩu PDF và Mã hóa Zero-Knowledge","url":"https://www.clickpdf.net/blog/giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge-vi/"}]
 ---
 
 Việc bảo vệ các dự báo tài chính nhạy cảm hoặc các thỏa thuận riêng tư đòi hỏi sự hiểu biết về cách mã hóa PDF thực sự hoạt động. Nhiều người cho rằng mọi hình thức bảo vệ bằng mật khẩu đều giống nhau, nhưng cơ chế cơ bản lại tạo ra sự khác biệt rất lớn.

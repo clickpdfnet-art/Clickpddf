@@ -3,7 +3,7 @@ id: art-4-ru
 locale: ru
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Как создавать элегантные фотопортфолио и лукбуки в формате PDF
-slug: sozdanie-kachestvennykh-pdf-portfolio-iz-foto
+slug: sozdanie-kachestvennykh-pdf-portfolio-iz-foto-ru
 category: Креативный дизайн
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Конвертер изображений в PDF
 targetToolCta: Конвертировать изображения и фото в PDF-портфолио
-breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как создавать элегантные фотопортфолио и лукбуки в формате PDF","url":"https://www.clickpdf.net/blog/sozdanie-kachestvennykh-pdf-portfolio-iz-foto/"}]
+breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как создавать элегантные фотопортфолио и лукбуки в формате PDF","url":"https://www.clickpdf.net/blog/sozdanie-kachestvennykh-pdf-portfolio-iz-foto-ru/"}]
 ---
 
 Фотографам, архитекторам, дизайнерам интерьеров и визуальным художникам часто требуется делиться примерами своих работ с клиентами и потенциальными работодателями. Хотя онлайн-галереи удобны, клиенты в корпоративной среде почти всегда запрашивают единое скачиваемое PDF-портфолио, которое можно просмотреть в переговорных или переслать лицам, принимающим решения.

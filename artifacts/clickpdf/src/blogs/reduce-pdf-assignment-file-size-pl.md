@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-pl
 locale: pl
 translationGroup: reduce-pdf-assignment-file-size
 title: Jak zmniejszyć rozmiar pliku PDF pracy zaliczeniowej poniżej 2 MB dla uczelnianych portali LMS
-slug: zmniejszanie-rozmiaru-pliku-pdf-pracy-zaliczeniowej
+slug: zmniejszanie-rozmiaru-pliku-pdf-pracy-zaliczeniowej-pl
 category: Poradniki studenckie
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Kompresor PDF
 targetToolCta: Kompresuj PDF teraz
-breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak zmniejszyć rozmiar pliku PDF pracy zaliczeniowej poniżej 2 MB dla uczelnianych portali LMS","url":"https://www.clickpdf.net/blog/zmniejszanie-rozmiaru-pliku-pdf-pracy-zaliczeniowej/"}]
+breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak zmniejszyć rozmiar pliku PDF pracy zaliczeniowej poniżej 2 MB dla uczelnianych portali LMS","url":"https://www.clickpdf.net/blog/zmniejszanie-rozmiaru-pliku-pdf-pracy-zaliczeniowej-pl/"}]
 faqItems: [{"answer":"Niektóre uczelniane portale LMS narzucają maksymalny rozmiar przesyłanego pliku wynoszący 2 MB. Sprawdź instrukcje swojego kursu, ponieważ rzeczywisty limit może się różnić.","question":"Dlaczego plik PDF pracy zaliczeniowej musi mieć poniżej 2 MB?"},{"answer":"Skompresuj obrazy, zoptymalizuj zeskanowane strony, usuń niepotrzebną zawartość i metadane oraz użyj odpowiedniego narzędzia do kompresji PDF. Sprawdź rozmiar i czytelność wynikowego pliku.","question":"Jak zmniejszyć rozmiar pliku PDF poniżej 2 MB?"},{"answer":"Niektóre optymalizacje strukturalne zmniejszają rozmiar pliku bez zmiany widocznej zawartości. Downsampling obrazów i kompresja stratna mogą obniżyć jakość, więc przed przesłaniem sprawdź wynik końcowy.","question":"Czy mogę skompresować plik PDF bez utraty jakości?"},{"answer":"Tak, jeśli wybrane narzędzie przeglądarkowe obsługuje kompresję PDF. Przetwarzanie po stronie klienta pozwala zachować pliki na Twoim urządzeniu, ale sprawdź szczegóły dotyczące prywatności i przetwarzania danych danego narzędzia.","question":"Czy mogę skompresować plik PDF w przeglądarce?"}]
 ---
 

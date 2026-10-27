@@ -3,7 +3,7 @@ id: art-4-id
 locale: id
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Cara Membangun Portofolio Foto dan Lookbook Elegan sebagai PDF Standar
-slug: cara-membuat-portofolio-foto-pdf-elegan
+slug: cara-membuat-portofolio-foto-pdf-elegan-id
 category: Desain Kreatif
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Konverter Gambar ke PDF
 targetToolCta: Konversi Gambar & Foto ke Portofolio PDF
-breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Membangun Portofolio Foto dan Lookbook Elegan sebagai PDF Standar","url":"https://www.clickpdf.net/blog/cara-membuat-portofolio-foto-pdf-elegan/"}]
+breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Membangun Portofolio Foto dan Lookbook Elegan sebagai PDF Standar","url":"https://www.clickpdf.net/blog/cara-membuat-portofolio-foto-pdf-elegan-id/"}]
 ---
 
 Fotografer, arsitek, desainer interior, dan seniman visual sering kali perlu membagikan contoh karya kepada klien dan calon pemberi kerja. Meskipun galeri online sangat bagus, klien di lingkungan korporat hampir selalu meminta portofolio PDF tunggal yang dapat diunduh agar bisa ditinjau di ruang rapat atau diteruskan kepada pengambil keputusan.

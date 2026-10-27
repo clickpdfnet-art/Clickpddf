@@ -3,7 +3,7 @@ id: art-4-nl
 locale: nl
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Hoe Elegant Fotoportfolio's en Lookbooks als Standaard PDF's te Maken
-slug: foto-omzetten-naar-strakke-pdf-portfolio
+slug: foto-omzetten-naar-strakke-pdf-portfolio-nl
 category: Creatief Ontwerp
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Afbeelding naar PDF Converter
 targetToolCta: Converteer Afbeeldingen & Foto's naar PDF Portfolio's
-breadcrumbs: [{"name":"Startpagina","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe Elegant Fotoportfolio's en Lookbooks als Standaard PDF's te Maken","url":"https://www.clickpdf.net/blog/foto-omzetten-naar-strakke-pdf-portfolio/"}]
+breadcrumbs: [{"name":"Startpagina","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe Elegant Fotoportfolio's en Lookbooks als Standaard PDF's te Maken","url":"https://www.clickpdf.net/blog/foto-omzetten-naar-strakke-pdf-portfolio-nl/"}]
 ---
 
 Fotografen, architecten, interieurontwerpers en visuele kunstenaars moeten vaak werkvoorbeelden delen met klanten en potentiële werkgevers. Hoewel online galerijen geweldig zijn, vragen klanten in zakelijke omgevingen bijna altijd om één downloadbaar PDF-portfolio dat ze in vergaderruimtes kunnen bekijken of kunnen doorsturen naar besluitvormers.

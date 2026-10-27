@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-zh
 locale: zh
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: 如何将手写作业照片合并为单个移动设备 PDF
-slug: merge-handwritten-assignment-photos-into-pdf-zh
+slug: merge-handwritten-assignment-photos-into-pdf-zh-zh
 category: 学生指南
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 图片转 PDF 转换器
 targetToolCta: 将作业照片转换为 PDF
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将手写作业照片合并为单个移动设备 PDF","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-zh/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将手写作业照片合并为单个移动设备 PDF","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-zh-zh/"}]
 faqItems: [{"answer":"按正确顺序选择作业照片，使用兼容的图片转 PDF 工具，检查页面布局，然后下载生成的 PDF。","question":"如何在手机上将手写作业照片合并为一份 PDF？"},{"answer":"利用良好的照明，保持相机与页面平行，裁剪不必要的边缘，并在不擦除手写内容的情况下调整亮度和对比度。","question":"如何使手写作业照片更易于阅读？"},{"answer":"调整超大图片大小，使用合适的图像质量，必要时进行 PDF 压缩。根据门户网站要求检查最终文件大小和可读性。","question":"如何为 LMS 门户减小 PDF 文件大小？"},{"answer":"可以，使用完全在浏览器或设备上执行转换的工具即可。使用前请检查其处理行为和隐私信息。","question":"可以在不上传到服务器的情况下将照片转换为 PDF 吗？"}]
 ---
 

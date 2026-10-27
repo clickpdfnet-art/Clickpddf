@@ -3,7 +3,7 @@ id: art-2-ko
 locale: ko
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: 비자, 법원 및 세무 제출용 깔끔한 PDF 패키지 구성 실무 가이드
-slug: sije-beobwon-semusinncheong-pdf-habyyeong-jeongryeol-bangbeob
+slug: sije-beobwon-semusinncheong-pdf-habyyeong-jeongryeol-bangbeob-ko
 category: 생산성
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF 병합 도구
 targetToolCta: 제출용 문서 병합 및 순서 변경하기
-breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"비자, 법원 및 세무 제출용 깔끔한 PDF 패키지 구성 실무 가이드","url":"https://www.clickpdf.net/blog/sije-beobwon-semusinncheong-pdf-habyyeong-jeongryeol-bangbeob/"}]
+breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"비자, 법원 및 세무 제출용 깔끔한 PDF 패키지 구성 실무 가이드","url":"https://www.clickpdf.net/blog/sije-beobwon-semusinncheong-pdf-habyyeong-jeongryeol-bangbeob-ko/"}]
 ---
 
 이민 비자 신청, 법원 제출 서류 또는 주택 담보 대출 패키지가 문서 서식 오류로 인해 거부되는 것만큼 좌절스러운 일은 거의 없습니다. 공식 포털은 종종 엄격한 제출 지침을 시행하며, 정리되지 않은 첨부 파일 모음을 제출하는 것은 승인을 지연시키는 가장 빠른 방법입니다.

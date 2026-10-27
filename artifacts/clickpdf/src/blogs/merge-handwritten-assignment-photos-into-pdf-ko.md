@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-ko
 locale: ko
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: 모바일에서 여러 손글씨 과제 사진을 하나의 PDF로 병합하는 방법
-slug: merge-handwritten-assignment-photos-to-pdf
+slug: merge-handwritten-assignment-photos-to-pdf-ko
 category: 학생 가이드
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 이미지-PDF 변환기
 targetToolCta: 과제 사진을 PDF로 변환하기
-breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"모바일에서 여러 손글씨 과제 사진을 하나의 PDF로 병합하는 방법","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-to-pdf/"}]
+breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"모바일에서 여러 손글씨 과제 사진을 하나의 PDF로 병합하는 방법","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-to-pdf-ko/"}]
 faqItems: [{"answer":"올바른 순서로 과제 사진을 선택하고, 호환되는 이미지-PDF 변환 도구를 사용한 뒤, 페이지 레이아웃을 검토하고 결과 PDF를 다운로드하세요.","question":"모바일에서 손글씨 과제 사진을 하나의 PDF로 병합하려면 어떻게 하나요?"},{"answer":"좋은 조명을 사용하고, 카메라를 페이지와 평행하게 유지하며, 불필요한 가장자리를 자르고, 손글씨가 지워지지 않도록 밝기와 대비를 조정하세요.","question":"손글씨 과제 사진을 더 읽기 쉽게 만들려면 어떻게 하나요?"},{"answer":"너무 큰 이미지의 크기를 조절하고, 적절한 이미지 품질을 사용하며, 필요한 경우 PDF 압축을 적용하세요. 최종 파일 크기와 가독성을 포털 요구 사항과 대조하여 확인하세요.","question":"LMS 포털을 위해 PDF 파일 크기를 줄이려면 어떻게 하나요?"},{"answer":"네, 브라우저나 기기 내에서 완전히 변환을 수행하는 도구를 사용하면 가능합니다. 사용하기 전에 해당 도구의 처리 방식과 개인정보 보호 정보를 확인하세요.","question":"서버에 업로드하지 않고 사진을 PDF로 변환할 수 있나요?"}]
 ---
 

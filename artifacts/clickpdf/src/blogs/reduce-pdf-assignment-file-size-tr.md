@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-tr
 locale: tr
 translationGroup: reduce-pdf-assignment-file-size
 title: Üniversite LMS Portalları için PDF Ödev Dosya Boyutunu 2MB Altına Düşürme
-slug: pdf-odev-dosya-boyutu-kucultme
+slug: pdf-odev-dosya-boyutu-kucultme-tr
 category: Öğrenci Rehberleri
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF Sıkıştırıcı
 targetToolCta: Şimdi PDF Sıkıştır
-breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Üniversite LMS Portalları için PDF Ödev Dosya Boyutunu 2MB Altına Düşürme","url":"https://www.clickpdf.net/blog/pdf-odev-dosya-boyutu-kucultme/"}]
+breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Üniversite LMS Portalları için PDF Ödev Dosya Boyutunu 2MB Altına Düşürme","url":"https://www.clickpdf.net/blog/pdf-odev-dosya-boyutu-kucultme-tr/"}]
 faqItems: [{"answer":"Bazı üniversite LMS portalları maksimum 2MB yükleme boyutu uygular. Gerçek sınır farklı olabileceğinden kurs talimatlarını kontrol edin.","question":"Ödev PDF'i neden 2MB altında olmalı?"},{"answer":"Görüntüleri sıkıştırın, taranmış sayfaları optimize edin, gereksiz içerik ve meta verileri kaldırın ve uygun bir PDF sıkıştırma aracı kullanın. Sonuç dosyasının boyutunu ve okunabilirliğini doğrulayın.","question":"Bir PDF'i nasıl 2MB altına düşürürüm?"},{"answer":"Bazı yapısal optimizasyonlar, görünür içeriği değiştirmeden dosya boyutunu küçültür. Görüntü örnekleme ve kayıplı sıkıştırma kaliteyi düşürebileceğinden, teslim etmeden önce sonucu inceleyin.","question":"Kaliteyi bozmadan PDF sıkıştırabilir miyim?"},{"answer":"Evet, seçilen tarayıcı aracı PDF sıkıştırmayı destekliyorsa mümkündür. İstemci tarafında işlem yapmak dosyaları cihazınızda tutabilir ancak aracın gizlilik ve işlem detaylarını kontrol edin.","question":"Tarayıcımda PDF sıkıştırabilir miyim?"}]
 ---
 

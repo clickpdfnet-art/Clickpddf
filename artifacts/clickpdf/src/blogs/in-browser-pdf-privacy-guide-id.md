@@ -3,7 +3,7 @@ id: art-1-id
 locale: id
 translationGroup: in-browser-pdf-privacy-guide
 title: Mengapa Pemrosesan PDF di Browser Jauh Lebih Aman
-slug: panduan-privasi-pdf-browser
+slug: panduan-privasi-pdf-browser-id
 category: Privasi dan Keamanan
 date: March 28, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: Alat Kompresi PDF
 targetToolCta: Kompres PDF Aman di Browser (Tanpa Unggah)
-breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Mengapa Pemrosesan PDF di Browser Jauh Lebih Aman","url":"https://www.clickpdf.net/blog/panduan-privasi-pdf-browser/"}]
+breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Mengapa Pemrosesan PDF di Browser Jauh Lebih Aman","url":"https://www.clickpdf.net/blog/panduan-privasi-pdf-browser-id/"}]
 ---
 
 Setiap kali Anda mengunggah pengembalian pajak, formulir medis, atau kontrak kerja yang ditandatangani ke konverter PDF online pada umumnya, dokumen tersebut memulai perjalanan tak terlihat melintasi internet. Dokumen tersebut melewati node perutean pihak ketiga dan mendarat di server cloud yang dikelola oleh perusahaan yang tidak dikenal. Bahkan ketika layanan berjanji untuk menghapus file setelah satu atau dua jam, data Anda untuk sementara duduk di drive jarak jauh di mana kesalahan karyawan, kesalahan konfigurasi cloud, atau cadangan otomatis dapat membuatnya terpapar.

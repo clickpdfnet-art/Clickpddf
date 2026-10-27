@@ -3,7 +3,7 @@ id: art-2-ja
 locale: ja
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: ビザ、裁判、税務申告のためのクリーンなPDFパッケージ作成実用ガイド
-slug: how-to-merge-reorder-pdfs-formal-filings-ja
+slug: how-to-merge-reorder-pdfs-formal-filings-ja-ja
 category: 生産性
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF結合ツール
 targetToolCta: 申告書類を結合・並べ替え
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"ビザ、裁判、税務申告のためのクリーンなPDFパッケージ作成実用ガイド","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ja/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"ビザ、裁判、税務申告のためのクリーンなPDFパッケージ作成実用ガイド","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ja-ja/"}]
 ---
 
 移民ビザ申請、裁判所への提出、住宅ローンの申し込みなどが、文書の書式設定ミスを理由に却下されるほど苛立たしいことはありません。公式ポータルサイトでは多くの場合、厳格な提出ガイドラインが定められており、バラバラにまとめた添付書類を提出することは、承認を遅らせる最大の原因となります。

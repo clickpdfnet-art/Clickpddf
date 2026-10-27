@@ -3,7 +3,7 @@ id: merge-handwritten-assignment-photos-into-pdf-de
 locale: de
 translationGroup: merge-handwritten-assignment-photos-into-pdf
 title: So fügen Sie handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammen
-slug: handschriftliche-aufgaben-fotos-in-pdf-umwandeln
+slug: handschriftliche-aufgaben-fotos-in-pdf-umwandeln-de
 category: Studienratgeber
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Bild-zu-PDF-Konverter
 targetToolCta: Aufgabenfotos in PDF umwandeln
-breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So fügen Sie handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammen","url":"https://www.clickpdf.net/blog/handschriftliche-aufgaben-fotos-in-pdf-umwandeln/"}]
+breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So fügen Sie handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammen","url":"https://www.clickpdf.net/blog/handschriftliche-aufgaben-fotos-in-pdf-umwandeln-de/"}]
 faqItems: [{"answer":"Wählen Sie Ihre Aufgabenfotos in der richtigen Reihenfolge aus, nutzen Sie ein passendes Bild-zu-PDF-Tool, prüfen Sie das Layout und laden Sie das PDF herunter.","question":"Wie füge ich handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammen?"},{"answer":"Achten Sie auf gute Beleuchtung, halten Sie die Kamera parallel zur Seite, schneiden Sie unnötige Ränder ab und passen Sie Helligkeit sowie Kontrast an, ohne die Schrift zu löschen.","question":"Wie kann ich handschriftliche Aufgabenfotos besser lesbar machen?"},{"answer":"Ändern Sie die Größe übergroßer Bilder, verwenden Sie eine geeignete Bildqualität und wenden Sie bei Bedarf eine PDF-Komprimierung an. Prüfen Sie die finale Dateigröße und Lesbarkeit.","question":"Wie reduziere ich die PDF-Dateigröße für ein LMS-Portal?"},{"answer":"Ja, wenn Sie ein Tool nutzen, das die Konvertierung vollständig im Browser oder auf Ihrem Gerät durchführt. Prüfen Sie vor der Nutzung die Datenschutzhinweise.","question":"Kann ich Fotos ohne Server-Upload in PDF umwandeln?"}]
 ---
 

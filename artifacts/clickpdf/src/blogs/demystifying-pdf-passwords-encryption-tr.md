@@ -3,7 +3,7 @@ id: art-6-tr
 locale: tr
 translationGroup: demystifying-pdf-passwords-encryption
 title: PDF Şifreleri ve Sıfır Bilgi Şifrelemesinin Gizemini Çözmek
-slug: pdf-sifreleri-ve-sifir-bilgi-sifrelemesi
+slug: pdf-sifreleri-ve-sifir-bilgi-sifrelemesi-tr
 category: Güvenlik Mimarisi
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF Koruma Aracı
 targetToolCta: Sıfır Bilgi Şifrelemesiyle PDF'yi Parola ile Koruyun
-breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"PDF Şifreleri ve Sıfır Bilgi Şifrelemesinin Gizemini Çözmek","url":"https://www.clickpdf.net/blog/pdf-sifreleri-ve-sifir-bilgi-sifrelemesi/"}]
+breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"PDF Şifreleri ve Sıfır Bilgi Şifrelemesinin Gizemini Çözmek","url":"https://www.clickpdf.net/blog/pdf-sifreleri-ve-sifir-bilgi-sifrelemesi-tr/"}]
 ---
 
 Hassas finansal tahminleri veya özel sözleşmeleri korumak, PDF şifrelemenin gerçekte nasıl çalıştığını anlamayı gerektirir. Birçok kişi tüm parola korumalarının aynı olduğunu varsayar, ancak temel mekanizma büyük bir fark yaratır.

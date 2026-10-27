@@ -3,7 +3,7 @@ id: reduce-pdf-assignment-file-size-hi
 locale: hi
 translationGroup: reduce-pdf-assignment-file-size
 title: यूनिवर्सिटी एलएमएस पोर्टल के लिए पीडीएफ असाइनमेंट का आकार 2 एमबी से कम कैसे करें
-slug: reduce-pdf-assignment-file-size-locale
+slug: reduce-pdf-assignment-file-size-hi
 category: छात्र गाइड
 date: October 24, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: पीडीएफ कंप्रेसर
 targetToolCta: अभी पीडीएफ कंप्रेस करें
-breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"यूनिवर्सिटी एलएमएस पोर्टल के लिए पीडीएफ असाइनमेंट का आकार 2 एमबी से कम कैसे करें","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-locale/"}]
+breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"यूनिवर्सिटी एलएमएस पोर्टल के लिए पीडीएफ असाइनमेंट का आकार 2 एमबी से कम कैसे करें","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-hi/"}]
 faqItems: [{"answer":"कुछ यूनिवर्सिटी एलएमएस पोर्टल 2 एमबी की अधिकतम अपलोड सीमा लागू करते हैं। अपने पाठ्यक्रम के निर्देशों की जांच करें क्योंकि वास्तविक सीमा भिन्न हो सकती है।","question":"असाइनमेंट पीडीएफ का 2 एमबी से कम होना क्यों आवश्यक है?"},{"answer":"छवियों को कंप्रेस करें, स्कैन किए गए पृष्ठों को ऑप्टिमाइज़ करें, अनावश्यक सामग्री और मेटाडेटा हटाएं, और एक उपयुक्त पीडीएफ़ कम्प्रेशन टूल का उपयोग करें। परिणामी फ़ाइल आकार और पठनीयता की पुष्टि करें।","question":"मैं पीडीएफ को 2 एमबी से कम कैसे कर सकता हूं?"},{"answer":"कुछ संरचनात्मक अनुकूलन दृश्य सामग्री को बदले बिना फ़ाइल का आकार कम कर देते हैं। इमेज डाउनसैंपलिंग और लॉसी कम्प्रेशन गुणवत्ता कम कर सकते हैं, इसलिए सबमिशन से पहले आउटपुट की जांच करें।","question":"क्या मैं गुणवत्ता खोए बिना पीडीएफ को कंप्रेस कर सकता हूं?"},{"answer":"हां, यदि चयनित ब्राउज़र टूल पीडीएफ़ कम्प्रेशन का समर्थन करता है। क्लाइंट-साइड प्रोसेसिंग फ़ाइलों को आपके डिवाइस पर रख सकती है, लेकिन टूल की गोपनीयता और प्रोसेसिंग विवरण की जांच करें।","question":"क्या मैं अपने ब्राउज़र में पीडीएफ को कंप्रेस कर सकता हूं?"}]
 ---
 

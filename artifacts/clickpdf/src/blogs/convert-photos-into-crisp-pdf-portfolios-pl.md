@@ -3,7 +3,7 @@ id: art-4-pl
 locale: pl
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: Jak tworzyć eleganckie portfolio fotograficzne i lookbooki jako pliki PDF
-slug: tworzenie-eleganckich-portfolio-fotograficznych-w-pdf
+slug: tworzenie-eleganckich-portfolio-fotograficznych-w-pdf-pl
 category: Projektowanie Kreatywne
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: Konwerter obrazów do PDF
 targetToolCta: Konwertuj zdjęcia i obrazy na portfolio PDF
-breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak tworzyć eleganckie portfolio fotograficzne i lookbooki jako pliki PDF","url":"https://www.clickpdf.net/blog/tworzenie-eleganckich-portfolio-fotograficznych-w-pdf/"}]
+breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak tworzyć eleganckie portfolio fotograficzne i lookbooki jako pliki PDF","url":"https://www.clickpdf.net/blog/tworzenie-eleganckich-portfolio-fotograficznych-w-pdf-pl/"}]
 ---
 
 Fotografowie, architekci, projektanci wnętrz i artyści wizualni często muszą udostępniać próbki swoich prac klientom oraz potencjalnym pracodawcom. Chociaż galerie internetowe są świetne, klienci w środowiskach korporacyjnych prawie zawsze proszą o pojedyncze portfolio w formacie PDF, które mogą przejrzeć w salach konferencyjnych lub przekazać decydentom.

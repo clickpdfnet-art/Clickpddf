@@ -3,7 +3,7 @@ id: art-4-zh
 locale: zh
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: 如何制作优雅的PDF照片作品集和画册
-slug: zhizuo-youya-pdf-zuopinji
+slug: zhizuo-youya-pdf-zuopinji-zh
 category: 创意设计
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: 图片转PDF转换器
 targetToolCta: 将图片转换为PDF作品集
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何制作优雅的PDF照片作品集和画册","url":"https://www.clickpdf.net/blog/zhizuo-youya-pdf-zuopinji/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何制作优雅的PDF照片作品集和画册","url":"https://www.clickpdf.net/blog/zhizuo-youya-pdf-zuopinji-zh/"}]
 ---
 
 摄影师、建筑师、室内设计师和视觉艺术家经常需要与客户和潜在雇主分享作品样本。虽然在线画廊很棒，但企业环境中的客户几乎总是要求提供一份可下载的PDF作品集，以便他们在会议室查看或转发给决策者。

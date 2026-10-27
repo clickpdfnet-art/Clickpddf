@@ -3,7 +3,7 @@ id: art-6-ur
 locale: ur
 translationGroup: demystifying-pdf-passwords-encryption
 title: پی ڈی ایف پاس ورڈز اور زیرو نالج انکرپشن کی وضاحت
-slug: pdf-passwords-zero-knowledge-encryption-ur
+slug: pdf-passwords-zero-knowledge-encryption-ur-ur
 category: سیکیورٹی آرکیٹیکچر
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 پی ڈی ایف پروٹیکٹ ٹول
 targetToolCta: زیرو نالج انکرپشن کے ساتھ پی ڈی ایف پاس ورڈ لگائیں
-breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"پی ڈی ایف ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"پی ڈی ایف پاس ورڈز اور زیرو نالج انکرپشن کی وضاحت","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-ur/"}]
+breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"پی ڈی ایف ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"پی ڈی ایف پاس ورڈز اور زیرو نالج انکرپشن کی وضاحت","url":"https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-ur-ur/"}]
 ---
 
 حساس مالیاتی پیشین گوئیوں یا نجی معاہدوں کی حفاظت کے لیے یہ سمجھنا ضروری ہے کہ PDF انکرپشن اصل میں کیسے کام کرتی ہے۔ بہت سے لوگ یہ سمجھتے ہیں کہ تمام پاس ورڈ پروٹیکشن ایک جیسی ہوتی ہے، لیکن بنیادی میکانزم بہت بڑا فرق پیدا کرتا ہے۔

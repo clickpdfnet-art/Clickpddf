@@ -3,7 +3,7 @@ id: art-4-ur
 locale: ur
 translationGroup: convert-photos-into-crisp-pdf-portfolios
 title: PDF کے طور پر خوبصورت فوٹو پورٹ فولیو اور لک بکس کیسے بنائیں
-slug: tasaveer-se-pdf-portfolio-banayein
+slug: tasaveer-se-pdf-portfolio-banayein-ur
 category: تخلیقی ڈیزائن
 date: April 06, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: jpg-to-pdf
 targetToolUrl: /tools/image-to-pdf
 targetToolTitle: امیج ٹو پی ڈی ایف کنورٹر
 targetToolCta: تصاویر کو پی ڈی ایف پورٹ فولیو میں تبدیل کریں
-breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"PDF کے طور پر خوبصورت فوٹو پورٹ فولیو اور لک بکس کیسے بنائیں","url":"https://www.clickpdf.net/blog/tasaveer-se-pdf-portfolio-banayein/"}]
+breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"PDF کے طور پر خوبصورت فوٹو پورٹ فولیو اور لک بکس کیسے بنائیں","url":"https://www.clickpdf.net/blog/tasaveer-se-pdf-portfolio-banayein-ur/"}]
 ---
 
 فوٹوگرافرز، آرکیٹیکٹس، انٹیریئر ڈیزائنرز، اور بصری فنکار اکثر اپنے کام کے نمونے کلائنٹس اور ممکنہ آجروں کے ساتھ شیئر کرنے کی ضرورت محسوس کرتے ہیں۔ اگرچہ آن لائن گیلریاں بہترین ہیں، لیکن کارپوریٹ ماحول میں کلائنٹس تقریباً ہمیشہ ایک ہی ڈاؤن لوڈ کے قابل PDF پورٹ فولیو کا مطالبہ کرتے ہیں جس کا وہ بورڈ رومز میں جائزہ لے سکیں یا فیصلہ سازوں کو آگے بھیج سکیں۔

@@ -3,7 +3,7 @@ id: art-6-ja
 locale: ja
 translationGroup: demystifying-pdf-passwords-encryption
 title: PDFのパスワードとゼロ知識暗号化の仕組み
-slug: pdf-password-zero-knowledge-encryption
+slug: pdf-password-zero-knowledge-encryption-ja
 category: セキュリティアーキテクチャ
 date: April 08, 2026
 dateModified: 2026-10-27
@@ -20,7 +20,7 @@ targetTool: protect
 targetToolUrl: /tools/protect-pdf-password/
 targetToolTitle: AES-256 PDF保護ツール
 targetToolCta: ゼロ知識暗号化でPDFをパスワード保護
-breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"PDFのパスワードとゼロ知識暗号化の仕組み","url":"https://www.clickpdf.net/blog/pdf-password-zero-knowledge-encryption/"}]
+breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"PDFのパスワードとゼロ知識暗号化の仕組み","url":"https://www.clickpdf.net/blog/pdf-password-zero-knowledge-encryption-ja/"}]
 ---
 
 機密性の高い財務予測や個人的な合意事項を保護するには、PDF暗号化がどのように機能するかを理解する必要があります。多くの人はすべてのパスワード保護が同一であると想定していますが、基盤となるメカニズムによって大きな違いが生まれます。

@@ -3,7 +3,7 @@ id: art-2-zh
 locale: zh
 translationGroup: how-to-merge-reorder-pdfs-formal-filings
 title: 签证、法院及税务申报的 PDF 文件整理实用指南
-slug: how-to-merge-reorder-pdfs-formal-filings-zh
+slug: how-to-merge-reorder-pdfs-formal-filings-zh-zh
 category: 生产力
 date: April 02, 2026
 dateModified: 2026-10-27
@@ -19,7 +19,7 @@ targetTool: merge
 targetToolUrl: /tools/merge-pdf
 targetToolTitle: PDF 合并工具
 targetToolCta: 立即合并并重新排列申报文档
-breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"签证、法院及税务申报的 PDF 文件整理实用指南","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-zh/"}]
+breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"签证、法院及税务申报的 PDF 文件整理实用指南","url":"https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-zh-zh/"}]
 ---
 
 很少有事情比因文档格式错误而导致移民签证申请、法院提交材料或抵押贷款文件被拒更令人沮丧的了。官方门户网站通常执行严格的提交准则，而提交杂乱无章的附件集合是导致批准延迟的最快方式。
