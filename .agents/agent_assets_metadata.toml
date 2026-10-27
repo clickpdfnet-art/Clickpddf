@@ -84,3 +84,17 @@ mtime_ms = 1792731321565
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/0898d6ec-b0a0-4d39-a962-67e3e5bdade8/4a4bc312-a53d-43d1-ba6c-14cf6358f61a"
 storage_version_token = "1792731371036595"
 content_type = "image/png"
+
+[[outputs]]
+id = "VoB5ERfd3yiMoExVuxVWQ"
+uri = "file://.local/beyondseo-audits/clickpdf-2026-10-27/deliverable/report.html"
+type = "html"
+title = "ClickPDF.net — جامع SEO آڈٹ"
+description = "27 اکتوبر 2026 کے BeyondSEO آڈٹ کی مکمل اردو رپورٹ؛ technical crawl، 21 زبانوں کی indexability، content trust، competitor sample، backlinks اور 30/60/90-day roadmap."
+logical_id = "7cd3ddc8-e116-4e28-8c09-18126520cc1e"
+content_hash = "sha256:7e1ba6311ddc35af7d579712fb68eda0e765ee540daa0a24bf25ac19e14a31be"
+size = 417642
+mtime_ms = 1793105701054
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/7cd3ddc8-e116-4e28-8c09-18126520cc1e/6583716f-e742-4aef-bc2d-81e4e73c444c"
+storage_version_token = "1793105738514872"
+content_type = "text/html"
