@@ -298,7 +298,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
     return (
       <aside
-        aria-label="Related PDF Tool"
+        aria-label={t.relatedPdfToolLabel}
         className="my-8 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-indigo-50/90 via-white to-cyan-50/70 dark:from-indigo-950/60 dark:via-slate-900/90 dark:to-cyan-950/30 border border-indigo-200/90 dark:border-indigo-800/80 shadow-md transition-all"
       >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -306,11 +306,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider">
                 <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                <span>Browser-Based File Processing</span>
+                 <span>{t.browserBasedFileProcessing}</span>
               </span>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
                 <Sparkles className="w-3 h-3" />
-                <span>Recommended Free Tool</span>
+                 <span>{t.recommendedFreeTool}</span>
               </span>
             </div>
 
@@ -319,7 +319,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </h4>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
-              Open the related tool in your browser. Processing happens on your device where supported; the page may still load website resources or enabled third-party services.
+              {t.relatedToolNotice}
             </p>
           </div>
 
@@ -334,7 +334,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 }
               }}
               className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer group whitespace-nowrap"
-              title={`Launch ${toolInfo.toolTitle}`}
+              title={toolInfo.ctaText}
             >
               <span>{toolInfo.ctaText}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -382,7 +382,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           aria-valuenow={readingProgress}
           aria-valuemin={0}
           aria-valuemax={100}
-          aria-label="Reading progress"
+          aria-label={t.readingProgressAriaLabel}
         >
           <div
             className="h-full bg-linear-to-r from-indigo-500 via-indigo-600 to-cyan-400 transition-all duration-150 ease-out shadow-xs shadow-indigo-500/50"
@@ -518,7 +518,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <button
                   onClick={handleCloseArticle}
                   className="absolute top-4 right-4 p-2 bg-slate-900/70 hover:bg-slate-900 text-white rounded-full transition-colors cursor-pointer backdrop-blur-xs"
-                  aria-label="Close article"
+                  aria-label={t.closeArticleLabel}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -538,7 +538,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       }}
                       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 hover:bg-white text-slate-900 text-xs font-bold transition-all shadow-sm"
                     >
-                      <span>{activeArticle.targetToolTitle || 'Try Tool'}</span>
+                       <span>{activeArticle.targetToolTitle || t.openTool}</span>
                       <ExternalLink className="w-3 h-3 text-indigo-600" />
                     </a>
                   )}
@@ -573,6 +573,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               {!activeArticle.coverImage && (
                 <button
                   onClick={handleCloseArticle}
+                  aria-label={t.closeArticleLabel}
                   className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors cursor-pointer shrink-0 ml-4"
                 >
                   <X className="w-5 h-5" />
@@ -604,7 +605,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <span>{t.publishedBy}</span>
                 <span aria-hidden="true">·</span>
                 <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                  {readingProgress}% Read
+                  {t.readingProgressLabel.replace('{percent}', String(readingProgress))}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -620,7 +621,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     }}
                     className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors cursor-pointer text-xs flex items-center gap-1.5"
                   >
-                    <span>{activeArticle.targetToolTitle || 'Try Tool'}</span>
+                     <span>{activeArticle.targetToolTitle || t.openTool}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 )}

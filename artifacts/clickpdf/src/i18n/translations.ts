@@ -220,6 +220,13 @@ export interface TranslationDict {
   readBtn: string;
   doneReadingBtn: string;
   publishedBy: string;
+  browserBasedFileProcessing: string;
+  recommendedFreeTool: string;
+  relatedToolNotice: string;
+  relatedPdfToolLabel: string;
+  readingProgressLabel: string;
+  readingProgressAriaLabel: string;
+  closeArticleLabel: string;
 
   // Drawer & Footer
   drawerTitle: string;
@@ -421,6 +428,13 @@ const en: TranslationDict = {
   readBtn: 'Read Article',
   doneReadingBtn: 'Done Reading',
   publishedBy: 'Published by ClickPDF Research',
+  browserBasedFileProcessing: 'Browser-based file processing',
+  recommendedFreeTool: 'Recommended free tool',
+  relatedToolNotice: 'Open the related tool in your browser. Processing happens on your device where supported; the page may still load website resources or enabled third-party services.',
+  relatedPdfToolLabel: 'Related PDF tool',
+  readingProgressLabel: '{percent}% read',
+  readingProgressAriaLabel: 'Reading progress',
+  closeArticleLabel: 'Close article',
 
   drawerTitle: 'ClickPDF Tools Hub',
   drawerSubtitle: '100% Client-Side In-Browser Suite',

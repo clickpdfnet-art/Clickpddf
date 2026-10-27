@@ -154,11 +154,30 @@ for (const [locale, values] of toolPageRows) {
 
 const toolSeoContent = fs.readFileSync(path.join(root, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
 const blogSection = fs.readFileSync(path.join(root, 'src/components/BlogSection.tsx'), 'utf8');
+const header = fs.readFileSync(path.join(root, 'src/components/Header.tsx'), 'utf8');
 const mobileDrawer = fs.readFileSync(path.join(root, 'src/components/MobileDrawer.tsx'), 'utf8');
 const languageContext = fs.readFileSync(path.join(root, 'src/context/LanguageContext.tsx'), 'utf8');
-for (const key of ['blogTag', 'blogTitle', 'blogSubtitle', 'readBtn', 'backToTools']) {
+for (const key of [
+  'blogTag',
+  'blogTitle',
+  'blogSubtitle',
+  'readBtn',
+  'backToTools',
+  'browserBasedFileProcessing',
+  'recommendedFreeTool',
+  'relatedToolNotice',
+  'relatedPdfToolLabel',
+  'readingProgressLabel',
+  'readingProgressAriaLabel',
+  'closeArticleLabel',
+]) {
   assert.ok(blogSection.includes(`t.${key}`), `Blog section must use the localized ${key} label`);
 }
+assert.ok(header.includes('t.shareClickPdf'), 'Header share button must use the localized label');
+assert.ok(blogSection.includes("t.readingProgressLabel.replace('{percent}'"), 'Reading progress must use its localized label');
+assert.ok(!blogSection.includes('Recommended Free Tool'), 'Blog tool card must not hardcode its English recommendation label');
+assert.ok(!blogSection.includes('Browser-Based File Processing'), 'Blog tool card must not hardcode its English processing label');
+assert.ok(!blogSection.includes('Open the related tool in your browser.'), 'Blog tool card notice must be localized');
 assert.ok(
   languageContext.indexOf('...WORKSPACE_TRANSLATIONS[language]') <
     languageContext.indexOf('...BLOG_INTERFACE_TRANSLATIONS[language]'),
