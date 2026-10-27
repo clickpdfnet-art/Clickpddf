@@ -47,6 +47,7 @@ const arrayLength = (node) => {
 const translationsSource = parse('src/i18n/translations.ts');
 const uiSource = parse('src/i18n/uiTranslations.ts');
 const siteCopySource = parse('src/i18n/siteCopyTranslations.ts');
+const blogInterfaceSource = parse('src/i18n/blogInterfaceTranslations.ts');
 const toolPageSource = parse('src/i18n/toolPageTranslations.ts');
 const missingToolsSource = parse('src/i18n/missingToolTranslations.ts');
 const toolsSource = parse('src/data/toolsData.ts');
@@ -113,6 +114,31 @@ for (const [locale, values] of siteCopyRows) {
   }
 }
 
+const blogInterfaceRows = objectEntries(findVariable(blogInterfaceSource, 'BLOG_INTERFACE_TRANSLATIONS'));
+assert.deepEqual(
+  [...blogInterfaceRows.keys()].sort(),
+  [...localeCodes].sort(),
+  'Blog interface translations must cover every supported language',
+);
+const englishBlogInterface = objectEntries(blogInterfaceRows.get('en'));
+for (const [locale, localeNode] of blogInterfaceRows) {
+  const localized = objectEntries(localeNode);
+  assert.deepEqual(
+    [...localized.keys()].sort(),
+    [...englishBlogInterface.keys()].sort(),
+    `Blog interface labels are incomplete for ${locale}`,
+  );
+  if (locale === 'en') continue;
+  for (const [key, value] of localized) {
+    assert.ok(ts.isStringLiteralLike(value), `Blog interface ${key} must be plain text for ${locale}`);
+    assert.notEqual(
+      value.text,
+      englishBlogInterface.get(key).text,
+      `Blog interface ${key} is still English for ${locale}`,
+    );
+  }
+}
+
 const toolPageRows = objectEntries(findVariable(toolPageSource, 'rows'));
 const englishToolPageCopy = toolPageRows.get('en').elements;
 for (const [locale, values] of toolPageRows) {
@@ -127,6 +153,21 @@ for (const [locale, values] of toolPageRows) {
 }
 
 const toolSeoContent = fs.readFileSync(path.join(root, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
+const blogSection = fs.readFileSync(path.join(root, 'src/components/BlogSection.tsx'), 'utf8');
+const mobileDrawer = fs.readFileSync(path.join(root, 'src/components/MobileDrawer.tsx'), 'utf8');
+const languageContext = fs.readFileSync(path.join(root, 'src/context/LanguageContext.tsx'), 'utf8');
+for (const key of ['blogTag', 'blogTitle', 'blogSubtitle', 'readBtn', 'backToTools']) {
+  assert.ok(blogSection.includes(`t.${key}`), `Blog section must use the localized ${key} label`);
+}
+assert.ok(
+  languageContext.indexOf('...WORKSPACE_TRANSLATIONS[language]') <
+    languageContext.indexOf('...BLOG_INTERFACE_TRANSLATIONS[language]'),
+  'Blog interface labels must override generic workspace copy',
+);
+for (const key of ['aboutUs', 'contactUs', 'cookiesPolicy', 'privacyPolicy', 'termsOfService', 'disclaimer']) {
+  assert.ok(mobileDrawer.includes(`t.${key}`), `Mobile drawer must use the localized ${key} label`);
+}
+assert.ok(mobileDrawer.includes("onOpenLegal('disclaimer')"), 'Mobile drawer must link to the disclaimer page');
 assert.ok(toolSeoContent.includes('TOOL_PAGE_TRANSLATIONS[language]'), 'Tool content must use the active language');
 assert.ok(!toolSeoContent.includes('seoInfo.steps.map'), 'Tool steps must not render untranslated SEO source strings');
 assert.ok(!toolSeoContent.includes('seoInfo.faqs.map'), 'Tool FAQs must not render untranslated SEO source strings');

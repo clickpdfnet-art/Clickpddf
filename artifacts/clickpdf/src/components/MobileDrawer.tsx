@@ -147,7 +147,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   }}
                   className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
                 >
-                  About Us
+                  {t.aboutUs}
                 </button>
                 <span aria-hidden="true">·</span>
                 <button
@@ -158,7 +158,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   }}
                   className="text-indigo-600 dark:text-indigo-400 font-semibold"
                 >
-                  Contact
+                  {t.contactUs}
                 </button>
                 <span aria-hidden="true">·</span>
                 <button
@@ -169,7 +169,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   }}
                   className="text-amber-500 hover:text-amber-400 font-medium"
                 >
-                  Cookies Policy
+                  {t.cookiesPolicy}
                 </button>
                 <span aria-hidden="true">·</span>
                 <button
@@ -180,7 +180,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   }}
                   className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
                 >
-                  Privacy
+                  {t.privacyPolicy}
                 </button>
                 <span aria-hidden="true">·</span>
                 <button
@@ -191,7 +191,18 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   }}
                   className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
                 >
-                  Terms
+                  {t.termsOfService}
+                </button>
+                <span aria-hidden="true">·</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onOpenLegal('disclaimer');
+                  }}
+                  className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium"
+                >
+                  {t.disclaimer}
                 </button>
               </div>
             )}
