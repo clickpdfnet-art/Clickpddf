@@ -821,7 +821,7 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
           >
             <Upload className="h-7 w-7 text-indigo-500" />
             <span className="text-sm font-bold text-slate-800 dark:text-slate-100">Drop PDF files here or click to browse</span>
-            <span className="text-xs text-slate-500">PDF only · up to {formatBytes(MAX_SIGN_PDF_FILE_BYTES)} per file · no server upload</span>
+            <span className="text-xs text-slate-500">PDF only · up to {formatBytes(MAX_SIGN_PDF_FILE_BYTES)} per file · processed in browser; page requests may occur</span>
           </button>
         ) : (
           <div className="space-y-2">

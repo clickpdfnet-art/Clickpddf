@@ -232,10 +232,10 @@ export const GlobalDropOverlay: React.FC<GlobalDropOverlayProps> = ({
         <div className="mt-8 flex items-center justify-center gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Files never leave your device</span>
+            <span>Selected files are processed in your browser</span>
           </div>
           <span>•</span>
-          <div>Zero server uploads</div>
+          <div>Page requests may still occur</div>
           <span>•</span>
           <div className="flex items-center gap-1">
             <kbd className="px-1.5 py-0.5 text-[10px] bg-slate-800 border border-slate-700 rounded text-slate-300">Esc</kbd>

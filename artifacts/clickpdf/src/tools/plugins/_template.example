@@ -32,7 +32,7 @@ import { Sparkles, Upload, Download, Trash2, CheckCircle2, AlertCircle, FileText
 import { ToolPlugin, ToolPluginProps } from './types';
 
 // ============================================================================
-// 1. TOOL WORKSPACE COMPONENT (100% In-Browser Execution)
+// 1. TOOL WORKSPACE COMPONENT (browser-based file processing)
 // ============================================================================
 const SampleToolComponent: React.FC<ToolPluginProps> = ({ onBack, onSwitchTool, initialFiles }) => {
   const [file, setFile] = useState<File | null>(initialFiles && initialFiles.length > 0 ? initialFiles[0] : null);
@@ -118,7 +118,7 @@ const SampleToolComponent: React.FC<ToolPluginProps> = ({ onBack, onSwitchTool, 
             Sample Plugin Tool
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-            Process documents directly in your browser with zero server uploads and strict device privacy.
+            Process supported documents in your browser. The page may still request resources or enabled third-party services.
           </p>
         </div>
       </div>
@@ -145,7 +145,7 @@ const SampleToolComponent: React.FC<ToolPluginProps> = ({ onBack, onSwitchTool, 
               Drop your PDF here, or <span className="text-indigo-600 dark:text-indigo-400 underline">browse</span>
             </span>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Supports documents up to 200MB. 100% private, runs entirely on your device.
+              Example file-size limit only. Processing behavior and device requirements vary by tool.
             </p>
           </label>
         </div>
@@ -251,11 +251,11 @@ export const plugin: ToolPlugin = {
   // Complete SEO, How-To steps, and FAQ Accordion
   seo: {
     metaTitle: 'Sample PDF Tool Online Free – In-Browser Utility | ClickPDF',
-    metaDescription: 'Run sample PDF operations in-browser with zero server uploads and 100% privacy.',
+    metaDescription: 'Run supported sample PDF operations in your browser. Page resources or enabled third-party services may still make network requests.',
     h1Title: 'Sample PDF Tool Online — Fast & In-Browser',
-    keywords: 'sample pdf tool, client side pdf, zero server uploads, in browser pdf editor',
+    keywords: 'sample pdf tool, browser-based pdf processing, in browser pdf editor',
     overviewHeading: 'Why Run This Tool in Your Browser?',
-    overview: 'This plugin executes locally in your browser memory without uploading confidential files to any remote server.',
+    overview: 'This plugin processes supported files in your browser rather than sending their contents to ClickPDF document-processing servers. The page may still make other network requests.',
     secondaryOverview: 'You retain complete data privacy, zero subscription fees, and instant download speeds.',
     stepsHeading: 'How to Use This Tool in 3 Simple Steps',
     howToSteps: [

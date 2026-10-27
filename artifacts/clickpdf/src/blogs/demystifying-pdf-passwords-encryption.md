@@ -22,7 +22,7 @@ Protecting sensitive financial forecasts or private agreements requires understa
 
 Standard commercial encryption often relies on vendor servers to apply locks, meaning the service provider possesses master keys and temporary access to your unencrypted files. If that company experiences an internal breach or receives a subpoena, your documents could be exposed.
 
-Zero-knowledge client-side encryption approaches security from the opposite philosophy. When you protect a PDF using the browser native Web Crypto standard, an AES-256 cipher locks your document entirely inside your local machine using hundreds of thousands of key derivation rounds. Your secret passphrase never travels across the internet, and no remote server holds a decryption key.
+Browser-based encryption approaches security differently. When the supported tool protects a PDF using the browser's native Web Crypto standard, an AES-256 cipher processes the document in the browser using key derivation rounds. The password and file are not sent to ClickPDF document-processing servers; the page may still request resources, ads, or enabled third-party services.
 
 The trade-off of true zero-knowledge protection is responsibility. Because there is no back door, forgotten passwords cannot be recovered through a reset link. When securing mission-critical files, pairing your password with a helpful contextual hint or storing it in a trusted password vault ensures authorized parties can always access the data.
 

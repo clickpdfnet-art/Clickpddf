@@ -2,7 +2,7 @@
 id: art-1-zh
 locale: zh
 translationGroup: in-browser-pdf-privacy-guide
-title: 为什么浏览器内 PDF 处理在根本上更安全
+title: 浏览器中的 PDF 处理如何降低文件暴露风险
 slug: 浏览器内-pdf-隐私指南-zh
 category: 隐私与安全
 date: March 28, 2026
@@ -11,7 +11,7 @@ readTime: 5 分钟阅读
 author: Asad Tariq, Security Engineer
 authorType: Person
 coverImage: https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80
-summary: 传统的网络转换器会将您的合同和财务报表上传至第三方云实例。了解浏览器内存执行如何确保您的文档每一个字节都严格保留在您的设备上。
+summary: 了解 ClickPDF 支持的工具如何在浏览器中处理文件、这种方式的局限，以及网页资源为何仍可能使用网络。
 seoTitle: ClickPDF 浏览器内 PDF 处理在根本上更为安全完整指南
 seoDescription: 了解基于浏览器的 ClickPDF 工具如何在您的设备上处理文件，以及网页资源仍可能发送哪些数据，保障您隐私安全。 传统的网络转换器会将您的合同和财务报表上传至第三方云实例。了解浏览器内存执行如何确保您的文档每一个字节都严格保留在您的设备上。
 seoKeywords: PDF, 隐私, 浏览器, 安全, ClickPDF
@@ -19,7 +19,7 @@ imageAlt: 为什么浏览器内 PDF 处理在根本上更安全
 targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF 压缩工具
-targetToolCta: 在浏览器中安全地压缩 PDF（零上传）
+targetToolCta: 在浏览器中处理 PDF
 breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"为什么浏览器内 PDF 处理在根本上更安全","url":"https://www.clickpdf.net/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85-pdf-%E9%9A%90%E7%A7%81%E6%8C%87%E5%8D%97-zh/"}]
 ---
 

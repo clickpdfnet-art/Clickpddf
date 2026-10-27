@@ -540,7 +540,7 @@ function injectBlogJsonLdSchema(article: BlogPost, canonicalUrl: string): void {
       name: 'Click Digital Services',
       '@id': `${SITE_ORIGIN}/#organization`,
       url: SITE_ORIGIN,
-      slogan: 'Stay Secure, Stay Smart - Your Data, Your Privacy - 100% Private',
+      slogan: 'Browser-Based PDF Tools for Everyday Document Work',
       logo: {
         ...brandLogoImage(),
       }

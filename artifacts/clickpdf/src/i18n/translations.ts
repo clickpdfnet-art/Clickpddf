@@ -1,3 +1,5 @@
+import { PRIVACY_UI_COPY } from './uiTranslations';
+
 export type Language = 
   | 'en' // English (United Kingdom / US)
   | 'ur' // Urdu (Pakistan 🇵🇰)
@@ -1192,7 +1194,7 @@ const it: TranslationDict = {
   closeBtn: 'Chiudi',
 };
 
-export const translations: Record<Language, TranslationDict> = {
+const rawTranslations: Record<Language, TranslationDict> = {
   en,
   ur,
   hi,
@@ -1215,6 +1217,28 @@ export const translations: Record<Language, TranslationDict> = {
   id,
   vi,
 };
+
+export const translations: Record<Language, TranslationDict> = Object.fromEntries(
+  (Object.keys(rawTranslations) as Language[]).map((language) => {
+    const privacyCopy = PRIVACY_UI_COPY[language];
+    return [
+      language,
+      {
+        ...rawTranslations[language],
+        inBrowserBadge: privacyCopy.homePrivacyBadge,
+        trustSubtitle: privacyCopy.footerAbout,
+        trust1: privacyCopy.inBrowserShort,
+        trust1Sub: privacyCopy.homePrivacyBadge,
+        trust2: privacyCopy.browserMemoryLabel,
+        trust2Sub: privacyCopy.memoryHandlingNote,
+        drawerSubtitle: privacyCopy.inBrowserShort,
+        footerAbout: privacyCopy.footerAbout,
+        zeroServerGuarantee: privacyCopy.homePrivacyBadge,
+        zeroServerUploads: privacyCopy.inBrowserShort,
+      },
+    ];
+  }),
+) as Record<Language, TranslationDict>;
 
 // Multilingual catalog titles & descriptions
 export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title: string; description: string }>>> = {

@@ -103,7 +103,7 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
     lastmod: today,
     changefreq: 'daily',
     priority: '1.0',
-    description: 'Fast, private in-browser PDF utilities suite with zero server uploads.',
+    description: 'PDF utilities that process supported files in your browser; page resources and enabled services may still make network requests.',
     badge: 'Core'
   });
 

@@ -75,7 +75,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
             <div className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-xs text-slate-300 mb-6 flex items-center gap-2.5 text-left">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-              <span>Zero server upload integrity maintained · RAM isolation active</span>
+              <span>Browser-based file processing · Page requests may still occur</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -858,7 +858,7 @@ export function generateStandaloneDecryptorHtml(
     </div>
 
     <div class="footer-text">
-      Decrypted 100% locally using W3C Web Crypto API (${(meta.iterations || 100000).toLocaleString()} rounds). Zero server involvement.
+      Decryption performed in this browser using the W3C Web Crypto API (${(meta.iterations || 100000).toLocaleString()} rounds).
     </div>
   </div>
 

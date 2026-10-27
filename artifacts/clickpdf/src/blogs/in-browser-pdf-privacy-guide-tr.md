@@ -2,7 +2,7 @@
 id: art-1-tr
 locale: tr
 translationGroup: in-browser-pdf-privacy-guide
-title: Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir
+title: Tarayıcıda PDF İşleme Dosya Maruziyetini Nasıl Azaltabilir
 slug: tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir-tr
 category: Gizlilik ve Güvenlik
 date: March 28, 2026
@@ -11,7 +11,7 @@ readTime: 5 dk okuma
 author: Asad Tariq, Security Engineer
 authorType: Person
 coverImage: https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80
-summary: Geleneksel web dönüştürücüleri sözleşmelerinizi ve mali tablolarınızı üçüncü taraf bulut sunucularına yükler. Tarayıcı belleğinde yürütmenin her bayt belgenizi kesinlikle cihazınızda nasıl tuttuğunu keşfedin.
+summary: Desteklenen ClickPDF araçlarının dosyaları tarayıcıda nasıl işlediğini, bu yaklaşımın sınırlarını ve sayfa kaynaklarının neden ağı kullanabileceğini öğrenin.
 seoTitle: ClickPDF Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenli
 seoDescription: Tarayıcı tabanlı ClickPDF araçlarının dosyaları cihazınızda nasıl işlediğini ve web sayfası kaynakları tarafından hangi verilerin gönderilebileceğini öğrenin.
 seoKeywords: PDF, gizlilik, tarayıcı güvenliği, yerel işleme, ClickPDF
@@ -19,7 +19,7 @@ imageAlt: Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir
 targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: PDF Sıkıştırma Aracı
-targetToolCta: Tarayıcıda Güvenle PDF Sıkıştırın (Yükleme Yok)
+targetToolCta: PDF’leri tarayıcıda işleyin
 breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir","url":"https://www.clickpdf.net/blog/tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir-tr/"}]
 ---
 

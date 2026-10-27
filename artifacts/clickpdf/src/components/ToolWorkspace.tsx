@@ -2908,7 +2908,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </span>
                   </p>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    Military-grade 256-bit encryption executed natively inside your browser. Your password and files never leave your device. Uses PBKDF2 with SHA-256 key derivation and a 128-bit integrity authentication tag.
+                    256-bit encryption runs in your browser. Your password and selected file are not sent to ClickPDF document-processing servers; the page may still make other network requests. Uses PBKDF2 with SHA-256 key derivation and a 128-bit integrity authentication tag.
                   </p>
                 </div>
               </div>
@@ -3073,7 +3073,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       Decrypt Protected PDF
                     </p>
                     <p className="text-slate-600 dark:text-slate-400 mt-0.5">
-                      Enter the decryption password to unlock this document. Decryption executes entirely inside your browser memory with zero server uploads.
+                      Enter the decryption password to unlock this document. Decryption runs in your browser; page resources and enabled third-party services may still make network requests.
                     </p>
                   </div>
                 </div>
@@ -3224,7 +3224,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                      <span>Client-side PptxGenJS generation with zero upload</span>
+                      <span>PPTX generation runs in your browser; page requests may still occur</span>
                     </div>
                   </div>
                 </div>
@@ -3266,7 +3266,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                      <span>Zero server transmission - processed directly in browser</span>
+                      <span>Selected files are processed in your browser; page requests may still occur</span>
                     </div>
                   </div>
                 </div>
@@ -3329,7 +3329,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                      <span>100% in-browser SheetJS + pdf-lib compilation</span>
+                      <span>Spreadsheet processing in the browser with SheetJS and pdf-lib</span>
                     </div>
                   </div>
                 </div>
@@ -3371,7 +3371,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                      <span>Immediate offline conversion with no server delay</span>
+                      <span>Browser-based conversion; offline use depends on the tool and loaded resources</span>
                     </div>
                   </div>
                 </div>

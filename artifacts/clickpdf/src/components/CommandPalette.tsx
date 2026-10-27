@@ -150,7 +150,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         id: 'nav-about',
         type: 'navigation',
         title: 'About Us — ClickPDF Vision & Architecture',
-        subtitle: 'Learn about our 100% in-browser mission, zero-server privacy, and open standards',
+        subtitle: 'Learn about browser-based file processing, page requests, and open standards',
         badge: 'About',
         icon: <Info className="w-4 h-4 text-indigo-500" />,
         action: () => {
@@ -188,7 +188,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         id: 'nav-privacy',
         type: 'navigation',
         title: 'Privacy Policy & Zero-Storage Architecture',
-        subtitle: 'Review client-side isolation, GDPR compliance, and RAM purge guarantees',
+        subtitle: 'Review browser processing boundaries, compliance considerations, and memory limits',
         badge: 'Legal / Trust',
         icon: <Shield className="w-4 h-4 text-emerald-500" />,
         action: () => {

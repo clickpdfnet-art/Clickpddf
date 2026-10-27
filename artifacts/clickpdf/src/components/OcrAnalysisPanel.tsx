@@ -164,7 +164,7 @@ export const OcrAnalysisPanel: React.FC<OcrAnalysisPanelProps> = ({ file, totalP
                   Client-Side Neural OCR
                 </span>
                 <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/70 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-700">
-                  100% Private
+                  Browser Processing
                 </span>
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
@@ -325,7 +325,7 @@ export const OcrAnalysisPanel: React.FC<OcrAnalysisPanelProps> = ({ file, totalP
           <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between flex-wrap gap-3">
             <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Zero server upload · 100% browser memory execution</span>
+              <span>Supported files are processed in your browser; page requests may still occur</span>
             </div>
 
             <button

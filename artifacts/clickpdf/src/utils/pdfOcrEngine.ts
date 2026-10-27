@@ -373,7 +373,7 @@ Total Extracted Words:  ${result.totalWords.toLocaleString()}
 Total Characters:       ${result.totalCharacters.toLocaleString()}
 Average Confidence:     ${result.averageConfidence}%
 Processing Time:        ${(result.totalDurationMs / 1000).toFixed(1)}s
-Privacy Guarantee:      100% In-Browser Execution via Tesseract.js WebAssembly
+Processing note:         Supported file content is processed in this browser. The page may still make network requests.
 =====================================================
 
 `;
@@ -382,7 +382,7 @@ Privacy Guarantee:      100% In-Browser Execution via Tesseract.js WebAssembly
   } else if (format === 'md') {
     let md = `# Scanned OCR Text Extraction: ${result.fileName}\n\n`;
     md += `> **Model:** ${result.languageName} (${result.language}) | **Pages Processed:** ${result.totalPagesProcessed} | **Words:** ${result.totalWords.toLocaleString()} | **Confidence:** ${result.averageConfidence}%\n\n`;
-    md += `*Generated entirely in browser using Tesseract.js with Zero Server Uploads.*\n\n---\n\n`;
+    md += `*Generated in this browser using Tesseract.js. The page may still request resources or enabled third-party services.*\n\n---\n\n`;
 
     for (const p of result.pages) {
       md += `## Page ${p.pageNumber}\n\n`;

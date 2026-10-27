@@ -134,7 +134,7 @@ export const MetadataInspector: React.FC<MetadataInspectorProps> = ({ file, onPr
   const handleDownloadTextReport = () => {
     if (!metadata || !pageAnalysis) return;
     const report = `=====================================================
-CLICKPDF ANALYSIS & TOTAL PAGE COUNT REPORT (100% IN-BROWSER)
+CLICKPDF ANALYSIS & TOTAL PAGE COUNT REPORT (BROWSER-BASED)
 =====================================================
 File Name:              ${metadata.fileName}
 File Size:              ${metadata.fileSizeFormatted} (${metadata.fileSizeBytes.toLocaleString()} bytes)
@@ -175,7 +175,7 @@ Modification Date:      ${metadata.modificationDate || 'Not specified'}
 Modification ISO:       ${metadata.modificationDateIso || 'N/A'}
 
 =====================================================
-Generated client-side via ClickPDF with zero server uploads.
+Metadata inspected or created in the browser using ClickPDF.
 `;
     const encoder = new TextEncoder();
     const data = encoder.encode(report);
@@ -411,7 +411,7 @@ Generated client-side via ClickPDF with zero server uploads.
                   </span>
                 </h2>
                 <p className="text-xs sm:text-sm text-indigo-200/80 mt-1.5 max-w-lg">
-                  Analyzed 100% in-browser memory using ClickPDF engine. Verified across all document stream trees with complete geometry.
+                  Analyzed in browser memory using the ClickPDF engine. Checked document stream trees and page geometry.
                 </p>
               </div>
 

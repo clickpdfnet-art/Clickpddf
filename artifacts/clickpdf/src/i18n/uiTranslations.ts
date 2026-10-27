@@ -302,14 +302,170 @@ const rows: Record<Language, readonly string[]> = {
   ],
 };
 
+type PrivacyUiCopy = Pick<UiStrings, 'homePrivacyBadge' | 'inBrowserShort' | 'footerAbout'> & {
+  browserMemoryLabel: string;
+  memoryHandlingNote: string;
+};
+
+export const PRIVACY_UI_COPY: Record<Language, PrivacyUiCopy> = {
+  en: {
+    homePrivacyBadge: 'Browser-based file processing · Page requests may occur',
+    inBrowserShort: 'Browser-based processing',
+    footerAbout: 'ClickPDF provides free PDF tools. Supported files are processed in your browser; the page may still request resources, ads, and enabled third-party services.',
+    browserMemoryLabel: 'Browser-managed memory',
+    memoryHandlingNote: 'Closing a tab is not a secure-erase guarantee',
+  },
+  ur: {
+    homePrivacyBadge: 'براؤزر میں فائل پروسیسنگ · صفحے کی نیٹ ورک درخواستیں ہو سکتی ہیں',
+    inBrowserShort: 'براؤزر میں پروسیسنگ',
+    footerAbout: 'ClickPDF کے مفت PDF ٹولز معاون فائلیں براؤزر میں پروسیس کرتے ہیں؛ صفحہ وسائل، اشتہارات اور فعال فریقِ ثالث خدمات کے لیے درخواستیں بھیج سکتا ہے۔',
+    browserMemoryLabel: 'میموری براؤزر کے زیرِ انتظام',
+    memoryHandlingNote: 'ٹیب بند کرنا محفوظ مٹانے کی ضمانت نہیں',
+  },
+  hi: {
+    homePrivacyBadge: 'ब्राउज़र में फ़ाइल प्रोसेसिंग · पेज अनुरोध हो सकते हैं',
+    inBrowserShort: 'ब्राउज़र में प्रोसेसिंग',
+    footerAbout: 'ClickPDF के मुफ़्त PDF टूल समर्थित फ़ाइलों को ब्राउज़र में प्रोसेस करते हैं; पेज संसाधनों, विज्ञापनों और सक्षम तृतीय-पक्ष सेवाओं के लिए अनुरोध कर सकता है।',
+    browserMemoryLabel: 'ब्राउज़र द्वारा प्रबंधित मेमोरी',
+    memoryHandlingNote: 'टैब बंद करना सुरक्षित मिटाने की गारंटी नहीं है',
+  },
+  ar: {
+    homePrivacyBadge: 'معالجة الملفات في المتصفح · قد تُرسل الصفحة طلبات شبكية',
+    inBrowserShort: 'معالجة في المتصفح',
+    footerAbout: 'تعالج أدوات ClickPDF المجانية ملفات PDF المدعومة داخل المتصفح؛ وقد تطلب الصفحة موارد وإعلانات وخدمات خارجية مفعّلة.',
+    browserMemoryLabel: 'الذاكرة يديرها المتصفح',
+    memoryHandlingNote: 'إغلاق علامة التبويب لا يضمن محواً آمناً',
+  },
+  zh: {
+    homePrivacyBadge: '浏览器文件处理 · 网页仍可能发出网络请求',
+    inBrowserShort: '浏览器内处理',
+    footerAbout: 'ClickPDF 免费 PDF 工具会在浏览器中处理受支持的文件；网页仍可能请求资源、广告和已启用的第三方服务。',
+    browserMemoryLabel: '内存由浏览器管理',
+    memoryHandlingNote: '关闭标签页不保证安全擦除',
+  },
+  ja: {
+    homePrivacyBadge: 'ブラウザ内でファイル処理 · ページが通信する場合があります',
+    inBrowserShort: 'ブラウザ内処理',
+    footerAbout: 'ClickPDFの無料PDFツールは対応ファイルをブラウザ内で処理します。ページはリソース、広告、有効な第三者サービスへの通信を行う場合があります。',
+    browserMemoryLabel: 'メモリはブラウザが管理',
+    memoryHandlingNote: 'タブを閉じても安全な消去は保証されません',
+  },
+  tl: {
+    homePrivacyBadge: 'Pagproseso ng file sa browser · Maaaring may network request ang page',
+    inBrowserShort: 'Pagproseso sa browser',
+    footerAbout: 'Pinoproseso ng mga libreng PDF tool ng ClickPDF ang mga suportadong file sa browser; maaari pa ring humiling ang page ng resource, ad, at naka-enable na serbisyo ng third party.',
+    browserMemoryLabel: 'Memorya na pinamamahalaan ng browser',
+    memoryHandlingNote: 'Hindi garantiya ng ligtas na pagbura ang pagsasara ng tab',
+  },
+  de: {
+    homePrivacyBadge: 'Dateiverarbeitung im Browser · Seitenanfragen können auftreten',
+    inBrowserShort: 'Verarbeitung im Browser',
+    footerAbout: 'Die kostenlosen PDF-Tools von ClickPDF verarbeiten unterstützte Dateien im Browser; die Seite kann weiterhin Ressourcen, Werbung und aktivierte Dienste von Drittanbietern anfordern.',
+    browserMemoryLabel: 'Vom Browser verwalteter Speicher',
+    memoryHandlingNote: 'Das Schließen eines Tabs garantiert kein sicheres Löschen',
+  },
+  fr: {
+    homePrivacyBadge: 'Traitement dans le navigateur · La page peut encore faire des requêtes',
+    inBrowserShort: 'Traitement dans le navigateur',
+    footerAbout: 'Les outils PDF gratuits de ClickPDF traitent les fichiers compatibles dans le navigateur ; la page peut encore demander des ressources, des publicités et des services tiers activés.',
+    browserMemoryLabel: 'Mémoire gérée par le navigateur',
+    memoryHandlingNote: 'Fermer un onglet ne garantit pas un effacement sécurisé',
+  },
+  es: {
+    homePrivacyBadge: 'Procesamiento en el navegador · La página puede hacer solicitudes',
+    inBrowserShort: 'Procesamiento en el navegador',
+    footerAbout: 'Las herramientas PDF gratuitas de ClickPDF procesan archivos compatibles en el navegador; la página aún puede solicitar recursos, anuncios y servicios de terceros habilitados.',
+    browserMemoryLabel: 'Memoria gestionada por el navegador',
+    memoryHandlingNote: 'Cerrar una pestaña no garantiza un borrado seguro',
+  },
+  it: {
+    homePrivacyBadge: 'Elaborazione nel browser · La pagina può effettuare richieste',
+    inBrowserShort: 'Elaborazione nel browser',
+    footerAbout: 'Gli strumenti PDF gratuiti di ClickPDF elaborano i file supportati nel browser; la pagina può comunque richiedere risorse, annunci e servizi di terze parti abilitati.',
+    browserMemoryLabel: 'Memoria gestita dal browser',
+    memoryHandlingNote: 'Chiudere una scheda non garantisce una cancellazione sicura',
+  },
+  no: {
+    homePrivacyBadge: 'Filbehandling i nettleseren · Siden kan sende nettverksforespørsler',
+    inBrowserShort: 'Behandling i nettleseren',
+    footerAbout: 'ClickPDFs gratis PDF-verktøy behandler støttede filer i nettleseren; siden kan fortsatt be om ressurser, annonser og aktiverte tredjepartstjenester.',
+    browserMemoryLabel: 'Minne som styres av nettleseren',
+    memoryHandlingNote: 'Det å lukke en fane garanterer ikke sikker sletting',
+  },
+  pt: {
+    homePrivacyBadge: 'Processamento no navegador · A página pode fazer solicitações',
+    inBrowserShort: 'Processamento no navegador',
+    footerAbout: 'As ferramentas PDF gratuitas do ClickPDF processam arquivos compatíveis no navegador; a página ainda pode solicitar recursos, anúncios e serviços de terceiros ativados.',
+    browserMemoryLabel: 'Memória gerenciada pelo navegador',
+    memoryHandlingNote: 'Fechar uma aba não garante uma eliminação segura',
+  },
+  ru: {
+    homePrivacyBadge: 'Обработка файлов в браузере · Страница может отправлять запросы',
+    inBrowserShort: 'Обработка в браузере',
+    footerAbout: 'Бесплатные PDF-инструменты ClickPDF обрабатывают поддерживаемые файлы в браузере; страница может запрашивать ресурсы, рекламу и включённые сторонние сервисы.',
+    browserMemoryLabel: 'Памятью управляет браузер',
+    memoryHandlingNote: 'Закрытие вкладки не гарантирует безопасное удаление',
+  },
+  ko: {
+    homePrivacyBadge: '브라우저 파일 처리 · 페이지에서 네트워크 요청이 발생할 수 있습니다',
+    inBrowserShort: '브라우저 내 처리',
+    footerAbout: 'ClickPDF 무료 PDF 도구는 지원되는 파일을 브라우저에서 처리합니다. 페이지는 리소스, 광고 및 활성화된 타사 서비스를 요청할 수 있습니다.',
+    browserMemoryLabel: '브라우저가 관리하는 메모리',
+    memoryHandlingNote: '탭을 닫아도 안전한 삭제가 보장되지는 않습니다',
+  },
+  tr: {
+    homePrivacyBadge: 'Tarayıcıda dosya işleme · Sayfa ağ istekleri gönderebilir',
+    inBrowserShort: 'Tarayıcıda işleme',
+    footerAbout: 'ClickPDF ücretsiz PDF araçları desteklenen dosyaları tarayıcıda işler; sayfa kaynaklar, reklamlar ve etkin üçüncü taraf hizmetleri için istek gönderebilir.',
+    browserMemoryLabel: 'Belleği tarayıcı yönetir',
+    memoryHandlingNote: 'Sekmeyi kapatmak güvenli silme garantisi vermez',
+  },
+  nl: {
+    homePrivacyBadge: 'Bestandsverwerking in de browser · De pagina kan netwerkverzoeken doen',
+    inBrowserShort: 'Verwerking in de browser',
+    footerAbout: 'De gratis PDF-tools van ClickPDF verwerken ondersteunde bestanden in de browser; de pagina kan nog steeds bronnen, advertenties en ingeschakelde diensten van derden opvragen.',
+    browserMemoryLabel: 'Geheugen beheerd door de browser',
+    memoryHandlingNote: 'Een tabblad sluiten garandeert geen veilig wissen',
+  },
+  pl: {
+    homePrivacyBadge: 'Przetwarzanie plików w przeglądarce · Strona może wysyłać żądania',
+    inBrowserShort: 'Przetwarzanie w przeglądarce',
+    footerAbout: 'Darmowe narzędzia PDF ClickPDF przetwarzają obsługiwane pliki w przeglądarce; strona może nadal pobierać zasoby, reklamy i włączone usługi zewnętrzne.',
+    browserMemoryLabel: 'Pamięcią zarządza przeglądarka',
+    memoryHandlingNote: 'Zamknięcie karty nie gwarantuje bezpiecznego usunięcia',
+  },
+  sv: {
+    homePrivacyBadge: 'Filbehandling i webbläsaren · Sidan kan göra nätverksförfrågningar',
+    inBrowserShort: 'Behandling i webbläsaren',
+    footerAbout: 'ClickPDFs kostnadsfria PDF-verktyg behandlar filer som stöds i webbläsaren; sidan kan fortfarande begära resurser, annonser och aktiverade tredjepartstjänster.',
+    browserMemoryLabel: 'Webbläsaren hanterar minnet',
+    memoryHandlingNote: 'Att stänga en flik garanterar inte säker radering',
+  },
+  id: {
+    homePrivacyBadge: 'Pemrosesan file di browser · Halaman dapat membuat permintaan jaringan',
+    inBrowserShort: 'Pemrosesan di browser',
+    footerAbout: 'Alat PDF gratis ClickPDF memproses file yang didukung di browser; halaman tetap dapat meminta sumber daya, iklan, dan layanan pihak ketiga yang diaktifkan.',
+    browserMemoryLabel: 'Memori dikelola oleh browser',
+    memoryHandlingNote: 'Menutup tab bukan jaminan penghapusan aman',
+  },
+  vi: {
+    homePrivacyBadge: 'Xử lý tệp trong trình duyệt · Trang vẫn có thể gửi yêu cầu mạng',
+    inBrowserShort: 'Xử lý trong trình duyệt',
+    footerAbout: 'Các công cụ PDF miễn phí của ClickPDF xử lý tệp được hỗ trợ trong trình duyệt; trang vẫn có thể yêu cầu tài nguyên, quảng cáo và dịch vụ bên thứ ba được bật.',
+    browserMemoryLabel: 'Bộ nhớ do trình duyệt quản lý',
+    memoryHandlingNote: 'Đóng tab không đảm bảo xóa an toàn',
+  },
+};
+
 export const UI_TRANSLATIONS: Record<Language, UiStrings> = Object.fromEntries(
   Object.entries(rows).map(([language, values]) => {
     if (values.length !== UI_KEYS.length) {
       throw new Error(`Invalid UI translation count for ${language}: expected ${UI_KEYS.length}, received ${values.length}`);
     }
-    return [language, Object.fromEntries(UI_KEYS.map((key, index) => [key, values[index]]))];
+    const translated = Object.fromEntries(UI_KEYS.map((key, index) => [key, values[index]])) as UiStrings;
+    return [language, { ...translated, ...PRIVACY_UI_COPY[language as Language] }];
   }),
-) as Record<Language, UiStrings>;
+ ) as unknown as Record<Language, UiStrings>;
 
 const workspaceRows: Record<Language, readonly string[]> = {
   en: [

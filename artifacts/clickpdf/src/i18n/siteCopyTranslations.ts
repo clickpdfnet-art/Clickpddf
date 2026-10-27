@@ -1,4 +1,5 @@
 import { Language, TranslationDict } from './translations';
+import { PRIVACY_UI_COPY } from './uiTranslations';
 
 const SITE_COPY_KEYS = [
   'privacyTag',
@@ -764,9 +765,25 @@ export const SITE_COPY_TRANSLATIONS: Record<Language, SiteCopyStrings> = Object.
         `Invalid site copy translation count for ${language}: expected ${SITE_COPY_KEYS.length}, received ${values.length}`,
       );
     }
+    const localized = Object.fromEntries(SITE_COPY_KEYS.map((key, index) => [key, values[index]])) as SiteCopyStrings;
+    const privacyCopy = PRIVACY_UI_COPY[language as Language];
     return [
       language,
-      Object.fromEntries(SITE_COPY_KEYS.map((key, index) => [key, values[index]])),
+      {
+        ...localized,
+        workYourWayTitle: privacyCopy.homePrivacyBadge,
+        workYourWaySubtitle: privacyCopy.footerAbout,
+        feature1Title: privacyCopy.inBrowserShort,
+        feature1Desc: privacyCopy.footerAbout,
+        feature3Title: privacyCopy.homePrivacyBadge,
+        feature3Desc: privacyCopy.footerAbout,
+        trustSubtitle: privacyCopy.footerAbout,
+        trust1: privacyCopy.inBrowserShort,
+        trust1Sub: privacyCopy.homePrivacyBadge,
+        trust2: privacyCopy.browserMemoryLabel,
+        trust2Sub: privacyCopy.memoryHandlingNote,
+        zeroServerGuarantee: privacyCopy.homePrivacyBadge,
+      },
     ];
   }),
 ) as Record<Language, SiteCopyStrings>;

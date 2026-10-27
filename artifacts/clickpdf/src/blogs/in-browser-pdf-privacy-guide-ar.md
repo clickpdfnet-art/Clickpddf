@@ -2,7 +2,7 @@
 id: art-1-ar
 locale: ar
 translationGroup: in-browser-pdf-privacy-guide
-title: لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي
+title: كيف يمكن لمعالجة PDF في المتصفح تقليل تعرض الملفات
 slug: دليل-خصوصية-ملفات-pdf-داخل-المتصفح-ar
 category: الخصوصية والأمان
 date: March 28, 2026
@@ -11,7 +11,7 @@ readTime: 5 دقائق للقراءة
 author: Asad Tariq, Security Engineer
 authorType: Person
 coverImage: https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80
-summary: يقوم محولو الويب التقليديون بتحميل عقودك وبياناتك المالية إلى خوادم سحابية خارجية. اكتشف كيف تحافظ معالجة الذاكرة داخل المتصفح على كل بايت من مستنداتك داخل جهازك.
+summary: تعرّف على كيفية معالجة أدوات ClickPDF المدعومة للملفات في المتصفح، وحدود هذا الأسلوب، ولماذا قد تستخدم موارد الصفحة الشبكة.
 seoTitle: معالجة PDF داخل المتصفح أكثر أماناً بشكل أساسي
 seoDescription: تعرف على كيفية معالجة أدوات PDF المستندة إلى المتصفح للملفات على جهازك، وما هي البيانات التي قد تظل مرسلة عبر موارد صفحات الويب.
 seoKeywords: PDF، خصوصية، متصفح، أمان، ClickPDF
@@ -19,7 +19,7 @@ imageAlt: لماذا تعد معالجة ملفات PDF داخل المتصفح 
 targetTool: compress
 targetToolUrl: /tools/compress-pdf
 targetToolTitle: أداة ضغط PDF
-targetToolCta: ضغط ملفات PDF بأمان داخل المتصفح (بدون رفع الملفات)
+targetToolCta: معالجة ملفات PDF في المتصفح
 breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي","url":"https://www.clickpdf.net/blog/%D8%AF%D9%84%D9%8A%D9%84-%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%85%D9%84%D9%81%D8%A7%D8%AA-pdf-%D8%AF%D8%A7%D8%AE%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD-ar/"}]
 ---
 

@@ -121,16 +121,16 @@ export function getPluginSeoInfo(toolIdOrSlug: string): ToolSeoInfo | undefined 
     slug: found.slug,
     toolId: found.id,
     aliases: [found.slug, found.id, `${found.slug}-online`, `${found.id}-pdf`],
-    h1Title: seo.h1Title || `${found.title} Online Free — 100% In-Browser`,
+    h1Title: seo.h1Title || `${found.title} Online Free — Browser-Based Processing`,
     metaTitle: seo.metaTitle || `${found.title} Online Free – Client-Side PDF Tool | ClickPDF`,
     metaDescription: seo.metaDescription || found.shortDescription,
-    keywords: seo.keywords || `${found.title.toLowerCase()}, pdf tool, client-side, zero server uploads, in browser`,
+    keywords: seo.keywords || `${found.title.toLowerCase()}, pdf tool, browser-based processing, in browser`,
     targetKeywords: [found.title.toLowerCase(), found.slug],
     badge: found.badge || 'Client-Side Tool',
     overviewHeading: seo.overviewHeading || `Why Use ${found.title} in Your Browser?`,
     overview: seo.overview || seo.metaDescription || found.shortDescription,
     secondaryOverview: seo.secondaryOverview || found.extendedDescription || found.shortDescription,
-    privacyHighlight: 'Private by Design: All files are processed locally in your browser memory and never uploaded to any server.',
+    privacyHighlight: 'Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources, ads, or enabled third-party services.',
     stepsHeading: seo.stepsHeading || `How to Use ${found.title} in 3 Simple Steps`,
     steps: seo.howToSteps.map((s, idx) => ({
       step: s.step || idx + 1,
@@ -148,8 +148,8 @@ export function getPluginSeoInfo(toolIdOrSlug: string): ToolSeoInfo | undefined 
           iconName: b.iconName || 'ShieldCheck'
         }))
       : [
-          { title: '100% Private Sandbox', desc: 'Processes locally inside your browser memory with zero cloud transfer.', iconName: 'ShieldCheck' },
-          { title: 'No File Size Limits', desc: 'No arbitrary upload timeouts or server queue bottlenecks.', iconName: 'Zap' },
+          { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled services may still make network requests.', iconName: 'ShieldCheck' },
+          { title: 'Tool-Specific File Limits', desc: 'Available limits depend on the tool, browser, and device memory.', iconName: 'Zap' },
           { title: 'Instant Local Output', desc: 'Download your processed document immediately with no waiting.', iconName: 'Sparkles' }
         ],
     relatedToolIds: seo.relatedToolIds || ['merge', 'split', 'compress', 'watermark']

@@ -67,10 +67,10 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['merge', 'combine-pdf', 'join-pdf', 'merge-pdf-files'],
     h1Title: 'Merge PDF Files Online — 100% Free & In-Browser',
     metaTitle: 'Merge PDF Online — Combine Files Free | ClickPDF',
-    metaDescription: 'Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and zero server uploads.',
+    metaDescription: 'Merge PDF files online for free with drag-and-drop reordering. Supported files are processed in your browser; the page may still make network requests.',
     keywords: 'merge pdf, combine pdf files, join pdf online free, merge pdf client side, merge pdf in browser, secure pdf combiner',
     targetKeywords: ['merge pdf', 'combine pdf files', 'join pdf online', 'client side pdf merge'],
-    badge: 'Zero Server Uploads',
+    badge: 'Browser-Based Processing',
     overviewHeading: 'Why Merge PDF Documents in Your Browser?',
     overview: 'Combining multiple documents into a single, cohesive PDF is essential for business proposals, academic portfolios, and invoice packets. While traditional cloud converters force you to upload confidential papers to remote web servers, ClickPDF executes the entire merger locally in your device’s memory using compiled WebAssembly and pdf-lib.',
     secondaryOverview: 'You can add documents, rearrange pages, and generate a combined file in your browser. Supported file contents are not sent to ClickPDF document-processing servers; this does not guarantee device security or regulatory compliance, and the page may still make requests for resources and enabled services.',
@@ -179,7 +179,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'compress-pdf',
     toolId: 'compress',
     aliases: ['compress', 'reduce-pdf-size', 'shrink-pdf', 'optimize-pdf'],
-    h1Title: 'Compress PDF Online — Reduce File Size 100% In-Browser',
+    h1Title: 'Compress PDF Online — Reduce File Size in Your Browser',
     metaTitle: 'Compress PDF Online — Reduce File Size | ClickPDF',
     metaDescription: 'Reduce PDF file size online while preserving readability. Free, client-side compression processes selected files locally in your browser.',
     keywords: 'compress pdf, reduce pdf file size, shrink pdf online free, client side pdf compressor, in browser pdf compression',
@@ -298,7 +298,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Turn PDF Pages into Images for Sharing and Presentations',
     overview: 'Convert pages from one or more PDF documents into separate PNG images. Preview your pages, choose their order, rotate sideways scans, duplicate a page or remove unwanted pages before exporting. Each remaining page becomes an image in the downloaded ZIP.',
     secondaryOverview: 'The converter renders PDF pages locally in your browser without uploading your documents to a server. When you add multiple PDFs, the ZIP keeps each document’s images in its own folder. Processing time and the size of documents you can convert depend on your device’s available memory.',
-    privacyHighlight: 'Private Page Conversion: PDF documents and generated images stay on your device during conversion, with no server upload.',
+    privacyHighlight: 'Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources, ads, or enabled third-party services.',
     stepsHeading: 'How to Convert PDF Pages to Images',
     steps: [
       {
@@ -342,7 +342,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: 'Multiple Documents', desc: 'Export PDFs into separate document folders within one ZIP.', iconName: 'Layers' },
       { title: 'Page Controls', desc: 'Reorder, rotate, duplicate or remove pages before conversion.', iconName: 'LayoutGrid' },
-      { title: 'Private Conversion', desc: 'Render pages on your device without server uploads.', iconName: 'Shield' }
+      { title: 'Browser-Based Conversion', desc: 'Render pages in your browser; page resources and enabled services may still make network requests.', iconName: 'Shield' }
     ],
     relatedToolIds: ['jpg-to-pdf', 'organize', 'rotate', 'compress']
   },
@@ -408,7 +408,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['organize', 'reorder-pdf', 'rearrange-pdf-pages', 'delete-pdf-pages'],
     h1Title: 'Organize PDF Pages Online — Reorder, Rotate & Delete Pages',
     metaTitle: 'Organize PDF Pages — Reorder & Delete | ClickPDF',
-    metaDescription: 'Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with zero server uploads.',
+    metaDescription: 'Reorder, delete, and rotate PDF pages in your browser with drag-and-drop. Page resources and enabled services may still make requests.',
     keywords: 'organize pdf, reorder pdf pages, delete pdf pages, rearrange pdf online free, client side pdf organizer',
     targetKeywords: ['organize pdf', 'reorder pdf pages', 'delete pdf pages', 'rearrange pdf pages'],
     badge: 'Drag & Drop Page Editor',
@@ -463,7 +463,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['watermark', 'stamp-pdf', 'add-watermark', 'pdf-watermark-online'],
     h1Title: 'Watermark PDF Online — Add Confidential & Custom Marks Free',
     metaTitle: 'Watermark PDF Online — Add Custom Marks | ClickPDF',
-    metaDescription: 'Add custom text watermarks to your PDF documents online for free. Adjust text, opacity, angle, and position in your browser with zero server uploads.',
+    metaDescription: 'Add custom text watermarks to PDF documents for free. Adjust text, opacity, angle, and position in your browser; the page may still make network requests.',
     keywords: 'watermark pdf, add watermark to pdf online, stamp pdf, confidential watermark, client side pdf watermark',
     targetKeywords: ['watermark pdf', 'add watermark to pdf', 'stamp pdf online', 'pdf watermark free'],
     badge: 'Custom Vector Stamps',
@@ -518,7 +518,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['page-numbers', 'add-page-numbers', 'number-pdf', 'paginate-pdf'],
     h1Title: 'Add Page Numbers to PDF Online — Free In-Browser Pagination',
     metaTitle: 'Add Page Numbers to PDF — Online Tool | ClickPDF',
-    metaDescription: 'Insert dynamic page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Clean, client-side pagination with zero server uploads.',
+    metaDescription: 'Insert page numbering (e.g. Page 1 of N) into PDF headers or footers online for free. Page resources and enabled services may still make network requests.',
     keywords: 'add page numbers to pdf, number pdf pages online, paginate pdf free, client side pdf pagination, header footer page numbers',
     targetKeywords: ['add page numbers to pdf', 'number pdf pages', 'pdf pagination', 'page numbers pdf online'],
     badge: 'Dynamic Header/Footer',
@@ -573,7 +573,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['edit-metadata', 'change-pdf-author', 'pdf-properties', 'wipe-pdf-metadata'],
     h1Title: 'Edit PDF Metadata Online — Modify Author, Title & Properties',
     metaTitle: 'Edit PDF Metadata — Author & Title | ClickPDF',
-    metaDescription: 'Inspect, edit, or wipe PDF document properties like Title, Author, Subject, and Producer online for free. 100% in-browser editing with zero server uploads.',
+    metaDescription: 'Inspect or edit PDF properties such as Title, Author, Subject, and Producer in your browser. The page may still request resources or enabled services.',
     keywords: 'edit pdf metadata, change pdf author, modify pdf properties, wipe pdf metadata, client side pdf metadata editor',
     targetKeywords: ['edit pdf metadata', 'change pdf author', 'modify pdf title', 'wipe pdf metadata'],
     badge: 'Privacy & SEO Scrubbing',
@@ -738,7 +738,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['unlock', 'decrypt-pdf', 'remove-pdf-password', 'unlock-pdf-online'],
     h1Title: 'Unlock PDF Online — Decrypt Password-Protected Documents Free',
     metaTitle: 'Unlock PDF Online Free – Decrypt Files in Browser | ClickPDF',
-    metaDescription: 'Unlock and decrypt password-protected PDF files online for free. Fast, client-side Web Crypto decryption in your browser with zero server uploads.',
+    metaDescription: 'Unlock password-protected PDFs online for free with Web Crypto in your browser. Page resources and enabled services may make requests.',
     keywords: 'unlock pdf, decrypt pdf online free, remove pdf password, client side pdf unlocker, in browser pdf decryption',
     targetKeywords: ['unlock pdf', 'decrypt pdf', 'remove pdf password', 'unlock pdf online free'],
     badge: 'Private In-Browser Decrypt',
@@ -779,7 +779,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       }
     ],
     benefits: [
-      { title: '100% In-Browser Decryption', desc: 'No keys or file data are ever transmitted across the internet.', iconName: 'Lock' },
+      { title: 'Browser-Based Decryption', desc: 'Supported files and keys are processed in the browser; page resources and enabled services may still make network requests.', iconName: 'Lock' },
       { title: 'Preserves File Integrity', desc: 'Restores the original binary file with pristine precision.', iconName: 'CheckCircle' },
       { title: 'Instant Unlock', desc: 'Hardware-accelerated AES decryption finishes in fractions of a second.', iconName: 'Zap' },
       { title: 'Cross-Device Compatible', desc: 'Works smoothly on Chrome, Safari, Firefox, Edge, and mobile browsers.', iconName: 'Laptop' }
@@ -903,7 +903,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['crop', 'trim-pdf', 'cut-pdf-borders', 'crop-pdf-online'],
     h1Title: 'Crop PDF Margins Online — Trim White Borders Free',
     metaTitle: 'Crop PDF Margins Online Free – Trim Page Borders | ClickPDF',
-    metaDescription: 'Crop and trim margins on PDF documents online for free. Adjust white borders for printing or e-readers in your browser with zero server uploads.',
+    metaDescription: 'Crop PDF margins in your browser for printing or e-readers. Page resources and enabled services may still make network requests.',
     keywords: 'crop pdf, trim pdf margins, cut pdf borders online free, adjust pdf margins in browser, client side pdf crop',
     targetKeywords: ['crop pdf', 'trim pdf margins', 'crop pdf borders', 'pdf crop online free'],
     badge: 'Precision Bounding Box',
@@ -958,7 +958,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['pdfa', 'pdf-to-pdfa', 'archival-pdf', 'iso-19005'],
     h1Title: 'Convert PDF to PDF/A Online — ISO Archival Standards Free',
     metaTitle: 'PDF to PDF/A Converter Free – ISO Archival Format in Browser | ClickPDF',
-    metaDescription: 'Convert documents into standardized ISO 19005 PDF/A archival format online for free. In-browser compliance validation with zero server uploads.',
+    metaDescription: 'Convert documents to ISO 19005 PDF/A archival format online for free with browser-based processing. Review the output for your archival requirements.',
     keywords: 'pdf to pdfa, convert pdf to pdf/a online free, iso 19005 pdf, legal archival pdf, client side pdfa converter',
     targetKeywords: ['pdf to pdfa', 'convert pdf to pdf/a', 'pdf/a converter free', 'archival pdf'],
     badge: 'ISO 19005 Compliance',
@@ -1013,7 +1013,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['repair', 'fix-pdf', 'recover-pdf', 'corrupted-pdf-repair'],
     h1Title: 'Repair Corrupted PDF Online — Fix Broken & Damaged Files Free',
     metaTitle: 'Repair Corrupted PDF Online Free – Fix Damaged Files | ClickPDF',
-    metaDescription: 'Recover data from corrupted or damaged PDF files online for free. Rebuild cross-reference tables and recover pages in your browser with zero server uploads.',
+    metaDescription: 'Recover corrupted PDF files online for free. Rebuild cross-reference tables and restore pages in your browser; page requests may still occur.',
     keywords: 'repair pdf, fix corrupted pdf online free, recover damaged pdf, rebuild pdf cross reference table, client side pdf repair',
     targetKeywords: ['repair pdf', 'fix corrupted pdf', 'recover damaged pdf', 'pdf repair online free'],
     badge: 'XREF Table Reconstruction',
@@ -1068,7 +1068,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['compare', 'diff-pdf', 'compare-pdf-versions', 'pdf-diff-tool'],
     h1Title: 'Compare PDF Documents Online — Side-by-Side Version Diff',
     metaTitle: 'Compare PDF Documents Online Free – Side-by-Side Diff | ClickPDF',
-    metaDescription: 'Compare two PDF document versions side-by-side online for free. Spot alterations, clause changes, and visual differences in your browser with zero server uploads.',
+    metaDescription: 'Compare two PDF versions side by side online for free. Review page and visual differences in your browser; the page may still make requests.',
     keywords: 'compare pdf documents, pdf diff online free, compare two pdf versions, side by side pdf comparison, client side pdf compare',
     targetKeywords: ['compare pdf', 'compare two pdf files', 'pdf diff online', 'pdf comparison free'],
     badge: 'Synchronized Diff View',
@@ -1353,7 +1353,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are my resumes and private contracts kept private?',
-        answer: '100% private. Files are processed entirely in your device RAM without being sent across the internet.'
+        answer: 'Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources, ads, or enabled third-party services.'
       },
       {
         question: 'Can I convert multiple Word files to PDF simultaneously?',
@@ -1363,7 +1363,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: 'No Office License Required', desc: 'Runs 100% in any modern browser on Windows, Mac, Linux, iOS, or Android.', iconName: 'Laptop' },
       { title: 'High-Resolution Output', desc: 'Generates clear A4 pages with readable text and tables.', iconName: 'FileText' },
-      { title: 'Guaranteed Privacy', desc: 'No server uploads ensure sensitive employee records and contracts remain secure.', iconName: 'ShieldCheck' },
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; review your organization’s requirements and the page’s network activity for sensitive documents.', iconName: 'ShieldCheck' },
       { title: 'Batch Queue Ready', desc: 'Convert dozens of Word documents with automatic ZIP archiving.', iconName: 'Download' }
     ],
     relatedToolIds: ['pdf-to-word', 'compress', 'merge', 'protect']
@@ -1375,7 +1375,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['word-to-excel', 'docx-to-xlsx', 'convert-word-tables-to-excel'],
     h1Title: 'Word to Excel Converter — Extract DOCX Tables to XLSX',
     metaTitle: 'Word to Excel — DOCX Tables to XLSX | ClickPDF',
-    metaDescription: 'Extract tables and document text from Word (.docx) files into an Excel workbook in your browser. Each table gets its own worksheet; no server upload.',
+    metaDescription: 'Extract tables and text from Word (.docx) files into an Excel workbook in your browser. Each table gets a worksheet; page requests may still occur.',
     keywords: 'word to excel, docx to xlsx, extract word tables, convert word table to excel, browser word to excel',
     targetKeywords: ['word to excel', 'docx to xlsx', 'extract tables from word'],
     badge: 'DOCX to XLSX',
@@ -1434,7 +1434,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['excel-to-pdf', 'xlsx-to-pdf', 'xls-to-pdf', 'csv-to-pdf', 'convert-excel-to-pdf', 'spreadsheet-to-pdf'],
     h1Title: 'Excel to PDF Converter Online — Paginated Tables Free',
     metaTitle: 'Excel to PDF Converter — XLSX & CSV | ClickPDF',
-    metaDescription: 'Convert Excel spreadsheets (.xlsx, .xls, .csv) to styled landscape PDF tables online 100% free. Auto-fit columns, zebra stripes, and zero server uploads.',
+    metaDescription: 'Convert Excel (.xlsx, .xls, .csv) to styled PDF tables in your browser. Auto-fit columns and row styling; page requests may still occur.',
     keywords: 'excel to pdf, convert excel to pdf, xlsx to pdf, csv to pdf online free, spreadsheet to pdf, landscape pdf table, client side excel to pdf',
     targetKeywords: ['excel to pdf', 'convert xlsx to pdf', 'spreadsheet to pdf converter', 'free excel to pdf online'],
     badge: 'Landscape Paginated Tables',
@@ -1485,7 +1485,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: 'Professional Table Styling', desc: 'High-contrast indigo headers and zebra-striped rows make reports easy to read.', iconName: 'FileSpreadsheet' },
       { title: 'Automatic Multi-Page Overflow', desc: 'Headers repeat across new pages so large datasets stay organized.', iconName: 'Layers' },
-      { title: '100% In-Browser Privacy', desc: 'Safe for sensitive business budgets, payroll audits, and financial statements.', iconName: 'ShieldCheck' },
+      { title: 'Browser-Based Processing', desc: 'Review your organization’s security requirements before using sensitive budgets, payroll records, or financial statements.', iconName: 'ShieldCheck' },
       { title: 'Auto-Fit Column Widths', desc: 'Distributes horizontal space evenly to prevent truncated columns.', iconName: 'Maximize2' }
     ],
     relatedToolIds: ['pdf-to-excel', 'compress', 'merge', 'watermark']
@@ -1497,13 +1497,13 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['powerpoint-to-pdf', 'pptx-to-pdf', 'ppt-to-pdf', 'convert-powerpoint-to-pdf', 'slides-to-pdf'],
     h1Title: 'PowerPoint to PDF Converter Online — Crisp 16:9 Slides Free',
     metaTitle: 'PowerPoint to PDF Online Free – Convert PPTX to PDF Slides | ClickPDF',
-    metaDescription: 'Convert PowerPoint presentations (.pptx, .ppt) to 16:9 widescreen PDF slides online 100% free. High-resolution vector slides with zero server uploads.',
+    metaDescription: 'Convert PowerPoint (.pptx, .ppt) to widescreen PDF slides in your browser. Vector output; page resources and services may still make requests.',
     keywords: 'powerpoint to pdf, convert powerpoint to pdf, pptx to pdf, ppt to pdf online free, slides to pdf, 16:9 pdf slides, client side pptx to pdf',
     targetKeywords: ['powerpoint to pdf', 'convert pptx to pdf', 'slides to pdf converter', 'free powerpoint to pdf online'],
     badge: '16:9 Widescreen Slides',
     overviewHeading: 'Convert Presentations into Universal, High-Resolution PDF Slides',
     overview: 'Ensure your slide deck looks identical on every projector, tablet, and mobile device. ClickPDF transforms Microsoft PowerPoint (.pptx, .ppt) presentations into crisp 16:9 widescreen PDF pages with slide titles, bullet points, and slide numbering preserved.',
-    secondaryOverview: 'Fast in-browser XML parsing extracts slide sequences and renders vector-sharp PDF slides with zero server latency or quality loss.',
+    secondaryOverview: 'In-browser XML parsing extracts slide sequences and renders vector PDF slides. Review the result for layout differences.',
     privacyHighlight: 'Browser-Based Presentation Processing: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still make resource and third-party requests.',
     stepsHeading: 'How to Convert PowerPoint to PDF in 3 Steps',
     steps: [

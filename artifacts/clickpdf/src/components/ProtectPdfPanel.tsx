@@ -75,7 +75,7 @@ export const ProtectPdfPanel: React.FC<ProtectPdfPanelProps> = ({
             Client-Side Password Protection
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-            Lock <span className="font-semibold text-slate-800 dark:text-slate-200">{fileName}</span> with hardware-accelerated browser encryption. Your password never leaves your computer.
+            Lock <span className="font-semibold text-slate-800 dark:text-slate-200">{fileName}</span> with browser encryption. The password is used by this browser and is not sent to ClickPDF document-processing servers; page requests may still occur.
           </p>
         </div>
       </div>

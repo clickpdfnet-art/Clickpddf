@@ -4,7 +4,7 @@ import { loadAllBlogPostsFromFolder } from '../utils/blogLoader';
 export const INITIAL_ARTICLES: BlogPost[] = [
   {
     id: 'art-1',
-    title: 'Why In-Browser PDF Processing Is Fundamentally More Secure',
+    title: 'How Browser-Based PDF Processing Can Reduce File Exposure',
     slug: 'in-browser-pdf-privacy-guide',
     category: 'Privacy and Security',
     date: 'March 28, 2026',
@@ -12,19 +12,19 @@ export const INITIAL_ARTICLES: BlogPost[] = [
     author: 'Asad Tariq, Security Engineer',
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
     excerpt: 'Traditional converters may send files to remote processing services. Learn how supported ClickPDF tools process files in your browser, and what page-level network requests and offline limits mean.',
-    content: `Whenever you upload a tax return, medical form, or signed employment contract to a typical online PDF converter, that document embarks on an invisible journey across the internet. It travels through third party routing nodes and lands on a cloud server managed by an unfamiliar company. Even when services promise to wipe files after an hour or two, your data temporarily sits on remote drives where employee mistakes, cloud misconfigurations, or automated backups can leave it exposed.
+    content: `Some online PDF converters send selected files to remote servers for processing. Upload, retention, and deletion practices vary by provider, so review the provider's terms before using it for sensitive documents. Browser-based processing can reduce exposure to remote document processors when file contents stay in the browser.
 
 The traditional cloud approach was built over fifteen years ago when web browsers were too weak to manipulate large documents on their own. Back then, servers had to do all the heavy lifting. But today, modern personal computers and smartphones have immense processing power right in your pocket.
 
-With modern browser capabilities like WebAssembly and local JavaScript memory streams, everything changes. When you drop a document into ClickPDF, the entire file stays strictly inside your device memory. The browser parses the document structure, merges pages, compresses images, or runs character recognition directly through your own processor. Not a single packet of document data is ever dispatched over the network.
+Modern browsers support technologies such as WebAssembly and local JavaScript processing. In supported ClickPDF tools, selected file contents are processed in the browser rather than sent to ClickPDF document-processing servers. The page may still request scripts, fonts, workers, images, advertisements, and other enabled third-party services.
 
 This architectural shift offers three immediate advantages for everyday work:
 
 First, supported tools process selected files in your browser rather than sending their contents to ClickPDF's document-processing servers. The page may still request scripts, fonts, workers, images, advertisements, and other enabled third-party services. Offline availability varies by tool, browser, and the resources already loaded.
 
-Second, there is zero waiting time for sluggish uploads or downloads. When you need to split or reorganize a massive two hundred page report, the operation finishes in a fraction of a second instead of several minutes.
+Second, browser-based processing can avoid waiting for a separate document upload to a processing service. Actual processing time depends on the tool, file, browser, and device.
 
-Finally, for lawyers, accountants, healthcare teams, and everyday individuals who handle sensitive personal information, client-side tools eliminate the compliance headaches of third-party data storage. True privacy is not a promise made in a privacy policy; it is built into the software architecture itself.`
+Browser-based file processing can reduce exposure to external document processors, but it does not guarantee compliance or eliminate all security risks. For sensitive records, consider device security, page resources and enabled third-party services, and your organization’s requirements.`
   },
   {
     id: 'art-2',
@@ -122,11 +122,11 @@ Once extracted, you can instantly copy contract clauses, export clean plain text
 
 Standard commercial encryption often relies on vendor servers to apply locks, meaning the service provider possesses master keys and temporary access to your unencrypted files. If that company experiences an internal breach or receives a subpoena, your documents could be exposed.
 
-Zero-knowledge client-side encryption approaches security from the opposite philosophy. When you protect a PDF using the browser native Web Crypto standard, an AES-256 cipher locks your document entirely inside your local machine using hundreds of thousands of key derivation rounds. Your secret passphrase never travels across the internet, and no remote server holds a decryption key.
+Browser-based encryption approaches security differently. When the supported tool protects a PDF using the browser's native Web Crypto standard, AES-256 processing runs in the browser using key-derivation rounds. The password and file are not sent to ClickPDF document-processing servers; the page may still request resources, ads, or enabled third-party services.
 
 The trade-off of true zero-knowledge protection is responsibility. Because there is no back door, forgotten passwords cannot be recovered through a reset link. When securing mission-critical files, pairing your password with a helpful contextual hint or storing it in a trusted password vault ensures authorized parties can always access the data.
 
-Using robust client-side encryption gives individuals and businesses military-grade security without compromising privacy.`
+Browser-based encryption can reduce exposure to remote document processors, but it does not eliminate all security risks or guarantee compliance. Consider device security, password handling, page resources, and your organization's requirements.`
   }
 ];
 
