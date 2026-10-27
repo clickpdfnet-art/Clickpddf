@@ -62,6 +62,37 @@ const visitLanguageType = (node) => {
 visitLanguageType(translationsSource);
 assert.ok(localeCodes?.length === 21, `Expected 21 language codes, found ${localeCodes?.length}`);
 
+const browserLanguageSourcePath = path.join(root, 'src/i18n/detectBrowserLanguage.ts');
+const browserLanguageSource = fs.readFileSync(browserLanguageSourcePath, 'utf8');
+const transpiledBrowserLanguage = ts.transpileModule(browserLanguageSource, {
+  compilerOptions: {
+    module: ts.ModuleKind.CommonJS,
+    target: ts.ScriptTarget.ES2020,
+  },
+}).outputText;
+const browserLanguageModule = { exports: {} };
+new Function('module', 'exports', 'require', transpiledBrowserLanguage)(
+  browserLanguageModule,
+  browserLanguageModule.exports,
+  (modulePath) => {
+    assert.equal(modulePath, './translations');
+    return { SUPPORTED_LANGUAGES: localeCodes.map((code) => ({ code })) };
+  },
+);
+const { detectBrowserLanguage, resolveInitialLanguage } = browserLanguageModule.exports;
+for (const locale of localeCodes) {
+  assert.equal(detectBrowserLanguage([`${locale}-XX`]), locale, `Browser locale should resolve ${locale}`);
+}
+assert.equal(detectBrowserLanguage(['ur-PK', 'en-US']), 'ur');
+assert.equal(detectBrowserLanguage(['ja-JP']), 'ja');
+assert.equal(detectBrowserLanguage(['de-DE']), 'de');
+assert.equal(detectBrowserLanguage(['fil-PH']), 'tl');
+assert.equal(detectBrowserLanguage(['nb-NO']), 'no');
+assert.equal(detectBrowserLanguage(['unsupported-ZZ', 'pt-BR']), 'pt');
+assert.equal(detectBrowserLanguage([]), 'en');
+assert.equal(resolveInitialLanguage('ja', ['de-DE']), 'ja', 'Saved manual preference must win over browser locale');
+assert.equal(resolveInitialLanguage('invalid', ['ur-PK']), 'ur', 'Invalid saved value must fall back to browser locale');
+
 const uiKeysCount = arrayLength(findVariable(uiSource, 'UI_KEYS'));
 const siteCopyKeysCount = arrayLength(findVariable(siteCopySource, 'SITE_COPY_KEYS'));
 const toolPageKeysCount = arrayLength(findVariable(toolPageSource, 'TOOL_PAGE_COPY_KEYS'));
@@ -157,6 +188,10 @@ const blogSection = fs.readFileSync(path.join(root, 'src/components/BlogSection.
 const header = fs.readFileSync(path.join(root, 'src/components/Header.tsx'), 'utf8');
 const mobileDrawer = fs.readFileSync(path.join(root, 'src/components/MobileDrawer.tsx'), 'utf8');
 const languageContext = fs.readFileSync(path.join(root, 'src/context/LanguageContext.tsx'), 'utf8');
+assert.ok(
+  languageContext.includes('resolveInitialLanguage(savedLanguage, preferredLocales)'),
+  'Language context must prefer saved selection, then detect the browser locale',
+);
 for (const key of [
   'blogTag',
   'blogTitle',

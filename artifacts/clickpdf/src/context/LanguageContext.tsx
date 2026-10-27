@@ -17,6 +17,7 @@ import {
 import { SITE_COPY_TRANSLATIONS } from '../i18n/siteCopyTranslations';
 import { BLOG_INTERFACE_TRANSLATIONS } from '../i18n/blogInterfaceTranslations';
 import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
+import { resolveInitialLanguage } from '../i18n/detectBrowserLanguage';
 
 interface LanguageContextType {
   language: Language;
@@ -38,15 +39,19 @@ const LANG_STORAGE_KEY = 'clickpdf_lang_pref';
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(LANG_STORAGE_KEY) as Language;
-        if (saved && SUPPORTED_LANGUAGES.some(l => l.code === saved)) {
-          return saved;
-        }
-      } catch {}
-    }
-    return 'en';
+    if (typeof window === 'undefined') return 'en';
+
+    let savedLanguage: string | null = null;
+    try {
+      savedLanguage = localStorage.getItem(LANG_STORAGE_KEY);
+    } catch {}
+
+    const preferredLocales = [
+      ...(window.navigator.languages || []),
+      window.navigator.language,
+    ].filter(Boolean);
+
+    return resolveInitialLanguage(savedLanguage, preferredLocales);
   });
 
   const setLanguage = (lang: Language) => {
