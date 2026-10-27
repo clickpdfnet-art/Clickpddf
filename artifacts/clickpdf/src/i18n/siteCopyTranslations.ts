@@ -69,7 +69,7 @@ const rows: Record<Language, readonly string[]> = {
     'Cookies Policy',
     'Privacy Policy',
     'Terms of Service',
-    'Aansprakelijkheidsverklaring',
+    'Disclaimer',
     'Batch Queue Engine',
     'Blogs',
     'FAQs',

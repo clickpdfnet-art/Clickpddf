@@ -91,6 +91,7 @@ for (const [locale, values] of uiRows) {
 
 const siteCopyRows = objectEntries(findVariable(siteCopySource, 'rows'));
 const englishSiteCopy = siteCopyRows.get('en').elements;
+assert.equal(englishSiteCopy[27].text, 'Disclaimer', 'English footer disclaimer label must be English');
 const requiredLocalizedIndexes = [
   ...Array.from({ length: 19 }, (_, index) => index),
   ...Array.from({ length: 10 }, (_, index) => index + 19),
@@ -100,6 +101,10 @@ const requiredLocalizedIndexes = [
 for (const [locale, values] of siteCopyRows) {
   if (locale === 'en') continue;
   for (const index of requiredLocalizedIndexes) {
+    if (locale === 'nl' && index === 27) {
+      assert.equal(values.elements[index].text, 'Disclaimer', 'Dutch may use the same word for Disclaimer');
+      continue;
+    }
     assert.notEqual(
       values.elements[index].text,
       englishSiteCopy[index].text,
