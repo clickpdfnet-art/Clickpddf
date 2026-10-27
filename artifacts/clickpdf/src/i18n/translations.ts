@@ -252,6 +252,13 @@ export interface TranslationDict {
   installAppToDesktop: string;
   adminDashboard: string;
   shareClickPdf: string;
+  shareLabel: string;
+  shortcutsLabel: string;
+  shortcutsOr: string;
+  shortcutsCheatsheet: string;
+  shortcutsHintAriaLabel: string;
+  shortcutsHintTitle: string;
+  dismissShortcutsHint: string;
   clientStorageEnabled: string;
   zeroServerUploads: string;
   isoStandards: string;
@@ -459,6 +466,13 @@ const en: TranslationDict = {
   installAppToDesktop: 'Install App to Desktop',
   adminDashboard: 'Admin Dashboard',
   shareClickPdf: 'Share ClickPDF',
+  shareLabel: 'Share',
+  shortcutsLabel: 'Shortcuts:',
+  shortcutsOr: 'or',
+  shortcutsCheatsheet: 'Cheatsheet',
+  shortcutsHintAriaLabel: 'Keyboard shortcuts',
+  shortcutsHintTitle: 'Press Ctrl+K or / anytime',
+  dismissShortcutsHint: 'Dismiss shortcut hint',
   clientStorageEnabled: 'Client-Side Local Storage Enabled',
   zeroServerUploads: 'Zero Server Uploads',
   isoStandards: 'ISO 32000 PDF Standards',

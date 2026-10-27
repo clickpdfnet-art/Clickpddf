@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Command, X, Search, CornerDownLeft, Sparkles, HelpCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface KeyboardShortcutsHintProps {
   onOpenCommandPalette: () => void;
@@ -10,6 +11,7 @@ export const KeyboardShortcutsHint: React.FC<KeyboardShortcutsHintProps> = ({
   onOpenCommandPalette,
   onFocusSearch
 }) => {
+  const { t } = useLanguage();
   const [isDismissed, setIsDismissed] = useState(false);
   const [showHelperModal, setShowHelperModal] = useState(false);
 
@@ -29,20 +31,20 @@ export const KeyboardShortcutsHint: React.FC<KeyboardShortcutsHintProps> = ({
       {/* Floating subtle shortcut pill badge in bottom-left */}
       {!isDismissed && (
         <aside
-          aria-label="Keyboard Shortcuts Floating Pill"
+          aria-label={t.shortcutsHintAriaLabel}
           className="fixed bottom-4 left-4 z-30 hidden md:flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-full shadow-lg shadow-slate-900/5 text-xs transition-all hover:border-indigo-400 dark:hover:border-indigo-500 group"
         >
           <button
             onClick={onOpenCommandPalette}
             className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer font-medium"
-            title="Press Ctrl+K or / anytime"
+            title={t.shortcutsHintTitle}
           >
             <Command className="w-3.5 h-3.5 text-indigo-500 group-hover:rotate-12 transition-transform" />
-            <span className="text-[11px] font-semibold">Shortcuts:</span>
+            <span className="text-[11px] font-semibold">{t.shortcutsLabel}</span>
             <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-slate-600 dark:text-slate-400 shadow-2xs">
               {modKey}+K
             </kbd>
-            <span className="text-slate-400">or</span>
+            <span className="text-slate-400">{t.shortcutsOr}</span>
             <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-slate-600 dark:text-slate-400 shadow-2xs">
               /
             </kbd>
@@ -54,12 +56,12 @@ export const KeyboardShortcutsHint: React.FC<KeyboardShortcutsHintProps> = ({
             onClick={() => setShowHelperModal(true)}
             className="text-[11px] text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 underline decoration-dotted cursor-pointer"
           >
-            Cheatsheet
+            {t.shortcutsCheatsheet}
           </button>
 
           <button
             onClick={() => setIsDismissed(true)}
-            aria-label="Dismiss shortcut hint"
+            aria-label={t.dismissShortcutsHint}
             className="ml-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-0.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             <X className="w-3 h-3" />

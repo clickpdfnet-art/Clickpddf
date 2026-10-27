@@ -16,6 +16,7 @@ import {
 } from '../i18n/uiTranslations';
 import { SITE_COPY_TRANSLATIONS } from '../i18n/siteCopyTranslations';
 import { BLOG_INTERFACE_TRANSLATIONS } from '../i18n/blogInterfaceTranslations';
+import { FLOATING_UI_TRANSLATIONS } from '../i18n/floatingUiTranslations';
 import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
 import { resolveInitialLanguage } from '../i18n/detectBrowserLanguage';
 
@@ -82,6 +83,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     ...SITE_COPY_TRANSLATIONS[language],
     ...WORKSPACE_TRANSLATIONS[language],
     ...BLOG_INTERFACE_TRANSLATIONS[language],
+    ...FLOATING_UI_TRANSLATIONS[language],
   };
   const ui = UI_TRANSLATIONS[language];
 

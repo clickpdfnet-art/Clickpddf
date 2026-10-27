@@ -48,6 +48,7 @@ const translationsSource = parse('src/i18n/translations.ts');
 const uiSource = parse('src/i18n/uiTranslations.ts');
 const siteCopySource = parse('src/i18n/siteCopyTranslations.ts');
 const blogInterfaceSource = parse('src/i18n/blogInterfaceTranslations.ts');
+const floatingUiSource = parse('src/i18n/floatingUiTranslations.ts');
 const toolPageSource = parse('src/i18n/toolPageTranslations.ts');
 const missingToolsSource = parse('src/i18n/missingToolTranslations.ts');
 const toolsSource = parse('src/data/toolsData.ts');
@@ -170,6 +171,31 @@ for (const [locale, localeNode] of blogInterfaceRows) {
   }
 }
 
+const floatingUiRows = objectEntries(findVariable(floatingUiSource, 'FLOATING_UI_TRANSLATIONS'));
+assert.deepEqual(
+  [...floatingUiRows.keys()].sort(),
+  [...localeCodes].sort(),
+  'Floating controls must have translations for every supported language',
+);
+const englishFloatingUi = objectEntries(floatingUiRows.get('en'));
+for (const [locale, localeNode] of floatingUiRows) {
+  const localized = objectEntries(localeNode);
+  assert.deepEqual(
+    [...localized.keys()].sort(),
+    [...englishFloatingUi.keys()].sort(),
+    `Floating control translations are incomplete for ${locale}`,
+  );
+  if (locale === 'en') continue;
+  for (const [key, value] of localized) {
+    assert.ok(ts.isStringLiteralLike(value), `Floating control ${key} must be plain text for ${locale}`);
+    assert.notEqual(
+      value.text,
+      englishFloatingUi.get(key).text,
+      `Floating control ${key} is still English for ${locale}`,
+    );
+  }
+}
+
 const toolPageRows = objectEntries(findVariable(toolPageSource, 'rows'));
 const englishToolPageCopy = toolPageRows.get('en').elements;
 for (const [locale, values] of toolPageRows) {
@@ -186,6 +212,9 @@ for (const [locale, values] of toolPageRows) {
 const toolSeoContent = fs.readFileSync(path.join(root, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
 const blogSection = fs.readFileSync(path.join(root, 'src/components/BlogSection.tsx'), 'utf8');
 const header = fs.readFileSync(path.join(root, 'src/components/Header.tsx'), 'utf8');
+const floatingShareButton = fs.readFileSync(path.join(root, 'src/components/FloatingShareButton.tsx'), 'utf8');
+const keyboardShortcutsHint = fs.readFileSync(path.join(root, 'src/components/KeyboardShortcutsHint.tsx'), 'utf8');
+const toolWorkspace = fs.readFileSync(path.join(root, 'src/components/ToolWorkspace.tsx'), 'utf8');
 const mobileDrawer = fs.readFileSync(path.join(root, 'src/components/MobileDrawer.tsx'), 'utf8');
 const languageContext = fs.readFileSync(path.join(root, 'src/context/LanguageContext.tsx'), 'utf8');
 assert.ok(
@@ -209,6 +238,20 @@ for (const key of [
   assert.ok(blogSection.includes(`t.${key}`), `Blog section must use the localized ${key} label`);
 }
 assert.ok(header.includes('t.shareClickPdf'), 'Header share button must use the localized label');
+assert.ok(floatingShareButton.includes('t.shareLabel'), 'Floating share button must use its localized short label');
+assert.ok(floatingShareButton.includes('t.shareClickPdf'), 'Floating share button accessibility labels must be localized');
+assert.ok(toolWorkspace.includes('t.shareLabel'), 'Tool result share button must use its localized label');
+assert.ok(toolWorkspace.includes('aria-label={t.shareClickPdf}'), 'Tool result share button accessibility label must be localized');
+for (const key of [
+  'shortcutsHintAriaLabel',
+  'shortcutsHintTitle',
+  'shortcutsLabel',
+  'shortcutsOr',
+  'shortcutsCheatsheet',
+  'dismissShortcutsHint',
+]) {
+  assert.ok(keyboardShortcutsHint.includes(`t.${key}`), `Keyboard shortcut hint must use the localized ${key} label`);
+}
 assert.ok(blogSection.includes("t.readingProgressLabel.replace('{percent}'"), 'Reading progress must use its localized label');
 assert.ok(!blogSection.includes('Recommended Free Tool'), 'Blog tool card must not hardcode its English recommendation label');
 assert.ok(!blogSection.includes('Browser-Based File Processing'), 'Blog tool card must not hardcode its English processing label');
