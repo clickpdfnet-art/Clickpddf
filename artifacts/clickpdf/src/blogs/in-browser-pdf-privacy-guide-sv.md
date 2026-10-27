@@ -27,12 +27,12 @@ Varje gång du laddar upp en deklaration, ett medicinskt formulär eller ett sig
 
 Den traditionella molnansatsen byggdes för över femton år sedan när webbläsare var för svaga för att hantera stora dokument på egen hand. Då var servrar tvungna att göra allt tungt arbete. Men idag har moderna persondatorer och smartphones en enorm processorkraft direkt i din ficka.
 
-Med moderna webbläsarfunktioner som WebAssembly och lokala JavaScript-minnesströmmar förändras allt. När du släpper ett dokument i ClickPDF stannar hela filen strikt i enhetens minne. Webbläsaren tolkar dokumentstrukturen, slår samman sidor, komprimerar bilder eller kör teckenigenkänning direkt via din egen processor. Inte ett enda paket med dokumentdata skickas någonsin över nätverket.
+Verktyg som stöds behandlar valda filer i webbläsaren i stället för att skicka innehållet till ClickPDFs dokumentbehandlingsservrar. Sidan kan fortfarande begära skript, typsnitt, workers, bilder, annonser och andra aktiverade tredjepartstjänster. Möjligheten att arbeta offline beror på verktyget, webbläsaren och vilka nödvändiga resurser som redan har laddats.
 
 Denna arkitektoniska förändring erbjuder tre omedelbara fördelar för det dagliga arbetet:
 
-För det första kan dina privata filer inte avlyssnas eller läcka eftersom de aldrig lämnar din enhet från första början. Du kan till och med koppla bort Wi-Fi helt efter att sidan har laddats, och varje verktyg kommer att fortsätta köra smidigt offline.
+För det första behandlar verktyg som stöds valda filer i webbläsaren utan att skicka innehållet till ClickPDFs dokumentbehandlingsservrar. Sidan kan ändå begära skript, typsnitt, workers, bilder, annonser och andra aktiverade tredjepartstjänster. Offlineanvändning beror på verktyget, webbläsaren och resurserna som redan har laddats.
 
 För det andra finns det ingen väntetid för långsamma upp- eller nedladdningar. När du behöver dela upp eller organisera om en massiv rapport på tvåhundra sidor, avslutas operationen på en bråkdel av en sekund istället för flera minuter.
 
-Slutligen, för advokater, revisorer, vårdteam och privatpersoner som hanterar känslig personlig information, eliminerar klientbaserade verktyg huvudvärken kring efterlevnad av lagar om lagring av data hos tredje part. Sann integritet är inte ett löfte i en integritetspolicy; den är inbyggd i själva mjukvaruarkitekturen.
+Filbehandling i webbläsaren kan minska exponeringen som uppstår när filer skickas till externa behandlingstjänster, men garanterar inte regelefterlevnad och eliminerar inte alla säkerhetsrisker. Vid hantering av känsliga uppgifter bör du ta hänsyn till enhetens säkerhet, sidresurser, aktiverade tredjepartstjänster och organisationens krav.

@@ -27,12 +27,12 @@ Setiap kali Anda mengunggah pengembalian pajak, formulir medis, atau kontrak ker
 
 Pendekatan cloud tradisional dibangun lebih dari lima belas tahun yang lalu ketika browser web terlalu lemah untuk memanipulasi dokumen besar secara mandiri. Saat itu, server harus melakukan semua pekerjaan berat. Namun saat ini, komputer pribadi dan smartphone modern memiliki daya pemrosesan yang luar biasa langsung di saku Anda.
 
-Dengan kemampuan browser modern seperti WebAssembly dan aliran memori JavaScript lokal, semuanya berubah. Saat Anda menjatuhkan dokumen ke ClickPDF, seluruh file tetap berada di memori perangkat Anda. Browser mengurai struktur dokumen, menggabungkan halaman, mengompres gambar, atau menjalankan pengenalan karakter langsung melalui prosesor Anda sendiri. Tidak ada satu pun paket data dokumen yang pernah dikirim melalui jaringan.
+Alat yang didukung memproses file pilihan di browser, bukan mengirim isinya ke server pemrosesan dokumen ClickPDF. Halaman tetap dapat meminta skrip, font, worker, gambar, iklan, dan layanan pihak ketiga lain yang diaktifkan. Ketersediaan offline bergantung pada alat, browser, dan sumber daya yang diperlukan yang sudah dimuat.
 
 Pergeseran arsitektur ini menawarkan tiga keuntungan langsung untuk pekerjaan sehari-hari:
 
-Pertama, file pribadi Anda tidak dapat disadap atau bocor karena file tersebut tidak pernah meninggalkan perangkat Anda sejak awal. Anda bahkan dapat memutuskan sambungan Wi-Fi sepenuhnya setelah halaman dimuat, dan setiap alat akan terus berjalan dengan lancar secara offline.
+Pertama, alat yang didukung memproses file pilihan di browser tanpa mengirim isinya ke server pemrosesan dokumen ClickPDF. Halaman masih dapat meminta skrip, font, worker, gambar, iklan, dan layanan pihak ketiga lain yang diaktifkan. Penggunaan offline bergantung pada alat, browser, dan sumber daya yang sudah dimuat.
 
 Kedua, tidak ada waktu tunggu untuk unggahan atau unduhan yang lamban. Saat Anda perlu membagi atau mengatur ulang laporan dua ratus halaman yang besar, operasi selesai dalam sepersekian detik, bukan beberapa menit.
 
-Terakhir, bagi pengacara, akuntan, tim kesehatan, dan individu yang menangani informasi pribadi sensitif, alat sisi klien menghilangkan sakit kepala kepatuhan penyimpanan data pihak ketiga. Privasi sejati bukanlah janji yang dibuat dalam kebijakan privasi; itu dibangun ke dalam arsitektur perangkat lunak itu sendiri.
+Pemrosesan file di browser dapat mengurangi paparan yang terkait dengan pengiriman file ke layanan pemrosesan eksternal, tetapi tidak menjamin kepatuhan terhadap peraturan atau menghilangkan semua risiko keamanan. Untuk data sensitif, pertimbangkan keamanan perangkat, sumber daya halaman, layanan pihak ketiga yang diaktifkan, dan persyaratan organisasi Anda.

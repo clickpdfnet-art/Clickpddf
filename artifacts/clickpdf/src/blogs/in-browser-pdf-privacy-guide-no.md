@@ -27,12 +27,12 @@ Hver gang du laster opp en skattemelding, et medisinsk skjema eller en signert a
 
 Den tradisjonelle tilnærmingen med nettsky ble bygget for over femten år siden da nettlesere var for svake til å manipulere store dokumenter på egen hånd. Den gang måtte servere gjøre alt det tunge arbeidet. Men i dag har moderne datamaskiner og smarttelefoner enorm prosesseringskraft rett i lommen.
 
-Med moderne nettleserfunksjoner som WebAssembly og lokale JavaScript-minnestrømmer, endres alt. Når du slipper et dokument inn i ClickPDF, forblir hele filen strengt inne i minnet på enheten din. Nettleseren analyserer dokumentstrukturen, slår sammen sider, komprimerer bilder eller kjører tegngjenkjenning direkte gjennom din egen prosessor. Ikke en eneste pakke med dokumentdata blir noensinne sendt over nettverket.
+Støttede verktøy behandler valgte filer i nettleseren i stedet for å sende innholdet til ClickPDFs dokumentbehandlingsservere. Siden kan fortsatt be om skript, skrifter, workers, bilder, annonser og andre aktiverte tredjepartstjenester. Muligheten til å arbeide uten nett avhenger av verktøyet, nettleseren og hvilke nødvendige ressurser som allerede er lastet inn.
 
 Dette arkitektoniske skiftet tilbyr tre umiddelbare fordeler for daglig arbeid:
 
-For det første kan ikke dine private filer bli fanget opp eller lekket fordi de aldri forlater enheten din i utgangspunktet. Du kan til og med koble helt fra Wi-Fi etter at siden er lastet inn, og hvert verktøy vil fortsette å kjøre sømløst uten nett.
+For det første behandler støttede verktøy valgte filer i nettleseren uten å sende innholdet til ClickPDFs dokumentbehandlingsservere. Siden kan fortsatt be om skript, skrifter, workers, bilder, annonser og andre aktiverte tredjepartstjenester. Bruk uten nett avhenger av verktøyet, nettleseren og ressursene som allerede er lastet inn.
 
 For det andre er det null ventetid på trege opplastinger eller nedlastinger. Når du trenger å dele eller omorganisere en massiv rapport på to hundre sider, fullføres operasjonen på et brøkdel av et sekund i stedet for flere minutter.
 
-Til slutt, for advokater, regnskapsførere, helseteam og privatpersoner som håndterer sensitive personopplysninger, eliminerer klient-side verktøy hodepinen knyttet til tredjeparts datalagring. Ekte personvern er ikke et løfte gitt i en personvernerklæring; det er innebygd i selve programvarearkitekturen.
+Filbehandling i nettleseren kan redusere eksponeringen som følger av å sende filer til eksterne behandlingstjenester, men garanterer ikke regelverksetterlevelse og fjerner ikke all sikkerhetsrisiko. Ved behandling av sensitive data bør du ta hensyn til enhetssikkerhet, sideressurser, aktiverte tredjepartstjenester og organisasjonens krav.

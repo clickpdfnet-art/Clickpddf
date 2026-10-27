@@ -27,12 +27,12 @@ Wenn Sie eine Steuererklärung, ein medizinisches Formular oder einen unterzeich
 
 Der traditionelle Cloud-Ansatz wurde vor über fünfzehn Jahren entwickelt, als Webbrowser zu schwach waren, um große Dokumente eigenständig zu bearbeiten. Damals mussten Server die ganze Schwerstarbeit leisten. Doch heute verfügen moderne PCs und Smartphones über enorme Rechenleistung direkt in Ihrer Tasche.
 
-Mit modernen Browser-Funktionen wie WebAssembly und lokalen JavaScript-Speicher-Streams ändert sich alles. Wenn Sie ein Dokument in ClickPDF ablegen, bleibt die gesamte Datei strikt im Arbeitsspeicher Ihres Geräts. Der Browser analysiert die Dokumentenstruktur, führt Seiten zusammen, komprimiert Bilder oder führt eine Zeichenerkennung direkt über Ihren eigenen Prozessor durch. Kein einziges Paket an Dokumentendaten wird jemals über das Netzwerk versendet.
+Unterstützte Tools verarbeiten ausgewählte Dateien im Browser, statt deren Inhalte an die Dokumentverarbeitungsserver von ClickPDF zu senden. Die Seite kann weiterhin Skripte, Schriftarten, Web Worker, Bilder, Werbung und andere aktivierte Dienste von Drittanbietern anfordern. Ob die Nutzung offline möglich ist, hängt vom Tool, vom Browser und davon ab, welche benötigten Ressourcen bereits geladen sind.
 
 Dieser Architekturwechsel bietet drei unmittelbare Vorteile für die tägliche Arbeit:
 
-Erstens können Ihre privaten Dateien nicht abgefangen oder gestohlen werden, da sie Ihr Gerät überhaupt nie verlassen. Sie können sogar Ihr WLAN vollständig trennen, nachdem die Seite geladen wurde, und jedes Werkzeug wird weiterhin nahtlos offline funktionieren.
+Erstens verarbeiten unterstützte Tools ausgewählte Dateien im Browser, ohne deren Inhalte an die Dokumentverarbeitungsserver von ClickPDF zu senden. Die Seite kann dennoch Skripte, Schriftarten, Web Worker, Bilder, Werbung und andere aktivierte Dienste von Drittanbietern anfordern. Die Offline-Nutzung hängt vom Tool, vom Browser und von den bereits geladenen Ressourcen ab.
 
 Zweitens gibt es keine Wartezeit für langsame Uploads oder Downloads. Wenn Sie einen massiven Bericht mit zweihundert Seiten teilen oder neu organisieren müssen, ist der Vorgang in einem Bruchteil einer Sekunde statt in mehreren Minuten abgeschlossen.
 
-Schließlich eliminieren clientseitige Tools für Anwälte, Buchhalter, Gesundheitsteams und Privatpersonen, die mit sensiblen persönlichen Informationen umgehen, den Compliance-Aufwand bei der Datenspeicherung durch Dritte. Echter Datenschutz ist kein Versprechen in einer Datenschutzerklärung; er ist direkt in die Softwarearchitektur integriert.
+Die Verarbeitung im Browser kann die Weitergabe an externe Dokumentverarbeiter verringern, garantiert jedoch weder die Einhaltung gesetzlicher Vorgaben noch die Beseitigung aller Sicherheitsrisiken. Bei sensiblen Daten sollten Sie Gerätesicherheit, Seitenressourcen, aktivierte Drittanbieterdienste und die Anforderungen Ihrer Organisation berücksichtigen.

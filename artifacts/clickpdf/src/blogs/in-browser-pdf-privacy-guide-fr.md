@@ -27,12 +27,12 @@ Chaque fois que vous téléversez une déclaration d'impôts, un formulaire méd
 
 L'approche cloud traditionnelle a été conçue il y a plus de quinze ans, à une époque où les navigateurs web étaient trop faibles pour manipuler des documents volumineux par eux-mêmes. À l'époque, les serveurs devaient effectuer tout le travail lourd. Mais aujourd'hui, les ordinateurs personnels et les smartphones modernes possèdent une puissance de traitement immense directement dans votre poche.
 
-Avec les capacités modernes des navigateurs comme WebAssembly et les flux de mémoire JavaScript locaux, tout change. Lorsque vous déposez un document dans ClickPDF, le fichier entier reste strictement dans la mémoire de votre appareil. Le navigateur analyse la structure du document, fusionne les pages, compresse les images ou exécute une reconnaissance de caractères directement via votre propre processeur. Pas un seul paquet de données de document n'est jamais envoyé sur le réseau.
+Les outils compatibles traitent les fichiers sélectionnés dans votre navigateur, sans envoyer leur contenu aux serveurs de traitement documentaire de ClickPDF. La page peut néanmoins demander des scripts, des polices, des workers, des images, des publicités et d’autres services tiers activés. La disponibilité hors ligne dépend de l’outil, du navigateur et des ressources nécessaires déjà chargées.
 
 Ce changement architectural offre trois avantages immédiats pour le travail quotidien :
 
-Premièrement, vos fichiers privés ne peuvent pas être interceptés ou divulgués car ils ne quittent jamais votre appareil. Vous pouvez même déconnecter totalement votre Wi-Fi après le chargement de la page, et chaque outil continuera de fonctionner de manière fluide hors ligne.
+Premièrement, les outils compatibles traitent les fichiers sélectionnés dans le navigateur sans envoyer leur contenu aux serveurs de traitement documentaire de ClickPDF. La page peut encore demander des scripts, des polices, des workers, des images, des publicités et d’autres services tiers activés. L’utilisation hors ligne dépend de l’outil, du navigateur et des ressources déjà chargées.
 
 Deuxièmement, il n'y a aucun temps d'attente pour les téléversements ou téléchargements lents. Lorsque vous avez besoin de diviser ou de réorganiser un rapport massif de deux cents pages, l'opération se termine en une fraction de seconde au lieu de plusieurs minutes.
 
-Enfin, pour les avocats, les comptables, les équipes de santé et les particuliers qui traitent des informations personnelles sensibles, les outils côté client éliminent les problèmes de conformité liés au stockage des données par des tiers. La vraie confidentialité n'est pas une promesse faite dans une politique de confidentialité ; elle est intégrée dans l'architecture même du logiciel.
+Le traitement des fichiers dans le navigateur peut réduire l’exposition liée à leur envoi à des services externes, mais il ne garantit pas la conformité réglementaire et n’élimine pas tous les risques de sécurité. Pour les données sensibles, tenez compte de la sécurité de l’appareil, des ressources de la page, des services tiers activés et des exigences de votre organisation.

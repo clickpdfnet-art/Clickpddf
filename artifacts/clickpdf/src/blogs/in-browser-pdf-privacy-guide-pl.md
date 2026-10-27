@@ -27,12 +27,12 @@ Za każdym razem, gdy przesyłasz deklarację podatkową, formularz medyczny lub
 
 Tradycyjne podejście oparte na chmurze powstało ponad piętnaście lat temu, gdy przeglądarki internetowe były zbyt słabe, aby samodzielnie manipulować dużymi dokumentami. Wtedy serwery musiały wykonywać całą ciężką pracę. Jednak dzisiaj nowoczesne komputery osobiste i smartfony mają ogromną moc obliczeniową bezpośrednio w Twojej kieszeni.
 
-Dzięki nowoczesnym możliwościom przeglądarki, takim jak WebAssembly i lokalne strumienie pamięci JavaScript, wszystko się zmienia. Gdy upuszczasz dokument do ClickPDF, cały plik pozostaje ściśle w pamięci Twojego urządzenia. Przeglądarka analizuje strukturę dokumentu, scala strony, kompresuje obrazy lub przeprowadza rozpoznawanie znaków bezpośrednio przez Twój własny procesor. Żaden pakiet danych dokumentu nie jest przesyłany przez sieć.
+Obsługiwane narzędzia przetwarzają wybrane pliki w przeglądarce, zamiast wysyłać ich zawartość na serwery ClickPDF do przetwarzania dokumentów. Strona może nadal pobierać skrypty, czcionki, workery, obrazy, reklamy i inne włączone usługi zewnętrzne. Dostępność offline zależy od narzędzia, przeglądarki i tego, które wymagane zasoby zostały już załadowane.
 
 Ta zmiana architektoniczna oferuje trzy natychmiastowe korzyści dla codziennej pracy:
 
-Po pierwsze, Twoje prywatne pliki nie mogą zostać przechwycone ani wyciec, ponieważ w ogóle nie opuszczają Twojego urządzenia. Możesz nawet całkowicie rozłączyć Wi-Fi po załadowaniu strony, a każde narzędzie będzie nadal działać płynnie offline.
+Po pierwsze, obsługiwane narzędzia przetwarzają wybrane pliki w przeglądarce i nie wysyłają ich zawartości na serwery ClickPDF do przetwarzania dokumentów. Strona może nadal pobierać skrypty, czcionki, workery, obrazy, reklamy i inne włączone usługi zewnętrzne. Działanie offline zależy od narzędzia, przeglądarki oraz wcześniej załadowanych zasobów.
 
 Po drugie, nie ma czasu oczekiwania na powolne przesyłanie lub pobieranie. Gdy musisz podzielić lub przeorganizować dwustustronicowy raport, operacja kończy się w ułamku sekundy, a nie w ciągu kilku minut.
 
-Na koniec, dla prawników, księgowych, zespołów medycznych i zwykłych osób, które obsługują wrażliwe dane osobowe, narzędzia działające po stronie klienta eliminują problemy z przestrzeganiem przepisów dotyczących przechowywania danych przez strony trzecie. Prawdziwa prywatność nie jest obietnicą złożoną w polityce prywatności; jest wbudowana w samą architekturę oprogramowania.
+Przetwarzanie plików w przeglądarce może ograniczyć ryzyko związane z wysyłaniem ich do zewnętrznych usług, ale nie gwarantuje zgodności z przepisami ani nie eliminuje wszystkich zagrożeń. Przy pracy z wrażliwymi danymi uwzględnij bezpieczeństwo urządzenia, zasoby strony, włączone usługi zewnętrzne oraz wymagania swojej organizacji.

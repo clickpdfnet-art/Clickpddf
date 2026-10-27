@@ -11,7 +11,7 @@ export const INITIAL_ARTICLES: BlogPost[] = [
     readTime: '5 min read',
     author: 'Asad Tariq, Security Engineer',
     coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-    excerpt: 'Traditional web converters upload your contracts and financial statements to third-party cloud instances. Discover how browser memory execution keeps every byte of your documents strictly on your device.',
+    excerpt: 'Traditional converters may send files to remote processing services. Learn how supported ClickPDF tools process files in your browser, and what page-level network requests and offline limits mean.',
     content: `Whenever you upload a tax return, medical form, or signed employment contract to a typical online PDF converter, that document embarks on an invisible journey across the internet. It travels through third party routing nodes and lands on a cloud server managed by an unfamiliar company. Even when services promise to wipe files after an hour or two, your data temporarily sits on remote drives where employee mistakes, cloud misconfigurations, or automated backups can leave it exposed.
 
 The traditional cloud approach was built over fifteen years ago when web browsers were too weak to manipulate large documents on their own. Back then, servers had to do all the heavy lifting. But today, modern personal computers and smartphones have immense processing power right in your pocket.
@@ -20,7 +20,7 @@ With modern browser capabilities like WebAssembly and local JavaScript memory st
 
 This architectural shift offers three immediate advantages for everyday work:
 
-First, your private files cannot be intercepted or leaked because they never leave your device in the first place. You can even disconnect your Wi-Fi entirely after the page loads, and every tool will continue running seamlessly offline.
+First, supported tools process selected files in your browser rather than sending their contents to ClickPDF's document-processing servers. The page may still request scripts, fonts, workers, images, advertisements, and other enabled third-party services. Offline availability varies by tool, browser, and the resources already loaded.
 
 Second, there is zero waiting time for sluggish uploads or downloads. When you need to split or reorganize a massive two hundred page report, the operation finishes in a fraction of a second instead of several minutes.
 

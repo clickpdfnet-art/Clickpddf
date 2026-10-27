@@ -27,12 +27,12 @@ Bir vergi beyannamesi, tıbbi form veya imzalı bir iş sözleşmesini standart 
 
 Geleneksel bulut yaklaşımı, web tarayıcılarının büyük belgeleri kendi başlarına işleyemeyecek kadar zayıf olduğu on beş yıl öncesinde oluşturulmuştu. O zamanlar, tüm ağır işleri sunucuların yapması gerekiyordu. Ancak günümüzde modern kişisel bilgisayarlar ve akıllı telefonlar, cebinizde muazzam bir işlem gücü barındırıyor.
 
-WebAssembly ve yerel JavaScript bellek akışları gibi modern tarayıcı yetenekleri sayesinde her şey değişiyor. Bir belgeyi ClickPDF'e bıraktığınızda, dosyanın tamamı kesinlikle cihazınızın belleği içinde kalır. Tarayıcı belge yapısını ayrıştırır, sayfaları birleştirir, görüntüleri sıkıştırır veya karakter tanımayı doğrudan kendi işlemciniz aracılığıyla çalıştırır. Belge verilerine ait tek bir paket bile ağ üzerinden gönderilmez.
+Desteklenen araçlar seçilen dosyaları tarayıcıda işler ve içeriklerini ClickPDF'in belge işleme sunucularına göndermez. Sayfa yine de komut dosyaları, yazı tipleri, worker'lar, görseller, reklamlar ve etkin üçüncü taraf hizmetleri için istek gönderebilir. Çevrimdışı kullanım; araca, tarayıcıya ve gerekli kaynakların önceden yüklenmiş olmasına bağlıdır.
 
 Bu mimari değişim, günlük işler için üç anlık avantaj sunar:
 
-Birincisi, özel dosyalarınız cihazınızdan asla ayrılmadığı için ele geçirilemez veya sızdırılamaz. Sayfa yüklendikten sonra Wi-Fi bağlantınızı tamamen kesebilir ve her aracın çevrimdışı olarak sorunsuz bir şekilde çalışmaya devam etmesini sağlayabilirsiniz.
+Birincisi, desteklenen araçlar seçilen dosyaları tarayıcıda işler ve içeriklerini ClickPDF'in belge işleme sunucularına göndermez. Ancak sayfa komut dosyaları, yazı tipleri, worker'lar, görseller, reklamlar ve etkin üçüncü taraf hizmetleri için istek gönderebilir. Çevrimdışı kullanım araca, tarayıcıya ve önceden yüklenen kaynaklara bağlıdır.
 
 İkincisi, yavaş yüklemeler veya indirmeler için bekleme süresi yoktur. İki yüz sayfalık devasa bir raporu bölmeniz veya yeniden düzenlemeniz gerektiğinde, işlem birkaç dakika yerine bir saniyenin çok küçük bir kısmında biter.
 
-Son olarak, avukatlar, muhasebeciler, sağlık ekipleri ve hassas kişisel bilgileri işleyen herkes için, istemci tarafındaki araçlar üçüncü taraf veri depolamanın uyumluluk baş ağrılarını ortadan kaldırır. Gerçek gizlilik, bir gizlilik politikasında verilen bir söz değildir; yazılım mimarisinin kendisine yerleştirilmiştir.
+Dosyaları tarayıcıda işlemek, dosyaları harici hizmetlere gönderme kaynaklı maruziyeti azaltabilir; ancak mevzuata uyumu garanti etmez ve tüm güvenlik risklerini ortadan kaldırmaz. Hassas verilerle çalışırken cihaz güvenliğini, sayfa kaynaklarını, etkin üçüncü taraf hizmetlerini ve kuruluşunuzun gerekliliklerini dikkate alın.

@@ -5,13 +5,13 @@ export const FAQ_DATA: FaqItem[] = [
     id: 'privacy-zero-uploads',
     question: 'Are my PDF files ever uploaded to a remote server or saved in the cloud?',
     answer:
-      'Never. 100% of the document processing takes place directly inside your web browser. ClickPDF never uploads, transfers, or mirrors your PDF files to any remote server or external cloud storage. When you load a file, it remains exclusively in your device’s local memory (RAM) and is purged the moment you close or refresh the page.',
+      'Supported tools process selected files in your browser instead of sending their contents to ClickPDF’s document-processing servers. The page may still request scripts, fonts, workers, images, advertising, and enabled third-party services. Browser memory is managed by the browser, so closing or refreshing a tab is not a secure-erase guarantee.',
     category: 'security',
     categoryLabel: 'Privacy & Security',
     highlights: [
-      'Zero remote file uploads',
-      'No backend databases or storage logs',
-      'RAM purged immediately upon closing tab'
+      'Selected files are processed locally in supported tools',
+      'File contents are not sent to ClickPDF processing servers',
+      'Page resources and third-party requests may still occur'
     ]
   },
   {
@@ -31,13 +31,13 @@ export const FAQ_DATA: FaqItem[] = [
     id: 'compliance-gdpr-hipaa',
     question: 'Is ClickPDF safe for sensitive legal, financial, and healthcare documents?',
     answer:
-      'Yes. In fact, ClickPDF is substantially more secure than traditional online PDF conversion services because no data transmission takes place. Because your files never traverse the public internet to third-party processing servers, your organization avoids third-party data processor risks under GDPR, HIPAA, FERPA, and corporate non-disclosure agreements (NDAs).',
+      'Supported tools process selected files in your browser instead of sending their contents to ClickPDF document-processing servers. This can reduce exposure to an external file processor, but does not guarantee device security or regulatory compliance. The page may still request resources, ads, and enabled third-party services; confirm your organization’s controls before handling regulated documents.',
     category: 'compliance',
     categoryLabel: 'Compliance & Safety',
     highlights: [
       'Eliminates third-party data processor liability',
-      'Ideal for HIPAA & GDPR confidential workflows',
-      'Strict client-side data isolation'
+      'Check organizational requirements for regulated data',
+      'Browser-based file processing'
     ]
   },
   {
@@ -70,14 +70,14 @@ export const FAQ_DATA: FaqItem[] = [
     id: 'offline-availability',
     question: 'How does ClickPDF run fast in the browser without server uploads?',
     answer:
-      'ClickPDF is an in-browser web application that executes all PDF operations using client-side WebAssembly (WASM) and JavaScript. Whenever you visit ClickPDF, your files remain strictly in your device’s local memory (RAM) while you interact with our tools and live web features, ensuring both document privacy and rapid performance without uploading data to remote servers.',
+      'Supported tools process selected files in your browser rather than sending their contents to ClickPDF document-processing servers. The page may still request scripts, fonts, workers, images, ads, and enabled third-party services. Whether a tool can run offline depends on the tool, browser, and resources already loaded.',
     category: 'performance',
     categoryLabel: 'Speed & Privacy',
     highlights: [
-      'Zero remote server uploads',
+      'Selected files are processed in supported browser tools',
       'Local WebAssembly computation',
-      'Strict RAM data isolation',
-      'Instant processing with zero wait queues'
+      'Page and third-party network requests may still occur',
+      'Offline availability depends on the tool and loaded resources'
     ]
   },
   {

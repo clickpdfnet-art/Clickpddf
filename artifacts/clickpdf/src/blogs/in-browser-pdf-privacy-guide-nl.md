@@ -27,12 +27,12 @@ Wanneer u een belastingaangifte, medisch formulier of ondertekend arbeidscontrac
 
 De traditionele cloud-benadering werd meer dan vijftien jaar geleden gebouwd toen webbrowsers te zwak waren om zelf grote documenten te bewerken. Destijds moesten servers al het zware werk doen. Maar vandaag de dag beschikken moderne pc's en smartphones over een enorme rekenkracht in uw broekzak.
 
-Met moderne browserfuncties zoals WebAssembly en lokale JavaScript-geheugenstromen verandert alles. Wanneer u een document in ClickPDF sleept, blijft het volledige bestand strikt binnen het geheugen van uw apparaat. De browser ontleedt de documentstructuur, voegt pagina's samen, comprimeert afbeeldingen of voert tekenherkenning direct uit via uw eigen processor. Geen enkel pakketje documentgegevens wordt ooit via het netwerk verzonden.
+Ondersteunde tools verwerken geselecteerde bestanden in uw browser, zonder de inhoud naar de documentverwerkingsservers van ClickPDF te sturen. De pagina kan nog steeds scripts, lettertypen, workers, afbeeldingen, advertenties en andere ingeschakelde diensten van derden opvragen. Offline beschikbaarheid hangt af van de tool, de browser en de benodigde bronnen die al zijn geladen.
 
 Deze architecturale verschuiving biedt drie onmiddellijke voordelen voor dagelijks werk:
 
-Ten eerste kunnen uw privébestanden niet worden onderschept of gelekt omdat ze uw apparaat nooit verlaten. U kunt zelfs de Wi-Fi volledig verbreken nadat de pagina is geladen, en elke tool blijft naadloos offline werken.
+Ten eerste verwerken ondersteunde tools geselecteerde bestanden in uw browser, zonder de inhoud naar de documentverwerkingsservers van ClickPDF te sturen. De pagina kan nog steeds scripts, lettertypen, workers, afbeeldingen, advertenties en andere ingeschakelde diensten van derden opvragen. Offline gebruik hangt af van de tool, de browser en de bronnen die al zijn geladen.
 
 Ten tweede is er geen wachttijd voor trage uploads of downloads. Wanneer u een gigantisch rapport van tweehonderd pagina's moet splitsen of reorganiseren, is de operatie in een fractie van een seconde voltooid in plaats van in enkele minuten.
 
-Ten slotte, voor advocaten, accountants, zorgteams en alledaagse individuen die gevoelige persoonlijke informatie verwerken, elimineren client-side tools de compliance-hoofdpijn van data-opslag door derden. Echte privacy is geen belofte in een privacybeleid; het is ingebouwd in de software-architectuur zelf.
+Bestandsverwerking in de browser kan de blootstelling verminderen die ontstaat wanneer bestanden naar externe verwerkingsdiensten worden gestuurd, maar garandeert geen naleving van regelgeving en neemt niet alle beveiligingsrisico’s weg. Houd bij gevoelige gegevens rekening met apparaatbeveiliging, paginabronnen, ingeschakelde diensten van derden en de eisen van uw organisatie.

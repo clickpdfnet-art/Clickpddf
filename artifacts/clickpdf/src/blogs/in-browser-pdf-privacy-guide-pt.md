@@ -27,12 +27,12 @@ Sempre que você carrega uma declaração de imposto, um formulário médico ou 
 
 A abordagem tradicional em nuvem foi criada há mais de quinze anos, quando os navegadores web eram muito fracos para manipular documentos grandes sozinhos. Naquela época, os servidores tinham que fazer todo o trabalho pesado. Mas hoje, computadores pessoais e smartphones modernos possuem um imenso poder de processamento direto no seu bolso.
 
-Com capacidades modernas do navegador, como WebAssembly e fluxos de memória local JavaScript, tudo muda. Quando você solta um documento no ClickPDF, o arquivo inteiro permanece estritamente dentro da memória do seu dispositivo. O navegador analisa a estrutura do documento, mescla páginas, comprime imagens ou executa reconhecimento de caracteres diretamente através do seu próprio processador. Nenhum pacote de dados do documento é enviado pela rede.
+As ferramentas compatíveis processam os arquivos selecionados no navegador, sem enviar seu conteúdo aos servidores de processamento de documentos do ClickPDF. A página ainda pode solicitar scripts, fontes, workers, imagens, anúncios e outros serviços de terceiros ativados. A disponibilidade offline depende da ferramenta, do navegador e dos recursos necessários que já foram carregados.
 
 Essa mudança arquitetônica oferece três vantagens imediatas para o trabalho diário:
 
-Primeiro, seus arquivos privados não podem ser interceptados ou vazados porque nunca saem do seu dispositivo. Você pode até desconectar completamente o seu Wi-Fi após o carregamento da página, e cada ferramenta continuará funcionando sem problemas offline.
+Primeiro, as ferramentas compatíveis processam os arquivos selecionados no navegador sem enviar seu conteúdo aos servidores de processamento de documentos do ClickPDF. A página ainda pode solicitar scripts, fontes, workers, imagens, anúncios e outros serviços de terceiros ativados. O uso offline depende da ferramenta, do navegador e dos recursos que já foram carregados.
 
 Segundo, não há tempo de espera por uploads ou downloads lentos. Quando você precisa dividir ou reorganizar um relatório massivo de duzentas páginas, a operação termina em uma fração de segundo em vez de vários minutos.
 
-Finalmente, para advogados, contadores, equipes de saúde e indivíduos que lidam com informações pessoais sensíveis, as ferramentas que rodam no lado do cliente eliminam as dores de cabeça de conformidade do armazenamento de dados de terceiros. A verdadeira privacidade não é uma promessa feita em uma política de privacidade; ela é integrada à própria arquitetura do software.
+O processamento de arquivos no navegador pode reduzir a exposição associada ao envio de arquivos para serviços externos, mas não garante conformidade regulatória nem elimina todos os riscos de segurança. Ao lidar com dados sensíveis, considere a segurança do dispositivo, os recursos da página, os serviços de terceiros ativados e os requisitos da sua organização.

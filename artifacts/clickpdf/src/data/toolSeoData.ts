@@ -73,8 +73,8 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Zero Server Uploads',
     overviewHeading: 'Why Merge PDF Documents in Your Browser?',
     overview: 'Combining multiple documents into a single, cohesive PDF is essential for business proposals, academic portfolios, and invoice packets. While traditional cloud converters force you to upload confidential papers to remote web servers, ClickPDF executes the entire merger locally in your device’s memory using compiled WebAssembly and pdf-lib.',
-    secondaryOverview: 'You can add an unlimited number of documents, drag and drop to rearrange pages into your desired sequence, and generate a pristine combined file in milliseconds. Because your data never leaves your computer or phone, you retain 100% ownership, zero third-party leakage, and complete compliance with GDPR and confidentiality agreements.',
-    privacyHighlight: 'Private by Design: Your files are processed strictly inside your browser memory (RAM) and are automatically erased upon tab closure. No files, logs, or telemetry are ever transmitted across the internet.',
+    secondaryOverview: 'You can add documents, rearrange pages, and generate a combined file in your browser. Supported file contents are not sent to ClickPDF document-processing servers; this does not guarantee device security or regulatory compliance, and the page may still make requests for resources and enabled services.',
+    privacyHighlight: 'Browser-Based Processing: Supported files are handled in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources and enabled third-party services; browser memory is not a secure-erase guarantee.',
     stepsHeading: 'How to Combine Multiple PDFs in 3 Simple Steps',
     steps: [
       {
@@ -100,11 +100,11 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are my private documents uploaded to any remote server?',
-        answer: 'Never. ClickPDF is built strictly on in-browser WebAssembly and JavaScript engines. No file bytes or sensitive page contents ever leave your physical device.'
+        answer: 'Supported PDF files are processed in your browser and are not sent to ClickPDF’s document-processing servers. The webpage may still request resources, advertisements, and other enabled third-party services.'
       },
       {
         question: 'Will merging PDFs degrade visual quality or break hyperlinks?',
-        answer: 'Not at all. The PDF object tree, vector typography, hyperlinks, and high-resolution embedded images are preserved verbatim in accordance with ISO 32000 specifications.'
+        answer: 'The merge operation works with PDF pages rather than flattening them into images. Interactive forms, links, annotations, and other features can vary by document, so review the downloaded result.'
       },
       {
         question: 'Can I reorder individual pages within the merged files?',
@@ -112,10 +112,10 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       }
     ],
     benefits: [
-      { title: '100% Client-Side Privacy', desc: 'No remote servers or cloud databases touch your confidential documents.', iconName: 'ShieldCheck' },
-      { title: 'Lossless Formatting', desc: 'Preserves fonts, vector graphics, form fields, and resolution perfectly.', iconName: 'Sparkles' },
+      { title: 'Browser-Based File Processing', desc: 'Selected files are processed in your browser; page resources and enabled third-party services may still make requests.', iconName: 'ShieldCheck' },
+      { title: 'PDF Page Content', desc: 'Pages are merged as PDF content rather than flattened images; check forms, links, and other interactive features in the result.', iconName: 'Sparkles' },
       { title: 'Instant Processing', desc: 'Runs near-native WebAssembly on your CPU for lightning-quick execution.', iconName: 'Zap' },
-      { title: 'Works Completely Offline', desc: 'Once loaded, you can disconnect Wi-Fi and continue merging files without internet.', iconName: 'WifiOff' }
+      { title: 'Local PDF Processing', desc: 'File processing runs in your browser after required resources load; online features and page resources may still need a connection.', iconName: 'WifiOff' }
     ],
     relatedToolIds: ['split', 'organize', 'compress', 'rotate']
   },
@@ -188,7 +188,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Shrink Bloated Documents for Email and Portals',
     overview: 'Email providers, court submission systems, and job portals frequently reject files exceeding 5MB or 10MB limits. ClickPDF analyzes your PDF file’s internal structure—re-indexing object dictionaries, stripping redundant metadata, and optimizing embedded image streams—all within client-side WebAssembly.',
     secondaryOverview: 'Unlike cloud tools that watermark your output or place you in a premium queue, our browser compressor gives you immediate, unthrottled reduction while preserving crisp typography and diagram legibility.',
-    privacyHighlight: 'Private In-Memory Compression: Your financial records, tax forms, and medical records are never uploaded to remote servers. All compression happens locally on your computer.',
+    privacyHighlight: 'Browser-Based Compression: Supported files are compressed in your browser rather than sent to ClickPDF document-processing servers. The page may still make requests for resources and enabled third-party services.',
     stepsHeading: 'How to Compress a PDF Document',
     steps: [
       {
@@ -243,7 +243,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Turn Photos, Scans and Receipts into Clean PDFs',
     overview: 'Transform raw photo snapshots, scanned agreements, identification cards, and graphic designs into standardized, multi-page PDF documents. ClickPDF supports JPG, PNG, WebP, and multi-image batches with customizable page orientation and smart margin scaling.',
     secondaryOverview: 'Because the image rasterization and PDF generation execute locally in your web browser, high-resolution 4K photos convert instantly without burning through mobile data plans or exposing personal photographs to external servers.',
-    privacyHighlight: 'Private Photo Conversion: Your camera photos and sensitive identity documents stay 100% on your device. Zero external API calls or photo storage.',
+    privacyHighlight: 'Browser-Based Image Conversion: Selected images are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources, ads, or enabled third-party services.',
     stepsHeading: 'How to Convert Images to PDF in Seconds',
     steps: [
       {
@@ -397,7 +397,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       { title: 'Visual Thumbnail Grid', desc: 'Inspect live rendered thumbnails before applying permanent changes.', iconName: 'Grid' },
       { title: 'Individual or Bulk Rotate', desc: 'Rotate specific single pages or the entire document together.', iconName: 'RotateCw' },
       { title: 'Permanent ISO Matrix', desc: 'Standardized rotation recognized by all PDF readers worldwide.', iconName: 'CheckCircle2' },
-      { title: 'Completely In-Browser', desc: 'Zero uploads to external cloud servers; 100% private.', iconName: 'Shield' }
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Shield' }
     ],
     relatedToolIds: ['organize', 'split', 'merge', 'crop']
   },
@@ -414,7 +414,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Drag & Drop Page Editor',
     overviewHeading: 'Visual Page Management with Real-Time Previews',
     overview: 'Take complete command of your PDF layout. Our visual page editor renders crisp live thumbnails of every single page, allowing you to drag and drop pages into new positions, delete unwanted pages or blank sheets, and rotate sideways pages seamlessly.',
-    secondaryOverview: 'Enjoy fluid, desktop-grade responsiveness powered by React, HTML5 Drag and Drop, and WebAssembly. Your confidential manuscripts and legal briefs never leave your browser window.',
+    secondaryOverview: 'Enjoy responsive page organization with React, HTML5 Drag and Drop, and browser-based PDF processing. Selected file contents are not sent to ClickPDF document-processing servers; page resources and enabled third-party services may still use the network.',
     privacyHighlight: 'Private In-Browser Assembly: When you delete or reorder pages, the new document is assembled entirely in local browser memory without uploading any pages.',
     stepsHeading: 'How to Organize and Reorder PDF Pages',
     steps: [
@@ -452,7 +452,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       { title: 'Intuitive Drag & Drop', desc: 'Reorder pages effortlessly with smooth visual feedback.', iconName: 'Move' },
       { title: 'One-Click Page Deletion', desc: 'Purge blank pages and confidential sheets with a click.', iconName: 'Trash2' },
       { title: 'Local Rendering', desc: 'High-speed local canvas rendering with zero cloud latency.', iconName: 'Zap' },
-      { title: 'Enterprise Privacy', desc: 'No risk of corporate document leaks on third-party servers.', iconName: 'Lock' }
+      { title: 'Browser-Based Processing', desc: 'Selected files are processed in your browser, not sent to ClickPDF document-processing servers; the page may still make resource or third-party requests.', iconName: 'Lock' }
     ],
     relatedToolIds: ['merge', 'split', 'rotate', 'page-numbers']
   },
@@ -469,7 +469,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Custom Vector Stamps',
     overviewHeading: 'Protect Intellectual Property & Drafts Locally',
     overview: 'Brand your research papers, stamp confidential NDAs, or label preview proofs with customizable vector text watermarks. Customize text (e.g., "CONFIDENTIAL", "DRAFT", "COPYRIGHT 2026"), adjust opacity for subtle background watermarking, and select custom angles.',
-    secondaryOverview: 'Because the watermarking engine operates locally using client-side vector drawing, your draft manuscripts and proprietary financial disclosures never traverse the public internet.',
+    secondaryOverview: 'The watermarking engine processes supported files in your browser using client-side drawing. The page may still request resources and enabled third-party services.',
     privacyHighlight: 'Local Vector Stamping: The watermark layer is merged into the PDF content stream using standard Type 1 fonts directly inside your web browser.',
     stepsHeading: 'How to Watermark a PDF Document',
     steps: [
@@ -506,7 +506,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: 'Full Opacity & Angle Tuning', desc: 'Dial in the exact transparency and diagonal slant desired.', iconName: 'Sliders' },
       { title: 'Vector-Sharp Typography', desc: 'Watermarks remain crisp at any zoom level or high-DPI print.', iconName: 'Type' },
-      { title: 'Zero Cloud Storage', desc: 'Confidential drafts never leave your device’s browser memory.', iconName: 'Shield' },
+      { title: 'Browser-Based Processing', desc: 'Supported files are handled in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Shield' },
       { title: 'Instant Live Preview', desc: 'Inspect how the watermark will look before saving.', iconName: 'Eye' }
     ],
     relatedToolIds: ['protect', 'page-numbers', 'sign', 'merge']
@@ -628,7 +628,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['metadata', 'pdf-ocr', 'ocr-pdf', 'page-counter', 'pdf-text-recognition'],
     h1Title: 'In-Browser PDF OCR, Page Counter & Text Analysis',
     metaTitle: 'PDF OCR & Analysis — Extract Scanned Text | ClickPDF',
-    metaDescription: 'Extract text from scanned PDF images using in-browser Tesseract.js OCR, count pages, and inspect document dimensions 100% locally with zero server uploads.',
+    metaDescription: 'Extract text from scanned PDF images with in-browser Tesseract.js OCR, count pages, and inspect document dimensions. Supported files are processed locally.',
     keywords: 'pdf ocr online, extract text from scanned pdf, in browser ocr, pdf page counter, client side tesseract ocr',
     targetKeywords: ['pdf ocr', 'extract text from scanned pdf', 'pdf page counter', 'in browser ocr'],
     badge: 'Tesseract.js WebAssembly OCR',
@@ -657,7 +657,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     faqs: [
       {
         question: 'Does this OCR send my images to cloud AI servers like OpenAI or Google?',
-        answer: 'No! The neural network weights and WebAssembly recognition engine execute 100% on your device’s local CPU.'
+        answer: 'The OCR engine runs in your browser on your device. Supported file contents are not sent to ClickPDF document-processing servers, though the page may still request resources and enabled third-party services.'
       },
       {
         question: 'What scanning resolution produces the best OCR results?',
@@ -690,7 +690,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'AES-256 Encryption Without Uploading the Document for Processing',
     overview: 'Sending confidential documents over email or chat requires ironclad encryption. When using cloud converters, your file and password are sent across the public internet to third-party databases. ClickPDF eliminates this vulnerability by utilizing the browser’s native `window.crypto.subtle` API.',
     secondaryOverview: 'Your password is key-stretched using PBKDF2 with SHA-256 and salted, then encrypted with authenticated AES-256-GCM directly on your device. Only individuals with the correct passphrase can decrypt and restore the document.',
-    privacyHighlight: 'Zero-Knowledge Security: Your password and document never leave your computer. We have no access to your passphrase, meaning neither hackers nor cloud providers can intercept your records.',
+    privacyHighlight: 'In-Browser Decryption: The tool handles the selected PDF and password in your browser rather than sending them to ClickPDF document-processing servers. This does not guarantee protection from device compromise; the page may still make resource and third-party requests.',
     stepsHeading: 'How to Encrypt a PDF Document Securely',
     steps: [
       {
@@ -712,7 +712,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     faqs: [
       {
         question: 'Does ClickPDF store or remember my password?',
-        answer: 'Never. ClickPDF is zero-knowledge. Your password exists only in your memory and in your browser tab for the duration of the cryptographic calculation.'
+        answer: 'The decryption calculation runs in your browser. The password and selected file are not sent to ClickPDF document-processing servers; browser memory and device security are managed by your browser and device.'
       },
       {
         question: 'What encryption cipher is used?',
@@ -744,7 +744,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Private In-Browser Decrypt',
     overviewHeading: 'Restore Instant Access to Your Encrypted Files',
     overview: 'Safely decrypt password-protected documents created with ClickPDF Web Crypto security. Enter your password to authenticate and restore full read, print, and editing access entirely on your local device.',
-    secondaryOverview: 'Because the decryption routines run locally in your browser, your passphrase is never transmitted over HTTP/HTTPS, preventing credential sniffing or man-in-the-middle exploits.',
+    secondaryOverview: 'The decryption routine runs in your browser and does not send the passphrase to ClickPDF document-processing servers. This does not replace device security controls, and the page may still make network requests for resources or enabled services.',
     privacyHighlight: 'Private Key Verification: All key derivation and authentication occurs locally in RAM. No failed attempt logs or credentials leave your computer.',
     stepsHeading: 'How to Decrypt and Unlock Your PDF',
     steps: [
@@ -890,7 +890,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     ],
     benefits: [
       { title: 'Transparent Signature PNG', desc: 'Drawn, typed, or uploaded signatures are embedded as transparent PNG images.', iconName: 'PenTool' },
-      { title: 'Zero Cloud Storage', desc: 'No risk of signature theft from external database breaches.', iconName: 'Lock' },
+      { title: 'Local File Processing', desc: 'The selected PDF is handled in your browser rather than stored by ClickPDF document-processing servers; this is not a guarantee against device security risks.', iconName: 'Lock' },
       { title: 'Mobile & Stylus Ready', desc: 'Works smoothly with finger touch, stylus, and desktop mouse.', iconName: 'Tablet' },
       { title: 'Instant Download', desc: 'Save your completed signed document immediately.', iconName: 'Download' }
     ],
@@ -947,7 +947,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       { title: 'Fine Margin Tuning', desc: 'Control top, bottom, left, and right trims independently.', iconName: 'Sliders' },
       { title: 'E-Reader Optimized', desc: 'Expand text area for optimal reading on iPads and Kindle devices.', iconName: 'BookOpen' },
       { title: 'Zero Compression Loss', desc: 'Keeps 100% original document fidelity without recompression.', iconName: 'Sparkles' },
-      { title: 'In-Browser Privacy', desc: 'Zero uploads to external cloud servers; completely private.', iconName: 'Shield' }
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Shield' }
     ],
     relatedToolIds: ['rotate', 'organize', 'compress', 'split']
   },
@@ -965,7 +965,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Ensure Long-Term Digital Preservation for Decades',
     overview: 'Legal mandates, government agencies, and corporate compliance departments require PDF/A format for official document archiving. PDF/A guarantees that documents can be accurately reproduced decades into the future by enforcing embedded fonts and color space profiles.',
     secondaryOverview: 'ClickPDF validates and formats your document to ISO 19005 specifications directly inside your web browser, ensuring compliance without transmitting confidential records to third-party services.',
-    privacyHighlight: 'Private Compliance Archival: Medical records, patents, and legal deeds are converted in browser memory with zero risk of unauthorized leakage.',
+    privacyHighlight: 'Browser-Based Archival: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. This does not guarantee against device or account risks; page resources and enabled third-party services may still make requests.',
     stepsHeading: 'How to Convert to ISO PDF/A',
     steps: [
       {
@@ -1050,7 +1050,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are my file contents saved during the repair analysis?',
-        answer: 'No. The binary analysis happens strictly in your browser’s local ArrayBuffer memory.'
+        answer: 'The binary analysis runs in your browser. Supported file contents are not sent to ClickPDF document-processing servers, though the page may still request resources and enabled third-party services.'
       }
     ],
     benefits: [
@@ -1105,13 +1105,13 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are my confidential revision drafts uploaded anywhere?',
-        answer: 'Never. Both files remain strictly inside your browser’s sandbox.'
+        answer: 'The comparison runs in your browser; selected file contents are not sent to ClickPDF document-processing servers. The page may still request resources and enabled third-party services.'
       }
     ],
     benefits: [
       { title: 'Synchronized Dual Scroll', desc: 'Scroll both documents in parallel to inspect line-by-line differences.', iconName: 'Columns' },
       { title: 'Side-by-Side Clarity', desc: 'High-resolution rendering makes minute typographic changes clear.', iconName: 'Eye' },
-      { title: 'Zero Cloud Uploads', desc: 'Safeguard secret contract redlines and negotiation papers.', iconName: 'Lock' },
+      { title: 'Browser-Based Processing', desc: 'Selected files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Lock' },
       { title: 'No Subscription or Limits', desc: 'Compare unlimited pages and files without fees.', iconName: 'Check' }
     ],
     relatedToolIds: ['merge', 'split', 'sign', 'watermark']
@@ -1129,8 +1129,8 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Editable DOCX (Real Text)',
     overviewHeading: 'Extract Genuine Editable Text, Not Flat Scanned Images',
     overview: 'Converting PDF documents to editable Microsoft Word files shouldn’t compromise your privacy or leave you with uneditable raster screenshots. ClickPDF parses underlying text glyphs, font weights, and layout geometry directly in your browser using pdfjs-dist and docx.js, outputting native OpenXML Word documents (.docx) with real selectable text, paragraph structures, and heading levels.',
-    secondaryOverview: 'Whether you are updating an outdated legal contract, editing an academic manuscript, or repurposing a whitepaper, your document stays 100% on your device. Once converted, the resulting .docx file opens seamlessly in Microsoft Word, Google Docs, Apple Pages, and LibreOffice with full typing and formatting capabilities.',
-    privacyHighlight: 'Zero Server Uploads: Document parsing and Word file packaging execute entirely inside your device RAM using WebAssembly and client-side JavaScript. Confidential financial statements and personal records never touch the cloud.',
+    secondaryOverview: 'Whether you are updating a contract, manuscript, or whitepaper, supported PDF-to-Word processing runs in your browser. The resulting .docx file can be opened in common word processors; review formatting before relying on it.',
+    privacyHighlight: 'Browser-Based Processing: Supported files are processed locally rather than sent to ClickPDF document-processing servers. The page may still request scripts, fonts, and enabled third-party services.',
     stepsHeading: 'How to Convert PDF to Editable Word in 3 Steps',
     steps: [
       {
@@ -1156,7 +1156,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Is my document uploaded to any remote server or AI cloud?',
-        answer: 'Never. The entire PDF parsing and Word packaging workflow runs 100% inside your browser memory using WebAssembly and JavaScript. Zero bytes are uploaded to any external server.'
+        answer: 'Supported PDF-to-Word processing runs in your browser rather than on ClickPDF document-processing servers. The page may still make network requests for resources and enabled third-party services.'
       },
       {
         question: 'Can I open and edit the output in Microsoft Word and Google Docs?',
@@ -1173,7 +1173,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     ],
     benefits: [
       { title: 'Real Editable Text', desc: 'Extracts editable paragraphs, headings, and bullet points rather than rasterized images.', iconName: 'FileType' },
-      { title: '100% Private & Local', desc: 'Files never leave your computer or phone. Perfect for confidential contracts and invoices.', iconName: 'Lock' },
+      { title: 'Browser-Based File Processing', desc: 'Supported files are processed in your browser; this does not guarantee device security or regulatory compliance.', iconName: 'Lock' },
       { title: 'Universal Compatibility', desc: 'Standard .docx format opens natively in Microsoft Word, Google Docs, and LibreOffice.', iconName: 'CheckCircle2' },
       { title: 'Batch Queue Processing', desc: 'Convert single documents or batch-process multiple files with zero subscription fees.', iconName: 'Zap' }
     ],
@@ -1192,8 +1192,8 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     badge: 'Tables & Active Cells',
     overviewHeading: 'Transform PDF Tables into Active Spreadsheet Data Grids',
     overview: 'Financial reports, bank statements, sales receipts, and invoices are commonly distributed as static PDFs, trapping vital tabular figures. ClickPDF scans text coordinates across vertical and horizontal planes, grouping aligned rows and columns into distinct cells and converting numbers into native spreadsheet values in standard Microsoft Excel (.xlsx) workbooks.',
-    secondaryOverview: 'Because table extraction runs directly in client-side memory using SheetJS, there is zero risk of data leakage for sensitive accounting records, payroll tables, or inventory spreadsheets. Open the resulting .xlsx workbook instantly in Excel, Google Sheets, or Apple Numbers.',
-    privacyHighlight: 'Confidential Accounting Security: Banking statements, tax records, and proprietary sales data remain strictly local. No database or external API ever sees your financial information.',
+    secondaryOverview: 'Table extraction runs in your browser with SheetJS; supported files are not sent to ClickPDF document-processing servers. This does not guarantee against device-level risks, and the page may still make requests for resources or enabled services.',
+    privacyHighlight: 'Browser-Based Spreadsheet Conversion: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still request resources and enabled third-party services.',
     stepsHeading: 'How to Extract Tables from PDF to Excel in 3 Steps',
     steps: [
       {
@@ -1223,7 +1223,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Is my financial data uploaded to any server?',
-        answer: 'Never. All SheetJS parsing and cell formatting happen in your browser’s temporary memory (RAM). Not a single byte is uploaded to any server.'
+        answer: 'SheetJS parsing and cell formatting run in your browser. Supported file contents are not sent to ClickPDF document-processing servers, though the page may still request resources and enabled third-party services.'
       },
       {
         question: 'Does it support multi-page PDF documents?',
@@ -1237,7 +1237,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: 'Automatic Table Grid Detection', desc: 'Clustering algorithms align columns and rows accurately across pages.', iconName: 'FileSpreadsheet' },
       { title: 'Live Numeric Values', desc: 'Numbers and decimals are converted into functional cells ready for formulas.', iconName: 'Percent' },
-      { title: 'Private Accounting Safe', desc: 'Zero server uploads protects confidential payroll, tax, and banking data.', iconName: 'ShieldCheck' },
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; follow your organization’s controls for sensitive records.', iconName: 'ShieldCheck' },
       { title: 'Batch ZIP Packaging', desc: 'Process multiple PDF statements simultaneously into cleanly organized Excel files.', iconName: 'Download' }
     ],
     relatedToolIds: ['excel-to-pdf', 'pdf-to-word', 'compress', 'split']
@@ -1256,7 +1256,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Convert PDF Pages into Editable Presentation Slide Decks',
     overview: 'Pitch decks, research presentations, and webinars often get exported to non-editable PDFs, making last-minute slide tweaks difficult. ClickPDF converts each PDF page into a 16:9 widescreen presentation slide with editable text shape cards and headers rather than static images.',
     secondaryOverview: 'Using client-side PptxGenJS compilation, the resulting .pptx file contains structured text blocks and slide titles you can adjust in Microsoft PowerPoint, Keynote, or Google Slides.',
-    privacyHighlight: 'Pitch Deck Privacy: New product proposals, investor decks, and confidential strategy slides are processed 100% in your browser without cloud uploads.',
+    privacyHighlight: 'Browser-Based Presentation Conversion: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. Page resources and enabled services may still make network requests.',
     stepsHeading: 'How to Convert PDF to PowerPoint Slides in 3 Steps',
     steps: [
       {
@@ -1290,7 +1290,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are my company pitch decks uploaded to the cloud?',
-        answer: 'Never. All generation is executed on your local CPU and browser sandbox with 0 bytes transmitted.'
+        answer: 'Presentation generation runs in your browser. Supported file contents are not sent to ClickPDF document-processing servers; the page may still request resources and enabled third-party services.'
       },
       {
         question: 'Can I convert multiple presentation files at once?',
@@ -1300,7 +1300,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: '16:9 Widescreen Aspect', desc: 'Standard widescreen geometry matches modern presentation displays.', iconName: 'Presentation' },
       { title: 'Editable Shape Cards', desc: 'Allows you to tweak words, bullet points, and titles directly inside PowerPoint.', iconName: 'Type' },
-      { title: 'Zero Server Exposure', desc: 'Confidential business strategy and client presentations remain strictly local.', iconName: 'Lock' },
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Lock' },
       { title: 'Instant Local Build', desc: 'Runs locally without network bottlenecks or subscription paywalls.', iconName: 'Zap' }
     ],
     relatedToolIds: ['powerpoint-to-pdf', 'pdf-to-word', 'compress', 'organize']
@@ -1319,7 +1319,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Turn Microsoft Word Documents into Readable PDFs',
     overview: 'ClickPDF converts Microsoft Word (.docx) documents into high-resolution A4 PDF pages. Headings, paragraphs, lists, tables, and embedded images are laid out locally in your browser. Exact Word pagination and styling can vary.',
     secondaryOverview: 'Mammoth.js parses OpenXML document trees locally, and pdf-lib renders crisp vector text without sending your confidential business proposals, academic theses, or resumes to third-party cloud servers.',
-    privacyHighlight: 'Private Resume & Contract Compiler: Document bytes never leave your browser sandbox. Convert confidential files safely offline.',
+    privacyHighlight: 'Browser-Based Document Conversion: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. Offline availability depends on loaded resources and the tool.',
     stepsHeading: 'How to Convert Word to PDF in 3 Steps',
     steps: [
       {
@@ -1441,7 +1441,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Format Raw Spreadsheets into Clean, Printable Landscape PDF Reports',
     overview: 'Printing raw spreadsheets directly often results in clipped columns and awkward line wraps. ClickPDF converts Excel workbooks (.xlsx, .xls) and CSV sheets into landscape-oriented PDF documents complete with indigo header styling, auto-calculated column widths, alternating zebra rows, and automatic multi-page table pagination.',
     secondaryOverview: 'SheetJS processes worksheet structures locally while pdf-lib draws crisp vector grid borders and text, generating ready-to-share financial reports in seconds.',
-    privacyHighlight: 'Financial Data Security: All calculations and table rendering take place strictly in local browser memory. No accounting data is ever uploaded.',
+    privacyHighlight: 'Browser-Based Spreadsheet Processing: Supported files are processed in your browser; the page may still request resources and enabled third-party services.',
     stepsHeading: 'How to Convert Excel Spreadsheets to PDF in 3 Steps',
     steps: [
       {
@@ -1475,7 +1475,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are proprietary accounting numbers uploaded to the internet?',
-        answer: 'Never. All SheetJS parsing and pdf-lib table drawing happen 100% locally on your machine.'
+        answer: 'SheetJS parsing and PDF table drawing run in your browser. Supported files are not sent to ClickPDF document-processing servers, though the page may still request resources and enabled third-party services.'
       },
       {
         question: 'Can I convert multiple spreadsheet files at the same time?',
@@ -1504,7 +1504,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     overviewHeading: 'Convert Presentations into Universal, High-Resolution PDF Slides',
     overview: 'Ensure your slide deck looks identical on every projector, tablet, and mobile device. ClickPDF transforms Microsoft PowerPoint (.pptx, .ppt) presentations into crisp 16:9 widescreen PDF pages with slide titles, bullet points, and slide numbering preserved.',
     secondaryOverview: 'Fast in-browser XML parsing extracts slide sequences and renders vector-sharp PDF slides with zero server latency or quality loss.',
-    privacyHighlight: 'Confidential Presentation Security: Strategy decks and pitch materials remain 100% on your device, never exposed to external cloud queues.',
+    privacyHighlight: 'Browser-Based Presentation Processing: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still make resource and third-party requests.',
     stepsHeading: 'How to Convert PowerPoint to PDF in 3 Steps',
     steps: [
       {
@@ -1538,7 +1538,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Are pitch decks or secret project slides uploaded anywhere?',
-        answer: 'Never. The conversion happens entirely in your local browser sandbox.'
+        answer: 'The conversion runs in your browser. Supported file contents are not sent to ClickPDF document-processing servers; page resources and enabled third-party services may still make network requests.'
       },
       {
         question: 'Can I convert multiple PowerPoint presentations at once?',
@@ -1548,7 +1548,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     benefits: [
       { title: '16:9 Presentation Geometry', desc: 'Produces modern widescreen PDF slides ready for conference displays.', iconName: 'Presentation' },
       { title: 'No Font Substitution', desc: 'Locks in slide layout and typography so your presentation looks identical everywhere.', iconName: 'FileCheck' },
-      { title: 'Strict Device Privacy', desc: 'Your confidential roadmaps and client proposals never touch external servers.', iconName: 'Lock' },
+      { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Lock' },
       { title: 'Batch ZIP Download', desc: 'Convert multiple presentation files in one click with zero subscription fees.', iconName: 'Download' }
     ],
     relatedToolIds: ['pdf-to-powerpoint', 'compress', 'merge', 'page-numbers']

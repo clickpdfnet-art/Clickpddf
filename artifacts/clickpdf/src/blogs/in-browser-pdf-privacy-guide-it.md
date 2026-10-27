@@ -27,12 +27,12 @@ Ogni volta che carichi una dichiarazione dei redditi, un modulo medico o un cont
 
 Il tradizionale approccio cloud è stato costruito oltre quindici anni fa, quando i browser web erano troppo deboli per manipolare documenti di grandi dimensioni autonomamente. A quei tempi, i server dovevano svolgere tutto il lavoro pesante. Ma oggi, i moderni personal computer e smartphone hanno un immenso potere di elaborazione direttamente in tasca.
 
-Con le moderne capacità del browser come WebAssembly e i flussi di memoria locale JavaScript, tutto cambia. Quando trascini un documento in ClickPDF, l'intero file rimane rigorosamente all'interno della memoria del tuo dispositivo. Il browser analizza la struttura del documento, unisce le pagine, comprime le immagini o esegue il riconoscimento dei caratteri direttamente tramite il tuo processore. Non un singolo pacchetto di dati del documento viene mai inviato attraverso la rete.
+Gli strumenti supportati elaborano i file selezionati nel browser, senza inviarne il contenuto ai server ClickPDF dedicati all’elaborazione dei documenti. La pagina può comunque richiedere script, font, worker, immagini, annunci e altri servizi di terze parti abilitati. La disponibilità offline dipende dallo strumento, dal browser e dalle risorse necessarie già caricate.
 
 Questo cambiamento architettonico offre tre vantaggi immediati per il lavoro quotidiano:
 
-Primo, i tuoi file privati non possono essere intercettati o trapelati perché non lasciano mai il tuo dispositivo. Puoi persino scollegare completamente il Wi-Fi dopo il caricamento della pagina e ogni strumento continuerà a funzionare senza problemi offline.
+Primo, gli strumenti supportati elaborano i file selezionati nel browser senza inviarne il contenuto ai server ClickPDF dedicati all’elaborazione dei documenti. La pagina può comunque richiedere script, font, worker, immagini, annunci e altri servizi di terze parti abilitati. L’uso offline dipende dallo strumento, dal browser e dalle risorse già caricate.
 
 Secondo, non c'è tempo di attesa per caricamenti o download lenti. Quando devi dividere o riorganizzare un massiccio rapporto di duecento pagine, l'operazione termina in una frazione di secondo invece che in diversi minuti.
 
-Infine, per avvocati, contabili, team sanitari e individui che gestiscono informazioni personali sensibili, gli strumenti lato client eliminano i problemi di conformità legati all'archiviazione dati di terze parti. La vera privacy non è una promessa fatta in un'informativa sulla privacy; è integrata nell'architettura stessa del software.
+L’elaborazione dei file nel browser può ridurre l’esposizione legata all’invio a servizi esterni, ma non garantisce la conformità normativa né elimina tutti i rischi per la sicurezza. Per i dati sensibili, considera la sicurezza del dispositivo, le risorse della pagina, i servizi di terze parti attivati e i requisiti della tua organizzazione.

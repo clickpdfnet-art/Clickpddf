@@ -20,7 +20,7 @@ PDF operations may use significant browser memory and processing time, especiall
 ### Merge PDF Files Online — 100% Free & In-Browser
 URL: https://www.clickpdf.net/tools/merge-pdf/
 Description: Merge PDF files together online 100% free and client-side. Combine multiple PDFs into one document with drag-and-drop reordering and local processing of document content in the browser.
-Key capabilities: local processing of document content in the browser; Lossless Formatting; Instant Processing; Works Completely Offline
+Key capabilities: Browser-Based File Processing; PDF Page Content; Instant Processing; Local PDF Processing
 Typical workflow: Upload or Drop PDF Files: Select two or more PDF documents from your device or drag them directly into the designated drop zone. → Reorder Document Sequence: Drag and drop individual files or click the sort controls (A-Z, Z-A, or manual) to achieve your ideal page order. → Generate & Download: Click "Merge PDFs Now" to construct your consolidated document instantly in your browser and save the result.
 Common questions: Does Merge PDF Files upload my files to a server? | Is Merge PDF Files free, and is there a file-size limit? | Can I use Merge PDF Files on Android, iPhone, and PC?
 
@@ -76,7 +76,7 @@ Common questions: Does Add Page Numbers to PDF upload my files to a server? | Is
 ### Organize PDF Pages Online — Reorder, Rotate & Delete Pages
 URL: https://www.clickpdf.net/tools/organize-pdf/
 Description: Visually reorder, delete, and rotate pages in any PDF document online for free. Drag-and-drop page sorting in your browser with document content processed locally in the browser.
-Key capabilities: Intuitive Drag & Drop; One-Click Page Deletion; Local Rendering; Enterprise Privacy
+Key capabilities: Intuitive Drag & Drop; One-Click Page Deletion; Local Rendering; Browser-Based Processing
 Typical workflow: Upload Your PDF File: Drop your document into the organizer to view all pages in an interactive grid. → Rearrange and Refine Pages: Drag pages into your desired sequence, click the trash icon on unwanted pages, or rotate individual sheets. → Save Reorganized PDF: Click "Save Changes" to download your polished, re-sequenced document.
 Common questions: Does Organize PDF Pages upload my files to a server? | Is Organize PDF Pages free, and is there a file-size limit? | Can I use Organize PDF Pages on Android, iPhone, and PC?
 
@@ -160,7 +160,7 @@ Common questions: Does Excel to PDF Converter upload my files to a server? | Is 
 ### Add a Visual Signature to PDF — Draw, Type or Upload
 URL: https://www.clickpdf.net/tools/sign-pdf-online/
 Description: Draw, type, or upload a visual signature mark and embed it into PDF pages in your browser. Files and signature images stay on your device.
-Key capabilities: Transparent Signature PNG; Zero Cloud Storage; Mobile & Stylus Ready; Instant Download
+Key capabilities: Transparent Signature PNG; Local File Processing; Mobile & Stylus Ready; Instant Download
 Typical workflow: Open Document to Sign: Upload your agreement or form into the signature studio. → Draw or Type Signature: Draw with a mouse, stylus, or finger, type your name in a bundled signature font, or upload a PNG image. → Place & Download: Drag the signature to the exact signature line, resize if needed, and download your signed agreement.
 Common questions: Does Add a Visual Signature to PDF upload my files to a server? | Is Add a Visual Signature to PDF free, and is there a file-size limit? | Can I use Add a Visual Signature to PDF on Android, iPhone, and PC?
 

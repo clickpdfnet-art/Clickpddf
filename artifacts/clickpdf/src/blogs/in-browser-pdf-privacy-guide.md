@@ -23,12 +23,12 @@ Whenever you upload a tax return, medical form, or signed employment contract to
 
 The traditional cloud approach was built over fifteen years ago when web browsers were too weak to manipulate large documents on their own. Back then, servers had to do all the heavy lifting. But today, modern personal computers and smartphones have immense processing power right in your pocket.
 
-With modern browser capabilities like WebAssembly and local JavaScript memory streams, everything changes. When you drop a document into ClickPDF, the entire file stays strictly inside your device memory. The browser parses the document structure, merges pages, compresses images, or runs character recognition directly through your own processor. Not a single packet of document data is ever dispatched over the network.
+Supported tools process selected files in your browser instead of sending their contents to ClickPDF's document-processing servers. The page may still request scripts, fonts, workers, images, advertisements, and other enabled third-party services. Offline availability depends on the tool, browser, and which required resources have already loaded.
 
 This architectural shift offers three immediate advantages for everyday work:
 
-First, your private files cannot be intercepted or leaked because they never leave your device in the first place. You can even disconnect your Wi-Fi entirely after the page loads, and every tool will continue running seamlessly offline.
+First, supported tools process selected files in your browser rather than sending their contents to ClickPDF's document-processing servers. The page may still request scripts, fonts, workers, images, advertisements, and other enabled third-party services. Offline availability varies by tool, browser, and the resources already loaded.
 
 Second, there is zero waiting time for sluggish uploads or downloads. When you need to split or reorganize a massive two hundred page report, the operation finishes in a fraction of a second instead of several minutes.
 
-Finally, for lawyers, accountants, healthcare teams, and everyday individuals who handle sensitive personal information, client-side tools eliminate the compliance headaches of third-party data storage. True privacy is not a promise made in a privacy policy; it is built into the software architecture itself.
+Browser-based file processing can reduce exposure to external document processors, but it does not guarantee compliance or eliminate all security risks. For sensitive records, consider device security, page resources and enabled third-party services, and your organization’s requirements.

@@ -27,12 +27,12 @@ Cada vez que subes una declaración de impuestos, un formulario médico o un con
 
 El enfoque tradicional en la nube se construyó hace más de quince años, cuando los navegadores web eran demasiado débiles para manipular documentos grandes por sí mismos. En aquel entonces, los servidores tenían que hacer todo el trabajo pesado. Pero hoy en día, los ordenadores personales y smartphones modernos tienen un inmenso poder de procesamiento directamente en tu bolsillo.
 
-Con capacidades modernas del navegador como WebAssembly y flujos de memoria JavaScript local, todo cambia. Cuando arrastras un documento a ClickPDF, el archivo completo se queda estrictamente dentro de la memoria de tu dispositivo. El navegador analiza la estructura del documento, combina páginas, comprime imágenes o ejecuta reconocimiento de caracteres directamente a través de tu propio procesador. Ni un solo paquete de datos del documento es enviado jamás a través de la red.
+Las herramientas compatibles procesan los archivos seleccionados en el navegador, en lugar de enviar su contenido a los servidores de procesamiento de documentos de ClickPDF. La página aún puede solicitar scripts, fuentes, workers, imágenes, anuncios y otros servicios de terceros habilitados. La disponibilidad sin conexión depende de la herramienta, del navegador y de los recursos necesarios que ya se hayan cargado.
 
 Este cambio arquitectónico ofrece tres ventajas inmediatas para el trabajo diario:
 
-Primero, tus archivos privados no pueden ser interceptados ni filtrados porque nunca salen de tu dispositivo en primer lugar. Incluso puedes desconectar tu Wi-Fi por completo después de que la página cargue, y cada herramienta continuará ejecutándose sin problemas sin conexión.
+Primero, las herramientas compatibles procesan los archivos seleccionados en el navegador sin enviar su contenido a los servidores de procesamiento de documentos de ClickPDF. La página aún puede solicitar scripts, fuentes, workers, imágenes, anuncios y otros servicios de terceros habilitados. El uso sin conexión depende de la herramienta, del navegador y de los recursos que ya se hayan cargado.
 
 Segundo, hay cero tiempo de espera por subidas o descargas lentas. Cuando necesitas dividir o reorganizar un informe masivo de doscientas páginas, la operación termina en una fracción de segundo en lugar de varios minutos.
 
-Finalmente, para abogados, contables, equipos de salud y personas comunes que manejan información personal sensible, las herramientas del lado del cliente eliminan los dolores de cabeza de cumplimiento del almacenamiento de datos de terceros. La verdadera privacidad no es una promesa hecha en una política de privacidad; está integrada en la propia arquitectura del software.
+El procesamiento de archivos en el navegador puede reducir la exposición a servicios externos de procesamiento, pero no garantiza el cumplimiento normativo ni elimina todos los riesgos de seguridad. Para datos sensibles, ten en cuenta la seguridad del dispositivo, los recursos de la página, los servicios de terceros habilitados y los requisitos de tu organización.
