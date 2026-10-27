@@ -24,30 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenBatchQueue,
   onOpenLegal
 }) => {
-  const { t, ui, language, getToolTitle } = useLanguage();
-  const disclaimerLabels: Record<string, string> = {
-    en: 'Disclaimer',
-    ur: 'دستبرداری',
-    ar: 'إخلاء المسؤولية',
-    de: 'Haftungsausschluss',
-    es: 'Aviso legal',
-    fr: 'Avertissement',
-    hi: 'अस्वीकरण',
-    id: 'Penafian',
-    it: 'Avvertenza',
-    ja: '免責事項',
-    ko: '면책 조항',
-    nl: 'Disclaimer',
-    no: 'Ansvarsfraskrivelse',
-    pl: 'Zastrzeżenie',
-    pt: 'Aviso legal',
-    ru: 'Отказ от ответственности',
-    sv: 'Ansvarsfriskrivning',
-    tl: 'Pahayag ng pagtanggi',
-    tr: 'Sorumluluk Reddi',
-    vi: 'Tuyên bố miễn trừ trách nhiệm',
-    zh: '免责声明',
-  };
+  const { t, ui, getToolTitle } = useLanguage();
 
   const handleOpenBlog = () => {
     onOpenBlog();
@@ -226,7 +203,7 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-white transition-colors cursor-pointer text-slate-300 hover:text-white flex items-center gap-1.5"
                 >
                   <Info className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                  <span>{disclaimerLabels[language] || 'Disclaimer'}</span>
+                  <span>{t.disclaimer}</span>
                 </a>
               </li>
             </ul>
@@ -239,13 +216,13 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-1 sm:space-y-1.5 text-slate-400">
               <li>
-                <PWAInstallButton variant="footer" />
+                <PWAInstallButton variant="footer" footerLabel={t.installAppToDesktop} />
               </li>
               {onOpenBatchQueue && (
                 <li>
                   <button onClick={onOpenBatchQueue} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300">
                     <span>{t.batchQueueEngine}</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-cyan-950 border border-cyan-800 text-cyan-300 font-bold">New</span>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-cyan-950 border border-cyan-800 text-cyan-300 font-bold">{ui.newBadge}</span>
                   </button>
                 </li>
               )}
@@ -258,7 +235,7 @@ export const Footer: React.FC<FooterProps> = ({
                     handleOpenBlog();
                   }}
                   className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 text-slate-300 hover:text-white group"
-                  title="Open ClickPDF Knowledge Base & Blogs"
+                  title={t.blogs}
                 >
                   <Newspaper className="w-3.5 h-3.5 text-indigo-400 group-hover:text-indigo-300 shrink-0" />
                   <span className="font-medium">{t.blogs}</span>
@@ -270,7 +247,7 @@ export const Footer: React.FC<FooterProps> = ({
                   type="button"
                   onClick={handleOpenFaq}
                   className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 text-slate-300 hover:text-white group"
-                  title="Open FAQs"
+                  title={t.faqAndAnswers}
                 >
                   <HelpCircle className="w-3.5 h-3.5 text-cyan-400 group-hover:text-cyan-300 shrink-0" />
                   <span className="font-medium">{t.faqAndAnswers}</span>

@@ -81,7 +81,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX to PDF', 'PPTX to PDF',
   ],
   ur: [
-    'محفوظ رہیں، سمجھ داری سے کام کریں', 'آپ کا ڈیٹا، آپ کی پرائیویسی · مکمل محفوظ',
+    'مفت PDF ٹولز جو آپ کے براؤزر میں چلتے ہیں', 'آپ کا ڈیٹا، آپ کی پرائیویسی · مکمل محفوظ',
     'کیا آپ ایک ساتھ کئی PDF فائلیں پروسیس کرنا چاہتے ہیں؟', 'نیچے کوئی بھی ٹول منتخب کریں، کئی فائلیں شامل کریں اور انہیں اپنے براؤزر میں محفوظ طریقے سے پروسیس کریں۔',
     'نیا', 'آپ کے لیے متعلقہ PDF ٹولز', '100% براؤزر میں', 'مفت اور لامحدود',
     'کے بارے میں اکثر پوچھے گئے سوالات', 'استعمال کا طریقہ', 'اس ٹول کے بارے میں', 'ٹول کھولیں',
@@ -92,7 +92,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX سے PDF', 'PPTX سے PDF',
   ],
   hi: [
-    'सुरक्षित रहें, समझदारी से काम करें', 'आपका डेटा, आपकी निजता · पूरी तरह निजी',
+    'मुफ़्त PDF टूल जो आपके ब्राउज़र में काम करते हैं', 'आपका डेटा, आपकी निजता · पूरी तरह निजी',
     'क्या आपको एक साथ कई PDF फ़ाइलें प्रोसेस करनी हैं?', 'नीचे कोई टूल चुनें, कई फ़ाइलें जोड़ें और उन्हें अपने ब्राउज़र में सुरक्षित रूप से प्रोसेस करें।',
     'नया', 'आपके लिए संबंधित PDF टूल', '100% ब्राउज़र में', 'पूरी तरह मुफ़्त और असीमित',
     'के बारे में अक्सर पूछे जाने वाले सवाल', 'इस्तेमाल कैसे करें', 'इस टूल के बारे में', 'टूल खोलें',
@@ -103,7 +103,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX से PDF', 'PPTX से PDF',
   ],
   ar: [
-    'ابقَ آمناً، واعمل بذكاء', 'بياناتك وخصوصيتك · خصوصية تامة',
+    'أدوات PDF مجانية تعمل في متصفحك', 'بياناتك وخصوصيتك · خصوصية تامة',
     'هل تحتاج إلى معالجة عدة ملفات PDF دفعة واحدة؟', 'اختر أي أداة أدناه لإضافة عدة ملفات ومعالجتها بأمان داخل متصفحك.',
     'جديد', 'أدوات PDF ذات صلة قد تحتاج إليها', '100% داخل المتصفح', 'مجاني بالكامل وبدون حدود',
     'الأسئلة الشائعة حول', 'طريقة الاستخدام', 'حول هذه الأداة', 'افتح الأداة',
@@ -114,7 +114,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX إلى PDF', 'PPTX إلى PDF',
   ],
   zh: [
-    '安全使用，聪明处理', '您的数据，您的隐私 · 完全私密',
+    '在浏览器中使用的免费 PDF 工具', '您的数据，您的隐私 · 完全私密',
     '需要一次处理多个 PDF 文件吗？', '选择下方任意工具，添加多个文件并在浏览器中安全处理。',
     '新', '您可能需要的相关 PDF 工具', '100% 浏览器内处理', '免费且不限量',
     '常见问题：', '使用方法：', '关于此工具', '打开工具',
@@ -125,7 +125,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX 转 PDF', 'PPTX 转 PDF',
   ],
   ja: [
-    '安全に、賢く使いましょう', 'データもプライバシーもあなたのもの · 完全に非公開',
+    'ブラウザーで使える無料PDFツール', 'データもプライバシーもあなたのもの · 完全に非公開',
     '複数のPDFを一度に処理しますか？', '下のツールを選び、複数ファイルを追加してブラウザー内で安全に処理できます。',
     '新着', 'おすすめの関連PDFツール', 'ブラウザー内で100%処理', '完全無料・無制限',
     'よくある質問：', '使い方：', 'このツールについて', 'ツールを開く',
@@ -136,7 +136,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSXからPDF', 'PPTXからPDF',
   ],
   tl: [
-    'Manatiling Ligtas, Gumamit nang Matalino', 'Iyong data, iyong privacy · pribado 100%',
+    'Libreng PDF tool na gumagana sa iyong browser', 'Iyong data, iyong privacy · pribado 100%',
     'Kailangan bang magproseso ng maraming PDF nang sabay?', 'Pumili ng tool sa ibaba, magdagdag ng maraming file, at iproseso ang mga ito nang ligtas sa browser.',
     'Bago', 'Mga Kaugnay na PDF Tool na Maaaring Kailanganin', '100% sa Browser', 'Libre at Walang Limitasyon',
     'Mga Madalas Itanong Tungkol sa', 'Paano gamitin ang', 'Tungkol sa tool na ito', 'Buksan ang Tool',
@@ -147,7 +147,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX tungo sa PDF', 'PPTX tungo sa PDF',
   ],
   de: [
-    'Sicher bleiben, clever arbeiten', 'Ihre Daten, Ihre Privatsphäre · vollständig privat',
+    'Kostenlose PDF-Tools direkt in Ihrem Browser', 'Ihre Daten, Ihre Privatsphäre · vollständig privat',
     'Möchten Sie mehrere PDF-Dateien auf einmal verarbeiten?', 'Wählen Sie unten ein Tool, fügen Sie mehrere Dateien hinzu und verarbeiten Sie sie sicher im Browser.',
     'Neu', 'Passende PDF-Tools für Sie', '100 % im Browser', 'Kostenlos und unbegrenzt',
     'Häufige Fragen zu', 'So verwenden Sie', 'Über dieses Tool', 'Tool öffnen',
@@ -158,7 +158,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX zu PDF', 'PPTX zu PDF',
   ],
   fr: [
-    'Restez en sécurité, travaillez intelligemment', 'Vos données, votre confidentialité · 100 % privé',
+    'Des outils PDF gratuits dans votre navigateur', 'Vos données, votre confidentialité · 100 % privé',
     'Besoin de traiter plusieurs fichiers PDF à la fois ?', 'Choisissez un outil ci-dessous, ajoutez plusieurs fichiers et traitez-les en toute sécurité dans votre navigateur.',
     'Nouveau', 'Outils PDF associés dont vous pourriez avoir besoin', '100 % dans le navigateur', 'Gratuit et illimité',
     'Questions fréquentes sur', 'Comment utiliser', 'À propos de cet outil', 'Ouvrir l’outil',
@@ -169,7 +169,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX vers PDF', 'PPTX vers PDF',
   ],
   es: [
-    'Mantente seguro, trabaja con inteligencia', 'Tus datos, tu privacidad · 100 % privado',
+    'Herramientas PDF gratuitas para tu navegador', 'Tus datos, tu privacidad · 100 % privado',
     '¿Necesitas procesar varios archivos PDF a la vez?', 'Elige una herramienta, añade varios archivos y procésalos de forma segura en tu navegador.',
     'Nuevo', 'Herramientas PDF relacionadas que te pueden interesar', '100 % en el navegador', 'Gratis e ilimitado',
     'Preguntas frecuentes sobre', 'Cómo usar', 'Acerca de esta herramienta', 'Abrir herramienta',
@@ -180,7 +180,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX a PDF', 'PPTX a PDF',
   ],
   it: [
-    'Resta al sicuro, lavora con intelligenza', 'I tuoi dati, la tua privacy · 100% privato',
+    'Strumenti PDF gratuiti nel tuo browser', 'I tuoi dati, la tua privacy · 100% privato',
     'Devi elaborare più file PDF contemporaneamente?', 'Scegli uno strumento, aggiungi più file ed elaborali in modo sicuro nel browser.',
     'Nuovo', 'Strumenti PDF correlati che potrebbero servirti', '100% nel browser', 'Gratis e illimitato',
     'Domande frequenti su', 'Come usare', 'Informazioni su questo strumento', 'Apri strumento',
@@ -191,7 +191,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX in PDF', 'PPTX in PDF',
   ],
   no: [
-    'Vær trygg, jobb smart', 'Dine data, ditt personvern · 100 % privat',
+    'Gratis PDF-verktøy som fungerer i nettleseren', 'Dine data, ditt personvern · 100 % privat',
     'Vil du behandle flere PDF-filer samtidig?', 'Velg et verktøy nedenfor, legg til flere filer og behandle dem trygt i nettleseren.',
     'Ny', 'Relaterte PDF-verktøy du kanskje trenger', '100 % i nettleseren', 'Gratis og ubegrenset',
     'Vanlige spørsmål om', 'Slik bruker du', 'Om dette verktøyet', 'Åpne verktøy',
@@ -202,7 +202,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX til PDF', 'PPTX til PDF',
   ],
   pt: [
-    'Fique seguro, trabalhe com inteligência', 'Seus dados, sua privacidade · 100% privado',
+    'Ferramentas PDF gratuitas no seu navegador', 'Seus dados, sua privacidade · 100% privado',
     'Precisa processar vários arquivos PDF de uma só vez?', 'Escolha uma ferramenta, adicione vários arquivos e processe-os com segurança no navegador.',
     'Novo', 'Ferramentas PDF relacionadas que você pode precisar', '100% no navegador', 'Grátis e ilimitado',
     'Perguntas frequentes sobre', 'Como usar', 'Sobre esta ferramenta', 'Abrir ferramenta',
@@ -213,7 +213,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX para PDF', 'PPTX para PDF',
   ],
   ru: [
-    'Работайте безопасно и эффективно', 'Ваши данные, ваша конфиденциальность · полностью приватно',
+    'Бесплатные PDF-инструменты в вашем браузере', 'Ваши данные, ваша конфиденциальность · полностью приватно',
     'Нужно обработать несколько PDF-файлов сразу?', 'Выберите инструмент, добавьте несколько файлов и безопасно обработайте их в браузере.',
     'Новое', 'Полезные связанные инструменты PDF', '100% в браузере', 'Бесплатно и без ограничений',
     'Часто задаваемые вопросы о', 'Как использовать', 'Об этом инструменте', 'Открыть инструмент',
@@ -224,7 +224,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX в PDF', 'PPTX в PDF',
   ],
   ko: [
-    '안전하고 스마트하게 사용하세요', '내 데이터, 내 개인정보 · 100% 비공개',
+    '브라우저에서 바로 쓰는 무료 PDF 도구', '내 데이터, 내 개인정보 · 100% 비공개',
     '여러 PDF 파일을 한 번에 처리해야 하나요?', '아래 도구를 선택하고 여러 파일을 추가해 브라우저에서 안전하게 처리하세요.',
     '신규', '함께 사용하면 좋은 PDF 도구', '브라우저에서 100% 처리', '무료 및 무제한',
     '자주 묻는 질문:', '사용 방법:', '이 도구 정보', '도구 열기',
@@ -235,7 +235,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX를 PDF로', 'PPTX를 PDF로',
   ],
   tr: [
-    'Güvende Kalın, Akıllıca Çalışın', 'Veriniz, gizliliğiniz · %100 özel',
+    'Tarayıcınızda çalışan ücretsiz PDF araçları', 'Veriniz, gizliliğiniz · %100 özel',
     'Birden fazla PDF dosyasını aynı anda mı işlemek istiyorsunuz?', 'Aşağıdan bir araç seçin, birden fazla dosya ekleyin ve tarayıcınızda güvenle işleyin.',
     'Yeni', 'İhtiyaç duyabileceğiniz ilgili PDF araçları', 'Tarayıcıda %100', 'Ücretsiz ve sınırsız',
     'Hakkında sık sorulan sorular:', 'Kullanım şekli:', 'Bu araç hakkında', 'Aracı aç',
@@ -246,7 +246,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX’ten PDF’ye', 'PPTX’ten PDF’ye',
   ],
   nl: [
-    'Werk veilig en slim', 'Jouw gegevens, jouw privacy · 100% privé',
+    'Gratis PDF-tools die in je browser werken', 'Jouw gegevens, jouw privacy · 100% privé',
     'Wil je meerdere PDF-bestanden tegelijk verwerken?', 'Kies hieronder een tool, voeg meerdere bestanden toe en verwerk ze veilig in je browser.',
     'Nieuw', 'Gerelateerde PDF-tools die je kunt gebruiken', '100% in de browser', 'Gratis en onbeperkt',
     'Veelgestelde vragen over', 'Zo gebruik je', 'Over deze tool', 'Tool openen',
@@ -257,7 +257,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX naar PDF', 'PPTX naar PDF',
   ],
   pl: [
-    'Pracuj bezpiecznie i mądrze', 'Twoje dane, Twoja prywatność · 100% prywatnie',
+    'Darmowe narzędzia PDF w Twojej przeglądarce', 'Twoje dane, Twoja prywatność · 100% prywatnie',
     'Chcesz przetworzyć kilka plików PDF jednocześnie?', 'Wybierz narzędzie, dodaj wiele plików i przetwarzaj je bezpiecznie w przeglądarce.',
     'Nowość', 'Powiązane narzędzia PDF, które mogą Ci się przydać', '100% w przeglądarce', 'Bezpłatnie i bez limitu',
     'Często zadawane pytania o', 'Jak używać', 'O tym narzędziu', 'Otwórz narzędzie',
@@ -268,7 +268,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX do PDF', 'PPTX do PDF',
   ],
   sv: [
-    'Arbeta tryggt och smart', 'Dina data, din integritet · 100 % privat',
+    'Gratis PDF-verktyg som fungerar i din webbläsare', 'Dina data, din integritet · 100 % privat',
     'Behöver du behandla flera PDF-filer samtidigt?', 'Välj ett verktyg nedan, lägg till flera filer och behandla dem säkert i webbläsaren.',
     'Ny', 'Relaterade PDF-verktyg du kan behöva', '100 % i webbläsaren', 'Gratis och obegränsat',
     'Vanliga frågor om', 'Så använder du', 'Om det här verktyget', 'Öppna verktyget',
@@ -279,7 +279,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX till PDF', 'PPTX till PDF',
   ],
   id: [
-    'Tetap Aman, Bekerja Cerdas', 'Data Anda, privasi Anda · 100% pribadi',
+    'Alat PDF gratis yang berjalan di browser Anda', 'Data Anda, privasi Anda · 100% pribadi',
     'Perlu memproses beberapa file PDF sekaligus?', 'Pilih alat di bawah, tambahkan beberapa file, lalu proses dengan aman di browser.',
     'Baru', 'Alat PDF terkait yang mungkin Anda perlukan', '100% di Browser', 'Gratis dan Tanpa Batas',
     'Pertanyaan umum tentang', 'Cara menggunakan', 'Tentang alat ini', 'Buka Alat',
@@ -290,7 +290,7 @@ const rows: Record<Language, readonly string[]> = {
     'XLSX ke PDF', 'PPTX ke PDF',
   ],
   vi: [
-    'Làm việc an toàn và thông minh', 'Dữ liệu của bạn, quyền riêng tư của bạn · riêng tư 100%',
+    'Công cụ PDF miễn phí chạy trên trình duyệt', 'Dữ liệu của bạn, quyền riêng tư của bạn · riêng tư 100%',
     'Bạn cần xử lý nhiều tệp PDF cùng lúc?', 'Chọn công cụ bên dưới, thêm nhiều tệp và xử lý an toàn ngay trong trình duyệt.',
     'Mới', 'Các công cụ PDF liên quan bạn có thể cần', '100% trong trình duyệt', 'Miễn phí và không giới hạn',
     'Câu hỏi thường gặp về', 'Cách sử dụng', 'Giới thiệu công cụ này', 'Mở công cụ',

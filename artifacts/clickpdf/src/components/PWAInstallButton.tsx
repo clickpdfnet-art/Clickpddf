@@ -16,11 +16,13 @@ import { usePWAInstall } from '../hooks/usePWAInstall';
 interface PWAInstallButtonProps {
   variant?: 'header' | 'drawer' | 'footer';
   className?: string;
+  footerLabel?: string;
 }
 
 export const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
   variant = 'header',
   className = '',
+  footerLabel,
 }) => {
   const { isInstallable, isInstalled, installApp } = usePWAInstall();
   const [showModal, setShowModal] = useState(false);
@@ -81,7 +83,7 @@ export const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
           className={`hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 ${className}`}
         >
           <Download className="w-3.5 h-3.5" />
-          <span>Install App to Desktop</span>
+          <span>{footerLabel || 'Install App to Desktop'}</span>
         </button>
       )}
 

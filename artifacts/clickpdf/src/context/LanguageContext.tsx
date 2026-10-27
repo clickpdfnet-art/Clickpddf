@@ -14,6 +14,7 @@ import {
   WORKSPACE_TRANSLATIONS,
   TOOL_BADGE_KEYS,
 } from '../i18n/uiTranslations';
+import { SITE_COPY_TRANSLATIONS } from '../i18n/siteCopyTranslations';
 import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
 
 interface LanguageContextType {
@@ -72,6 +73,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const t: TranslationDict = {
     ...(translations[language] || translations.en),
+    ...SITE_COPY_TRANSLATIONS[language],
     ...WORKSPACE_TRANSLATIONS[language],
   };
   const ui = UI_TRANSLATIONS[language];

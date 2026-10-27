@@ -238,9 +238,11 @@ export interface TranslationDict {
   cookiesPolicy: string;
   privacyPolicy: string;
   termsOfService: string;
+  disclaimer: string;
   batchQueueEngine: string;
   blogs: string;
   faqAndAnswers: string;
+  installAppToDesktop: string;
   adminDashboard: string;
   shareClickPdf: string;
   clientStorageEnabled: string;
@@ -436,9 +438,11 @@ const en: TranslationDict = {
   cookiesPolicy: 'Cookies Policy',
   privacyPolicy: 'Privacy Policy',
   termsOfService: 'Terms of Service',
+  disclaimer: 'Disclaimer',
   batchQueueEngine: 'Batch Queue Engine',
   blogs: 'Blogs',
   faqAndAnswers: 'FAQs',
+  installAppToDesktop: 'Install App to Desktop',
   adminDashboard: 'Admin Dashboard',
   shareClickPdf: 'Share ClickPDF',
   clientStorageEnabled: 'Client-Side Local Storage Enabled',
