@@ -47,6 +47,7 @@ const arrayLength = (node) => {
 const translationsSource = parse('src/i18n/translations.ts');
 const uiSource = parse('src/i18n/uiTranslations.ts');
 const siteCopySource = parse('src/i18n/siteCopyTranslations.ts');
+const toolPageSource = parse('src/i18n/toolPageTranslations.ts');
 const missingToolsSource = parse('src/i18n/missingToolTranslations.ts');
 const toolsSource = parse('src/data/toolsData.ts');
 
@@ -62,14 +63,19 @@ assert.ok(localeCodes?.length === 21, `Expected 21 language codes, found ${local
 
 const uiKeysCount = arrayLength(findVariable(uiSource, 'UI_KEYS'));
 const siteCopyKeysCount = arrayLength(findVariable(siteCopySource, 'SITE_COPY_KEYS'));
+const toolPageKeysCount = arrayLength(findVariable(toolPageSource, 'TOOL_PAGE_COPY_KEYS'));
 for (const [tableName, localeTable] of [
   ['UI', objectEntries(findVariable(uiSource, 'rows'))],
   ['workspace', objectEntries(findVariable(uiSource, 'workspaceRows'))],
   ['site copy', objectEntries(findVariable(siteCopySource, 'rows'))],
+  ['tool page', objectEntries(findVariable(toolPageSource, 'rows'))],
 ]) {
   assert.deepEqual([...localeTable.keys()].sort(), [...localeCodes].sort(), `${tableName} locales must match the supported language set`);
   for (const [locale, values] of localeTable) {
-    const expectedCount = tableName === 'UI' ? uiKeysCount : tableName === 'site copy' ? siteCopyKeysCount : 25;
+    const expectedCount =
+      tableName === 'UI' ? uiKeysCount :
+        tableName === 'site copy' ? siteCopyKeysCount :
+          tableName === 'tool page' ? toolPageKeysCount : 25;
     assert.equal(arrayLength(values), expectedCount, `${tableName} value count mismatch for ${locale}`);
   }
 }
@@ -102,6 +108,24 @@ for (const [locale, values] of siteCopyRows) {
   }
 }
 
+const toolPageRows = objectEntries(findVariable(toolPageSource, 'rows'));
+const englishToolPageCopy = toolPageRows.get('en').elements;
+for (const [locale, values] of toolPageRows) {
+  if (locale === 'en') continue;
+  for (let index = 0; index < toolPageKeysCount; index += 1) {
+    assert.notEqual(
+      values.elements[index].text,
+      englishToolPageCopy[index].text,
+      `Tool page copy at index ${index} is still English for ${locale}`,
+    );
+  }
+}
+
+const toolSeoContent = fs.readFileSync(path.join(root, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
+assert.ok(toolSeoContent.includes('TOOL_PAGE_TRANSLATIONS[language]'), 'Tool content must use the active language');
+assert.ok(!toolSeoContent.includes('seoInfo.steps.map'), 'Tool steps must not render untranslated SEO source strings');
+assert.ok(!toolSeoContent.includes('seoInfo.faqs.map'), 'Tool FAQs must not render untranslated SEO source strings');
+
 const missingToolTable = objectEntries(findVariable(missingToolsSource, 'MISSING_TOOL_TRANSLATIONS'));
 assert.deepEqual([...missingToolTable.keys()].sort(), [...localeCodes].sort(), 'Missing-tool translation locales must match supported languages');
 const expectedMissingToolIds = [
@@ -117,4 +141,4 @@ for (const [locale, localeNode] of missingToolTable) {
   }
 }
 
-console.log(`i18n coverage tables passed: ${localeCodes.length} languages, ${uiKeysCount} shared UI labels, ${siteCopyKeysCount} homepage/footer strings, 25 workspace labels, 8 tool cards.`);
+console.log(`i18n coverage tables passed: ${localeCodes.length} languages, ${uiKeysCount} shared UI labels, ${siteCopyKeysCount} homepage/footer strings, ${toolPageKeysCount} tool-page strings, 25 workspace labels, 8 tool cards.`);

@@ -11,22 +11,9 @@ import { PDFTool } from '../types';
 import { ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
-import toolSeoFaqTemplates from '../data/toolSeoFaqTemplates.json';
+import { TOOL_PAGE_TRANSLATIONS } from '../i18n/toolPageTranslations';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
-
-function firstSentence(value: string): string {
-  const text = value.trim();
-  for (let index = 0; index < text.length; index += 1) {
-    const character = text[index];
-    if (!'.!?'.includes(character)) continue;
-    if (character === '.' && /(?:e|i)\.g$/i.test(text.slice(0, index))) continue;
-    if (index === text.length - 1 || /\s/.test(text[index + 1])) {
-      return text.slice(0, index + 1);
-    }
-  }
-  return text;
-}
 
 interface ToolSeoContentSectionProps {
   tool: PDFTool;
@@ -42,7 +29,8 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   stage = 'empty'
 }) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const { ui, getToolTitle, getToolDescription } = useLanguage();
+  const { ui, language, getToolTitle, getToolDescription } = useLanguage();
+  const copy = TOOL_PAGE_TRANSLATIONS[language];
 
   if (!seoInfo) {
     return null;
@@ -57,6 +45,28 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   const relatedTools = (seoInfo.relatedToolIds || [])
     .map((id) => PUBLIC_PDF_TOOLS.find((t) => t.id === id))
     .filter((t): t is PDFTool => Boolean(t));
+  const toolName = getToolTitle(tool);
+  const localizedSteps = [
+    { step: 1, title: copy.step1Title, description: copy.step1Description },
+    { step: 2, title: copy.step2Title, description: copy.step2Description },
+    { step: 3, title: copy.step3Title, description: copy.step3Description },
+  ];
+  const localizeFaqQuestion = (question: string) =>
+    question.replace(/\{toolName\}/g, toolName);
+  const localizedFaqs = [
+    {
+      question: localizeFaqQuestion(copy.faqPrivacyQuestion),
+      answer: copy.faqPrivacyAnswer,
+    },
+    {
+      question: localizeFaqQuestion(copy.faqLimitsQuestion),
+      answer: copy.faqLimitsAnswer,
+    },
+    {
+      question: localizeFaqQuestion(copy.faqCompatibilityQuestion),
+      answer: copy.faqCompatibilityAnswer,
+    },
+  ];
 
   // Stage 3: Completed / Download State (When processing finishes & Download button appears):
   // Keep long SEO sections (How-To Steps and FAQs, Privacy Banner) hidden, and ONLY show 'Related Tools' section below the download area
@@ -78,7 +88,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                 key={relTool.id}
                 type="button"
                 onClick={() => onSelectRelatedTool && onSelectRelatedTool(relTool)}
-                className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-left cursor-pointer transition-all group flex flex-col justify-between h-24"
+                className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-start cursor-pointer transition-all group flex flex-col justify-between h-24"
               >
                 <div>
                   <h4 className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
@@ -106,13 +116,12 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
       {/* 1. Tool Overview & In-Browser Privacy Hero Section */}
       <div className="max-w-4xl mx-auto space-y-8">
         <section
-          aria-label={toolSeoFaqTemplates.directAnswerLabel}
+          aria-label={copy.quickAnswerLabel}
           className="rounded-xl border border-indigo-100 dark:border-indigo-900/70 bg-indigo-50/60 dark:bg-indigo-950/30 px-5 py-4 text-sm text-slate-700 dark:text-slate-200 leading-relaxed"
         >
           <p>
-            <strong className="text-slate-900 dark:text-white">{toolSeoFaqTemplates.directAnswerLabel}:</strong>{' '}
-            Use {getToolTitle(tool)} to {firstSentence(getToolDescription(tool)).replace(/[.!?]\s*$/, '').replace(/^./, (character) => character.toLowerCase())}.{' '}
-            {toolSeoFaqTemplates.directAnswerSecondSentence}
+            <strong className="text-slate-900 dark:text-white">{copy.quickAnswerLabel}:</strong>{' '}
+            {getToolDescription(tool)}
           </p>
         </section>
 
@@ -120,17 +129,17 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
             <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
-            <span>{seoInfo.badge}</span>
+            <span>{ui.inBrowserShort}</span>
             <span className="text-slate-300 dark:text-slate-700">•</span>
             <span>{ui.freeUnlimitedBadge}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {seoInfo.h1Title}
+            {toolName}
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {seoInfo.overview}
+            {copy.privacySummary}
           </p>
         </div>
 
@@ -141,7 +150,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
             <Sparkles className="w-4 h-4 text-indigo-500" />
             <span>{ui.aboutToolSectionHeading}</span>
           </h4>
-          <p>{seoInfo.secondaryOverview}</p>
+          <p>{copy.aboutToolSummary}</p>
         </div>
 
         {/* 3. Step-by-Step How-To Instructions */}
@@ -153,7 +162,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {seoInfo.steps.map((s) => (
+            {localizedSteps.map((s) => (
               <div 
                 key={s.step} 
                 className="p-5 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 relative hover:border-indigo-400/50 transition-colors"
@@ -182,7 +191,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           </div>
 
           <div className="space-y-2">
-            {seoInfo.faqs.map((faq, index) => {
+            {localizedFaqs.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
                 <div 
@@ -192,7 +201,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
+                    className="w-full px-5 py-4 text-start flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
                     aria-expanded={isOpen}
                   >
                     <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
@@ -230,7 +239,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                   key={relTool.id}
                   type="button"
                   onClick={() => onSelectRelatedTool && onSelectRelatedTool(relTool)}
-                  className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-left cursor-pointer transition-all group flex flex-col justify-between h-24"
+                  className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-start cursor-pointer transition-all group flex flex-col justify-between h-24"
                 >
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
