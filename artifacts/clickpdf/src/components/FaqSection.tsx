@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { FAQ_DATA } from '../data/faqData';
 import { FaqItem } from '../types';
+import { useLanguage } from '../context/LanguageContext';
+import { FAQ_PAGE_TRANSLATIONS, getLocalizedFaqItem } from '../i18n/faqPageTranslations';
 
 interface FaqSectionProps {
   onScrollToTools?: () => void;
@@ -34,6 +36,15 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedFaqForModal, setSelectedFaqForModal] = useState<FaqItem | null>(null);
   const [copiedAnswer, setCopiedAnswer] = useState<boolean>(false);
+  const { language } = useLanguage();
+  const copy = FAQ_PAGE_TRANSLATIONS[language].ui;
+  const localizedFaqs = useMemo(
+    () => FAQ_DATA.map((item) => getLocalizedFaqItem(item, language)),
+    [language],
+  );
+  const faqForModal = selectedFaqForModal
+    ? getLocalizedFaqItem(selectedFaqForModal, language)
+    : null;
 
   // Close modal with ESC and prevent background scroll
   useEffect(() => {
@@ -54,7 +65,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
 
   // Filter FAQs based on category & search term
   const filteredFaqs = useMemo(() => {
-    return FAQ_DATA.filter((item) => {
+    return localizedFaqs.filter((item) => {
       const matchesCategory =
         selectedCategory === 'all' || item.category === selectedCategory;
       const q = searchQuery.toLowerCase().trim();
@@ -66,15 +77,15 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
         (item.highlights && item.highlights.some((h) => h.toLowerCase().includes(q)));
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [localizedFaqs, selectedCategory, searchQuery]);
 
   const categories = [
-    { id: 'all', label: 'All Questions', count: FAQ_DATA.length },
-    { id: 'security', label: 'Privacy & Security', count: FAQ_DATA.filter(f => f.category === 'security').length },
-    { id: 'technology', label: 'How It Works', count: FAQ_DATA.filter(f => f.category === 'technology').length },
-    { id: 'compliance', label: 'Compliance & Safety', count: FAQ_DATA.filter(f => f.category === 'compliance').length },
-    { id: 'performance', label: 'Limits & Performance', count: FAQ_DATA.filter(f => f.category === 'performance').length },
-    { id: 'features', label: 'Features & OCR', count: FAQ_DATA.filter(f => f.category === 'features').length }
+    { id: 'all', label: copy.categoryAll, count: FAQ_DATA.length },
+    { id: 'security', label: copy.categorySecurity, count: FAQ_DATA.filter(f => f.category === 'security').length },
+    { id: 'technology', label: copy.categoryTechnology, count: FAQ_DATA.filter(f => f.category === 'technology').length },
+    { id: 'compliance', label: copy.categoryCompliance, count: FAQ_DATA.filter(f => f.category === 'compliance').length },
+    { id: 'performance', label: copy.categoryPerformance, count: FAQ_DATA.filter(f => f.category === 'performance').length },
+    { id: 'features', label: copy.categoryFeatures, count: FAQ_DATA.filter(f => f.category === 'features').length }
   ];
 
   const getCategoryIcon = (category: string) => {
@@ -103,11 +114,11 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold transition-colors cursor-pointer group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span>Back to PDF Tools</span>
+              <span>{copy.backToTools}</span>
             </button>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              <span>Official ClickPDF Documentation & Answers</span>
+              <span>{copy.officialDocumentation}</span>
             </div>
           </div>
         )}
@@ -116,13 +127,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
         <div className="text-center mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
-            <span>Trust & Technology FAQ</span>
+            <span>{copy.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            Frequently Asked Questions
+            {copy.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Clear answers about in-browser processing, privacy architecture, zero uploads, and PDF specifications.
+            {copy.description}
           </p>
         </div>
 
@@ -136,7 +147,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search questions (e.g. upload, privacy, OCR, limits)..."
+                placeholder={copy.searchPlaceholder}
                 className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
               />
               {searchQuery && (
@@ -144,14 +155,14 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                   onClick={() => setSearchQuery('')}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-medium cursor-pointer"
                 >
-                  Clear
+                   {copy.clearSearch}
                 </button>
               )}
             </div>
 
             <div className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 self-end sm:self-auto">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>Showing <strong>{filteredFaqs.length}</strong> Questions</span>
+               <span>{copy.showingQuestions.replace('{count}', String(filteredFaqs.length))}</span>
             </div>
           </div>
 
@@ -190,10 +201,10 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
           <div className="text-center py-12 px-4 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
             <HelpCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-              No matching questions found
+              {copy.noMatchTitle}
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Try searching with different keywords like "upload", "privacy", or "safe".
+              {copy.noMatchDescription}
             </p>
             <button
               onClick={() => {
@@ -202,7 +213,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               }}
               className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
             >
-              Reset filters
+              {copy.resetFilters}
             </button>
           </div>
         ) : (
@@ -251,11 +262,11 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                       }}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/70 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-indigo-700 dark:text-indigo-300 text-xs font-bold transition-all shadow-2xs group-hover:bg-indigo-600 group-hover:text-white cursor-pointer"
                     >
-                      <span>Read More</span>
+                      <span>{copy.readMore}</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                     <span className="text-[10px] text-slate-400 font-medium hidden sm:inline">
-                      Read full page
+                      {copy.readFullPage}
                     </span>
                   </div>
                 </div>
@@ -272,13 +283,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             <div className="space-y-2 max-w-xl">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Zero Server Uploads Verified</span>
+                <span>{copy.zeroUploadsVerified}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                Inspect Memory & Local Network Activity
+                {copy.inspectMemoryTitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Open Developer Tools (F12) &gt; Network tab on any tool. Notice that when uploading or generating files, 0 requests leave your browser.
+                {copy.inspectMemoryDescription}
               </p>
             </div>
 
@@ -287,7 +298,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                 onClick={onScrollToTools}
                 className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 text-xs sm:text-sm font-bold shadow-lg transition-transform active:scale-95 cursor-pointer shrink-0"
               >
-                Try All PDF Tools Free
+                {copy.tryToolsFree}
               </button>
             )}
           </div>
@@ -295,7 +306,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
       </div>
 
       {/* Full Page View Modal for Read More */}
-      {selectedFaqForModal && (
+      {faqForModal && (
         <div
           onClick={() => setSelectedFaqForModal(null)}
           className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-150 cursor-pointer"
@@ -308,19 +319,19 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             <div className="p-5 sm:p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90 flex items-start justify-between gap-4">
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5">
-                  {getCategoryIcon(selectedFaqForModal.category)}
+                  {getCategoryIcon(faqForModal.category)}
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100/70 dark:bg-indigo-950/70 px-2.5 py-0.5 rounded-full inline-block">
-                      {selectedFaqForModal.categoryLabel}
+                      {faqForModal.categoryLabel}
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">
-                      2 min read · Knowledge Base
+                      {copy.readTime.replace('{minutes}', '2')}
                     </span>
                   </div>
                   <h3 className="text-base sm:text-xl font-black text-slate-950 dark:text-white leading-snug">
-                    {selectedFaqForModal.question}
+                    {faqForModal.question}
                   </h3>
                 </div>
               </div>
@@ -328,8 +339,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               <button
                 type="button"
                 onClick={() => setSelectedFaqForModal(null)}
+                aria-label={copy.closeModal}
+                title={copy.closeModal}
                 className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors cursor-pointer shrink-0"
-                title="Close"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -338,18 +350,18 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
             {/* Modal Body: Full Read More Content */}
             <div className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed custom-scrollbar">
               <div className="p-4 sm:p-5 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900 text-slate-900 dark:text-slate-100 font-medium leading-relaxed text-sm sm:text-base">
-                {selectedFaqForModal.answer}
+                {faqForModal.answer}
               </div>
 
               {/* Key Guarantees & Highlights */}
-              {selectedFaqForModal.highlights && selectedFaqForModal.highlights.length > 0 && (
+              {faqForModal.highlights && faqForModal.highlights.length > 0 && (
                 <div className="space-y-3 pt-2">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
-                    <span>Technical Highlights & Guarantees</span>
+                    <span>{copy.technicalHighlights}</span>
                   </h4>
                   <div className="space-y-2">
-                    {selectedFaqForModal.highlights.map((item, idx) => (
+                    {faqForModal.highlights.map((item, idx) => (
                       <div
                         key={idx}
                         className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200"
@@ -365,7 +377,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               {/* Standard ISO & Privacy Note */}
               <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 text-emerald-900 dark:text-emerald-200 text-xs flex items-center gap-2.5">
                 <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span>100% Client-Side In-Browser Execution · Zero Server Telemetry · ISO 32000 Compliant</span>
+                <span>{copy.privacyNote}</span>
               </div>
             </div>
 
@@ -374,7 +386,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               <button
                 type="button"
                 onClick={() => {
-                  navigator.clipboard.writeText(`${selectedFaqForModal.question}\n\n${selectedFaqForModal.answer}`);
+                  navigator.clipboard.writeText(`${faqForModal.question}\n\n${faqForModal.answer}`);
                   setCopiedAnswer(true);
                   setTimeout(() => setCopiedAnswer(false), 2000);
                 }}
@@ -383,12 +395,12 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                 {copiedAnswer ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-500" />
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">Copied!</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">{copy.copied}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5 text-slate-400" />
-                    <span>Copy Answer</span>
+                    <span>{copy.copyAnswer}</span>
                   </>
                 )}
               </button>
@@ -398,7 +410,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                 onClick={() => setSelectedFaqForModal(null)}
                 className="px-5 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 text-xs font-bold rounded-xl transition-colors cursor-pointer"
               >
-                Close Article
+                {copy.closeArticle}
               </button>
             </div>
           </div>

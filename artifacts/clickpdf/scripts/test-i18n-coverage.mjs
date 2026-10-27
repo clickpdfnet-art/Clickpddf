@@ -195,4 +195,50 @@ const legalModalComponent = fs.readFileSync(path.join(root, 'src/components/Lega
 assert.ok(legalPageComponent.includes('getLocalizedLegalPage'), 'Standalone legal pages must use the selected language');
 assert.ok(legalModalComponent.includes('getLocalizedLegalPage'), 'Legal modal tabs must use the selected language');
 
-console.log(`i18n coverage tables passed: ${localeCodes.length} languages, ${uiKeysCount} shared UI labels, ${siteCopyKeysCount} homepage/footer strings, ${toolPageKeysCount} tool-page strings, 25 workspace labels, 8 tool cards.`);
+const faqSource = fs.readFileSync(path.join(root, 'src/data/faqData.ts'), 'utf8');
+const faqIds = [...faqSource.matchAll(/id:\s*'([^']+)'/g)].map((match) => match[1]).sort();
+const faqPageTranslations = JSON.parse(fs.readFileSync(path.join(root, 'src/i18n/faqPageTranslations.json'), 'utf8'));
+const batchQueueTranslations = JSON.parse(fs.readFileSync(path.join(root, 'src/i18n/batchQueueTranslations.json'), 'utf8'));
+const installModalTranslations = JSON.parse(fs.readFileSync(path.join(root, 'src/i18n/installModalTranslations.json'), 'utf8'));
+for (const [tableName, table] of [
+  ['FAQ page', faqPageTranslations],
+  ['batch queue', batchQueueTranslations],
+  ['install modal', installModalTranslations],
+]) {
+  assert.deepEqual(Object.keys(table).sort(), [...localeCodes].sort(), `${tableName} locales must match supported languages`);
+}
+for (const locale of localeCodes) {
+  const faqCopy = faqPageTranslations[locale];
+  assert.deepEqual(Object.keys(faqCopy.ui).sort(), Object.keys(faqPageTranslations.en.ui).sort(), `FAQ UI keys mismatch for ${locale}`);
+  assert.ok(faqCopy.ui.title.trim() && faqCopy.ui.description.trim(), `FAQ heading/description missing for ${locale}`);
+  assert.ok(faqCopy.ui.showingQuestions.includes('{count}'), `FAQ count placeholder missing for ${locale}`);
+  assert.ok(faqCopy.ui.readTime.includes('{minutes}'), `FAQ reading-time placeholder missing for ${locale}`);
+  if (locale !== 'en') {
+    assert.deepEqual(Object.keys(faqCopy.items).sort(), faqIds, `FAQ records mismatch for ${locale}`);
+    for (const id of faqIds) {
+      const item = faqCopy.items[id];
+      assert.ok(item.question.trim() && item.answer.trim() && item.categoryLabel.trim(), `FAQ text missing for ${locale}/${id}`);
+      assert.ok(Array.isArray(item.highlights) && item.highlights.length > 0, `FAQ highlights missing for ${locale}/${id}`);
+    }
+    assert.notEqual(faqCopy.ui.title, faqPageTranslations.en.ui.title, `FAQ title is still English for ${locale}`);
+  } else {
+    assert.deepEqual(Object.keys(faqCopy.items), [], 'English FAQ content should continue using the canonical source data');
+  }
+
+  for (const [name, table, requiredKeys] of [
+    ['batch queue', batchQueueTranslations, ['title', 'dropTitle', 'emptyQueueTitle', 'startProcessing', 'downloadAllZip']],
+    ['install modal', installModalTranslations, ['title', 'quickDescription', 'chromeDescription', 'androidDescription', 'iphoneDescription']],
+  ]) {
+    for (const [key, value] of Object.entries(table[locale])) {
+      assert.equal(typeof value, 'string', `${name} value must be text for ${locale}/${key}`);
+      assert.ok(value.trim(), `${name} value is empty for ${locale}/${key}`);
+    }
+    for (const key of requiredKeys) assert.ok(table[locale][key], `Missing ${name} text for ${locale}/${key}`);
+  }
+}
+
+assert.ok(fs.readFileSync(path.join(root, 'src/components/FaqSection.tsx'), 'utf8').includes('FAQ_PAGE_TRANSLATIONS[language]'));
+assert.ok(fs.readFileSync(path.join(root, 'src/components/BatchQueueView.tsx'), 'utf8').includes('BATCH_QUEUE_TRANSLATIONS[language]'));
+assert.ok(fs.readFileSync(path.join(root, 'src/components/PWAInstallButton.tsx'), 'utf8').includes('INSTALL_MODAL_TRANSLATIONS[language]'));
+
+console.log(`i18n coverage passed: ${localeCodes.length} languages, ${uiKeysCount} shared UI labels, ${siteCopyKeysCount} homepage/footer strings, ${toolPageKeysCount} tool-page strings, 6 legal pages, 9 FAQs, batch queue, install modal.`);

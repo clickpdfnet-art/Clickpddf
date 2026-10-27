@@ -42,6 +42,13 @@ import {
 } from '../utils/memoryManager';
 import { validateFileBatch } from '../utils/securitySanitizer';
 import confetti from 'canvas-confetti';
+import { useLanguage } from '../context/LanguageContext';
+import { BATCH_QUEUE_TRANSLATIONS } from '../i18n/batchQueueTranslations';
+
+const interpolateBatchText = (
+  template: string,
+  values: Record<string, string | number>,
+) => template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ''));
 
 interface BatchQueueViewProps {
   initialFiles?: File[];
@@ -54,6 +61,8 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
   onBackToHome,
   onClearInitialFiles,
 }) => {
+  const { language } = useLanguage();
+  const copy = BATCH_QUEUE_TRANSLATIONS[language];
   const [items, setItems] = useState<BatchItem[]>([]);
   const [selectedAction, setSelectedAction] = useState<BatchToolAction>('compress');
   const [isProcessingAll, setIsProcessingAll] = useState(false);
@@ -99,18 +108,18 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     void createBatchResultsZip(completedItems)
       .then(data => { if (active) setPreparedZipData(data); })
       .catch((error: any) => {
-        if (active) setUploadError(error?.message || 'Failed to prepare the ZIP archive.');
+        if (active) setUploadError(error?.message || copy.zipPrepareError);
       })
       .finally(() => { if (active) setIsPackagingZip(false); });
     return () => { active = false; };
-  }, [items, isProcessingAll]);
+  }, [items, isProcessingAll, copy]);
 
   const retryItem = (id: string) => {
     setItems(prev => prev.map(it => it.id === id ? {
       ...it,
       status: 'queued',
       progress: 0,
-      stepDescription: 'Waiting in queue for retry',
+      stepDescription: copy.waitingRetry,
       errorMessage: undefined
     } : it));
   };
@@ -134,7 +143,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
         file,
         status: 'queued',
         progress: 0,
-        stepDescription: 'Waiting in queue',
+        stepDescription: copy.waitingInQueue,
         originalSize: file.size
       }));
     if (newItems.length > 0) {
@@ -150,7 +159,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     const unsupportedCount = files.length - pdfFiles.length;
     const batch = validateFileBatch(pdfFiles, 'pdf', items.map(item => item.file));
     const errors = [
-      ...(unsupportedCount > 0 ? [`${unsupportedCount} file(s) were skipped. This queue accepts PDF files only.`] : []),
+      ...(unsupportedCount > 0 ? [interpolateBatchText(copy.skippedFilesError, { count: unsupportedCount })] : []),
       ...batch.errors
     ];
 
@@ -159,7 +168,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
       file,
       status: 'queued',
       progress: 0,
-      stepDescription: 'Waiting in queue',
+      stepDescription: copy.waitingInQueue,
       originalSize: file.size
     }));
 
@@ -202,7 +211,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
       ...item,
       status: 'queued',
       progress: 0,
-      stepDescription: 'Waiting in queue',
+      stepDescription: copy.waitingInQueue,
       errorMessage: undefined,
       resultData: undefined,
       outputFileName: undefined,
@@ -216,7 +225,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     if (items.length === 0 || isProcessingAll) return;
 
     if (selectedAction === 'protect' && (!protectPassword || protectPassword.length < 4)) {
-      alert('Please enter a password with at least 4 characters to protect the files.');
+      alert(copy.passwordAlert);
       return;
     }
 
@@ -282,7 +291,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           ...it,
           status: 'processing',
           progress: 5,
-          stepDescription: 'Processing in local browser memory...'
+          stepDescription: copy.processingLocal
         } : it));
       },
       onItemSuccess: (currentItem, _index, { result, duration }) => {
@@ -290,7 +299,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           ...it,
           status: 'completed',
           progress: 100,
-          stepDescription: result.details || 'Processing complete',
+          stepDescription: result.details || copy.processingComplete,
           resultData: result.data,
           outputFileName: result.outputName,
           outputSize: result.data.byteLength,
@@ -305,7 +314,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           ...it,
           status: 'error',
           progress: 100,
-          stepDescription: 'Memory / Processing Limit',
+          stepDescription: copy.memoryProcessingLimit,
           errorMessage: errorMsg
         } : it));
       }
@@ -342,7 +351,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
     if (!preparedZipData || isPackagingZip) return;
     const actionLabel = selectedAction.replace('-', '_');
     if (!downloadBlob(preparedZipData, `clickpdf_batch_${actionLabel}.zip`, 'application/zip')) {
-      alert('The browser could not start the ZIP download. Tap Download All as ZIP again or check the browser download permission.');
+      alert(copy.zipDownloadError);
     }
   };
 
@@ -369,57 +378,57 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
   }[] = [
     {
       id: 'compress',
-      title: 'Compress PDF',
-      description: 'Optimize binary streams & strip overhead',
+      title: copy.compressTitle,
+      description: copy.compressDescription,
       icon: <Minimize2 className="w-4 h-4 text-emerald-500" />,
       color: 'border-emerald-500/40 bg-emerald-50/30 dark:bg-emerald-950/20'
     },
     {
       id: 'rotate-90',
-      title: 'Rotate 90° CW',
-      description: 'Turn all pages clockwise by 90 degrees',
+      title: copy.rotate90Title,
+      description: copy.rotate90Description,
       icon: <RotateCw className="w-4 h-4 text-indigo-500" />,
       color: 'border-indigo-500/40 bg-indigo-50/30 dark:bg-indigo-950/20'
     },
     {
       id: 'rotate-180',
-      title: 'Rotate 180°',
-      description: 'Flip all document pages upside down',
+      title: copy.rotate180Title,
+      description: copy.rotate180Description,
       icon: <RotateCw className="w-4 h-4 text-purple-500" />,
       color: 'border-purple-500/40 bg-purple-50/30 dark:bg-purple-950/20'
     },
     {
       id: 'watermark',
-      title: 'Watermark Stamp',
-      description: 'Overlay custom diagonal text on all pages',
+      title: copy.watermarkTitle,
+      description: copy.watermarkDescription,
       icon: <Stamp className="w-4 h-4 text-pink-500" />,
       color: 'border-pink-500/40 bg-pink-50/30 dark:bg-pink-950/20'
     },
     {
       id: 'page-numbers',
-      title: 'Page Numbers',
-      description: 'Insert sequential footer pagination',
+      title: copy.pageNumbersTitle,
+      description: copy.pageNumbersDescription,
       icon: <Hash className="w-4 h-4 text-violet-500" />,
       color: 'border-violet-500/40 bg-violet-50/30 dark:bg-violet-950/20'
     },
     {
       id: 'sanitize',
-      title: 'Sanitize Metadata',
-      description: 'Purge author, dates, and software tags',
+      title: copy.sanitizeTitle,
+      description: copy.sanitizeDescription,
       icon: <ShieldAlert className="w-4 h-4 text-amber-500" />,
       color: 'border-amber-500/40 bg-amber-50/30 dark:bg-amber-950/20'
     },
     {
       id: 'protect',
-      title: 'AES-256 Encrypt',
-      description: 'Password-protect with Web Crypto container',
+      title: copy.encryptTitle,
+      description: copy.encryptDescription,
       icon: <Lock className="w-4 h-4 text-rose-500" />,
       color: 'border-rose-500/40 bg-rose-50/30 dark:bg-rose-950/20'
     },
     {
       id: 'analyze',
-      title: 'Inspect & Count',
-      description: 'Extract page counts, dimensions & JSON spec',
+      title: copy.inspectTitle,
+      description: copy.inspectDescription,
       icon: <FileSearch className="w-4 h-4 text-cyan-500" />,
       color: 'border-cyan-500/40 bg-cyan-50/30 dark:bg-cyan-950/20'
     }
@@ -434,13 +443,13 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer"
         >
           <ChevronRight className="w-4 h-4 rotate-180" />
-          <span>Back to All PDF Tools</span>
+          <span>{copy.backToAllTools}</span>
         </button>
 
         <div className="flex items-center gap-3">
           <div className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-md border border-emerald-200 dark:border-emerald-800">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span>100% Client-Side Parallel Memory Queue</span>
+            <span>{copy.clientQueueBadge}</span>
           </div>
         </div>
       </div>
@@ -455,15 +464,14 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  Batch Processing Queue
+                  {copy.title}
                 </h1>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200 dark:border-indigo-800 px-2.5 py-0.5 rounded-full">
-                  Sequential Engine
+                  {copy.sequentialEngine}
                 </span>
               </div>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed max-w-2xl">
-                Upload multiple documents at once and apply the identical transformation across all files sequentially,
-                monitoring progress indicators and downloading results individually or in a unified ZIP bundle.
+                {copy.description}
               </p>
             </div>
           </div>
@@ -471,7 +479,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           {/* Aggregate progress stat */}
           <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl p-4 min-w-[220px]">
             <div className="flex items-center justify-between text-xs mb-1.5">
-              <span className="font-semibold text-slate-700 dark:text-slate-200">Overall Progress</span>
+               <span className="font-semibold text-slate-700 dark:text-slate-200">{copy.overallProgress}</span>
               <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">{completedCount} / {totalCount}</span>
             </div>
             <div className="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
@@ -481,8 +489,8 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
               />
             </div>
             <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mt-2">
-              <span>{overallPercent}% completed</span>
-              {errorCount > 0 && <span className="text-rose-500 font-semibold">{errorCount} errors</span>}
+               <span>{interpolateBatchText(copy.completedPercent, { percent: overallPercent })}</span>
+               {errorCount > 0 && <span className="text-rose-500 font-semibold">{interpolateBatchText(copy.errorCount, { count: errorCount })}</span>}
             </div>
           </div>
         </div>
@@ -496,7 +504,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs">
             <h2 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-indigo-500" />
-              <span>Step 1: Choose Batch Action</span>
+              <span>{copy.stepChooseAction}</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -510,7 +518,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                       setSelectedAction(action.id);
                     }}
                     disabled={isProcessingAll}
-                    className={`text-left p-3 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`text-start p-3 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
                         ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/40 shadow-xs ring-1 ring-indigo-500'
                         : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/40 dark:bg-slate-800/40'
@@ -536,20 +544,20 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
             {/* Action Dynamic Settings */}
             {selectedAction === 'watermark' && (
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Watermark Settings</span>
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{copy.watermarkSettings}</span>
                 <div>
-                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Stamp Text</label>
+                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.stampText}</label>
                   <input
                     type="text"
                     value={watermarkText}
                     onChange={e => setWatermarkText(e.target.value)}
-                    placeholder="e.g. CONFIDENTIAL"
+                    placeholder={copy.stampPlaceholder}
                     className="w-full px-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   />
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex-1">
-                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Color</label>
+                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.color}</label>
                     <div className="flex items-center gap-2">
                       <input
                         type="color"
@@ -561,7 +569,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                     </div>
                   </div>
                   <div className="flex-1">
-                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Opacity: {Math.round(watermarkOpacity * 100)}%</label>
+                     <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{interpolateBatchText(copy.opacityPercent, { percent: Math.round(watermarkOpacity * 100) })}</label>
                     <input
                       type="range"
                       min="0.05"
@@ -578,36 +586,36 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
             {selectedAction === 'page-numbers' && (
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Pagination Settings</span>
+                  <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{copy.paginationSettings}</span>
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Position</label>
+                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.position}</label>
                     <select
                       value={pageNumberPos}
                       onChange={e => setPageNumberPos(e.target.value as any)}
                       className="w-full px-2.5 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"
                     >
-                      <option value="bottom-center">Bottom Center</option>
-                      <option value="bottom-right">Bottom Right</option>
-                      <option value="top-right">Top Right</option>
-                      <option value="top-center">Top Center</option>
+                       <option value="bottom-center">{copy.bottomCenter}</option>
+                       <option value="bottom-right">{copy.bottomRight}</option>
+                       <option value="top-right">{copy.topRight}</option>
+                       <option value="top-center">{copy.topCenter}</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Format</label>
+                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.format}</label>
                     <select
                       value={pageNumberFormat}
                       onChange={e => setPageNumberFormat(e.target.value as any)}
                       className="w-full px-2.5 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"
                     >
-                      <option value="Page {n} of {total}">Page 1 of 10</option>
+                       <option value="Page {n} of {total}">{copy.pageOneOfTen}</option>
                       <option value="{n} / {total}">1 / 10</option>
                       <option value="{n}">1</option>
                     </select>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Start Count At</label>
+                    <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.startCountAt}</label>
                   <input
                     type="number"
                     min="1"
@@ -621,24 +629,24 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
 
             {selectedAction === 'protect' && (
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Crypto Container Key</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{copy.cryptoContainerKey}</span>
                 <div>
-                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Encryption Password *</label>
+                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.encryptionPassword}</label>
                   <input
                     type="password"
                     value={protectPassword}
                     onChange={e => setProtectPassword(e.target.value)}
-                    placeholder="Enter password (min 4 chars)"
+                    placeholder={copy.passwordPlaceholder}
                     className="w-full px-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Password Hint (optional)</label>
+                  <label className="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">{copy.passwordHint}</label>
                   <input
                     type="text"
                     value={protectHint}
                     onChange={e => setProtectHint(e.target.value)}
-                    placeholder="e.g. My university ID"
+                    placeholder={copy.passwordHintPlaceholder}
                     className="w-full px-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"
                   />
                 </div>
@@ -649,15 +657,17 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           {/* Sequential Execution Controls */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs">
             <h3 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-3">
-              Queue Controls
+              {copy.queueControls}
             </h3>
 
             {/* Bounded Concurrency Selector */}
             <div className="mb-3.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between text-xs mb-1.5">
-                <span className="font-semibold text-slate-700 dark:text-slate-300">Concurrency Limiter</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">{copy.concurrencyLimiter}</span>
                 <span className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 font-bold">
-                  {concurrencySetting === 'auto' ? 'Auto (Smart)' : `${concurrencySetting} file${concurrencySetting > 1 ? 's' : ''} at once`}
+                  {concurrencySetting === 'auto'
+                    ? copy.autoSmart
+                    : interpolateBatchText(copy.filesAtOnce, { count: concurrencySetting })}
                 </span>
               </div>
               <div className="grid grid-cols-5 gap-1 p-1 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-center">
@@ -667,7 +677,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   className={`py-1 rounded transition-all cursor-pointer ${
                     concurrencySetting === 'auto' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-indigo-600'
                   }`}
-                  title="Adapts based on total memory weight and device RAM"
+                  title={copy.autoTooltip}
                 >
                   Auto
                 </button>
@@ -677,7 +687,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   className={`py-1 rounded transition-all cursor-pointer ${
                     concurrencySetting === 1 ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-indigo-600'
                   }`}
-                  title="Strict Serial Queue (Recommended for large 100MB+ files)"
+                  title={copy.serialTooltip}
                 >
                   1
                 </button>
@@ -710,7 +720,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                 </button>
               </div>
               <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5 leading-normal">
-                Limits simultaneous V8 heap operations to prevent browser crashes when processing batches of 15-50+ files.
+                {copy.concurrencyHelp}
               </p>
             </div>
 
@@ -726,7 +736,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   }`}
                 >
                   <Play className="w-4 h-4 fill-white" />
-                  <span>Start Batch Processing ({items.length} Files)</span>
+                   <span>{interpolateBatchText(copy.startProcessing, { count: items.length })}</span>
                 </button>
               ) : (
                 <button
@@ -734,7 +744,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   className="w-full py-2.5 px-4 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer active:scale-98"
                 >
                   <Pause className="w-4 h-4" />
-                  <span>Stop / Abort Processing</span>
+                   <span>{copy.stopProcessing}</span>
                 </button>
               )}
 
@@ -747,12 +757,12 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   {isPackagingZip ? (
                     <>
                       <RefreshCw className="w-4 h-4 animate-spin text-cyan-400" />
-                      <span>Generating ZIP Archive...</span>
+                       <span>{copy.generatingZip}</span>
                     </>
                   ) : (
                     <>
                       <Archive className="w-4 h-4 text-cyan-400" />
-                      <span>Download All as ZIP ({completedCount})</span>
+                       <span>{interpolateBatchText(copy.downloadAllZip, { count: completedCount })}</span>
                     </>
                   )}
                 </button>
@@ -764,14 +774,14 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                   disabled={isProcessingAll || items.length === 0}
                   className="flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  Reset Statuses
+                   {copy.resetStatuses}
                 </button>
                 <button
                   onClick={clearQueue}
                   disabled={isProcessingAll || items.length === 0}
                   className="py-1.5 px-3 rounded-lg text-xs font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/40 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  Clear Queue
+                   {copy.clearQueue}
                 </button>
               </div>
             </div>
@@ -808,10 +818,10 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                 <Upload className="w-5 h-5" />
               </div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-                Drop multiple PDF files here, or click to browse
+                 {copy.dropTitle}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                Select 2, 10, or 50+ PDF documents. All processing runs 100% in local memory.
+                 {copy.dropDescription}
               </p>
             </div>
           )}
@@ -820,11 +830,11 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                Batch File Queue ({items.length})
+                 {interpolateBatchText(copy.batchFileQueue, { count: items.length })}
               </span>
               {queuedCount > 0 && (
                 <span className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 px-2 py-0.5 rounded-md border border-amber-200 dark:border-amber-800">
-                  {queuedCount} queued
+                   {interpolateBatchText(copy.queuedCount, { count: queuedCount })}
                 </span>
               )}
             </div>
@@ -835,7 +845,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
               className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
             >
               <Plus className="w-3.5 h-3.5" />
-              <span>Add More Files</span>
+               <span>{copy.addMoreFiles}</span>
             </button>
           </div>
 
@@ -843,8 +853,8 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
           {items.length === 0 ? (
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center text-slate-400 dark:text-slate-500">
               <Layers className="w-10 h-10 mx-auto mb-3 opacity-40 text-slate-400" />
-              <p className="text-sm font-medium">No files added to the queue yet.</p>
-              <p className="text-xs mt-1">Drag and drop multiple PDFs above to start batch processing.</p>
+               <p className="text-sm font-medium">{copy.emptyQueueTitle}</p>
+               <p className="text-xs mt-1">{copy.emptyQueueDescription}</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -891,7 +901,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                             )}
                             {item.savingsPercent !== undefined && item.savingsPercent > 0 && (
                               <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                                ({item.savingsPercent}% saved)
+                             {interpolateBatchText(copy.savedPercent, { percent: item.savingsPercent })}
                               </span>
                             )}
                             {item.durationMs && (
@@ -906,35 +916,35 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                         {isItemQueued && (
                           <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
                             <Clock className="w-3 h-3" />
-                            <span>Queued</span>
+                             <span>{copy.statusQueued}</span>
                           </div>
                         )}
                         {isItemProcessing && (
                           <div className="flex items-center gap-1.5 text-[11px] text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/70 px-2 py-0.5 rounded font-semibold animate-pulse">
                             <RefreshCw className="w-3 h-3 animate-spin text-indigo-600" />
-                            <span>Processing</span>
+                             <span>{copy.statusProcessing}</span>
                           </div>
                         )}
                         {isItemCompleted && (
                           <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70 px-2 py-0.5 rounded font-semibold">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                            <span>Done</span>
+                             <span>{copy.statusDone}</span>
                           </div>
                         )}
                         {isItemError && (
                           <div className="flex items-center gap-1.5">
                             <div className="flex items-center gap-1.5 text-[11px] text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/70 px-2 py-0.5 rounded font-semibold border border-rose-200 dark:border-rose-800">
                               <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
-                              <span>Memory / Read Error</span>
+                               <span>{copy.memoryReadError}</span>
                             </div>
                             {!isProcessingAll && (
                               <button
                                 onClick={() => retryItem(item.id)}
-                                title="Retry processing this file"
+                                 title={copy.retryTitle}
                                 className="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 flex items-center gap-1 cursor-pointer"
                               >
                                 <RefreshCw className="w-3 h-3" />
-                                <span>Retry</span>
+                                 <span>{copy.retry}</span>
                               </button>
                             )}
                           </div>
@@ -944,7 +954,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                         {isItemCompleted && item.resultData && (
                           <button
                             onClick={() => handleDownloadSingle(item)}
-                            title="Download processed file"
+                             title={copy.downloadTitle}
                             className="p-1.5 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/60 transition-colors cursor-pointer"
                           >
                             <Download className="w-4 h-4" />
@@ -955,7 +965,7 @@ export const BatchQueueView: React.FC<BatchQueueViewProps> = ({
                         {!isProcessingAll && (
                           <button
                             onClick={() => removeItem(item.id)}
-                            title="Remove file from queue"
+                             title={copy.removeTitle}
                             className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer"
                           >
                             <X className="w-4 h-4" />
