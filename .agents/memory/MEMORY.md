@@ -8,6 +8,7 @@
 - [Admin dashboard visibility](admin-dashboard-visibility.md) — preserve the dashboard code and data, but keep all public website entry points disabled until requested.
 - [Cloudflare root build](cloudflare-root-build.md) — keep Cloudflare’s pnpm version aligned with the lockfile and pass safe PORT/BASE_PATH defaults to the monorepo build.
 - [Cloudflare custom-domain routing](cloudflare-custom-domain.md) — a www Worker route needs proxied DNS plus both DNS and Worker deployment permissions.
+- [ClickPDF Cloudflare 404 behavior](clickpdf-cloudflare-404.md) — use a real 404 page; SPA fallback makes unknown static URLs look successful.
 - [ClickPDF localization rollout](clickpdf-localization-rollout.md) — support all 21 existing locales through manual, staged translation without adding AI translation.
 - [ClickPDF structured data](clickpdf-structured-data.md) — emit schemas only for content and canonical routes that actually exist and are visible on that page.
 - [ClickPDF Unicode routes on Cloudflare](clickpdf-cloudflare-unicode-routes.md) — deploy percent-encoded non-Latin slugs with generated ASCII HTML aliases and an automatic Worker route map.
