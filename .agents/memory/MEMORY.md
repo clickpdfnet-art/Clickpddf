@@ -12,4 +12,4 @@
 - [ClickPDF structured data](clickpdf-structured-data.md) — emit schemas only for content and canonical routes that actually exist and are visible on that page.
 - [ClickPDF Unicode routes on Cloudflare](clickpdf-cloudflare-unicode-routes.md) — deploy percent-encoded non-Latin slugs with generated ASCII HTML aliases and an automatic Worker route map.
 - [Cloudflare Unicode asset redirects](clickpdf-unicode-asset-redirects.md) — absorb only the mapped internal 307 from `.html` to extensionless assets; preserve the public canonical URL.
-- [ClickPDF SEO-safe changes](clickpdf-seo-safe-changes.md) — use the installed BeyondSEO guidance when relevant to SEO work and avoid collateral changes to site functionality.
+- [ClickPDF SEO-safe changes](clickpdf-seo-safe-changes.md) — keep SEO work scoped and preserve site behavior; do not use BeyondSEO unless the user asks again.
