@@ -12,70 +12,101 @@ secondary_keywords:
   - how to merge multiple PDF files
   - combine cover page and references PDF
   - compress PDF for college submission
+  - merge PDFs online free
 suggested_byline: Click Digital Services; confirm before publication.
-content_source_status: The supplied file contains the SEO brief, not the original article body.
-content_status: New draft from the outline; not reconstructed from or compared against the missing original.
-comparison_status: Incomplete; the original article text was not supplied.
-faq_status: The original five FAQ questions and answers were not supplied; FAQ content is withheld.
+content_source_status: Original article body and five FAQs supplied by the user.
+content_status: Compared with the supplied source; original content restored and useful SEO improvements retained.
+comparison_status: Complete against the original text supplied in the conversation.
+faq_status: All five original questions and answers restored.
 ---
 
-Combining PDFs for a college assignment can make a submission easier to open and review when your instructor or course portal asks for one file. Put the documents in the required order, merge them, then open the finished PDF and check every page before uploading it.
+When preparing a college assignment, you may have a cover sheet, the main assignment, references, and appendices saved as separate PDF files. If your instructor asks you to submit everything as one PDF, you can combine the files into a single document. Always follow your course instructions first, especially if your instructor requires separate uploads.
 
-## Why combine assignment PDFs?
+## Why Combine PDFs for an Assignment?
 
-A single, ordered PDF can keep a cover sheet, assignment, supporting documents, and references together. It can also make it easier to check that nothing is missing before you submit.
+Combining assignment PDFs helps keep your submission organized and makes it easier to upload one complete document when your college or instructor requires it. It can also help ensure that your cover page, assignment, references, and appendices stay together.
 
-First, read the assignment directions. Some instructors want one PDF; others require separate uploads, a specific file name, or a particular order for references and appendices. Follow those instructions rather than assuming one format works for every class.
+First, read the assignment directions. Some instructors require separate uploads, a specific file name, or a particular order for references and appendices. Follow those instructions rather than assuming one format works for every class.
 
-## Step 1: Gather and check your PDF files
+## Step 1: Gather and Check Your PDF Files
 
-Make a working copy of each final document and collect only the files that belong in this submission. Before merging:
+Before merging, locate all the files you need. For example:
 
-- Open each PDF and confirm it is the right version.
-- Remove duplicate or unrelated files from the group you plan to merge.
-- Check that pages are upright and readable.
-- Make a note of any course rules for file names, page order, citations, or appendices.
+- `Cover-Page.pdf`
+- `Assignment.pdf`
+- `References.pdf`
+- `Appendix.pdf`
 
-If a PDF will not open normally or asks for a password, resolve that with the document owner or your instructor before you try to include it. Keep your original files unchanged so you can correct the combined copy if needed.
+Open each file and check that it contains the correct pages. Keep the original files unchanged until you have reviewed the merged copy.
 
-If some of your assignment pages are photos rather than PDFs, first follow the steps in [the guide to turning handwritten assignment photos into a PDF](/merge-handwritten-assignment-photos-into-pdf/). Review that PDF before adding it to the rest of your documents.
+If your assignment includes handwritten pages saved as photos, first convert those photos into a PDF using the [guide to turning handwritten assignment photos into a PDF](/merge-handwritten-assignment-photos-into-pdf/). Check that the pages are readable and correctly oriented before adding that PDF to your other files.
 
-## Step 2: Choose the correct page order
+If a PDF will not open normally or asks for a password, resolve that with the document owner or your instructor before trying to include it.
 
-Use the order required by your instructor or submission portal. There is no universal order for every assignment. For example, if the directions call for a cover sheet, main assignment, references, and appendix, place those parts in that sequence. If the directions put appendices before references, follow that instead.
+## Step 2: Put the Files in the Correct Order
 
-You can number file names to make a planned sequence easier to recognize, such as `01-cover.pdf`, `02-assignment.pdf`, and `03-references.pdf`. File names are only a planning aid; check the order shown in the merge tool before you start.
+A typical order is:
 
-## Step 3: Combine the PDFs
+1. Cover page
+2. Main assignment
+3. References or works cited
+4. Appendices, if required
 
-Open the [ClickPDF Merge PDF tool](/tools/merge-pdf/) and select the PDFs from your device, or drop them into the file area. The selected documents appear in a numbered list.
+Your instructor’s instructions take priority over this suggested order.
 
-Arrange the list so the first document should appear first in the finished PDF. Drag a file by its handle to move it. The list also offers A–Z and Reverse controls; use those only when their result matches your assignment instructions, then review the numbered order manually.
+## Step 3: Merge the PDFs
 
-When the order is correct, start the merge and download the resulting PDF. The tool appends the selected documents in the displayed sequence. It does not replace your original files.
+Open the [ClickPDF Merge PDF tool](/tools/merge-pdf/). Add the PDF files you want to combine and arrange them in the correct order before merging. The selected documents appear in a numbered list. Drag a file by its handle to move it, or use the A–Z and Reverse controls when their result matches your required order.
 
-## Step 4: Review the combined file before uploading
+Review the selected files carefully so that you do not leave out a required section or include an unrelated document. When the order is correct, start the merge and download the resulting PDF. The tool appends the selected documents in the displayed sequence and does not replace your original files.
 
-Open the downloaded PDF in a PDF viewer. Check the entire document, not just the first page:
+## Step 4: Review the Final PDF
 
-- Confirm the expected documents and pages are present and in order.
-- Check page orientation, margins, equations, charts, citations, and small text.
-- Make sure the cover sheet and references follow your course instructions.
-- Confirm the file opens and has the expected name and size.
+After merging, open the resulting PDF and check:
 
-If you notice a mistake, return to your original PDFs, correct the file order or source document, and create a new combined copy. Review that copy before submitting it.
+- The pages are in the correct order.
+- All required pages are present.
+- Text, diagrams, and handwritten content are readable.
+- Pages are not incorrectly rotated or cut off.
+- The filename is clear and appropriate for your course.
 
-## What if the PDF is too large?
+Keep the original files until you have confirmed that the final PDF is correct and your upload has been accepted.
 
-Check the exact file-size limit in your course instructions or upload portal. Combining PDFs joins the documents; it does not guarantee that the result will be smaller. If one PDF is required and the combined file exceeds the stated limit, you can try the [ClickPDF PDF Compressor](/tools/compress-pdf/) or read [the guide to reducing an assignment PDF's file size](/reduce-pdf-assignment-file-size/).
+## What If the PDF Is Too Large?
 
-Compression may affect scanned text, diagrams, or image quality. Compare the compressed PDF with the original and make sure it is still readable. If the portal accepts separate files, follow its rules instead of compressing or combining documents unnecessarily.
+Merging files combines them into one document; it does not necessarily reduce the file size. If your combined assignment exceeds your college’s upload limit, check the required size and format, then consider using the [ClickPDF Compress PDF tool](/tools/compress-pdf/). You can also read [the guide to reducing an assignment PDF's file size](/reduce-pdf-assignment-file-size/).
 
-## Quick pre-upload checklist
+After compression, open the file again and make sure the text, images, and handwritten pages remain readable. If your course accepts separate files, follow its instructions rather than combining or compressing them unnecessarily.
 
-- [ ] My instructor or portal accepts one combined PDF.
-- [ ] I used the required order, file name, and format.
-- [ ] Every required document and page is included once.
-- [ ] The final PDF opens and is readable throughout.
-- [ ] The file size meets the actual portal limit.
-- [ ] I kept the original files until the portal confirmed the submission.
+## Quick Pre-Upload Checklist
+
+Before submitting your assignment, confirm that:
+
+- [ ] Your course allows the required sections to be combined into one PDF.
+- [ ] The cover page and other sections are in the correct order.
+- [ ] All pages are present and readable.
+- [ ] References and appendices are included when required.
+- [ ] The filename is clear and appropriate.
+- [ ] The final file meets your learning management system’s size and format requirements.
+
+## Frequently Asked Questions
+
+### How can I combine PDFs for an assignment?
+
+Use a PDF merging tool to add the required files, arrange them in the correct order, and create one PDF. Open the merged file to verify that all pages are included and readable before submitting it.
+
+### Should the cover page come first?
+
+Usually, the cover page comes before the main assignment. However, follow your instructor’s assignment guidelines if they specify a different order or require a particular submission format.
+
+### Should I include references and appendices?
+
+Include references and appendices when your assignment requires them. Check the instructions to determine where they should appear and whether any material must be uploaded separately.
+
+### Can I combine a PDF with assignment photos?
+
+Yes. Convert the photos into a PDF first, check that the pages are readable and correctly oriented, and then merge that PDF with your other assignment files. You can refer to the [guide on turning handwritten assignment photos into a PDF](/merge-handwritten-assignment-photos-into-pdf/).
+
+### What if the combined PDF exceeds the learning management system’s file-size limit?
+
+Check your college’s file-size requirements and consider compressing the merged PDF with the [ClickPDF Compress PDF tool](/tools/compress-pdf/). Review the compressed file to ensure that text, diagrams, and handwritten pages remain clear.
