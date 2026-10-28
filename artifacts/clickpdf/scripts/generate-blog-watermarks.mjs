@@ -111,10 +111,13 @@ async function createWatermarkedImage(source, logoSvg) {
 
 const blogFiles = (await readdir(blogDir)).filter((fileName) => fileName.endsWith('.md')).sort();
 const sources = new Set([fallbackCover]);
+const unwatermarkedSources = new Set();
 for (const fileName of blogFiles) {
   const raw = await readFile(path.join(blogDir, fileName), 'utf8');
   const frontmatter = parseFrontmatter(raw);
-  sources.add(frontmatter.coverimage || frontmatter.image || fallbackCover);
+  const source = frontmatter.coverimage || frontmatter.image || fallbackCover;
+  sources.add(source);
+  if (frontmatter.coverwatermark === 'false') unwatermarkedSources.add(source);
 }
 
 let previousMap = {};
@@ -128,6 +131,19 @@ await mkdir(outputDir, { recursive: true });
 const logoSvg = await readFile(logoPath);
 const watermarkMap = {};
 for (const source of [...sources].sort()) {
+  if (unwatermarkedSources.has(source)) {
+    if (!source.startsWith('/') || source.startsWith('//')) {
+      throw new Error(`An unwatermarked blog cover must be a local public asset: ${source}`);
+    }
+    const localPath = path.resolve(publicDir, source.slice(1));
+    if (!localPath.startsWith(`${publicDir}${path.sep}`) || !await fileExists(localPath)) {
+      throw new Error(`Unwatermarked blog cover is missing from public assets: ${source}`);
+    }
+    watermarkMap[source] = source;
+    console.log(`Kept approved blog cover without a watermark: ${source}`);
+    continue;
+  }
+
   const previousPath = previousMap[source];
   if (!forceRefresh && typeof previousPath === 'string') {
     const existingFile = path.resolve(publicDir, `.${previousPath}`);

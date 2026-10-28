@@ -3,7 +3,7 @@
 Canonical homepage: https://www.clickpdf.net/
 Publisher: Click Digital Services
 Public PDF tools: 21
-Published Markdown articles: 189
+Published Markdown articles: 190
 
 ## Overview
 
@@ -209,6 +209,7 @@ Common questions: Does Add a Visual Signature to PDF upload my files to a server
 - [Giải mã Mật khẩu PDF và Mã hóa Zero-Knowledge](https://www.clickpdf.net/blog/giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge-vi/): Hiểu cách mật mã hóa phía máy khách AES-256 bảo vệ các tệp tài chính và pháp lý bí mật mà không cần dựa vào khóa chính phía máy chủ.
 - [解析 PDF 密码与零知识加密](https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-zh-zh/): 了解 AES-256 客户端加密技术如何在不依赖服务器端主密钥的情况下保护机密财务与法律文件。
 - [Demystifying PDF Passwords and Zero-Knowledge Encryption](https://www.clickpdf.net/blog/demystifying-pdf-passwords-encryption/): Understand how AES-256 client-side cryptography protects confidential financial and legal files without relying on server-side master keys.
+- [How to Combine PDFs for a College Assignment](https://www.clickpdf.net/how-to-combine-pdfs-for-a-college-assignment/): A practical guide to ordering, merging, and checking assignment PDFs before college submission.
 - [دليل عملي لتجميع حزم PDF نظيفة للتأشيرات والمحاكم والإقرارات الضريبية](https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ar-ar/): سير عمل خطوة بخطوة لدمج العقود والملاحق وسجلات الهوية متعددة الصفحات في ملفات تقديم موحدة واحترافية تلبي متطلبات الموظفين الصارمة.
 - [Ein praktischer Leitfaden für die Zusammenstellung sauberer PDF-Pakete für Visa, Gerichte und Steuererklärungen](https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-de-de/): Ein Schritt-für-Schritt-Workflow für die Kombination von mehrseitigen Verträgen, Anhängen und Identitätsnachweisen zu einheitlichen, professionellen Unterlagen, die strengen Anforderungen entsprechen.
 - [Guía práctica para compilar paquetes PDF limpios para visados, tribunales y declaraciones de impuestos](https://www.clickpdf.net/blog/guia-para-combinar-reordenar-pdfs-para-presentaciones-formales-es/): Un flujo de trabajo paso a paso para combinar contratos multipágina, apéndices y registros de identidad en presentaciones unificadas y profesionales que cumplen con los estrictos requisitos de los funcionarios.

@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 220 URLs, including 21 public tools, 189 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 221 URLs, including 21 public tools, 190 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -1566,6 +1566,16 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-zh-zh/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/blog/demystifying-pdf-passwords-encryption/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/blog/demystifying-pdf-passwords-encryption/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/how-to-combine-pdfs-for-a-college-assignment/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/college-assignment/clickpdf-college-assignment-cover-16x9.jpg</image:loc>
+      <image:title>How to Combine PDFs for a College Assignment</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ar-ar/</loc>

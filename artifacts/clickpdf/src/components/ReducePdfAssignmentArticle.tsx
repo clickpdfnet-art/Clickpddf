@@ -35,6 +35,19 @@ type MarkdownBlock =
 
 type ArticleSection = { title: string; id: string; blocks: MarkdownBlock[] };
 
+const inlineImageDimensions: Record<string, [number, number]> = {
+  '/blog-assets/image-to-pdf/image-to-pdf-workflow.png': [1800, 840],
+  '/blog-assets/image-to-pdf/image-to-pdf-file-processing.png': [1800, 974],
+  '/blog-assets/merge-handwritten-assignment/page-order.webp': [1024, 576],
+  '/blog-assets/merge-handwritten-assignment/scanning.webp': [1024, 576],
+  '/blog-assets/merge-handwritten-assignment/submission.webp': [1024, 576],
+  '/blog-assets/reduce-pdf-assignment/compression.jpg': [1600, 900],
+  '/blog-assets/reduce-pdf-assignment/scanned-pages.jpg': [1600, 900],
+  '/blog-assets/reduce-pdf-assignment/submission.jpg': [1600, 900],
+  '/blog-assets/college-assignment/clickpdf-assignment-document-order-4x3.jpg': [1200, 900],
+  '/blog-assets/college-assignment/clickpdf-assignment-final-review-4x3.jpg': [1200, 900],
+};
+
 const slugify = (value: string) =>
   value
     .toLowerCase()
@@ -223,9 +236,10 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
   };
   const renderBlock = (block: MarkdownBlock, index: number) => {
     if (block.type === 'image') {
+      const [width, height] = inlineImageDimensions[block.src] || [1024, 576];
       return (
         <figure key={`image-${index}`} className="my-8 overflow-hidden rounded-2xl border border-[#dbe3ee] bg-[#f2f6fa]">
-          <img src={block.src} alt={block.alt || 'PDF assignment workflow illustration'} width={1024} height={576} loading="lazy" decoding="async" className="block aspect-[16/9] w-full object-cover" />
+          <img src={block.src} alt={block.alt || 'PDF assignment workflow illustration'} width={width} height={height} loading="lazy" decoding="async" className="block h-auto max-h-[34rem] w-full object-contain" />
           {block.alt && <figcaption className="px-4 py-3 text-xs leading-relaxed text-slate-500">{block.alt}</figcaption>}
         </figure>
       );

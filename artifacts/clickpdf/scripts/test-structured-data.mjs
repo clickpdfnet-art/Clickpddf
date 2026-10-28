@@ -160,8 +160,15 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     const expectedImage = blogPosting?.image?.[0] || `${siteOrigin}/social/clickpdf-social-1200x630.png`;
     assert.equal(ogImage, expectedImage, `${url} Open Graph image matches the page's article image or site default`);
     assert.equal(twitterImage, ogImage);
-    assert.match(html, /property=["']og:image:width["']\s+content=["']1200["']/i);
-    assert.match(html, /property=["']og:image:height["']\s+content=["']630["']/i);
+    const sourceArticle = blogPosts.find((post) => post.metadata.routepath === new URL(url).pathname);
+    const expectedOgWidth = sourceArticle?.metadata.coverwatermark === 'false'
+      ? sourceArticle.metadata.coverwidth
+      : '1200';
+    const expectedOgHeight = sourceArticle?.metadata.coverwatermark === 'false'
+      ? sourceArticle.metadata.coverheight
+      : '630';
+    assert.match(html, new RegExp(`property=["']og:image:width["']\\s+content=["']${expectedOgWidth}["']`, 'i'));
+    assert.match(html, new RegExp(`property=["']og:image:height["']\\s+content=["']${expectedOgHeight}["']`, 'i'));
     assert.match(html, /rel=["']icon["'][^>]*href=["']\/favicon\.ico["']/i);
     assert.match(html, /rel=["']apple-touch-icon["'][^>]*href=["']\/apple-touch-icon\.png["']/i);
     assert.match(html, /sizes=["']192x192["'][^>]*href=["']\/icon-192\.png["']/i);
@@ -363,7 +370,12 @@ test('blog posts, blog index, FAQ, and batch routes have page-specific static sc
       const posting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
       assert.equal(posting?.publisher?.logo?.url, `${siteOrigin}/icon-512.png`, `${url} publisher uses the official logo`);
       const featuredImage = content.match(/<figure><img src="([^"]+)"/i)?.[1];
-      assert.match(featuredImage || '', /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/, `${url} uses a permanently watermarked featured image`);
+      const article = blogPosts.find((post) => post.metadata.routepath === new URL(url).pathname);
+      if (article?.metadata.coverwatermark === 'false') {
+        assert.equal(featuredImage, article.metadata.coverimage, `${url} keeps its approved cover image unwatermarked`);
+      } else {
+        assert.match(featuredImage || '', /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/, `${url} uses a permanently watermarked featured image`);
+      }
       assert.ok(
         posting?.image?.some((image) => image === `${siteOrigin}${featuredImage}`),
         `${url} structured data references its watermarked featured image`,
@@ -520,20 +532,34 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   assert.equal(favicon.readUInt16LE(2), 1);
 });
 
-test('each unique blog cover has a baked 1200x630 WebP logo-watermarked derivative', async () => {
+test('each unique blog cover follows its watermark policy and has a valid public image', async () => {
   const watermarkMap = JSON.parse(await readFile(path.join(appDir, 'src', 'data', 'blogWatermarkMap.json'), 'utf8'));
   const sitemap = await readFile(path.join(publicDir, 'sitemap.xml'), 'utf8');
   assert.ok(Object.keys(watermarkMap).length >= 9, 'all current unique covers, including the fallback, are mapped');
+  const unwatermarkedSources = new Set(
+    blogPosts
+      .filter((post) => post.metadata.coverwatermark === 'false')
+      .map((post) => post.metadata.coverimage),
+  );
 
   for (const [source, publicPath] of Object.entries(watermarkMap)) {
     assert.ok(source.startsWith('/') || source.startsWith('https://'), `${source} is a local path or HTTPS image`);
-    assert.match(publicPath, /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/);
+    if (unwatermarkedSources.has(source)) {
+      assert.equal(publicPath, source, `${source} remains unwatermarked by request`);
+    } else {
+      assert.match(publicPath, /^\/blog-assets\/watermarked\/[a-f0-9]{20}\.webp$/);
+    }
     const imagePath = path.join(publicDir, publicPath.slice(1));
     const image = await readFile(imagePath);
     const metadata = await sharp(image).metadata();
-    assert.equal(metadata.format, 'webp', `${publicPath} is an actual WebP image`);
-    assert.equal(metadata.width, 1200, `${publicPath} width`);
-    assert.equal(metadata.height, 630, `${publicPath} height`);
+    if (unwatermarkedSources.has(source)) {
+      assert.ok(['jpeg', 'png', 'webp'].includes(metadata.format || ''), `${publicPath} is a supported image`);
+      assert.ok(metadata.width && metadata.height, `${publicPath} has readable dimensions`);
+    } else {
+      assert.equal(metadata.format, 'webp', `${publicPath} is an actual WebP image`);
+      assert.equal(metadata.width, 1200, `${publicPath} width`);
+      assert.equal(metadata.height, 630, `${publicPath} height`);
+    }
     assert.ok(sitemap.includes(`${siteOrigin}${publicPath}`), `${publicPath} appears in the image sitemap`);
   }
 });

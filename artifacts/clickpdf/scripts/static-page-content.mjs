@@ -16,6 +16,8 @@ const inlineImageDimensions = new Map([
   ['/blog-assets/reduce-pdf-assignment/compression.jpg', [1600, 900]],
   ['/blog-assets/reduce-pdf-assignment/scanned-pages.jpg', [1600, 900]],
   ['/blog-assets/reduce-pdf-assignment/submission.jpg', [1600, 900]],
+  ['/blog-assets/college-assignment/clickpdf-assignment-document-order-4x3.jpg', [1200, 900]],
+  ['/blog-assets/college-assignment/clickpdf-assignment-final-review-4x3.jpg', [1200, 900]],
 ]);
 
 const defaultImageRenderer = markdown.renderer.rules.image;
@@ -246,8 +248,10 @@ export function renderToolFallback(tool, tools) {
 
 export function renderBlogFallback(article, articles) {
   const coverImageUrl = safeImageUrl(article.coverimage);
+  const coverImageWidth = Number(article.coverwidth) || 1200;
+  const coverImageHeight = Number(article.coverheight) || 630;
   const coverImage = coverImageUrl
-    ? `<figure><img src="${escapeHtml(coverImageUrl)}" alt="${escapeHtml(article.imagealt || article.title)}" width="1200" height="630" loading="lazy" style="display:block;width:100%;height:auto" /><figcaption>${escapeHtml(article.imagealt || article.title)}</figcaption></figure>`
+    ? `<figure><img src="${escapeHtml(coverImageUrl)}" alt="${escapeHtml(article.imagealt || article.title)}" width="${coverImageWidth}" height="${coverImageHeight}" loading="lazy" style="display:block;width:100%;height:auto" /><figcaption>${escapeHtml(article.imagealt || article.title)}</figcaption></figure>`
     : '';
   const metadata = `<p><span>${escapeHtml(article.author || 'ClickPDF Editorial Team')}</span>${article.date ? ` · <time>${escapeHtml(article.date)}</time>` : ''}${article.category ? ` · <span>${escapeHtml(article.category)}</span>` : ''}</p>`;
   const quickAnswer = article.quickanswer || article.summary || article.excerpt || article.seodescription || article.title;

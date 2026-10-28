@@ -562,6 +562,8 @@ function prepareRouteHtml(template, {
   staticContent = '',
   ogType = 'website',
   socialImage: pageSocialImage = socialImage,
+  socialImageWidth = 1200,
+  socialImageHeight = 630,
   socialImageAlt = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools',
   hreflangAlternates = [],
   robots,
@@ -591,8 +593,8 @@ function prepareRouteHtml(template, {
   html = setMeta(html, 'property="og:site_name"', 'ClickPDF');
   html = setMeta(html, 'property="og:image"', absoluteImage);
   html = setMeta(html, 'property="og:image:alt"', socialImageAlt || title);
-  html = setMeta(html, 'property="og:image:width"', '1200');
-  html = setMeta(html, 'property="og:image:height"', '630');
+  html = setMeta(html, 'property="og:image:width"', String(socialImageWidth));
+  html = setMeta(html, 'property="og:image:height"', String(socialImageHeight));
   html = setMeta(html, 'name="twitter:card"', 'summary_large_image');
   html = setMeta(html, 'name="twitter:title"', title);
   html = setMeta(html, 'name="twitter:description"', description);
@@ -718,6 +720,8 @@ for (const article of articles) {
     schema,
     ogType: 'article',
     socialImage: article.coverimage || socialImage,
+    socialImageWidth: Number(article.coverwidth) || 1200,
+    socialImageHeight: Number(article.coverheight) || 630,
     socialImageAlt: article.imagealt || article.title,
     hreflangAlternates: alternatesBySlug.get(article.slug) || [],
     robots: 'index,follow',
