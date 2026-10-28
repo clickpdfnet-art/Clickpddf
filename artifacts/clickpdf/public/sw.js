@@ -6,7 +6,7 @@ const CACHE_VERSION = 'clickpdf-v4';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const APP_SCOPE = self.registration.scope;
-const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
+const AD_ASSET_PATHS = new Set(['/ad-160x300.html', '/ad-160x300']);
 
 // Core assets to pre-cache on install
 const PRECACHE_URLS = [

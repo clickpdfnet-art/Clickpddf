@@ -22,8 +22,8 @@ function createAssetsBinding() {
         return new Response('Not Found', { status: 404 });
       }
       const relativePath = decodedPath.replace(/^\/+/, '');
-      const assetPath = relativePath === 'ad-320x50'
-        ? path.join(publicDir, 'ad-320x50.html')
+      const assetPath = relativePath === 'ad-160x300'
+        ? path.join(publicDir, 'ad-160x300.html')
         : /\.(?:json|html)$/i.test(relativePath)
         ? path.join(publicDir, relativePath)
         : path.join(publicDir, relativePath, 'index.html');
@@ -85,10 +85,10 @@ test('legacy tool aliases redirect to their current canonical tool routes', asyn
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/pdf-metadata'), '/tools/edit-pdf-metadata/');
 });
 
-test('the ad HTML URL returns the static advertisement document directly', async () => {
+test('the 160x300 ad URL returns the static advertisement document directly', async () => {
   const env = { ASSETS: createAssetsBinding() };
   const response = await worker.fetch(
-    new Request('https://www.clickpdf.net/ad-320x50.html'),
+    new Request('https://www.clickpdf.net/ad-160x300.html'),
     env,
   );
 
@@ -97,7 +97,9 @@ test('the ad HTML URL returns the static advertisement document directly', async
   const html = await response.text();
   assert.match(html, /<title>Advertisement<\/title>/);
   assert.match(html, /atOptions/);
-  assert.match(html, /https:\/\/bauval\.org\/22\/3221c27a7eae6feed96313cf6813cfcc/);
+  assert.match(html, /https:\/\/bauval\.org\/22\/e39a0a66fdd541a9ce157b436297163d/);
+  assert.match(html, /height:\s*300/);
+  assert.match(html, /width:\s*160/);
   assert.doesNotMatch(html, /404 Page not found|Free PDF tools that work in your browser/);
 });
 

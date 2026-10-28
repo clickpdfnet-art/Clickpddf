@@ -2,8 +2,8 @@ const APEX_HOST = 'clickpdf.net';
 const CANONICAL_HOST = 'www.clickpdf.net';
 const UNICODE_ROUTE_MAP_PATH = '/__unicode_routes.json';
 const BLOG_ROUTE_MAP_PATH = '/__blog_routes.json';
-const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
-const AD_ASSET_STORAGE_PATH = '/ad-320x50';
+const AD_ASSET_PATHS = new Set(['/ad-160x300.html', '/ad-160x300']);
+const AD_ASSET_STORAGE_PATH = '/ad-160x300';
 const PUBLIC_STATIC_PAGE_PATHS = new Set([
   '/faq',
   '/batch',

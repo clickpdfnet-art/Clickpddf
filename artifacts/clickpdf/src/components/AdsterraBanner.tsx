@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const BANNER_WIDTH = 320;
-const BANNER_HEIGHT = 50;
+const BANNER_WIDTH = 160;
+const BANNER_HEIGHT = 300;
 const COOKIE_CONSENT_KEY = 'clickpdf_cookie_consent_v1';
 const CONSENT_CHANGED_EVENT = 'clickpdf-cookie-consent-change';
 
@@ -75,7 +75,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
       {adsAllowed && (
         <iframe
           title="Advertisement"
-          src="/ad-320x50.html"
+          src="/ad-160x300.html"
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}
