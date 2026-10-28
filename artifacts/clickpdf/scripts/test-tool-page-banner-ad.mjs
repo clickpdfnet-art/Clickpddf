@@ -86,7 +86,7 @@ try {
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 0, 'home page must not mount the ad');
 
   await goTo('/tools/merge');
-  await waitFor(() => evaluate(`document.body?.innerText.includes('Merge PDF') && document.body?.innerText.includes('Back to Tools Catalog')`), 'Merge PDF page');
+  await waitFor(() => evaluate(`document.body?.innerText.includes('Merge PDF') && document.body?.innerText.includes('Back to PDF Tools')`), 'Merge PDF page');
   await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'loading'`), 'loading ad slot');
   const initialState = await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
@@ -94,7 +94,7 @@ try {
     const slotRect = ad?.getBoundingClientRect();
     const frameRect = frame?.getBoundingClientRect();
     const header = document.querySelector('header');
-    const back = [...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to Tools Catalog'));
+    const back = [...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to PDF Tools'));
     return {
       state: ad?.dataset.adState,
       display: ad && getComputedStyle(ad).display,
@@ -105,7 +105,7 @@ try {
       belowHeader: Boolean(header && slotRect && slotRect.top >= header.getBoundingClientRect().bottom),
       aboveBack: Boolean(back && slotRect && slotRect.bottom <= back.getBoundingClientRect().top),
       iframes: ad?.querySelectorAll('iframe').length,
-      hasBackButton: Boolean([...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to Tools Catalog'))),
+      hasBackButton: Boolean([...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to PDF Tools'))),
       hasHeader: Boolean(document.querySelector('header'))
     };
   })()`);

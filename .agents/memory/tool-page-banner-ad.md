@@ -12,3 +12,5 @@ Adsterra's supplied script does not expose a verifiable fill callback. A nested 
 **Why:** the user requested default-on loading for the single active banner, an explicit advertising opt-out, and no cross-origin inspection of the creative.
 
 **How to apply:** preserve the shared ad placement and consent notice behavior. Keep file processing isolated from ad scripts. Use an official provider fill signal if one becomes available; otherwise describe the fallback as frame-load detection only.
+
+When a banner is blank, record both the provider script's HTTP status and response byte count before changing iframe or layout code. A successful HTTP status with an empty body means the provider supplied no creative; it is not evidence of a local spacing failure.
