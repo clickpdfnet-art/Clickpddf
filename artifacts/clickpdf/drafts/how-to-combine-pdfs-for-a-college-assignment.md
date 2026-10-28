@@ -13,9 +13,10 @@ secondary_keywords:
   - combine cover page and references PDF
   - compress PDF for college submission
 suggested_byline: Click Digital Services; confirm before publication.
-publication_date: Set after approval.
-featured_image: Pending review; no image selected or generated.
-faq_source_note: The supplied brief did not include original FAQ wording; the five FAQs below are newly drafted from its outline.
+content_source_status: The supplied file contains the SEO brief, not the original article body.
+content_status: New draft from the outline; not reconstructed from or compared against the missing original.
+comparison_status: Incomplete; the original article text was not supplied.
+faq_status: The original five FAQ questions and answers were not supplied; FAQ content is withheld.
 ---
 
 Combining PDFs for a college assignment can make a submission easier to open and review when your instructor or course portal asks for one file. Put the documents in the required order, merge them, then open the finished PDF and check every page before uploading it.
@@ -78,25 +79,3 @@ Compression may affect scanned text, diagrams, or image quality. Compare the com
 - [ ] The final PDF opens and is readable throughout.
 - [ ] The file size meets the actual portal limit.
 - [ ] I kept the original files until the portal confirmed the submission.
-
-## Frequently asked questions
-
-### How do I combine multiple PDF files into one assignment?
-
-Open the Merge PDF tool, select the files, arrange them in the required order, start the merge, and download the resulting PDF. Review the downloaded file before you submit it.
-
-### What order should I use for an assignment PDF?
-
-Use the sequence specified by your instructor or portal. A cover sheet, assignment, references, and appendices are common parts, but their order can vary by course.
-
-### Can I reorder files before merging them?
-
-Yes. The Merge PDF tool shows selected documents in a numbered list. Drag a file by its handle, or use A–Z or Reverse if that matches the required order. Check the list before starting the merge.
-
-### Does merging PDFs reduce the file size?
-
-Not necessarily. Merging combines the documents and may leave the result larger than any single source file. If the final PDF exceeds your course's limit, compression may help, but always inspect the result for readability.
-
-### Are my PDF files uploaded to ClickPDF when I merge them?
-
-The Merge PDF implementation reads the selected files in the browser and creates the merged document there; the merge operation does not make a server round trip with the PDF contents. The web page may still load site resources and enabled third-party services, such as ads, so this does not mean the whole page makes no network requests.
