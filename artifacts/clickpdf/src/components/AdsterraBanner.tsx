@@ -90,6 +90,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
           title="Advertisement"
           src="/ad-320x50.html"
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
+          referrerPolicy="strict-origin-when-cross-origin"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}
           scrolling="no"

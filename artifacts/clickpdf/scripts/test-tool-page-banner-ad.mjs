@@ -138,7 +138,7 @@ try {
   assert.equal(frameState.frameCount, 1);
    assert.equal(frameState.framePath, '/ad-320x50.html', 'the banner must load from its standalone static document');
   assert.equal(frameState.hasSrcDoc, false, 'the provider document must not use srcDoc');
-  assert.equal(frameState.referrerPolicy, '');
+  assert.equal(frameState.referrerPolicy, 'strict-origin-when-cross-origin');
   assert.equal(frameState.isIsolated, true, 'provider code must not share the application origin');
   const staticAdPage = await evaluate(`(async () => {
       const response = await fetch('/ad-320x50.html');
