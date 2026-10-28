@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-const BANNER_WIDTH = 320;
-const BANNER_HEIGHT = 50;
+const BANNER_WIDTH = 160;
+const BANNER_HEIGHT = 300;
 
 interface AdsterraBannerProps {
   className?: string;
@@ -13,12 +13,12 @@ function createProviderFrameDocument(): string {
 <head>
   <meta charset="utf-8">
   <base target="_blank">
-  <meta name="viewport" content="width=320, initial-scale=1">
+  <meta name="viewport" content="width=160, initial-scale=1">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 320px;
-      height: 50px;
+      width: 160px;
+      height: 300px;
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -31,17 +31,17 @@ function createProviderFrameDocument(): string {
   </style>
 </head>
 <body>
-  <div style="width:320px;height:50px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+  <div style="width:160px;height:300px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
     <script type="text/javascript">
       atOptions = {
-        'key' : '3221c27a7eae6feed96313cf6813cfcc',
+        'key' : 'e39a0a66fdd541a9ce157b436297163d',
         'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
+        'height' : 300,
+        'width' : 160,
         'params' : {}
       };
     </script>
-    <script type="text/javascript" src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"></script>
+    <script type="text/javascript" src="https://bauval.org/22/e39a0a66fdd541a9ce157b436297163d"></script>
   </div>
 </body>
 </html>`;
@@ -95,7 +95,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
           ref={frameRef}
           title="Advertisement"
           srcDoc={srcDoc}
-          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}
           scrolling="no"
