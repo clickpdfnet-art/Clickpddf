@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import type { BlogPost } from '../types';
+import { BLOG_ARTICLE_DETAIL_TRANSLATIONS } from '../i18n/blogArticleDetailTranslations';
+import { TOOL_TRANSLATIONS, type Language } from '../i18n/translations';
+import { MISSING_TOOL_TRANSLATIONS, type NewToolId } from '../i18n/missingToolTranslations';
 import {
   formatLocalizedByline,
   formatLocalizedDate,
@@ -169,10 +172,10 @@ const InlineText: React.FC<{ text: string; onSelectTool?: (toolId: string) => vo
 };
 
 const tools = [
-  { title: 'Compress PDF', href: '/tools/compress-pdf', id: 'compress', icon: FileText, note: 'Reduce document size' },
-  { title: 'PDF to Word', href: '/tools/pdf-to-word', id: 'pdf-to-word', icon: FileType2, note: 'Make a document editable' },
-  { title: 'Image to PDF', href: '/tools/image-to-pdf', id: 'jpg-to-pdf', icon: Images, note: 'Turn images into a PDF' },
-  { title: 'Merge PDF', href: '/tools/merge-pdf', id: 'merge', icon: Layers3, note: 'Combine PDF files' },
+  { href: '/tools/compress-pdf', id: 'compress', icon: FileText },
+  { href: '/tools/pdf-to-word', id: 'pdf-to-word', icon: FileType2 },
+  { href: '/tools/image-to-pdf', id: 'jpg-to-pdf', icon: Images },
+  { href: '/tools/merge-pdf', id: 'merge', icon: Layers3 },
 ];
 
 const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
@@ -184,6 +187,8 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
   onSelectArticle,
 }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const articleLanguage = (article.locale || 'en') as Language;
+  const copy = BLOG_ARTICLE_DETAIL_TRANSLATIONS[articleLanguage] || BLOG_ARTICLE_DETAIL_TRANSLATIONS.en;
   const parsed = useMemo(() => parseMarkdown(article.content), [article.content]);
   const isMobileAssignmentGuide = article.slug === 'merge-handwritten-assignment-photos-into-pdf';
   const primaryToolHref = article.targetToolUrl || '/tools/compress-pdf';
@@ -260,10 +265,10 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
   return (
     <div className="min-h-[75vh] overflow-x-hidden bg-[#f7f9fc] text-[#172b4d]">
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6 lg:px-8">
-        <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-slate-500 sm:text-sm">
-          <a href="/" onClick={breadcrumbHomeClick} className="transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">Home</a>
+        <nav aria-label={copy.breadcrumbAriaLabel} className="mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-slate-500 sm:text-sm">
+          <a href="/" onClick={breadcrumbHomeClick} className="transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">{copy.breadcrumbHome}</a>
           <span aria-hidden="true" className="text-slate-300">/</span>
-          <a href="/" onClick={breadcrumbHomeClick} className="transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">PDF Tools</a>
+          <a href="/" onClick={breadcrumbHomeClick} className="transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">{copy.breadcrumbPdfTools}</a>
           <span aria-hidden="true" className="text-slate-300">/</span>
           <span aria-current="page" className="max-w-full truncate text-slate-700">{breadcrumbTitle}</span>
         </nav>
@@ -296,19 +301,19 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#eaf1fa]/55 via-transparent to-[#102642]/10 md:bg-gradient-to-l md:from-[#102642]/10 md:to-transparent" />
               <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3.5 py-2 text-xs font-semibold text-[#243c5c] shadow-sm backdrop-blur">
-                <ShieldCheck size={15} className="text-cyan-700" />Practical PDF workflow
+                <ShieldCheck size={15} className="text-cyan-700" />{copy.workflowLabel}
               </div>
             </div>
           </div>
         </header>
 
-        <nav aria-label="Table of contents" className="mt-8 rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
+        <nav aria-label={copy.contentsAriaLabel} className="mt-8 rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-indigo-700">On this page</p>
-              <h2 className="mt-1 text-lg font-bold text-[#172b4d]">Contents</h2>
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-indigo-700">{copy.onThisPage}</p>
+              <h2 className="mt-1 text-lg font-bold text-[#172b4d]">{copy.contents}</h2>
             </div>
-            <span className="rounded-full bg-[#eef3fa] px-2.5 py-1 text-xs font-semibold tabular-nums text-slate-600">{parsed.sections.length} sections</span>
+            <span className="rounded-full bg-[#eef3fa] px-2.5 py-1 text-xs font-semibold tabular-nums text-slate-600">{copy.sectionsLabel.replace('{count}', String(parsed.sections.length))}</span>
           </div>
           <ol className="grid gap-1 sm:grid-cols-2">
             {parsed.sections.map((section, index) => (
@@ -320,7 +325,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               </li>
             ))}
             {(article.faqItems?.length || 0) > 0 && (
-              <li><a href="#frequently-asked-questions" className="group flex items-start gap-2.5 rounded-lg px-2.5 py-2 text-xs leading-5 text-slate-600 transition-colors hover:bg-[#f1f5fb] hover:text-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600"><span className="mt-px w-5 shrink-0 font-mono text-[10px] font-semibold text-slate-400">FAQ</span><span>Frequently asked questions</span></a></li>
+              <li><a href="#frequently-asked-questions" className="group flex items-start gap-2.5 rounded-lg px-2.5 py-2 text-xs leading-5 text-slate-600 transition-colors hover:bg-[#f1f5fb] hover:text-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600"><span className="mt-px w-5 shrink-0 font-mono text-[10px] font-semibold text-slate-400">FAQ</span><span>{copy.faqLinkLabel}</span></a></li>
             )}
           </ol>
         </nav>
@@ -343,8 +348,8 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
 
               {!isMobileAssignmentGuide && <section id="frequently-asked-questions" className="scroll-mt-24 pt-8">
               <div className="mb-5">
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-indigo-700">Quick answers</p>
-                <h2 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#172b4d]">Frequently asked questions</h2>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-indigo-700">{copy.quickAnswers}</p>
+                <h2 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-[#172b4d]">{copy.faqTitle}</h2>
               </div>
               <div className="divide-y divide-[#e6ebf2] border-y border-[#e6ebf2]">
                 {(article.faqItems || []).map((faq, index) => {
@@ -374,12 +379,18 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
             <div className="mt-9 flex flex-col gap-4 rounded-2xl bg-[#eef5fb] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
               <div>
                 <p className="font-semibold text-[#1d385b]">
-                  {primaryToolIsConverter ? 'Ready to turn your photos into one PDF?' : 'Ready to make a smaller copy?'}
+                  {primaryToolIsConverter
+                    ? copy.readyToConvert
+                    : primaryToolId === 'merge'
+                      ? copy.readyToMerge
+                      : copy.readyToCompress}
                 </p>
                 <p className="mt-1 text-sm leading-6 text-slate-600">
                   {primaryToolIsConverter
-                    ? 'Select your assignment images, arrange them, and review the PDF before downloading.'
-                    : 'Compare the output with your original before submitting.'}
+                    ? copy.convertDescription
+                    : primaryToolId === 'merge'
+                      ? copy.mergeDescription
+                      : copy.compressDescription}
                 </p>
               </div>
               <a href={primaryToolHref} onClick={(event) => selectTool(event, primaryToolId)} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-700 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
@@ -413,19 +424,24 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
             )}
             {!isMobileAssignmentGuide && <section aria-labelledby="compress-cta-heading" className="overflow-hidden rounded-2xl border border-[#d6e5f0] bg-[#eaf5fa] p-5 sm:p-6">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-cyan-800 shadow-sm"><FileText size={19} /></div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">ClickPDF tool</p>
-              <h2 id="compress-cta-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Need to Compress Your PDF?</h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">Use our PDF compressor to quickly reduce your file size and meet LMS upload limits.</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">{copy.toolEyebrow}</p>
+              <h2 id="compress-cta-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">{copy.compressorTitle}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{copy.compressorDescription}</p>
               <a href="/tools/compress-pdf" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
-                Compress PDF Now <ArrowRight size={16} />
+                {copy.compressorCta} <ArrowRight size={16} />
               </a>
-              <p className="mt-3 flex items-start gap-2 text-[11px] leading-5 text-slate-500"><ShieldCheck size={14} className="mt-0.5 shrink-0 text-cyan-700" />Review the tool’s processing and privacy details before adding a document.</p>
+              <p className="mt-3 flex items-start gap-2 text-[11px] leading-5 text-slate-500"><ShieldCheck size={14} className="mt-0.5 shrink-0 text-cyan-700" />{copy.privacyNote}</p>
             </section>}
 
             <section aria-labelledby="related-tools-heading" className="rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
-              <h2 id="related-tools-heading" className="text-base font-bold text-[#172b4d]">Related Tools</h2>
+              <h2 id="related-tools-heading" className="text-base font-bold text-[#172b4d]">{copy.relatedTools}</h2>
               <ul className="mt-3 divide-y divide-[#edf1f6]">
-                {tools.map(({ title, href, id, icon: Icon, note }) => (
+                {tools.map(({ href, id, icon: Icon }) => {
+                  const localizedTool = TOOL_TRANSLATIONS[id]?.[articleLanguage]
+                    || MISSING_TOOL_TRANSLATIONS[articleLanguage]?.[id as NewToolId];
+                  const title = localizedTool?.title || id;
+                  const note = localizedTool?.description || '';
+                  return (
                   <li key={href}>
                     <a href={href} onClick={(event) => selectTool(event, id)} className="group flex items-center gap-3 py-3 first:pt-1 last:pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">
                       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#f0f4fa] text-indigo-700 transition-colors group-hover:bg-indigo-100"><Icon size={17} /></span>
@@ -436,13 +452,14 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                       <ArrowRight size={15} className="shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-indigo-700" />
                     </a>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </section>
 
             {relatedArticles.length > 0 && (
               <section aria-labelledby="related-guides-heading" className="rounded-2xl border border-[#dfe7f1] bg-white p-5 shadow-[0_8px_30px_-28px_rgba(23,43,77,0.4)] sm:p-6">
-                <h2 id="related-guides-heading" className="text-base font-bold text-[#172b4d]">More guides</h2>
+                <h2 id="related-guides-heading" className="text-base font-bold text-[#172b4d]">{copy.moreGuides}</h2>
                 <div className="mt-3 space-y-1">
                   {relatedArticles.map((item) => (
                     <a key={item.id} href={item.routePath || `/blog/${encodeURIComponent(item.slug)}`} onClick={(event) => selectArticle(event, item)} className="group flex items-start gap-3 rounded-lg px-2 py-3 transition-colors hover:bg-[#f4f7fb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">
@@ -490,7 +507,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
         {(onCloseArticle || onBackToHome) && (
           <div className="mt-8 flex justify-start">
             <button type="button" onClick={onCloseArticle || onBackToHome} className="inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-semibold text-slate-600 transition-colors hover:text-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">
-              <ArrowLeft size={16} />Back to guides
+              <ArrowLeft size={16} />{copy.backToGuides}
             </button>
           </div>
         )}

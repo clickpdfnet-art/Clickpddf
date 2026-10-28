@@ -3,7 +3,7 @@
 Canonical homepage: https://www.clickpdf.net/
 Publisher: Click Digital Services
 Public PDF tools: 21
-Published Markdown articles: 190
+Published Markdown articles: 210
 
 ## Overview
 
@@ -209,6 +209,26 @@ Common questions: Does Add a Visual Signature to PDF upload my files to a server
 - [Giải mã Mật khẩu PDF và Mã hóa Zero-Knowledge](https://www.clickpdf.net/blog/giai-ma-mat-khau-pdf-va-ma-hoa-zero-knowledge-vi/): Hiểu cách mật mã hóa phía máy khách AES-256 bảo vệ các tệp tài chính và pháp lý bí mật mà không cần dựa vào khóa chính phía máy chủ.
 - [解析 PDF 密码与零知识加密](https://www.clickpdf.net/blog/pdf-passwords-zero-knowledge-encryption-zh-zh/): 了解 AES-256 客户端加密技术如何在不依赖服务器端主密钥的情况下保护机密财务与法律文件。
 - [Demystifying PDF Passwords and Zero-Knowledge Encryption](https://www.clickpdf.net/blog/demystifying-pdf-passwords-encryption/): Understand how AES-256 client-side cryptography protects confidential financial and legal files without relying on server-side master keys.
+- [كيفية دمج ملفات PDF لواجب جامعي](https://www.clickpdf.net/blog/damj-milafat-pdf-lil-wajib-aljamii-ar/): رتّب صفحة الغلاف والواجب والمراجع والملاحق، ثم ادمج ملفات PDF وتحقق من المستند قبل تسليمه.
+- [PDFs für eine Studienarbeit zusammenfügen](https://www.clickpdf.net/blog/pdfs-fuer-eine-studienarbeit-zusammenfuegen-de/): Bringen Sie Deckblatt, Arbeit, Quellen und erforderliche Anhänge in die richtige Reihenfolge und prüfen Sie die zusammengeführte PDF-Datei.
+- [Cómo combinar PDF para un trabajo universitario](https://www.clickpdf.net/blog/unir-pdf-para-una-tarea-universitaria-es/): Ordena la portada, el trabajo, las referencias y los anexos, y reúne los archivos PDF para entregar una sola copia revisada.
+- [Comment fusionner des PDF pour un devoir universitaire](https://www.clickpdf.net/blog/fusionner-pdf-pour-un-devoir-universitaire-fr/): Classez la page de garde, le devoir, les références et les annexes avant de réunir les fichiers PDF dans un document vérifié.
+- [कॉलेज असाइनमेंट के लिए PDF कैसे जोड़ें](https://www.clickpdf.net/blog/college-assignment-ke-liye-pdf-joden-hi/): कवर पेज, असाइनमेंट, संदर्भ और परिशिष्ट सही क्रम में रखकर PDF जोड़ें और जमा करने से पहले जाँचें।
+- [Cara Menggabungkan PDF untuk Tugas Kuliah](https://www.clickpdf.net/blog/gabungkan-pdf-untuk-tugas-kuliah-id/): Susun halaman sampul, tugas, referensi, dan lampiran, gabungkan PDF, lalu periksa berkas akhir sebelum dikumpulkan.
+- [Come unire PDF per un compito universitario](https://www.clickpdf.net/blog/unire-pdf-per-un-compito-universitario-it/): Metti in ordine copertina, compito, riferimenti e appendici, unisci i PDF e verifica il documento prima della consegna.
+- [大学の課題用にPDFを結合する方法](https://www.clickpdf.net/blog/daigaku-kadai-pdf-wo-matomeru-ja/): 表紙、課題本文、参考文献、付録を順番に並べてPDFを結合し、提出前に仕上がりを確認します。
+- [대학 과제용 PDF 파일 합치는 방법](https://www.clickpdf.net/blog/daehak-gwaje-pdf-habchigi-ko/): 표지, 과제 본문, 참고문헌과 부록을 순서대로 정리해 PDF를 합치고 제출 전에 확인하세요.
+- [Pdf’s samenvoegen voor een universitaire opdracht](https://www.clickpdf.net/blog/pdfs-samenvoegen-voor-een-universitaire-opdracht-nl/): Zet voorblad, opdracht, bronnen en bijlagen in de juiste volgorde, voeg de pdf’s samen en controleer het bestand voor inlevering.
+- [Slik slår du sammen PDF-filer til en studieoppgave](https://www.clickpdf.net/blog/sla-sammen-pdf-til-studieoppgave-no/): Sett forsiden, oppgaven, kildene og vedleggene i riktig rekkefølge, slå sammen PDF-filene og kontroller dokumentet før innlevering.
+- [Jak połączyć pliki PDF do pracy na studia](https://www.clickpdf.net/blog/polaczyc-pdf-do-pracy-na-studia-pl/): Ułóż stronę tytułową, pracę, bibliografię i załączniki, połącz pliki PDF i sprawdź dokument przed oddaniem.
+- [Como juntar PDFs para um trabalho universitário](https://www.clickpdf.net/blog/juntar-pdf-para-trabalho-universitario-pt/): Organize a capa, o trabalho, as referências e os anexos, junte os PDFs e confira o documento final antes de enviar.
+- [Как объединить PDF-файлы для учебной работы](https://www.clickpdf.net/blog/obedinit-pdf-dlya-universitetskogo-zadaniya-ru/): Расположите титульный лист, работу, источники и приложения по порядку, объедините PDF и проверьте файл перед сдачей.
+- [Så slår du ihop PDF-filer till en högskoleuppgift](https://www.clickpdf.net/blog/sla-ihop-pdf-for-en-universitetsuppgift-sv/): Ordna omslag, uppgift, källor och bilagor, slå ihop PDF-filerna och kontrollera dokumentet innan du lämnar in det.
+- [Paano Pagsamahin ang mga PDF para sa College Assignment](https://www.clickpdf.net/blog/pagsamahin-pdf-para-sa-kolehiyo-tl/): Ayusin ang cover page, assignment, references, at mga appendix, pagsamahin ang mga PDF, at suriin ang file bago isumite.
+- [Üniversite Ödevi İçin PDF Nasıl Birleştirilir?](https://www.clickpdf.net/blog/universite-odevi-icin-pdf-birlestirme-tr/): Kapak, ödev, kaynakça ve ekleri sıraya koyup PDF dosyalarını birleştirin; teslim etmeden önce sonucu kontrol edin.
+- [کالج اسائنمنٹ کے لیے PDF فائلیں کیسے جوڑیں](https://www.clickpdf.net/blog/college-assignment-pdf-jam-karne-ka-tareeqa-ur/): سرورق، اسائنمنٹ، حوالہ جات اور ضمیموں کو درست ترتیب میں رکھ کر PDF فائلیں جوڑیں اور جمع کرانے سے پہلے جانچیں۔
+- [Cách gộp PDF cho bài tập đại học](https://www.clickpdf.net/blog/gop-pdf-cho-bai-tap-dai-hoc-vi/): Sắp xếp trang bìa, bài làm, tài liệu tham khảo và phụ lục, gộp các tệp PDF rồi kiểm tra trước khi nộp.
+- [如何为大学作业合并 PDF](https://www.clickpdf.net/blog/daxue-zuoye-hebing-pdf-zh/): 按顺序整理封面、作业、参考文献和附录，合并 PDF 后再检查最终文件。
 - [How to Combine PDFs for a College Assignment](https://www.clickpdf.net/how-to-combine-pdfs-for-a-college-assignment/): A practical guide to ordering, merging, and checking assignment PDFs before college submission.
 - [دليل عملي لتجميع حزم PDF نظيفة للتأشيرات والمحاكم والإقرارات الضريبية](https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-ar-ar/): سير عمل خطوة بخطوة لدمج العقود والملاحق وسجلات الهوية متعددة الصفحات في ملفات تقديم موحدة واحترافية تلبي متطلبات الموظفين الصارمة.
 - [Ein praktischer Leitfaden für die Zusammenstellung sauberer PDF-Pakete für Visa, Gerichte und Steuererklärungen](https://www.clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings-de-de/): Ein Schritt-für-Schritt-Workflow für die Kombination von mehrseitigen Verträgen, Anhängen und Identitätsnachweisen zu einheitlichen, professionellen Unterlagen, die strengen Anforderungen entsprechen.

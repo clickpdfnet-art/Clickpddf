@@ -3,8 +3,8 @@ draft_status: review-only
 title: How to Combine PDFs for a College Assignment
 proposed_route: /how-to-combine-pdfs-for-a-college-assignment/
 route_status: An earlier version is live at this route; this review revision is not deployed.
-seo_title: How to Combine PDFs for a College Assignment
-meta_description: Learn how to combine PDFs for a college assignment, arrange your cover page and references, merge files, and check the final PDF before submission.
+seo_title: How to Combine PDFs for a College Assignment | ClickPDF
+meta_description: Learn how to combine PDFs for a college assignment: order the cover page, references, and appendices, merge files, then review the PDF before submitting.
 primary_keyword: how to combine PDFs for a college assignment
 secondary_keywords:
   - combine PDFs for assignment

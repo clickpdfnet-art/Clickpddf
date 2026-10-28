@@ -179,7 +179,7 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
 });
 
 test('every blog translation group has complete cards and articles in all supported locales', async () => {
-  assert.equal(blogTranslationGroups.size, 9, 'the existing image guide and eight other article groups are localized');
+  assert.equal(blogTranslationGroups.size, 10, 'the existing image guide and nine other article groups are localized');
   for (const [groupName, group] of blogTranslationGroups) {
     const locales = group.map((post) => post.metadata.locale || 'en').sort();
     assert.equal(group.length, supportedBlogLocales.length, `${groupName} has one entry per supported locale`);
@@ -218,8 +218,28 @@ test('every blog translation group has complete cards and articles in all suppor
       const links = (body) => [...body.matchAll(/\]\(([^)]+)\)/g)].map((match) => match[1]);
       const codeSpans = (body) => [...body.matchAll(/`([^`]+)`/g)].map((match) => match[1]);
       assert.equal(headingCount(post.body), headingCount(english.body), `${post.file} preserves heading hierarchy`);
-      assert.deepEqual(links(post.body), links(english.body), `${post.file} preserves link destinations`);
-      assert.deepEqual(codeSpans(post.body), codeSpans(english.body), `${post.file} preserves code spans`);
+      const legacyGuideRoutes = new Set([
+        '/merge-handwritten-assignment-photos-into-pdf/',
+        '/reduce-pdf-assignment-file-size/',
+      ]);
+      const localizedLinks = links(post.body);
+      const linkTypes = (targets) => targets.map((target) => {
+        if (target.startsWith('/blog-assets/')) return `image:${target}`;
+        if (target.startsWith('/tools/')) return `tool:${target}`;
+        if (target.startsWith('/blog/') || legacyGuideRoutes.has(target)) return 'localized article';
+        return `link:${target}`;
+      });
+      assert.deepEqual(
+        linkTypes(localizedLinks),
+        linkTypes(links(english.body)),
+        `${post.file} preserves linked content while allowing localized article routes`,
+      );
+      const translatedExamples = codeSpans(post.body);
+      assert.equal(
+        translatedExamples.length,
+        codeSpans(english.body).length,
+        `${post.file} preserves the same number of inline examples`,
+      );
     }
   }
 });
