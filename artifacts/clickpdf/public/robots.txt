@@ -11,5 +11,5 @@ Allow: /?view=*
 Allow: /?article=*
 
 # XML sitemap and AI-readable site guide
-Sitemap: https://www.clickpdf.net/sitemap.xml
+Sitemap: https://www.clickpdf.net/sitemap_index.xml
 # https://www.clickpdf.net/llms.txt

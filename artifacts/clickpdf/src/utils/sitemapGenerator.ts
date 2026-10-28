@@ -240,8 +240,8 @@ Allow: /?tool=*
 Allow: /?view=blog
 Allow: /?article=*
 
-# Dynamic XML Sitemap
-Sitemap: ${normalized}/sitemap.xml
+# Dynamic XML Sitemap Index
+Sitemap: ${normalized}/sitemap_index.xml
 `;
 }
 

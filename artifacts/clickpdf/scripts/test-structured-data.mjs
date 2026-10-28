@@ -470,7 +470,8 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   const fullGuidesSection = llmsFull.split('## Guides and articles\n')[1]?.split('\n## ')[0] || '';
   const fullPagesSection = llmsFull.split('## Other public pages\n')[1]?.split('\n## ')[0] || '';
   const fullIndexesSection = llmsFull.split('## Machine-readable indexes\n')[1]?.split('\n## ')[0] || '';
-  assert.match(robots, /Sitemap:\s*https:\/\/www\.clickpdf\.net\/sitemap\.xml/i);
+  assert.match(robots, /Sitemap:\s*https:\/\/www\.clickpdf\.net\/sitemap_index\.xml/i);
+  assert.doesNotMatch(robots, /^Sitemap:\s*https:\/\/www\.clickpdf\.net\/sitemap\.xml\s*$/im);
   assert.match(robots, /https:\/\/www\.clickpdf\.net\/llms\.txt/i);
   assert.match(llms, /document file contents are processed locally in your browser/i);
   assert.match(llms, /standard network requests/i);
