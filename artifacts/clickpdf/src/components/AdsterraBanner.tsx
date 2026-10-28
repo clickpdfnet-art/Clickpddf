@@ -1,25 +1,12 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const BANNER_WIDTH = 320;
 const BANNER_HEIGHT = 50;
-const FRAME_SIGNAL_TIMEOUT_MS = 12_000;
 const COOKIE_CONSENT_KEY = 'clickpdf_cookie_consent_v1';
 const CONSENT_CHANGED_EVENT = 'clickpdf-cookie-consent-change';
-const SIGNAL_CHANNEL = 'clickpdf-bauval-banner';
 
 interface AdsterraBannerProps {
   className?: string;
-}
-
-function getSignalNonce(): string {
-  try {
-    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
-      return crypto.randomUUID();
-    }
-  } catch {
-    // Continue with a non-cryptographic nonce; it is only a message correlation value.
-  }
-  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
 }
 
 function getAdsAllowed(): boolean {
@@ -31,18 +18,9 @@ function getAdsAllowed(): boolean {
 }
 
 export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }) => {
-  const frameRef = useRef<HTMLIFrameElement>(null);
   const [scale, setScale] = useState(1);
   const [adsAllowed, setAdsAllowed] = useState(getAdsAllowed);
-  const [adState, setAdState] = useState<'loading' | 'rendered' | 'empty'>(() =>
-    getAdsAllowed() ? 'loading' : 'empty',
-  );
   const adsAllowedRef = useRef(adsAllowed);
-  const nonce = useMemo(getSignalNonce, []);
-  const frameSrc = useMemo(
-    () => `/ad-320x50.html#${encodeURIComponent(nonce)}`,
-    [nonce],
-  );
 
   useEffect(() => {
     const handleConsentChange = () => {
@@ -50,7 +28,6 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
       if (adsAllowedRef.current === allowed) return;
       adsAllowedRef.current = allowed;
       setAdsAllowed(allowed);
-      setAdState(allowed ? 'loading' : 'empty');
     };
     window.addEventListener(CONSENT_CHANGED_EVENT, handleConsentChange);
     window.addEventListener('storage', handleConsentChange);
@@ -59,30 +36,6 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
       window.removeEventListener('storage', handleConsentChange);
     };
   }, []);
-
-  useEffect(() => {
-    if (!adsAllowed || adState !== 'loading') return;
-
-    const timeoutId = window.setTimeout(() => setAdState('empty'), FRAME_SIGNAL_TIMEOUT_MS);
-    const handleProviderMessage = (event: MessageEvent) => {
-      if (event.source !== frameRef.current?.contentWindow) return;
-      if (event.data?.channel !== SIGNAL_CHANNEL || event.data?.nonce !== nonce) return;
-
-      if (event.data.state === 'rendered') {
-        window.clearTimeout(timeoutId);
-        setAdState('rendered');
-      } else if (event.data.state === 'empty') {
-        window.clearTimeout(timeoutId);
-        setAdState('empty');
-      }
-    };
-
-    window.addEventListener('message', handleProviderMessage);
-    return () => {
-      window.clearTimeout(timeoutId);
-      window.removeEventListener('message', handleProviderMessage);
-    };
-  }, [adsAllowed, adState, nonce]);
 
   // Responsive scaling for mobile devices
   useEffect(() => {
@@ -98,21 +51,20 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
 
   const scaledWidth = Math.round(BANNER_WIDTH * scale);
   const scaledHeight = Math.round(BANNER_HEIGHT * scale);
-  const isSlotVisible = adsAllowed && adState !== 'empty';
 
   return (
     <div
       className={className}
       data-testid="tool-page-banner-ad"
-      data-ad-state={adsAllowed ? adState : 'empty'}
+      data-slot-state={adsAllowed ? 'visible' : 'consent-blocked'}
       style={{
-        display: isSlotVisible ? 'flex' : 'none',
+        display: adsAllowed ? 'flex' : 'none',
         justifyContent: 'center',
         alignItems: 'center',
-        width: isSlotVisible ? scaledWidth : 0,
-        height: isSlotVisible ? scaledHeight : 0,
-        marginTop: isSlotVisible ? undefined : 0,
-        marginBottom: isSlotVisible ? undefined : 0,
+        width: adsAllowed ? scaledWidth : 0,
+        height: adsAllowed ? scaledHeight : 0,
+        marginTop: adsAllowed ? undefined : 0,
+        marginBottom: adsAllowed ? undefined : 0,
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: 0,
@@ -120,13 +72,11 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
         overflow: 'hidden',
       }}
     >
-      {adsAllowed && adState !== 'empty' && (
+      {adsAllowed && (
         <iframe
-          ref={frameRef}
           title="Advertisement"
-          src={frameSrc}
+          src="/ad-320x50.html"
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
-          referrerPolicy="strict-origin"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}
           scrolling="no"

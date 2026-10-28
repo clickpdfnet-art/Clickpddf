@@ -87,7 +87,7 @@ try {
 
   await goTo('/tools/merge');
   await waitFor(() => evaluate(`document.body?.innerText.includes('Merge PDF') && document.body?.innerText.includes('Back to PDF Tools')`), 'Merge PDF page');
-  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'loading'`), 'loading ad slot');
+  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.slotState === 'visible'`), 'visible ad slot');
   const initialState = await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
     const frame = ad?.querySelector('iframe');
@@ -96,7 +96,7 @@ try {
     const header = document.querySelector('header');
     const back = [...document.querySelectorAll('button')].find(button => button.innerText.includes('Back to PDF Tools'));
     return {
-      state: ad?.dataset.adState,
+      state: ad?.dataset.slotState,
       display: ad && getComputedStyle(ad).display,
       width: slotRect?.width,
       height: slotRect?.height,
@@ -109,7 +109,7 @@ try {
       hasHeader: Boolean(document.querySelector('header'))
     };
   })()`);
-  assert.equal(initialState.state, 'loading');
+  assert.equal(initialState.state, 'visible');
   assert.equal(initialState.display, 'flex', 'the banner slot should remain visible while the provider loads');
   assert.equal(initialState.width, 320);
   assert.equal(initialState.height, 50);
@@ -122,7 +122,7 @@ try {
 
   await waitFor(() => evaluate(`!![...document.querySelectorAll('button')].find(button => button.innerText.includes('Accept Cookies'))`), 'cookie consent prompt');
   await evaluate(`[...document.querySelectorAll('button')].find(button => button.innerText.includes('Accept Cookies')).click()`);
-  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'loading'`), 'consented ad frame load');
+  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.slotState === 'visible'`), 'consented ad frame load');
   const frameState = await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
     const frame = ad?.querySelector('iframe');
@@ -138,7 +138,7 @@ try {
   assert.equal(frameState.frameCount, 1);
   assert.equal(frameState.framePath, '/ad-320x50.html', 'the banner must load from its standalone static document');
   assert.equal(frameState.hasSrcDoc, false, 'the provider document must not use srcDoc');
-  assert.equal(frameState.referrerPolicy, 'strict-origin');
+  assert.equal(frameState.referrerPolicy, '');
   assert.equal(frameState.isIsolated, true, 'provider code must not share the application origin');
   const staticAdPage = await evaluate(`(async () => {
     const response = await fetch('/ad-320x50.html');
@@ -148,14 +148,16 @@ try {
       providerUrl: html.includes('https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc'),
       publisherKey: html.includes('3221c27a7eae6feed96313cf6813cfcc'),
       parserInsertedScript: /<script[^>]+src="https:\\/\\/bauval\\.org\\/22\\/3221c27a7eae6feed96313cf6813cfcc"/.test(html),
-      referrerPolicy: html.includes('<meta name="referrer" content="strict-origin"')
+      hasReferrerOverride: /<meta\s+name=["']referrer["']|referrerpolicy\s*=/i.test(html),
+      hasCustomErrorSignal: /__clickpdfBannerSignal|onerror\s*=/i.test(html),
     };
   })()`);
   assert.equal(staticAdPage.status, 200, 'the standalone banner document should be served directly');
   assert.equal(staticAdPage.providerUrl, true, 'the existing Adsterra URL must remain unchanged');
   assert.equal(staticAdPage.publisherKey, true, 'the existing publisher key must remain unchanged');
   assert.equal(staticAdPage.parserInsertedScript, true, 'the provider script must remain parser-inserted for document.write compatibility');
-  assert.equal(staticAdPage.referrerPolicy, true, 'the standalone ad document must send only the site origin as referrer');
+  assert.equal(staticAdPage.hasReferrerOverride, false, 'the ad document should use the browser default referrer policy');
+  assert.equal(staticAdPage.hasCustomErrorSignal, false, 'the raw provider snippet should not use a custom error signal');
 
   await send('Emulation.setDeviceMetricsOverride', { width: 280, height: 800, deviceScaleFactor: 2, mobile: true, screenWidth: 280, screenHeight: 800 });
   await waitFor(() => evaluate(`window.innerWidth === 280`), 'narrow mobile viewport');
@@ -171,36 +173,30 @@ try {
   await goTo('/tools/sign');
   await waitFor(() => evaluate(`document.body?.innerText.includes('Sign PDF')`), 'Sign PDF navigation');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 1, 'tool-to-tool navigation should not duplicate the shared ad slot');
-  assert.notEqual(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`), 'empty', 'the same loading slot should remain mounted during tool navigation');
+  assert.equal(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.slotState`), 'visible', 'the ad slot should stay visible during tool navigation');
 
   await goTo('/tools/pdf-to-text');
   await waitFor(() => evaluate(`document.body?.innerText.includes('PDF to Text')`), 'isolated text tool navigation');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 1, 'specialized tool components must inherit the same single shared ad slot');
-  assert.notEqual(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`), 'empty', 'specialized tool navigation should preserve the shared loading slot');
+  assert.equal(await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.slotState`), 'visible', 'specialized tool navigation should preserve the shared ad slot');
 
   await goTo('/');
   await waitFor(() => evaluate(`document.body?.innerText.includes('Free PDF tools that work in your browser')`), 'return to home');
   assert.equal(await evaluate(`document.querySelectorAll('[data-testid="tool-page-banner-ad"]').length`), 0, 'returning to the homepage must unmount the ad');
 
   await goTo('/tools/merge');
-  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState === 'loading'`), 'real provider no-fill test');
-  const noFillStartedAt = Date.now();
-  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState !== 'loading'`), 'provider response or no-fill timeout', 15000);
-  const noFillElapsedMs = Date.now() - noFillStartedAt;
-  const finalAdState = await evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.adState`);
-  assert.ok(['empty', 'rendered'].includes(finalAdState), `unexpected provider state: ${finalAdState}`);
+  await waitFor(() => evaluate(`document.querySelector('[data-testid="tool-page-banner-ad"]')?.dataset.slotState === 'visible'`), 'visible ad slot after returning to tool');
+  await delay(12_500);
   const noFill = await evaluate(`(() => {
     const ad = document.querySelector('[data-testid="tool-page-banner-ad"]');
-    return { display: getComputedStyle(ad).display, width: ad.getBoundingClientRect().width, height: ad.getBoundingClientRect().height, iframes: ad.querySelectorAll('iframe').length };
+    return { state: ad.dataset.slotState, display: getComputedStyle(ad).display, width: ad.getBoundingClientRect().width, height: ad.getBoundingClientRect().height, iframes: ad.querySelectorAll('iframe').length };
   })()`);
-  if (finalAdState === 'empty') {
-    assert.ok(noFillElapsedMs >= 10_000, `empty response should collapse after the configured 12-second timeout; elapsed ${noFillElapsedMs}ms`);
-    assert.deepEqual(noFill, { display: 'none', width: 0, height: 0, iframes: 0 }, 'no-fill must remove the full wrapper and its reserved space');
-  } else {
-    assert.equal(noFill.display, 'flex', 'a provider iframe load should preserve the banner slot');
-    assert.equal(noFill.height, 50);
-  }
-  console.log(`PASS: the real provider request kept the loading slot visible at 320×50; mobile scaled without horizontal overflow; final state was ${finalAdState} after ${noFillElapsedMs}ms. No synthetic render signal was used; a loaded iframe is not proof that an ad creative visibly filled.`);
+  assert.equal(noFill.state, 'visible', 'the slot must remain visible even when the provider does not fill it');
+  assert.equal(noFill.display, 'flex');
+  assert.ok(noFill.width > 0 && noFill.height > 0, 'the slot must keep its reserved dimensions');
+  assert.equal(noFill.iframes, 1);
+  assert.ok(Math.abs(noFill.width / noFill.height - 320 / 50) < 0.05, 'responsive sizing must preserve the 320×50 aspect ratio');
+  console.log('PASS: the 320×50 slot stayed visible after 12.5 seconds; mobile scaling works and the iframe remains sandboxed. This does not verify that a creative visibly filled.');
 } finally {
   if (socket?.readyState === WebSocket.OPEN) socket.close();
   if (browser) {

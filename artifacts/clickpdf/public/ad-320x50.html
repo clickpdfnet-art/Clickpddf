@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=320, initial-scale=1" />
-    <meta name="referrer" content="strict-origin" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Advertisement</title>
     <style>
@@ -34,40 +33,6 @@
         border: 0;
       }
     </style>
-    <script>
-      (() => {
-        const nonce = decodeURIComponent(window.location.hash.slice(1));
-        const channel = 'clickpdf-bauval-banner';
-        const signal = (state) => {
-          if (!nonce) return;
-          window.parent.postMessage({ channel, nonce, state }, '*');
-        };
-        window.__clickpdfBannerSignal = signal;
-
-        const observedFrames = new WeakSet();
-        const scanFrames = () => {
-          document.querySelectorAll('iframe').forEach((creativeFrame) => {
-            if (observedFrames.has(creativeFrame)) return;
-            observedFrames.add(creativeFrame);
-            creativeFrame.addEventListener(
-              'load',
-              () => {
-                const rect = creativeFrame.getBoundingClientRect();
-                if (rect.width > 0 && rect.height > 0) signal('rendered');
-              },
-              { once: true },
-            );
-          });
-        };
-
-        new MutationObserver(scanFrames).observe(document.documentElement, {
-          childList: true,
-          subtree: true,
-        });
-        window.addEventListener('load', scanFrames, { once: true });
-        window.setTimeout(scanFrames, 0);
-      })();
-    </script>
   </head>
   <body>
     <div id="ad-slot">
@@ -83,8 +48,6 @@
       <script
         type="text/javascript"
         src="https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc"
-        referrerpolicy="strict-origin"
-        onerror="window.__clickpdfBannerSignal('empty')"
       ></script>
     </div>
   </body>

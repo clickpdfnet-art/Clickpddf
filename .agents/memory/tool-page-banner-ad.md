@@ -7,10 +7,10 @@ Show a single centered 320×50 banner directly below the global header and befor
 
 The single Adsterra banner loads by default unless the visitor explicitly rejects advertising cookies. Dismissing the notice is not an opt-out. Keep the cookie notice visible and make rejection explicit. Keep the provider in an isolated sandbox without `allow-same-origin`; never send document contents to the ad provider.
 
-Adsterra's supplied script does not expose a verifiable fill callback. A nested iframe load can be used only as a compatible visibility proxy; it does not prove that an actual creative filled. Collapse the slot when no frame signal arrives before timeout, and never claim verified impressions or pixel content.
+Adsterra's supplied script does not expose a verifiable fill callback. Keep the 320×50 slot visible when the provider does not fill it; a blank slot is preferable to hiding the placement after a timeout. Never claim verified impressions or pixel content based only on a script or iframe load.
 
-**Why:** the user requested default-on loading for the single active banner, an explicit advertising opt-out, and no cross-origin inspection of the creative.
+**Why:** the user requested default-on loading, an explicit advertising opt-out, an isolated third-party script, and a persistent placement even when the provider does not fill it.
 
-**How to apply:** preserve the shared ad placement and consent notice behavior. Keep file processing isolated from ad scripts. Use an official provider fill signal if one becomes available; otherwise describe the fallback as frame-load detection only.
+**How to apply:** preserve the shared ad placement and consent notice behavior. Keep the iframe sandboxed without `allow-same-origin`; do not add same-origin access for provider scripts. Keep the fixed-size slot visible on no-fill, and use provider evidence before claiming an ad actually rendered.
 
 When a banner is blank, record both the provider script's HTTP status and response byte count before changing iframe or layout code. A successful HTTP status with an empty body means the provider supplied no creative; it is not evidence of a local spacing failure.
