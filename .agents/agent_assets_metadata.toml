@@ -98,3 +98,17 @@ mtime_ms = 1793105701054
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/7cd3ddc8-e116-4e28-8c09-18126520cc1e/6583716f-e742-4aef-bc2d-81e4e73c444c"
 storage_version_token = "1793105738514872"
 content_type = "text/html"
+
+[[outputs]]
+id = "DbkpKGGTSwbjjl-6EKcYd"
+uri = "file://artifacts/clickpdf/drafts/how-to-combine-pdfs-for-a-college-assignment-preview.html"
+type = "html"
+title = "ClickPDF article draft preview"
+description = "Standalone responsive preview of the reviewed article. Review-only: no public route, date, or cover image."
+logical_id = "6457bd1c-85c4-4e28-9f11-92c5d9c773e9"
+content_hash = "sha256:3136be7636f44e0b9892b0edc046ca7d1558a66516008ffde3e9ceb0c36c4990"
+size = 14703
+mtime_ms = 1793165310849
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/6457bd1c-85c4-4e28-9f11-92c5d9c773e9/8ca7973b-df2e-4573-a267-82250e4ff325"
+storage_version_token = "1793165327359239"
+content_type = "text/html"
