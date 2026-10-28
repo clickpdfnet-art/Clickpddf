@@ -22,7 +22,9 @@ function createAssetsBinding() {
         return new Response('Not Found', { status: 404 });
       }
       const relativePath = decodedPath.replace(/^\/+/, '');
-      const assetPath = /\.(?:json|html)$/i.test(relativePath)
+      const assetPath = relativePath === 'ad-320x50'
+        ? path.join(publicDir, 'ad-320x50.html')
+        : /\.(?:json|html)$/i.test(relativePath)
         ? path.join(publicDir, relativePath)
         : path.join(publicDir, relativePath, 'index.html');
       try {
@@ -81,6 +83,22 @@ test('legacy tool aliases redirect to their current canonical tool routes', asyn
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/pdf-metadata'), '/tools/edit-pdf-metadata/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/protect-pdf'), '/tools/protect-pdf-password/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/pdf-metadata'), '/tools/edit-pdf-metadata/');
+});
+
+test('the ad HTML URL returns the static advertisement document directly', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  const response = await worker.fetch(
+    new Request('https://www.clickpdf.net/ad-320x50.html'),
+    env,
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('location'), null, 'the public .html URL should not redirect');
+  const html = await response.text();
+  assert.match(html, /<title>Advertisement<\/title>/);
+  assert.match(html, /atOptions/);
+  assert.match(html, /https:\/\/bauval\.org\/22\/3221c27a7eae6feed96313cf6813cfcc/);
+  assert.doesNotMatch(html, /404 Page not found|Free PDF tools that work in your browser/);
 });
 
 test('all published blog article aliases permanently redirect to their canonical trailing-slash routes', async () => {

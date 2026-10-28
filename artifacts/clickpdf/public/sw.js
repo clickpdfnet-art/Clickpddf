@@ -2,10 +2,11 @@
 // Enables instantaneous repeat visits via Stale-While-Revalidate for static assets,
 // while strictly maintaining Network-First for real-time live navigation and ad banners.
 
-const CACHE_VERSION = 'clickpdf-v3';
+const CACHE_VERSION = 'clickpdf-v4';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const APP_SCOPE = self.registration.scope;
+const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
 
 // Core assets to pre-cache on install
 const PRECACHE_URLS = [
@@ -55,6 +56,13 @@ self.addEventListener('fetch', (event) => {
 
   // Ignore non-GET requests
   if (request.method !== 'GET') {
+    return;
+  }
+
+  // Ad documents must always come from the current network response, never an
+  // older cached app shell or an offline navigation fallback.
+  if (url.origin === self.location.origin && AD_ASSET_PATHS.has(url.pathname)) {
+    event.respondWith(fetch(request));
     return;
   }
 

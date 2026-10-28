@@ -2,6 +2,8 @@ const APEX_HOST = 'clickpdf.net';
 const CANONICAL_HOST = 'www.clickpdf.net';
 const UNICODE_ROUTE_MAP_PATH = '/__unicode_routes.json';
 const BLOG_ROUTE_MAP_PATH = '/__blog_routes.json';
+const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
+const AD_ASSET_STORAGE_PATH = '/ad-320x50';
 const PUBLIC_STATIC_PAGE_PATHS = new Set([
   '/faq',
   '/batch',
@@ -103,6 +105,12 @@ async function fetchUnicodeRouteAsset(request, env, routeAssetPath) {
   return response;
 }
 
+async function fetchAdAsset(request, env) {
+  const assetUrl = new URL(request.url);
+  assetUrl.pathname = AD_ASSET_STORAGE_PATH;
+  return env.ASSETS.fetch(new Request(assetUrl, request));
+}
+
 function normalizedToolPath(pathname) {
   return pathname.replace(/\/+$/, '');
 }
@@ -165,6 +173,10 @@ export default {
       if (routeAssetPath) {
         return fetchUnicodeRouteAsset(request, env, routeAssetPath);
       }
+    }
+
+    if (AD_ASSET_PATHS.has(url.pathname)) {
+      return fetchAdAsset(request, env);
     }
 
     if (!isToolRoute) return env.ASSETS.fetch(request);
