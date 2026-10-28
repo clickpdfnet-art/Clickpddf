@@ -13,7 +13,7 @@ secondary_keywords:
   - combine cover page and references PDF
   - compress PDF for college submission
   - merge PDFs online free
-suggested_byline: Click Digital Services; confirm before publication.
+author: Click Digital Services
 content_source_status: Original article body and five FAQs supplied by the user.
 content_status: Compared with the supplied source; original content restored and useful SEO improvements retained.
 comparison_status: Complete against the original text supplied in the conversation.
