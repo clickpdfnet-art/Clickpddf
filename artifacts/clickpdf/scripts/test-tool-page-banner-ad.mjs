@@ -111,10 +111,10 @@ try {
   })()`);
   assert.equal(initialState.state, 'visible');
   assert.equal(initialState.display, 'flex', 'the banner slot should remain visible while the provider loads');
-  assert.equal(initialState.width, 160);
-  assert.equal(initialState.height, 300);
-  assert.equal(initialState.frameWidth, 160);
-  assert.equal(initialState.frameHeight, 300);
+  assert.equal(initialState.width, 320);
+  assert.equal(initialState.height, 50);
+  assert.equal(initialState.frameWidth, 320);
+  assert.equal(initialState.frameHeight, 50);
   assert.equal(initialState.belowHeader, true);
   assert.equal(initialState.aboveBack, true);
   assert.equal(initialState.iframes, 1, 'the banner loads by default while the cookie notice remains available');
@@ -136,25 +136,25 @@ try {
     };
   })()`);
   assert.equal(frameState.frameCount, 1);
-   assert.equal(frameState.framePath, '/ad-160x300.html', 'the banner must load from its standalone static document');
+   assert.equal(frameState.framePath, '/ad-320x50.html', 'the banner must load from its standalone static document');
   assert.equal(frameState.hasSrcDoc, false, 'the provider document must not use srcDoc');
   assert.equal(frameState.referrerPolicy, '');
   assert.equal(frameState.isIsolated, true, 'provider code must not share the application origin');
   const staticAdPage = await evaluate(`(async () => {
-     const response = await fetch('/ad-160x300.html');
+      const response = await fetch('/ad-320x50.html');
     const html = await response.text();
     return {
       status: response.status,
-       providerUrl: html.includes('https://bauval.org/22/e39a0a66fdd541a9ce157b436297163d'),
-       publisherKey: html.includes('e39a0a66fdd541a9ce157b436297163d'),
-       parserInsertedScript: /<script[^>]+src="https:\\/\\/bauval\\.org\\/22\\/e39a0a66fdd541a9ce157b436297163d"/.test(html),
+       providerUrl: html.includes('https://bauval.org/22/3221c27a7eae6feed96313cf6813cfcc'),
+       publisherKey: html.includes('3221c27a7eae6feed96313cf6813cfcc'),
+       parserInsertedScript: /<script[^>]+src="https:\\/\\/bauval\\.org\\/22\\/3221c27a7eae6feed96313cf6813cfcc"/.test(html),
       hasReferrerOverride: /<meta\s+name=["']referrer["']|referrerpolicy\s*=/i.test(html),
       hasCustomErrorSignal: /__clickpdfBannerSignal|onerror\s*=/i.test(html),
     };
   })()`);
   assert.equal(staticAdPage.status, 200, 'the standalone banner document should be served directly');
-  assert.equal(staticAdPage.providerUrl, true, 'the existing Adsterra URL must remain unchanged');
-  assert.equal(staticAdPage.publisherKey, true, 'the existing publisher key must remain unchanged');
+   assert.equal(staticAdPage.providerUrl, true, 'the supplied Adsterra URL must match the selected 320×50 format');
+   assert.equal(staticAdPage.publisherKey, true, 'the supplied publisher key must remain unchanged');
   assert.equal(staticAdPage.parserInsertedScript, true, 'the provider script must remain parser-inserted for document.write compatibility');
   assert.equal(staticAdPage.hasReferrerOverride, false, 'the ad document should use the browser default referrer policy');
   assert.equal(staticAdPage.hasCustomErrorSignal, false, 'the raw provider snippet should not use a custom error signal');
@@ -167,8 +167,8 @@ try {
     return { viewport: innerWidth, pageWidth: document.documentElement.scrollWidth, adWidth: ad.getBoundingClientRect().width, adHeight: ad.getBoundingClientRect().height };
   })()`);
   assert.equal(mobileLayout.pageWidth, mobileLayout.viewport, `mobile page must not scroll horizontally: ${JSON.stringify(mobileLayout)}`);
-  assert.ok(mobileLayout.adWidth <= 280 && mobileLayout.adWidth > 0);
-  assert.ok(Math.abs(mobileLayout.adWidth / mobileLayout.adHeight - 160 / 300) < 0.05, 'small-screen scaling should preserve banner aspect ratio');
+  assert.ok(mobileLayout.adWidth <= 280 && mobileLayout.adWidth > 0, `ad slot exceeds the mobile viewport: ${JSON.stringify(mobileLayout)}`);
+   assert.ok(Math.abs(mobileLayout.adWidth / mobileLayout.adHeight - 320 / 50) < 0.05, 'small-screen scaling should preserve banner aspect ratio');
 
   await goTo('/tools/sign');
   await waitFor(() => evaluate(`document.body?.innerText.includes('Sign PDF')`), 'Sign PDF navigation');
@@ -195,8 +195,8 @@ try {
   assert.equal(noFill.display, 'flex');
   assert.ok(noFill.width > 0 && noFill.height > 0, 'the slot must keep its reserved dimensions');
   assert.equal(noFill.iframes, 1);
-  assert.ok(Math.abs(noFill.width / noFill.height - 160 / 300) < 0.05, 'responsive sizing must preserve the 160×300 aspect ratio');
-  console.log('PASS: the 160×300 slot stayed visible after 12.5 seconds; mobile scaling works and the iframe remains sandboxed. This does not verify that a creative visibly filled.');
+   assert.ok(Math.abs(noFill.width / noFill.height - 320 / 50) < 0.05, 'responsive sizing must preserve the 320×50 aspect ratio');
+   console.log('PASS: the 320×50 slot stayed visible after 12.5 seconds; mobile scaling works and the iframe remains sandboxed. This does not verify that a creative visibly filled.');
 } finally {
   if (socket?.readyState === WebSocket.OPEN) socket.close();
   if (browser) {

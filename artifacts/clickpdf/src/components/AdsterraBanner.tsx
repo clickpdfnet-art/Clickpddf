@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const BANNER_WIDTH = 160;
-const BANNER_HEIGHT = 300;
+const BANNER_WIDTH = 320;
+const BANNER_HEIGHT = 50;
 const COOKIE_CONSENT_KEY = 'clickpdf_cookie_consent_v1';
 const CONSENT_CHANGED_EVENT = 'clickpdf-cookie-consent-change';
 
@@ -21,6 +21,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
   const [scale, setScale] = useState(1);
   const [adsAllowed, setAdsAllowed] = useState(getAdsAllowed);
   const adsAllowedRef = useRef(adsAllowed);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleConsentChange = () => {
@@ -37,16 +38,26 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
     };
   }, []);
 
-  // Responsive scaling for mobile devices
   useEffect(() => {
     const updateScale = () => {
       const padding = 24;
-      const availableWidth = window.innerWidth - padding;
-      setScale(Math.min(1, Math.max(0.7, availableWidth / BANNER_WIDTH)));
+      const viewportWidth = window.innerWidth - padding;
+      const containerWidth = containerRef.current?.parentElement?.clientWidth ?? viewportWidth;
+      const availableWidth = Math.min(viewportWidth, containerWidth);
+      setScale(Math.min(1, Math.max(0, availableWidth / BANNER_WIDTH)));
     };
     updateScale();
     window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
+    const resizeObserver = typeof ResizeObserver === 'undefined'
+      ? null
+      : new ResizeObserver(updateScale);
+    if (containerRef.current?.parentElement) {
+      resizeObserver?.observe(containerRef.current.parentElement);
+    }
+    return () => {
+      window.removeEventListener('resize', updateScale);
+      resizeObserver?.disconnect();
+    };
   }, []);
 
   const scaledWidth = Math.round(BANNER_WIDTH * scale);
@@ -54,6 +65,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
 
   return (
     <div
+      ref={containerRef}
       className={className}
       data-testid="tool-page-banner-ad"
       data-slot-state={adsAllowed ? 'visible' : 'consent-blocked'}
@@ -62,6 +74,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
         justifyContent: 'center',
         alignItems: 'center',
         width: adsAllowed ? scaledWidth : 0,
+        maxWidth: 'calc(100vw - 24px)',
         height: adsAllowed ? scaledHeight : 0,
         marginTop: adsAllowed ? undefined : 0,
         marginBottom: adsAllowed ? undefined : 0,
@@ -75,7 +88,7 @@ export const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ className = '' }
       {adsAllowed && (
         <iframe
           title="Advertisement"
-          src="/ad-160x300.html"
+          src="/ad-320x50.html"
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"
           width={BANNER_WIDTH}
           height={BANNER_HEIGHT}

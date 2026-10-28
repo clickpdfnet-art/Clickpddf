@@ -535,7 +535,7 @@ test('robots, llms.txt, and the social image are generated for production', asyn
   assert.ok(manifest.icons.some((icon) => icon.src === '/icon-192.png'));
   assert.ok(manifest.icons.some((icon) => icon.src === '/icon-512.png'));
   const serviceWorker = await readFile(path.join(publicDir, 'sw.js'), 'utf8');
-  assert.match(serviceWorker, /clickpdf-v4/);
+  assert.match(serviceWorker, /clickpdf-v5/);
   assert.match(serviceWorker, /AD_ASSET_PATHS/);
   assert.match(serviceWorker, /event\.respondWith\(fetch\(request\)\)/);
   assert.match(serviceWorker, /icon-192\.png/);
