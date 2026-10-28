@@ -2,7 +2,7 @@
 draft_status: review-only
 title: How to Combine PDFs for a College Assignment
 proposed_route: /how-to-combine-pdfs-for-a-college-assignment/
-route_status: Not published; this route currently returns 404.
+route_status: An earlier version is live at this route; this review revision is not deployed.
 seo_title: How to Combine PDFs for a College Assignment
 meta_description: Learn how to combine PDFs for a college assignment, arrange your cover page and references, merge files, and check the final PDF before submission.
 primary_keyword: how to combine PDFs for a college assignment
@@ -13,14 +13,22 @@ secondary_keywords:
   - combine cover page and references PDF
   - compress PDF for college submission
   - merge PDFs online free
+cover_image: /blog-assets/college-assignment/clickpdf-college-assignment-cover-16x9.jpg
+cover_alt: College assignment documents and a laptop arranged for combining assignment PDFs.
+publication_date: Unset for this review revision; the live article retains its existing date.
 author: Click Digital Services
 content_source_status: Original article body and five FAQs supplied by the user.
-content_status: Compared with the supplied source; original content restored and useful SEO improvements retained.
+content_status: Original information and all five FAQs retained; a direct-answer block and existing approved images are included.
 comparison_status: Complete against the original text supplied in the conversation.
 faq_status: All five original questions and answers restored.
+seo_review_status: Focused content review using BeyondSEO writing guidance; native crawler could not run because Beautiful Soup is missing, and no project dependencies were changed.
 ---
 
 When preparing a college assignment, you may have a cover sheet, the main assignment, references, and appendices saved as separate PDF files. If your instructor asks you to submit everything as one PDF, you can combine the files into a single document. Always follow your course instructions first, especially if your instructor requires separate uploads.
+
+## Quick Answer
+
+In most cases, put the cover page first, followed by the main assignment, references, and any required appendices. Merge the files in that order, then open the final PDF to confirm every page is present and readable. Your instructor’s requirements take priority.
 
 ## Why Combine PDFs for an Assignment?
 
@@ -51,6 +59,8 @@ A typical order is:
 2. Main assignment
 3. References or works cited
 4. Appendices, if required
+
+![Cover page, assignment, references, and appendix PDFs arranged in the typical submission order.](/blog-assets/college-assignment/clickpdf-assignment-document-order-4x3.jpg)
 
 Your instructor’s instructions take priority over this suggested order.
 
@@ -88,6 +98,8 @@ Before submitting your assignment, confirm that:
 - [ ] References and appendices are included when required.
 - [ ] The filename is clear and appropriate.
 - [ ] The final file meets your learning management system’s size and format requirements.
+
+![Final assignment PDF checked for page order, readability, required sections, and file-size requirements.](/blog-assets/college-assignment/clickpdf-assignment-final-review-4x3.jpg)
 
 ## Frequently Asked Questions
 
