@@ -47,6 +47,18 @@
     .byline strong { color: #344054; }
     .intro { margin: 0 0 34px; padding: 20px 22px; border-left: 4px solid var(--purple); border-radius: 0 12px 12px 0; background: #f8f7ff; color: #364152; font-size: 17px; }
     article section { margin-top: 34px; }
+    .review-image { min-width: 0; margin: 0; overflow: hidden; border: 1px solid #d9d1ff; border-radius: 14px; background: #fff; }
+    .review-image img { display: block; width: 100%; height: auto; }
+    .review-image figcaption { padding: 12px 14px; color: #4b5565; font-size: 12px; line-height: 1.55; }
+    .review-image figcaption p { margin: 0 0 5px; }
+    .review-image figcaption p:last-child { margin-bottom: 0; }
+    .review-image strong { color: #28156f; }
+    .review-image-label { padding: 8px 12px; background: #f1efff; color: #39268e; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .cover-image-review { margin: 0 0 26px; }
+    .section-with-review-image { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 340px); align-items: center; gap: 24px; }
+    .section-with-review-image .section-copy { min-width: 0; }
+    .section-with-review-image .section-copy > :last-child { margin-bottom: 0; }
+    .section-with-review-image .review-image { width: 100%; }
     h2 { margin: 0 0 14px; color: var(--navy); font-size: clamp(22px, 2.5vw, 28px); line-height: 1.25; letter-spacing: -.025em; }
     h3 { margin: 24px 0 8px; color: #172033; font-size: 18px; line-height: 1.4; }
     p { margin: 0 0 15px; }
@@ -71,6 +83,8 @@
       .toc ol { columns: 2; column-gap: 22px; }
       .article { padding: 24px 20px; border-radius: 14px; }
       .intro { font-size: 16px; }
+      .section-with-review-image { grid-template-columns: 1fr; gap: 16px; }
+      .section-with-review-image .review-image { max-width: 480px; }
     }
     @media (max-width: 420px) {
       .brand { font-size: 19px; }
@@ -108,6 +122,15 @@
       </nav>
 
       <article class="article">
+        <figure class="review-image cover-image-review">
+          <div class="review-image-label">Review image · cover above article · pending approval</div>
+          <img src="/@fs/home/runner/workspace/attached_assets/generated_images/clickpdf-college-assignment-cover-16x9.jpg" alt="A student organizing a cover page, assignment, and references into one PDF packet.">
+          <figcaption>
+            <p><strong>Intended placement:</strong> Cover image above the article.</p>
+            <p><strong>Alt text:</strong> A student organizing a cover page, assignment, and references into one PDF packet.</p>
+            <p><strong>Approval:</strong> Pending. No logo has been added; a logo-safe area is not confirmed.</p>
+          </figcaption>
+        </figure>
         <p class="eyebrow">College assignment guide</p>
         <h1>How to Combine PDFs for a College Assignment</h1>
         <p class="byline">By <strong>Click Digital Services</strong></p>
@@ -134,15 +157,27 @@
         </section>
 
         <section id="order">
-          <h2>Step 2: Put the Files in the Correct Order</h2>
-          <p>A typical order is:</p>
-          <ol>
-            <li>Cover page</li>
-            <li>Main assignment</li>
-            <li>References or works cited</li>
-            <li>Appendices, if required</li>
-          </ol>
-          <p>Your instructor’s instructions take priority over this suggested order.</p>
+          <div class="section-with-review-image">
+            <div class="section-copy">
+              <h2>Step 2: Put the Files in the Correct Order</h2>
+              <p>A typical order is:</p>
+              <ol>
+                <li>Cover page</li>
+                <li>Main assignment</li>
+                <li>References or works cited</li>
+                <li>Appendices, if required</li>
+              </ol>
+              <p>Your instructor’s instructions take priority over this suggested order.</p>
+            </div>
+            <figure class="review-image">
+              <div class="review-image-label">Review image · beside file-order section</div>
+              <img src="/@fs/home/runner/workspace/attached_assets/generated_images/clickpdf-assignment-document-order-4x3.jpg" alt="Three assignment documents arranged in order before being combined into one PDF.">
+              <figcaption>
+                <p><strong>Intended placement:</strong> Beside “Step 2: Put the Files in the Correct Order.”</p>
+                <p><strong>Alt text:</strong> Three assignment documents arranged in order before being combined into one PDF.</p>
+              </figcaption>
+            </figure>
+          </div>
         </section>
 
         <section id="merge">
@@ -172,16 +207,28 @@
         </section>
 
         <section id="checklist">
-          <h2>Quick Pre-Upload Checklist</h2>
-          <p>Before submitting your assignment, confirm that:</p>
-          <ul class="checklist">
-            <li>Your course allows the required sections to be combined into one PDF.</li>
-            <li>The cover page and other sections are in the correct order.</li>
-            <li>All pages are present and readable.</li>
-            <li>References and appendices are included when required.</li>
-            <li>The filename is clear and appropriate.</li>
-            <li>The final file meets your learning management system’s size and format requirements.</li>
-          </ul>
+          <div class="section-with-review-image">
+            <div class="section-copy">
+              <h2>Quick Pre-Upload Checklist</h2>
+              <p>Before submitting your assignment, confirm that:</p>
+              <ul class="checklist">
+                <li>Your course allows the required sections to be combined into one PDF.</li>
+                <li>The cover page and other sections are in the correct order.</li>
+                <li>All pages are present and readable.</li>
+                <li>References and appendices are included when required.</li>
+                <li>The filename is clear and appropriate.</li>
+                <li>The final file meets your learning management system’s size and format requirements.</li>
+              </ul>
+            </div>
+            <figure class="review-image">
+              <div class="review-image-label">Review image · beside final PDF checklist</div>
+              <img src="/@fs/home/runner/workspace/attached_assets/generated_images/clickpdf-assignment-final-review-4x3.jpg" alt="A student checking a merged assignment PDF on a laptop before submitting it.">
+              <figcaption>
+                <p><strong>Intended placement:</strong> Beside the final PDF pre-upload checklist.</p>
+                <p><strong>Alt text:</strong> A student checking a merged assignment PDF on a laptop before submitting it.</p>
+              </figcaption>
+            </figure>
+          </div>
         </section>
 
         <section id="faqs">
