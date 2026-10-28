@@ -112,3 +112,45 @@ mtime_ms = 1793165310849
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/6457bd1c-85c4-4e28-9f11-92c5d9c773e9/8ca7973b-df2e-4573-a267-82250e4ff325"
 storage_version_token = "1793165327359239"
 content_type = "text/html"
+
+[[outputs]]
+id = "ALi0DTKqOfk0i-GavGFjU"
+uri = "file://attached_assets/generated_images/clickpdf-college-assignment-cover-16x9.jpg"
+type = "image"
+title = "College assignment cover image"
+description = "Generated review candidate, 1200×675. Not assigned to the draft; logo not added."
+logical_id = "47920ca0-9496-4415-b9ca-740821b0f1a1"
+content_hash = "sha256:b6e810fe77e8699e26e708e751acfb6cf0ae26589522fbd4c99e13c2a16b7e16"
+size = 145626
+mtime_ms = 1793165933708
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/47920ca0-9496-4415-b9ca-740821b0f1a1/a23e0718-8a71-47f2-a554-3862cbe2b386"
+storage_version_token = "1793165963183136"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "5pQ26zkdNR-hItYcdUD2S"
+uri = "file://attached_assets/generated_images/clickpdf-assignment-document-order-4x3.jpg"
+type = "image"
+title = "Assignment document order illustration"
+description = "Generated review image, 1200×900, visual-only labels. Not yet inserted into the draft."
+logical_id = "c2afea6b-ff1c-40a5-87a5-0375f9146813"
+content_hash = "sha256:bf4a91821ea280765eec41297e786083aec1ddcd3fbca8330f70473ffe6aba95"
+size = 68945
+mtime_ms = 1793165934012
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/c2afea6b-ff1c-40a5-87a5-0375f9146813/6468981a-0599-4e92-9474-cfdfae8a0729"
+storage_version_token = "1793165964527607"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "Rp5hbjHOm9Co_axIwjQO2"
+uri = "file://attached_assets/generated_images/clickpdf-assignment-final-review-4x3.jpg"
+type = "image"
+title = "Student reviewing merged assignment PDF"
+description = "Generated review image, 1200×900. Not yet inserted into the draft."
+logical_id = "1827a889-c74c-4e53-b9e3-ba14426e2665"
+content_hash = "sha256:27ebf7abbcf6906c409b2b7f84dcf96564b3d2557761cb27dac551d08be751ff"
+size = 124380
+mtime_ms = 1793165934328
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/1827a889-c74c-4e53-b9e3-ba14426e2665/94f8fd40-8583-4efe-929c-75fa8c3dfbb1"
+storage_version_token = "1793165965908761"
+content_type = "image/jpeg"
