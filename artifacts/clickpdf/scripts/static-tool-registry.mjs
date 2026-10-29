@@ -163,10 +163,17 @@ export async function readActiveToolRegistry(appDir) {
       name: seo.h1Title || tool.title || seo.metaTitle,
       title: seo.metaTitle || tool.title,
       description: seo.metaDescription || tool.description || '',
+      keywords: seo.keywords || '',
+      badge: seo.badge || '',
+      overviewHeading: seo.overviewHeading || '',
+      overview: seo.overview || '',
+      secondaryOverview: seo.secondaryOverview || '',
       shortDescription: tool.description || '',
       stepsHeading: seo.stepsHeading,
       steps: seo.steps,
-      faqs: faqTemplates.faqs.map(({ question, answer }) => ({
+      faqs: tool.id === 'edit-metadata' && seo.faqs?.length
+        ? seo.faqs
+        : faqTemplates.faqs.map(({ question, answer }) => ({
         question: question.replaceAll('{toolName}', faqToolName),
         answer,
       })),

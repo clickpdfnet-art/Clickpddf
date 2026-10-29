@@ -711,7 +711,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       setSuccessResult({
         data: items.length > 1 ? await archive.generateAsync({ type: 'uint8array' }) : singleResult!,
         fileName: items.length > 1 ? `metadata_documents_${completed}_files.zip` : singleName,
-        details: `${sanitize ? 'Cleared metadata from' : 'Applied the same metadata to'} ${completed} of ${items.length} PDFs.${failures.length ? ` Failed: ${failures.join('; ')}` : ''}`
+        details: `${sanitize ? `Cleared the supported PDF metadata fields from ${completed} of ${items.length} PDFs. This does not make the PDFs anonymous.` : `Applied the same metadata to ${completed} of ${items.length} PDFs.`}${failures.length ? ` Failed: ${failures.join('; ')}` : ''}`
       });
       if (failures.length) setErrorMessage(`${failures.length} file(s) could not be processed. Successful files remain available.`);
     } catch (error: any) {
@@ -2242,7 +2242,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           </div>
           <div className="w-full">
             <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-              {getToolTitle(tool)}
+              {tool.id === 'edit-metadata' && language === 'en' ? seoInfo?.h1Title : getToolTitle(tool)}
             </h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed max-w-2xl mx-auto">
               {getToolDescription(tool)}

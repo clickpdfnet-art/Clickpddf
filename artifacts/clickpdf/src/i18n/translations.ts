@@ -1427,7 +1427,7 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     vi: { title: 'Sắp xếp trang', description: 'Sắp xếp, thay đổi thứ tự hoặc xóa các trang không mong muốn một cách trực quan.' },
   },
   'edit-metadata': {
-    en: { title: 'Edit PDF Metadata', description: 'View and modify Author, Title, Subject, Keywords, Creator, and Producer properties.' },
+    en: { title: 'Edit PDF Metadata', description: 'Inspect or update six supported PDF properties, or clear these fields from a saved copy.' },
     ur: { title: 'PDF میٹا ڈیٹا تبدیل کریں', description: 'دستاویز کے مصنف، عنوان، موضوع، کی ورڈز اور تخلیق کار کی تفصیلات تبدیل کریں۔' },
     hi: { title: 'PDF मेटाडेटा एडिट करें', description: 'ब्राउज़र में लेखक, शीर्षक, विषय, कीवर्ड और एप्लिकेशन विवरण बदलें।' },
     ar: { title: 'تعديل البيانات الوصفية', description: 'عرض وتعديل المؤلف والعنوان والموضوع والكلمات المفتاحية في المتصفح.' },

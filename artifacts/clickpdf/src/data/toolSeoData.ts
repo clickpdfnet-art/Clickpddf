@@ -57,6 +57,7 @@ function getStandardToolFaqs(info: ToolSeoInfo): ToolFaq[] {
 }
 
 function withStandardToolFaqs(info: ToolSeoInfo): ToolSeoInfo {
+  if (info.toolId === 'edit-metadata') return info;
   return { ...info, faqs: getStandardToolFaqs(info) };
 }
 
@@ -571,53 +572,61 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'edit-pdf-metadata',
     toolId: 'edit-metadata',
     aliases: ['edit-metadata', 'change-pdf-author', 'pdf-properties', 'wipe-pdf-metadata'],
-    h1Title: 'Edit PDF Metadata Online — Modify Author, Title & Properties',
-    metaTitle: 'Edit PDF Metadata — Author & Title | ClickPDF',
-    metaDescription: 'Inspect or edit PDF properties such as Title, Author, Subject, and Producer in your browser. The page may still request resources or enabled services.',
-    keywords: 'edit pdf metadata, change pdf author, modify pdf properties, wipe pdf metadata, client side pdf metadata editor',
-    targetKeywords: ['edit pdf metadata', 'change pdf author', 'modify pdf title', 'wipe pdf metadata'],
-    badge: 'Privacy & SEO Scrubbing',
-    overviewHeading: 'Inspect, Customize, or Clean Hidden Document Properties',
-    overview: 'PDF documents carry hidden metadata including author names, software producer strings, creation dates, and editing history. ClickPDF lets you inspect and modify Title, Author, Subject, Keywords, Creator, and Producer tags in real time, or scrub all metadata completely for privacy.',
-    secondaryOverview: 'Whether preparing documents for anonymous peer review, legal redacting, or search engine indexing, our in-browser metadata tool writes directly to the PDF Info dictionary without uploading files.',
-    privacyHighlight: 'Private Metadata Scrubbing: Cleanse identifying software tracks and creator names directly on your device before publishing to the public internet.',
-    stepsHeading: 'How to View and Modify PDF Metadata',
+    h1Title: 'Edit PDF Metadata Online: Author, Title & Properties',
+    metaTitle: 'Edit PDF Metadata: Author & Title | ClickPDF',
+    metaDescription: 'View and update supported PDF properties: Title, Author, Subject, Keywords, Creator, and Producer. Clear these fields and review the saved PDF.',
+    keywords: 'edit PDF metadata, change PDF author, edit PDF properties, clear supported PDF metadata fields',
+    targetKeywords: ['edit PDF metadata', 'change PDF author', 'edit PDF properties', 'clear supported PDF metadata fields'],
+    badge: 'PDF Property Editor',
+    overviewHeading: 'Inspect or Edit Supported PDF Properties',
+    overview: 'PDF files can contain document properties such as a title, author, subject, keywords, creator, and producer. ClickPDF lets you inspect and update these six supported fields, or clear them from the saved copy.',
+    secondaryOverview: 'Clearing supported properties does not guarantee that a PDF is anonymous. This tool does not remove names printed on PDF pages and is not a redaction tool. Creation or modification dates, XMP data, comments, annotations, and attachments are not guaranteed to be cleared; review them separately before sharing.',
+    privacyHighlight: 'Browser-Based Processing: PDF processing runs in the browser in the current implementation. The website may still make requests for page resources or enabled services.',
+    stepsHeading: 'How to Edit Supported PDF Properties',
     steps: [
       {
         step: 1,
-        title: 'Open Your PDF File',
-        description: 'Drop your document into the editor to automatically inspect current properties.'
+        title: 'Open your PDF',
+        description: 'Open your PDF to inspect the supported document properties.'
       },
       {
         step: 2,
-        title: 'Edit or Scrub Fields',
-        description: 'Update the Title, Author, Subject, or Producer fields, or click "Wipe All Metadata" for anonymity.'
+        title: 'Edit or clear fields',
+        description: 'Edit the fields you want to keep, or choose Clear Supported Metadata Fields.'
       },
       {
         step: 3,
-        title: 'Save Updated File',
-        description: 'Download your updated PDF with refreshed internal properties.'
+        title: 'Save and review',
+        description: 'Save the PDF, reopen it, and check the properties and visible pages before sharing.'
       }
     ],
     faqs: [
       {
-        question: 'Why should I wipe metadata before sending a PDF?',
-        answer: 'PDFs often contain your computer username, company name, printer details, and editing timestamps. Scrubbing metadata ensures your privacy before public distribution.'
+        question: 'Which PDF properties can I edit?',
+        answer: 'You can inspect or update Title, Author, Subject, Keywords, Creator, and Producer when those fields are present.'
       },
       {
-        question: 'Does changing the author modify the visual contents of the pages?',
-        answer: 'No. Metadata modification strictly targets document properties and XML metadata streams; the visual pages remain identical.'
+        question: 'What does Clear Supported Metadata Fields remove?',
+        answer: 'It clears the six supported properties listed above from the saved copy. Other metadata or document content may remain.'
       },
       {
-        question: 'Can I add SEO keywords to my PDF document?',
-        answer: 'Yes! Adding relevant keywords to the Keywords field helps search engines and desktop search tools index your PDF document accurately.'
+        question: 'Will this make my PDF anonymous?',
+        answer: 'No. It does not guarantee anonymity, remove names printed on pages, or replace a redaction workflow.'
+      },
+      {
+        question: 'Does it remove dates, comments, attachments, or XMP data?',
+        answer: 'Those items are not guaranteed to be removed by this cleanup. Check the saved PDF and the recipient’s requirements separately.'
+      },
+      {
+        question: 'Is my PDF uploaded to ClickPDF for metadata processing?',
+        answer: 'The current implementation processes the selected PDF in the browser. The page may still request site resources or enabled services; this is not a claim of zero network activity.'
       }
     ],
     benefits: [
-      { title: 'Complete Metadata Inspection', desc: 'Reveal hidden author names, creation software, and dates.', iconName: 'Search' },
-      { title: 'One-Click Anonymization', desc: 'Instantly purge all metadata fields to safeguard personal privacy.', iconName: 'EyeOff' },
-      { title: 'SEO Keyword Stamping', desc: 'Add title and keyword metadata to optimize PDFs for search engines.', iconName: 'Tag' },
-      { title: 'Instant In-Browser Save', desc: 'Updates PDF internal dictionaries locally in milliseconds.', iconName: 'Zap' }
+      { title: 'Inspect Supported Properties', desc: 'View Title, Author, Subject, Keywords, Creator, and Producer when present.', iconName: 'Search' },
+      { title: 'Edit PDF Properties', desc: 'Update the supported fields and save a revised PDF.', iconName: 'Tag' },
+      { title: 'Clear Supported Fields', desc: 'Remove the six supported property values from the saved copy.', iconName: 'EyeOff' },
+      { title: 'Browser-Based Processing', desc: 'PDF processing runs in the browser in the current implementation. The website may still make requests for page resources or enabled services.', iconName: 'Zap' }
     ],
     relatedToolIds: ['metadata', 'protect', 'unlock', 'organize']
   },

@@ -46,14 +46,15 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     .map((id) => PUBLIC_PDF_TOOLS.find((t) => t.id === id))
     .filter((t): t is PDFTool => Boolean(t));
   const toolName = getToolTitle(tool);
-  const localizedSteps = [
+  const isEnglishMetadataPage = tool.id === 'edit-metadata' && language === 'en';
+  const localizedSteps = isEnglishMetadataPage ? seoInfo.steps : [
     { step: 1, title: copy.step1Title, description: copy.step1Description },
     { step: 2, title: copy.step2Title, description: copy.step2Description },
     { step: 3, title: copy.step3Title, description: copy.step3Description },
   ];
   const localizeFaqQuestion = (question: string) =>
     question.replace(/\{toolName\}/g, toolName);
-  const localizedFaqs = [
+  const localizedFaqs = isEnglishMetadataPage ? seoInfo.faqs : [
     {
       question: localizeFaqQuestion(copy.faqPrivacyQuestion),
       answer: copy.faqPrivacyAnswer,
@@ -121,7 +122,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         >
           <p>
             <strong className="text-slate-900 dark:text-white">{copy.quickAnswerLabel}:</strong>{' '}
-            {getToolDescription(tool)}
+            {isEnglishMetadataPage ? tool.description : getToolDescription(tool)}
           </p>
         </section>
 
@@ -129,9 +130,15 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
             <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
-            <span>{ui.inBrowserShort}</span>
-            <span className="text-slate-300 dark:text-slate-700">•</span>
-            <span>{ui.freeUnlimitedBadge}</span>
+            {isEnglishMetadataPage ? (
+              <span>{seoInfo.badge}</span>
+            ) : (
+              <>
+                <span>{ui.inBrowserShort}</span>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span>{ui.freeUnlimitedBadge}</span>
+              </>
+            )}
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -139,7 +146,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {copy.privacySummary}
+            {isEnglishMetadataPage ? seoInfo.metaDescription : copy.privacySummary}
           </p>
         </div>
 
@@ -148,16 +155,32 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800">
           <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-indigo-500" />
-            <span>{ui.aboutToolSectionHeading}</span>
+            <span>{isEnglishMetadataPage ? seoInfo.overviewHeading : ui.aboutToolSectionHeading}</span>
           </h4>
-          <p>{copy.aboutToolSummary}</p>
+          <p>{isEnglishMetadataPage ? seoInfo.overview : copy.aboutToolSummary}</p>
+          {isEnglishMetadataPage && (
+            <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
+              {seoInfo.secondaryOverview}
+            </p>
+          )}
         </div>
+
+        {isEnglishMetadataPage && (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {seoInfo.benefits.map((benefit) => (
+              <section key={benefit.title} className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/70">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white">{benefit.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{benefit.desc}</p>
+              </section>
+            ))}
+          </div>
+        )}
 
         {/* 3. Step-by-Step How-To Instructions */}
         <div className="space-y-4 text-center">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              {ui.howToSectionHeading} {getToolTitle(tool)}
+              {isEnglishMetadataPage ? seoInfo.stepsHeading : `${ui.howToSectionHeading} ${getToolTitle(tool)}`}
             </h3>
           </div>
 

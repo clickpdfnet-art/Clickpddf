@@ -114,7 +114,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
       setError(null);
       await onProcess(value || emptyValues, true);
     } catch (err: any) {
-      setError(err?.message || 'Error occurred while sanitizing metadata');
+      setError(err?.message || 'Error occurred while clearing supported PDF metadata fields');
     }
   };
 
@@ -125,7 +125,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
           <Sparkles className="w-6 h-6" />
         </div>
         <h4 className="text-sm font-bold text-slate-900 dark:text-white">Reading PDF metadata...</h4>
-        <p className="text-xs text-slate-500 mt-1">Analyzing document properties entirely in local RAM.</p>
+        <p className="text-xs text-slate-500 mt-1">The selected PDF is inspected in the browser. The page may still request site resources or enabled services.</p>
       </div>
     );
   }
@@ -147,7 +147,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
                 </span>
               </div>
               <p className="text-xs text-indigo-200/80 mt-0.5">
-                Inspect and modify internal document fields (Title, Author, Creator, Producer) or sanitize them for privacy.
+                Inspect or update Title, Author, Subject, Keywords, Creator, and Producer, or clear these six supported fields.
               </p>
             </div>
           </div>
@@ -274,7 +274,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
               placeholder="report, finance, 2026, clickpdf"
               className="w-full px-3.5 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
-            <span className="text-[10px] text-slate-400 mt-1 block">Indexed by search engines & PDF indexing tools</span>
+            <span className="text-[10px] text-slate-400 mt-1 block">Optional document keywords stored in the supported properties</span>
           </div>
 
           {/* Creator / Application */}
@@ -343,7 +343,7 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
             className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <ShieldCheck className="w-4 h-4 text-rose-600" />
-            <span>{fileCount > 1 ? 'Wipe Metadata from All Files (Privacy Sanitize)' : 'Wipe All Metadata (Privacy Sanitize)'}</span>
+            <span>{fileCount > 1 ? 'Clear Supported Fields in All PDFs' : 'Clear Supported Metadata Fields'}</span>
           </button>
 
           <button
@@ -357,6 +357,9 @@ export const MetadataEditorPanel: React.FC<MetadataEditorPanelProps> = ({
           </button>
         </div>
       </fieldset>
+      <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
+        Clearing supported properties does not guarantee that a PDF is anonymous. This tool does not remove names printed on PDF pages and is not a redaction tool. Creation or modification dates, XMP data, comments, annotations, and attachments are not guaranteed to be cleared; review them separately before sharing.
+      </p>
     </div>
   );
 };

@@ -187,7 +187,7 @@ Metadata inspected or created in the browser using ClickPDF.
     try {
       setIsStripping(true);
       const cleanBytes = await sanitizePdfMetadata(file);
-      const cleanName = `anonymized_${file.name}`;
+      const cleanName = `supported-fields-cleared_${file.name}`;
       downloadBlob(cleanBytes, cleanName);
       setStrippedSuccess(true);
       try {
@@ -196,7 +196,7 @@ Metadata inspected or created in the browser using ClickPDF.
         // ignore
       }
     } catch (e: any) {
-      alert(`Error stripping metadata: ${e.message}`);
+      alert(`Could not clear the supported PDF metadata fields: ${e.message}`);
     } finally {
       setIsStripping(false);
     }
@@ -996,7 +996,7 @@ Metadata inspected or created in the browser using ClickPDF.
               <span>Export & Privacy Actions</span>
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Download structured technical audit reports or strip identifying author metadata for privacy.
+              Download a technical report or clear the supported PDF metadata fields listed by this tool.
             </p>
           </div>
 
@@ -1031,7 +1031,7 @@ Metadata inspected or created in the browser using ClickPDF.
               className="px-4 py-2 bg-slate-900 dark:bg-indigo-600 hover:bg-slate-800 dark:hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
             >
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{isStripping ? 'Sanitizing...' : 'Sanitize & Strip Metadata'}</span>
+              <span>{isStripping ? 'Clearing supported fields…' : 'Clear Supported Metadata Fields'}</span>
             </button>
           </div>
         </div>
@@ -1039,7 +1039,7 @@ Metadata inspected or created in the browser using ClickPDF.
         {strippedSuccess && (
           <div className="mt-3 p-3 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-600" />
-            <span>Success! Anonymized PDF with stripped Author, Producer, and Creator tags downloaded.</span>
+            <span>Downloaded a copy with the supported PDF metadata fields cleared. This does not make the PDF anonymous.</span>
           </div>
         )}
       </div>

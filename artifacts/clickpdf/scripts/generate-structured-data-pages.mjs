@@ -557,6 +557,7 @@ function prepareRouteHtml(template, {
   url,
   title,
   description,
+  keywords = '',
   schema,
   schemaId = pageSchemaId,
   staticContent = '',
@@ -584,6 +585,7 @@ function prepareRouteHtml(template, {
   );
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${safeTitle}</title>`);
   html = setMeta(html, 'name="description"', description);
+  if (keywords) html = setMeta(html, 'name="keywords"', keywords);
   html = setMeta(html, 'property="og:title"', title);
   html = setMeta(html, 'property="og:description"', description);
   html = setMeta(html, 'property="og:url"', url);
@@ -654,6 +656,7 @@ for (const absoluteUrl of sitemapUrls) {
       url: absoluteUrl,
       title,
       description,
+      keywords: tool.keywords,
       schema,
       staticContent: renderToolFallback(tool, activeTools),
     }),

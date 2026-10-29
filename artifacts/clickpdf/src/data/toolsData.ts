@@ -113,8 +113,8 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'edit-metadata',
     title: 'Edit PDF Metadata',
-    description: 'View and modify Author, Title, Subject, Keywords, Creator, and Producer properties in your browser.',
-    extendedDescription: 'Direct in-browser PDF metadata editor: inspect, update, or completely wipe Author, Title, Creator, and Producer properties for privacy or branding.',
+    description: 'Inspect or update six supported PDF properties, or clear these fields from a saved copy.',
+    extendedDescription: 'Inspect or update Title, Author, Subject, Keywords, Creator, and Producer, or clear these supported fields from a saved PDF copy.',
     category: 'security',
     iconName: 'Edit3',
     accentColor: 'from-indigo-600 to-cyan-600',

@@ -353,11 +353,14 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
     assert.equal(howTo?.step?.length, tool.steps.length, `${url} schema has every workflow step`);
     assert.equal(howTo?.step?.length, 3, `${url} HowTo uses the requested three-step workflow`);
     assert.ok(howTo?.step?.every((step) => step.name && step.text), `${url} has readable HowTo step names and text`);
-    assert.equal(tool.faqs.length, 3, `${url} has exactly three targeted FAQs`);
-    assert.match(tool.faqs[0].question, /^Does .+ upload my files to a server\?$/i, `${url} has a privacy FAQ`);
-    assert.match(tool.faqs[1].question, /^Is .+ free, and is there a file-size limit\?$/i, `${url} has a cost and limits FAQ`);
-    assert.match(tool.faqs[2].question, /^Can I use .+ on Android, iPhone, and PC\?$/i, `${url} has a compatibility FAQ`);
-    assert.equal((content.match(/<details>/g) || []).length, 3, `${url} visibly renders the same three FAQs`);
+    const expectedFaqCount = tool.id === 'edit-metadata' ? 5 : 3;
+    assert.equal(tool.faqs.length, expectedFaqCount, `${url} has the expected tool-specific FAQs`);
+    if (tool.id !== 'edit-metadata') {
+      assert.match(tool.faqs[0].question, /^Does .+ upload my files to a server\?$/i, `${url} has a privacy FAQ`);
+      assert.match(tool.faqs[1].question, /^Is .+ free, and is there a file-size limit\?$/i, `${url} has a cost and limits FAQ`);
+      assert.match(tool.faqs[2].question, /^Can I use .+ on Android, iPhone, and PC\?$/i, `${url} has a compatibility FAQ`);
+    }
+    assert.equal((content.match(/<details>/g) || []).length, expectedFaqCount, `${url} visibly renders the same FAQs`);
     const faqSchema = nodes.find((node) => node['@type'] === 'FAQPage');
     assert.deepEqual(
       faqSchema?.mainEntity?.map((item) => item.name),
@@ -732,6 +735,68 @@ test('all public routes keep localized heads, verified article metadata, heading
     /selected files are processed locally in the browser instead of being uploaded/i,
     'machine-readable descriptions do not contain the previous awkward replacement phrase',
   );
+});
+
+test('Edit PDF Metadata copy and static SEO stay within the six supported fields', async () => {
+  const url = `${siteOrigin}/tools/edit-pdf-metadata/`;
+  const tool = activeTools.find((item) => item.id === 'edit-metadata');
+  assert.ok(tool, 'Edit PDF Metadata remains in the active public tool registry');
+  assert.equal(tool.name, 'Edit PDF Metadata Online: Author, Title & Properties');
+  assert.equal(tool.title, 'Edit PDF Metadata: Author & Title | ClickPDF');
+  assert.equal(
+    tool.description,
+    'View and update supported PDF properties: Title, Author, Subject, Keywords, Creator, and Producer. Clear these fields and review the saved PDF.',
+  );
+  assert.equal(
+    tool.keywords,
+    'edit PDF metadata, change PDF author, edit PDF properties, clear supported PDF metadata fields',
+  );
+  assert.equal(tool.badge, 'PDF Property Editor');
+  assert.equal(tool.overviewHeading, 'Inspect or Edit Supported PDF Properties');
+  assert.equal(tool.faqs.length, 5, 'all five metadata-specific FAQs reach static output');
+
+  const { html, nodes } = await readHeadSchemas(url);
+  const title = decodeXml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+  assert.equal(title, tool.title, 'static title tag matches source SEO title');
+  const metaContent = (name) => {
+    const tag = html.match(new RegExp(`<meta\\b(?=[^>]*\\bname=["']${name}["'])[^>]*>`, 'i'))?.[0] || '';
+    return decodeXml(tag.match(/\bcontent=(["'])([\s\S]*?)\1/i)?.[2] || '');
+  };
+  assert.equal(metaContent('description'), tool.description);
+  assert.equal(metaContent('keywords'), tool.keywords);
+
+  const body = staticMain(html, url);
+  for (const phrase of [
+    tool.name,
+    tool.badge,
+    tool.overviewHeading,
+    tool.overview,
+    tool.secondaryOverview,
+    ...tool.steps.map((step) => step.description),
+    ...tool.benefits.flatMap((benefit) => [benefit.title, benefit.desc]),
+    ...tool.faqs.flatMap((faq) => [faq.question, faq.answer]),
+  ]) {
+    assert.ok(body.includes(escapeHtml(phrase)), `static page includes current copy: ${phrase}`);
+  }
+  assert.doesNotMatch(
+    `${tool.overview} ${tool.secondaryOverview} ${tool.benefits.map((benefit) => `${benefit.title} ${benefit.desc}`).join(' ')}`,
+    /anonymi[sz]|purge all metadata|wipe all metadata|complete metadata scrub|SEO keyword stamping|optimize PDFs for search engines/i,
+  );
+  const schemaFaq = nodes.find((node) => node['@type'] === 'FAQPage');
+  assert.equal(schemaFaq?.mainEntity?.length, 5, 'static FAQ structured data matches the five visible FAQs');
+  assert.deepEqual(
+    schemaFaq.mainEntity.map((item) => item.name),
+    tool.faqs.map((item) => item.question),
+  );
+
+  const editorSource = await readFile(path.join(appDir, 'src', 'components', 'MetadataEditorPanel.tsx'), 'utf8');
+  const inspectorSource = await readFile(path.join(appDir, 'src', 'components', 'MetadataInspector.tsx'), 'utf8');
+  assert.match(editorSource, /Clear Supported Metadata Fields/);
+  assert.match(editorSource, /Clear Supported Fields in All PDFs/);
+  assert.match(inspectorSource, /Clear Supported Metadata Fields/);
+  assert.match(inspectorSource, /Clearing supported fields…/);
+  assert.match(inspectorSource, /Downloaded a copy with the supported PDF metadata fields cleared\. This does not make the PDF anonymous\./);
+  assert.match(inspectorSource, /Download a technical report or clear the supported PDF metadata fields listed by this tool\./);
 });
 
 test('legacy tool links redirect to canonical tools and unknown tool paths return a true 404', async () => {
