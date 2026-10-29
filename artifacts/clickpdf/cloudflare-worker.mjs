@@ -2,6 +2,7 @@ const APEX_HOST = 'clickpdf.net';
 const CANONICAL_HOST = 'www.clickpdf.net';
 const UNICODE_ROUTE_MAP_PATH = '/__unicode_routes.json';
 const BLOG_ROUTE_MAP_PATH = '/__blog_routes.json';
+const RELEASE_MANIFEST_PATH = '/__release.json';
 const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
 const AD_ASSET_STORAGE_PATH = '/ad-320x50';
 const PUBLIC_STATIC_PAGE_PATHS = new Set([
@@ -164,6 +165,18 @@ export default {
       url.protocol = 'https:';
       url.hostname = CANONICAL_HOST;
       return Response.redirect(url.toString(), 301);
+    }
+
+    if (url.pathname === RELEASE_MANIFEST_PATH) {
+      const response = await env.ASSETS.fetch(request);
+      const headers = new Headers(response.headers);
+      headers.set('cache-control', 'no-store');
+      headers.set('x-robots-tag', 'noindex, nofollow');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
     }
 
     if (decodedPath && /[^\u0000-\u007f]/.test(decodedPath)) {
