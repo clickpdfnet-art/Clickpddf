@@ -3,7 +3,7 @@
 Canonical homepage: https://www.clickpdf.net/
 Publisher: Click Digital Services
 Public PDF tools: 21
-Published Markdown articles: 211
+Published Markdown articles: 231
 
 ## Overview
 
@@ -313,6 +313,26 @@ Common questions: Does Add a Visual Signature to PDF upload my files to a server
 - [Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại](https://www.clickpdf.net/blog/gop-anh-bai-tap-viet-tay-thanh-pdf-vi/): Gộp các ảnh bài tập viết tay thành một file PDF dễ đọc trên điện thoại của bạn. Sắp xếp thứ tự trang, kiểm tra độ rõ nét và chuẩn bị file để nộp bài cho trường.
 - [如何将手写作业照片合并为单个移动设备 PDF](https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-zh-zh/): 在手机上将手写作业照片合并为一份可读的 PDF。整理页面顺序、检查清晰度，并为大学提交准备好文件。
 - [How to Merge Multiple Handwritten Assignment Photos Into a Single PDF on Mobile](https://www.clickpdf.net/merge-handwritten-assignment-photos-into-pdf/): Merge handwritten assignment photos into one readable PDF on your phone. Organize page order, check clarity, and prepare a file for university submission.
+- [هل تدمج ملفات PDF أم تعيد ترتيب الصفحات؟ اختر الأداة المناسبة](https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/): تعرّف على وقت دمج ملفات PDF المنفصلة ووقت تغيير ترتيب الصفحات داخل ملف واحد.
+- [PDF-Dateien zusammenfügen oder Seiten neu ordnen? Das passende Tool](https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/): Erfahren Sie, wann Sie einzelne PDF-Dateien zusammenfügen und wann Sie die Seitenreihenfolge in einer PDF ändern sollten.
+- [¿Unir o reordenar un PDF? Elige la herramienta adecuada](https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/): Descubre cuándo unir archivos PDF separados y cuándo cambiar el orden de las páginas de un solo PDF.
+- [Fusionner ou réorganiser un PDF ? Choisissez le bon outil](https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/): Découvrez quand réunir plusieurs fichiers PDF et quand modifier l’ordre des pages d’un seul PDF.
+- [PDF जोड़ें या पेजों का क्रम बदलें? सही टूल चुनें](https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/): जानें कि अलग PDF फ़ाइलों को कब जोड़ना है और एक ही PDF के पेजों का क्रम कब बदलना है।
+- [Gabungkan atau Susun Ulang PDF? Pilih Alat yang Tepat](https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/): Ketahui kapan harus menggabungkan beberapa file PDF dan kapan perlu mengubah urutan halaman dalam satu PDF.
+- [Unire o riordinare un PDF? Scegli lo strumento giusto](https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/): Scopri quando unire file PDF separati e quando cambiare l’ordine delle pagine in un unico PDF.
+- [PDFを結合する？ページ順を変える？目的に合ったツールの選び方](https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/): 複数のPDFを結合する場合と、1つのPDF内でページ順を変える場合の違いを紹介します。
+- [PDF 병합과 페이지 순서 변경, 어떤 도구를 선택해야 할까요?](https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/): 여러 PDF 파일을 합칠 때와 하나의 PDF 안에서 페이지 순서를 바꿀 때를 구분해 보세요.
+- [Een PDF samenvoegen of pagina’s herschikken? Kies de juiste tool](https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/): Lees wanneer u losse PDF-bestanden samenvoegt en wanneer u de volgorde van pagina’s in één PDF wijzigt.
+- [Slå sammen eller endre siderekkefølgen i en PDF? Velg riktig verktøy](https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/): Finn ut når du bør slå sammen separate PDF-filer, og når du bør endre siderekkefølgen i én PDF.
+- [Łączyć PDF-y czy zmieniać kolejność stron? Wybierz właściwe narzędzie](https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/): Sprawdź, kiedy łączyć osobne pliki PDF, a kiedy zmienić kolejność stron w jednym pliku.
+- [Juntar ou reorganizar um PDF? Escolha a ferramenta certa](https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/): Saiba quando juntar arquivos PDF separados e quando alterar a ordem das páginas em um único PDF.
+- [Объединить PDF или изменить порядок страниц? Выберите подходящий инструмент](https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/): Узнайте, когда нужно объединить отдельные PDF-файлы, а когда — изменить порядок страниц в одном PDF.
+- [Slå ihop eller ordna om en PDF? Välj rätt verktyg](https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/): Ta reda på när du ska slå ihop separata PDF-filer och när du ska ändra sidordningen i en enda PDF.
+- [Pagsamahin o Ayusin ang Pagkakasunod ng PDF? Piliin ang Tamang Tool](https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/): Alamin kung kailan pagsasamahin ang magkakahiwalay na PDF at kung kailan babaguhin ang ayos ng mga pahina sa iisang PDF.
+- [PDF’leri Birleştirmek mi Sayfaları Sıralamak mı? Doğru Aracı Seçin](https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/): Ayrı PDF dosyalarını ne zaman birleştirmeniz, tek bir PDF’deki sayfaların sırasını ne zaman değiştirmeniz gerektiğini öğrenin.
+- [PDF فائلیں جوڑیں یا صفحات کی ترتیب بدلیں؟ درست ٹول چنیں](https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/): جانیں کہ الگ PDF فائلیں کب جوڑنی ہیں اور ایک ہی PDF کے صفحات کی ترتیب کب بدلنی ہے۔
+- [Nên gộp PDF hay sắp xếp lại trang? Chọn đúng công cụ](https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/): Tìm hiểu khi nào nên gộp các tệp PDF riêng biệt và khi nào cần đổi thứ tự trang trong một tệp PDF.
+- [合并 PDF 还是重新排列页面？选择合适的工具](https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/): 了解何时合并多个 PDF 文件，以及何时调整单个 PDF 中的页面顺序。
 - [Merge or Reorder a PDF? Choose the Right Tool](https://www.clickpdf.net/merge-or-reorder-a-pdf/): A simple guide to choosing between combining separate PDF files and changing the order of pages inside one PDF.
 - [كيفية تقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة](https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ar/): طرق عملية لتقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة مع التحقق من القابلية للقراءة وجودة الصور وقواعد التحميل.
 - [Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren](https://www.clickpdf.net/blog/pdf-hausarbeit-dateigroesse-reduzieren-de/): Praktische Methoden, um die Dateigröße von PDF-Hausarbeiten für Universitäts-LMS-Portale unter 2MB zu reduzieren, unter Berücksichtigung von Lesbarkeit, Bildqualität und Upload-Regeln.

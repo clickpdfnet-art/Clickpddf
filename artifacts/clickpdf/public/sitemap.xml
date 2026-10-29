@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 242 URLs, including 21 public tools, 211 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 262 URLs, including 21 public tools, 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -4896,6 +4896,646 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-handwritten-assignment-photos-into-pdf/" />
   </url>
   <url>
+    <loc>https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>هل تدمج ملفات PDF أم تعيد ترتيب الصفحات؟ اختر الأداة المناسبة</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDF-Dateien zusammenfügen oder Seiten neu ordnen? Das passende Tool</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>¿Unir o reordenar un PDF? Elige la herramienta adecuada</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Fusionner ou réorganiser un PDF ? Choisissez le bon outil</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDF जोड़ें या पेजों का क्रम बदलें? सही टूल चुनें</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Gabungkan atau Susun Ulang PDF? Pilih Alat yang Tepat</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Unire o riordinare un PDF? Scegli lo strumento giusto</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDFを結合する？ページ順を変える？目的に合ったツールの選び方</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDF 병합과 페이지 순서 변경, 어떤 도구를 선택해야 할까요?</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Een PDF samenvoegen of pagina’s herschikken? Kies de juiste tool</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Slå sammen eller endre siderekkefølgen i en PDF? Velg riktig verktøy</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Łączyć PDF-y czy zmieniać kolejność stron? Wybierz właściwe narzędzie</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Juntar ou reorganizar um PDF? Escolha a ferramenta certa</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Объединить PDF или изменить порядок страниц? Выберите подходящий инструмент</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Slå ihop eller ordna om en PDF? Välj rätt verktyg</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Pagsamahin o Ayusin ang Pagkakasunod ng PDF? Piliin ang Tamang Tool</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDF’leri Birleştirmek mi Sayfaları Sıralamak mı? Doğru Aracı Seçin</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>PDF فائلیں جوڑیں یا صفحات کی ترتیب بدلیں؟ درست ٹول چنیں</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>Nên gộp PDF hay sắp xếp lại trang? Chọn đúng công cụ</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
+      <image:title>合并 PDF 还是重新排列页面？选择合适的工具</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
+  </url>
+  <url>
     <loc>https://www.clickpdf.net/merge-or-reorder-a-pdf/</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -4904,6 +5544,26 @@
       <image:loc>https://www.clickpdf.net/blog-assets/watermarked/0e3592ffae01ce868710.webp</image:loc>
       <image:title>Merge or Reorder a PDF? Choose the Right Tool</image:title>
     </image:image>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/blog/damj-aw-tarteeb-safahat-pdf-ar/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/blog/pdf-zusammenfuegen-oder-seiten-ordnen-de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.clickpdf.net/blog/unir-o-reordenar-pdf-es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/blog/fusionner-pdf-ou-reorganiser-pages-fr/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/blog/pdf-merge-vs-reorder-hi/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://www.clickpdf.net/blog/gabungkan-atau-atur-ulang-pdf-id/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.clickpdf.net/blog/unire-o-riordinare-pdf-it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/blog/pdf-ketsugou-to-page-jun-henkou-ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.clickpdf.net/blog/pdf-habchigi-vs-page-sunseo-ko/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.clickpdf.net/blog/pdf-samenvoegen-of-paginas-herschikken-nl/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.clickpdf.net/blog/sla-sammen-eller-endre-pdf-sider-no/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.clickpdf.net/blog/laczyc-pdf-czy-zmienic-kolejnosc-stron-pl/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.clickpdf.net/blog/juntar-ou-reordenar-pdf-pt/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.clickpdf.net/blog/obedinit-pdf-ili-izmenit-poryadok-ru/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.clickpdf.net/blog/sla-ihop-eller-ordna-om-pdf-sv/" />
+    <xhtml:link rel="alternate" hreflang="tl" href="https://www.clickpdf.net/blog/pagsamahin-o-isaayos-pdf-tl/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.clickpdf.net/blog/pdf-birlestir-ve-sayfa-sirala-tr/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/blog/pdf-merge-vs-organize-ur/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.clickpdf.net/blog/gop-hay-sap-xep-lai-pdf-vi/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.clickpdf.net/blog/hebing-pdf-hu-paixu-yemian-zh/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/merge-or-reorder-a-pdf/" />
   </url>
