@@ -127,8 +127,8 @@ const InlineText: React.FC<{ text: string; onSelectTool?: (toolId: string) => vo
   const pattern = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
   const parts = text.split(pattern);
   const toolIdsByPath: Record<string, string> = {
-    '/tools/compress-pdf': 'compress',
-    '/tools/image-to-pdf': 'jpg-to-pdf',
+    '/tools/compress-pdf/': 'compress',
+    '/tools/image-to-pdf/': 'jpg-to-pdf',
     '/tools/merge-pdf': 'merge',
     '/tools/split-pdf': 'split',
     '/tools/organize-pdf': 'organize',
@@ -172,9 +172,9 @@ const InlineText: React.FC<{ text: string; onSelectTool?: (toolId: string) => vo
 };
 
 const tools = [
-  { href: '/tools/compress-pdf', id: 'compress', icon: FileText },
+  { href: '/tools/compress-pdf/', id: 'compress', icon: FileText },
   { href: '/tools/pdf-to-word', id: 'pdf-to-word', icon: FileType2 },
-  { href: '/tools/image-to-pdf', id: 'jpg-to-pdf', icon: Images },
+  { href: '/tools/image-to-pdf/', id: 'jpg-to-pdf', icon: Images },
   { href: '/tools/merge-pdf', id: 'merge', icon: Layers3 },
 ];
 
@@ -191,7 +191,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
   const copy = BLOG_ARTICLE_DETAIL_TRANSLATIONS[articleLanguage] || BLOG_ARTICLE_DETAIL_TRANSLATIONS.en;
   const parsed = useMemo(() => parseMarkdown(article.content), [article.content]);
   const isMobileAssignmentGuide = article.slug === 'merge-handwritten-assignment-photos-into-pdf';
-  const primaryToolHref = article.targetToolUrl || '/tools/compress-pdf';
+  const primaryToolHref = article.targetToolUrl || '/tools/compress-pdf/';
   const primaryToolId = article.targetTool || (
     primaryToolHref === '/tools/image-to-pdf' ? 'jpg-to-pdf' : 'compress'
   );
@@ -407,7 +407,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                   <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">PDF Converter</p>
                   <h2 id="pdf-converter-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Turn Assignment Photos Into a PDF</h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">Arrange your handwritten pages and create one PDF for review and submission.</p>
-                  <a href="/tools/image-to-pdf" onClick={(event) => selectTool(event, 'jpg-to-pdf')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
+                  <a href="/tools/image-to-pdf/" onClick={(event) => selectTool(event, 'jpg-to-pdf')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
                     Open Image to PDF <ArrowRight size={16} />
                   </a>
                 </section>
@@ -416,7 +416,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
                   <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-indigo-700">PDF Compressor</p>
                   <h2 id="pdf-compressor-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">Check the Final File Size</h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">If your portal has a size limit, compress a copy and inspect the handwriting before uploading it.</p>
-                  <a href="/tools/compress-pdf" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-700 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
+                  <a href="/tools/compress-pdf/" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-700 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-700">
                     Open PDF Compressor <ArrowRight size={16} />
                   </a>
                 </section>
@@ -427,7 +427,7 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
               <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-cyan-800">{copy.toolEyebrow}</p>
               <h2 id="compress-cta-heading" className="mt-1 text-xl font-bold tracking-[-0.025em] text-[#173653]">{copy.compressorTitle}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-600">{copy.compressorDescription}</p>
-              <a href="/tools/compress-pdf" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
+              <a href="/tools/compress-pdf/" onClick={(event) => selectTool(event, 'compress')} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a4f76] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#143f61] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a4f76]">
                 {copy.compressorCta} <ArrowRight size={16} />
               </a>
               <p className="mt-3 flex items-start gap-2 text-[11px] leading-5 text-slate-500"><ShieldCheck size={14} className="mt-0.5 shrink-0 text-cyan-700" />{copy.privacyNote}</p>

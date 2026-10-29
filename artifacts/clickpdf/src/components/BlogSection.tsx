@@ -135,7 +135,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       const textCorpus = `${post.title} ${post.category} ${post.excerpt} ${post.content}`.toLowerCase();
       if (textCorpus.includes('compress') || textCorpus.includes('reduce') || textCorpus.includes('size')) {
         toolId = 'compress';
-        toolUrl = '/tools/compress-pdf';
+        toolUrl = '/tools/compress-pdf/';
         toolTitle = 'Compress PDF Tool';
         ctaText = 'Compress PDFs Safely In Browser';
       } else if (textCorpus.includes('merge') || textCorpus.includes('combine') || textCorpus.includes('reorder')) {
@@ -155,7 +155,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         ctaText = 'Password-Protect PDF with Zero-Knowledge';
       } else if (textCorpus.includes('photo') || textCorpus.includes('image') || textCorpus.includes('portfolio')) {
         toolId = 'jpg-to-pdf';
-        toolUrl = '/tools/image-to-pdf';
+        toolUrl = '/tools/image-to-pdf/';
         toolTitle = 'Image to PDF Converter';
         ctaText = 'Convert Images & Photos to PDF Portfolios';
       } else if (textCorpus.includes('ocr') || textCorpus.includes('scanned') || textCorpus.includes('character recognition')) {
@@ -166,7 +166,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         ctaText = 'Inspect & Extract Text from Scanned PDFs';
       } else {
         toolId = 'compress';
-        toolUrl = '/tools/compress-pdf';
+        toolUrl = '/tools/compress-pdf/';
         toolTitle = 'Compress PDF Tool';
         ctaText = 'Open In-Browser PDF Tools';
       }
@@ -174,7 +174,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
     return {
       toolId: toolId || 'compress',
-      toolUrl: toolUrl || '/tools/compress-pdf',
+      toolUrl: toolUrl || '/tools/compress-pdf/',
       toolTitle: toolTitle || 'Client-Side PDF Utility',
       ctaText: ctaText || `Open ${toolTitle || 'Tool'} In Browser`
     };

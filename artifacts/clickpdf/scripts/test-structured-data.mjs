@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import sharp from 'sharp';
 import { readActiveToolRegistry } from './static-tool-registry.mjs';
+import { renderMarkdownBody } from './static-page-content.mjs';
 import worker from '../cloudflare-worker.mjs';
 
 const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -728,6 +729,50 @@ test('all public routes keep localized heads, verified article metadata, heading
     /selected files are processed locally in the browser instead of being uploaded/i,
     'machine-readable descriptions do not contain the previous awkward replacement phrase',
   );
+});
+
+test('blog tool links render with canonical root-relative paths across localized static pages', async () => {
+  const blogHtmlFiles = [];
+  async function collectHtmlFiles(directory) {
+    let entries;
+    try {
+      entries = await readdir(directory, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const entryPath = path.join(directory, entry.name);
+      if (entry.isDirectory()) await collectHtmlFiles(entryPath);
+      else if (entry.isFile() && entry.name.endsWith('.html')) blogHtmlFiles.push(entryPath);
+    }
+  }
+
+  await collectHtmlFiles(path.join(publicDir, 'blog'));
+  await collectHtmlFiles(path.join(publicDir, '__unicode_routes__'));
+  assert.ok(blogHtmlFiles.length > 0, 'generated blog HTML pages exist');
+
+  const invalidHomeLink = /href=["'](?:http:\/\/(?:www\.)?clickpdf\.net\/?|https:\/\/clickpdf\.net\/?)(?:["'#?])/i;
+  for (const file of blogHtmlFiles) {
+    const html = await readFile(file, 'utf8');
+    assert.doesNotMatch(html, invalidHomeLink, `${file} uses HTTPS for homepage links`);
+    const hrefs = [...html.matchAll(/<a\b[^>]*\bhref=(["'])(.*?)\1/gi)].map((match) => match[2]);
+    for (const href of hrefs) {
+      if (href.includes('/tools/image-to-pdf')) {
+        assert.equal(href, '/tools/image-to-pdf/', `${file} uses the canonical Image to PDF path`);
+      }
+      if (href.includes('/tools/compress-pdf')) {
+        assert.equal(href, '/tools/compress-pdf/', `${file} uses the canonical Compress PDF path`);
+      }
+    }
+  }
+
+  const rendered = renderMarkdownBody(
+    '[Homepage](http://clickpdf.net) [Image tool](https://clickpdf.net/tools/image-to-pdf) and [compress tool](/tools/compress-pdf)',
+    'Canonical link test',
+  );
+  assert.match(rendered, /href="https:\/\/www\.clickpdf\.net\/"/);
+  assert.match(rendered, /href="\/tools\/image-to-pdf\/"/);
+  assert.match(rendered, /href="\/tools\/compress-pdf\/"/);
 });
 
 test('Edit PDF Metadata copy and static SEO stay within the six supported fields', async () => {

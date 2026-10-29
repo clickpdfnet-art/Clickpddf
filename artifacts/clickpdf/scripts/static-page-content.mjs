@@ -7,6 +7,37 @@ const markdown = new MarkdownIt({
   breaks: false,
 });
 
+function canonicalBlogToolHref(href) {
+  try {
+    const url = new URL(href, 'https://www.clickpdf.net');
+    if (!['clickpdf.net', 'www.clickpdf.net'].includes(url.hostname)) return href;
+
+    if (url.pathname === '/') {
+      return `https://www.clickpdf.net/${url.search}${url.hash}`;
+    }
+    if (/^\/tools\/image-to-pdf\/?$/.test(url.pathname)) {
+      return `/tools/image-to-pdf/${url.search}${url.hash}`;
+    }
+    if (/^\/tools\/compress-pdf\/?$/.test(url.pathname)) {
+      return `/tools/compress-pdf/${url.search}${url.hash}`;
+    }
+  } catch {
+    return href;
+  }
+  return href;
+}
+
+markdown.core.ruler.push('clickpdf-canonical-blog-tool-links', (state) => {
+  for (const token of state.tokens) {
+    if (token.type !== 'inline' || !token.children) continue;
+    for (const child of token.children) {
+      if (child.type !== 'link_open') continue;
+      const href = child.attrGet('href');
+      if (href) child.attrSet('href', canonicalBlogToolHref(href));
+    }
+  }
+});
+
 const inlineImageDimensions = new Map([
   ['/blog-assets/image-to-pdf/image-to-pdf-workflow.png', [1800, 840]],
   ['/blog-assets/image-to-pdf/image-to-pdf-file-processing.png', [1800, 974]],

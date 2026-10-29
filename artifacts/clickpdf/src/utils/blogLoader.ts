@@ -4,6 +4,32 @@ import generatedBlogWatermarks from '../data/blogWatermarkMap.json';
 const blogWatermarks: Record<string, string> = generatedBlogWatermarks;
 const defaultCoverImage = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 
+function normalizeInternalBlogToolLink(target: string): string {
+  try {
+    const url = new URL(target, 'https://www.clickpdf.net');
+    if (!['clickpdf.net', 'www.clickpdf.net'].includes(url.hostname)) return target;
+
+    if (url.pathname === '/') {
+      return `https://www.clickpdf.net/${url.search}${url.hash}`;
+    }
+    if (/^\/tools\/image-to-pdf\/?$/.test(url.pathname)) {
+      return `/tools/image-to-pdf/${url.search}${url.hash}`;
+    }
+    if (/^\/tools\/compress-pdf\/?$/.test(url.pathname)) {
+      return `/tools/compress-pdf/${url.search}${url.hash}`;
+    }
+  } catch {
+    return target;
+  }
+  return target;
+}
+
+function normalizeBlogBodyLinks(body: string): string {
+  return body.replace(/\]\(([^)\s]+)([^)]*)\)/g, (_match, target: string, suffix: string) =>
+    `](${normalizeInternalBlogToolLink(target)}${suffix})`,
+  );
+}
+
 function normalizeArticleRoutePath(value?: string): string | undefined {
   const candidate = value?.trim();
   if (!candidate || !candidate.startsWith('/') || candidate.startsWith('//') || /[?#]/.test(candidate)) {
@@ -79,7 +105,7 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
     const match = trimmed.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
     if (match) {
       const rawYaml = match[1];
-      bodyContent = match[2].trim();
+      bodyContent = normalizeBlogBodyLinks(match[2].trim());
 
       rawYaml.split(/\r?\n/).forEach((line) => {
         const colonIdx = line.indexOf(':');
@@ -122,6 +148,9 @@ export function parseMarkdownPost(rawFileContent: string, fileName?: string): Bl
   let targetToolUrl = frontmatter['targettoolurl'] || frontmatter['targettoollink'] || frontmatter['toollink'] || frontmatter['targettool'];
   if (targetToolUrl && !targetToolUrl.startsWith('/') && !targetToolUrl.startsWith('http')) {
     targetToolUrl = `/tools/${targetToolUrl}`;
+  }
+  if (targetToolUrl) {
+    targetToolUrl = normalizeInternalBlogToolLink(targetToolUrl);
   }
 
   let targetToolTitle = frontmatter['targettooltitle'] || frontmatter['tooltitle'];
