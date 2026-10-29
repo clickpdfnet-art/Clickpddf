@@ -3,7 +3,7 @@
 Canonical homepage: https://www.clickpdf.net/
 Publisher: Click Digital Services
 Public PDF tools: 21
-Published Markdown articles: 210
+Published Markdown articles: 211
 
 ## Overview
 
@@ -313,6 +313,7 @@ Common questions: Does Add a Visual Signature to PDF upload my files to a server
 - [Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại](https://www.clickpdf.net/blog/gop-anh-bai-tap-viet-tay-thanh-pdf-vi/): Gộp các ảnh bài tập viết tay thành một file PDF dễ đọc trên điện thoại của bạn. Sắp xếp thứ tự trang, kiểm tra độ rõ nét và chuẩn bị file để nộp bài cho trường.
 - [如何将手写作业照片合并为单个移动设备 PDF](https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-zh-zh/): 在手机上将手写作业照片合并为一份可读的 PDF。整理页面顺序、检查清晰度，并为大学提交准备好文件。
 - [How to Merge Multiple Handwritten Assignment Photos Into a Single PDF on Mobile](https://www.clickpdf.net/merge-handwritten-assignment-photos-into-pdf/): Merge handwritten assignment photos into one readable PDF on your phone. Organize page order, check clarity, and prepare a file for university submission.
+- [Merge or Reorder a PDF? Choose the Right Tool](https://www.clickpdf.net/merge-or-reorder-a-pdf/): A simple guide to choosing between combining separate PDF files and changing the order of pages inside one PDF.
 - [كيفية تقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة](https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ar/): طرق عملية لتقليل حجم ملف واجب PDF إلى أقل من 2 ميجابايت لبوابات نظام إدارة التعلم بالجامعة مع التحقق من القابلية للقراءة وجودة الصور وقواعد التحميل.
 - [Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren](https://www.clickpdf.net/blog/pdf-hausarbeit-dateigroesse-reduzieren-de/): Praktische Methoden, um die Dateigröße von PDF-Hausarbeiten für Universitäts-LMS-Portale unter 2MB zu reduzieren, unter Berücksichtigung von Lesbarkeit, Bildqualität und Upload-Regeln.
 - [Cómo reducir el tamaño de un PDF de tarea a menos de 2 MB para portales universitarios](https://www.clickpdf.net/blog/reducir-tamano-archivo-pdf-tarea-es/): Métodos prácticos para reducir el tamaño de un PDF de tarea a menos de 2 MB para portales LMS universitarios, cuidando la legibilidad, la calidad de imagen y las normas de subida.

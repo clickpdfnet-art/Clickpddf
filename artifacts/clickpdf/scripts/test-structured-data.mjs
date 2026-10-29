@@ -81,6 +81,7 @@ const supportedBlogLocales = [
   'en', 'ur', 'hi', 'ar', 'zh', 'ja', 'tl', 'de', 'fr', 'es', 'it',
   'no', 'pt', 'ru', 'ko', 'tr', 'nl', 'pl', 'sv', 'id', 'vi',
 ];
+const sourceOnlyBlogSlugs = new Set(['merge-or-reorder-a-pdf']);
 const blogPosts = await Promise.all(blogFiles.map(async (file) => {
   const raw = await readFile(path.join(appDir, 'src', 'blogs', file), 'utf8');
   const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -179,9 +180,16 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
 });
 
 test('every blog translation group has complete cards and articles in all supported locales', async () => {
-  assert.equal(blogTranslationGroups.size, 10, 'the existing image guide and nine other article groups are localized');
+  assert.equal(blogTranslationGroups.size, 11, 'the existing localized groups plus the new English source-only guide are registered');
   for (const [groupName, group] of blogTranslationGroups) {
     const locales = group.map((post) => post.metadata.locale || 'en').sort();
+    if (group.length === 1 && sourceOnlyBlogSlugs.has(group[0].metadata.slug)) {
+      assert.deepEqual(locales, ['en'], `${groupName} currently has its English source article`);
+      assert.ok(group[0].metadata.seotitle, `${group[0].file} has its source SEO title`);
+      assert.ok(group[0].metadata.seodescription, `${group[0].file} has its source SEO description`);
+      assert.equal(JSON.parse(group[0].metadata.faqitems || '[]').length, 5, `${group[0].file} keeps all five source FAQs`);
+      continue;
+    }
     assert.equal(group.length, supportedBlogLocales.length, `${groupName} has one entry per supported locale`);
     assert.deepEqual(
       locales,
