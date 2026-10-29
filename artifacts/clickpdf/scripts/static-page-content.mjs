@@ -13,6 +13,7 @@ const inlineImageDimensions = new Map([
   ['/blog-assets/merge-handwritten-assignment/page-order.webp', [1024, 576]],
   ['/blog-assets/merge-handwritten-assignment/scanning.webp', [1024, 576]],
   ['/blog-assets/merge-handwritten-assignment/submission.webp', [1024, 576]],
+  ['/blog-assets/merge-or-reorder/merge-vs-page-order.jpg', [1024, 1024]],
   ['/blog-assets/reduce-pdf-assignment/compression.jpg', [1600, 900]],
   ['/blog-assets/reduce-pdf-assignment/scanned-pages.jpg', [1600, 900]],
   ['/blog-assets/reduce-pdf-assignment/submission.jpg', [1600, 900]],

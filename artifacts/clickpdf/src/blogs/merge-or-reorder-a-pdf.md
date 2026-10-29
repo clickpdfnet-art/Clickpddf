@@ -10,16 +10,21 @@ summary: A simple guide to choosing between combining separate PDF files and cha
 seotitle: Merge or Reorder a PDF? | ClickPDF
 seodescription: Learn when to combine separate PDF files, when to change page order inside one PDF, and how to review the final document before sharing it.
 seokeywords: merge or reorder a PDF, combine separate PDF files, change page order inside one PDF, choose the right PDF tool
+coverimage: /blog-assets/merge-or-reorder/merge-or-reorder-cover.jpg
+coverwidth: 1200
+coverheight: 630
+imagealt: A laptop and smartphone displaying PDF page previews side by side on a desk.
 locale: en
 translationGroup: merge-or-reorder-a-pdf
 breadcrumbs: '[{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Blog","url":"https://www.clickpdf.net/blog/"},{"name":"Merge or Reorder a PDF? Choose the Right Tool","url":"https://www.clickpdf.net/merge-or-reorder-a-pdf/"}]'
 faqitems: '[{"question":"What is the difference between merging PDFs and reorganizing a PDF?","answer":"Merging combines separate PDF files into one document. Reorganizing changes the order or orientation of pages already inside a PDF."},{"question":"Should I merge files before changing page order?","answer":"If the pages are in separate PDFs, merge the files first, then review and adjust the combined document’s page order if needed."},{"question":"Can I move pages between different PDFs?","answer":"Use a merge tool to bring separate PDFs together. To change the order of pages in the resulting document, open that PDF in a page organizer afterward."},{"question":"Can I rotate or remove pages while organizing a PDF?","answer":"ClickPDF’s Organize PDF page lists reorder, rotate, and delete functions. Apply only the changes you need and review the output afterward."},{"question":"Does reordering pages reduce PDF quality?","answer":"Reordering is different from compression. Results can depend on the source PDF and tool, so open the final document and check text, images, and any interactive elements."}]'
-publicationtodo: Page-specific cover image, verified image alt text, and official-logo WebP watermark are required before publication.
 ---
 
 # Merge or Reorder a PDF? Choose the Right Tool
 
 Not sure whether you need to merge PDFs or rearrange pages? The choice depends on where the content is now. If the documents are separate PDF files, merge them. If the pages are already inside one PDF but appear in the wrong order, organize that file instead.
+
+![A visual comparison of separate PDF files combined into one document and page thumbnails reordered inside a single PDF.](/blog-assets/merge-or-reorder/merge-vs-page-order.jpg)
 
 ## Merge separate PDF files when you have multiple documents
 
