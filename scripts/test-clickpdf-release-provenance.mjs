@@ -17,6 +17,7 @@ import {
   sha256,
   validateReleaseManifest,
 } from './clickpdf-release-provenance.mjs';
+import { createClickPdfReleaseManifest } from './create-clickpdf-release-manifest.mjs';
 import { verifyPublishedAssets } from './verify-clickpdf-release.mjs';
 
 const sourceRevision = 'a'.repeat(40);
@@ -66,7 +67,7 @@ test('release manifest validation rejects tampered asset records and build IDs',
   assert.throws(() => validateReleaseManifest({
     ...manifest,
     assets: [{ ...manifest.assets[0], sha256: 'd'.repeat(64) }],
-  }), /asset-manifest SHA-256/);
+  }), /asset-manifest SHA-256/i);
   assert.throws(() => validateReleaseManifest({
     ...manifest,
     buildId: 'e'.repeat(64),
@@ -117,6 +118,32 @@ test('static asset collection is sorted, hashes bytes, and excludes its own rele
     assert.equal(entries[0].sha256, sha256(await readFile(path.join(directory, 'assets', 'a.js'))));
   } finally {
     await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('release manifest writer records pinned toolchain and source inputs', async () => {
+  const rootDirectory = await mkdtemp(path.join(os.tmpdir(), 'clickpdf-release-writer-'));
+  const publicDirectory = path.join(rootDirectory, 'artifacts/clickpdf/dist/public');
+  try {
+    await mkdir(publicDirectory, { recursive: true });
+    await writeFile(path.join(rootDirectory, 'pnpm-lock.yaml'), 'lock-data');
+    await writeFile(path.join(rootDirectory, 'wrangler.toml'), 'name = "clickpddf"');
+    await writeFile(path.join(publicDirectory, 'index.html'), '<main>ClickPDF</main>');
+
+    const { manifest, outputPath } = await createClickPdfReleaseManifest({
+      rootDirectory,
+      sourceRevision,
+      pnpmVersion: '10.26.1',
+    });
+    const written = JSON.parse(await readFile(outputPath, 'utf8'));
+
+    assert.deepEqual(written, manifest);
+    assert.equal(manifest.buildInputs.pnpmVersion, '10.26.1');
+    assert.equal(manifest.buildInputs.wranglerVersion, '4.155.0');
+    assert.equal(manifest.assets.length, 1);
+    assert.equal(validateReleaseManifest(manifest), true);
+  } finally {
+    await rm(rootDirectory, { recursive: true, force: true });
   }
 });
 

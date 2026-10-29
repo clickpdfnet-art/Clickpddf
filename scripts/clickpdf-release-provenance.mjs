@@ -107,7 +107,13 @@ export function validateReleaseManifest(manifest) {
   if (!SHA256_PATTERN.test(manifest.buildId ?? '')) {
     throw new Error('Release manifest does not contain a build ID.');
   }
-  if (!Array.isArray(manifest.assets) || !manifest.buildInputs || typeof manifest.buildInputs !== 'object') {
+  if (
+    !Array.isArray(manifest.assets) ||
+    manifest.assets.length === 0 ||
+    !manifest.buildInputs ||
+    typeof manifest.buildInputs !== 'object' ||
+    Array.isArray(manifest.buildInputs)
+  ) {
     throw new Error('Release manifest is missing its asset list or build inputs.');
   }
 
@@ -205,7 +211,7 @@ export function assertDeploymentMatchesManifest(deployment, manifest) {
     deploymentId: deployment.id ?? null,
     versionId: activeVersions[0].version_id ?? activeVersions[0].id,
     sourceRevision: release.sourceRevision,
-    buildId: release.buildId,
+    buildId: manifest.buildId,
     assetManifestSha256: manifest.assetManifestSha256,
     assetCount: manifest.assets.length,
   };
