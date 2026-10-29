@@ -16,7 +16,7 @@ seoDescription: Scopri come unire le foto dei tuoi compiti scritti a mano in un 
 seoKeywords: unire foto compiti a mano in PDF, appunti a mano in PDF, immagine in PDF su telefono, PDF compiti cellulare, consegna LMS università
 imageAlt: Studente universitario che fotografa le pagine di un compito scritto a mano con uno smartphone su una scrivania ordinata con luce naturale.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Convertitore da immagine a PDF
 targetToolCta: Converti le foto dei compiti in PDF
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti","url":"https://www.clickpdf.net/#tools"},{"name":"Come unire più foto di compiti scritti a mano in un unico PDF su cellulare","url":"https://www.clickpdf.net/blog/unire-foto-compiti-manuali-pdf-cellulare-it/"}]
@@ -37,7 +37,7 @@ Disponi le pagine dalla prima all'ultima domanda. Rimuovi le foto duplicate o sf
 
 ## Le migliori app mobili per scansionare e comprimere le foto dei documenti
 
-Scegli uno scanner affidabile o [Convertitore da immagine a PDF](/tools/image-to-pdf) con controlli per ritaglio, riordino e qualità adeguata. Verifica la politica sulla privacy prima di aggiungere il materiale didattico. Se il file di output è troppo grande, usa con attenzione il [Compressore PDF](/tools/compress-pdf).
+Scegli uno scanner affidabile o [Convertitore da immagine a PDF](/tools/image-to-pdf/) con controlli per ritaglio, riordino e qualità adeguata. Verifica la politica sulla privacy prima di aggiungere il materiale didattico. Se il file di output è troppo grande, usa con attenzione il [Compressore PDF](/tools/compress-pdf/).
 
 ## Utilizzo delle app scanner integrate su dispositivi Android e iOS
 
@@ -55,7 +55,7 @@ Ritaglia la scrivania senza tagliare la scrittura. Regola delicatamente luminosi
 
 ## Convertire più file immagine in formato PDF su cellulare
 
-Seleziona le immagini preparate in [ClickPDF Immagine in PDF](/tools/image-to-pdf), imposta l'orientamento e la dimensione della pagina, quindi genera il PDF. Per unire le foto dei compiti scritti a mano in un PDF su cellulare, conferma che ogni immagine selezionata appaia nel file di output.
+Seleziona le immagini preparate in [ClickPDF Immagine in PDF](/tools/image-to-pdf/), imposta l'orientamento e la dimensione della pagina, quindi genera il PDF. Per unire le foto dei compiti scritti a mano in un PDF su cellulare, conferma che ogni immagine selezionata appaia nel file di output.
 
 ## Come riordinare le pagine prima di generare il PDF finale
 
@@ -91,7 +91,7 @@ Conferma che ogni pagina sia presente, in ordine e leggibile. Controlla il nome 
 
 ![Studente universitario che controlla un PDF di un compito completato su un portatile accanto a un telefono e pagine scritte a mano impilate ordinatamente.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Se hai bisogno di una copia più piccola, usa il [Compressore PDF](/tools/compress-pdf), quindi confrontalo con l'originale prima di caricarlo.
+Se hai bisogno di una copia più piccola, usa il [Compressore PDF](/tools/compress-pdf/), quindi confrontalo con l'originale prima di caricarlo.
 
 ## Domande frequenti
 

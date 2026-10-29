@@ -13,7 +13,7 @@ seokeywords: reduce PDF assignment file size, compress PDF below 2MB, university
 coverimage: /blog-assets/reduce-pdf-assignment/hero.jpg
 imagealt: University student reviewing a PDF assignment on a laptop at a tidy desk in natural daylight.
 targettool: compress
-targettoolurl: /tools/compress-pdf
+targettoolurl: /tools/compress-pdf/
 targettooltitle: PDF Compressor
 targettoolcta: Compress PDF Now
 locale: en
@@ -48,7 +48,7 @@ Some services use decimal megabytes, where 1 MB is 1,000,000 bytes; others displ
 
 Use a trusted browser-based compressor when you need a quick result without installing desktop software. Some tools use libraries such as pdf-lib for PDF manipulation, although not every library offers full compression. Check whether processing happens locally before selecting a tool.
 
-ClickPDF’s PDF Compressor is available at [Compress PDF](/tools/compress-pdf). Select the PDF, choose an available compression setting, and process a copy. The amount of reduction depends on the document: a scan-heavy PDF may shrink substantially, while a text-only file may change very little. Compare the output size and inspect the pages before submitting.
+ClickPDF’s PDF Compressor is available at [Compress PDF](/tools/compress-pdf/). Select the PDF, choose an available compression setting, and process a copy. The amount of reduction depends on the document: a scan-heavy PDF may shrink substantially, while a text-only file may change very little. Compare the output size and inspect the pages before submitting.
 
 ![Laptop showing a generic PDF optimization workflow with a visual before-and-after size comparison and no readable personal information.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -128,7 +128,7 @@ Before you submit, confirm:
 
 ![Student checking a PDF assignment on a laptop before uploading it to a university learning portal.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Keep the original file until the portal confirms receipt. If you need a smaller copy, use the [PDF Compressor](/tools/compress-pdf), then compare the compressed version against your source before uploading.
+Keep the original file until the portal confirms receipt. If you need a smaller copy, use the [PDF Compressor](/tools/compress-pdf/), then compare the compressed version against your source before uploading.
 
 ## Frequently Asked Questions
 

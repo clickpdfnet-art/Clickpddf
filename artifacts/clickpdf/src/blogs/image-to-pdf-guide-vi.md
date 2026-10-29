@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Tìm hiểu cách gộp ảnh JPG, PNG và WebP thành một PDF trong trình duyệt. Ảnh đã chọn được xử lý trên thiết bị của bạn; quy mô lô thực tế phụ thuộc vào trình duyệt và bộ nhớ khả dụng."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Chuyển ảnh sang PDF"
 targetToolCta: "Chuyển ảnh sang PDF trong trình duyệt"
 ---
@@ -149,7 +149,7 @@ Thực hiện trong trình duyệt máy tính hoặc điện thoại được h�
 
 ### Bước 1: Mở Image to PDF
 
-Mở **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** hoặc tìm công cụ trong danh mục. Giao diện có thể thay đổi theo thời gian.
+Mở **[Image to PDF](/tools/image-to-pdf/)** hoặc tìm công cụ trong danh mục. Giao diện có thể thay đổi theo thời gian.
 
 ### Bước 2: Chọn tệp JPG, PNG hoặc WebP
 

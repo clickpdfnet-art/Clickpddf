@@ -17,7 +17,7 @@ seoDescription: Aprenda a transformar suas fotos em elegantes portfólios PDF ma
 seoKeywords: portfólio PDF, converter fotos para PDF, design de portfólio, ClickPDF, PDF profissional
 imageAlt: Como criar elegantes portfólios de fotos e lookbooks como PDFs padrão
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Conversor de imagem para PDF
 targetToolCta: Converter imagens e fotos para portfólios PDF
 breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Como criar elegantes portfólios de fotos e lookbooks como PDFs padrão","url":"https://www.clickpdf.net/blog/converter-fotos-em-portfolios-pdf-n%C3%ADtidos-pt/"}]

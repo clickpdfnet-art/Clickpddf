@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "تعلّم جمع صور JPG وPNG وWebP في ملف PDF واحد داخل المتصفح. تُعالَج الصور المحددة على جهازك؛ ويتوقف حجم الدفعة العملي على المتصفح والذاكرة المتاحة."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "تحويل الصور إلى PDF"
 targetToolCta: "حوّل الصور إلى PDF في المتصفح"
 ---
@@ -149,7 +149,7 @@ targetToolCta: "حوّل الصور إلى PDF في المتصفح"
 
 ### الخطوة 1: افتح أداة Image to PDF
 
-افتح **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** أو ابحث عنها في قائمة الأدوات. قد تتغير الواجهة بمرور الوقت.
+افتح **[Image to PDF](/tools/image-to-pdf/)** أو ابحث عنها في قائمة الأدوات. قد تتغير الواجهة بمرور الوقت.
 
 ### الخطوة 2: اختر صور JPG أو PNG أو WebP
 

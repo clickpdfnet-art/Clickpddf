@@ -17,7 +17,7 @@ seoDescription: Skapa professionella fotoportföljer och lookbooks i PDF-format.
 seoKeywords: fotoportfölj, PDF, ClickPDF, bilder till PDF, lookbook, PDF-konverterare
 imageAlt: Hur man bygger eleganta fotoportföljer och lookbooks som standard-PDF:er
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bild till PDF-konverterare
 targetToolCta: Konvertera bilder och foton till PDF-portföljer
 breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Hur man skapar eleganta fotoportföljer och lookbooks som standard-PDF:er","url":"https://www.clickpdf.net/blog/skapa-eleganta-fotoportfoljer-som-pdf-sv/"}]

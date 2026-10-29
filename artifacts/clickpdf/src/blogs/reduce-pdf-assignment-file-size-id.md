@@ -16,7 +16,7 @@ seoDescription: Pelajari cara mengurangi ukuran file PDF tugas di bawah 2 MB unt
 seoKeywords: kurangi ukuran file PDF tugas, kompres PDF di bawah 2 MB, batas unggah PDF LMS universitas, kompresi PDF tugas, optimasi PDF hasil pindai
 imageAlt: Mahasiswa meninjau tugas PDF di laptop di meja yang rapi pada siang hari.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Kompresor PDF
 targetToolCta: Kompres PDF Sekarang
 breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Mengurangi Ukuran File PDF Tugas di Bawah 2 MB untuk Portal LMS Universitas","url":"https://www.clickpdf.net/blog/cara-mengurangi-ukuran-file-pdf-tugas/"}]
@@ -49,7 +49,7 @@ Beberapa layanan menggunakan megabyte desimal, di mana 1 MB adalah 1.000.000 byt
 
 Gunakan kompresor berbasis browser tepercaya saat Anda membutuhkan hasil cepat tanpa menginstal perangkat lunak desktop. Beberapa alat menggunakan pustaka seperti pdf-lib untuk manipulasi PDF, meskipun tidak setiap pustaka menawarkan kompresi penuh. Periksa apakah pemrosesan terjadi secara lokal sebelum memilih alat.
 
-Kompresor PDF ClickPDF tersedia di [Kompres PDF](/tools/compress-pdf). Pilih PDF, pilih pengaturan kompresi yang tersedia, dan proses salinannya. Jumlah pengurangan tergantung pada dokumen: PDF yang penuh pindai mungkin menyusut secara substansial, sementara file teks saja mungkin berubah sangat sedikit. Bandingkan ukuran output dan periksa halaman sebelum mengirim.
+Kompresor PDF ClickPDF tersedia di [Kompres PDF](/tools/compress-pdf/). Pilih PDF, pilih pengaturan kompresi yang tersedia, dan proses salinannya. Jumlah pengurangan tergantung pada dokumen: PDF yang penuh pindai mungkin menyusut secara substansial, sementara file teks saja mungkin berubah sangat sedikit. Bandingkan ukuran output dan periksa halaman sebelum mengirim.
 
 ![Laptop yang menampilkan alur kerja optimasi PDF umum dengan perbandingan ukuran sebelum dan sesudah visual dan tanpa informasi pribadi yang terbaca.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Sebelum Anda mengirimkan, konfirmasikan:
 
 ![Mahasiswa memeriksa tugas PDF di laptop sebelum mengunggahnya ke portal pembelajaran universitas.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Simpan file asli sampai portal mengonfirmasi penerimaan. Jika Anda membutuhkan salinan yang lebih kecil, gunakan [Kompresor PDF](/tools/compress-pdf), lalu bandingkan versi terkompresi dengan sumber Anda sebelum mengunggah.
+Simpan file asli sampai portal mengonfirmasi penerimaan. Jika Anda membutuhkan salinan yang lebih kecil, gunakan [Kompresor PDF](/tools/compress-pdf/), lalu bandingkan versi terkompresi dengan sumber Anda sebelum mengunggah.
 
 ## Pertanyaan yang Sering Diajukan
 

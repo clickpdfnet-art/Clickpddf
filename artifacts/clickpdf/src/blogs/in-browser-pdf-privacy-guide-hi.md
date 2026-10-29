@@ -17,7 +17,7 @@ seoDescription: जानें कि कैसे ब्राउज़र-आ
 seoKeywords: पीडीएफ़, गोपनीयता, ब्राउज़र, सुरक्षा, ClickPDF
 imageAlt: इन-ब्राउज़र पीडीएफ़ प्रोसेसिंग मौलिक रूप से अधिक सुरक्षित क्यों है
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: पीडीएफ़ कंप्रेस टूल
 targetToolCta: ब्राउज़र में PDF प्रोसेस करें
 breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"पीडीएफ़ टूल","url":"https://www.clickpdf.net/#tools"},{"name":"इन-ब्राउज़र पीडीएफ़ प्रोसेसिंग मौलिक रूप से अधिक सुरक्षित क्यों है","url":"https://www.clickpdf.net/blog/%E0%A4%87%E0%A4%A8-%E0%A4%AC%E0%A4%B0%E0%A4%89%E0%A4%9C%E0%A4%B0-%E0%A4%AA%E0%A4%A1%E0%A4%8F%E0%A4%AB-%E0%A4%AA%E0%A4%B0%E0%A4%87%E0%A4%B5%E0%A4%B8-%E0%A4%97%E0%A4%87%E0%A4%A1-hi/"}]

@@ -16,7 +16,7 @@ seoDescription: Apprenez à fusionner vos photos de devoirs manuscrits en un seu
 seoKeywords: fusionner photos devoirs manuscrits PDF mobile, notes manuscrites vers PDF, image vers PDF téléphone, PDF devoirs mobile, soumission LMS université
 imageAlt: Étudiant photographiant des pages de devoirs manuscrits avec un smartphone sur un bureau rangé à la lumière du jour.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Convertisseur Image vers PDF
 targetToolCta: Convertir les photos de devoirs en PDF
 breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils","url":"https://www.clickpdf.net/#tools"},{"name":"Comment fusionner plusieurs photos de devoirs manuscrits en un seul PDF sur mobile","url":"https://www.clickpdf.net/blog/fusionner-photos-devoirs-manuscrits-pdf-fr/"}]
@@ -37,7 +37,7 @@ Disposez les pages de la première à la dernière question. Supprimez les photo
 
 ## Meilleures applications mobiles pour scanner et compresser des photos de documents
 
-Choisissez un scanner de confiance ou un [Convertisseur Image vers PDF](/tools/image-to-pdf) avec des contrôles de recadrage, de réorganisation et de qualité appropriés. Vérifiez sa politique de confidentialité avant d'ajouter vos travaux. Si le résultat est trop volumineux, utilisez le [Compresseur PDF](/tools/compress-pdf) avec précaution.
+Choisissez un scanner de confiance ou un [Convertisseur Image vers PDF](/tools/image-to-pdf/) avec des contrôles de recadrage, de réorganisation et de qualité appropriés. Vérifiez sa politique de confidentialité avant d'ajouter vos travaux. Si le résultat est trop volumineux, utilisez le [Compresseur PDF](/tools/compress-pdf/) avec précaution.
 
 ## Utiliser les applications de scan intégrées sur Android et iOS
 
@@ -55,7 +55,7 @@ Recadrez le bureau sans couper l'écriture. Ajustez doucement la luminosité et 
 
 ## Convertir plusieurs fichiers image en format PDF sur mobile
 
-Sélectionnez les images préparées dans [ClickPDF Image vers PDF](/tools/image-to-pdf), définissez l'orientation et la taille de la page, puis générez le PDF. Pour fusionner des photos de devoirs manuscrits en PDF sur mobile, confirmez que chaque image sélectionnée apparaît dans le résultat.
+Sélectionnez les images préparées dans [ClickPDF Image vers PDF](/tools/image-to-pdf/), définissez l'orientation et la taille de la page, puis générez le PDF. Pour fusionner des photos de devoirs manuscrits en PDF sur mobile, confirmez que chaque image sélectionnée apparaît dans le résultat.
 
 ## Comment réorganiser les pages avant de générer le PDF final
 
@@ -91,7 +91,7 @@ Confirmez que chaque page est présente, dans l'ordre et lisible. Vérifiez le n
 
 ![Étudiant universitaire examinant un PDF de devoir terminé sur un ordinateur portable à côté d'un téléphone et de pages manuscrites proprement empilées.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Si vous avez besoin d'une copie plus petite, utilisez le [Compresseur PDF](/tools/compress-pdf), puis comparez-la avec votre original avant de télécharger.
+Si vous avez besoin d'une copie plus petite, utilisez le [Compresseur PDF](/tools/compress-pdf/), puis comparez-la avec votre original avant de télécharger.
 
 ## Foire aux questions
 

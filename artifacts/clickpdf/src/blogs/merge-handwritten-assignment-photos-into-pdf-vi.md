@@ -16,7 +16,7 @@ seoDescription: Tìm hiểu cách gộp ảnh bài tập viết tay thành một
 seoKeywords: gộp ảnh bài tập viết tay thành PDF trên điện thoại, ghi chú viết tay thành PDF, hình ảnh thành PDF trên điện thoại, PDF bài tập di động, nộp bài LMS đại học
 imageAlt: Sinh viên đang chụp ảnh các trang bài tập viết tay bằng điện thoại thông minh tại bàn học gọn gàng với ánh sáng ban ngày tự nhiên.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Công cụ chuyển đổi hình ảnh sang PDF
 targetToolCta: Chuyển đổi ảnh bài tập sang PDF
 breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách gộp nhiều ảnh bài tập viết tay thành một file PDF trên điện thoại","url":"https://www.clickpdf.net/blog/gop-anh-bai-tap-viet-tay-thanh-pdf-vi/"}]
@@ -37,7 +37,7 @@ Sắp xếp các trang từ câu đầu tiên đến câu cuối cùng. Xóa ả
 
 ## Các ứng dụng di động tốt nhất để quét và nén ảnh tài liệu
 
-Chọn một máy quét đáng tin cậy hoặc [công cụ chuyển đổi hình ảnh sang PDF](/tools/image-to-pdf) có tính năng cắt, sắp xếp lại và kiểm soát chất lượng phù hợp. Kiểm tra chính sách bảo mật trước khi thêm tài liệu khóa học. Nếu tệp đầu ra quá lớn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf) một cách cẩn thận.
+Chọn một máy quét đáng tin cậy hoặc [công cụ chuyển đổi hình ảnh sang PDF](/tools/image-to-pdf/) có tính năng cắt, sắp xếp lại và kiểm soát chất lượng phù hợp. Kiểm tra chính sách bảo mật trước khi thêm tài liệu khóa học. Nếu tệp đầu ra quá lớn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf/) một cách cẩn thận.
 
 ## Sử dụng ứng dụng máy quét tích hợp trên thiết bị Android và iOS
 
@@ -55,7 +55,7 @@ Cắt bỏ phần mặt bàn mà không làm mất chữ viết. Điều chỉnh
 
 ## Chuyển đổi nhiều file hình ảnh sang định dạng PDF trên di động
 
-Chọn các hình ảnh đã chuẩn bị trong [ClickPDF Hình ảnh sang PDF](/tools/image-to-pdf), đặt hướng và kích thước trang, sau đó tạo PDF. Để gộp các ảnh bài tập viết tay thành PDF trên điện thoại, hãy xác nhận rằng mỗi hình ảnh được chọn đều xuất hiện trong đầu ra.
+Chọn các hình ảnh đã chuẩn bị trong [ClickPDF Hình ảnh sang PDF](/tools/image-to-pdf/), đặt hướng và kích thước trang, sau đó tạo PDF. Để gộp các ảnh bài tập viết tay thành PDF trên điện thoại, hãy xác nhận rằng mỗi hình ảnh được chọn đều xuất hiện trong đầu ra.
 
 ## Cách sắp xếp lại các trang trước khi tạo PDF cuối cùng
 
@@ -91,7 +91,7 @@ Xác nhận rằng mọi trang đều hiện diện, đúng thứ tự và dễ 
 
 ![Sinh viên đại học đang xem lại một file PDF bài tập đã hoàn thành trên máy tính xách tay bên cạnh điện thoại và các trang viết tay được xếp gọn gàng.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Nếu bạn cần một bản sao nhỏ hơn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf), sau đó so sánh với bản gốc trước khi tải lên.
+Nếu bạn cần một bản sao nhỏ hơn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf/), sau đó so sánh với bản gốc trước khi tải lên.
 
 ## Các câu hỏi thường gặp
 

@@ -16,7 +16,7 @@ seoDescription: Aprende a combinar fotos de trabajos escritos a mano en un PDF l
 seoKeywords: combinar fotos de trabajos a mano en PDF, apuntes a mano a PDF, imagen a PDF en móvil, PDF de trabajos móvil, entrega en campus virtual
 imageAlt: Estudiante universitario fotografiando páginas de trabajos a mano con un móvil en un escritorio ordenado con luz natural.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Convertidor de imagen a PDF
 targetToolCta: Convertir fotos de trabajos a PDF
 breadcrumbs: [{"name":"Inicio","url":"https://www.clickpdf.net/"},{"name":"Herramientas","url":"https://www.clickpdf.net/#tools"},{"name":"Cómo combinar varias fotos de trabajos escritos a mano en un solo PDF en el móvil","url":"https://www.clickpdf.net/blog/combinar-fotos-trabajos-manuales-pdf-movil-es/"}]
@@ -37,7 +37,7 @@ Ordena las páginas desde la primera pregunta hasta la última. Elimina fotos du
 
 ## Las mejores apps móviles para escanear y comprimir fotos de documentos
 
-Elige una herramienta de escaneo o [Convertidor de imagen a PDF](/tools/image-to-pdf) confiable que permita recortar, reordenar y controlar la calidad. Revisa su política de privacidad antes de añadir tu material de estudio. Si el archivo resultante es demasiado grande, usa el [Compresor de PDF](/tools/compress-pdf) con cuidado.
+Elige una herramienta de escaneo o [Convertidor de imagen a PDF](/tools/image-to-pdf/) confiable que permita recortar, reordenar y controlar la calidad. Revisa su política de privacidad antes de añadir tu material de estudio. Si el archivo resultante es demasiado grande, usa el [Compresor de PDF](/tools/compress-pdf/) con cuidado.
 
 ## Uso de apps de escaneo integradas en dispositivos Android e iOS
 
@@ -55,7 +55,7 @@ Recorta el escritorio sin cortar el texto. Ajusta el brillo y el contraste suave
 
 ## Cómo convertir múltiples archivos de imagen a formato PDF en el móvil
 
-Selecciona las imágenes preparadas en [ClickPDF Imagen a PDF](/tools/image-to-pdf), configura la orientación y el tamaño de página, luego genera el PDF. Para combinar fotos de trabajos escritos a mano en un PDF en el móvil, confirma que cada imagen seleccionada aparezca en el resultado final.
+Selecciona las imágenes preparadas en [ClickPDF Imagen a PDF](/tools/image-to-pdf/), configura la orientación y el tamaño de página, luego genera el PDF. Para combinar fotos de trabajos escritos a mano en un PDF en el móvil, confirma que cada imagen seleccionada aparezca en el resultado final.
 
 ## Cómo reordenar páginas antes de generar el PDF final
 
@@ -91,7 +91,7 @@ Confirma que cada página esté presente, en orden y sea legible. Comprueba el n
 
 ![Estudiante universitario revisando un PDF de un trabajo completado en un portátil junto a un teléfono y páginas escritas a mano apiladas cuidadosamente.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Si necesitas una copia más pequeña, usa el [Compresor de PDF](/tools/compress-pdf), luego compáralo con el original antes de subirlo.
+Si necesitas una copia más pequeña, usa el [Compresor de PDF](/tools/compress-pdf/), luego compáralo con el original antes de subirlo.
 
 ## Preguntas frecuentes
 

@@ -16,7 +16,7 @@ seoDescription: Dowiedz się, jak połączyć zdjęcia odręcznych zadań w jede
 seoKeywords: połącz zdjęcia odręcznych zadań w PDF na telefonie, odręczne notatki do PDF, obraz do PDF na telefonie, mobilny PDF z zadaniami, przesyłanie na uczelnię LMS
 imageAlt: Student fotografujący odręczne strony zadań smartfonem przy uporządkowanym biurku w naturalnym świetle dziennym.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Konwerter obrazu do PDF
 targetToolCta: Konwertuj zdjęcia zadań do PDF
 breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak połączyć wiele zdjęć ręcznie pisanych zadań w jeden plik PDF na telefonie","url":"https://www.clickpdf.net/blog/polacz-zdjecia-recznie-pisanych-zadan-w-pdf-pl/"}]
@@ -37,7 +37,7 @@ Ułóż strony od pierwszego do ostatniego pytania. Usuń duplikaty lub niewyra�
 
 ## Najlepsze aplikacje mobilne do skanowania i kompresji zdjęć dokumentów
 
-Wybierz zaufany skaner lub [konwerter obrazu do PDF](/tools/image-to-pdf) z funkcją kadrowania, zmiany kolejności i odpowiednimi kontrolami jakości. Sprawdź politykę prywatności przed dodaniem materiałów. Jeśli plik wyjściowy jest zbyt duży, użyj ostrożnie [kompresor PDF](/tools/compress-pdf).
+Wybierz zaufany skaner lub [konwerter obrazu do PDF](/tools/image-to-pdf/) z funkcją kadrowania, zmiany kolejności i odpowiednimi kontrolami jakości. Sprawdź politykę prywatności przed dodaniem materiałów. Jeśli plik wyjściowy jest zbyt duży, użyj ostrożnie [kompresor PDF](/tools/compress-pdf/).
 
 ## Korzystanie z wbudowanych aplikacji skanera na urządzeniach Android i iOS
 
@@ -55,7 +55,7 @@ Przytnij biurko, nie ucinając pisma. Delikatnie dostosuj jasność i kontrast, 
 
 ## Konwertowanie wielu plików graficznych do formatu PDF na urządzeniach mobilnych
 
-Wybierz przygotowane obrazy w [ClickPDF Obraz do PDF](/tools/image-to-pdf), ustaw orientację i rozmiar strony, a następnie wygeneruj PDF. Aby połączyć zdjęcia odręcznych zadań w plik PDF na telefonie, upewnij się, że każdy wybrany obraz pojawia się w pliku wyjściowym.
+Wybierz przygotowane obrazy w [ClickPDF Obraz do PDF](/tools/image-to-pdf/), ustaw orientację i rozmiar strony, a następnie wygeneruj PDF. Aby połączyć zdjęcia odręcznych zadań w plik PDF na telefonie, upewnij się, że każdy wybrany obraz pojawia się w pliku wyjściowym.
 
 ## Jak zmienić kolejność stron przed wygenerowaniem ostatecznego pliku PDF
 
@@ -91,7 +91,7 @@ Upewnij się, że każda strona jest obecna, w kolejności i czytelna. Sprawdź 
 
 ![Student uniwersytetu przeglądający gotowy PDF z zadaniem na laptopie obok telefonu i starannie ułożonych odręcznych stron.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Jeśli potrzebujesz mniejszej kopii, użyj [Kompresor PDF](/tools/compress-pdf), a następnie porównaj ją z oryginałem przed przesłaniem.
+Jeśli potrzebujesz mniejszej kopii, użyj [Kompresor PDF](/tools/compress-pdf/), a następnie porównaj ją z oryginałem przed przesłaniem.
 
 ## Często Zadawane Pytania
 

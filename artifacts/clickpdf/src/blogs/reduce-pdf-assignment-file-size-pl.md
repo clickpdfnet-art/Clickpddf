@@ -16,7 +16,7 @@ seoDescription: Dowiedz się, jak skutecznie zmniejszyć rozmiar pliku PDF pracy
 seoKeywords: zmniejszanie rozmiaru pliku PDF pracy, kompresja PDF poniżej 2 MB, limit przesyłania PDF LMS, kompresja pracy zaliczeniowej PDF, optymalizacja skanów PDF
 imageAlt: Student przeglądający pracę zaliczeniową w formacie PDF na laptopie przy uporządkowanym biurku w świetle dziennym.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Kompresor PDF
 targetToolCta: Kompresuj PDF teraz
 breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak zmniejszyć rozmiar pliku PDF pracy zaliczeniowej poniżej 2 MB dla uczelnianych portali LMS","url":"https://www.clickpdf.net/blog/zmniejszanie-rozmiaru-pliku-pdf-pracy-zaliczeniowej-pl/"}]
@@ -49,7 +49,7 @@ Niektóre usługi używają megabajtów dziesiętnych, gdzie 1 MB to 1 000 000 b
 
 Użyj zaufanego kompresora przeglądarkowego, gdy potrzebujesz szybkiego wyniku bez instalowania oprogramowania na komputerze. Niektóre narzędzia wykorzystują biblioteki takie jak pdf-lib do manipulacji plikami PDF, choć nie każda biblioteka oferuje pełną kompresję. Przed wybraniem narzędzia sprawdź, czy przetwarzanie odbywa się lokalnie.
 
-Kompresor PDF od ClickPDF jest dostępny pod adresem [Kompresuj PDF](/tools/compress-pdf). Wybierz plik PDF, wybierz dostępne ustawienie kompresji i przetwórz kopię. Stopień redukcji zależy od dokumentu: plik PDF zawierający dużo skanów może znacznie się zmniejszyć, podczas gdy plik tekstowy może zmienić się bardzo niewiele. Przed przesłaniem porównaj rozmiar wyjściowy i sprawdź strony.
+Kompresor PDF od ClickPDF jest dostępny pod adresem [Kompresuj PDF](/tools/compress-pdf/). Wybierz plik PDF, wybierz dostępne ustawienie kompresji i przetwórz kopię. Stopień redukcji zależy od dokumentu: plik PDF zawierający dużo skanów może znacznie się zmniejszyć, podczas gdy plik tekstowy może zmienić się bardzo niewiele. Przed przesłaniem porównaj rozmiar wyjściowy i sprawdź strony.
 
 ![Laptop pokazujący typowy proces optymalizacji PDF z wizualnym porównaniem rozmiaru przed i po bez czytelnych danych osobowych.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Zanim prześlesz, potwierdź:
 
 ![Student sprawdzający pracę zaliczeniową w formacie PDF na laptopie przed przesłaniem jej na portal edukacyjny uczelni.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Zachowaj oryginalny plik do momentu, aż portal potwierdzi jego otrzymanie. Jeśli potrzebujesz mniejszej kopii, użyj [Kompresor PDF](/tools/compress-pdf), a następnie porównaj skompresowaną wersję ze źródłem przed przesłaniem.
+Zachowaj oryginalny plik do momentu, aż portal potwierdzi jego otrzymanie. Jeśli potrzebujesz mniejszej kopii, użyj [Kompresor PDF](/tools/compress-pdf/), a następnie porównaj skompresowaną wersję ze źródłem przed przesłaniem.
 
 ## Często zadawane pytania
 

@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Pelajari cara menggabungkan gambar JPG, PNG, dan WebP menjadi satu PDF di browser. Gambar yang dipilih diproses di perangkat Anda; ukuran batch praktis bergantung pada browser dan memori yang tersedia."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Ubah Gambar ke PDF"
 targetToolCta: "Ubah Gambar ke PDF di Browser"
 ---
@@ -149,7 +149,7 @@ Ikuti langkah berikut di browser desktop atau seluler yang didukung. Pemilihan d
 
 ### Langkah 1: buka Image to PDF
 
-Buka **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** atau temukan di katalog alat. Antarmuka dapat berubah.
+Buka **[Image to PDF](/tools/image-to-pdf/)** atau temukan di katalog alat. Antarmuka dapat berubah.
 
 ### Langkah 2: pilih file JPG, PNG, atau WebP
 

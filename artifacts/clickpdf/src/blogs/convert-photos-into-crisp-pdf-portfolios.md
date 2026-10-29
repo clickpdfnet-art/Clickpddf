@@ -14,7 +14,7 @@ authorType: Person
 coverImage: https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80
 summary: Turn smartphone photography, architectural renderings, and design mockups into uniform PDF portfolios with true aspect ratios and zero distortion.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Image to PDF Converter
 targetToolCta: Convert Images & Photos to PDF Portfolios
 ---

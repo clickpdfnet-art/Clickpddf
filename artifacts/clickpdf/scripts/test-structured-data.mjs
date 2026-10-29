@@ -775,6 +775,47 @@ test('blog tool links render with canonical root-relative paths across localized
   assert.match(rendered, /href="\/tools\/compress-pdf\/"/);
 });
 
+test('blog source URLs and CTA targets use canonical internal destinations', async () => {
+  const blogSourceDir = path.join(appDir, 'src', 'blogs');
+  const blogFiles = (await readdir(blogSourceDir))
+    .filter((name) => name.endsWith('.md'))
+    .map((name) => path.join(blogSourceDir, name));
+  const relevantComponents = [
+    path.join(appDir, 'src', 'components', 'BlogSection.tsx'),
+    path.join(appDir, 'src', 'components', 'ReducePdfAssignmentArticle.tsx'),
+  ];
+  const sourceFiles = [...blogFiles, ...relevantComponents];
+  const invalidPatterns = [
+    {
+      pattern: /http:\/\/(?:www\.)?clickpdf\.net/i,
+      label: 'legacy HTTP homepage links',
+    },
+    {
+      pattern: /https:\/\/clickpdf\.net/i,
+      label: 'non-canonical HTTPS homepage links',
+    },
+    {
+      pattern: /https?:\/\/(?:www\.)?clickpdf\.net\/tools\/(?:image-to-pdf|compress-pdf)/i,
+      label: 'absolute tool links',
+    },
+    {
+      pattern: /\/tools\/image-to-pdf(?!\/)/i,
+      label: 'Image-to-PDF paths without a trailing slash',
+    },
+    {
+      pattern: /\/tools\/compress-pdf(?!\/)/i,
+      label: 'Compress-PDF paths without a trailing slash',
+    },
+  ];
+
+  for (const file of sourceFiles) {
+    const source = await readFile(file, 'utf8');
+    for (const { pattern, label } of invalidPatterns) {
+      assert.doesNotMatch(source, pattern, `${file} has no ${label}`);
+    }
+  }
+});
+
 test('Edit PDF Metadata copy and static SEO stay within the six supported fields', async () => {
   const url = `${siteOrigin}/tools/edit-pdf-metadata/`;
   const tool = activeTools.find((item) => item.id === 'edit-metadata');

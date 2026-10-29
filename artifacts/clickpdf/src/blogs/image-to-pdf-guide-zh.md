@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "了解如何在浏览器中将 JPG、PNG 和 WebP 图片合并为 PDF。所选图片在设备上处理；实际可处理的批量大小取决于浏览器和可用内存。"
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "图片转 PDF"
 targetToolCta: "在浏览器中将图片转换为 PDF"
 ---
@@ -149,7 +149,7 @@ Image to PDF 的设计目标是在浏览器本地处理所选图片，而不是�
 
 ### 第 1 步：打开 Image to PDF
 
-打开 **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)**，或在工具目录中查找。界面可能随时间变化。
+打开 **[Image to PDF](/tools/image-to-pdf/)**，或在工具目录中查找。界面可能随时间变化。
 
 ### 第 2 步：选择 JPG、PNG 或 WebP 文件
 

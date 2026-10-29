@@ -16,7 +16,7 @@ seoDescription: Lernen Sie, wie Sie die Dateigröße von PDF-Hausarbeiten für U
 seoKeywords: PDF-Hausarbeit Dateigröße reduzieren, PDF unter 2MB komprimieren, LMS PDF-Upload-Limit, PDF-Hausarbeit-Komprimierung, gescannte PDF optimieren
 imageAlt: Ein Student an der Universität prüft eine PDF-Hausarbeit auf einem Laptop an einem aufgeräumten Schreibtisch bei natürlichem Tageslicht.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-Kompressor
 targetToolCta: PDF jetzt komprimieren
 breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Wie Sie die Dateigröße Ihrer PDF-Hausarbeit für Universitäts-LMS-Portale unter 2MB reduzieren","url":"https://www.clickpdf.net/blog/pdf-hausarbeit-dateigroesse-reduzieren-de/"}]
@@ -49,7 +49,7 @@ Einige Dienste verwenden dezimale Megabyte (1 MB = 1.000.000 Byte); andere zeige
 
 Nutzen Sie einen vertrauenswürdigen browserbasierten Kompressor, wenn Sie schnelle Ergebnisse ohne Installation von Desktop-Software benötigen. Einige Tools verwenden Bibliotheken wie pdf-lib zur PDF-Bearbeitung, wobei nicht jede Bibliothek eine vollständige Komprimierung bietet. Prüfen Sie, ob die Verarbeitung lokal erfolgt, bevor Sie ein Tool auswählen.
 
-Der PDF-Kompressor von ClickPDF ist unter [PDF komprimieren](/tools/compress-pdf) verfügbar. Wählen Sie das PDF aus, wählen Sie eine Komprimierungseinstellung und verarbeiten Sie eine Kopie. Die Reduzierung hängt vom Dokument ab: Ein scan-lastiges PDF kann deutlich schrumpfen, während eine reine Textdatei sich kaum verändert. Vergleichen Sie die Ausgabegröße und prüfen Sie die Seiten vor der Einreichung.
+Der PDF-Kompressor von ClickPDF ist unter [PDF komprimieren](/tools/compress-pdf/) verfügbar. Wählen Sie das PDF aus, wählen Sie eine Komprimierungseinstellung und verarbeiten Sie eine Kopie. Die Reduzierung hängt vom Dokument ab: Ein scan-lastiges PDF kann deutlich schrumpfen, während eine reine Textdatei sich kaum verändert. Vergleichen Sie die Ausgabegröße und prüfen Sie die Seiten vor der Einreichung.
 
 ![Laptop, der einen generischen PDF-Optimierungsprozess mit visuellem Vorher-Nachher-Größenvergleich zeigt, ohne lesbare persönliche Informationen.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Bestätigen Sie vor der Abgabe:
 
 ![Student prüft eine PDF-Hausarbeit auf einem Laptop, bevor er sie auf ein Universitäts-Lernportal hochlädt.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Behalten Sie die Originaldatei, bis das Portal den Empfang bestätigt. Wenn Sie eine kleinere Kopie benötigen, verwenden Sie das [PDF-Kompressor](/tools/compress-pdf), vergleichen Sie dann die komprimierte Version mit Ihrer Quelle vor dem Hochladen.
+Behalten Sie die Originaldatei, bis das Portal den Empfang bestätigt. Wenn Sie eine kleinere Kopie benötigen, verwenden Sie das [PDF-Kompressor](/tools/compress-pdf/), vergleichen Sie dann die komprimierte Version mit Ihrer Quelle vor dem Hochladen.
 
 ## Häufig gestellte Fragen
 

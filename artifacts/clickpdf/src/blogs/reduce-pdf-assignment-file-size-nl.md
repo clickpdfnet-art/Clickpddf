@@ -16,7 +16,7 @@ seoDescription: Leer hoe je de PDF-bestandsgrootte van opdrachten verkleint tot 
 seoKeywords: PDF-opdrachtgrootte verkleinen, PDF onder 2 MB comprimeren, LMS PDF-uploadlimiet, PDF-opdrachtcompressie, gescande PDF optimaliseren
 imageAlt: Student die op een laptop een PDF-opdracht controleert aan een opgeruimd bureau bij natuurlijk daglicht.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-compressor
 targetToolCta: Comprimeer nu PDF
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je de PDF-bestandsgrootte van opdrachten verkleint tot onder 2 MB voor universiteitsportalen","url":"https://www.clickpdf.net/blog/pdf-opdracht-bestandsgrootte-verkleinen-nl/"}]
@@ -49,7 +49,7 @@ Sommige services gebruiken decimale megabytes, waarbij 1 MB 1.000.000 bytes is; 
 
 Gebruik een vertrouwde, browsergebaseerde compressor wanneer je een snel resultaat nodig hebt zonder desktopsoftware te installeren. Sommige tools gebruiken bibliotheken zoals pdf-lib voor PDF-bewerking, hoewel niet elke bibliotheek volledige compressie biedt. Controleer of de verwerking lokaal plaatsvindt voordat je een tool selecteert.
 
-De PDF-compressor van ClickPDF is beschikbaar op [PDF comprimeren](/tools/compress-pdf). Selecteer de PDF, kies een beschikbare compressie-instelling en verwerk een kopie. De mate van reductie hangt af van het document: een PDF met veel scans kan aanzienlijk krimpen, terwijl een bestand met alleen tekst weinig kan veranderen. Vergelijk de grootte van de uitvoer en inspecteer de pagina's voordat je deze indient.
+De PDF-compressor van ClickPDF is beschikbaar op [PDF comprimeren](/tools/compress-pdf/). Selecteer de PDF, kies een beschikbare compressie-instelling en verwerk een kopie. De mate van reductie hangt af van het document: een PDF met veel scans kan aanzienlijk krimpen, terwijl een bestand met alleen tekst weinig kan veranderen. Vergelijk de grootte van de uitvoer en inspecteer de pagina's voordat je deze indient.
 
 ![Laptop met een algemene PDF-optimalisatieworkflow met een visuele vergelijking voor en na van de grootte en zonder leesbare persoonlijke informatie.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -125,7 +125,7 @@ Bevestig vóór verzending:
 
 ![Student die een PDF-opdracht op een laptop controleert voordat deze naar een leerportaal van de universiteit wordt geüpload.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Bewaar het originele bestand totdat het portaal ontvangst bevestigt. Als je een kopie met een kleiner formaat nodig hebt, gebruik dan [PDF-compressor](/tools/compress-pdf) en vergelijk daarna de gecomprimeerde versie met je bronbestand voordat je het uploadt.
+Bewaar het originele bestand totdat het portaal ontvangst bevestigt. Als je een kopie met een kleiner formaat nodig hebt, gebruik dan [PDF-compressor](/tools/compress-pdf/) en vergelijk daarna de gecomprimeerde versie met je bronbestand voordat je het uploadt.
 
 ## Veelgestelde vragen
 

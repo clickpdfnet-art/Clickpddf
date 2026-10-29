@@ -16,7 +16,7 @@ seoDescription: Lär dig hur du minskar PDF-storleken på inlämningsuppgifter u
 seoKeywords: minska PDF-storlek inlämning, komprimera PDF under 2 MB, LMS PDF-uppladdningsgräns, PDF-komprimering för studenter, optimera skannad PDF
 imageAlt: Student som granskar en PDF-inlämningsuppgift på en bärbar dator vid ett städat skrivbord i dagsljus.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-komprimerare
 targetToolCta: Komprimera PDF nu
 breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Hur man minskar PDF-storleken på inlämningsuppgifter under 2 MB för universitets-LMS","url":"https://www.clickpdf.net/blog/minska-pdf-storlek-inlamningsuppgift/"}]
@@ -49,7 +49,7 @@ Vissa tjänster använder decimala megabyte, där 1 MB är 1 000 000 byte; andra
 
 Använd en pålitlig webbläsarbaserad komprimerare när du behöver ett snabbt resultat utan att installera skrivbordsmjukvara. Vissa verktyg använder bibliotek som pdf-lib för PDF-manipulering, även om inte varje bibliotek erbjuder fullständig komprimering. Kontrollera om bearbetningen sker lokalt innan du väljer ett verktyg.
 
-ClickPDFs PDF-komprimerare finns tillgänglig på [Komprimera PDF](/tools/compress-pdf). Välj PDF-filen, välj en tillgänglig komprimeringsinställning och bearbeta en kopia. Mängden reduktion beror på dokumentet: en skannings-tung PDF kan minska avsevärt, medan en ren textfil kan ändras väldigt lite. Jämför utdatastorleken och granska sidorna innan du skickar in.
+ClickPDFs PDF-komprimerare finns tillgänglig på [Komprimera PDF](/tools/compress-pdf/). Välj PDF-filen, välj en tillgänglig komprimeringsinställning och bearbeta en kopia. Mängden reduktion beror på dokumentet: en skannings-tung PDF kan minska avsevärt, medan en ren textfil kan ändras väldigt lite. Jämför utdatastorleken och granska sidorna innan du skickar in.
 
 ![Bärbar dator som visar ett generiskt PDF-optimeringsflöde med en visuell före-efter-jämförelse av storlek och utan läsbar personlig information.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Innan du skickar in, bekräfta:
 
 ![Student som kontrollerar en PDF-uppgift på en bärbar dator innan den laddas upp till en universitetslärportal.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Behåll originalfilen tills portalen bekräftar mottagandet. Om du behöver en mindre kopia, använd [PDF-komprimerare](/tools/compress-pdf), jämför sedan den komprimerade versionen med källan innan du laddar upp.
+Behåll originalfilen tills portalen bekräftar mottagandet. Om du behöver en mindre kopia, använd [PDF-komprimerare](/tools/compress-pdf/), jämför sedan den komprimerade versionen med källan innan du laddar upp.
 
 ## Vanliga frågor
 

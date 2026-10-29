@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Alamin kung paano pagsamahin ang JPG, PNG, at WebP images sa isang PDF sa browser. Sa device mo pinoproseso ang mga piniling image; nakadepende sa browser at available memory ang praktikal na laki ng batch."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Tagapag-convert ng Larawan sa PDF"
 targetToolCta: "Mag-convert ng images sa PDF sa browser"
 ---
@@ -149,7 +149,7 @@ Gawin ito sa suportadong desktop o mobile browser. Maaaring mag-iba ayon sa devi
 
 ### Hakbang 1: Buksan ang Image to PDF
 
-Buksan ang **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** o hanapin ito sa tools catalog. Maaaring magbago ang interface.
+Buksan ang **[Image to PDF](/tools/image-to-pdf/)** o hanapin ito sa tools catalog. Maaaring magbago ang interface.
 
 ### Hakbang 2: Pumili ng JPG, PNG, o WebP
 

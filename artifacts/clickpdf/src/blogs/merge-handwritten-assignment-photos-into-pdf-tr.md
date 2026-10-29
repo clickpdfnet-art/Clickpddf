@@ -16,7 +16,7 @@ seoDescription: Mobil cihazınızda el yazısı ödev fotoğraflarını tek bir 
 seoKeywords: mobil cihazda el yazısı ödev fotoğraflarını PDF yapma, el yazısı notları PDF'e dönüştürme, telefonda görüntüden PDF'e, mobil ödev PDF, üniversite LMS teslimi
 imageAlt: Doğal gün ışığında düzenli bir masa başında akıllı telefonla el yazısı ödev sayfalarını fotoğraflayan üniversite öğrencisi.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Görüntüden PDF'e Dönüştürücü
 targetToolCta: Ödev Fotoğraflarını PDF'e Dönüştür
 breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Mobil Cihazda Birden Fazla El Yazısı Ödevi Fotoğrafını Tek Bir PDF'e Dönüştürme","url":"https://www.clickpdf.net/blog/el-yazili-odev-fotograflarini-pdf-yapma-tr/"}]
@@ -37,7 +37,7 @@ Sayfaları ilk sorudan son soruya kadar sıralayın. Yinelenen veya bulanık res
 
 ## Belge Fotoğraflarını Tarama ve Sıkıştırma İçin En İyi Mobil Uygulamalar
 
-Kırpma, yeniden sıralama ve uygun kalite kontrollerine sahip güvenilir bir tarama uygulaması veya [görüntüden PDF'e dönüştürücü](/tools/image-to-pdf) seçin. Ders çalışmanızı eklemeden önce gizlilik politikasını inceleyin. Çıktı çok büyükse [PDF Sıkıştırıcı](/tools/compress-pdf) aracını dikkatlice kullanın.
+Kırpma, yeniden sıralama ve uygun kalite kontrollerine sahip güvenilir bir tarama uygulaması veya [görüntüden PDF'e dönüştürücü](/tools/image-to-pdf/) seçin. Ders çalışmanızı eklemeden önce gizlilik politikasını inceleyin. Çıktı çok büyükse [PDF Sıkıştırıcı](/tools/compress-pdf/) aracını dikkatlice kullanın.
 
 ## Android ve iOS Cihazlardaki Dahili Tarayıcı Uygulamalarını Kullanma
 
@@ -55,7 +55,7 @@ Yazıyı kesmeden masayı kırpın. Soluk kurşun kalem izlerini korumak için p
 
 ## Mobil Cihazda Birden Fazla Görüntü Dosyasını PDF Formatına Dönüştürme
 
-Hazırlanan görüntüleri [ClickPDF Görüntüden PDF'e](/tools/image-to-pdf) içinde seçin, sayfa yönünü ve boyutunu ayarlayın, ardından PDF'i oluşturun. El yazısı ödev fotoğraflarını mobil cihazda PDF'e dönüştürürken, seçilen her görüntünün çıktıda göründüğünden emin olun.
+Hazırlanan görüntüleri [ClickPDF Görüntüden PDF'e](/tools/image-to-pdf/) içinde seçin, sayfa yönünü ve boyutunu ayarlayın, ardından PDF'i oluşturun. El yazısı ödev fotoğraflarını mobil cihazda PDF'e dönüştürürken, seçilen her görüntünün çıktıda göründüğünden emin olun.
 
 ## Nihai PDF'i Oluşturmadan Önce Sayfaları Yeniden Sıralama
 
@@ -91,7 +91,7 @@ Her sayfanın mevcut, sıralı ve okunabilir olduğunu onaylayın. Dosya adını
 
 ![Bir telefonun ve düzenlice üst üste konmuş el yazısı sayfaların yanındaki dizüstü bilgisayarda tamamlanmış ödev PDF'ini inceleyen üniversite öğrencisi.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Daha küçük bir kopyaya ihtiyacınız varsa [PDF Sıkıştırıcı](/tools/compress-pdf) kullanın, ardından yüklemeden önce orijinaliyle karşılaştırın.
+Daha küçük bir kopyaya ihtiyacınız varsa [PDF Sıkıştırıcı](/tools/compress-pdf/) kullanın, ardından yüklemeden önce orijinaliyle karşılaştırın.
 
 ## Sıkça Sorulan Sorular
 

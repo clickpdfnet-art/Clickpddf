@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG・PNG・WebP画像をブラウザーで1つのPDFにまとめる方法を紹介します。選択した画像は端末上で処理され、実際に扱える一括処理量はブラウザーと使用可能なメモリーによって異なります。"
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "画像をPDFに変換"
 targetToolCta: "ブラウザーで画像をPDFに変換"
 ---
@@ -149,7 +149,7 @@ ClickPDFのImage to PDFは、選択した画像を変換サーバーへ送るの
 
 ### 手順1：Image to PDFを開く
 
-**[Image to PDF](https://clickpdf.net/tools/image-to-pdf)**を開くか、ツール一覧から選びます。画面は変更される場合があります。
+**[Image to PDF](/tools/image-to-pdf/)**を開くか、ツール一覧から選びます。画面は変更される場合があります。
 
 ### 手順2：JPG、PNG、WebPを選択する
 

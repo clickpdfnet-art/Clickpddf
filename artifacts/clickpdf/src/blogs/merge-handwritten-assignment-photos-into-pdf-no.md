@@ -16,7 +16,7 @@ seoDescription: Lær hvordan du slår sammen håndskrevne oppgavebilder til en P
 seoKeywords: slå sammen håndskrevne oppgaver til PDF, håndskrevne notater til PDF, bilde til PDF på telefon, mobil oppgave-PDF, universitet innlevering
 imageAlt: Universitetsstudent som fotograferer håndskrevne oppgavesider med en smarttelefon på et ryddig skrivebord i naturlig dagslys.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bilde til PDF-konverterer
 targetToolCta: Konverter oppgavebilder til PDF
 breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik slår du sammen håndskrevne oppgavebilder til en enkelt PDF på mobil","url":"https://www.clickpdf.net/blog/sl%C3%A5-sammen-h%C3%A5ndskrevne-oppgavebilder-til-pdf-no/"}]
@@ -37,7 +37,7 @@ Sorter sidene fra første spørsmål til siste. Fjern duplikater eller uklare bi
 
 ## Beste mobilapper for skanning og komprimering av dokumentbilder
 
-Velg en pålitelig skanner eller [Bilde til PDF-konverterer](/tools/image-to-pdf) med beskjæring, rekkefølgeendring og passende kvalitetskontroller. Sjekk personvernreglene før du legger til kursmateriell. Hvis resultatet blir for stort, bruk [PDF-kompressor](/tools/compress-pdf) med forsiktighet.
+Velg en pålitelig skanner eller [Bilde til PDF-konverterer](/tools/image-to-pdf/) med beskjæring, rekkefølgeendring og passende kvalitetskontroller. Sjekk personvernreglene før du legger til kursmateriell. Hvis resultatet blir for stort, bruk [PDF-kompressor](/tools/compress-pdf/) med forsiktighet.
 
 ## Bruke innebygde skannerapper på Android- og iOS-enheter
 
@@ -55,7 +55,7 @@ Beskjær bort pulten uten å kutte i skriften. Juster lysstyrke og kontrast fors
 
 ## Konvertere flere bildefiler til PDF-format på mobil
 
-Velg klargjorte bilder i [ClickPDF Bilde til PDF](/tools/image-to-pdf), still inn sideorientering og størrelse, og generer deretter PDF-en. For å slå sammen håndskrevne oppgavebilder til PDF på mobil, bekreft at hvert valgte bilde vises i utdatafilen.
+Velg klargjorte bilder i [ClickPDF Bilde til PDF](/tools/image-to-pdf/), still inn sideorientering og størrelse, og generer deretter PDF-en. For å slå sammen håndskrevne oppgavebilder til PDF på mobil, bekreft at hvert valgte bilde vises i utdatafilen.
 
 ## Slik endrer du rekkefølgen på sider før du genererer den endelige PDF-en
 
@@ -91,7 +91,7 @@ Bekreft at hver side er til stede, i rekkefølge og lesbar. Sjekk filnavn, filst
 
 ![Universitetsstudent som går gjennom en ferdig oppgave-PDF på en bærbar PC ved siden av en telefon og pent stablede håndskrevne sider.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Hvis du trenger en mindre kopi, bruk [PDF-kompressor](/tools/compress-pdf), sammenlign den deretter med originalen før opplasting.
+Hvis du trenger en mindre kopi, bruk [PDF-kompressor](/tools/compress-pdf/), sammenlign den deretter med originalen før opplasting.
 
 ## Ofte stilte spørsmål
 

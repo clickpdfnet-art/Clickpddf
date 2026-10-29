@@ -17,7 +17,7 @@ seoDescription: Aprenda a convertir sus fotos en portafolios PDF elegantes y pro
 seoKeywords: portafolio PDF, convertir fotos a PDF, diseño de portafolios, ClickPDF, PDF profesional
 imageAlt: Cómo crear elegantes portafolios de fotos y catálogos como PDF estándar
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Conversor de imágenes a PDF
 targetToolCta: Convertir imágenes y fotos a portafolios PDF
 breadcrumbs: [{"name":"Inicio","url":"https://www.clickpdf.net/"},{"name":"Herramientas PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cómo crear elegantes portafolios y catálogos de fotos como archivos PDF estándar","url":"https://www.clickpdf.net/blog/crear-portafolios-de-fotos-en-pdf-n%C3%ADtidos-es/"}]

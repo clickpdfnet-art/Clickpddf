@@ -17,7 +17,7 @@ seoDescription: Lær hvordan nettleserbaserte PDF-verktøy behandler filer på d
 seoKeywords: PDF-personvern, lokal behandling, nettlesersikkerhet, ClickPDF, frakoblede PDF-verktøy
 imageAlt: Hvorfor PDF-behandling i nettleseren er fundamentalt tryggere
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Verktøy for PDF-komprimering
 targetToolCta: Behandle PDF-filer i nettleseren
 breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvorfor PDF-behandling i nettleseren er fundamentalt tryggere","url":"https://www.clickpdf.net/blog/personvernguide-pdf-nettleser-no/"}]

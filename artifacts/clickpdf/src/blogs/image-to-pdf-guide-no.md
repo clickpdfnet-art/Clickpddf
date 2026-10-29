@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Lær hvordan du samler JPG-, PNG- og WebP-bilder i én PDF i nettleseren. De valgte bildene behandles på enheten din; praktisk batchstørrelse avhenger av nettleseren og tilgjengelig minne."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Konverter bilder til PDF"
 targetToolCta: "Konverter bilder til PDF i nettleseren"
 ---
@@ -149,7 +149,7 @@ Følg trinnene i en støttet nettleser på mobil eller datamaskin. Filvalg og ne
 
 ### Trinn 1: Åpne Image to PDF
 
-Åpne **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** eller finn verktøyet i katalogen. Grensesnittet kan endres over tid.
+Åpne **[Image to PDF](/tools/image-to-pdf/)** eller finn verktøyet i katalogen. Grensesnittet kan endres over tid.
 
 ### Trinn 2: Velg JPG-, PNG- eller WebP-filer
 

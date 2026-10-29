@@ -16,7 +16,7 @@ seoDescription: Erfahren Sie, wie Sie handschriftliche Aufgabenfotos auf dem Han
 seoKeywords: handschriftliche Aufgabenfotos in PDF umwandeln, Notizen in PDF konvertieren, Bild zu PDF auf Handy, Aufgaben-PDF für Uni, LMS-Upload
 imageAlt: Ein Student fotografiert handschriftliche Aufgabenblätter mit einem Smartphone auf einem aufgeräumten Schreibtisch bei Tageslicht.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bild-zu-PDF-Konverter
 targetToolCta: Aufgabenfotos in PDF umwandeln
 breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So fügen Sie handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammen","url":"https://www.clickpdf.net/blog/handschriftliche-aufgaben-fotos-in-pdf-umwandeln-de/"}]
@@ -37,7 +37,7 @@ Ordnen Sie die Seiten von der ersten bis zur letzten Frage. Entfernen Sie doppel
 
 ## Die besten Handy-Apps zum Scannen und Komprimieren von Dokumentfotos
 
-Wählen Sie einen vertrauenswürdigen Scanner oder [Bild-zu-PDF-Konverter](/tools/image-to-pdf) mit Funktionen zum Zuschneiden, Neuanordnen und Anpassen der Qualität. Prüfen Sie die Datenschutzbestimmungen, bevor Sie Kursunterlagen hinzufügen. Wenn das Ergebnis zu groß ist, nutzen Sie den [PDF-Kompressor](/tools/compress-pdf) vorsichtig.
+Wählen Sie einen vertrauenswürdigen Scanner oder [Bild-zu-PDF-Konverter](/tools/image-to-pdf/) mit Funktionen zum Zuschneiden, Neuanordnen und Anpassen der Qualität. Prüfen Sie die Datenschutzbestimmungen, bevor Sie Kursunterlagen hinzufügen. Wenn das Ergebnis zu groß ist, nutzen Sie den [PDF-Kompressor](/tools/compress-pdf/) vorsichtig.
 
 ## Integrierte Scanner-Apps auf Android und iOS nutzen
 
@@ -55,7 +55,7 @@ Schneiden Sie den Schreibtisch weg, ohne Text zu entfernen. Passen Sie Helligkei
 
 ## Mehrere Bilddateien mobil in PDF konvertieren
 
-Wählen Sie vorbereitete Bilder in [ClickPDF Bild zu PDF](/tools/image-to-pdf) aus, stellen Sie Seitenausrichtung und -größe ein und erstellen Sie dann das PDF. Um handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammenzufügen, bestätigen Sie, dass jedes ausgewählte Bild im Ergebnis enthalten ist.
+Wählen Sie vorbereitete Bilder in [ClickPDF Bild zu PDF](/tools/image-to-pdf/) aus, stellen Sie Seitenausrichtung und -größe ein und erstellen Sie dann das PDF. Um handschriftliche Aufgabenfotos auf dem Handy zu einem PDF zusammenzufügen, bestätigen Sie, dass jedes ausgewählte Bild im Ergebnis enthalten ist.
 
 ## Seiten vor der Erstellung des PDFs neu anordnen
 
@@ -91,7 +91,7 @@ Bestätigen Sie, dass jede Seite vorhanden, geordnet und lesbar ist. Prüfen Sie
 
 ![Uni-Student prüft eine fertige Aufgaben-PDF auf einem Laptop neben einem Telefon und ordentlich gestapelten handschriftlichen Seiten.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Wenn Sie eine kleinere Kopie benötigen, verwenden Sie den [PDF-Kompressor](/tools/compress-pdf) und vergleichen Sie diese vor dem Hochladen mit Ihrem Original.
+Wenn Sie eine kleinere Kopie benötigen, verwenden Sie den [PDF-Kompressor](/tools/compress-pdf/) und vergleichen Sie diese vor dem Hochladen mit Ihrem Original.
 
 ## Häufig gestellte Fragen
 

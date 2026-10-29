@@ -16,7 +16,7 @@ seoDescription: Pelajari cara menggabungkan foto tugas tulisan tangan menjadi sa
 seoKeywords: gabungkan foto tugas tulisan tangan ke PDF di ponsel, catatan tulisan tangan ke PDF, gambar ke PDF di ponsel, PDF tugas seluler, pengumpulan LMS universitas
 imageAlt: Mahasiswa memotret halaman tugas tulisan tangan dengan ponsel pintar di meja rapi dengan cahaya alami.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Konverter Gambar ke PDF
 targetToolCta: Konversi Foto Tugas ke PDF
 breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Menggabungkan Banyak Foto Tugas Tulisan Tangan ke Satu PDF di Ponsel","url":"https://www.clickpdf.net/blog/gabungkan-foto-tugas-tulisan-tangan-ke-pdf-id/"}]
@@ -37,7 +37,7 @@ Susun halaman dari pertanyaan pertama hingga terakhir. Hapus gambar duplikat ata
 
 ## Aplikasi Seluler Terbaik untuk Memindai dan Mengompres Foto Dokumen
 
-Pilih pemindai tepercaya atau [konverter gambar-ke-PDF](/tools/image-to-pdf) dengan fitur pemotongan, penyusunan ulang, dan kontrol kualitas yang sesuai. Periksa kebijakan privasi sebelum menambahkan materi kursus. Jika hasil terlalu besar, gunakan [Kompresor PDF](/tools/compress-pdf) dengan hati-hati.
+Pilih pemindai tepercaya atau [konverter gambar-ke-PDF](/tools/image-to-pdf/) dengan fitur pemotongan, penyusunan ulang, dan kontrol kualitas yang sesuai. Periksa kebijakan privasi sebelum menambahkan materi kursus. Jika hasil terlalu besar, gunakan [Kompresor PDF](/tools/compress-pdf/) dengan hati-hati.
 
 ## Menggunakan Aplikasi Pemindai Bawaan pada Perangkat Android dan iOS
 
@@ -55,7 +55,7 @@ Potong bagian meja tanpa memotong tulisan. Sesuaikan kecerahan dan kontras denga
 
 ## Mengonversi Banyak Berkas Gambar ke Format PDF di Ponsel
 
-Pilih gambar yang disiapkan di [ClickPDF Gambar ke PDF](/tools/image-to-pdf), atur orientasi dan ukuran halaman, lalu buat PDF. Untuk menggabungkan foto tugas tulisan tangan menjadi PDF di ponsel, konfirmasikan setiap gambar yang dipilih muncul di hasil akhir.
+Pilih gambar yang disiapkan di [ClickPDF Gambar ke PDF](/tools/image-to-pdf/), atur orientasi dan ukuran halaman, lalu buat PDF. Untuk menggabungkan foto tugas tulisan tangan menjadi PDF di ponsel, konfirmasikan setiap gambar yang dipilih muncul di hasil akhir.
 
 ## Cara Mengatur Ulang Halaman Sebelum Membuat PDF Akhir
 
@@ -91,7 +91,7 @@ Konfirmasikan bahwa setiap halaman ada, berurutan, dan dapat dibaca. Periksa nam
 
 ![Mahasiswa universitas meninjau PDF tugas yang sudah selesai di laptop di samping ponsel dan tumpukan halaman tulisan tangan yang rapi.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Jika Anda memerlukan salinan yang lebih kecil, gunakan [Kompresor PDF](/tools/compress-pdf), lalu bandingkan dengan aslinya sebelum mengunggah.
+Jika Anda memerlukan salinan yang lebih kecil, gunakan [Kompresor PDF](/tools/compress-pdf/), lalu bandingkan dengan aslinya sebelum mengunggah.
 
 ## Pertanyaan yang Sering Diajukan
 

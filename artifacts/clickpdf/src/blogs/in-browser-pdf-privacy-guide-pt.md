@@ -17,7 +17,7 @@ seoDescription: Aprenda como as ferramentas de PDF baseadas em navegador process
 seoKeywords: privacidade de PDF, processamento local, segurança do navegador, ClickPDF, ferramentas offline de PDF
 imageAlt: Por que o processamento de PDF no navegador é fundamentalmente mais seguro
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Ferramenta de Compressão de PDF
 targetToolCta: Processe PDFs no navegador
 breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas de PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Por que o processamento de PDF no navegador é fundamentalmente mais seguro","url":"https://www.clickpdf.net/blog/guia-privacidade-pdf-navegador-pt/"}]

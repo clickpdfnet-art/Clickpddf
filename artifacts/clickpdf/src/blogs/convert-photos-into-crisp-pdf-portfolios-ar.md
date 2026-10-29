@@ -17,7 +17,7 @@ seoDescription: حول صورك ونماذج تصاميمك إلى محافظ PD
 seoKeywords: محفظة PDF، تحويل الصور إلى PDF، تصميم محفظة، ClickPDF
 imageAlt: كيفية إنشاء محافظ صور وكتيبات عرض أنيقة بتنسيق PDF
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: محول الصور إلى PDF
 targetToolCta: تحويل الصور إلى محافظ PDF
 breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"الأدوات","url":"https://www.clickpdf.net/#tools"},{"name":"كيفية إنشاء محافظ صور وكتيبات عرض أنيقة بتنسيق PDF","url":"https://www.clickpdf.net/blog/insha-maharif-suwar-pdf-ar/"}]

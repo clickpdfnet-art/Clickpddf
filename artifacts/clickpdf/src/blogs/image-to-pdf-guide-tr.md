@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG, PNG ve WebP görsellerini tarayıcıda tek bir PDF'de birleştirmeyi öğrenin. Seçilen görseller cihazınızda işlenir; pratik toplu işlem boyutu tarayıcıya ve kullanılabilir belleğe bağlıdır."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Görselleri PDF'ye Dönüştür"
 targetToolCta: "Görselleri Tarayıcıda PDF'ye Dönüştür"
 ---
@@ -149,7 +149,7 @@ Desteklenen bir masaüstü veya mobil tarayıcı kullanın. Dosya seçimi ve ind
 
 ### 1. Adım: Image to PDF'yi açın
 
-**[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** sayfasını açın veya araç kataloğunda bulun. Arayüz zamanla değişebilir.
+**[Image to PDF](/tools/image-to-pdf/)** sayfasını açın veya araç kataloğunda bulun. Arayüz zamanla değişebilir.
 
 ### 2. Adım: JPG, PNG veya WebP dosyalarını seçin
 

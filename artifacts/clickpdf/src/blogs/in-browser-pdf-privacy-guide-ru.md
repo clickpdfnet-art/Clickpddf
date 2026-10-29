@@ -17,7 +17,7 @@ seoDescription: Узнайте, как PDF-инструменты на базе 
 seoKeywords: PDF, конфиденциальность, безопасность браузера, локальная обработка, ClickPDF
 imageAlt: Почему обработка PDF в браузере фундаментально безопаснее
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Инструмент сжатия PDF
 targetToolCta: Обработка PDF в браузере
 breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Почему обработка PDF в браузере фундаментально безопаснее","url":"https://www.clickpdf.net/blog/pochemu-obrabotka-pdf-v-brauzere-fundamentalno-bezopasnee-ru/"}]

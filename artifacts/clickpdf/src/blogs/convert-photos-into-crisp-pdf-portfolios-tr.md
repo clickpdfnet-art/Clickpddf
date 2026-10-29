@@ -17,7 +17,7 @@ seoDescription: Akıllı telefon fotoğraflarınızı, mimari çizimlerinizi ve 
 seoKeywords: PDF portfolyo, fotoğraf PDF dönüştürücü, tasarım lookbook, fotoğraf albümü PDF
 imageAlt: Şık Fotoğraf Portfolyoları ve Lookbookları Standart PDF Olarak Nasıl Oluşturulur
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Görselden PDF'e Dönüştürücü
 targetToolCta: Görselleri ve Fotoğrafları PDF Portfolyolara Dönüştür
 breadcrumbs: [{"name":"Ana Sayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Şık Fotoğraf Portfolyoları ve Lookbookları Standart PDF Olarak Nasıl Oluşturulur","url":"https://www.clickpdf.net/blog/fotograflari-sik-pdf-portfolyolara-donusturme-tr/"}]

@@ -16,7 +16,7 @@ seoDescription: Aprenda como reduzir o tamanho de arquivos PDF de trabalhos para
 seoKeywords: reduzir tamanho PDF trabalho, comprimir PDF abaixo de 2MB, limite upload PDF LMS universidade, compressão PDF trabalho, otimizar PDF digitalizado
 imageAlt: Estudante universitário revisando um trabalho em PDF em um notebook em uma mesa organizada sob luz natural.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Compressor de PDF
 targetToolCta: Comprimir PDF agora
 breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas","url":"https://www.clickpdf.net/#tools"},{"name":"Como reduzir o tamanho de um PDF de trabalho para menos de 2 MB para portais universitários","url":"https://www.clickpdf.net/blog/reduzir-tamanho-arquivo-pdf-trabalho-pt/"}]
@@ -49,7 +49,7 @@ Alguns serviços usam megabytes decimais, onde 1 MB é 1.000.000 bytes; outros e
 
 Use um compressor baseado em navegador confiável quando precisar de um resultado rápido sem instalar software de desktop. Algumas ferramentas usam bibliotecas como pdf-lib para manipulação de PDF, embora nem toda biblioteca ofereça compressão total. Verifique se o processamento ocorre localmente antes de selecionar uma ferramenta.
 
-O Compressor de PDF da ClickPDF está disponível em [Comprimir PDF](/tools/compress-pdf). Selecione o PDF, escolha uma configuração de compressão disponível e processe uma cópia. A quantidade de redução depende do documento: um PDF rico em digitalizações pode diminuir substancialmente, enquanto um arquivo apenas de texto pode mudar muito pouco. Compare o tamanho de saída e inspecione as páginas antes de enviar.
+O Compressor de PDF da ClickPDF está disponível em [Comprimir PDF](/tools/compress-pdf/). Selecione o PDF, escolha uma configuração de compressão disponível e processe uma cópia. A quantidade de redução depende do documento: um PDF rico em digitalizações pode diminuir substancialmente, enquanto um arquivo apenas de texto pode mudar muito pouco. Compare o tamanho de saída e inspecione as páginas antes de enviar.
 
 ![Laptop mostrando um fluxo de trabalho genérico de otimização de PDF com uma comparação visual de tamanho antes e depois e sem informações pessoais legíveis.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Antes de enviar, confirme:
 
 ![Estudante conferindo um trabalho em PDF em um notebook antes de enviá-lo para um portal de aprendizagem universitário.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Mantenha o arquivo original até que o portal confirme o recebimento. Se precisar de uma cópia menor, use o [Compressor de PDF](/tools/compress-pdf), depois compare a versão comprimida com sua fonte antes de fazer o upload.
+Mantenha o arquivo original até que o portal confirme o recebimento. Se precisar de uma cópia menor, use o [Compressor de PDF](/tools/compress-pdf/), depois compare a versão comprimida com sua fonte antes de fazer o upload.
 
 ## Perguntas frequentes
 

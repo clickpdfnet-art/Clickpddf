@@ -17,7 +17,7 @@ seoDescription: अपनी तस्वीरों को पेशेवर 
 seoKeywords: PDF पोर्टफोलियो, फोटो टू PDF, डिज़ाइन पोर्टफोलियो, ClickPDF
 imageAlt: PDF के रूप में सुंदर फोटो पोर्टफोलियो और लुकबुक कैसे बनाएं
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: इमेज टू PDF कन्वर्टर
 targetToolCta: तस्वीरों को PDF पोर्टफोलियो में बदलें
 breadcrumbs: [{"name":"होम","url":"https://www.clickpdf.net/"},{"name":"टूल्स","url":"https://www.clickpdf.net/#tools"},{"name":"PDF के रूप में सुंदर फोटो पोर्टफोलियो और लुकबुक कैसे बनाएं","url":"https://www.clickpdf.net/blog/tasveer-se-pdf-portfolio-banayein-hi/"}]

@@ -17,7 +17,7 @@ seoDescription: Dowiedz się, jak narzędzia ClickPDF oparte na przeglądarce pr
 seoKeywords: PDF, prywatność, bezpieczeństwo, przeglądarka, szyfrowanie, lokalne przetwarzanie
 imageAlt: Dlaczego przetwarzanie plików PDF w przeglądarce jest fundamentalnie bezpieczniejsze
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Narzędzie do kompresji PDF
 targetToolCta: Przetwarzaj pliki PDF w przeglądarce
 breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Dlaczego przetwarzanie plików PDF w przeglądarce jest fundamentalnie bezpieczniejsze","url":"https://www.clickpdf.net/blog/przewodnik-po-prywatnosci-pdf-w-przegladarce-pl/"}]

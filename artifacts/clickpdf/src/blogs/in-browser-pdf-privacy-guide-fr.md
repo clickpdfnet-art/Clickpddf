@@ -17,7 +17,7 @@ seoDescription: Découvrez comment les outils ClickPDF basés sur le navigateur 
 seoKeywords: Sécurité PDF, Traitement navigateur, Confidentialité, ClickPDF, traitement local
 imageAlt: Pourquoi le traitement des PDF dans le navigateur est fondamentalement plus sûr
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Outil de compression PDF
 targetToolCta: Traiter les PDF dans le navigateur
 breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Pourquoi le traitement des PDF dans le navigateur est fondamentalement plus sûr","url":"https://www.clickpdf.net/blog/guide-securite-pdf-navigateur-fr/"}]

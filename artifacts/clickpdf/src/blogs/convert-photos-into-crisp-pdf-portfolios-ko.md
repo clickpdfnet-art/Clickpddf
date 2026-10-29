@@ -17,7 +17,7 @@ seoDescription: 원본 이미지의 비율을 그대로 유지하며 고품질 P
 seoKeywords: PDF 포트폴리오, 사진 포트폴리오 제작, 이미지 PDF 변환, 포트폴리오 디자인, PDF 압축
 imageAlt: 표준 PDF로 우아한 사진 포트폴리오 및 룩북 제작하기
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 이미지 PDF 변환기
 targetToolCta: 이미지 및 사진을 PDF 포트폴리오로 변환
 breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"표준 PDF로 우아한 사진 포트폴리오 및 룩북 제작하기","url":"https://www.clickpdf.net/blog/seojin-eul-seup-pdf-potpolio-lo-byeonhwan-hagi-ko/"}]

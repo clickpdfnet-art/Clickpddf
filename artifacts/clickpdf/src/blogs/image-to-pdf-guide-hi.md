@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG, PNG और WebP छवियों को ब्राउज़र में एक PDF में जोड़ने का तरीका जानें। चुनी हुई छवियां आपके डिवाइस पर प्रोसेस होती हैं; एक बार में कितनी फ़ाइलें सफल होंगी, यह ब्राउज़र और उपलब्ध मेमोरी पर निर्भर करता है।"
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "छवियों से PDF बनाएं"
 targetToolCta: "ब्राउज़र में छवियों को PDF में बदलें"
 ---
@@ -149,7 +149,7 @@ ClickPDF Image to PDF चुनी गई छवियों को conversion s
 
 ### चरण 1: Image to PDF टूल खोलें
 
-**[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** खोलें या tools catalog से चुनें। इंटरफ़ेस बदल सकता है।
+**[Image to PDF](/tools/image-to-pdf/)** खोलें या tools catalog से चुनें। इंटरफ़ेस बदल सकता है।
 
 ### चरण 2: JPG, PNG या WebP फ़ाइलें चुनें
 

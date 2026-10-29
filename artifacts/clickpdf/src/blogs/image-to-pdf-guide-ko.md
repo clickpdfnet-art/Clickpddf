@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "브라우저에서 JPG, PNG, WebP 이미지를 하나의 PDF로 합치는 방법을 알아보세요. 선택한 이미지는 기기에서 처리되며, 실제 처리 가능한 묶음 크기는 브라우저와 사용 가능한 메모리에 따라 달라집니다."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "이미지를 PDF로 변환"
 targetToolCta: "브라우저에서 이미지를 PDF로 변환"
 ---
@@ -149,7 +149,7 @@ Image to PDF는 선택한 이미지를 변환 서버에 업로드하는 대신 �
 
 ### 1단계: Image to PDF 열기
 
-**[Image to PDF](https://clickpdf.net/tools/image-to-pdf)**를 열거나 도구 카탈로그에서 찾으세요. 인터페이스는 변경될 수 있습니다.
+**[Image to PDF](/tools/image-to-pdf/)**를 열거나 도구 카탈로그에서 찾으세요. 인터페이스는 변경될 수 있습니다.
 
 ### 2단계: JPG, PNG 또는 WebP 파일 선택
 

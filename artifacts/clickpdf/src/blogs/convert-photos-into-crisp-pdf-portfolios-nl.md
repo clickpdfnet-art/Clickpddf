@@ -17,7 +17,7 @@ seoDescription: Zet uw smartphonefoto's, architecturale renders en ontwerpmodell
 seoKeywords: PDF portfolio, foto naar PDF converter, ontwerp lookbook, fotoalbum PDF
 imageAlt: Hoe Elegant Fotoportfolio's en Lookbooks als Standaard PDF's te Maken
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Afbeelding naar PDF Converter
 targetToolCta: Converteer Afbeeldingen & Foto's naar PDF Portfolio's
 breadcrumbs: [{"name":"Startpagina","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe Elegant Fotoportfolio's en Lookbooks als Standaard PDF's te Maken","url":"https://www.clickpdf.net/blog/foto-omzetten-naar-strakke-pdf-portfolio-nl/"}]

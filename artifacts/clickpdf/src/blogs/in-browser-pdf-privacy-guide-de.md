@@ -17,7 +17,7 @@ seoDescription: Erfahren Sie, wie browserbasierte PDF-Tools Dateien auf Ihrem Ge
 seoKeywords: PDF Sicherheit, Browser-Verarbeitung, Datenschutz, ClickPDF, lokale Verarbeitung
 imageAlt: Warum In-Browser-PDF-Verarbeitung grundlegend sicherer ist
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-Komprimierungstool
 targetToolCta: PDFs im Browser verarbeiten
 breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Warum In-Browser-PDF-Verarbeitung grundlegend sicherer ist","url":"https://www.clickpdf.net/blog/in-browser-pdf-sicherheitsleitfaden-de/"}]

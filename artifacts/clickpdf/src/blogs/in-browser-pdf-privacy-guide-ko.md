@@ -17,7 +17,7 @@ seoDescription: 브라우저 기반 ClickPDF 도구가 장치에서 파일을 �
 seoKeywords: PDF, 개인정보 보호, 브라우저 보안, 로컬 처리, ClickPDF
 imageAlt: 브라우저 내 PDF 처리가 근본적으로 더 안전한 이유
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF 압축 도구
 targetToolCta: 브라우저에서 PDF 처리
 breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"PDF 도구","url":"https://www.clickpdf.net/#tools"},{"name":"브라우저 내 PDF 처리가 근본적으로 더 안전한 이유","url":"https://www.clickpdf.net/blog/beulaujeo-nae-pdf-cheoliga-geunbonjeog-ulo-deo-anjeonhan-iyu-ko/"}]

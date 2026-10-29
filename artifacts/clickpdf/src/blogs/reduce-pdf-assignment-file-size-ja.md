@@ -16,7 +16,7 @@ seoDescription: 大学LMSでPDF課題を2MB以下にする方法を解説しま�
 seoKeywords: PDF課題ファイルサイズ削減, PDF 2MB以下 圧縮, 大学LMS PDFアップロード制限, PDF課題圧縮, スキャンPDF最適化
 imageAlt: 整理された机で自然光の中、ノートパソコンでPDFの課題を確認する大学生。
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF圧縮ツール
 targetToolCta: 今すぐPDFを圧縮
 breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"大学LMSポータル向けにPDF課題のファイルサイズを2MB以下に抑える方法","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-ja-ja/"}]
@@ -49,7 +49,7 @@ PCまたはスマホでファイルのプロパティや詳細画面を開き、
 
 デスクトップソフトウェアをインストールせずに迅速な結果を得たい場合は、信頼できるブラウザベースの圧縮ツールを使用してください。一部のツールはPDF操作にpdf-libのようなライブラリを使用していますが、すべてのライブラリが完全な圧縮を提供しているわけではありません。ツールを選択する前に、処理がローカルで行われるか確認してください。
 
-ClickPDFのPDF圧縮ツールは [PDFを圧縮](/tools/compress-pdf) で利用できます。PDFを選択し、利用可能な圧縮設定を選んでコピーを処理してください。縮小幅は文書によって異なります。スキャンが多いPDFは大幅に縮小する一方、テキストのみのファイルはほとんど変化しないかもしれません。出力サイズを比較し、提出前にページを確認してください。
+ClickPDFのPDF圧縮ツールは [PDFを圧縮](/tools/compress-pdf/) で利用できます。PDFを選択し、利用可能な圧縮設定を選んでコピーを処理してください。縮小幅は文書によって異なります。スキャンが多いPDFは大幅に縮小する一方、テキストのみのファイルはほとんど変化しないかもしれません。出力サイズを比較し、提出前にページを確認してください。
 
 ![汎用的なPDF最適化ワークフローを示すノートPC画面。ビジュアルでのサイズ比較が表示されており、個人情報は読み取れない状態。](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ PDFの最適化により、冗長なオブジェクト、未使用リソース�
 
 ![大学の学習ポータルにアップロードする前に、ノートパソコンでPDFの課題をチェックする学生。](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-ポータルが受信を確認するまで、元のファイルを保管しておいてください。より小さいコピーが必要な場合は、[PDF圧縮ツール](/tools/compress-pdf) を使用し、アップロード前に圧縮バージョンをソースと比較してください。
+ポータルが受信を確認するまで、元のファイルを保管しておいてください。より小さいコピーが必要な場合は、[PDF圧縮ツール](/tools/compress-pdf/) を使用し、アップロード前に圧縮バージョンをソースと比較してください。
 
 ## よくある質問
 

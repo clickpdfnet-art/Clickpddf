@@ -16,7 +16,7 @@ seoDescription: Leer hoe je handgeschreven opdrachtfoto's samenvoegt tot één l
 seoKeywords: handgeschreven opdrachtfoto's samenvoegen tot PDF op mobiel, handgeschreven notities naar PDF, afbeelding naar PDF op telefoon, mobiele opdracht PDF, inleveren via universitaire LMS
 imageAlt: Universiteitsstudent die handgeschreven opdrachtpagina's fotografeert met een smartphone op een opgeruimd bureau bij natuurlijk daglicht.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Afbeelding naar PDF-omzetter
 targetToolCta: Zet opdrachtfoto's om naar PDF
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Hoe je meerdere handgeschreven opdrachtfoto's samenvoegt tot één PDF op mobiel","url":"https://www.clickpdf.net/blog/handgeschreven-opdrachtfotos-samenvoegen-pdf-nl/"}]
@@ -37,7 +37,7 @@ Leg de pagina's in volgorde van de eerste tot de laatste vraag. Verwijder dubbel
 
 ## Beste mobiele apps voor het scannen en comprimeren van documentfoto's
 
-Kies een vertrouwde scan-app of [afbeelding naar PDF-omzetter](/tools/image-to-pdf) met functies voor bijsnijden, herordenen en geschikte kwaliteitscontroles. Controleer het privacybeleid voordat je cursusmateriaal toevoegt. Als het resultaat te groot is, gebruik dan voorzichtig de [PDF-compressor](/tools/compress-pdf).
+Kies een vertrouwde scan-app of [afbeelding naar PDF-omzetter](/tools/image-to-pdf/) met functies voor bijsnijden, herordenen en geschikte kwaliteitscontroles. Controleer het privacybeleid voordat je cursusmateriaal toevoegt. Als het resultaat te groot is, gebruik dan voorzichtig de [PDF-compressor](/tools/compress-pdf/).
 
 ## Ingebouwde scanner-apps gebruiken op Android- en iOS-apparaten
 
@@ -55,7 +55,7 @@ Snijd het bureau weg zonder het schrijfwerk af te snijden. Pas helderheid en con
 
 ## Meerdere afbeeldingsbestanden converteren naar PDF-formaat op mobiel
 
-Selecteer voorbereide afbeeldingen in [ClickPDF Afbeelding naar PDF](/tools/image-to-pdf), stel de pagina-oriëntatie en -grootte in en genereer vervolgens de PDF. Om handgeschreven opdrachtfoto's samen te voegen tot PDF op mobiel, moet je bevestigen dat elke geselecteerde afbeelding in de uitvoer verschijnt.
+Selecteer voorbereide afbeeldingen in [ClickPDF Afbeelding naar PDF](/tools/image-to-pdf/), stel de pagina-oriëntatie en -grootte in en genereer vervolgens de PDF. Om handgeschreven opdrachtfoto's samen te voegen tot PDF op mobiel, moet je bevestigen dat elke geselecteerde afbeelding in de uitvoer verschijnt.
 
 ## Hoe pagina's te herordenen vóór het genereren van de definitieve PDF
 
@@ -91,7 +91,7 @@ Bevestig dat elke pagina aanwezig, op volgorde en leesbaar is. Controleer de bes
 
 ![Universiteitsstudent die een voltooide opdracht-PDF op een laptop bekijkt naast een telefoon en netjes opgestapelde handgeschreven pagina's.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Als je een kleiner exemplaar nodig hebt, gebruik dan de [PDF-compressor](/tools/compress-pdf) en vergelijk deze met je origineel voordat je uploadt.
+Als je een kleiner exemplaar nodig hebt, gebruik dan de [PDF-compressor](/tools/compress-pdf/) en vergelijk deze met je origineel voordat je uploadt.
 
 ## Veelgestelde vragen
 

@@ -17,7 +17,7 @@ seoDescription: Ontdek hoe browsergebaseerde ClickPDF-tools bestanden op uw appa
 seoKeywords: PDF, privacy, browserbeveiliging, lokale verwerking, ClickPDF
 imageAlt: Waarom PDF-verwerking in de browser fundamenteel veiliger is
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-compressietool
 targetToolCta: PDF's verwerken in de browser
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF-tools","url":"https://www.clickpdf.net/#tools"},{"name":"Waarom PDF-verwerking in de browser fundamenteel veiliger is","url":"https://www.clickpdf.net/blog/waarom-pdf-verwerking-in-de-browser-fundamenteel-veiliger-is-nl/"}]

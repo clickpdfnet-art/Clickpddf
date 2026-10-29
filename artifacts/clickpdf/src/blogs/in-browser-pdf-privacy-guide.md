@@ -14,7 +14,7 @@ coverImage: https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=fo
 summary: Learn how supported ClickPDF tools process files in the browser, the limits of this approach, and why page resources may still use the network.
 seoDescription: Learn how browser-based PDF tools process files on your device, and what data may still be sent by webpage resources and enabled third-party services.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Compress PDF Tool
 targetToolCta: Process PDFs in Your Browser
 ---

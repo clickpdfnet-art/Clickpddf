@@ -16,7 +16,7 @@ seoDescription: Alamin ang madaling paraan ng pagsasama ng mga larawan ng iyong 
 seoKeywords: pagsamahin ang larawan ng takdang-aralin sa PDF sa mobile, sulat-kamay na notes sa PDF, larawan sa PDF sa telepono, mobile assignment PDF, submission sa LMS ng unibersidad
 imageAlt: Estudyante sa unibersidad na kinukuhanan ng larawan ang mga pahina ng sulat-kamay na takdang-aralin gamit ang smartphone sa isang malinis na mesa sa natural na liwanag.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Tagapag-convert ng Larawan sa PDF
 targetToolCta: I-convert ang mga Larawan ng Takdang-aralin sa PDF
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Pagsamahin ang Maramihang Larawan ng Sulat-kamay na Takdang-aralin sa Isang PDF sa Mobile","url":"https://www.clickpdf.net/blog/pagsamahin-larawan-takdang-aralin-pdf-tl/"}]
@@ -37,7 +37,7 @@ Ayusin ang mga pahina mula sa unang tanong hanggang sa huli. Alisin ang mga dupl
 
 ## Pinakamahusay na Mobile Apps para sa Pag-scan at Pag-compress ng mga Larawan ng Dokumento
 
-Pumili ng isang mapagkakatiwalaang scanning o [Image to PDF converter](/tools/image-to-pdf) na may mga kontrol sa pag-crop, pag-aayos, at angkop na kalidad. Suriin ang patakaran sa privacy bago magdagdag ng coursework. Kung ang output ay masyadong malaki, gamitin ang [PDF Compressor](/tools/compress-pdf) nang maingat.
+Pumili ng isang mapagkakatiwalaang scanning o [Image to PDF converter](/tools/image-to-pdf/) na may mga kontrol sa pag-crop, pag-aayos, at angkop na kalidad. Suriin ang patakaran sa privacy bago magdagdag ng coursework. Kung ang output ay masyadong malaki, gamitin ang [PDF Compressor](/tools/compress-pdf/) nang maingat.
 
 ## Paggamit ng Built-in Scanner Apps sa mga Android at iOS Device
 
@@ -55,7 +55,7 @@ I-crop ang mesa nang hindi pinuputol ang sulat. Ayusin ang brightness at contras
 
 ## Pag-convert ng Maramihang Image Files sa PDF Format sa Mobile
 
-Piliin ang mga inihandang larawan sa [ClickPDF Image to PDF](/tools/image-to-pdf), itakda ang page orientation at size, pagkatapos ay i-generate ang PDF. Upang pagsamahin ang mga larawan ng sulat-kamay na takdang-aralin sa PDF sa mobile, tiyaking ang bawat piniling larawan ay lumalabas sa output.
+Piliin ang mga inihandang larawan sa [ClickPDF Image to PDF](/tools/image-to-pdf/), itakda ang page orientation at size, pagkatapos ay i-generate ang PDF. Upang pagsamahin ang mga larawan ng sulat-kamay na takdang-aralin sa PDF sa mobile, tiyaking ang bawat piniling larawan ay lumalabas sa output.
 
 ## Paano Ayusin ang Pagkakasunod-sunod ng mga Pahina Bago I-generate ang Final na PDF
 
@@ -91,7 +91,7 @@ Kumpirmahin na ang bawat pahina ay naroon, nasa pagkakasunod-sunod, at nababasa.
 
 ![Estudyante sa unibersidad na sinusuri ang isang nakumpletong PDF ng takdang-aralin sa isang laptop sa tabi ng isang telepono at maayos na nakasalansan na mga pahinang sulat-kamay.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Kung kailangan mo ng mas maliit na kopya, gamitin ang [PDF Compressor](/tools/compress-pdf), pagkatapos ay ihambing ito sa iyong orihinal bago mag-upload.
+Kung kailangan mo ng mas maliit na kopya, gamitin ang [PDF Compressor](/tools/compress-pdf/), pagkatapos ay ihambing ito sa iyong orihinal bago mag-upload.
 
 ## Mga Madalas Itanong
 

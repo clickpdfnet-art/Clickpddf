@@ -17,7 +17,7 @@ seoDescription: Impara a trasformare le tue foto in eleganti portfolio PDF mante
 seoKeywords: portfolio PDF, convertire foto in PDF, design portfolio, ClickPDF, PDF professionale
 imageAlt: Come creare eleganti portfolio fotografici e lookbook come PDF standard
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Convertitore da immagini a PDF
 targetToolCta: Converti immagini e foto in portfolio PDF
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Come creare eleganti portfolio fotografici e lookbook come PDF standard","url":"https://www.clickpdf.net/blog/convertire-foto-in-portfolio-pdf-nitidi-it/"}]

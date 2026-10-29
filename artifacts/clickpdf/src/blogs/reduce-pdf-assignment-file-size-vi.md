@@ -16,7 +16,7 @@ seoDescription: Tìm hiểu cách giảm kích thước tệp PDF bài tập xu�
 seoKeywords: giảm kích thước tệp PDF bài tập, nén PDF dưới 2 MB, giới hạn tải lên PDF LMS đại học, nén PDF bài tập, tối ưu hóa PDF đã quét
 imageAlt: Sinh viên đang xem lại bài tập PDF trên máy tính xách tay tại một chiếc bàn gọn gàng dưới ánh sáng ban ngày.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Trình nén PDF
 targetToolCta: Nén PDF ngay
 breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách giảm kích thước tệp PDF bài tập xuống dưới 2 MB cho cổng LMS đại học","url":"https://www.clickpdf.net/blog/cach-giam-kich-thuoc-tep-pdf-bai-tap/"}]
@@ -49,7 +49,7 @@ Một số dịch vụ sử dụng megabyte thập phân, trong đó 1 MB là 1.
 
 Sử dụng trình nén dựa trên trình duyệt đáng tin cậy khi bạn cần kết quả nhanh mà không cần cài đặt phần mềm máy tính. Một số công cụ sử dụng các thư viện như pdf-lib để thao tác PDF, mặc dù không phải mọi thư viện đều cung cấp khả năng nén đầy đủ. Kiểm tra xem quá trình xử lý có diễn ra cục bộ hay không trước khi chọn một công cụ.
 
-Trình nén PDF của ClickPDF có sẵn tại [Nén PDF](/tools/compress-pdf). Chọn tệp PDF, chọn cài đặt nén khả dụng và xử lý một bản sao. Mức độ giảm tùy thuộc vào tài liệu: tệp PDF chứa nhiều bản quét có thể thu nhỏ đáng kể, trong khi tệp chỉ có văn bản có thể thay đổi rất ít. So sánh kích thước đầu ra và kiểm tra các trang trước khi nộp.
+Trình nén PDF của ClickPDF có sẵn tại [Nén PDF](/tools/compress-pdf/). Chọn tệp PDF, chọn cài đặt nén khả dụng và xử lý một bản sao. Mức độ giảm tùy thuộc vào tài liệu: tệp PDF chứa nhiều bản quét có thể thu nhỏ đáng kể, trong khi tệp chỉ có văn bản có thể thay đổi rất ít. So sánh kích thước đầu ra và kiểm tra các trang trước khi nộp.
 
 ![Máy tính xách tay hiển thị luồng tối ưu hóa PDF chung với so sánh kích thước hình ảnh trước và sau và không có thông tin cá nhân nào có thể đọc được.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Trước khi nộp, hãy xác nhận:
 
 ![Sinh viên kiểm tra bài tập PDF trên máy tính xách tay trước khi tải nó lên cổng thông tin học tập của đại học.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Giữ lại tệp gốc cho đến khi cổng thông tin xác nhận đã nhận. Nếu bạn cần một bản sao nhỏ hơn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf), sau đó so sánh phiên bản đã nén với nguồn của bạn trước khi tải lên.
+Giữ lại tệp gốc cho đến khi cổng thông tin xác nhận đã nhận. Nếu bạn cần một bản sao nhỏ hơn, hãy sử dụng [Trình nén PDF](/tools/compress-pdf/), sau đó so sánh phiên bản đã nén với nguồn của bạn trước khi tải lên.
 
 ## Câu hỏi thường gặp
 

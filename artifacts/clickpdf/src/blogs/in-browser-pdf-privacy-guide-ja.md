@@ -17,7 +17,7 @@ seoDescription: ブラウザベースのClickPDFツールがどのようにデ�
 seoKeywords: PDF, ブラウザ, プライバシー, セキュリティ, ClickPDF
 imageAlt: ブラウザ内PDF処理が本質的に安全である理由
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF圧縮ツール
 targetToolCta: ブラウザでPDFを処理
 breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"ブラウザ内PDF処理が本質的に安全である理由","url":"https://www.clickpdf.net/blog/browser-nai-pdf-privacy-guide-ja/"}]

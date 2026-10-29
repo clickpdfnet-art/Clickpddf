@@ -17,7 +17,7 @@ seoDescription: تعرف على كيفية معالجة أدوات PDF المس�
 seoKeywords: PDF، خصوصية، متصفح، أمان، ClickPDF
 imageAlt: لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: أداة ضغط PDF
 targetToolCta: معالجة ملفات PDF في المتصفح
 breadcrumbs: [{"name":"الرئيسية","url":"https://www.clickpdf.net/"},{"name":"أدوات PDF","url":"https://www.clickpdf.net/#tools"},{"name":"لماذا تعد معالجة ملفات PDF داخل المتصفح أكثر أماناً بشكل أساسي","url":"https://www.clickpdf.net/blog/%D8%AF%D9%84%D9%8A%D9%84-%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9-%D9%85%D9%84%D9%81%D8%A7%D8%AA-pdf-%D8%AF%D8%A7%D8%AE%D9%84-%D8%A7%D9%84%D9%85%D8%AA%D8%B5%D9%81%D8%AD-ar/"}]

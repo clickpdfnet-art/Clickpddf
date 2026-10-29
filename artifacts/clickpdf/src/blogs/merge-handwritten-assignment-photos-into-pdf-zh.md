@@ -16,7 +16,7 @@ seoDescription: 学习如何在手机上将手写作业照片合并为一份清�
 seoKeywords: 在手机上将手写作业照片合并为 PDF, 手写笔记转 PDF, 手机端图片转 PDF, 移动端作业 PDF, 大学 LMS 提交
 imageAlt: 大学生在自然光下的整洁书桌上，用智能手机拍摄手写作业页面。
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 图片转 PDF 转换器
 targetToolCta: 将作业照片转换为 PDF
 breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将手写作业照片合并为单个移动设备 PDF","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-zh-zh/"}]
@@ -37,7 +37,7 @@ faqItems: [{"answer":"按正确顺序选择作业照片，使用兼容的图片�
 
 ## 用于扫描和压缩文档照片的最佳手机应用
 
-选择一款可靠的扫描或带有裁剪、排序和合适质量控制的 [图片转 PDF 转换器](/tools/image-to-pdf)。在添加课程作业前先查看其隐私政策。如果输出文件太大，请谨慎使用 [PDF 压缩器](/tools/compress-pdf)。
+选择一款可靠的扫描或带有裁剪、排序和合适质量控制的 [图片转 PDF 转换器](/tools/image-to-pdf/)。在添加课程作业前先查看其隐私政策。如果输出文件太大，请谨慎使用 [PDF 压缩器](/tools/compress-pdf/)。
 
 ## 在 Android 和 iOS 设备上使用内置扫描应用
 
@@ -55,7 +55,7 @@ faqItems: [{"answer":"按正确顺序选择作业照片，使用兼容的图片�
 
 ## 在移动设备上将多个图像文件转换为 PDF 格式
 
-在 [ClickPDF 图片转 PDF](/tools/image-to-pdf) 中选择整理好的图片，设置页面方向和尺寸，然后生成 PDF。要将手写作业照片合并为移动设备 PDF，请确认每一张选中的图片都已出现在输出结果中。
+在 [ClickPDF 图片转 PDF](/tools/image-to-pdf/) 中选择整理好的图片，设置页面方向和尺寸，然后生成 PDF。要将手写作业照片合并为移动设备 PDF，请确认每一张选中的图片都已出现在输出结果中。
 
 ## 生成最终 PDF 前如何重新排列页面
 
@@ -91,7 +91,7 @@ faqItems: [{"answer":"按正确顺序选择作业照片，使用兼容的图片�
 
 ![一名大学学生正在笔记本电脑上查看完成的作业 PDF，旁边放着手机和整齐叠放的手写页面。](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-如果需要较小的副本，请使用 [PDF 压缩器](/tools/compress-pdf)，并在上传前与原始文件进行对比。
+如果需要较小的副本，请使用 [PDF 压缩器](/tools/compress-pdf/)，并在上传前与原始文件进行对比。
 
 ## 常见问题解答
 

@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Learn how to combine JPG, PNG, and WebP images into a PDF in your browser. Image files are processed on your device; practical batch size depends on your browser and available memory."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Image to PDF Converter
 targetToolCta: Convert Images to PDF in Your Browser
 ---
@@ -138,7 +138,7 @@ When you visit **clickpdf.net**, our web application loads the conversion engine
 Ready to combine your images? Follow these steps in a supported desktop or mobile browser. The exact file-picker and download behavior can vary by device and browser:
 
 ### Step 1: Launch the Image to PDF Tool
-Open **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** on clickpdf.net, or find it in the tools catalog. The interface may change over time.
+Open **[Image to PDF](/tools/image-to-pdf/)** on clickpdf.net, or find it in the tools catalog. The interface may change over time.
 
 ### Step 2: Select Your JPG, PNG, or WebP Files
 Choose JPG/JPEG, PNG, or WebP images from your device. You can add multiple images and mix supported formats. There is no published fixed count limit, but large images and batches need more browser memory and may not process successfully on every device.

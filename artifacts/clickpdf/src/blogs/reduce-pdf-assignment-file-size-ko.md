@@ -16,7 +16,7 @@ seoDescription: 브라우저 도구, 이미지 최적화 및 실용적인 PDF �
 seoKeywords: PDF 과제 파일 크기 줄이기, PDF 2MB 미만 압축, 대학 LMS PDF 업로드 제한, PDF 과제 압축, 스캔된 PDF 최적화
 imageAlt: 깨끗한 책상 위 노트북으로 PDF 과제를 검토하는 대학생.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF 압축기
 targetToolCta: 지금 PDF 압축하기
 breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"대학 LMS 포털을 위한 PDF 과제 파일 크기를 2MB 미만으로 줄이는 방법","url":"https://www.clickpdf.net/blog/pdf-gwaje-%ED%8C%8C%EC%9D%BC-%ED%81%AC%EA%B8%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0-ko/"}]
@@ -49,7 +49,7 @@ Canvas, Moodle, Blackboard와 같은 학습 관리 시스템(LMS)은 서로 다�
 
 데스크톱 소프트웨어 설치 없이 빠른 결과가 필요할 때 신뢰할 수 있는 브라우저 기반 압축기를 사용하세요. 일부 도구는 PDF 조작을 위해 pdf-lib과 같은 라이브러리를 사용하지만, 모든 라이브러리가 전체 압축을 제공하는 것은 아닙니다. 도구를 선택하기 전에 처리가 로컬에서 이루어지는지 확인하세요.
 
-ClickPDF의 PDF 압축기는 [PDF 압축](/tools/compress-pdf)에서 이용할 수 있습니다. PDF를 선택하고 사용 가능한 압축 설정을 선택한 후 사본을 처리하세요. 축소량은 문서에 따라 다릅니다. 스캔이 많은 PDF는 크게 줄어들 수 있지만, 텍스트 전용 파일은 거의 변화가 없을 수 있습니다. 제출 전 결과 파일 크기를 비교하고 페이지를 검토하세요.
+ClickPDF의 PDF 압축기는 [PDF 압축](/tools/compress-pdf/)에서 이용할 수 있습니다. PDF를 선택하고 사용 가능한 압축 설정을 선택한 후 사본을 처리하세요. 축소량은 문서에 따라 다릅니다. 스캔이 많은 PDF는 크게 줄어들 수 있지만, 텍스트 전용 파일은 거의 변화가 없을 수 있습니다. 제출 전 결과 파일 크기를 비교하고 페이지를 검토하세요.
 
 ![읽을 수 있는 개인 정보가 없는 일반적인 PDF 최적화 워크플로우를 보여주는 노트북.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -125,7 +125,7 @@ PDF 최적화는 중복된 객체, 사용되지 않는 리소스, 불필요한 �
 
 ![대학 학습 포털에 업로드하기 전 노트북으로 PDF 과제를 확인하는 학생.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-포털이 수신을 확인할 때까지 원본 파일을 보관하세요. 더 작은 사본이 필요한 경우 [PDF 압축기](/tools/compress-pdf)을 사용한 다음 업로드하기 전에 압축된 버전과 소스를 비교하세요.
+포털이 수신을 확인할 때까지 원본 파일을 보관하세요. 더 작은 사본이 필요한 경우 [PDF 압축기](/tools/compress-pdf/)을 사용한 다음 업로드하기 전에 압축된 버전과 소스를 비교하세요.
 
 ## 자주 묻는 질문
 

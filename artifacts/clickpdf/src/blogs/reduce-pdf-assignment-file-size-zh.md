@@ -16,7 +16,7 @@ seoDescription: 学习如何使用浏览器工具、图像优化和实用 PDF �
 seoKeywords: 缩减作业 PDF 文件大小, 将 PDF 压缩至 2MB 以下, 大学 LMS PDF 上传限制, 作业 PDF 压缩, 优化扫描 PDF
 imageAlt: 大学生在自然光照下的整洁书桌上，用笔记本电脑查看 PDF 作业。
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF 压缩器
 targetToolCta: 立即压缩 PDF
 breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何将大学 LMS 作业 PDF 文件大小缩减至 2MB 以下","url":"https://www.clickpdf.net/blog/reduce-pdf-assignment-file-size-zh/"}]
@@ -49,7 +49,7 @@ Canvas、Moodle 和 Blackboard 等学习管理系统可能会实施不同的上�
 
 当您需要快速结果而无需安装桌面软件时，请使用受信任的基于浏览器的压缩器。一些工具使用 pdf-lib 等库进行 PDF 操作，尽管并非每个库都提供全面压缩。在选择工具之前，请检查处理过程是否在本地进行。
 
-ClickPDF 的 PDF 压缩器可在 [压缩 PDF](/tools/compress-pdf) 获取。选择 PDF，选择可用的压缩设置，并处理副本。缩减量取决于文档：扫描密集的 PDF 可能会大幅缩小，而纯文本文件可能变化很小。提交前比较输出大小并检查页面。
+ClickPDF 的 PDF 压缩器可在 [压缩 PDF](/tools/compress-pdf/) 获取。选择 PDF，选择可用的压缩设置，并处理副本。缩减量取决于文档：扫描密集的 PDF 可能会大幅缩小，而纯文本文件可能变化很小。提交前比较输出大小并检查页面。
 
 ![显示通用 PDF 优化工作流程的笔记本电脑，带有直观的大小对比，且没有可读的个人信息。](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -125,7 +125,7 @@ PDF 优化可以移除多余对象、未使用资源、不必要的注释和过�
 
 ![学生在笔记本电脑上检查 PDF 作业，准备上传到大学学习门户。](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-保留原始文件直到门户确认收到。如果您需要较小的副本，请使用 [PDF 压缩器](/tools/compress-pdf)，然后在上传前将压缩版本与源文件进行比较。
+保留原始文件直到门户确认收到。如果您需要较小的副本，请使用 [PDF 压缩器](/tools/compress-pdf/)，然后在上传前将压缩版本与源文件进行比较。
 
 ## 常见问题解答
 

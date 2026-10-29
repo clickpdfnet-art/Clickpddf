@@ -17,7 +17,7 @@ seoDescription: Lær hvordan du forvandler bildene dine til elegante PDF-portef�
 seoKeywords: PDF-portefølje, konverter bilder til PDF, porteføljedesign, ClickPDF, profesjonell PDF
 imageAlt: Slik lager du elegante fotoporteføljer og lookbøker som standard PDF-filer
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bilde til PDF-konverterer
 targetToolCta: Konverter bilder og fotos til PDF-porteføljer
 breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Slik lager du elegante fotoporteføljer og lookbøker som standard PDF-filer","url":"https://www.clickpdf.net/blog/konverter-bilder-til-skarpe-pdf-portefoljer-no/"}]

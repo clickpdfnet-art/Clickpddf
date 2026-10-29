@@ -17,7 +17,7 @@ seoDescription: Tạo danh mục ảnh và lookbook chuyên nghiệp dưới d�
 seoKeywords: danh mục ảnh, PDF, ClickPDF, ảnh sang PDF, lookbook, công cụ chuyển đổi PDF
 imageAlt: Cách xây dựng danh mục ảnh và lookbook sang trọng dưới dạng PDF tiêu chuẩn
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Công cụ chuyển đổi ảnh sang PDF
 targetToolCta: Chuyển đổi ảnh thành danh mục PDF
 breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cách xây dựng danh mục ảnh và lookbook sang trọng dưới dạng PDF tiêu chuẩn","url":"https://www.clickpdf.net/blog/cach-tao-danh-muc-anh-pdf-sang-trong-vi/"}]

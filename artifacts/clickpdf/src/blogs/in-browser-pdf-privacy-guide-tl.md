@@ -17,7 +17,7 @@ seoDescription: Alamin kung paano pinoproseso ng browser-based na mga ClickPDF t
 seoKeywords: PDF, browser, privacy, seguridad, ClickPDF
 imageAlt: Bakit Talagang Mas Ligtas ang In-Browser na Pagproseso ng PDF
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF Compressor Tool
 targetToolCta: Magproseso ng mga PDF sa Browser
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Mga PDF Tool","url":"https://www.clickpdf.net/#tools"},{"name":"Bakit Talagang Mas Ligtas ang In-Browser na Pagproseso ng PDF","url":"https://www.clickpdf.net/blog/in-browser-pdf-privacy-guide-tl-tl/"}]

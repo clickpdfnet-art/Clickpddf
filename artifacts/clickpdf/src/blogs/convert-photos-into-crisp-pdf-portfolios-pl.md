@@ -17,7 +17,7 @@ seoDescription: Zaprojektuj eleganckie portfolio fotograficzne i lookbooki w for
 seoKeywords: portfolio fotograficzne, PDF, ClickPDF, zdjęcia do PDF, lookbook, konwerter PDF
 imageAlt: Jak budować eleganckie portfolio fotograficzne i lookbooki jako standardowe pliki PDF
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Konwerter obrazów do PDF
 targetToolCta: Konwertuj zdjęcia i obrazy na portfolio PDF
 breadcrumbs: [{"name":"Strona główna","url":"https://www.clickpdf.net/"},{"name":"Narzędzia PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Jak tworzyć eleganckie portfolio fotograficzne i lookbooki jako pliki PDF","url":"https://www.clickpdf.net/blog/tworzenie-eleganckich-portfolio-fotograficznych-w-pdf-pl/"}]

@@ -16,7 +16,7 @@ seoDescription: Aprenda a juntar fotos de trabalhos escritos à mão em um PDF n
 seoKeywords: juntar fotos de trabalhos à mão em PDF, apontamentos à mão em PDF, imagem em PDF no celular, PDF de trabalhos móvel, entrega em campus virtual
 imageAlt: Estudante universitário fotografando páginas de trabalhos à mão com um celular em uma mesa organizada com luz natural.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Conversor de imagem para PDF
 targetToolCta: Converter fotos de trabalhos para PDF
 breadcrumbs: [{"name":"Início","url":"https://www.clickpdf.net/"},{"name":"Ferramentas","url":"https://www.clickpdf.net/#tools"},{"name":"Como juntar várias fotos de trabalhos escritos à mão em um único PDF no celular","url":"https://www.clickpdf.net/blog/juntar-fotos-trabalhos-manuais-pdf-celular-pt/"}]
@@ -37,7 +37,7 @@ Organize as páginas da primeira pergunta até a última. Remova fotos duplicada
 
 ## Melhores aplicativos móveis para digitalizar e comprimir fotos de documentos
 
-Escolha uma ferramenta de digitalização ou [Conversor de imagem para PDF](/tools/image-to-pdf) confiável que permita recortar, reordenar e controlar a qualidade. Verifique a política de privacidade antes de adicionar material de estudo. Se o arquivo de saída for muito grande, use o [Compressor de PDF](/tools/compress-pdf) com cuidado.
+Escolha uma ferramenta de digitalização ou [Conversor de imagem para PDF](/tools/image-to-pdf/) confiável que permita recortar, reordenar e controlar a qualidade. Verifique a política de privacidade antes de adicionar material de estudo. Se o arquivo de saída for muito grande, use o [Compressor de PDF](/tools/compress-pdf/) com cuidado.
 
 ## Uso de aplicativos de digitalização integrados em dispositivos Android e iOS
 
@@ -55,7 +55,7 @@ Recorte a mesa sem cortar a escrita. Ajuste o brilho e o contraste suavemente pa
 
 ## Converter múltiplos arquivos de imagem para formato PDF no celular
 
-Selecione as imagens preparadas em [ClickPDF Imagem para PDF](/tools/image-to-pdf), configure a orientação e o tamanho da página e gere o PDF. Para juntar fotos de trabalhos escritos à mão em um PDF no celular, confirme se cada imagem selecionada aparece no resultado final.
+Selecione as imagens preparadas em [ClickPDF Imagem para PDF](/tools/image-to-pdf/), configure a orientação e o tamanho da página e gere o PDF. Para juntar fotos de trabalhos escritos à mão em um PDF no celular, confirme se cada imagem selecionada aparece no resultado final.
 
 ## Como reordenar páginas antes de gerar o PDF final
 
@@ -91,7 +91,7 @@ Confirme se cada página está presente, em ordem e legível. Verifique o nome d
 
 ![Estudante universitário revisando um PDF de um trabalho concluído em um laptop ao lado de um telefone e páginas escritas à mão cuidadosamente empilhadas.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Se precisar de uma cópia menor, use o [Compressor de PDF](/tools/compress-pdf) e compare-o com o original antes de enviar.
+Se precisar de uma cópia menor, use o [Compressor de PDF](/tools/compress-pdf/) e compare-o com o original antes de enviar.
 
 ## Perguntas frequentes
 

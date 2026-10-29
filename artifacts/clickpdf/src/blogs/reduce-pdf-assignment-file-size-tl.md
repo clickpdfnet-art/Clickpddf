@@ -16,7 +16,7 @@ seoDescription: Alamin ang madaling paraan kung paano paliitin ang PDF assignmen
 seoKeywords: liitan ang PDF assignment file size, i-compress ang PDF nang mas mababa sa 2MB, limitasyon sa upload ng PDF sa university LMS, pag-compress ng PDF assignment, i-optimize ang na-scan na PDF
 imageAlt: Estudyante sa unibersidad na sinusuri ang isang PDF assignment sa laptop sa isang malinis na mesa sa natural na liwanag.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Tagapag-compress ng PDF
 targetToolCta: I-compress ang PDF Ngayon
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Paliitin ang PDF Assignment File Size nang mas mababa sa 2MB para sa University LMS Portals","url":"https://www.clickpdf.net/blog/liitan-pdf-assignment-file-size-tl/"}]
@@ -49,7 +49,7 @@ Ang ilang serbisyo ay gumagamit ng decimal megabytes, kung saan ang 1 MB ay 1,00
 
 Gumamit ng isang pinagkakatiwalaang browser-based compressor kapag kailangan mo ng mabilis na resulta nang hindi nag-i-install ng desktop software. Ang ilang tool ay gumagamit ng mga library tulad ng pdf-lib para sa PDF manipulation, bagaman hindi lahat ng library ay nag-aalok ng full compression. Suriin kung ang pagproseso ay nangyayari nang lokal bago pumili ng tool.
 
-Ang PDF Compressor ng ClickPDF ay available sa [I-compress ang PDF](/tools/compress-pdf). Piliin ang PDF, pumili ng available na compression setting, at iproseso ang isang kopya. Ang dami ng pagbabawas ay depende sa dokumento: ang isang scan-heavy na PDF ay maaaring lumiit nang malaki, habang ang isang text-only na file ay maaaring hindi masyadong magbago. Ikumpara ang laki ng output at siyasatin ang mga pahina bago magsumite.
+Ang PDF Compressor ng ClickPDF ay available sa [I-compress ang PDF](/tools/compress-pdf/). Piliin ang PDF, pumili ng available na compression setting, at iproseso ang isang kopya. Ang dami ng pagbabawas ay depende sa dokumento: ang isang scan-heavy na PDF ay maaaring lumiit nang malaki, habang ang isang text-only na file ay maaaring hindi masyadong magbago. Ikumpara ang laki ng output at siyasatin ang mga pahina bago magsumite.
 
 ![Laptop na nagpapakita ng isang generic na PDF optimization workflow na may visual na before-and-after size comparison at walang mababasang personal na impormasyon.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Bago ka magsumite, kumpirmahin:
 
 ![Estudyante na sinusuri ang isang PDF assignment sa laptop bago ito i-upload sa isang university learning portal.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Panatilihin ang orihinal na file hanggang sa kumpirmahin ng portal ang pagtanggap. Kung kailangan mo ng mas maliit na kopya, gamitin ang [PDF Compressor](/tools/compress-pdf), pagkatapos ay ikumpara ang compressed na bersyon laban sa iyong source bago mag-upload.
+Panatilihin ang orihinal na file hanggang sa kumpirmahin ng portal ang pagtanggap. Kung kailangan mo ng mas maliit na kopya, gamitin ang [PDF Compressor](/tools/compress-pdf/), pagkatapos ay ikumpara ang compressed na bersyon laban sa iyong source bago mag-upload.
 
 ## Mga Madalas Itanong
 

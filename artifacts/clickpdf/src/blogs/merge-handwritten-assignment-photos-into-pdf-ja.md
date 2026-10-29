@@ -16,7 +16,7 @@ seoDescription: 手書き課題の写真をスマホで読みやすい1つのPDF
 seoKeywords: 手書き課題 写真 PDF化 スマホ, 手書きノート PDF変換, 写真からPDF スマホ, 課題PDF作成, 大学LMS提出
 imageAlt: 自然光の差し込む机で、スマートフォンを使って手書きの課題ページを撮影する大学生。
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 画像PDF変換ツール
 targetToolCta: 課題写真をPDFに変換
 breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"ツール","url":"https://www.clickpdf.net/#tools"},{"name":"手書き課題の写真をスマートフォンで1つのPDFにまとめる方法","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-into-pdf-ja-ja/"}]
@@ -37,7 +37,7 @@ PDFならページがまとまっているため、作品の内容を把握し�
 
 ## 文書写真のスキャンや圧縮に最適なモバイルアプリ
 
-トリミングや並べ替え、適切な画質制御が可能なスキャンまたは[画像PDF変換器](/tools/image-to-pdf)を選びましょう。課題を追加する前にプライバシーポリシーを確認してください。出力ファイルが大きすぎる場合は、[PDF圧縮ツール](/tools/compress-pdf)を慎重に使用してください。
+トリミングや並べ替え、適切な画質制御が可能なスキャンまたは[画像PDF変換器](/tools/image-to-pdf/)を選びましょう。課題を追加する前にプライバシーポリシーを確認してください。出力ファイルが大きすぎる場合は、[PDF圧縮ツール](/tools/compress-pdf/)を慎重に使用してください。
 
 ## AndroidおよびiOSデバイスの標準スキャン機能の活用
 
@@ -55,7 +55,7 @@ AndroidやiOSのカメラ、メモ、ファイルアプリの中には、OSや�
 
 ## スマホで複数の画像ファイルをPDF形式に変換する
 
-[ClickPDF 画像PDF変換](/tools/image-to-pdf)で準備した画像を選択し、ページの向きとサイズを設定してからPDFを生成します。手書き課題の写真をスマホでPDFにまとめる際は、選択したすべての画像が出力に含まれているか確認してください。
+[ClickPDF 画像PDF変換](/tools/image-to-pdf/)で準備した画像を選択し、ページの向きとサイズを設定してからPDFを生成します。手書き課題の写真をスマホでPDFにまとめる際は、選択したすべての画像が出力に含まれているか確認してください。
 
 ## 最終的なPDF生成前にページを並べ替える方法
 
@@ -91,7 +91,7 @@ PDFを開き、すべてのページを通常の閲覧サイズで確認しま�
 
 ![ノートPCで完成した課題PDFを確認する大学生。横にはスマホときれいに積まれた手書きページ。](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-コピーを小さくする必要がある場合は、[PDF圧縮ツール](/tools/compress-pdf)を使用し、アップロード前に原本と比較してください。
+コピーを小さくする必要がある場合は、[PDF圧縮ツール](/tools/compress-pdf/)を使用し、アップロード前に原本と比較してください。
 
 ## よくある質問
 

@@ -17,7 +17,7 @@ seoDescription: Tarayıcı tabanlı ClickPDF araçlarının dosyaları cihazın�
 seoKeywords: PDF, gizlilik, tarayıcı güvenliği, yerel işleme, ClickPDF
 imageAlt: Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF Sıkıştırma Aracı
 targetToolCta: PDF’leri tarayıcıda işleyin
 breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"PDF Araçları","url":"https://www.clickpdf.net/#tools"},{"name":"Tarayıcı İçi PDF İşleme Neden Temelden Daha Güvenlidir","url":"https://www.clickpdf.net/blog/tarayici-ici-pdf-isleme-neden-temelden-daha-guvenlidir-tr/"}]

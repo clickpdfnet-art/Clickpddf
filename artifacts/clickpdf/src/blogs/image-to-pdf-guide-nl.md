@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "Ontdek hoe je JPG-, PNG- en WebP-afbeeldingen in de browser samenvoegt tot één PDF. De geselecteerde afbeeldingen worden op je apparaat verwerkt; de praktische batchgrootte hangt af van de browser en het beschikbare geheugen."
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "Afbeeldingen naar PDF omzetten"
 targetToolCta: "Afbeeldingen in de browser naar PDF omzetten"
 ---
@@ -149,7 +149,7 @@ Volg deze stappen in een ondersteunde desktop- of mobiele browser. De bestandski
 
 ### Stap 1: open Image to PDF
 
-Open **[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** of zoek de tool in de catalogus. De interface kan veranderen.
+Open **[Image to PDF](/tools/image-to-pdf/)** of zoek de tool in de catalogus. De interface kan veranderen.
 
 ### Stap 2: selecteer JPG-, PNG- of WebP-bestanden
 

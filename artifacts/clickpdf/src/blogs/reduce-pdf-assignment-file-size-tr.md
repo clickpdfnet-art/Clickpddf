@@ -16,7 +16,7 @@ seoDescription: Üniversite LMS portalları için PDF ödev dosya boyutunu taray
 seoKeywords: PDF ödev dosya boyutu küçültme, PDF 2MB altı sıkıştırma, üniversite LMS PDF yükleme sınırı, PDF ödev sıkıştırma, taranmış PDF optimizasyonu
 imageAlt: Düzenli bir masada dizüstü bilgisayardan PDF ödevini inceleyen üniversite öğrencisi.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF Sıkıştırıcı
 targetToolCta: Şimdi PDF Sıkıştır
 breadcrumbs: [{"name":"Anasayfa","url":"https://www.clickpdf.net/"},{"name":"Araçlar","url":"https://www.clickpdf.net/#tools"},{"name":"Üniversite LMS Portalları için PDF Ödev Dosya Boyutunu 2MB Altına Düşürme","url":"https://www.clickpdf.net/blog/pdf-odev-dosya-boyutu-kucultme-tr/"}]
@@ -49,7 +49,7 @@ Bazı hizmetler 1MB'ın 1.000.000 bayt olduğu ondalık megabaytları kullanır;
 
 Masaüstü yazılımı yüklemeden hızlı bir sonuca ihtiyacınız olduğunda güvenilir, tarayıcı tabanlı bir sıkıştırıcı kullanın. Bazı araçlar PDF manipülasyonu için pdf-lib gibi kütüphaneler kullanır, ancak her kütüphane tam sıkıştırma sunmaz. Bir araç seçmeden önce işlemin yerel olarak gerçekleşip gerçekleşmediğini kontrol edin.
 
-ClickPDF'in PDF Sıkıştırıcısı [PDF Sıkıştır](/tools/compress-pdf) adresinde mevcuttur. PDF'i seçin, mevcut bir sıkıştırma ayarını seçin ve bir kopyasını işleyin. Küçültme miktarı belgeye bağlıdır: tarama ağırlıklı bir PDF önemli ölçüde küçülebilirken, yalnızca metin içeren bir dosya çok az değişebilir. Göndermeden önce çıktı boyutunu karşılaştırın ve sayfaları inceleyin.
+ClickPDF'in PDF Sıkıştırıcısı [PDF Sıkıştır](/tools/compress-pdf/) adresinde mevcuttur. PDF'i seçin, mevcut bir sıkıştırma ayarını seçin ve bir kopyasını işleyin. Küçültme miktarı belgeye bağlıdır: tarama ağırlıklı bir PDF önemli ölçüde küçülebilirken, yalnızca metin içeren bir dosya çok az değişebilir. Göndermeden önce çıktı boyutunu karşılaştırın ve sayfaları inceleyin.
 
 ![Görsel bir öncesi-sonrası boyut karşılaştırması içeren ve okunabilir kişisel bilgi bulunmayan genel bir PDF optimizasyon iş akışını gösteren dizüstü bilgisayar.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -125,7 +125,7 @@ Teslim etmeden önce onaylayın:
 
 ![Üniversite öğrenim portalına yüklemeden önce dizüstü bilgisayarda PDF ödevini kontrol eden öğrenci.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Portal teslim aldığını onaylayana kadar orijinal dosyayı saklayın. Daha küçük bir kopyaya ihtiyacınız varsa [PDF Sıkıştırıcı](/tools/compress-pdf)'i kullanın, ardından yüklemeden önce sıkıştırılmış sürümü kaynağınızla karşılaştırın.
+Portal teslim aldığını onaylayana kadar orijinal dosyayı saklayın. Daha küçük bir kopyaya ihtiyacınız varsa [PDF Sıkıştırıcı](/tools/compress-pdf/)'i kullanın, ardından yüklemeden önce sıkıştırılmış sürümü kaynağınızla karşılaştırın.
 
 ## Sıkça Sorulan Sorular
 

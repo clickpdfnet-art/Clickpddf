@@ -17,7 +17,7 @@ seoDescription: جانیں کہ براؤزر پر مبنی پی ڈی ایف ٹو
 seoKeywords: پی ڈی ایف، رازداری، براؤزر، سیکیورٹی، کلک پی ڈی ایف
 imageAlt: ان براؤزر پی ڈی ایف پروسیسنگ بنیادی طور پر زیادہ محفوظ کیوں ہے
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: پی ڈی ایف کمپریس ٹول
 targetToolCta: براؤزر میں PDF پروسیس کریں
 breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"پی ڈی ایف ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"ان براؤزر پی ڈی ایف پروسیسنگ بنیادی طور پر زیادہ محفوظ کیوں ہے","url":"https://www.clickpdf.net/blog/%D8%A7%D9%86-%D8%A8%D8%B1%D8%A7%D8%A4%D8%B2%D8%B1-%D9%BE%DB%8C-%DA%88%DB%8C-%D8%A7%DB%8C%D9%81-%D9%BE%D8%B1%D8%A7%D8%A6%DB%8C%D9%88%DB%8C%D8%B3%DB%8C-%DA%AF%D8%A7%D8%A6%DB%8C%DA%88-ur/"}]

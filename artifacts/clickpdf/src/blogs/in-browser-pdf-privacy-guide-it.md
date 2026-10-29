@@ -17,7 +17,7 @@ seoDescription: Scopri come gli strumenti PDF basati su browser elaborano i file
 seoKeywords: privacy PDF, elaborazione locale, sicurezza browser, ClickPDF, strumenti PDF offline
 imageAlt: Perché l'elaborazione dei PDF nel browser è fondamentalmente più sicura
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Strumento di compressione PDF
 targetToolCta: Elabora PDF nel browser
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"Strumenti PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Perché l'elaborazione dei PDF nel browser è fondamentalmente più sicura","url":"https://www.clickpdf.net/blog/guida-privacy-pdf-browser-it/"}]

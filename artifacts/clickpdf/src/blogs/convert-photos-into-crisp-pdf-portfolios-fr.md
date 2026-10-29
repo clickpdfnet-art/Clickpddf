@@ -17,7 +17,7 @@ seoDescription: Découvrez des conseils professionnels pour assembler vos photos
 seoKeywords: PDF photo, portfolio PDF, ClickPDF, convertisseur image en PDF
 imageAlt: Comment créer des portfolios photo et des lookbooks élégants en PDF standard
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Convertisseur d'images en PDF
 targetToolCta: Convertir des images et photos en portfolios PDF
 breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment créer des portfolios photo et des lookbooks élégants en PDF standard","url":"https://www.clickpdf.net/blog/creer-des-portfolios-photo-pdf-elegants-fr/"}]

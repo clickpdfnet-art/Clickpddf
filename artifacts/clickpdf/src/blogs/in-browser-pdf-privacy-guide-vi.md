@@ -17,7 +17,7 @@ seoDescription: Tìm hiểu cách các công cụ PDF dựa trên trình duyệt
 seoKeywords: PDF, quyền riêng tư, bảo mật, trình duyệt, xử lý cục bộ, mã hóa
 imageAlt: Tại sao xử lý PDF trong trình duyệt lại an toàn hơn về cơ bản
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Công cụ nén PDF
 targetToolCta: Xử lý PDF trong trình duyệt
 breadcrumbs: [{"name":"Trang chủ","url":"https://www.clickpdf.net/"},{"name":"Công cụ PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Tại sao xử lý PDF trong trình duyệt lại an toàn hơn về cơ bản","url":"https://www.clickpdf.net/blog/huong-dan-bao-mat-pdf-tren-trinh-duyet-vi/"}]

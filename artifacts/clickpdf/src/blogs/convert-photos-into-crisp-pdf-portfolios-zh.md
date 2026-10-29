@@ -17,7 +17,7 @@ seoDescription: 使用ClickPDF将手机摄影与建筑渲染转化为高质量PD
 seoKeywords: PDF作品集, 图片转PDF, 设计作品集, ClickPDF
 imageAlt: 如何制作优雅的PDF照片作品集和画册
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 图片转PDF转换器
 targetToolCta: 将图片转换为PDF作品集
 breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"工具","url":"https://www.clickpdf.net/#tools"},{"name":"如何制作优雅的PDF照片作品集和画册","url":"https://www.clickpdf.net/blog/zhizuo-youya-pdf-zuopinji-zh/"}]

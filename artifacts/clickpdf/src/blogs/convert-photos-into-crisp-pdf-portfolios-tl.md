@@ -17,7 +17,7 @@ seoDescription: Alamin ang mga propesyonal na tip sa pagbuo ng magagandang PDF p
 seoKeywords: photo pdf, pdf portfolio, ClickPDF, image to pdf converter
 imageAlt: Paano Gumawa ng Eleganteng Photo Portfolio at Lookbook bilang Standard PDF
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Tagapag-convert ng Larawan sa PDF
 targetToolCta: I-convert ang mga Larawan at Photos sa PDF Portfolio
 breadcrumbs: [{"name":"Home","url":"https://www.clickpdf.net/"},{"name":"PDF Tools","url":"https://www.clickpdf.net/#tools"},{"name":"Paano Gumawa ng Eleganteng Photo Portfolio at Lookbook bilang Standard PDF","url":"https://www.clickpdf.net/blog/paggawa-ng-malinaw-na-pdf-portfolio-mula-sa-larawan-tl/"}]

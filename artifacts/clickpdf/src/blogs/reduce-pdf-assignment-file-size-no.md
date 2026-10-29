@@ -16,7 +16,7 @@ seoDescription: Lær hvordan du reduserer størrelsen på PDF-oppgaver til under
 seoKeywords: redusere filstørrelse PDF-oppgave, komprimere PDF under 2MB, LMS PDF-opplastingsgrense, PDF-oppgavekomprimering, optimalisere skannet PDF
 imageAlt: Student som går gjennom en PDF-oppgave på en bærbar PC ved et ryddig skrivebord i naturlig dagslys.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF-kompressor
 targetToolCta: Komprimer PDF nå
 breadcrumbs: [{"name":"Hjem","url":"https://www.clickpdf.net/"},{"name":"Verktøy","url":"https://www.clickpdf.net/#tools"},{"name":"Hvordan redusere størrelsen på en PDF-oppgave til under 2 MB for universitetsportaler","url":"https://www.clickpdf.net/blog/redusere-filst%C3%B8rrelse-pdf-oppgave-no/"}]
@@ -49,7 +49,7 @@ Noen tjenester bruker desimale megabytes, der 1 MB er 1 000 000 bytes; andre vis
 
 Bruk en pålitelig nettleserbasert kompressor når du trenger et raskt resultat uten å installere skrivebordsprogramvare. Noen verktøy bruker biblioteker som pdf-lib for PDF-manipulering, selv om ikke hvert bibliotek tilbyr full komprimering. Sjekk om prosesseringen skjer lokalt før du velger et verktøy.
 
-ClickPDFs PDF-kompressor er tilgjengelig på [Komprimer PDF](/tools/compress-pdf). Velg PDF-en, velg en tilgjengelig komprimeringsinnstilling, og behandle en kopi. Mengden reduksjon avhenger av dokumentet: en skanning-tung PDF kan krympe betydelig, mens en ren tekstfil kan endre seg svært lite. Sammenlign utdatastørrelsen og inspiser sidene før du sender inn.
+ClickPDFs PDF-kompressor er tilgjengelig på [Komprimer PDF](/tools/compress-pdf/). Velg PDF-en, velg en tilgjengelig komprimeringsinnstilling, og behandle en kopi. Mengden reduksjon avhenger av dokumentet: en skanning-tung PDF kan krympe betydelig, mens en ren tekstfil kan endre seg svært lite. Sammenlign utdatastørrelsen og inspiser sidene før du sender inn.
 
 ![Bærbar PC som viser en generisk PDF-optimaliseringsarbeidsflyt med en visuell før-og-etter størrelsessammenligning og ingen lesbar personlig informasjon.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Før du sender inn, bekreft:
 
 ![Student som sjekker en PDF-oppgave på en bærbar PC før den lastes opp til en universitetets læringsportal.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Ta vare på den originale filen til portalen bekrefter mottak. Hvis du trenger en mindre kopi, bruk [PDF-kompressor](/tools/compress-pdf), sammenlign deretter den komprimerte versjonen med kilden din før opplasting.
+Ta vare på den originale filen til portalen bekrefter mottak. Hvis du trenger en mindre kopi, bruk [PDF-kompressor](/tools/compress-pdf/), sammenlign deretter den komprimerte versjonen med kilden din før opplasting.
 
 ## Ofte stilte spørsmål
 

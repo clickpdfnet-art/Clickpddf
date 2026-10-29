@@ -17,7 +17,7 @@ seoDescription: 了解基于浏览器的 ClickPDF 工具如何在您的设备上
 seoKeywords: PDF, 隐私, 浏览器, 安全, ClickPDF
 imageAlt: 为什么浏览器内 PDF 处理在根本上更安全
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: PDF 压缩工具
 targetToolCta: 在浏览器中处理 PDF
 breadcrumbs: [{"name":"首页","url":"https://www.clickpdf.net/"},{"name":"PDF 工具","url":"https://www.clickpdf.net/#tools"},{"name":"为什么浏览器内 PDF 处理在根本上更安全","url":"https://www.clickpdf.net/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85-pdf-%E9%9A%90%E7%A7%81%E6%8C%87%E5%8D%97-zh/"}]

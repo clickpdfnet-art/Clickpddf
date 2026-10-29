@@ -17,7 +17,7 @@ seoDescription: 画像のアスペクト比を維持し、美しいPDFポート�
 seoKeywords: 写真PDF, PDFポートフォリオ, ClickPDF, 画像PDF変換
 imageAlt: エレガントな写真ポートフォリオやルックブックを標準PDFとして作成する方法
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 画像からPDFへの変換ツール
 targetToolCta: 画像や写真をPDFポートフォリオに変換する
 breadcrumbs: [{"name":"ホーム","url":"https://www.clickpdf.net/"},{"name":"PDFツール","url":"https://www.clickpdf.net/#tools"},{"name":"エレガントな写真ポートフォリオやルックブックを標準PDFとして作成する方法","url":"https://www.clickpdf.net/blog/smart-photograph-pdf-portfolio-sakusei-ja/"}]

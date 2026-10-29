@@ -17,7 +17,7 @@ seoDescription: Buat portofolio foto dan lookbook elegan dalam format PDF dengan
 seoKeywords: portofolio foto, PDF, ClickPDF, gambar ke PDF, lookbook, konverter PDF
 imageAlt: Cara membangun portofolio foto dan lookbook elegan sebagai PDF standar
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Konverter Gambar ke PDF
 targetToolCta: Konversi Gambar & Foto ke Portofolio PDF
 breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Cara Membangun Portofolio Foto dan Lookbook Elegan sebagai PDF Standar","url":"https://www.clickpdf.net/blog/cara-membuat-portofolio-foto-pdf-elegan-id/"}]

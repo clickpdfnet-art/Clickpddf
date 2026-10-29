@@ -16,7 +16,7 @@ seoDescription: 휴대폰에서 손글씨 과제 사진을 읽기 쉬운 하나�
 seoKeywords: 모바일에서 손글씨 과제 사진을 PDF로 병합, 손글씨 노트를 PDF로, 휴대폰에서 이미지-PDF 변환, 모바일 과제 PDF, 대학 LMS 제출
 imageAlt: 자연광이 들어오는 깔끔한 책상 위에서 스마트폰으로 손글씨 과제 페이지를 촬영하는 대학생.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: 이미지-PDF 변환기
 targetToolCta: 과제 사진을 PDF로 변환하기
 breadcrumbs: [{"name":"홈","url":"https://www.clickpdf.net/"},{"name":"도구","url":"https://www.clickpdf.net/#tools"},{"name":"모바일에서 여러 손글씨 과제 사진을 하나의 PDF로 병합하는 방법","url":"https://www.clickpdf.net/blog/merge-handwritten-assignment-photos-to-pdf-ko/"}]
@@ -37,7 +37,7 @@ faqItems: [{"answer":"올바른 순서로 과제 사진을 선택하고, 호환�
 
 ## 문서 사진 스캔 및 압축을 위한 최고의 모바일 앱
 
-자르기, 순서 변경 및 적절한 품질 제어 기능이 있는 신뢰할 수 있는 스캔 앱 또는 [이미지-PDF 변환기](/tools/image-to-pdf)을 선택하세요. 과제물을 추가하기 전에 개인정보 처리방침을 확인하세요. 출력 파일이 너무 큰 경우 [PDF 압축기](/tools/compress-pdf)을 주의 깊게 사용하세요.
+자르기, 순서 변경 및 적절한 품질 제어 기능이 있는 신뢰할 수 있는 스캔 앱 또는 [이미지-PDF 변환기](/tools/image-to-pdf/)을 선택하세요. 과제물을 추가하기 전에 개인정보 처리방침을 확인하세요. 출력 파일이 너무 큰 경우 [PDF 압축기](/tools/compress-pdf/)을 주의 깊게 사용하세요.
 
 ## Android 및 iOS 기기의 내장 스캐너 앱 사용하기
 
@@ -55,7 +55,7 @@ faqItems: [{"answer":"올바른 순서로 과제 사진을 선택하고, 호환�
 
 ## 모바일에서 여러 이미지 파일을 PDF 형식으로 변환하기
 
-준비된 이미지를 [ClickPDF 이미지-PDF 변환](/tools/image-to-pdf)에서 선택하고 페이지 방향과 크기를 설정한 다음 PDF를 생성하세요. 모바일에서 손글씨 과제 사진을 PDF로 병합하려면 선택한 모든 이미지가 결과물에 포함되었는지 확인하세요.
+준비된 이미지를 [ClickPDF 이미지-PDF 변환](/tools/image-to-pdf/)에서 선택하고 페이지 방향과 크기를 설정한 다음 PDF를 생성하세요. 모바일에서 손글씨 과제 사진을 PDF로 병합하려면 선택한 모든 이미지가 결과물에 포함되었는지 확인하세요.
 
 ## 최종 PDF를 생성하기 전에 페이지 순서를 조정하는 방법
 
@@ -91,7 +91,7 @@ PDF를 열고 일반 읽기 크기로 모든 페이지를 검사하세요. 옆�
 
 ![휴대폰과 깔끔하게 쌓인 손글씨 페이지 옆에서 노트북으로 완성된 과제 PDF를 검토 중인 대학생.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-더 작은 복사본이 필요하면 [PDF 압축기](/tools/compress-pdf)을 사용한 뒤 업로드하기 전에 원본과 비교하세요.
+더 작은 복사본이 필요하면 [PDF 압축기](/tools/compress-pdf/)을 사용한 뒤 업로드하기 전에 원본과 비교하세요.
 
 ## 자주 묻는 질문
 

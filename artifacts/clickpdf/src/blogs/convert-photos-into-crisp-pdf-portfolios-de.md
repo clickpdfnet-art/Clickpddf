@@ -17,7 +17,7 @@ seoDescription: Lernen Sie professionelle Tipps zur Erstellung ansprechender PDF
 seoKeywords: Foto-PDF, PDF-Portfolio, ClickPDF, Bild-zu-PDF-Konverter
 imageAlt: So erstellen Sie elegante Fotoportfolios und Lookbooks als Standard-PDFs
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bild-zu-PDF-Konverter
 targetToolCta: Bilder und Fotos in PDF-Portfolios umwandeln
 breadcrumbs: [{"name":"Startseite","url":"https://www.clickpdf.net/"},{"name":"PDF-Tools","url":"https://www.clickpdf.net/#tools"},{"name":"So erstellen Sie elegante Fotoportfolios und Lookbooks als Standard-PDFs","url":"https://www.clickpdf.net/blog/erstellung-eleganter-pdf-fotoportfolios-de/"}]

@@ -17,7 +17,7 @@ seoDescription: Узнайте, как создать профессиональ
 seoKeywords: PDF-портфолио, создание фотопортфолио, конвертация изображений в PDF, дизайн портфолио, сжатие PDF
 imageAlt: Как создавать элегантные фотопортфолио и лукбуки в формате PDF
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Конвертер изображений в PDF
 targetToolCta: Конвертировать изображения и фото в PDF-портфолио
 breadcrumbs: [{"name":"Главная","url":"https://www.clickpdf.net/"},{"name":"PDF инструменты","url":"https://www.clickpdf.net/#tools"},{"name":"Как создавать элегантные фотопортфолио и лукбуки в формате PDF","url":"https://www.clickpdf.net/blog/sozdanie-kachestvennykh-pdf-portfolio-iz-foto-ru/"}]

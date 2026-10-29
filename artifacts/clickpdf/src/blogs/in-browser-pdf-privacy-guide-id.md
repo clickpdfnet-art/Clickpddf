@@ -17,7 +17,7 @@ seoDescription: Pelajari bagaimana alat PDF berbasis browser memproses file di p
 seoKeywords: PDF, privasi, keamanan, browser, pemrosesan lokal, enkripsi
 imageAlt: Mengapa Pemrosesan PDF di Browser Jauh Lebih Aman
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Alat Kompresi PDF
 targetToolCta: Proses PDF di Browser
 breadcrumbs: [{"name":"Beranda","url":"https://www.clickpdf.net/"},{"name":"Alat PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Mengapa Pemrosesan PDF di Browser Jauh Lebih Aman","url":"https://www.clickpdf.net/blog/panduan-privasi-pdf-browser-id/"}]

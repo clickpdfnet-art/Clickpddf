@@ -15,7 +15,7 @@ author: ClickPDF Editorial Team
 coverImage: /blog-assets/image-to-pdf/image-to-pdf-hero.png
 summary: "JPG، PNG اور WebP تصاویر کو اپنے براؤزر میں ایک PDF میں جمع کرنے کا طریقہ جانیں۔ منتخب تصاویر آپ کے آلے پر پروسیس ہوتی ہیں؛ ایک وقت میں کتنی فائلیں کامیاب ہوں گی، اس کا انحصار براؤزر اور دستیاب میموری پر ہے۔"
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: "تصاویر سے PDF بنائیں"
 targetToolCta: "براؤزر میں تصاویر کو PDF میں تبدیل کریں"
 ---
@@ -149,7 +149,7 @@ ClickPDF کا Image to PDF ٹول منتخب تصویروں کو براؤزر م
 
 ### مرحلہ 1: Image to PDF ٹول کھولیں
 
-**[Image to PDF](https://clickpdf.net/tools/image-to-pdf)** کھولیں یا ٹولز کی فہرست سے اسے تلاش کریں۔ انٹرفیس وقت کے ساتھ بدل سکتا ہے۔
+**[Image to PDF](/tools/image-to-pdf/)** کھولیں یا ٹولز کی فہرست سے اسے تلاش کریں۔ انٹرفیس وقت کے ساتھ بدل سکتا ہے۔
 
 ### مرحلہ 2: JPG، PNG یا WebP تصاویر منتخب کریں
 

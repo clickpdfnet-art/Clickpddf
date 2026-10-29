@@ -17,7 +17,7 @@ seoDescription: Lär dig hur webbläsarbaserade PDF-verktyg bearbetar filer på 
 seoKeywords: PDF, integritet, säkerhet, webbläsare, lokal bearbetning, kryptering
 imageAlt: Varför PDF-behandling i webbläsaren är fundamentalt säkrare
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Verktyg för PDF-komprimering
 targetToolCta: Behandla PDF i webbläsaren
 breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Varför PDF-behandling i webbläsaren är fundamentalt säkrare","url":"https://www.clickpdf.net/blog/guide-till-pdf-integritet-i-webblasaren-sv/"}]

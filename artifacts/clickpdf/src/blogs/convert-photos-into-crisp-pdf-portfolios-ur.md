@@ -17,7 +17,7 @@ seoDescription: اپنے اسمارٹ فون کی تصاویر اور ڈیزائ
 seoKeywords: پی ڈی ایف پورٹ فولیو، فوٹو ٹو پی ڈی ایف، ڈیزائن پورٹ فولیو، ClickPDF
 imageAlt: پی ڈی ایف کے طور پر خوبصورت فوٹو پورٹ فولیو اور لک بکس کیسے بنائیں
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: امیج ٹو پی ڈی ایف کنورٹر
 targetToolCta: تصاویر کو پی ڈی ایف پورٹ فولیو میں تبدیل کریں
 breadcrumbs: [{"name":"ہوم","url":"https://www.clickpdf.net/"},{"name":"ٹولز","url":"https://www.clickpdf.net/#tools"},{"name":"PDF کے طور پر خوبصورت فوٹو پورٹ فولیو اور لک بکس کیسے بنائیں","url":"https://www.clickpdf.net/blog/tasaveer-se-pdf-portfolio-banayein-ur/"}]

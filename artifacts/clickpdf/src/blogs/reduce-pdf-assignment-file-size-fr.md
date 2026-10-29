@@ -16,7 +16,7 @@ seoDescription: Apprenez à réduire la taille de vos devoirs PDF sous 2 Mo pour
 seoKeywords: réduire taille fichier PDF devoir, compresser PDF moins de 2 Mo, limite upload PDF LMS université, compression devoir PDF, optimiser PDF scanné
 imageAlt: Un étudiant universitaire vérifie un devoir PDF sur un ordinateur portable à un bureau bien rangé à la lumière naturelle.
 targetTool: compress
-targetToolUrl: /tools/compress-pdf
+targetToolUrl: /tools/compress-pdf/
 targetToolTitle: Compresseur PDF
 targetToolCta: Compresser un PDF maintenant
 breadcrumbs: [{"name":"Accueil","url":"https://www.clickpdf.net/"},{"name":"Outils PDF","url":"https://www.clickpdf.net/#tools"},{"name":"Comment réduire la taille d'un fichier PDF de devoir universitaire à moins de 2 Mo pour les portails LMS","url":"https://www.clickpdf.net/blog/reduire-taille-fichier-pdf-devoir-fr/"}]
@@ -49,7 +49,7 @@ Certains services utilisent des mégaoctets décimaux (1 Mo = 1 000 000 octets) 
 
 Utilisez un compresseur basé sur navigateur fiable lorsque vous avez besoin d'un résultat rapide sans installer de logiciel de bureau. Certains outils utilisent des bibliothèques telles que pdf-lib pour la manipulation de PDF, bien que toutes les bibliothèques n'offrent pas une compression complète. Vérifiez si le traitement se fait localement avant de sélectionner un outil.
 
-Le compresseur PDF de ClickPDF est disponible sur [Compresser un PDF](/tools/compress-pdf). Sélectionnez le PDF, choisissez un paramètre de compression disponible et traitez une copie. Le montant de la réduction dépend du document : un PDF riche en scans peut réduire considérablement, tandis qu'un fichier texte uniquement peut changer très peu. Comparez la taille de sortie et inspectez les pages avant de soumettre.
+Le compresseur PDF de ClickPDF est disponible sur [Compresser un PDF](/tools/compress-pdf/). Sélectionnez le PDF, choisissez un paramètre de compression disponible et traitez une copie. Le montant de la réduction dépend du document : un PDF riche en scans peut réduire considérablement, tandis qu'un fichier texte uniquement peut changer très peu. Comparez la taille de sortie et inspectez les pages avant de soumettre.
 
 ![Ordinateur portable montrant un flux de travail d'optimisation PDF générique avec une comparaison visuelle de taille avant-après et aucune information personnelle lisible.](/blog-assets/reduce-pdf-assignment/compression.jpg)
 
@@ -129,7 +129,7 @@ Avant de soumettre, confirmez :
 
 ![Étudiant vérifiant un devoir PDF sur un ordinateur portable avant de l'uploader sur un portail d'apprentissage universitaire.](/blog-assets/reduce-pdf-assignment/submission.jpg)
 
-Conservez le fichier original jusqu'à ce que le portail confirme la réception. Si vous avez besoin d'une copie plus petite, utilisez le [Compresseur PDF](/tools/compress-pdf), puis comparez la version compressée avec votre source avant d'uploader.
+Conservez le fichier original jusqu'à ce que le portail confirme la réception. Si vous avez besoin d'une copie plus petite, utilisez le [Compresseur PDF](/tools/compress-pdf/), puis comparez la version compressée avec votre source avant d'uploader.
 
 ## Questions fréquemment posées
 

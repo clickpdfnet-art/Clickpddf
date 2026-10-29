@@ -16,7 +16,7 @@ seoDescription: Lär dig hur du sammanfogar bilder av handskrivna inlämningar t
 seoKeywords: sammanfoga handskrivna inlämningsbilder till PDF, handskrivna anteckningar till PDF, bild till PDF på telefon, mobil inlämnings-PDF, universitetsinlämning LMS
 imageAlt: Student som fotograferar handskrivna inlämningssidor med en smartphone på ett prydligt skrivbord i naturligt dagsljus.
 targetTool: jpg-to-pdf
-targetToolUrl: /tools/image-to-pdf
+targetToolUrl: /tools/image-to-pdf/
 targetToolTitle: Bild till PDF-konverterare
 targetToolCta: Konvertera inlämningsbilder till PDF
 breadcrumbs: [{"name":"Hem","url":"https://www.clickpdf.net/"},{"name":"PDF-verktyg","url":"https://www.clickpdf.net/#tools"},{"name":"Så här sammanfogar du flera handskrivna inlämningsbilder till en PDF på mobilen","url":"https://www.clickpdf.net/blog/sammanfoga-handskrivna-inlamningsbilder-till-pdf-sv/"}]
@@ -37,7 +37,7 @@ Arrangera sidor från den första frågan till den sista. Ta bort dubbletter ell
 
 ## Bästa mobilappar för att skanna och komprimera dokumentbilder
 
-Välj en pålitlig skanner eller [bild-till-PDF-konverterare](/tools/image-to-pdf) med beskärning, omordning och lämpliga kvalitetskontroller. Kontrollera integritetspolicyn innan du lägger till kursmaterial. Om utdatafilen är för stor, använd [PDF-komprimerare](/tools/compress-pdf) försiktigt.
+Välj en pålitlig skanner eller [bild-till-PDF-konverterare](/tools/image-to-pdf/) med beskärning, omordning och lämpliga kvalitetskontroller. Kontrollera integritetspolicyn innan du lägger till kursmaterial. Om utdatafilen är för stor, använd [PDF-komprimerare](/tools/compress-pdf/) försiktigt.
 
 ## Använda inbyggda skannerappar på Android- och iOS-enheter
 
@@ -55,7 +55,7 @@ Beskär bort skrivbordet utan att klippa av skriften. Justera ljusstyrka och kon
 
 ## Konvertera flera bildfiler till PDF-format på mobilen
 
-Välj förberedda bilder i [ClickPDF Bild till PDF](/tools/image-to-pdf), ställ in sidorientering och storlek, och generera sedan PDF-filen. För att sammanfoga bilder av handskrivna inlämningar till PDF på mobilen, bekräfta att varje vald bild visas i utdatafilen.
+Välj förberedda bilder i [ClickPDF Bild till PDF](/tools/image-to-pdf/), ställ in sidorientering och storlek, och generera sedan PDF-filen. För att sammanfoga bilder av handskrivna inlämningar till PDF på mobilen, bekräfta att varje vald bild visas i utdatafilen.
 
 ## Hur man omordnar sidor innan man genererar den slutgiltiga PDF-filen
 
@@ -91,7 +91,7 @@ Bekräfta att varje sida finns med, är i ordning och är läsbar. Kontrollera f
 
 ![Universitetsstudent som granskar en färdig inlämnings-PDF på en laptop bredvid en telefon och snyggt staplade handskrivna sidor.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-Om du behöver en mindre kopia, använd [PDF-komprimerare](/tools/compress-pdf), och jämför den sedan med ditt original innan du laddar upp.
+Om du behöver en mindre kopia, använd [PDF-komprimerare](/tools/compress-pdf/), och jämför den sedan med ditt original innan du laddar upp.
 
 ## Vanliga frågor
 

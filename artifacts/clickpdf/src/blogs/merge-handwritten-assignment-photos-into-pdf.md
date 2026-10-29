@@ -13,7 +13,7 @@ seokeywords: merge handwritten assignment photos into PDF on mobile, handwritten
 coverimage: /blog-assets/merge-handwritten-assignment/hero.webp
 imagealt: University student photographing handwritten assignment pages with a smartphone on a tidy desk in natural daylight.
 targettool: jpg-to-pdf
-targettoolurl: /tools/image-to-pdf
+targettoolurl: /tools/image-to-pdf/
 targettooltitle: Image to PDF Converter
 targettoolcta: Convert Assignment Photos to PDF
 locale: en
@@ -36,7 +36,7 @@ Arrange pages from the first question to the last. Remove duplicate or blurry pi
 
 ## Best Mobile Apps for Scanning and Compressing Document Photos
 
-Choose a trusted scanning or [Image to PDF converter](/tools/image-to-pdf) with cropping, reordering, and suitable quality controls. Check its privacy policy before adding coursework. If the output is too large, use the [PDF Compressor](/tools/compress-pdf) carefully.
+Choose a trusted scanning or [Image to PDF converter](/tools/image-to-pdf/) with cropping, reordering, and suitable quality controls. Check its privacy policy before adding coursework. If the output is too large, use the [PDF Compressor](/tools/compress-pdf/) carefully.
 
 ## Using Built-in Scanner Apps on Android and iOS Devices
 
@@ -54,7 +54,7 @@ Crop away the desk without cutting off writing. Adjust brightness and contrast g
 
 ## Converting Multiple Image Files Into PDF Format on Mobile
 
-Select prepared images in [ClickPDF Image to PDF](/tools/image-to-pdf), set page orientation and size, then generate the PDF. To merge handwritten assignment photos into PDF on mobile, confirm every selected image appears in the output.
+Select prepared images in [ClickPDF Image to PDF](/tools/image-to-pdf/), set page orientation and size, then generate the PDF. To merge handwritten assignment photos into PDF on mobile, confirm every selected image appears in the output.
 
 ## How to Reorder Pages Before Generating the Final PDF
 
@@ -90,7 +90,7 @@ Confirm that every page is present, in order, and readable. Check the filename, 
 
 ![University student reviewing a completed assignment PDF on a laptop beside a phone and neatly stacked handwritten pages.](/blog-assets/merge-handwritten-assignment/submission.webp)
 
-If you need a smaller copy, use the [PDF Compressor](/tools/compress-pdf), then compare it with your original before uploading.
+If you need a smaller copy, use the [PDF Compressor](/tools/compress-pdf/), then compare it with your original before uploading.
 
 ## Frequently Asked Questions
 

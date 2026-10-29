@@ -193,12 +193,12 @@ const ReducePdfAssignmentArticle: React.FC<ReducePdfAssignmentArticleProps> = ({
   const isMobileAssignmentGuide = article.slug === 'merge-handwritten-assignment-photos-into-pdf';
   const primaryToolHref = article.targetToolUrl || '/tools/compress-pdf/';
   const primaryToolId = article.targetTool || (
-    primaryToolHref === '/tools/image-to-pdf' ? 'jpg-to-pdf' : 'compress'
+    primaryToolHref === '/tools/image-to-pdf/' ? 'jpg-to-pdf' : 'compress'
   );
   const primaryToolCta = article.targetToolCta || (
-    primaryToolHref === '/tools/image-to-pdf' ? 'Convert Photos to PDF' : 'Compress PDF Now'
+    primaryToolHref === '/tools/image-to-pdf/' ? 'Convert Photos to PDF' : 'Compress PDF Now'
   );
-  const primaryToolIsConverter = primaryToolHref === '/tools/image-to-pdf';
+  const primaryToolIsConverter = primaryToolHref === '/tools/image-to-pdf/';
   const breadcrumbTitle = article.breadcrumbs?.[article.breadcrumbs.length - 1]?.name || article.title;
   const relatedArticles = articles
     .filter((item) => item.slug !== article.slug && (!item.locale || item.locale === article.locale))
