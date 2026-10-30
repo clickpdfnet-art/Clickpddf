@@ -263,6 +263,7 @@ export function renderToolFallback(tool, tools) {
     .replace(/[.!?]\s*$/, '')
     .replace(/^./, (character) => character.toLowerCase());
   const directAnswer = `<section aria-label="${escapeHtml(tool.directAnswerLabel || 'Quick answer')}"><p><strong>${escapeHtml(tool.directAnswerLabel || 'Quick answer')}:</strong> Use ${escapeHtml(tool.toolLabel || tool.name)} to ${escapeHtml(directAction)}. ${escapeHtml(tool.directAnswerSecondSentence || 'Selected files are processed locally in your browser; performance depends on browser support and available device memory.')}</p></section>`;
+  const toolPrivacyDetails = `<section aria-label="Tool-specific processing details"><p>${escapeHtml(tool.privacySummary || '')}</p><p>${escapeHtml(tool.privacyDisclosure || '')}</p></section>`;
   const faqs = `<section aria-labelledby="seo-tool-faq"><h2 id="seo-tool-faq">Frequently asked questions</h2>${tool.faqs
     .map((faq) => `<details><summary>${escapeHtml(faq.question)}</summary><p>${escapeHtml(faq.answer)}</p></details>`)
     .join('')}</section>`;
@@ -277,7 +278,7 @@ export function renderToolFallback(tool, tools) {
   return fallbackPage({
     title: tool.name,
     description: tool.description,
-    content: `${directAnswer}${metadataOverview}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
+    content: `${directAnswer}${toolPrivacyDetails}${metadataOverview}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
   });
 }
 

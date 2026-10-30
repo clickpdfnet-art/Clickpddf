@@ -101,16 +101,24 @@ export async function readActiveToolRegistry(appDir) {
   const dataDir = path.join(appDir, 'src', 'data');
   const toolsPath = path.join(dataDir, 'toolsData.ts');
   const seoPath = path.join(dataDir, 'toolSeoData.ts');
+  const privacyPath = path.join(dataDir, 'toolPrivacyTranslations.ts');
   const pluginDir = path.join(appDir, 'src', 'tools', 'plugins');
-  const [baseTools, hiddenValue, seoObject, faqTemplateText] = await Promise.all([
+  const [baseTools, hiddenValue, seoObject, privacyTranslations, faqTemplateText] = await Promise.all([
     readTypeScriptExport(toolsPath, 'BASE_PDF_TOOLS'),
     readTypeScriptExport(toolsPath, 'HIDDEN_TOOL_IDS'),
     readTypeScriptExport(seoPath, 'TOOL_SEO_REGISTRY'),
+    readTypeScriptExport(privacyPath, 'TOOL_PRIVACY_TRANSLATIONS'),
     readFile(path.join(dataDir, 'toolSeoFaqTemplates.json'), 'utf8'),
   ]);
   const faqTemplates = JSON.parse(faqTemplateText);
 
-  if (!Array.isArray(baseTools) || !seoObject || typeof seoObject !== 'object') {
+  if (
+    !Array.isArray(baseTools) ||
+    !seoObject ||
+    typeof seoObject !== 'object' ||
+    !privacyTranslations?.en?.tools ||
+    !privacyTranslations.en.disclosure
+  ) {
     throw new Error('Could not read the static PDF tool registry and SEO data.');
   }
   const hiddenIds = new Set(
@@ -151,6 +159,10 @@ export async function readActiveToolRegistry(appDir) {
     if (!seo?.slug || !seo.steps?.length || !seo.faqs?.length) {
       throw new Error(`Public tool "${tool.id}" requires a canonical slug, HowTo steps, and FAQs.`);
     }
+    const privacySummary = privacyTranslations.en.tools[tool.id];
+    if (!privacySummary) {
+      throw new Error(`Public tool "${tool.id}" has no English tool-specific privacy copy.`);
+    }
     const faqToolName = (seo.h1Title || tool.title || 'ClickPDF')
       .split(/[—–|]/, 1)[0]
       .replace(/\b(online|free|100%|in-browser)\b/gi, '')
@@ -169,6 +181,8 @@ export async function readActiveToolRegistry(appDir) {
       overview: seo.overview || '',
       secondaryOverview: seo.secondaryOverview || '',
       shortDescription: tool.description || '',
+      privacySummary,
+      privacyDisclosure: privacyTranslations.en.disclosure,
       stepsHeading: seo.stepsHeading,
       steps: seo.steps,
       faqs: tool.id === 'edit-metadata' && seo.faqs?.length

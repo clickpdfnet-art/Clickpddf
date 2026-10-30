@@ -7,7 +7,7 @@
     "predev": "node scripts/generate-blog-watermarks.mjs",
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
     "generate:blog-watermarks": "node scripts/generate-blog-watermarks.mjs",
-    "build": "node scripts/generate-blog-watermarks.mjs && node scripts/generate-blog-sitemap.mjs && vite build --config vite.config.ts && node scripts/generate-structured-data-pages.mjs && node scripts/generate-sitemap-index.mjs && node --test scripts/test-structured-data.mjs scripts/test-sitemap-index.mjs",
+    "build": "node scripts/generate-blog-watermarks.mjs && node scripts/generate-blog-sitemap.mjs && vite build --config vite.config.ts && node scripts/generate-structured-data-pages.mjs && node scripts/generate-sitemap-index.mjs && node --test scripts/test-structured-data.mjs scripts/test-sitemap-index.mjs scripts/test-tool-privacy-copy.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

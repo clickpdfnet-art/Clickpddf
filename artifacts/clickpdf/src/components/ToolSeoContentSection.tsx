@@ -12,6 +12,7 @@ import { ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
 import { TOOL_PAGE_TRANSLATIONS } from '../i18n/toolPageTranslations';
+import { getToolPrivacyCopy } from '../data/toolPrivacyTranslations';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
 
@@ -46,6 +47,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     .map((id) => PUBLIC_PDF_TOOLS.find((t) => t.id === id))
     .filter((t): t is PDFTool => Boolean(t));
   const toolName = getToolTitle(tool);
+  const toolPrivacyCopy = getToolPrivacyCopy(language, tool.id);
   const isEnglishMetadataPage = tool.id === 'edit-metadata' && language === 'en';
   const localizedSteps = isEnglishMetadataPage ? seoInfo.steps : [
     { step: 1, title: copy.step1Title, description: copy.step1Description },
@@ -146,7 +148,10 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {isEnglishMetadataPage ? seoInfo.metaDescription : copy.privacySummary}
+            {toolPrivacyCopy.summary}
+          </p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            {toolPrivacyCopy.disclosure}
           </p>
         </div>
 
