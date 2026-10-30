@@ -11,7 +11,7 @@
 - The available `webSearch` provider returned **402 Payment Required** on Merge PDF, Edit PDF Metadata, and Word-to-Excel queries. A direct Google Search request returned HTTP 200 but did not yield parseable result listings. No position or competitor ranking is asserted.
 - Public keyword volume, difficulty, CPC, ClickPDF ranking/CTR, referring domains, competitor domain authority, and domain age were not available. No numbers have been estimated.
 - ClickPDF feature and limitation wording was checked against the active tool registry and implementation. Processing-in-browser language does not promise that the page makes no network requests.
-- The proposed titles, descriptions, English-only overviews, and target query lists are in `src/data/toolSeoData.ts`. The 21-locale interface and localized FAQ/how-to templates were left intact. Full translation of metadata is a separate task.
+- The proposed titles, descriptions, and target query lists are in `src/data/toolSeoData.ts`. The researched English overview, three how-to steps, and six FAQs for each tool are in `src/data/toolPageContent.ts`. The English UI displays this page-specific copy; other locales keep their existing localized FAQ/how-to templates. Translating the new copy across all supported locales remains separate work.
 
 ## Route-by-route evidence and implementation
 
@@ -73,15 +73,23 @@ These are the exact title, H1, and meta description values now held in the SEO r
 | --- | --- | --- | --- |
 | P1 | Align each English title, H1, and description with one distinct tool intent, and remove unsupported feature, privacy, quality, and speed promises. | High for factual accuracy; medium for query fit because ranking/volume data was unavailable. | Implemented for all 21 tools. |
 | P1 | Keep related-tool destinations crawlable and ensure they point to active canonical routes. | High confidence; verified from source and generated HTML. | Implemented and regression-tested. |
-| P2 | Translate page-specific SEO titles, descriptions, and overview copy for the 21 supported languages. | Potentially broad international benefit; translation quality and search demand require separate review. | Not included; current SEO overviews are English-only and localized interface copy is unchanged. |
+| P2 | Translate page-specific SEO titles, descriptions, overviews, how-to steps, and FAQs for the 21 supported languages. | Potentially broad international benefit; translation quality and search demand require separate review. | Not included; the new researched tool-page copy is English-only and the existing localized interface/templates remain unchanged. |
 | P2 | Measure impressions, queries, clicks, and CTR after a separately approved release, then adjust target terms from observed data. | Cannot be scored without Search Console data; no positions or volumes are claimed here. | Deferred; no Search Console data was available for this audit. |
 
 The production build also reports a large JavaScript entry chunk and mixed static/dynamic Tesseract imports. The build passes; reducing the initial tool-page payload is a separate performance task and was not mixed into this content-focused change.
 
+## BeyondSEO verification and competitor capture limits
+
+- A scoped HTTP crawl of the 21 canonical tool pages returned 21 HTML responses with no failed page requests. It observed canonical URLs and static page content; this does not prove search-engine indexing or ranking.
+- A second scoped HTTP crawl fetched one competitor page for each tool (21/21 responses). Four iLovePDF captures were incomplete JavaScript shells: Organize PDF, Unlock PDF, Word to PDF, and Excel to PDF. Each had only 73–79 extracted words and 11 scripts. Browser-mode confirmation was unavailable because Chromium could not start in this environment (`libnspr4.so` is missing); do not treat missing text in those four captures as absent competitor content.
+- FAQ/How-to headings were directly observed in the captured HTML for Smallpdf Watermark PDF and Sign PDF, PDF24 PDF-to-PNG, metadata, and text pages, and Convertio DOCX-to-XLSX. For other sampled pages, no equivalent heading was observed in the HTTP capture; that is not proof that no such content exists.
+- The homepage crawl confirmed links to `/tools/pdf-to-image/` and `/tools/word-to-excel/`. Their two earlier “orphan candidate” flags came from the intentionally restricted tool-only crawl and are not confirmed orphan pages.
+- The home page was also crawled; no critical findings were reported in that one-page sample. Search rankings, query volume/difficulty, traffic, conversions, indexing, semantic schema validity, and Core Web Vitals remain unmeasured.
+
 ## Technical and content checks
 
-- Updated only the active public-tool SEO registry, its English overview presentation, crawlable related-tool links, the static-page renderer, the SEO regression test, and the build test list.
+- The active public-tool SEO registry supplies metadata and links; `src/data/toolPageContent.ts` supplies three researched steps and six FAQs for each of the 21 tools. The English page and static fallback render that content, and the build updates `public/llms-full.txt`.
 - Related tool links now point only to active tool routes. Static fallback pages and hydrated English pages both expose anchors with canonical trailing-slash paths.
-- The static fallback now includes each tool’s specific overview. The app displays those English overviews only on English UI pages; translated UI copy remains unchanged.
-- Existing FAQ/how-to copy, FAQ templates, schemas, canonical routing, hreflang/localization data, routes, sitemap generation rules, Cloudflare Worker, and deployment settings were not edited. Existing tests continue to check visible FAQ/HowTo and JSON-LD parity.
+- The app displays the new page-specific overview, how-to steps, and FAQs only on English UI pages; translated UI and existing localized FAQ/how-to templates remain unchanged.
+- Static HTML displays all 126 visible FAQ entries and 63 how-to steps for the English tool pages. Regression checks verify copy and FAQ/HowTo structured-data parity. Canonical routing, hreflang/localization data, routes, sitemap rules, Cloudflare Worker, and deployment settings were not changed.
 - No deployment or production change was made. This report documents source changes only; live pages continue to serve the previously deployed build until a separate deployment decision.

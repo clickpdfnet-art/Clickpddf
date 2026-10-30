@@ -42,7 +42,7 @@ Common questions: Can Compress PDF guarantee a specific target size? | Will comp
 URL: https://www.clickpdf.net/tools/image-to-pdf/
 Description: Convert JPG, PNG, and WebP images to PDF online. Arrange images and choose page orientation and margins; page resources may still make requests.
 Key capabilities: Multi-Image Stitching; Orientation Control; Browser-Based Conversion; Page Layout Options
-Typical workflow: Add the images: Select JPG, PNG, or WebP files from your device and check that every intended image appears in the workspace. → Arrange pages and layout: Set the image order and choose the available page orientation and margin options. → Create the PDF: Convert the selected images, then open the PDF to check page order, orientation, and fit.
+Typical workflow: Add the images: Select JPG, PNG, or WebP files from your device and check that every intended image appears in the workspace. → Arrange pages and layout: Set the image order and choose the available page orientation and margin options. → Generate and download the PDF: Convert the selected images, download the resulting PDF, then check page order, orientation, and fit.
 Common questions: Which image formats can I turn into a PDF? | Can several photos go into one PDF? | How do I control the order of image pages? | Can I adjust page orientation or margins? | Will the PDF improve the resolution of a small photo? | Does creating the PDF change the original images?
 
 ### PDF to PNG Converter Online — Export Page Images

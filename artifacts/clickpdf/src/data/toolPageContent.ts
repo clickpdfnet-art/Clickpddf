@@ -74,7 +74,7 @@ export const TOOL_PAGE_CONTENT: Record<string, ToolPageContent> = {
     steps: [
       { step: 1, title: 'Add the images', description: 'Select JPG, PNG, or WebP files from your device and check that every intended image appears in the workspace.' },
       { step: 2, title: 'Arrange pages and layout', description: 'Set the image order and choose the available page orientation and margin options.' },
-      { step: 3, title: 'Create the PDF', description: 'Convert the selected images, then open the PDF to check page order, orientation, and fit.' },
+      { step: 3, title: 'Generate and download the PDF', description: 'Convert the selected images, download the resulting PDF, then check page order, orientation, and fit.' },
     ],
     faqs: [
       { question: 'Which image formats can I turn into a PDF?', answer: 'The tool accepts JPG, PNG, and WebP images. Check the file picker and confirm that each selected image is listed before conversion.' },

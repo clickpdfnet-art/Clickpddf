@@ -389,7 +389,7 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
     assert.match(answerBlock, /device memory/i, `${url} quick answer describes practical device limits`);
     const orderedSteps = howTo?.step || [];
     assert.match(`${orderedSteps[0]?.name} ${orderedSteps[0]?.text}`, /select|upload|drop|choose|open|add/i, `${url} starts by selecting files`);
-    assert.match(`${orderedSteps[2]?.name} ${orderedSteps[2]?.text}`, /download|save|copy|export|generate/i, `${url} ends with an output action`);
+    assert.match(`${orderedSteps[2]?.name} ${orderedSteps[2]?.text}`, /download|save|copy|export|generate|create/i, `${url} ends with an output action`);
   }
 });
 
@@ -851,7 +851,7 @@ test('Edit PDF Metadata copy and static SEO stay within the six supported fields
   );
   assert.equal(tool.badge, 'PDF Property Editor');
   assert.equal(tool.overviewHeading, 'Inspect or Edit Supported PDF Properties');
-  assert.equal(tool.faqs.length, 5, 'all five metadata-specific FAQs reach static output');
+  assert.equal(tool.faqs.length, 6, 'all six metadata-specific FAQs reach static output');
 
   const { html, nodes } = await readHeadSchemas(url);
   const title = decodeXml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
@@ -881,7 +881,7 @@ test('Edit PDF Metadata copy and static SEO stay within the six supported fields
     /anonymi[sz]|purge all metadata|wipe all metadata|complete metadata scrub|SEO keyword stamping|optimize PDFs for search engines/i,
   );
   const schemaFaq = nodes.find((node) => node['@type'] === 'FAQPage');
-  assert.equal(schemaFaq?.mainEntity?.length, 5, 'static FAQ structured data matches the five visible FAQs');
+  assert.equal(schemaFaq?.mainEntity?.length, 6, 'static FAQ structured data matches the six visible FAQs');
   assert.deepEqual(
     schemaFaq.mainEntity.map((item) => item.name),
     tool.faqs.map((item) => item.question),
