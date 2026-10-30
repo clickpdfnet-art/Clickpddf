@@ -150,25 +150,22 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {toolPrivacyCopy.summary}
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            {toolPrivacyCopy.disclosure}
-          </p>
         </div>
 
 
-        {/* Secondary In-Depth Details */}
-        <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800">
-          <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-indigo-500" />
-            <span>{isEnglishMetadataPage ? seoInfo.overviewHeading : ui.aboutToolSectionHeading}</span>
-          </h4>
-          <p>{isEnglishMetadataPage ? seoInfo.overview : copy.aboutToolSummary}</p>
-          {isEnglishMetadataPage && (
+        {/* Supplemental metadata guidance */}
+        {isEnglishMetadataPage && (
+          <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-indigo-500" />
+              <span>{seoInfo.overviewHeading}</span>
+            </h4>
+            <p>{seoInfo.overview}</p>
             <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
               {seoInfo.secondaryOverview}
             </p>
-          )}
-        </div>
+          </div>
+        )}
 
         {isEnglishMetadataPage && (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

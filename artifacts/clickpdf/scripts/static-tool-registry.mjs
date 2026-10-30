@@ -116,8 +116,7 @@ export async function readActiveToolRegistry(appDir) {
     !Array.isArray(baseTools) ||
     !seoObject ||
     typeof seoObject !== 'object' ||
-    !privacyTranslations?.en?.tools ||
-    !privacyTranslations.en.disclosure
+    !privacyTranslations?.en?.tools
   ) {
     throw new Error('Could not read the static PDF tool registry and SEO data.');
   }
@@ -182,7 +181,6 @@ export async function readActiveToolRegistry(appDir) {
       secondaryOverview: seo.secondaryOverview || '',
       shortDescription: tool.description || '',
       privacySummary,
-      privacyDisclosure: privacyTranslations.en.disclosure,
       stepsHeading: seo.stepsHeading,
       steps: seo.steps,
       faqs: tool.id === 'edit-metadata' && seo.faqs?.length

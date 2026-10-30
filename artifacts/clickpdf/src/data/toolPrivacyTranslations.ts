@@ -27,13 +27,11 @@ export const TOOL_PRIVACY_COPY_TOOL_IDS = [
 export type ToolPrivacyCopyToolId = (typeof TOOL_PRIVACY_COPY_TOOL_IDS)[number];
 
 interface ToolPrivacyLocaleCopy {
-  disclosure: string;
   tools: Record<ToolPrivacyCopyToolId, string>;
 }
 
 export const TOOL_PRIVACY_TRANSLATIONS = {
   en: {
-    disclosure: 'The page may still load standard resources and enabled third-party services, including ads.',
     tools: {
       merge: 'Combines selected PDF files in the order you choose. Review links, forms, and annotations in the merged file because interactive features can vary by source document.',
       split: 'Extracts the page ranges you select into separate PDF files or a ZIP. Check the selected page numbers and output order; very large files may be limited by available browser memory.',
@@ -59,7 +57,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   ur: {
-    disclosure: 'صفحہ معمول کے وسائل اور فعال تھرڈ پارٹی سروسز، بشمول اشتہارات، اب بھی لوڈ کر سکتا ہے۔',
     tools: {
       merge: 'منتخب PDF فائلوں کو آپ کی چنی ہوئی ترتیب سے ملاتا ہے۔ تیار فائل میں links، forms اور annotations دیکھیں، کیونکہ interactive features اصل document کے لحاظ سے مختلف ہو سکتے ہیں۔',
       split: 'آپ کے منتخب کردہ page ranges کو الگ PDF فائلوں یا ZIP میں نکالتا ہے۔ منتخب page numbers اور output کی ترتیب چیک کریں؛ بہت بڑی فائلیں browser memory کی وجہ سے محدود ہو سکتی ہیں۔',
@@ -85,7 +82,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   hi: {
-    disclosure: 'पेज सामान्य संसाधन और चालू तृतीय-पक्ष सेवाएँ, जिनमें विज्ञापन भी शामिल हैं, लोड कर सकता है।',
     tools: {
       merge: 'चुने हुए PDF फ़ाइलों को आपके चुने क्रम में जोड़ता है। जुड़ी फ़ाइल में लिंक, फ़ॉर्म और टिप्पणियाँ जाँचें, क्योंकि इंटरैक्टिव सुविधाएँ स्रोत दस्तावेज़ के अनुसार बदल सकती हैं।',
       split: 'चुनी हुई पेज सीमाओं को अलग PDF फ़ाइलों या ZIP में निकालता है। चुने पेज नंबर और आउटपुट क्रम जाँचें; बहुत बड़ी फ़ाइलें उपलब्ध ब्राउज़र मेमोरी से सीमित हो सकती हैं।',
@@ -111,7 +107,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   ar: {
-    disclosure: 'قد تظل الصفحة تحمّل الموارد المعتادة وخدمات الجهات الخارجية المفعّلة، بما فيها الإعلانات.',
     tools: {
       merge: 'يجمع ملفات PDF المحددة بالترتيب الذي تختاره. راجع الروابط والنماذج والتعليقات التوضيحية في الملف الناتج، فقد تختلف الميزات التفاعلية حسب المستند المصدر.',
       split: 'يستخرج نطاقات الصفحات التي تحددها إلى ملفات PDF منفصلة أو ملف ZIP. تحقق من أرقام الصفحات المحددة وترتيب النتائج؛ قد تحد ذاكرة المتصفح المتاحة من الملفات الكبيرة جداً.',
@@ -137,7 +132,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   fr: {
-    disclosure: 'La page peut toujours charger des ressources standard et des services tiers activés, y compris des publicités.',
     tools: {
       merge: 'Fusionne les fichiers PDF sélectionnés dans l’ordre choisi. Vérifiez les liens, formulaires et annotations du fichier obtenu, car les fonctions interactives varient selon le document source.',
       split: 'Extrait les plages de pages choisies dans des PDF séparés ou un ZIP. Vérifiez les numéros et l’ordre des pages ; la mémoire disponible du navigateur peut limiter les fichiers très volumineux.',
@@ -163,7 +157,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   de: {
-    disclosure: 'Die Seite kann weiterhin übliche Ressourcen und aktivierte Dienste von Drittanbietern, einschließlich Werbung, laden.',
     tools: {
       merge: 'Fügt ausgewählte PDF-Dateien in der von Ihnen gewählten Reihenfolge zusammen. Prüfen Sie Links, Formulare und Anmerkungen in der Ergebnisdatei, da interaktive Funktionen je nach Quelldokument variieren können.',
       split: 'Extrahiert ausgewählte Seitenbereiche in einzelne PDF-Dateien oder eine ZIP-Datei. Prüfen Sie Seitenzahlen und Ausgabereihenfolge; sehr große Dateien können durch den verfügbaren Browserspeicher begrenzt sein.',
@@ -189,7 +182,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   zh: {
-    disclosure: '页面仍可能加载常规资源和已启用的第三方服务，包括广告。',
     tools: {
       merge: '按您选择的顺序合并选定的 PDF 文件。请检查合并文件中的链接、表单和批注，因为交互功能可能因源文档而异。',
       split: '将您选择的页面范围提取为单独的 PDF 文件或 ZIP。请核对页码和输出顺序；超大文件可能受浏览器可用内存限制。',
@@ -215,7 +207,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   ja: {
-    disclosure: 'ページでは、広告を含む標準リソースや有効にしたサードパーティサービスが引き続き読み込まれる場合があります。',
     tools: {
       merge: '選択したPDFファイルを指定した順序で結合します。結合後のファイルでリンク、フォーム、注釈を確認してください。インタラクティブ機能は元の文書によって異なる場合があります。',
       split: '選択したページ範囲を個別のPDFファイルまたはZIPに抽出します。ページ番号と出力順を確認してください。非常に大きなファイルはブラウザーの空きメモリにより制限される場合があります。',
@@ -241,7 +232,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   tl: {
-    disclosure: 'Maaari pa ring mag-load ang page ng mga karaniwang resource at naka-enable na third-party service, kabilang ang mga ad.',
     tools: {
       merge: 'Pinagsasama ang mga piniling PDF ayon sa pagkakasunod na pinili mo. Suriin ang mga link, form, at annotation sa pinagsamang file dahil maaaring mag-iba ang interactive na feature ayon sa pinagmulan ng dokumento.',
       split: 'Kinukuha ang mga pinili mong page range bilang magkakahiwalay na PDF o ZIP. Tingnan ang mga page number at pagkakasunod ng output; maaaring malimitahan ng memory ng browser ang napakalalaking file.',
@@ -267,7 +257,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   es: {
-    disclosure: 'La página aún puede cargar recursos estándar y servicios de terceros habilitados, incluidos los anuncios.',
     tools: {
       merge: 'Combina los archivos PDF seleccionados en el orden que elijas. Revisa los enlaces, formularios y anotaciones del archivo combinado, ya que las funciones interactivas pueden variar según el documento de origen.',
       split: 'Extrae los rangos de páginas que selecciones en PDF separados o en un ZIP. Comprueba los números y el orden de salida; los archivos muy grandes pueden estar limitados por la memoria disponible del navegador.',
@@ -293,7 +282,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   it: {
-    disclosure: 'La pagina può comunque caricare risorse standard e servizi di terze parti abilitati, inclusi gli annunci.',
     tools: {
       merge: 'Unisce i PDF selezionati nell’ordine scelto. Controlla link, moduli e annotazioni nel file unito, perché le funzioni interattive possono variare in base al documento di origine.',
       split: 'Estrae gli intervalli di pagine scelti in PDF separati o in uno ZIP. Controlla numeri e ordine delle pagine; file molto grandi possono essere limitati dalla memoria disponibile del browser.',
@@ -319,7 +307,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   no: {
-    disclosure: 'Siden kan fortsatt laste inn vanlige ressurser og aktiverte tredjepartstjenester, inkludert annonser.',
     tools: {
       merge: 'Slår sammen valgte PDF-filer i rekkefølgen du velger. Kontroller lenker, skjemaer og merknader i den sammenslåtte filen, siden interaktive funksjoner kan variere mellom kildedokumenter.',
       split: 'Henter ut de valgte sideområdene til separate PDF-filer eller en ZIP. Kontroller sidetallene og rekkefølgen; svært store filer kan begrenses av tilgjengelig minne i nettleseren.',
@@ -345,7 +332,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   pt: {
-    disclosure: 'A página ainda pode carregar recursos padrão e serviços de terceiros ativados, incluindo anúncios.',
     tools: {
       merge: 'Combina os PDFs selecionados na ordem que escolher. Reveja links, formulários e anotações no arquivo combinado, pois os recursos interativos podem variar conforme o documento de origem.',
       split: 'Extrai os intervalos de páginas escolhidos para PDFs separados ou um ZIP. Confira os números e a ordem das páginas; arquivos muito grandes podem ser limitados pela memória disponível do navegador.',
@@ -371,7 +357,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   ru: {
-    disclosure: 'Страница по-прежнему может загружать обычные ресурсы и включённые сторонние сервисы, в том числе рекламу.',
     tools: {
       merge: 'Объединяет выбранные PDF-файлы в заданном вами порядке. Проверьте ссылки, формы и аннотации в объединённом файле: интерактивные функции могут различаться в исходных документах.',
       split: 'Извлекает выбранные диапазоны страниц в отдельные PDF-файлы или ZIP. Проверьте номера страниц и порядок результата; очень большие файлы могут ограничиваться доступной памятью браузера.',
@@ -397,7 +382,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   ko: {
-    disclosure: '페이지는 광고를 포함한 일반 리소스와 사용 설정된 타사 서비스를 계속 불러올 수 있습니다.',
     tools: {
       merge: '선택한 PDF 파일을 원하는 순서로 합칩니다. 대화형 기능은 원본 문서마다 다를 수 있으므로 합친 파일의 링크, 양식, 주석을 확인하세요.',
       split: '선택한 페이지 범위를 별도 PDF 파일이나 ZIP으로 추출합니다. 페이지 번호와 출력 순서를 확인하세요. 매우 큰 파일은 브라우저의 사용 가능한 메모리로 제한될 수 있습니다.',
@@ -423,7 +407,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   tr: {
-    disclosure: 'Sayfa, reklamlar dâhil standart kaynakları ve etkin üçüncü taraf hizmetlerini yüklemeye devam edebilir.',
     tools: {
       merge: 'Seçilen PDF dosyalarını belirlediğiniz sırayla birleştirir. Etkileşimli özellikler kaynak belgeye göre değişebileceğinden, birleştirilmiş dosyadaki bağlantıları, formları ve açıklamaları kontrol edin.',
       split: 'Seçtiğiniz sayfa aralıklarını ayrı PDF dosyalarına veya ZIP’e çıkarır. Sayfa numaralarını ve çıktı sırasını kontrol edin; çok büyük dosyalar kullanılabilir tarayıcı belleğiyle sınırlanabilir.',
@@ -449,7 +432,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   nl: {
-    disclosure: 'De pagina kan nog steeds standaardbronnen en ingeschakelde diensten van derden laden, waaronder advertenties.',
     tools: {
       merge: 'Voegt geselecteerde PDF-bestanden samen in de volgorde die u kiest. Controleer links, formulieren en annotaties in het samengevoegde bestand, omdat interactieve functies per brondocument kunnen verschillen.',
       split: 'Haalt de geselecteerde paginabereiken op in aparte PDF-bestanden of een ZIP. Controleer paginanummers en uitvoervolgorde; zeer grote bestanden kunnen worden beperkt door het beschikbare browsergeheugen.',
@@ -475,7 +457,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   pl: {
-    disclosure: 'Strona może nadal ładować standardowe zasoby i włączone usługi stron trzecich, w tym reklamy.',
     tools: {
       merge: 'Łączy wybrane pliki PDF w wybranej kolejności. Sprawdź odnośniki, formularze i adnotacje w połączonym pliku, ponieważ funkcje interaktywne mogą zależeć od dokumentu źródłowego.',
       split: 'Wyodrębnia wybrane zakresy stron do osobnych plików PDF lub archiwum ZIP. Sprawdź numery stron i kolejność wyników; bardzo duże pliki mogą ograniczać dostępna pamięć przeglądarki.',
@@ -501,7 +482,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   sv: {
-    disclosure: 'Sidan kan fortfarande läsa in standardresurser och aktiverade tredjepartstjänster, inklusive annonser.',
     tools: {
       merge: 'Slår ihop valda PDF-filer i den ordning du väljer. Kontrollera länkar, formulär och anteckningar i den sammanslagna filen eftersom interaktiva funktioner kan skilja sig mellan källdokument.',
       split: 'Extraherar valda sidintervall till separata PDF-filer eller en ZIP. Kontrollera sidnummer och ordning; mycket stora filer kan begränsas av webbläsarens tillgängliga minne.',
@@ -527,7 +507,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   id: {
-    disclosure: 'Halaman ini tetap dapat memuat sumber daya standar dan layanan pihak ketiga yang diaktifkan, termasuk iklan.',
     tools: {
       merge: 'Menggabungkan file PDF yang dipilih sesuai urutan pilihan Anda. Periksa tautan, formulir, dan anotasi pada file gabungan karena fitur interaktif dapat berbeda menurut dokumen sumber.',
       split: 'Mengekstrak rentang halaman yang dipilih menjadi file PDF terpisah atau ZIP. Periksa nomor halaman dan urutan hasil; file sangat besar dapat dibatasi oleh memori browser yang tersedia.',
@@ -553,7 +532,6 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
     },
   },
   vi: {
-    disclosure: 'Trang vẫn có thể tải tài nguyên thông thường và dịch vụ bên thứ ba đã bật, bao gồm quảng cáo.',
     tools: {
       merge: 'Gộp các tệp PDF đã chọn theo thứ tự bạn chọn. Hãy kiểm tra liên kết, biểu mẫu và chú thích trong tệp đã gộp vì tính năng tương tác có thể khác nhau tùy tài liệu nguồn.',
       split: 'Trích xuất các phạm vi trang đã chọn thành tệp PDF riêng hoặc ZIP. Kiểm tra số trang và thứ tự đầu ra; tệp rất lớn có thể bị giới hạn bởi bộ nhớ trình duyệt còn trống.',
@@ -586,5 +564,5 @@ export function getToolPrivacyCopy(language: Language, toolId: string) {
   if (!summary || !TOOL_PRIVACY_COPY_TOOL_IDS.includes(toolId as ToolPrivacyCopyToolId)) {
     throw new Error(`Missing localized tool privacy copy for ${language}/${toolId}.`);
   }
-  return { summary, disclosure: locale.disclosure };
+  return { summary };
 }

@@ -71,7 +71,7 @@ assert.deepEqual(
 );
 
 for (const [language, locale] of Object.entries(translations)) {
-  assert.ok(locale.disclosure.trim(), `Missing shared resource disclosure for ${language}.`);
+  assert.deepEqual(Object.keys(locale).sort(), ['tools'], `Unexpected shared copy remains for ${language}.`);
   assert.deepEqual(
     Object.keys(locale.tools).sort(),
     [...expectedToolIds].sort(),
@@ -87,11 +87,6 @@ assert.deepEqual(translations.en.tools, englishExpected, 'English tool copy must
 for (const [toolId, expected] of Object.entries(urduExpected)) {
   assert.equal(translations.ur.tools[toolId], expected, `Urdu copy must be mapped to ${toolId}.`);
 }
-assert.match(translations.en.disclosure, /^The page may still load standard resources and enabled third-party services, including ads\.$/);
-assert.equal(
-  translations.ur.disclosure,
-  'صفحہ معمول کے وسائل اور فعال تھرڈ پارٹی سروسز، بشمول اشتہارات، اب بھی لوڈ کر سکتا ہے۔',
-);
 
 const transpiled = ts.transpileModule(await readFile(tablePath, 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
@@ -103,7 +98,7 @@ for (const language of supportedLanguages) {
   for (const toolId of expectedToolIds) {
     const copy = getCopy(language, toolId);
     assert.equal(copy.summary, translations[language].tools[toolId], `Runtime copy mismatch at ${language}/${toolId}.`);
-    assert.equal(copy.disclosure, translations[language].disclosure, `Runtime disclosure mismatch at ${language}.`);
+    assert.deepEqual(Object.keys(copy), ['summary'], `Unexpected extra copy returned for ${language}/${toolId}.`);
   }
 }
 assert.throws(() => getCopy('ur', 'crop'), /Missing localized tool privacy copy/);
@@ -111,21 +106,25 @@ assert.throws(() => getCopy('ur', 'crop'), /Missing localized tool privacy copy/
 const componentSource = await readFile(path.join(appDir, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
 assert.match(componentSource, /getToolPrivacyCopy\(language,\s*tool\.id\)/);
 assert.match(componentSource, /\{toolPrivacyCopy\.summary\}/);
-assert.match(componentSource, /\{toolPrivacyCopy\.disclosure\}/);
+assert.doesNotMatch(componentSource, /toolPrivacyCopy\.disclosure/);
 assert.doesNotMatch(componentSource, /copy\.privacySummary/);
+assert.doesNotMatch(componentSource, /copy\.aboutToolSummary/);
+assert.doesNotMatch(componentSource, /ui\.aboutToolSectionHeading/);
+assert.match(componentSource, /\{seoInfo\.overview\}/, 'The metadata tool’s specific overview must remain.');
+assert.match(componentSource, /\{seoInfo\.secondaryOverview\}/, 'The metadata tool’s specific warning must remain.');
 assert.doesNotMatch(componentSource, /isEnglishMetadataPage\s*\?\s*seoInfo\.metaDescription/);
 
 const activeTools = await readActiveToolRegistry(appDir);
 assert.deepEqual(activeTools.map((tool) => tool.id).sort(), [...expectedToolIds].sort());
 const oldGenericParagraph = 'Your document is processed locally in your browser. The page may still load standard resources and enabled third-party services, such as ads.';
+const removedDisclosure = 'The page may still load standard resources and enabled third-party services, including ads.';
 for (const tool of activeTools) {
   assert.equal(tool.privacySummary, englishExpected[tool.id], `${tool.id} static registry summary differs from English source.`);
-  assert.equal(tool.privacyDisclosure, translations.en.disclosure);
   const htmlPath = path.join(appDir, 'dist/public/tools', tool.slug, 'index.html');
   const html = await readFile(htmlPath, 'utf8');
   assert.ok(html.includes(tool.privacySummary), `${tool.slug} static fallback is missing its tool-specific summary.`);
-  assert.ok(html.includes(tool.privacyDisclosure), `${tool.slug} static fallback is missing the separate resource disclosure.`);
+  assert.ok(!html.includes(removedDisclosure), `${tool.slug} still contains the removed resource disclosure.`);
   assert.ok(!html.includes(oldGenericParagraph), `${tool.slug} still contains the repeated generic paragraph.`);
 }
 
-console.log(`Validated unique tool copy and separate disclosure for ${expectedToolIds.length} tools in ${supportedLanguages.length} languages, plus all ${activeTools.length} generated static tool pages.`);
+console.log(`Validated unique tool copy for ${expectedToolIds.length} tools in ${supportedLanguages.length} languages, confirmed the removed sections stay hidden, and checked all ${activeTools.length} generated static tool pages.`);
