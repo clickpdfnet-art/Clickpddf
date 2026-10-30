@@ -21,148 +21,148 @@ PDF operations may use significant browser memory and processing time, especiall
 URL: https://www.clickpdf.net/tools/merge-pdf/
 Description: Merge PDFs online, reorder them with drag and drop, and download one file. Processing runs in your browser; page resources may still make requests.
 Key capabilities: Browser-Based File Processing; PDF Page Content; Browser Processing; Local PDF Processing
-Typical workflow: Upload or Drop PDF Files: Select two or more PDF documents from your device or drag them directly into the designated drop zone. → Reorder Document Sequence: Drag and drop individual files or click the sort controls (A-Z, Z-A, or manual) to achieve your ideal page order. → Generate & Download: Click "Merge PDFs Now" to construct your consolidated document instantly in your browser and save the result.
-Common questions: Does Merge PDF upload my files to a server? | Is Merge PDF free, and is there a file-size limit? | Can I use Merge PDF on Android, iPhone, and PC?
+Typical workflow: Add the PDF files: Select at least two PDF documents from your device or drop them into the merge workspace. → Set the document order: Drag files into sequence or use the available sort controls before combining them. → Merge and review: Create and download the combined PDF, then check page order and any links, forms, or annotations you need.
+Common questions: Why does Merge PDF need more than one file? | Can I change the file sequence before combining PDFs? | Will links, forms, and annotations behave exactly as before? | Can one merged PDF contain pages with different sizes? | Does merging overwrite any of my original PDFs? | What affects how quickly a large merge finishes?
 
 ### Split PDF Online — Extract Pages or Page Ranges
 URL: https://www.clickpdf.net/tools/split-pdf/
 Description: Split a PDF online by page range or export separate pages. Review the results; processing time depends on the file and device.
 Key capabilities: Custom Range Syntax; Page Range Selection; ZIP Batch Download; Browser File Processing
-Typical workflow: Choose Your PDF Document: Drop your multi-page PDF into the workspace or browse your local file system. → Specify Page Ranges or Extraction Mode: Type specific page numbers (e.g. 1-4, 7) or choose "Split Every Page" to generate individual single-page documents. → Download Extracted Files: Click "Split PDF" to generate and download your extracted files individually or as a clean ZIP package.
-Common questions: Does Split PDF upload my files to a server? | Is Split PDF free, and is there a file-size limit? | Can I use Split PDF on Android, iPhone, and PC?
+Typical workflow: Choose the source PDF: Open the PDF you want to divide in the Split PDF workspace. → Choose pages or ranges: Enter the page numbers or ranges to extract, or select the option that splits the document into individual pages. → Create and save the results: Run the split, then download the resulting PDF files individually or in the offered ZIP package.
+Common questions: Can I extract pages that are not next to each other? | How do I make a separate PDF for every page? | Will the extracted pages stay in their original order? | Does splitting a scanned PDF add searchable text? | Are the pages removed from my original document? | What can slow down a large page extraction?
 
 ### Compress PDF Online — Choose Compression Settings
 URL: https://www.clickpdf.net/tools/compress-pdf/
 Description: Compress PDF files online in your browser and compare the output with the original. Size reduction depends on each file and the selected settings.
 Key capabilities: Compare File Sizes; Compression Presets; Reviewable Output; Browser File Processing
-Typical workflow: Select Your Oversized PDF: Drag and drop your file into the compressor interface. → Choose Compression Level: Select Recommended Compression for balanced visual quality, or Maximum Compression for extreme file size reduction. → Save Optimized PDF: Compare before-and-after file sizes in real time and download your lightweight PDF with one click.
-Common questions: Does Compress PDF upload my files to a server? | Is Compress PDF free, and is there a file-size limit? | Can I use Compress PDF on Android, iPhone, and PC?
+Typical workflow: Select the PDF to reduce: Add the PDF whose file size you want to review and reduce. → Choose an available setting: Select one of the compression options shown by the tool; the result depends on the source document and setting. → Compare and download: Check the resulting file size and readability, then save the compressed PDF as a separate file.
+Common questions: Can Compress PDF guarantee a specific target size? | Will compression make text or images less clear? | Which compression choices can I select? | Can compressing a PDF leave its size unchanged? | Does the compressor replace my original file? | Why might a photo-heavy PDF take longer to process?
 
 ### JPG to PDF Online — Convert JPG, PNG & WebP
 URL: https://www.clickpdf.net/tools/image-to-pdf/
 Description: Convert JPG, PNG, and WebP images to PDF online. Arrange images and choose page orientation and margins; page resources may still make requests.
 Key capabilities: Multi-Image Stitching; Orientation Control; Browser-Based Conversion; Page Layout Options
-Typical workflow: Add One or Multiple Images: Drag and drop your JPG, PNG, or WebP images into the workspace. → Arrange Order & Orientation: Reorder pictures into your preferred flow and choose portrait or landscape orientation. → Generate PDF Document: Click "Convert to PDF" to compile your pictures into an organized, print-ready document.
-Common questions: Does JPG to PDF upload my files to a server? | Is JPG to PDF free, and is there a file-size limit? | Can I use JPG to PDF on Android, iPhone, and PC?
+Typical workflow: Add the images: Select JPG, PNG, or WebP files from your device and check that every intended image appears in the workspace. → Arrange pages and layout: Set the image order and choose the available page orientation and margin options. → Create the PDF: Convert the selected images, then open the PDF to check page order, orientation, and fit.
+Common questions: Which image formats can I turn into a PDF? | Can several photos go into one PDF? | How do I control the order of image pages? | Can I adjust page orientation or margins? | Will the PDF improve the resolution of a small photo? | Does creating the PDF change the original images?
 
 ### PDF to PNG Converter Online — Export Page Images
 URL: https://www.clickpdf.net/tools/pdf-to-image/
 Description: Convert PDF pages to PNG images online, reorder, rotate, duplicate, or remove pages, then download a ZIP. Batch size depends on available device memory.
 Key capabilities: Multiple Documents; Page Controls; Browser-Based Conversion
-Typical workflow: Add One or Multiple PDFs: Choose your PDF files or drag them into the workspace. Use Add Files to include more documents. → Arrange and Adjust Pages: Switch between documents to reorder, rotate, copy or delete pages. Each document keeps its own page edits. → Export and Download PNG Images: Select Export all PDFs as PNG images, then download the ZIP. Each document has a separate folder of numbered PNG files.
-Common questions: Does PDF to PNG Converter upload my files to a server? | Is PDF to PNG Converter free, and is there a file-size limit? | Can I use PDF to PNG Converter on Android, iPhone, and PC?
+Typical workflow: Add the PDF documents: Select the PDF files whose pages you want to export as images. → Review pages and export options: Choose the pages and available page adjustments in the workspace before starting the PNG export. → Download the PNG output: Export the pages and save the generated PNG files; when offered, download multiple results as a ZIP.
+Common questions: Does this tool export PDF pages as PNG or JPG? | Can I export only selected pages from a PDF? | How are images from several PDFs organized? | Can I edit the text in an exported PNG? | What can affect the clarity of a page image? | Why can a long PDF take more memory to export?
 
 ### Rotate PDF Pages Online — Preview and Save
 URL: https://www.clickpdf.net/tools/rotate-pdf/
 Description: Rotate individual PDF pages or the full document, preview the orientation, and download a corrected copy. Results can vary by file.
 Key capabilities: Visual Thumbnail Grid; Individual or Bulk Rotate; Saved Page Rotation; Browser-Based Processing
-Typical workflow: Open Your Document: Upload your PDF to load thumbnail previews of every page in real time. → Rotate Page by Page or All at Once: Click the rotation buttons on individual pages or use the "Rotate All 90°" button. → Download Corrected PDF: Save your permanently oriented PDF file ready for presentation or printing.
-Common questions: Does Rotate PDF Pages upload my files to a server? | Is Rotate PDF Pages free, and is there a file-size limit? | Can I use Rotate PDF Pages on Android, iPhone, and PC?
+Typical workflow: Open the PDF: Select the document and wait for its page previews to appear in the rotation workspace. → Choose pages and direction: Use the page controls to rotate individual pages or apply the available rotation to the whole document. → Save and inspect the PDF: Download the rotated copy and check the affected pages in a PDF viewer.
+Common questions: Can I rotate one page without rotating every page? | Can the same rotation be applied to every page? | Does rotation change the content of a page? | Can I undo a wrong rotation before saving? | Will Rotate PDF overwrite my source file? | Why might page previews load slowly?
 
 ### Add a Text Watermark to PDF Online
 URL: https://www.clickpdf.net/tools/watermark-pdf/
 Description: Add a text watermark to PDF pages. Set its wording, color, angle, and opacity, then save a copy. A watermark does not encrypt or redact document content.
 Key capabilities: Full Opacity & Angle Tuning; Vector-Sharp Typography; Browser-Based Processing; Instant Live Preview
-Typical workflow: Upload Your PDF: Drop your document into the watermark workspace. → Configure Watermark Settings: Type your custom watermark text, pick a color, set the angle and opacity, and select page targets. → Download Watermarked PDF: Click "Apply Watermark" to generate your stamped file instantly.
-Common questions: Does Add a Text Watermark to PDF upload my files to a server? | Is Add a Text Watermark to PDF free, and is there a file-size limit? | Can I use Add a Text Watermark to PDF on Android, iPhone, and PC?
+Typical workflow: Select the PDF: Open the document that should receive a visible text watermark. → Set the text and appearance: Enter the watermark wording, adjust the available color, angle, opacity, and page-target settings. → Apply and review: Generate the watermarked PDF and check that the mark is legible without obscuring important content.
+Common questions: Can I use a logo image as the watermark? | Can the watermark appear on only certain pages? | Which appearance settings are available for the text mark? | Does a watermark hide or remove the original page content? | Can a light watermark still be seen on every background? | Will the original PDF be changed?
 
 ### Add Page Numbers to PDF Online — Set Format
 URL: https://www.clickpdf.net/tools/page-numbers-pdf/
 Description: Add page numbers to a PDF online. Choose a position and numbering format, set the starting number or cover-page behavior, then review the saved copy.
 Key capabilities: Flexible Positions; Custom Formats; Cover Page Exclusion; Client-Side Speed
-Typical workflow: Upload Your PDF Document: Drop your un-numbered PDF file into the pagination tool. → Choose Position & Format: Select alignment (bottom-center, bottom-right, header, etc.), number format, font size, and optional cover skip. → Generate & Save: Click "Apply Page Numbers" to download your numbered document immediately.
-Common questions: Does Add Page Numbers to PDF upload my files to a server? | Is Add Page Numbers to PDF free, and is there a file-size limit? | Can I use Add Page Numbers to PDF on Android, iPhone, and PC?
+Typical workflow: Open the document: Select the PDF that needs page numbers and review its page count. → Choose numbering options: Set the available position, format, starting number, and cover-page behavior. → Apply and check placement: Create the numbered PDF and inspect pages for overlaps with existing text or page content.
+Common questions: Can numbering start at a number other than one? | Can I leave a cover page without a printed number? | Where can the page number be placed? | Can the numbers cover existing text? | Does adding numbers change the original PDF? | Are page numbers added to every page automatically?
 
 ### Organize PDF Pages Online — Reorder and Delete
 URL: https://www.clickpdf.net/tools/organize-pdf/
 Description: Reorder or delete PDF pages in your browser. Review the saved copy; deleting pages is not secure redaction and may not remove underlying content.
 Key capabilities: Intuitive Drag & Drop; One-Click Page Deletion; Browser Page Preview; Browser-Based Processing
-Typical workflow: Upload Your PDF File: Drop your document into the organizer to view all pages in an interactive grid. → Rearrange and Refine Pages: Drag pages into your desired sequence, click the trash icon on unwanted pages, or rotate individual sheets. → Save Reorganized PDF: Click "Save Changes" to download your polished, re-sequenced document.
-Common questions: Does Organize PDF Pages upload my files to a server? | Is Organize PDF Pages free, and is there a file-size limit? | Can I use Organize PDF Pages on Android, iPhone, and PC?
+Typical workflow: Load the PDF pages: Select a PDF and wait for its page thumbnails to appear in the organizer. → Make page-level changes: Drag thumbnails to reorder pages, use rotation controls where needed, or remove pages you do not want. → Save and verify the copy: Download the reorganized PDF and check its order and page count; keep the original until you finish reviewing.
+Common questions: How do I move a page to a new position? | Can I remove several unwanted pages? | Does deleting a page securely erase its contents? | Can I rotate a page while organizing the PDF? | Can I restore the original order after changes? | Why might a large document take time to display thumbnails?
 
 ### Edit PDF Metadata Online — Update Supported Fields
 URL: https://www.clickpdf.net/tools/edit-pdf-metadata/
 Description: Edit PDF metadata online: update or clear Title, Author, Subject, Keywords, Creator, and Producer. Other metadata and visible page content may remain.
 Key capabilities: Inspect Supported Properties; Edit PDF Properties; Clear Supported Fields; Browser-Based Processing
-Typical workflow: Open your PDF: Open your PDF to inspect the supported document properties. → Edit or clear fields: Edit the fields you want to keep, or choose Clear Supported Metadata Fields. → Save and review: Save the PDF, reopen it, and check the properties and visible pages before sharing.
-Common questions: Which PDF properties can I edit? | What does Clear Supported Metadata Fields remove? | Will this make my PDF anonymous? | Does it remove dates, comments, attachments, or XMP data? | Is my PDF uploaded to ClickPDF for metadata processing?
+Typical workflow: Open the PDF properties: Select a PDF and review the supported metadata fields displayed by the tool. → Edit or clear selected fields: Update the Title, Author, Subject, Keywords, Creator, or Producer fields as needed. → Save and inspect the result: Download the edited PDF and check its properties as well as its visible pages before sharing.
+Common questions: Which PDF metadata fields can I edit here? | Does clearing supported fields make a PDF anonymous? | Will metadata editing remove words from the PDF pages? | Does the tool clear every XMP property or embedded comment? | Can I check the changed properties before sharing? | Are metadata changes made to my original file?
 
 ### PDF OCR and Page Count Checker Online
 URL: https://www.clickpdf.net/tools/ocr-pdf-analysis/
 Description: Run OCR on scanned PDF pages and check page count, dimensions, and document details. OCR text is separate; the source PDF is not made searchable.
 Key capabilities: OCR Text Review; Local WebAssembly Engine; Comprehensive Diagnostics; One-Click Text Copy
-Typical workflow: Upload Scanned PDF: Drop your scanned document into the analyzer interface. → Run Neural OCR Analysis: Click "Extract Scanned Text (OCR)" to initiate the local WebAssembly recognition engine. → Copy or Download Recognized Text: View the transcribed text, copy it with one click, or export it as a clean text file.
-Common questions: Does PDF OCR and Page Count Checker upload my files to a server? | Is PDF OCR and Page Count Checker free, and is there a file-size limit? | Can I use PDF OCR and Page Count Checker on Android, iPhone, and PC?
+Typical workflow: Select a PDF for analysis: Open the scanned or text-based PDF whose page details or text you need to inspect. → Run the available analysis: Start OCR for scanned content and review the page count, dimensions, and extracted text shown by the tool. → Copy or download the result: Check the recognized text, then copy it or save the available text output; the source PDF is not rewritten as searchable.
+Common questions: Does OCR analysis turn the original PDF into a searchable file? | Which page details can I check? | Why can OCR miss words in a scanned page? | Can I copy the recognized text out of the tool? | Will handwriting be recognized as reliably as printed text? | Does analysis upload my PDF for OCR?
 
 ### Protect PDF Online — Use ClickPDF Encryption
 URL: https://www.clickpdf.net/tools/protect-pdf-password/
 Description: Encrypt PDF files in your browser with ClickPDF Protect. This custom wrapper is not standard PDF password protection; open it with ClickPDF Unlock.
 Key capabilities: Zero-Knowledge Architecture; Browser Web Crypto; Brute-Force Resistant; ClickPDF-Specific Format
-Typical workflow: Upload Confidential PDF: Drop your sensitive file into the encryption workspace. → Set a Strong Password: Type your chosen password and optional hint. The real-time strength meter verifies password entropy. → Download Encrypted File: Click "Encrypt & Protect" to download your AES-256-encrypted file.
-Common questions: Does Protect PDF upload my files to a server? | Is Protect PDF free, and is there a file-size limit? | Can I use Protect PDF on Android, iPhone, and PC?
+Typical workflow: Choose the PDF: Select the document you want to place in the ClickPDF Protect format. → Set a password: Enter a password in the protection workspace and check it carefully before creating the protected file. → Download the protected file: Save the output and retain the password; use ClickPDF Unlock to open this ClickPDF-protected format later.
+Common questions: Does Protect PDF add a standard PDF password? | Can Adobe Acrobat or another PDF viewer open the protected output directly? | What happens if I forget the password? | Is the source PDF overwritten when it is protected? | Is this the same as redacting sensitive text? | Where can I open a file created by ClickPDF Protect?
 
 ### Unlock PDF Online — Open ClickPDF-Protected Files
 URL: https://www.clickpdf.net/tools/unlock-pdf-password/
 Description: Unlock files created by ClickPDF Protect with the correct password. This tool does not remove unknown passwords or unlock arbitrary standard PDF encryption.
 Key capabilities: Browser-Based Decryption; Preserves File Integrity; Password Required; Cross-Device Compatible
-Typical workflow: Open Encrypted File: Drop your protected PDF into the unlock workspace. → Enter Password: Type the password used during document encryption. → Download Decrypted Document: Click "Decrypt PDF" to restore and download your unrestricted file.
-Common questions: Does Unlock PDF upload my files to a server? | Is Unlock PDF free, and is there a file-size limit? | Can I use Unlock PDF on Android, iPhone, and PC?
+Typical workflow: Select the protected file: Open the file created by ClickPDF Protect in the Unlock PDF workspace. → Enter its password: Type the password set when the file was protected and check for typing errors. → Decrypt and save: Run the unlock process and download the resulting PDF, then open it to verify the pages.
+Common questions: Can Unlock PDF remove a password from any PDF? | Do I need the same password used during protection? | Will a wrong password recover or reset the file? | Can I open the protected file in a normal PDF reader first? | Does unlocking change the protected source file? | Are protected file contents sent to a document server?
 
 ### PDF to Text Online — Extract TXT or Markdown
 URL: https://www.clickpdf.net/tools/pdf-to-text/
 Description: Extract selectable PDF text as TXT or Markdown in your browser. Image-only scans need OCR first, and complex tables or reading order may require review.
 Key capabilities: Clean Markdown Export; One-Click Clipboard Copy; Completely In-Browser; Page-by-Page Progress
-Typical workflow: Upload Your PDF: Drop your document into the text extraction tool. → Choose Text or Markdown Output: Choose an output format, process your selected PDFs, and inspect each extracted result. → Copy or Download: Copy the text to your clipboard with one click or download as a .txt or .md file.
-Common questions: Does PDF to Text upload my files to a server? | Is PDF to Text free, and is there a file-size limit? | Can I use PDF to Text on Android, iPhone, and PC?
+Typical workflow: Open a PDF with text: Select the document whose selectable text you want to extract. → Choose an output format: Select TXT or Markdown from the formats available in the text extraction workspace. → Review and export the text: Inspect the extracted result, then copy it or download the selected text file.
+Common questions: Can PDF to Text read a page that is only a scan? | Should I choose TXT or Markdown? | Will tables keep their exact columns after extraction? | Can I copy the extracted text without downloading a file? | Does extracting text alter the PDF? | Why does extraction time vary between PDFs?
 
 ### PDF to Word Online — Create an Editable DOCX
 URL: https://www.clickpdf.net/tools/pdf-to-word/
 Description: Convert PDF text to an editable DOCX in your browser. Layout can change; scanned pages may need OCR, and complex formatting should be reviewed in Word.
 Key capabilities: Real Editable Text; Browser-Based File Processing; Universal Compatibility; Batch Queue Processing
-Typical workflow: Choose or Drop PDF: Drag and drop your PDF file into the secure dropzone or browse from your device. → In-Browser Text Extraction: Our client-side engine parses text lines, detects heading levels (H1/H2), and builds native Word paragraph styles. → Download Editable .docx: Click "Convert to Editable Word (.docx)" to generate your clean Word document in seconds and download it directly.
-Common questions: Does PDF to Word upload my files to a server? | Is PDF to Word free, and is there a file-size limit? | Can I use PDF to Word on Android, iPhone, and PC?
+Typical workflow: Select the PDF document: Add the PDF you want to convert to a DOCX file. → Choose the conversion path: Use editable text conversion by default; select the clearly labeled image fallback only when page appearance matters more than editable text. → Download and review the DOCX: Open the result in Word or a compatible editor and check text, page breaks, and formatting.
+Common questions: Will the converted Word document be editable? | What does the image fallback do? | Can scanned PDFs convert into editable words automatically? | Will tables and columns keep their original layout? | Does conversion overwrite my PDF? | Can I convert a large PDF on a phone?
 
 ### PDF to Excel Online — Extract Tables to XLSX
 URL: https://www.clickpdf.net/tools/pdf-to-excel/
 Description: Extract PDF tables into an XLSX workbook in your browser. Check rows and columns after conversion; scans or complex layouts may need correction.
 Key capabilities: Automatic Table Grid Detection; Live Numeric Values; Browser-Based Processing; Batch ZIP Packaging
-Typical workflow: Select Your PDF Document: Drop your financial report, bank statement, or invoice table into the workspace. → Coordinate Grid Clustering: The client-side engine calculates character bounding boxes, detects row baselines, and aligns columns. → Download .xlsx Workbook: Click "Convert to Excel (.xlsx)" to instantly receive a structured workbook with numerical values and text cells.
-Common questions: Does PDF to Excel upload my files to a server? | Is PDF to Excel free, and is there a file-size limit? | Can I use PDF to Excel on Android, iPhone, and PC?
+Typical workflow: Select a PDF containing tables: Choose a document with readable table text or clearly separated rows and columns. → Run table extraction: Start the conversion and review how the tool has grouped the detected table content. → Download and check the XLSX: Open the workbook and verify row order, column alignment, and numeric values before using it.
+Common questions: Can PDF to Excel extract tables from a scanned document? | Will the spreadsheet preserve the PDF table layout exactly? | Are formulas from the original PDF restored in Excel? | Can one PDF produce more than one table in the workbook? | Does the converter change my PDF file? | What should I verify before using extracted figures?
 
 ### PDF to PowerPoint Online — Create PPTX Slides
 URL: https://www.clickpdf.net/tools/pdf-to-powerpoint/
 Description: Convert PDF pages into PPTX slides in your browser. Review text and layout after conversion; a PDF does not contain the original presentation structure.
 Key capabilities: 16:9 Widescreen Aspect; Editable Shape Cards; Browser-Based Processing; PPTX Export
-Typical workflow: Drop Your PDF Presentation: Select your PDF slide deck or presentation document from your computer or phone. → Slide Geometry Mapping: ClickPDF creates a 16:9 widescreen presentation deck and maps each page into slide cards, titles, and bullet lists. → Download .pptx Presentation: Click "Convert to PowerPoint (.pptx)" to download the native presentation file ready to present or edit.
-Common questions: Does PDF to PowerPoint upload my files to a server? | Is PDF to PowerPoint free, and is there a file-size limit? | Can I use PDF to PowerPoint on Android, iPhone, and PC?
+Typical workflow: Choose the PDF file: Select the PDF whose pages you want to place into a PowerPoint presentation. → Run the slide conversion: Start the conversion so the tool can map the PDF page content into a PPTX file. → Open and inspect the slides: Download the presentation and check each slide’s text, layout, and editability in PowerPoint or a compatible app.
+Common questions: Does a PDF contain the original PowerPoint objects? | Will each PDF page become a presentation slide? | Can I edit text after conversion? | Will the slide layout match the PDF page exactly? | Does converting to PPTX modify the source PDF? | What can slow down a long PDF presentation conversion?
 
 ### Word to PDF Online — Convert DOCX Files
 URL: https://www.clickpdf.net/tools/word-to-pdf/
 Description: Convert DOCX files to PDF in your browser. The output pages are rendered as images, so text may not be selectable; legacy DOC files are not supported.
 Key capabilities: Browser-Based Conversion; High-Resolution Output; Browser-Based Processing; Batch Queue Ready
-Typical workflow: Select Your Word Document: Drag and drop a .docx file into the workspace. → In-Browser Document Parsing: The browser lays out paragraphs, headings, lists, tables, and embedded images. → Download High-Resolution PDF: Click "Convert Word to PDF" to generate clear A4 page images. Text is not selectable in this visual PDF.
-Common questions: Does Word to PDF upload my files to a server? | Is Word to PDF free, and is there a file-size limit? | Can I use Word to PDF on Android, iPhone, and PC?
+Typical workflow: Select a DOCX file: Choose a modern .docx document; legacy .doc files are not accepted by this tool. → Convert the document pages: Start the in-browser conversion and wait for the rendered page output. → Download and inspect the PDF: Check page breaks, spacing, images, and readability in the resulting PDF before sharing.
+Common questions: Can Word to PDF convert the older DOC format? | Is text in the converted PDF selectable? | Why can the PDF layout look different from Word? | Should I check page breaks before submitting? | Does conversion alter the DOCX source? | Can a large DOCX be converted on a mobile device?
 
 ### Word to Excel Online — Extract DOCX Tables
 URL: https://www.clickpdf.net/tools/word-to-excel/
 Description: Extract DOCX tables into XLSX, with one worksheet per detected table. Paragraphs and lists are collected separately; review the workbook.
 Key capabilities: Separate Worksheets; Text Worksheet; Local Processing; Multiple Documents
-Typical workflow: Choose a Word document: Select one or more .docx files from your device. Legacy .doc files must first be saved as .docx. → Extract tables and text: ClickPDF places each detected table in a separate worksheet and puts document paragraphs and lists in a Text worksheet. → Download the Excel workbook: Download the generated .xlsx workbook. When converting multiple documents, the results are packaged as a ZIP file.
-Common questions: Does Word to Excel upload my files to a server? | Is Word to Excel free, and is there a file-size limit? | Can I use Word to Excel on Android, iPhone, and PC?
+Typical workflow: Choose a DOCX document: Select one or more .docx files that contain tables you want to move into a workbook. → Extract tables and text: Run the conversion and review the detected tables and any separately collected document text. → Download the workbook files: Save the generated XLSX workbook, or the ZIP package when multiple documents are processed.
+Common questions: Can Word to Excel read a DOC file? | Where do the extracted tables appear? | What happens to paragraphs that are not in tables? | How are multiple Word documents delivered? | Will fonts and table styling be preserved in Excel? | Does the tool change the source DOCX files?
 
 ### Excel to PDF Online — Convert Spreadsheets
 URL: https://www.clickpdf.net/tools/excel-to-pdf/
 Description: Convert XLSX, XLS, or CSV spreadsheets to paginated PDF tables in your browser. Check column widths, page breaks, and print layout before sharing.
 Key capabilities: Professional Table Styling; Automatic Multi-Page Overflow; Browser-Based Processing; Auto-Fit Column Widths
-Typical workflow: Drop Your Excel File: Select your .xlsx, .xls, or .csv spreadsheet file from your computer or phone. → Landscape Table Layout Engine: ClickPDF auto-calculates optimal column widths, styles header rows, and sets alternating zebra lines. → Download Landscape PDF: Click "Convert Excel to PDF" to generate a polished, paginated PDF report ready to print or email.
-Common questions: Does Excel to PDF upload my files to a server? | Is Excel to PDF free, and is there a file-size limit? | Can I use Excel to PDF on Android, iPhone, and PC?
+Typical workflow: Select a spreadsheet file: Choose a supported XLSX, XLS, or CSV document from your device. → Generate the paginated output: Start the conversion and allow the tool to lay the spreadsheet content out across PDF pages. → Review the PDF pages: Download the PDF and check column widths, page breaks, and any rows that span multiple pages.
+Common questions: Which spreadsheet formats can Excel to PDF open? | Will a wide spreadsheet fit on one PDF page? | Are spreadsheet formulas recalculated during conversion? | Can I check the PDF before sending it? | Does making a PDF change my workbook? | Why does a large workbook take longer to export?
 
 ### Sign PDF Online — Add a Visual Signature
 URL: https://www.clickpdf.net/tools/sign-pdf-online/
 Description: Draw, type, or upload a visual signature mark and place it on PDF pages. It is an image, not a certificate-backed digital signature or identity check.
 Key capabilities: Transparent Signature PNG; Local File Processing; Mobile & Stylus Ready; Download the Updated PDF
-Typical workflow: Open Document to Sign: Upload your agreement or form into the signature studio. → Draw or Type Signature: Draw with a mouse, stylus, or finger, type your name in a bundled signature font, or upload a PNG image. → Place & Download: Drag the signature to the exact signature line, resize if needed, and download your signed agreement.
-Common questions: Does Sign PDF upload my files to a server? | Is Sign PDF free, and is there a file-size limit? | Can I use Sign PDF on Android, iPhone, and PC?
+Typical workflow: Open the PDF to sign: Select the document and go to the page where the visible signature mark belongs. → Create and place the mark: Draw, type, or upload a PNG signature image, then position and resize it on the page. → Download and verify: Save the signed copy and check that the mark is correctly placed on the intended page.
+Common questions: Can I draw or type a signature instead of uploading an image? | Is this a certificate-backed digital signature? | Can I move or resize the signature before saving? | Does adding a signature mark prove who signed the document? | Will the original PDF be replaced? | Are signature files uploaded for processing?
 
 ## Guides and articles
 

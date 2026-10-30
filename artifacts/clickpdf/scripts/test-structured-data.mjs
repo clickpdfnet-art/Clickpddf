@@ -324,6 +324,16 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
 });
 
 test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and BreadcrumbList schemas', async () => {
+  assert.equal(activeTools.length, 21, 'the public registry covers all 21 active PDF tools');
+  const allFaqQuestions = activeTools.flatMap((tool) => tool.faqs.map((faq) => faq.question.trim().toLocaleLowerCase()));
+  assert.equal(allFaqQuestions.length, 126, 'the 21 tools provide six FAQs each');
+  assert.equal(new Set(allFaqQuestions).size, 126, 'all tool FAQ questions are distinct');
+  const howToSignatures = activeTools.map((tool) =>
+    tool.steps.map((step) => `${step.title}: ${step.description}`).join(' | ').toLocaleLowerCase(),
+  );
+  assert.equal(howToSignatures.length, 21, 'each active tool has a HowTo collection');
+  assert.equal(new Set(howToSignatures).size, 21, 'HowTo collections are not reused across tools');
+
   for (const url of toolUrls) {
     const { html, nodes } = await readHeadSchemas(url);
     const content = staticMain(html, url);
@@ -347,20 +357,29 @@ test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and Breadcru
     assert.equal(howTo?.step?.length, tool.steps.length, `${url} schema has every workflow step`);
     assert.equal(howTo?.step?.length, 3, `${url} HowTo uses the requested three-step workflow`);
     assert.ok(howTo?.step?.every((step) => step.name && step.text), `${url} has readable HowTo step names and text`);
-    const expectedFaqCount = tool.id === 'edit-metadata' ? 5 : 3;
-    assert.equal(tool.faqs.length, expectedFaqCount, `${url} has the expected tool-specific FAQs`);
-    if (tool.id !== 'edit-metadata') {
-      assert.match(tool.faqs[0].question, /^Does .+ upload my files to a server\?$/i, `${url} has a privacy FAQ`);
-      assert.match(tool.faqs[1].question, /^Is .+ free, and is there a file-size limit\?$/i, `${url} has a cost and limits FAQ`);
-      assert.match(tool.faqs[2].question, /^Can I use .+ on Android, iPhone, and PC\?$/i, `${url} has a compatibility FAQ`);
-    }
+    assert.deepEqual(
+      howTo?.step?.map((step) => ({ title: step.name, description: step.text })),
+      tool.steps.map((step) => ({ title: step.title, description: step.description })),
+      `${url} visible HowTo copy matches its JSON-LD steps`,
+    );
+    const expectedFaqCount = 6;
+    assert.equal(tool.faqs.length, expectedFaqCount, `${url} has six tool-specific FAQs`);
+    assert.equal(new Set(tool.faqs.map((faq) => faq.question.trim().toLocaleLowerCase())).size, expectedFaqCount, `${url} has no repeated FAQ questions`);
     assert.equal((content.match(/<details>/g) || []).length, expectedFaqCount, `${url} visibly renders the same FAQs`);
     const faqSchema = nodes.find((node) => node['@type'] === 'FAQPage');
-    assert.deepEqual(
-      faqSchema?.mainEntity?.map((item) => item.name),
-      tool.faqs.map((faq) => faq.question),
-      `${url} visible FAQ data is mirrored by its JSON-LD FAQPage`,
-    );
+    assert.deepEqual(faqSchema?.mainEntity?.map((item) => ({
+      question: item.name,
+      answer: item.acceptedAnswer?.text,
+    })), tool.faqs, `${url} visible FAQ data is mirrored by its JSON-LD FAQPage`);
+    const visibleText = decodeXml(content.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ');
+    for (const faq of tool.faqs) {
+      assert.ok(visibleText.includes(faq.question), `${url} visibly includes FAQ question: ${faq.question}`);
+      assert.ok(visibleText.includes(faq.answer), `${url} visibly includes the answer for: ${faq.question}`);
+    }
+    for (const step of tool.steps) {
+      assert.ok(visibleText.includes(step.title), `${url} visibly includes HowTo step: ${step.title}`);
+      assert.ok(visibleText.includes(step.description), `${url} visibly includes HowTo description: ${step.title}`);
+    }
     const answerStart = content.indexOf('<section aria-label="Quick answer"');
     const howToStart = content.indexOf('id="seo-tool-steps"');
     assert.ok(answerStart >= 0 && howToStart > answerStart, `${url} has a quick answer before the How-To section`);

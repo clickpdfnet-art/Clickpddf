@@ -103,12 +103,13 @@ export async function readActiveToolRegistry(appDir) {
   const seoPath = path.join(dataDir, 'toolSeoData.ts');
   const privacyPath = path.join(dataDir, 'toolPrivacyTranslations.ts');
   const pluginDir = path.join(appDir, 'src', 'tools', 'plugins');
-  const [baseTools, hiddenValue, seoObject, privacyTranslations, faqTemplateText] = await Promise.all([
+  const [baseTools, hiddenValue, seoObject, privacyTranslations, faqTemplateText, toolPageContent] = await Promise.all([
     readTypeScriptExport(toolsPath, 'BASE_PDF_TOOLS'),
     readTypeScriptExport(toolsPath, 'HIDDEN_TOOL_IDS'),
     readTypeScriptExport(seoPath, 'TOOL_SEO_REGISTRY'),
     readTypeScriptExport(privacyPath, 'TOOL_PRIVACY_TRANSLATIONS'),
     readFile(path.join(dataDir, 'toolSeoFaqTemplates.json'), 'utf8'),
+    readTypeScriptExport(path.join(dataDir, 'toolPageContent.ts'), 'TOOL_PAGE_CONTENT'),
   ]);
   const faqTemplates = JSON.parse(faqTemplateText);
 
@@ -167,6 +168,7 @@ export async function readActiveToolRegistry(appDir) {
       .replace(/\b(online|free|100%|in-browser)\b/gi, '')
       .replace(/\s+/g, ' ')
       .trim() || 'ClickPDF';
+    const pageContent = toolPageContent?.[tool.id];
     return {
       id: tool.id,
       slug: seo.slug,
@@ -181,14 +183,14 @@ export async function readActiveToolRegistry(appDir) {
       secondaryOverview: seo.secondaryOverview || '',
       shortDescription: tool.description || '',
       privacySummary,
-      stepsHeading: seo.stepsHeading,
-      steps: seo.steps,
-      faqs: tool.id === 'edit-metadata' && seo.faqs?.length
+      stepsHeading: pageContent?.stepsHeading || seo.stepsHeading,
+      steps: pageContent?.steps || seo.steps,
+      faqs: pageContent?.faqs || (tool.id === 'edit-metadata' && seo.faqs?.length
         ? seo.faqs
         : faqTemplates.faqs.map(({ question, answer }) => ({
         question: question.replaceAll('{toolName}', faqToolName),
         answer,
-      })),
+      }))),
       directAnswerLabel: faqTemplates.directAnswerLabel,
       directAnswerSecondSentence: faqTemplates.directAnswerSecondSentence,
       benefits: seo.benefits || [],

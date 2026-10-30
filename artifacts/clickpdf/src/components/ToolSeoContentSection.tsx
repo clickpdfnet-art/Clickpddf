@@ -54,14 +54,14 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     const path = getToolCanonicalPath(toolId);
     return path.endsWith('/') ? path : `${path}/`;
   };
-  const localizedSteps = isEnglishMetadataPage ? seoInfo.steps : [
+  const localizedSteps = isEnglishSeoPage ? seoInfo.steps : [
     { step: 1, title: copy.step1Title, description: copy.step1Description },
     { step: 2, title: copy.step2Title, description: copy.step2Description },
     { step: 3, title: copy.step3Title, description: copy.step3Description },
   ];
   const localizeFaqQuestion = (question: string) =>
     question.replace(/\{toolName\}/g, toolName);
-  const localizedFaqs = isEnglishMetadataPage ? seoInfo.faqs : [
+  const localizedFaqs = isEnglishSeoPage ? seoInfo.faqs : [
     {
       question: localizeFaqQuestion(copy.faqPrivacyQuestion),
       answer: copy.faqPrivacyAnswer,
@@ -191,7 +191,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="space-y-4 text-center">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              {isEnglishMetadataPage ? seoInfo.stepsHeading : `${ui.howToSectionHeading} ${getToolTitle(tool)}`}
+              {isEnglishSeoPage ? seoInfo.stepsHeading : `${ui.howToSectionHeading} ${getToolTitle(tool)}`}
             </h3>
           </div>
 
