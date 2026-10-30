@@ -253,7 +253,7 @@ export function renderToolFallback(tool, tools) {
       .map((benefit) => `<li><h3>${escapeHtml(benefit.title)}</h3><p>${escapeHtml(benefit.desc)}</p></li>`)
       .join('')}</ul></section>`
     : '';
-  const metadataOverview = tool.id === 'edit-metadata'
+  const toolOverview = tool.overviewHeading && tool.overview && tool.secondaryOverview
     ? `<section aria-labelledby="seo-tool-overview"><p><strong>${escapeHtml(tool.badge)}</strong></p><h2 id="seo-tool-overview">${escapeHtml(tool.overviewHeading)}</h2><p>${escapeHtml(tool.overview)}</p><p>${escapeHtml(tool.secondaryOverview)}</p></section>`
     : '';
   const steps = `<section aria-labelledby="seo-tool-steps"><h2 id="seo-tool-steps">${escapeHtml(tool.stepsHeading || `How to use ${tool.name}`)}</h2><ol>${tool.steps
@@ -278,7 +278,7 @@ export function renderToolFallback(tool, tools) {
   return fallbackPage({
     title: tool.name,
     description: tool.description,
-    content: `${directAnswer}${toolPrivacySummary}${metadataOverview}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
+    content: `${directAnswer}${toolPrivacySummary}${toolOverview}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
   });
 }
 

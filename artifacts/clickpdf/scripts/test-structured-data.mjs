@@ -820,15 +820,15 @@ test('Edit PDF Metadata copy and static SEO stay within the six supported fields
   const url = `${siteOrigin}/tools/edit-pdf-metadata/`;
   const tool = activeTools.find((item) => item.id === 'edit-metadata');
   assert.ok(tool, 'Edit PDF Metadata remains in the active public tool registry');
-  assert.equal(tool.name, 'Edit PDF Metadata Online: Author, Title & Properties');
-  assert.equal(tool.title, 'Edit PDF Metadata: Author & Title | ClickPDF');
+  assert.equal(tool.name, 'Edit PDF Metadata Online — Update Supported Fields');
+  assert.equal(tool.title, 'Edit PDF Metadata Online: Title & Author | ClickPDF');
   assert.equal(
     tool.description,
-    'View and update supported PDF properties: Title, Author, Subject, Keywords, Creator, and Producer. Clear these fields and review the saved PDF.',
+    'Edit PDF metadata online: update or clear Title, Author, Subject, Keywords, Creator, and Producer. Other metadata and visible page content may remain.',
   );
   assert.equal(
     tool.keywords,
-    'edit PDF metadata, change PDF author, edit PDF properties, clear supported PDF metadata fields',
+    'edit PDF metadata online, edit PDF properties online, change PDF author, edit PDF title metadata',
   );
   assert.equal(tool.badge, 'PDF Property Editor');
   assert.equal(tool.overviewHeading, 'Inspect or Edit Supported PDF Properties');

@@ -8,7 +8,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { PDFTool } from '../types';
-import { ToolSeoInfo } from '../data/toolSeoData';
+import { getToolCanonicalPath, ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
 import { TOOL_PAGE_TRANSLATIONS } from '../i18n/toolPageTranslations';
@@ -48,7 +48,12 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     .filter((t): t is PDFTool => Boolean(t));
   const toolName = getToolTitle(tool);
   const toolPrivacyCopy = getToolPrivacyCopy(language, tool.id);
+  const isEnglishSeoPage = language === 'en';
   const isEnglishMetadataPage = tool.id === 'edit-metadata' && language === 'en';
+  const relatedToolHref = (toolId: string) => {
+    const path = getToolCanonicalPath(toolId);
+    return path.endsWith('/') ? path : `${path}/`;
+  };
   const localizedSteps = isEnglishMetadataPage ? seoInfo.steps : [
     { step: 1, title: copy.step1Title, description: copy.step1Description },
     { step: 2, title: copy.step2Title, description: copy.step2Description },
@@ -87,10 +92,14 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {relatedTools.map((relTool) => (
-              <button
+              <a
                 key={relTool.id}
-                type="button"
-                onClick={() => onSelectRelatedTool && onSelectRelatedTool(relTool)}
+                href={relatedToolHref(relTool.id)}
+                onClick={(event) => {
+                  if (!onSelectRelatedTool) return;
+                  event.preventDefault();
+                  onSelectRelatedTool(relTool);
+                }}
                 className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-start cursor-pointer transition-all group flex flex-col justify-between h-24"
               >
                 <div>
@@ -105,7 +114,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                   <span>{ui.openToolLabel}</span>
                   <ArrowRight className="w-3 h-3" />
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -154,7 +163,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
 
 
         {/* Supplemental metadata guidance */}
-        {isEnglishMetadataPage && (
+        {isEnglishSeoPage && (
           <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800">
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-indigo-500" />
@@ -260,10 +269,14 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {relatedTools.map((relTool) => (
-                <button
+                <a
                   key={relTool.id}
-                  type="button"
-                  onClick={() => onSelectRelatedTool && onSelectRelatedTool(relTool)}
+                  href={relatedToolHref(relTool.id)}
+                  onClick={(event) => {
+                    if (!onSelectRelatedTool) return;
+                    event.preventDefault();
+                    onSelectRelatedTool(relTool);
+                  }}
                   className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-600 text-start cursor-pointer transition-all group flex flex-col justify-between h-24"
                 >
                   <div>
@@ -278,7 +291,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
                     <span>{ui.openToolLabel}</span>
                     <ArrowRight className="w-3 h-3" />
                   </div>
-                </button>
+                </a>
               ))}
             </div>
           </div>
