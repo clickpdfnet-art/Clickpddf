@@ -18,7 +18,7 @@ import { SITE_COPY_TRANSLATIONS } from '../i18n/siteCopyTranslations';
 import { BLOG_INTERFACE_TRANSLATIONS } from '../i18n/blogInterfaceTranslations';
 import { FLOATING_UI_TRANSLATIONS } from '../i18n/floatingUiTranslations';
 import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
-import { resolveInitialLanguage } from '../i18n/detectBrowserLanguage';
+import { resolveInitialLanguage } from '../i18n/resolveInitialLanguage';
 
 interface LanguageContextType {
   language: Language;
@@ -47,12 +47,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       savedLanguage = localStorage.getItem(LANG_STORAGE_KEY);
     } catch {}
 
-    const preferredLocales = [
-      ...(window.navigator.languages || []),
-      window.navigator.language,
-    ].filter(Boolean);
-
-    return resolveInitialLanguage(savedLanguage, preferredLocales);
+    return resolveInitialLanguage(savedLanguage);
   });
 
   const setLanguage = (lang: Language) => {

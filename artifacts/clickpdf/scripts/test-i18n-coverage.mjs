@@ -63,36 +63,30 @@ const visitLanguageType = (node) => {
 visitLanguageType(translationsSource);
 assert.ok(localeCodes?.length === 21, `Expected 21 language codes, found ${localeCodes?.length}`);
 
-const browserLanguageSourcePath = path.join(root, 'src/i18n/detectBrowserLanguage.ts');
-const browserLanguageSource = fs.readFileSync(browserLanguageSourcePath, 'utf8');
-const transpiledBrowserLanguage = ts.transpileModule(browserLanguageSource, {
+const initialLanguageSourcePath = path.join(root, 'src/i18n/resolveInitialLanguage.ts');
+const initialLanguageSource = fs.readFileSync(initialLanguageSourcePath, 'utf8');
+const transpiledInitialLanguage = ts.transpileModule(initialLanguageSource, {
   compilerOptions: {
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2020,
   },
 }).outputText;
-const browserLanguageModule = { exports: {} };
-new Function('module', 'exports', 'require', transpiledBrowserLanguage)(
-  browserLanguageModule,
-  browserLanguageModule.exports,
+const initialLanguageModule = { exports: {} };
+new Function('module', 'exports', 'require', transpiledInitialLanguage)(
+  initialLanguageModule,
+  initialLanguageModule.exports,
   (modulePath) => {
     assert.equal(modulePath, './translations');
     return { SUPPORTED_LANGUAGES: localeCodes.map((code) => ({ code })) };
   },
 );
-const { detectBrowserLanguage, resolveInitialLanguage } = browserLanguageModule.exports;
+const { resolveInitialLanguage } = initialLanguageModule.exports;
 for (const locale of localeCodes) {
-  assert.equal(detectBrowserLanguage([`${locale}-XX`]), locale, `Browser locale should resolve ${locale}`);
+  assert.equal(resolveInitialLanguage(locale), locale, `Saved manual preference should preserve ${locale}`);
 }
-assert.equal(detectBrowserLanguage(['ur-PK', 'en-US']), 'ur');
-assert.equal(detectBrowserLanguage(['ja-JP']), 'ja');
-assert.equal(detectBrowserLanguage(['de-DE']), 'de');
-assert.equal(detectBrowserLanguage(['fil-PH']), 'tl');
-assert.equal(detectBrowserLanguage(['nb-NO']), 'no');
-assert.equal(detectBrowserLanguage(['unsupported-ZZ', 'pt-BR']), 'pt');
-assert.equal(detectBrowserLanguage([]), 'en');
-assert.equal(resolveInitialLanguage('ja', ['de-DE']), 'ja', 'Saved manual preference must win over browser locale');
-assert.equal(resolveInitialLanguage('invalid', ['ur-PK']), 'ur', 'Invalid saved value must fall back to browser locale');
+assert.equal(resolveInitialLanguage(null), 'en', 'A new visitor must default to English');
+assert.equal(resolveInitialLanguage(undefined), 'en', 'A missing saved preference must default to English');
+assert.equal(resolveInitialLanguage('invalid'), 'en', 'An invalid saved preference must default to English');
 
 const uiKeysCount = arrayLength(findVariable(uiSource, 'UI_KEYS'));
 const siteCopyKeysCount = arrayLength(findVariable(siteCopySource, 'SITE_COPY_KEYS'));
@@ -218,8 +212,30 @@ const toolWorkspace = fs.readFileSync(path.join(root, 'src/components/ToolWorksp
 const mobileDrawer = fs.readFileSync(path.join(root, 'src/components/MobileDrawer.tsx'), 'utf8');
 const languageContext = fs.readFileSync(path.join(root, 'src/context/LanguageContext.tsx'), 'utf8');
 assert.ok(
-  languageContext.includes('resolveInitialLanguage(savedLanguage, preferredLocales)'),
-  'Language context must prefer saved selection, then detect the browser locale',
+  languageContext.includes('resolveInitialLanguage(savedLanguage)'),
+  'Language context must resolve only from the saved selection',
+);
+assert.doesNotMatch(
+  languageContext,
+  /\bnavigator\.(?:languages|language)\b/,
+  'Language context must ignore browser locale when selecting the initial language',
+);
+assert.ok(languageContext.includes("localStorage.getItem(LANG_STORAGE_KEY)"), 'Saved language preference must still be read');
+assert.ok(languageContext.includes("localStorage.setItem(LANG_STORAGE_KEY, lang)"), 'Manual language selection must still be saved');
+
+const routeParser = fs.readFileSync(path.join(root, 'src/utils/routeParser.ts'), 'utf8');
+const appSource = fs.readFileSync(path.join(root, 'src/App.tsx'), 'utf8');
+assert.ok(
+  routeParser.includes('return { view: \'tool\', toolId: seoInfo.toolId, locale };'),
+  'Explicit localized tool URLs must keep returning their locale',
+);
+assert.ok(
+  appSource.includes('if (route.locale) setLanguage(route.locale);'),
+  'An explicit localized tool URL must apply its locale',
+);
+assert.ok(
+  appSource.includes('setLanguage(match.locale as Language);'),
+  'An explicit localized blog URL must apply its locale',
 );
 for (const key of [
   'blogTag',
