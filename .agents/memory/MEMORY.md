@@ -10,6 +10,7 @@
 - [Cloudflare custom-domain routing](cloudflare-custom-domain.md) — a www Worker route needs proxied DNS plus both DNS and Worker deployment permissions.
 - [ClickPDF Cloudflare 404 behavior](clickpdf-cloudflare-404.md) — use a real 404 page; SPA fallback makes unknown static URLs look successful.
 - [ClickPDF localization rollout](clickpdf-localization-rollout.md) — support all 21 existing locales through manual, staged translation without adding AI translation.
+- [ClickPDF language selection policy](clickpdf-language-selection-policy.md) — default new visitors to English; preserve manual 21-language selection and saved preferences without browser or Geo-IP detection.
 - [ClickPDF structured data](clickpdf-structured-data.md) — emit schemas only for content and canonical routes that actually exist and are visible on that page.
 - [ClickPDF Unicode routes on Cloudflare](clickpdf-cloudflare-unicode-routes.md) — deploy percent-encoded non-Latin slugs with generated ASCII HTML aliases and an automatic Worker route map.
 - [Cloudflare Unicode asset redirects](clickpdf-unicode-asset-redirects.md) — absorb only the mapped internal 307 from `.html` to extensionless assets; preserve the public canonical URL.
