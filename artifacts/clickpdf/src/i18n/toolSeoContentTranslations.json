@@ -1,0 +1,89 @@
+{
+  "ja": {
+    "labels": {
+      "home": "ホーム",
+      "quickAnswer": "簡単な回答",
+      "howTo": "使い方",
+      "faq": "よくある質問",
+      "relatedTools": "関連するPDFツール",
+      "browseTools": "すべてのClickPDFツールを見る",
+      "privacy": "このツールについて"
+    },
+    "tools": {
+      "merge": {
+        "stepsHeading": "PDFファイルを3つの手順で結合する方法",
+        "steps": [
+          { "title": "PDFファイルを追加", "description": "デバイスから2つ以上のPDF文書を選ぶか、結合ワークスペースにドラッグします。" },
+          { "title": "文書の順序を設定", "description": "結合を始める前に、ファイルをドラッグして並べ替えるか、利用できる並べ替え機能を使います。" },
+          { "title": "結合して内容を確認", "description": "結合したPDFを作成してダウンロードし、ページ順と必要なリンク、フォーム、注釈を確認します。" }
+        ],
+        "faqs": [
+          { "question": "Merge PDFで複数のファイルが必要なのはなぜですか？", "answer": "結合機能は別々の文書を1つにまとめるため、PDFを少なくとも2つ追加してください。ページを確認する必要がある場合は、各ファイルを先に開いて確認します。" },
+          { "question": "結合する前にPDFの順番を変更できますか？", "answer": "はい。結合を開始する前に、ワークスペースで選択した文書を並べ替えるか、利用できる並べ替え機能を使ってください。" },
+          { "question": "リンク、フォーム、注釈は元のPDFと同じように動作しますか？", "answer": "動作は元のPDFや閲覧ソフトによって異なる場合があります。ダウンロードした結合後のファイルを開き、必要な操作要素を確認してください。" },
+          { "question": "ページサイズの異なるPDFを1つに結合できますか？", "answer": "ページ寸法が異なるPDFも結合できますが、閲覧時や印刷時にページごとに見え方が異なることがあります。共有する前に出力を確認してください。" },
+          { "question": "結合すると元のPDFは上書きされますか？", "answer": "いいえ。結合後の文書は別のファイルとして作成されます。結合したコピーを確認して保存するまでは、元のファイルを保管してください。" },
+          { "question": "大きなPDFの結合にかかる時間は何で変わりますか？", "answer": "処理時間はPDFの数やサイズ、ブラウザーとデバイスで使用できるメモリによって異なります。非常に大きな一括処理は、少数ずつ分けると安定する場合があります。" }
+        ]
+      }
+    }
+  },
+  "ur": {
+    "labels": {
+      "home": "ہوم",
+      "quickAnswer": "مختصر جواب",
+      "howTo": "استعمال کا طریقہ",
+      "faq": "اکثر پوچھے جانے والے سوالات",
+      "relatedTools": "متعلقہ PDF ٹولز",
+      "browseTools": "ClickPDF کے تمام ٹولز دیکھیں",
+      "privacy": "اس ٹول کے بارے میں"
+    },
+    "tools": {
+      "merge": {
+        "stepsHeading": "PDF فائلوں کو تین مراحل میں جوڑنے کا طریقہ",
+        "steps": [
+          { "title": "PDF فائلیں شامل کریں", "description": "اپنے ڈیوائس سے کم از کم دو PDF دستاویزات منتخب کریں یا انہیں مرج ورک اسپیس میں کھینچ کر ڈالیں۔" },
+          { "title": "دستاویزات کی ترتیب بنائیں", "description": "فائلیں گھسیٹ کر ترتیب دیں یا انہیں یکجا کرنے سے پہلے دستیاب sorting controls استعمال کریں۔" },
+          { "title": "جوڑیں اور نتیجہ دیکھیں", "description": "مشترکہ PDF بنائیں اور ڈاؤن لوڈ کریں، پھر صفحات کی ترتیب اور ضروری لنکس، فارمز یا annotations چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "Merge PDF میں ایک سے زیادہ فائلیں کیوں درکار ہیں؟", "answer": "جوڑنے کا عمل الگ دستاویزات کو یکجا کرتا ہے، اس لیے کم از کم دو PDFs شامل کریں۔ اگر صفحات کی تصدیق ضروری ہو تو پہلے ہر فائل کھول کر دیکھیں۔" },
+          { "question": "کیا PDF ملانے سے پہلے فائلوں کی ترتیب بدل سکتا ہوں؟", "answer": "جی ہاں۔ مرج شروع کرنے سے پہلے ورک اسپیس میں منتخب دستاویزات کی ترتیب بدلیں یا دستیاب sorting controls استعمال کریں۔" },
+          { "question": "کیا لنکس، فارمز اور annotations پہلے کی طرح کام کریں گے؟", "answer": "یہ رویہ اصل PDFs اور انہیں کھولنے والے پروگرام کے لحاظ سے مختلف ہو سکتا ہے۔ ڈاؤن لوڈ کے بعد مشترکہ فائل کھولیں اور ضروری interactive چیزیں آزمائیں۔" },
+          { "question": "کیا مختلف سائز کے صفحات والی PDFs ایک ساتھ جوڑ سکتا ہوں؟", "answer": "مختلف page dimensions والی PDFs جوڑی جا سکتی ہیں، لیکن دیکھنے یا پرنٹ کرنے پر صفحات مختلف دکھائی دے سکتے ہیں۔ شیئر کرنے سے پہلے نتیجہ دیکھیں۔" },
+          { "question": "کیا PDF ملانے سے میری اصل فائلیں اووررائٹ ہوں گی؟", "answer": "نہیں۔ جوڑی گئی دستاویز الگ نتیجے کے طور پر بنتی ہے۔ مشترکہ کاپی کی جانچ اور محفوظ کرنے تک اصل فائلیں اپنے پاس رکھیں۔" },
+          { "question": "بڑی PDFs کو ملانے میں کتنا وقت لگے گا، یہ کن باتوں پر منحصر ہے؟", "answer": "وقت PDFs کی تعداد اور سائز، اور براؤزر و ڈیوائس کی دستیاب میموری پر منحصر ہے۔ بہت بڑی batch کو چھوٹے حصوں میں چلانا زیادہ قابلِ اعتماد ہو سکتا ہے۔" }
+        ]
+      }
+    }
+  },
+  "de": {
+    "labels": {
+      "home": "Startseite",
+      "quickAnswer": "Kurzantwort",
+      "howTo": "Anleitung",
+      "faq": "Häufig gestellte Fragen",
+      "relatedTools": "Verwandte PDF-Tools",
+      "browseTools": "Alle ClickPDF-Tools ansehen",
+      "privacy": "Über dieses Tool"
+    },
+    "tools": {
+      "merge": {
+        "stepsHeading": "PDF-Dateien in drei Schritten zusammenfügen",
+        "steps": [
+          { "title": "PDF-Dateien hinzufügen", "description": "Wählen Sie mindestens zwei PDF-Dokumente auf Ihrem Gerät aus oder ziehen Sie sie in den Arbeitsbereich zum Zusammenfügen." },
+          { "title": "Dokumentreihenfolge festlegen", "description": "Ziehen Sie die Dateien in die gewünschte Reihenfolge oder nutzen Sie vor dem Zusammenfügen die verfügbaren Sortierfunktionen." },
+          { "title": "Zusammenfügen und prüfen", "description": "Erstellen und laden Sie die zusammengeführte PDF herunter. Prüfen Sie anschließend die Seitenreihenfolge sowie benötigte Links, Formulare oder Anmerkungen." }
+        ],
+        "faqs": [
+          { "question": "Warum benötigt Merge PDF mehr als eine Datei?", "answer": "Beim Zusammenfügen werden getrennte Dokumente kombiniert. Fügen Sie deshalb mindestens zwei PDFs hinzu. Öffnen Sie jede Datei vorher, wenn Sie den Seiteninhalt prüfen müssen." },
+          { "question": "Kann ich die Dateireihenfolge vor dem Zusammenfügen ändern?", "answer": "Ja. Ordnen Sie die ausgewählten Dokumente im Arbeitsbereich neu oder verwenden Sie die verfügbaren Sortierfunktionen, bevor Sie den Vorgang starten." },
+          { "question": "Funktionieren Links, Formulare und Anmerkungen danach genau wie zuvor?", "answer": "Das kann je nach Quelldatei und PDF-Programm unterschiedlich sein. Öffnen Sie das heruntergeladene Ergebnis und testen Sie wichtige interaktive Elemente." },
+          { "question": "Kann eine zusammengeführte PDF Seiten unterschiedlicher Größe enthalten?", "answer": "PDFs mit unterschiedlichen Seitenmaßen lassen sich zusammenfügen. Die Seiten können beim Anzeigen oder Drucken dennoch verschieden wirken. Prüfen Sie die Ausgabe vor dem Teilen." },
+          { "question": "Überschreibt das Zusammenfügen meine Originaldateien?", "answer": "Nein. Das zusammengeführte Dokument wird als separate Datei erstellt. Bewahren Sie die Originale auf, bis Sie die kombinierte Kopie geprüft und gespeichert haben." },
+          { "question": "Wovon hängt die Dauer beim Zusammenfügen großer PDFs ab?", "answer": "Die Verarbeitungszeit hängt von Anzahl und Größe der PDFs sowie vom verfügbaren Speicher im Browser und auf dem Gerät ab. Sehr große Stapel lassen sich möglicherweise zuverlässiger in kleineren Gruppen verarbeiten." }
+        ]
+      }
+    }
+  }
+}

@@ -34,7 +34,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { Language, SUPPORTED_LANGUAGES } from './i18n/translations';
+import { Language, SUPPORTED_LANGUAGES, TOOL_TRANSLATIONS } from './i18n/translations';
 import { ThemeProvider } from './context/ThemeContext';
 import { getLegalPageById, LegalPageDefinition, LegalPageId } from './data/legalPages';
 
@@ -184,7 +184,7 @@ function makeBlogIndexJsonLd(posts: BlogPost[]): Record<string, unknown> {
 }
 
 function AppContent() {
-  const { getToolTitle, getToolDescription, setLanguage } = useLanguage();
+  const { getToolTitle, getToolDescription, setLanguage, language } = useLanguage();
 
   useEffect(() => {
     document.getElementById('seo-static-content')?.remove();
@@ -241,6 +241,16 @@ function AppContent() {
     };
   }, []);
 
+  useEffect(() => {
+    if (activeView !== 'tool' || !selectedTool) return;
+    const seo = getToolSeoInfo(selectedTool.id);
+    const localizedTool = TOOL_TRANSLATIONS[selectedTool.id]?.[language];
+    navigateToToolUrl(selectedTool.id, true, language);
+    if (seo) {
+      applyToolSeo(seo, language, localizedTool?.title, localizedTool?.description);
+    }
+  }, [activeView, selectedTool?.id, language]);
+
   // Persistent articles state
   const [articles, setArticles] = useState<BlogPost[]>([]);
   // Persistent SEO & Social Meta state
@@ -270,6 +280,7 @@ function AppContent() {
       }
 
       if (route.view === 'tool' && route.toolId) {
+        if (route.locale) setLanguage(route.locale);
         if (HIDDEN_TOOL_IDS.has(route.toolId)) {
           setSelectedTool(null);
           setActiveArticleSlug(null);
@@ -284,7 +295,9 @@ function AppContent() {
           setActiveView('tool');
           const seo = getToolSeoInfo(found.id);
           if (seo) {
-            applyToolSeo(seo);
+            const pageLanguage = route.locale || language;
+            const localizedTool = TOOL_TRANSLATIONS[found.id]?.[pageLanguage];
+            applyToolSeo(seo, pageLanguage, localizedTool?.title, localizedTool?.description);
           } else {
             applyStandaloneToolSchema(
               found.title,
@@ -490,7 +503,8 @@ function AppContent() {
     setActiveView('tool');
     const toolSeo = getToolSeoInfo(tool.id);
     if (toolSeo) {
-      applyToolSeo(toolSeo);
+      const localizedTool = TOOL_TRANSLATIONS[tool.id]?.[language];
+      applyToolSeo(toolSeo, language, localizedTool?.title, localizedTool?.description);
     } else {
       applyStandaloneToolSchema(
         tool.title,
@@ -498,7 +512,7 @@ function AppContent() {
         `https://www.clickpdf.net${getToolCanonicalPath(tool.id)}`,
       );
     }
-    navigateToToolUrl(tool.id);
+    navigateToToolUrl(tool.id, false, language);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

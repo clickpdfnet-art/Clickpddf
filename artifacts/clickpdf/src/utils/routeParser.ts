@@ -1,7 +1,9 @@
 import { PDF_TOOLS } from '../data/toolsData';
 import { getToolSeoInfo } from '../data/toolSeoData';
+import { hasLocalizedToolPageSeoContent } from '../data/toolPageSeoContent';
 import { getActiveBlogArticles } from './blogLoader';
 import { getLegalPageByPath, LegalPageId } from '../data/legalPages';
+import { Language, SUPPORTED_LANGUAGES } from '../i18n/translations';
 
 const BASE_PATH = import.meta.env.BASE_URL;
 
@@ -25,6 +27,7 @@ export function buildAppPath(path: string): string {
 export interface ParsedRoute {
   view: 'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
   toolId?: string;
+  locale?: Language;
   articleSlug?: string;
   legalPageId?: LegalPageId;
   isSitemapModalOpen?: boolean;
@@ -53,6 +56,19 @@ export function parseCurrentRoute(): ParsedRoute {
     const extracted = search.slice(1).split('&')[0].replace(/~and~/g, '&');
     if (extracted) {
       effectivePathname = extracted.startsWith('/') ? extracted : `/${extracted}`;
+    }
+  }
+
+  const localizedToolMatch = effectivePathname.match(/^\/([a-z]{2})\/tools\/([^/?#]+)$/i);
+  if (localizedToolMatch) {
+    const locale = localizedToolMatch[1].toLowerCase() as Language;
+    const seoInfo = getToolSeoInfo(decodeURIComponent(localizedToolMatch[2]).toLowerCase());
+    if (
+      seoInfo &&
+      SUPPORTED_LANGUAGES.some((supported) => supported.code === locale) &&
+      hasLocalizedToolPageSeoContent(seoInfo.toolId, locale)
+    ) {
+      return { view: 'tool', toolId: seoInfo.toolId, locale };
     }
   }
 
@@ -181,10 +197,14 @@ export function parseCurrentRoute(): ParsedRoute {
 /**
  * Push or replace clean dedicated tool landing page URL using HTML5 History API.
  */
-export function navigateToToolUrl(toolId: string, replace = false): void {
+export function navigateToToolUrl(toolId: string, replace = false, language: Language = 'en'): void {
   if (typeof window === 'undefined') return;
   const seo = getToolSeoInfo(toolId);
-  const targetPath = buildAppPath(seo ? `/tools/${seo.slug}` : `/?tool=${encodeURIComponent(toolId)}`);
+  const canonicalPath = seo ? `/tools/${seo.slug}` : `/?tool=${encodeURIComponent(toolId)}`;
+  const localizedPath = seo && language !== 'en' && hasLocalizedToolPageSeoContent(toolId, language)
+    ? `/${language}${canonicalPath}`
+    : canonicalPath;
+  const targetPath = buildAppPath(localizedPath);
 
   if (replace) {
     window.history.replaceState({ toolId }, '', targetPath);

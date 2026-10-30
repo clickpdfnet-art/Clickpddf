@@ -1,6 +1,8 @@
 import { SeoMetaConfig, BlogPost } from '../types';
 import { getToolSeoInfo, ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
+import { getLocalizedToolPageSeoContent, getToolPageSeoLabels, getToolPageSeoLanguages } from '../data/toolPageSeoContent';
+import type { Language } from '../i18n/translations';
 
 export const DEFAULT_SEO_CONFIG: SeoMetaConfig = {
   title: 'ClickPDF — Free In-Browser PDF Tools & Editor | Click Digital Services',
@@ -103,24 +105,48 @@ export function applySeoConfigToDom(config: SeoMetaConfig): void {
  * Dynamically applies specialized SEO metadata, OpenGraph tags, and Schema.org
  * structured data for an individual PDF tool landing view.
  */
-export function applyToolSeo(toolSeo: ToolSeoInfo): void {
+export function applyToolSeo(
+  toolSeo: ToolSeoInfo,
+  language: Language = 'en',
+  localizedName?: string,
+  localizedDescription?: string,
+): void {
   if (typeof document === 'undefined') return;
 
   removeHomeFaqJsonLdSchema();
   removeHomeSiteJsonLdSchema();
   const origin = SITE_ORIGIN;
-  const canonicalUrl = `${origin}/tools/${toolSeo.slug}/`;
+  const localizedContent = getLocalizedToolPageSeoContent(toolSeo.toolId, language);
+  const activeLanguage = localizedContent ? language : 'en';
+  const pageName = activeLanguage === 'en' ? toolSeo.h1Title : localizedName || toolSeo.h1Title;
+  const pageTitle = activeLanguage === 'en' ? toolSeo.metaTitle : `${pageName} | ClickPDF`;
+  const pageDescription = activeLanguage === 'en'
+    ? toolSeo.metaDescription
+    : localizedDescription || toolSeo.metaDescription;
+  const localizedSeo: ToolSeoInfo = localizedContent
+    ? {
+        ...toolSeo,
+        h1Title: pageName,
+        metaTitle: pageTitle,
+        metaDescription: pageDescription,
+        stepsHeading: localizedContent.stepsHeading,
+        steps: localizedContent.steps,
+        faqs: localizedContent.faqs,
+      }
+    : toolSeo;
+  const routePrefix = activeLanguage === 'en' ? '' : `/${activeLanguage}`;
+  const canonicalUrl = `${origin}${routePrefix}/tools/${toolSeo.slug}/`;
 
   // 1. Dynamic Page Title
-  document.title = toolSeo.metaTitle;
+  document.title = pageTitle;
 
   // 2. Dynamic Description and High-Search-Volume Keywords
-  setMetaTag('name', 'description', toolSeo.metaDescription);
+  setMetaTag('name', 'description', pageDescription);
   setMetaTag('name', 'keywords', toolSeo.keywords);
 
   // 3. OpenGraph Tags
-  setMetaTag('property', 'og:title', toolSeo.metaTitle);
-  setMetaTag('property', 'og:description', toolSeo.metaDescription);
+  setMetaTag('property', 'og:title', pageTitle);
+  setMetaTag('property', 'og:description', pageDescription);
   setMetaTag('property', 'og:url', canonicalUrl);
   setMetaTag('property', 'og:type', 'website');
   setMetaTag('property', 'og:site_name', 'ClickPDF');
@@ -128,15 +154,19 @@ export function applyToolSeo(toolSeo: ToolSeoInfo): void {
 
   // 4. Twitter Card
   setMetaTag('name', 'twitter:card', 'summary_large_image');
-  setMetaTag('name', 'twitter:title', toolSeo.metaTitle);
-  setMetaTag('name', 'twitter:description', toolSeo.metaDescription);
+  setMetaTag('name', 'twitter:title', pageTitle);
+  setMetaTag('name', 'twitter:description', pageDescription);
 
   // 5. Canonical Link
   updateCanonicalUrl(canonicalUrl);
-  clearAlternateLanguageLinks();
+  const alternates = getToolPageSeoLanguages(toolSeo.toolId).map((locale) => ({
+    locale,
+    url: `${origin}${locale === 'en' ? '' : `/${locale}`}/tools/${toolSeo.slug}/`,
+  }));
+  setAlternateLanguageLinks(alternates);
 
   // 6. Schema.org JSON-LD Structured Data (SoftwareApplication + HowTo + FAQPage)
-  injectToolJsonLdSchema(toolSeo, canonicalUrl);
+  injectToolJsonLdSchema(localizedSeo, canonicalUrl, activeLanguage);
 }
 
 /**
@@ -454,19 +484,39 @@ function canonicalizeClickPdfUrl(value: string): string {
   }
 }
 
-function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): void {
-  // Schema.org SoftwareApplication + HowTo + FAQPage rich graph
+function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string, language: Language): void {
+  const labels = getToolPageSeoLabels(language);
+  const breadcrumb = {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: labels?.home || 'Home', item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: toolSeo.h1Title, item: canonicalUrl },
+    ],
+  };
   const schemaGraph = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'SoftwareApplication',
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: toolSeo.metaTitle,
+        description: toolSeo.metaDescription,
+        inLanguage: language,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': `${canonicalUrl}#software` },
+      },
+      {
+        '@type': ['SoftwareApplication', 'WebApplication'],
         '@id': `${canonicalUrl}#software`,
         name: toolSeo.h1Title,
         url: canonicalUrl,
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Web',
         description: toolSeo.metaDescription,
+        inLanguage: language,
         creator: { '@id': `${SITE_ORIGIN}/#organization` },
         publisher: { '@id': `${SITE_ORIGIN}/#organization` },
         offers: {
@@ -474,13 +524,16 @@ function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): voi
           price: '0',
           priceCurrency: 'USD'
         },
-        featureList: toolSeo.benefits.map(b => `${b.title}: ${b.desc}`)
+        ...(language === 'en' ? {
+          featureList: toolSeo.benefits.map(b => `${b.title}: ${b.desc}`)
+        } : {})
       },
       {
         '@type': 'HowTo',
         '@id': `${canonicalUrl}#howto`,
         name: toolSeo.stepsHeading,
         description: `Step-by-step instructions for using the ${toolSeo.h1Title} tool online for free.`,
+        inLanguage: language,
         step: toolSeo.steps.map(s => ({
           '@type': 'HowToStep',
           position: s.step,
@@ -491,6 +544,7 @@ function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): voi
       {
         '@type': 'FAQPage',
         '@id': `${canonicalUrl}#faq`,
+        inLanguage: language,
         mainEntity: toolSeo.faqs.map(f => ({
           '@type': 'Question',
           name: f.question,
@@ -499,7 +553,8 @@ function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string): voi
             text: f.answer
           }
         }))
-      }
+      },
+      breadcrumb,
     ]
   };
 

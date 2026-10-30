@@ -139,7 +139,8 @@ export default {
       decodedPath = null;
     }
 
-    const isToolRoute = url.pathname.startsWith('/tools/') && url.pathname !== '/tools/';
+    const isToolRoute = /^\/(?:[a-z]{2}\/)?tools\/[^/]+\/?$/i.test(url.pathname) &&
+      !/^\/(?:[a-z]{2}\/)?tools\/?$/i.test(url.pathname);
     let canonicalPath = null;
     const aliasDestination = TOOL_ROUTE_REDIRECTS.get(normalizedToolPath(url.pathname));
     if (aliasDestination) {

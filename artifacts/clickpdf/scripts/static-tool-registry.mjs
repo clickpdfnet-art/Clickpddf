@@ -102,16 +102,21 @@ export async function readActiveToolRegistry(appDir) {
   const toolsPath = path.join(dataDir, 'toolsData.ts');
   const seoPath = path.join(dataDir, 'toolSeoData.ts');
   const privacyPath = path.join(dataDir, 'toolPrivacyTranslations.ts');
+  const translationsPath = path.join(appDir, 'src', 'i18n', 'translations.ts');
+  const toolSeoTranslationsPath = path.join(appDir, 'src', 'i18n', 'toolSeoContentTranslations.json');
   const pluginDir = path.join(appDir, 'src', 'tools', 'plugins');
-  const [baseTools, hiddenValue, seoObject, privacyTranslations, faqTemplateText, toolPageContent] = await Promise.all([
+  const [baseTools, hiddenValue, seoObject, privacyTranslations, faqTemplateText, toolPageContent, toolTranslations, toolSeoTranslationsText] = await Promise.all([
     readTypeScriptExport(toolsPath, 'BASE_PDF_TOOLS'),
     readTypeScriptExport(toolsPath, 'HIDDEN_TOOL_IDS'),
     readTypeScriptExport(seoPath, 'TOOL_SEO_REGISTRY'),
     readTypeScriptExport(privacyPath, 'TOOL_PRIVACY_TRANSLATIONS'),
     readFile(path.join(dataDir, 'toolSeoFaqTemplates.json'), 'utf8'),
     readTypeScriptExport(path.join(dataDir, 'toolPageContent.ts'), 'TOOL_PAGE_CONTENT'),
+    readTypeScriptExport(translationsPath, 'TOOL_TRANSLATIONS'),
+    readFile(toolSeoTranslationsPath, 'utf8'),
   ]);
   const faqTemplates = JSON.parse(faqTemplateText);
+  const toolSeoTranslations = JSON.parse(toolSeoTranslationsText);
 
   if (
     !Array.isArray(baseTools) ||
@@ -183,6 +188,20 @@ export async function readActiveToolRegistry(appDir) {
       secondaryOverview: seo.secondaryOverview || '',
       shortDescription: tool.description || '',
       privacySummary,
+      privacySummaries: Object.fromEntries(
+        Object.entries(privacyTranslations)
+          .filter(([, translation]) => Boolean(translation?.tools?.[tool.id]))
+          .map(([locale, translation]) => [locale, translation.tools[tool.id]]),
+      ),
+      localizedTitles: toolTranslations?.[tool.id] || {},
+      localizedSeoContent: Object.fromEntries(
+        Object.entries(toolSeoTranslations)
+          .filter(([, translation]) => Boolean(translation?.tools?.[tool.id]))
+          .map(([locale, translation]) => [locale, {
+            labels: translation.labels,
+            content: translation.tools[tool.id],
+          }]),
+      ),
       stepsHeading: pageContent?.stepsHeading || seo.stepsHeading,
       steps: pageContent?.steps || seo.steps,
       faqs: pageContent?.faqs || (tool.id === 'edit-metadata' && seo.faqs?.length

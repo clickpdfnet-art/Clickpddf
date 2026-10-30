@@ -132,11 +132,12 @@ function brandLogoImage() {
   };
 }
 
-function makeFaqPageSchema(faqItems, url, id = `${url}#faq`) {
+function makeFaqPageSchema(faqItems, url, id = `${url}#faq`, language = 'en') {
   if (!faqItems.length) return undefined;
   return {
     '@type': 'FAQPage',
     '@id': id,
+    inLanguage: language,
     mainEntity: faqItems.map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -145,12 +146,12 @@ function makeFaqPageSchema(faqItems, url, id = `${url}#faq`) {
   };
 }
 
-function makeToolSchema({ tool, name, title, description, url }) {
+function makeToolSchema({ tool, name, title, description, url, language = 'en', homeLabel = 'Home' }) {
   if (!tool?.steps?.length || !tool?.faqs?.length) {
     throw new Error(`Tool ${url} is missing visible HowTo steps or FAQ content in toolSeoData.ts`);
   }
   const breadcrumb = makeBreadcrumbListSchema(url, [
-    { name: 'Home', url: `${siteOrigin}/` },
+    { name: homeLabel, url: `${siteOrigin}/` },
     { name, url },
   ]);
   const software = {
@@ -161,11 +162,11 @@ function makeToolSchema({ tool, name, title, description, url }) {
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
     description,
-    inLanguage: 'en',
+    inLanguage: language,
     creator: { '@id': `${siteOrigin}/#organization` },
     publisher: { '@id': `${siteOrigin}/#organization` },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    ...(tool.benefits?.length
+    ...(language === 'en' && tool.benefits?.length
       ? { featureList: tool.benefits.map((benefit) => `${benefit.title}: ${benefit.desc}`) }
       : {}),
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -175,7 +176,7 @@ function makeToolSchema({ tool, name, title, description, url }) {
     '@id': `${url}#howto`,
     name: tool.stepsHeading || `How to use ${name}`,
     description: `Steps for using ${name} in the ClickPDF browser application.`,
-    inLanguage: 'en',
+    inLanguage: language,
     step: tool.steps.map((step, index) => {
       const stepName = typeof step === 'string'
         ? step
@@ -191,7 +192,7 @@ function makeToolSchema({ tool, name, title, description, url }) {
       };
     }),
   };
-  const faq = makeFaqPageSchema(tool.faqs, url);
+  const faq = makeFaqPageSchema(tool.faqs, url, `${url}#faq`, language);
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -201,7 +202,7 @@ function makeToolSchema({ tool, name, title, description, url }) {
         url,
         name: title,
         description,
-        inLanguage: 'en',
+        inLanguage: language,
         isPartOf: { '@id': `${siteOrigin}/#website` },
         breadcrumb: { '@id': breadcrumb['@id'] },
         mainEntity: { '@id': software['@id'] },
@@ -572,11 +573,14 @@ function prepareRouteHtml(template, {
 }) {
   const titleLength = metadataLength(title);
   const descriptionLength = metadataLength(description);
-  if (titleLength < 30 || titleLength > 60) {
+  if (lang === 'en' && (titleLength < 30 || titleLength > 60)) {
     throw new Error(`Title length for ${url} must be 30–60 characters; received ${titleLength}.`);
   }
-  if (descriptionLength < 120 || descriptionLength > 158) {
+  if (lang === 'en' && (descriptionLength < 120 || descriptionLength > 158)) {
     throw new Error(`Description length for ${url} must be 120–158 characters; received ${descriptionLength}.`);
+  }
+  if (lang !== 'en' && (!titleLength || !descriptionLength || titleLength > 80 || descriptionLength > 220)) {
+    throw new Error(`Localized metadata for ${url} must be present and reasonably sized.`);
   }
   const safeTitle = title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   let html = setHtmlLanguage(
@@ -638,32 +642,72 @@ const toolPages = [];
 
 for (const absoluteUrl of sitemapUrls) {
   const route = new URL(absoluteUrl);
-  const match = route.pathname.match(/^\/tools\/([^/]+)\/?$/);
+  const match = route.pathname.match(/^\/(?:(ja|ur|de)\/)?tools\/([^/]+)\/?$/);
   if (!match) continue;
-  const slug = decodeURIComponent(match[1]);
+  const language = match[1] || 'en';
+  const slug = decodeURIComponent(match[2]);
   const tool = toolSeoRegistry.get(slug);
   if (!tool) throw new Error(`Public tool ${slug} has no entry in TOOL_SEO_REGISTRY`);
-  const name = tool.name || slug;
-  const title = tool.title || name;
-  const description = tool.description || `Use ${name} in your browser with ClickPDF.`;
-  const schema = makeToolSchema({ tool, name, title, description, url: absoluteUrl });
-  const relativePath = path.join('tools', slug, 'index.html');
+  const translation = language === 'en' ? undefined : tool.localizedSeoContent?.[language];
+  const localizedTitle = language === 'en' ? undefined : tool.localizedTitles?.[language];
+  if (language !== 'en' && (!translation || !localizedTitle)) {
+    throw new Error(`Localized tool page ${absoluteUrl} is missing complete SEO content or tool labels.`);
+  }
+  const contentTool = translation
+    ? {
+        ...tool,
+        name: localizedTitle.title,
+        title: `${localizedTitle.title} | ClickPDF`,
+        description: localizedTitle.description,
+        shortDescription: localizedTitle.description,
+        privacySummary: tool.privacySummaries?.[language] || '',
+        stepsHeading: translation.content.stepsHeading,
+        steps: translation.content.steps,
+        faqs: translation.content.faqs,
+      }
+    : tool;
+  const name = contentTool.name || slug;
+  const title = contentTool.title || name;
+  const description = contentTool.description || `Use ${name} in your browser with ClickPDF.`;
+  const schema = makeToolSchema({
+    tool: contentTool,
+    name,
+    title,
+    description,
+    url: absoluteUrl,
+    language,
+    homeLabel: translation?.labels?.home || 'Home',
+  });
+  const relativePath = path.join(...(language === 'en' ? [] : [language]), 'tools', slug, 'index.html');
   const outputPath = path.join(outputDir, relativePath);
   await mkdir(path.dirname(outputPath), { recursive: true });
+  const alternates = [
+    { locale: 'en', url: `${siteOrigin}/tools/${slug}/` },
+    ...Object.keys(tool.localizedSeoContent || {}).map((locale) => ({
+      locale,
+      url: `${siteOrigin}/${locale}/tools/${slug}/`,
+    })),
+    { locale: 'x-default', url: `${siteOrigin}/tools/${slug}/` },
+  ];
   await writeFile(
     outputPath,
     prepareRouteHtml(template, {
       url: absoluteUrl,
       title,
       description,
-      keywords: tool.keywords,
+      keywords: language === 'en' ? tool.keywords : '',
       schema,
-      staticContent: renderToolFallback(tool, activeTools),
+      staticContent: renderToolFallback(contentTool, activeTools, {
+        language,
+        labels: translation?.labels,
+      }),
+      hreflangAlternates: alternates,
+      lang: language,
     }),
     'utf8',
   );
   generated.push(relativePath);
-  toolPages.push({ name, url: absoluteUrl });
+  if (language === 'en') toolPages.push({ name, url: absoluteUrl });
 }
 
 const blogFiles = (await readdir(blogDir)).filter((name) => name.endsWith('.md')).sort();

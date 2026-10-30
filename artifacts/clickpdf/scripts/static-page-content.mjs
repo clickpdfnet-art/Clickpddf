@@ -243,17 +243,18 @@ export function renderHomeFallback(tools, articles, faqItems = []) {
   });
 }
 
-export function renderToolFallback(tool, tools) {
+export function renderToolFallback(tool, tools, { language = 'en', labels = {} } = {}) {
   const byId = new Map(tools.map((item) => [item.id, item]));
+  const isEnglish = language === 'en';
   const relatedTools = (tool.relatedToolIds || [])
     .map((id) => byId.get(id))
     .filter(Boolean);
-  const benefits = tool.benefits?.length
+  const benefits = isEnglish && tool.benefits?.length
     ? `<section aria-labelledby="seo-tool-features"><h2 id="seo-tool-features">Key features</h2><ul>${tool.benefits
       .map((benefit) => `<li><h3>${escapeHtml(benefit.title)}</h3><p>${escapeHtml(benefit.desc)}</p></li>`)
       .join('')}</ul></section>`
     : '';
-  const toolOverview = tool.overviewHeading && tool.overview && tool.secondaryOverview
+  const toolOverview = isEnglish && tool.overviewHeading && tool.overview && tool.secondaryOverview
     ? `<section aria-labelledby="seo-tool-overview"><p><strong>${escapeHtml(tool.badge)}</strong></p><h2 id="seo-tool-overview">${escapeHtml(tool.overviewHeading)}</h2><p>${escapeHtml(tool.overview)}</p><p>${escapeHtml(tool.secondaryOverview)}</p></section>`
     : '';
   const steps = `<section aria-labelledby="seo-tool-steps"><h2 id="seo-tool-steps">${escapeHtml(tool.stepsHeading || `How to use ${tool.name}`)}</h2><ol>${tool.steps
@@ -262,23 +263,31 @@ export function renderToolFallback(tool, tools) {
   const directAction = firstSentence(tool.shortDescription || tool.description || '')
     .replace(/[.!?]\s*$/, '')
     .replace(/^./, (character) => character.toLowerCase());
-  const directAnswer = `<section aria-label="${escapeHtml(tool.directAnswerLabel || 'Quick answer')}"><p><strong>${escapeHtml(tool.directAnswerLabel || 'Quick answer')}:</strong> Use ${escapeHtml(tool.toolLabel || tool.name)} to ${escapeHtml(directAction)}. ${escapeHtml(tool.directAnswerSecondSentence || 'Selected files are processed locally in your browser; performance depends on browser support and available device memory.')}</p></section>`;
-  const toolPrivacySummary = `<section aria-label="Tool-specific summary"><p>${escapeHtml(tool.privacySummary || '')}</p></section>`;
-  const faqs = `<section aria-labelledby="seo-tool-faq"><h2 id="seo-tool-faq">Frequently asked questions</h2>${tool.faqs
+  const directAnswer = isEnglish
+    ? `<section aria-label="${escapeHtml(tool.directAnswerLabel || 'Quick answer')}"><p><strong>${escapeHtml(tool.directAnswerLabel || 'Quick answer')}:</strong> Use ${escapeHtml(tool.toolLabel || tool.name)} to ${escapeHtml(directAction)}. ${escapeHtml(tool.directAnswerSecondSentence || 'Selected files are processed locally in your browser; performance depends on browser support and available device memory.')}</p></section>`
+    : `<section aria-label="${escapeHtml(labels.quickAnswer || '')}"><p><strong>${escapeHtml(labels.quickAnswer || '')}:</strong> ${escapeHtml(tool.description || '')}</p></section>`;
+  const toolPrivacySummary = tool.privacySummary
+    ? `<section aria-label="${escapeHtml(labels.privacy || 'Tool-specific summary')}"><p>${escapeHtml(tool.privacySummary)}</p></section>`
+    : '';
+  const faqs = `<section aria-labelledby="seo-tool-faq"><h2 id="seo-tool-faq">${escapeHtml(labels.faq || 'Frequently asked questions')}</h2>${tool.faqs
     .map((faq) => `<details><summary>${escapeHtml(faq.question)}</summary><p>${escapeHtml(faq.answer)}</p></details>`)
     .join('')}</section>`;
   const links = linkList(
-    relatedTools.map((related) => ({
-      name: related.name,
-      url: `/tools/${encodeURIComponent(related.slug)}/`,
-      description: related.description,
-    })),
-    'Related PDF tools',
+    relatedTools.map((related) => {
+      const relatedTitle = related.localizedTitles?.[language];
+      const hasLocalizedRoute = Boolean(related.localizedSeoContent?.[language] && relatedTitle);
+      return {
+        name: relatedTitle?.title || related.name,
+        url: `${hasLocalizedRoute ? `/${language}` : ''}/tools/${encodeURIComponent(related.slug)}/`,
+        description: relatedTitle?.description || related.description,
+      };
+    }),
+    labels.relatedTools || 'Related PDF tools',
   );
   return fallbackPage({
     title: tool.name,
     description: tool.description,
-    content: `${directAnswer}${toolPrivacySummary}${toolOverview}${benefits}${steps}${faqs}${links}<p><a href="/">Browse all ClickPDF tools</a></p>`,
+    content: `${directAnswer}${toolPrivacySummary}${toolOverview}${benefits}${steps}${faqs}${links}<p><a href="/">${escapeHtml(labels.browseTools || 'Browse all ClickPDF tools')}</a></p>`,
   });
 }
 

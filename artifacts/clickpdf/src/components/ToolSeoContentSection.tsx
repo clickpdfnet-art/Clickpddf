@@ -13,6 +13,7 @@ import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
 import { TOOL_PAGE_TRANSLATIONS } from '../i18n/toolPageTranslations';
 import { getToolPrivacyCopy } from '../data/toolPrivacyTranslations';
+import { getLocalizedToolPageSeoContent, getToolPageSeoLabels, hasLocalizedToolPageSeoContent } from '../data/toolPageSeoContent';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
 
@@ -32,6 +33,8 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const { ui, language, getToolTitle, getToolDescription } = useLanguage();
   const copy = TOOL_PAGE_TRANSLATIONS[language];
+  const specificContent = getLocalizedToolPageSeoContent(tool.id, language);
+  const translatedLabels = getToolPageSeoLabels(language);
 
   if (!seoInfo) {
     return null;
@@ -52,16 +55,19 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   const isEnglishMetadataPage = tool.id === 'edit-metadata' && language === 'en';
   const relatedToolHref = (toolId: string) => {
     const path = getToolCanonicalPath(toolId);
-    return path.endsWith('/') ? path : `${path}/`;
+    const localizedPath = language !== 'en' && hasLocalizedToolPageSeoContent(toolId, language)
+      ? `/${language}${path}`
+      : path;
+    return localizedPath.endsWith('/') ? localizedPath : `${localizedPath}/`;
   };
-  const localizedSteps = isEnglishSeoPage ? seoInfo.steps : [
+  const localizedSteps = specificContent?.steps ?? (isEnglishSeoPage ? seoInfo.steps : [
     { step: 1, title: copy.step1Title, description: copy.step1Description },
     { step: 2, title: copy.step2Title, description: copy.step2Description },
     { step: 3, title: copy.step3Title, description: copy.step3Description },
-  ];
+  ]);
   const localizeFaqQuestion = (question: string) =>
     question.replace(/\{toolName\}/g, toolName);
-  const localizedFaqs = isEnglishSeoPage ? seoInfo.faqs : [
+  const localizedFaqs = specificContent?.faqs ?? (isEnglishSeoPage ? seoInfo.faqs : [
     {
       question: localizeFaqQuestion(copy.faqPrivacyQuestion),
       answer: copy.faqPrivacyAnswer,
@@ -74,7 +80,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
       question: localizeFaqQuestion(copy.faqCompatibilityQuestion),
       answer: copy.faqCompatibilityAnswer,
     },
-  ];
+  ]);
 
   // Stage 3: Completed / Download State (When processing finishes & Download button appears):
   // Keep long SEO sections (How-To Steps and FAQs, Privacy Banner) hidden, and ONLY show 'Related Tools' section below the download area
@@ -191,7 +197,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
         <div className="space-y-4 text-center">
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              {isEnglishSeoPage ? seoInfo.stepsHeading : `${ui.howToSectionHeading} ${getToolTitle(tool)}`}
+              {specificContent?.stepsHeading || (isEnglishSeoPage ? seoInfo.stepsHeading : `${ui.howToSectionHeading} ${getToolTitle(tool)}`)}
             </h3>
           </div>
 
@@ -220,7 +226,7 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           <div className="flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-indigo-500" />
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              {ui.faqHeadingPrefix} {getToolTitle(tool)}
+              {translatedLabels?.faq || ui.faqHeadingPrefix} {getToolTitle(tool)}
             </h3>
           </div>
 

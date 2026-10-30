@@ -11,10 +11,12 @@ const llmsFullPath = path.join(appDir, 'public', 'llms-full.txt');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const watermarkMapPath = path.join(appDir, 'src', 'data', 'blogWatermarkMap.json');
 const legalPagesPath = path.join(appDir, 'src', 'data', 'legalPages.json');
+const toolSeoTranslationsPath = path.join(appDir, 'src', 'i18n', 'toolSeoContentTranslations.json');
 const baseUrl = 'https://www.clickpdf.net';
 const defaultCoverImage = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';
 const blogWatermarkMap = JSON.parse(await readFile(watermarkMapPath, 'utf8'));
 const legalPages = JSON.parse(await readFile(legalPagesPath, 'utf8'));
+const toolSeoTranslations = JSON.parse(await readFile(toolSeoTranslationsPath, 'utf8'));
 
 function getArticlePath(meta) {
   const candidate = typeof meta.routepath === 'string' ? meta.routepath.trim() : '';
@@ -247,9 +249,27 @@ const blogUrlBlocks = articles.map((article) => {
   return `  <url>\n    <loc>${escapeXml(article.url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imageXml}${alternateXml}${defaultXml}\n  </url>`;
 });
 
-const toolUrlBlocks = activeTools.map((tool) => {
-  const route = `/tools/${encodeURIComponent(tool.slug)}/`;
-  return `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+const toolUrlBlocks = activeTools.flatMap((tool) => {
+  const englishUrl = `${baseUrl}/tools/${encodeURIComponent(tool.slug)}/`;
+  const localizedLocales = Object.entries(toolSeoTranslations)
+    .filter(([locale, localeData]) => Boolean(localeData?.tools?.[tool.id] && tool.localizedTitles?.[locale]))
+    .map(([locale]) => locale);
+  const alternateUrls = [
+    { locale: 'en', url: englishUrl },
+    ...localizedLocales.map((locale) => ({
+      locale,
+      url: `${baseUrl}/${locale}/tools/${encodeURIComponent(tool.slug)}/`,
+    })),
+  ];
+  const alternates = [
+    ...alternateUrls,
+    { locale: 'x-default', url: englishUrl },
+  ].map(({ locale, url }) =>
+    `    <xhtml:link rel="alternate" hreflang="${escapeXml(locale)}" href="${escapeXml(url)}" />`,
+  ).join('\n');
+  return alternateUrls.map(({ url }) =>
+    `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>`,
+  );
 });
 
 const utilityPageBlocks = [
