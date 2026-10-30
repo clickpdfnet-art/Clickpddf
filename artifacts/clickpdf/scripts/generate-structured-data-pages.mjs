@@ -175,7 +175,9 @@ function makeToolSchema({ tool, name, title, description, url, language = 'en', 
     '@type': 'HowTo',
     '@id': `${url}#howto`,
     name: tool.stepsHeading || `How to use ${name}`,
-    description: `Steps for using ${name} in the ClickPDF browser application.`,
+    description: language === 'en'
+      ? `Steps for using ${name} in the ClickPDF browser application.`
+      : tool.stepsHeading,
     inLanguage: language,
     step: tool.steps.map((step, index) => {
       const stepName = typeof step === 'string'
@@ -568,6 +570,7 @@ function prepareRouteHtml(template, {
   socialImageHeight = 630,
   socialImageAlt = 'ClickPDF gold shield logo with a red PDF page and lightning bolt beside PDF tools',
   hreflangAlternates = [],
+  hreflangIdPrefix = 'clickpdf-blog-hreflang',
   robots,
   lang = 'en',
 }) {
@@ -617,7 +620,7 @@ function prepareRouteHtml(template, {
     const alternateLinks = hreflangAlternates.map(({ locale, url: alternateUrl }) => {
       const safeLocale = String(locale).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
       const safeUrl = String(alternateUrl).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-      return `    <link rel="alternate" hreflang="${safeLocale}" href="${safeUrl}" id="clickpdf-blog-hreflang-${safeLocale}" data-blog-hreflang="${safeLocale}" />`;
+      return `    <link rel="alternate" hreflang="${safeLocale}" href="${safeUrl}" id="${hreflangIdPrefix}-${safeLocale}" />`;
     }).join('\n');
     html = html.replace('</head>', `${alternateLinks}\n  </head>`);
   }
@@ -642,10 +645,12 @@ const toolPages = [];
 
 for (const absoluteUrl of sitemapUrls) {
   const route = new URL(absoluteUrl);
-  const match = route.pathname.match(/^\/(?:(ja|ur|de)\/)?tools\/([^/]+)\/?$/);
+  const localizedMatch = route.pathname.match(/^\/([a-z]{2})\/tools\/([^/]+)\/?$/);
+  const englishMatch = route.pathname.match(/^\/tools\/([^/]+)\/?$/);
+  const match = localizedMatch || englishMatch;
   if (!match) continue;
-  const language = match[1] || 'en';
-  const slug = decodeURIComponent(match[2]);
+  const language = localizedMatch ? localizedMatch[1] : 'en';
+  const slug = decodeURIComponent(localizedMatch ? localizedMatch[2] : englishMatch[1]);
   const tool = toolSeoRegistry.get(slug);
   if (!tool) throw new Error(`Public tool ${slug} has no entry in TOOL_SEO_REGISTRY`);
   const translation = language === 'en' ? undefined : tool.localizedSeoContent?.[language];
@@ -702,6 +707,7 @@ for (const absoluteUrl of sitemapUrls) {
         labels: translation?.labels,
       }),
       hreflangAlternates: alternates,
+      hreflangIdPrefix: 'clickpdf-tool-hreflang',
       lang: language,
     }),
     'utf8',

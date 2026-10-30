@@ -77,6 +77,11 @@ const urls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)]
   .map((match) => decodeXml(match[1].trim()));
 const activeTools = await readActiveToolRegistry(appDir);
 const toolUrls = urls.filter((value) => new URL(value).pathname.startsWith('/tools/'));
+const localizedToolUrls = urls.filter((value) => /^\/[a-z]{2}\/tools\//.test(new URL(value).pathname));
+const localizedToolCount = activeTools.reduce(
+  (count, tool) => count + Object.keys(tool.localizedSeoContent || {}).length,
+  0,
+);
 const blogFiles = (await readdir(path.join(appDir, 'src', 'blogs'))).filter((name) => name.endsWith('.md'));
 const supportedBlogLocales = [
   'en', 'ur', 'hi', 'ar', 'zh', 'ja', 'tl', 'de', 'fr', 'es', 'it',
@@ -124,8 +129,8 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
   assert.equal(new Set(urls).size, urls.length, 'sitemap URLs are unique');
   assert.equal(
     urls.length,
-    activeTools.length + blogFiles.length + 10,
-    'sitemap includes all tools, all blog routes, and ten shared public routes',
+    activeTools.length + localizedToolCount + blogFiles.length + 10,
+    'sitemap includes all complete localized tool routes, all blog routes, and ten shared public routes',
   );
   assert.equal(toolUrls.length, activeTools.length, 'sitemap lists exactly the active public tools');
   for (const tool of activeTools) {
@@ -147,14 +152,20 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     const description = decodeXml(
       descriptionTag.match(/\bcontent=(["'])([\s\S]*?)\1/i)?.[2] || '',
     );
-    assert.ok(
-      Array.from(title).length >= 30 && Array.from(title).length <= 60,
-      `${url} has a 30–60 character title (${Array.from(title).length})`,
-    );
-    assert.ok(
-      Array.from(description).length >= 120 && Array.from(description).length <= 158,
-      `${url} has a 120–158 character description (${Array.from(description).length})`,
-    );
+    const isLocalizedToolUrl = /^\/[a-z]{2}\/tools\//.test(new URL(url).pathname);
+    if (isLocalizedToolUrl) {
+      assert.ok(title.length > 0 && title.length <= 80, `${url} has a localized title`);
+      assert.ok(description.length > 0 && description.length <= 220, `${url} has a localized description`);
+    } else {
+      assert.ok(
+        Array.from(title).length >= 30 && Array.from(title).length <= 60,
+        `${url} has a 30–60 character title (${Array.from(title).length})`,
+      );
+      assert.ok(
+        Array.from(description).length >= 120 && Array.from(description).length <= 158,
+        `${url} has a 120–158 character description (${Array.from(description).length})`,
+      );
+    }
     const ogImage = html.match(/<meta\b[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
     const twitterImage = html.match(/<meta\b[^>]*name=["']twitter:image["'][^>]*content=["']([^"']+)["']/i)?.[1];
     const blogPosting = nodes.find((node) => Array.isArray(node['@type']) && node['@type'].includes('BlogPosting'));
@@ -175,6 +186,11 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     assert.match(html, /sizes=["']192x192["'][^>]*href=["']\/icon-192\.png["']/i);
     assert.match(html, /sizes=["']512x512["'][^>]*href=["']\/icon-512\.png["']/i);
     staticMain(html, url);
+    if (isLocalizedToolUrl) {
+      const language = new URL(url).pathname.split('/')[1];
+      assert.match(html, new RegExp(`<html[^>]*lang=["']${language}["']`, 'i'));
+      assert.ok(nodes.some((node) => node.inLanguage === language), `${url} schemas use the page language`);
+    }
     assert.match(html, /<div id=["']root["']><\/div>/i, 'React createRoot mount remains empty and unchanged');
   }
 });
@@ -248,7 +264,11 @@ test('every blog translation group has complete cards and articles in all suppor
 
 test('localized blog sitemap alternates are repeated in each raw HTML head', async () => {
   const sitemapBlocks = [...sitemap.matchAll(/<url>[\s\S]*?<\/url>/g)].map((match) => match[0]);
-  const translatedBlocks = sitemapBlocks.filter((block) => /<xhtml:link\b[^>]*hreflang=/i.test(block));
+  const translatedBlocks = sitemapBlocks.filter((block) => {
+    const url = decodeXml(block.match(/<loc>([\s\S]*?)<\/loc>/i)?.[1]?.trim() || '');
+    return !new URL(url).pathname.includes('/tools/') &&
+      /<xhtml:link\b[^>]*hreflang=/i.test(block);
+  });
   assert.equal(
     translatedBlocks.length,
     expectedLocalizedBlogPageCount,
@@ -657,8 +677,8 @@ test('Cloudflare worker resolves percent-encoded Unicode blog routes to their ow
 test('all public routes keep localized heads, verified article metadata, headings, and image dimensions', async () => {
   assert.equal(
     urls.length,
-    activeTools.length + blogFiles.length + 10,
-    'sitemap includes all tools, all blog posts, and ten shared public routes',
+    activeTools.length + localizedToolCount + blogFiles.length + 10,
+    'sitemap includes all complete localized tool pages, all blog posts, and ten shared public routes',
   );
 
   const expectedPersonAuthors = new Set(['Sarah Jenkins', 'Khurram Shah', 'Asad Tariq']);

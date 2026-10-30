@@ -78,6 +78,39 @@ test('every public tool has an alias redirect and a valid canonical static route
   }
 });
 
+test('completed localized tool routes serve matching canonical static pages', async (t) => {
+  const env = { ASSETS: createAssetsBinding() };
+  const localizedRoutes = tools.flatMap((tool) =>
+    Object.keys(tool.localizedSeoContent || {}).map((locale) => ({
+      tool,
+      locale,
+      path: `/${locale}/tools/${tool.slug}/`,
+    })),
+  );
+
+  assert.equal(localizedRoutes.length, 3, 'only the three reviewed Merge PDF locale routes are exposed');
+
+  for (const { locale, path: routePath } of localizedRoutes) {
+    await t.test(routePath, async () => {
+      const noSlash = await worker.fetch(
+        new Request(`https://www.clickpdf.net${routePath.slice(0, -1)}`),
+        env,
+      );
+      assert.equal(noSlash.status, 301, 'the no-slash localized path redirects permanently');
+      assert.equal(noSlash.headers.get('location'), `https://www.clickpdf.net${routePath}`);
+
+      const response = await worker.fetch(
+        new Request(`https://www.clickpdf.net${routePath}`),
+        env,
+      );
+      assert.equal(response.status, 200);
+      const html = await response.text();
+      assert.match(html, new RegExp(`<html[^>]*lang=["']${locale}["']`, 'i'));
+      assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']https:\\/\\/www\\.clickpdf\\.net${routePath.replaceAll('/', '\\/')}["']`));
+    });
+  }
+});
+
 test('legacy tool aliases redirect to their current canonical tool routes', async () => {
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/protect-pdf'), '/tools/protect-pdf-password/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/pdf-metadata'), '/tools/edit-pdf-metadata/');

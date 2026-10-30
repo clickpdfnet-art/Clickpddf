@@ -318,8 +318,12 @@ export function applyStructuredPageSeo({
 }
 
 const BLOG_HREFLANG_LINK_PREFIX = 'clickpdf-blog-hreflang-';
+const TOOL_HREFLANG_LINK_PREFIX = 'clickpdf-tool-hreflang-';
 
-function setAlternateLanguageLinks(alternates: Array<{ locale: string; url: string }>): void {
+function setAlternateLanguageLinks(
+  alternates: Array<{ locale: string; url: string }>,
+  idPrefix = BLOG_HREFLANG_LINK_PREFIX,
+): void {
   clearAlternateLanguageLinks();
   alternates.forEach(({ locale, url }) => {
     if (!locale || !url) return;
@@ -327,8 +331,8 @@ function setAlternateLanguageLinks(alternates: Array<{ locale: string; url: stri
     link.rel = 'alternate';
     link.hreflang = locale;
     link.href = canonicalizeClickPdfUrl(url);
-    link.dataset.blogHreflang = locale;
-    link.id = `${BLOG_HREFLANG_LINK_PREFIX}${locale}`;
+    if (idPrefix === BLOG_HREFLANG_LINK_PREFIX) link.dataset.blogHreflang = locale;
+    link.id = `${idPrefix}${locale}`;
     document.head.appendChild(link);
   });
   const defaultUrl = alternates.find((item) => item.locale === 'en')?.url;
@@ -337,13 +341,15 @@ function setAlternateLanguageLinks(alternates: Array<{ locale: string; url: stri
     link.rel = 'alternate';
     link.hreflang = 'x-default';
     link.href = defaultUrl;
-    link.id = `${BLOG_HREFLANG_LINK_PREFIX}x-default`;
+    link.id = `${idPrefix}x-default`;
     document.head.appendChild(link);
   }
 }
 
 function clearAlternateLanguageLinks(): void {
-  document.querySelectorAll(`link[id^="${BLOG_HREFLANG_LINK_PREFIX}"]`).forEach((link) => link.remove());
+  document.querySelectorAll(
+    `link[id^="${BLOG_HREFLANG_LINK_PREFIX}"], link[id^="${TOOL_HREFLANG_LINK_PREFIX}"]`,
+  ).forEach((link) => link.remove());
 }
 
 export function injectHomeOrganizationJsonLd(originUrl: string = 'https://www.clickpdf.net'): void {
@@ -532,7 +538,9 @@ function injectToolJsonLdSchema(toolSeo: ToolSeoInfo, canonicalUrl: string, lang
         '@type': 'HowTo',
         '@id': `${canonicalUrl}#howto`,
         name: toolSeo.stepsHeading,
-        description: `Step-by-step instructions for using the ${toolSeo.h1Title} tool online for free.`,
+        description: language === 'en'
+          ? `Step-by-step instructions for using the ${toolSeo.h1Title} tool online for free.`
+          : toolSeo.stepsHeading,
         inLanguage: language,
         step: toolSeo.steps.map(s => ({
           '@type': 'HowToStep',
