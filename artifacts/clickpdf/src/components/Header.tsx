@@ -10,18 +10,20 @@ interface HeaderProps {
   onSelectCategory: (category: ToolCategory) => void;
   onOpenMobileMenu: () => void;
   onGoHome: () => void;
+  onOpenTools: () => void;
   onOpenBlog: () => void;
   onOpenFaq?: () => void;
   onOpenCommandPalette?: () => void;
   onOpenBatchQueue?: () => void;
   onOpenShare?: () => void;
-  activeView: 'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
+  activeView: 'home' | 'tools' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onSelectCategory,
   onOpenMobileMenu,
   onGoHome,
+  onOpenTools,
   onOpenBlog,
   onOpenFaq,
   onOpenCommandPalette,
@@ -50,8 +52,8 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Zone 2: Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
           <button
-            onClick={() => { onGoHome(); onSelectCategory('all'); }}
-            className={`hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer ${activeView === 'home' ? 'text-indigo-600 dark:text-indigo-400 font-semibold' : ''}`}
+            onClick={onOpenTools}
+            className={`hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer ${activeView === 'tools' ? 'text-indigo-600 dark:text-indigo-400 font-semibold' : ''}`}
           >
             {t.allPdfTools}
           </button>

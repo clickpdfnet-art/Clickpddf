@@ -108,6 +108,18 @@ export function getSitemapEntries(options?: SitemapOptions): SitemapEntry[] {
   });
 
   entries.push({
+    loc: `${baseUrl}/tools/`,
+    path: '/tools/',
+    title: 'All PDF Tools for Documents | ClickPDF',
+    category: 'core',
+    lastmod: today,
+    changefreq: 'weekly',
+    priority: '0.7',
+    description: 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.',
+    badge: 'Tools'
+  });
+
+  entries.push({
     loc: `${baseUrl}/faq/`,
     path: '/faq/',
     title: 'Frequently Asked Questions | ClickPDF',

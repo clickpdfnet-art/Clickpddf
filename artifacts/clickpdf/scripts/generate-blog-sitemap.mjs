@@ -274,6 +274,12 @@ const toolUrlBlocks = activeTools.flatMap((tool) => {
 
 const utilityPageBlocks = [
   {
+    path: '/tools/',
+    title: 'All PDF Tools for Documents | ClickPDF',
+    description: 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.',
+    priority: '0.7',
+  },
+  {
     path: '/faq/',
     title: 'Frequently Asked Questions | ClickPDF',
     description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
@@ -310,6 +316,7 @@ const generatedArticleLocs = new Set(articles.map((article) => escapeXml(article
 let retainedBlocks = urlBlocks.filter((block) => {
   const loc = block.match(/<loc>(.*?)<\/loc>/)?.[1] || '';
   return !/\/tools\/[^<]+/.test(loc) &&
+    !/<loc>https:\/\/www\.clickpdf\.net\/tools\/<\/loc>/.test(block) &&
     !/\?tool=/.test(loc) &&
     !/\/blog\/[^<]+/.test(loc) &&
     !generatedArticleLocs.has(loc) &&

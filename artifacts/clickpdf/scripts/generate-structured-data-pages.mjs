@@ -11,6 +11,7 @@ import {
   renderHomeFallback,
   renderLegalPageFallback,
   renderToolFallback,
+  renderToolsIndexFallback,
 } from './static-page-content.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -504,6 +505,43 @@ function makeBlogIndexSchema(articles, url) {
   };
 }
 
+function makeToolsIndexSchema(tools, url) {
+  const breadcrumb = makeBreadcrumbListSchema(url, [
+    { name: 'Home', url: `${siteOrigin}/` },
+    { name: 'All PDF Tools', url },
+  ]);
+  const itemListId = `${url}#tools`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: 'All PDF Tools for Documents | ClickPDF',
+        description: 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.',
+        isPartOf: { '@id': `${siteOrigin}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': itemListId },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': itemListId,
+        name: 'ClickPDF PDF tools',
+        numberOfItems: tools.length,
+        itemListOrder: 'https://schema.org/ItemListOrderAscending',
+        itemListElement: tools.map((tool, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: tool.name,
+          url: `${siteOrigin}/tools/${encodeURIComponent(tool.slug)}/`,
+        })),
+      },
+      breadcrumb,
+    ],
+  };
+}
+
 function setMeta(html, selector, content) {
   if (!content) return html;
   const escaped = content
@@ -821,6 +859,23 @@ await writeFile(
   'utf8',
 );
 generated.push('blog/index.html');
+
+const toolsIndexUrl = `${siteOrigin}/tools/`;
+const toolsIndexPath = path.join(outputDir, 'tools', 'index.html');
+await mkdir(path.dirname(toolsIndexPath), { recursive: true });
+await writeFile(
+  toolsIndexPath,
+  prepareRouteHtml(template, {
+    url: toolsIndexUrl,
+    title: 'All PDF Tools for Documents | ClickPDF',
+    description: 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.',
+    schema: makeToolsIndexSchema(activeTools, toolsIndexUrl),
+    robots: 'index,follow',
+    staticContent: renderToolsIndexFallback(activeTools),
+  }),
+  'utf8',
+);
+generated.push('tools/index.html');
 
 const faqUrl = `${siteOrigin}/faq/`;
 const faqItems = Array.isArray(faqData)

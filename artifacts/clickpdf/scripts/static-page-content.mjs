@@ -243,6 +243,20 @@ export function renderHomeFallback(tools, articles, faqItems = []) {
   });
 }
 
+export function renderToolsIndexFallback(tools) {
+  const content = [
+    '<section aria-labelledby="seo-tools-index-list"><h2 id="seo-tools-index-list">Available PDF tools</h2><ul>',
+    ...tools.map((tool) => `<li data-tool-id="${escapeHtml(tool.id)}"><article><h3><a href="/tools/${encodeURIComponent(tool.slug)}/">${escapeHtml(tool.name)}</a></h3><p>${escapeHtml(tool.description)}</p></article></li>`),
+    '</ul></section>',
+  ].join('');
+
+  return fallbackPage({
+    title: 'All PDF Tools',
+    description: 'Browse the available ClickPDF tools for working with supported PDF documents in your browser.',
+    content,
+  });
+}
+
 export function renderToolFallback(tool, tools, { language = 'en', labels = {} } = {}) {
   const byId = new Map(tools.map((item) => [item.id, item]));
   const isEnglish = language === 'en';

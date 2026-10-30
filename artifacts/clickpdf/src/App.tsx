@@ -6,7 +6,7 @@ import { getActiveBlogArticles } from './utils/blogLoader';
 import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyStandaloneToolSchema, applyBlogSeo, applyStructuredPageSeo, resetHomeSeo } from './utils/seoManager';
 import { getToolCanonicalPath, getToolSeoInfo } from './data/toolSeoData';
 import { FAQ_DATA } from './data/faqData';
-import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
+import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToToolsUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
 
 import { Header } from './components/Header';
 import { AdsterraBanner } from './components/AdsterraBanner';
@@ -42,6 +42,9 @@ const SITE_ORIGIN = 'https://www.clickpdf.net';
 const FAQ_PAGE_URL = `${SITE_ORIGIN}/faq/`;
 const BATCH_PAGE_URL = `${SITE_ORIGIN}/batch/`;
 const BLOG_INDEX_URL = `${SITE_ORIGIN}/blog/`;
+const TOOLS_INDEX_URL = `${SITE_ORIGIN}/tools/`;
+const TOOLS_INDEX_TITLE = 'All PDF Tools for Documents | ClickPDF';
+const TOOLS_INDEX_DESCRIPTION = 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.';
 
 function breadcrumbSchema(url: string, currentLabel: string) {
   return {
@@ -183,6 +186,40 @@ function makeBlogIndexJsonLd(posts: BlogPost[]): Record<string, unknown> {
   };
 }
 
+function makeToolsIndexJsonLd(): Record<string, unknown> {
+  const breadcrumb = breadcrumbSchema(TOOLS_INDEX_URL, 'All PDF Tools');
+  const itemListId = `${TOOLS_INDEX_URL}#tools`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${TOOLS_INDEX_URL}#webpage`,
+        url: TOOLS_INDEX_URL,
+        name: TOOLS_INDEX_TITLE,
+        description: TOOLS_INDEX_DESCRIPTION,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        breadcrumb: { '@id': breadcrumb['@id'] },
+        mainEntity: { '@id': itemListId },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': itemListId,
+        name: 'ClickPDF PDF tools',
+        numberOfItems: PUBLIC_PDF_TOOLS.length,
+        itemListOrder: 'https://schema.org/ItemListOrderAscending',
+        itemListElement: PUBLIC_PDF_TOOLS.map((tool, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: tool.title,
+          url: `${SITE_ORIGIN}${getToolCanonicalPath(tool.id)}`,
+        })),
+      },
+      breadcrumb,
+    ],
+  };
+}
+
 function AppContent() {
   const { getToolTitle, getToolDescription, setLanguage, language } = useLanguage();
 
@@ -190,7 +227,7 @@ function AppContent() {
     document.getElementById('seo-static-content')?.remove();
   }, []);
 
-  const [activeView, setActiveView] = useState<'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'tools' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal'>('home');
   const [selectedTool, setSelectedTool] = useState<PDFTool | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -307,6 +344,22 @@ function AppContent() {
           }
           return;
         }
+      }
+
+      if (route.view === 'tools') {
+        setSelectedTool(null);
+        setActiveArticleSlug(null);
+        setActiveLegalPageId(null);
+        setSelectedCategory('all');
+        setSearchQuery('');
+        setActiveView('tools');
+        applyStructuredPageSeo({
+          title: TOOLS_INDEX_TITLE,
+          description: TOOLS_INDEX_DESCRIPTION,
+          canonicalUrl: TOOLS_INDEX_URL,
+          schema: makeToolsIndexJsonLd(),
+        });
+        return;
       }
 
       if (route.view === 'blog') {
@@ -532,6 +585,23 @@ function AppContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleGoToTools = () => {
+    setSelectedTool(null);
+    setActiveArticleSlug(null);
+    setActiveLegalPageId(null);
+    setSelectedCategory('all');
+    setSearchQuery('');
+    setActiveView('tools');
+    applyStructuredPageSeo({
+      title: TOOLS_INDEX_TITLE,
+      description: TOOLS_INDEX_DESCRIPTION,
+      canonicalUrl: TOOLS_INDEX_URL,
+      schema: makeToolsIndexJsonLd(),
+    });
+    navigateToToolsUrl();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleGoToBlog = () => {
     setSelectedTool(null);
     setActiveArticleSlug(null);
@@ -689,6 +759,17 @@ function AppContent() {
       getToolDescription(tool).toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase());
     return matchesCategory && matchesSearch;
   });
+  const toolGrid = (
+    <ToolGrid
+      tools={filteredTools}
+      selectedCategory={selectedCategory}
+      onSelectCategory={setSelectedCategory}
+      searchQuery={searchQuery}
+      onSearchChange={setSearchQuery}
+      onSelectTool={handleSelectTool}
+      onOpenBatchQueue={() => handleGoToBatchQueue()}
+    />
+  );
   const activeLegalPage = activeLegalPageId ? getLegalPageById(activeLegalPageId) : undefined;
 
   return (
@@ -703,6 +784,7 @@ function AppContent() {
         }}
         onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         onGoHome={handleBackToHome}
+        onOpenTools={handleGoToTools}
         onOpenBlog={handleGoToBlog}
         onOpenFaq={handleScrollToFaq}
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
@@ -766,18 +848,11 @@ function AppContent() {
               onSelectTool={handleSelectToolById}
             />
           </div>
+        ) : activeView === 'tools' ? (
+          toolGrid
         ) : (
           <>
-            <ToolGrid
-              tools={filteredTools}
-              selectedCategory={selectedCategory}
-              onSelectCategory={setSelectedCategory}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              onSelectTool={handleSelectTool}
-              onOpenBatchQueue={() => handleGoToBatchQueue()}
-            />
-
+            {toolGrid}
             <FeaturesSection />
           </>
         )}

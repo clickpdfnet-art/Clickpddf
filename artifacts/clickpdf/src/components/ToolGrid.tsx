@@ -143,6 +143,7 @@ export const ToolGrid: React.FC<ToolGridProps> = ({
             {tools.map((tool) => (
               <div
                 key={tool.id}
+                data-tool-id={tool.id}
                 onClick={() => onSelectTool(tool)}
                 role="button"
                 tabIndex={0}

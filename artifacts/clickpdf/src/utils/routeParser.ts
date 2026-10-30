@@ -25,7 +25,7 @@ export function buildAppPath(path: string): string {
 }
 
 export interface ParsedRoute {
-  view: 'home' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
+  view: 'home' | 'tools' | 'tool' | 'blog' | 'batch' | 'faq' | 'legal';
   toolId?: string;
   locale?: Language;
   articleSlug?: string;
@@ -70,6 +70,10 @@ export function parseCurrentRoute(): ParsedRoute {
     ) {
       return { view: 'tool', toolId: seoInfo.toolId, locale };
     }
+  }
+
+  if (effectivePathname === '/tools') {
+    return { view: 'tools' };
   }
 
   const legalPage = getLegalPageByPath(effectivePathname);
@@ -238,6 +242,19 @@ export function navigateToBlogListUrl(replace = false): void {
     window.history.replaceState({ view: 'blog' }, '', buildAppPath('/blog'));
   } else {
     window.history.pushState({ view: 'blog' }, '', buildAppPath('/blog'));
+  }
+}
+
+/**
+ * Push or replace the canonical all-tools catalog URL.
+ */
+export function navigateToToolsUrl(replace = false): void {
+  if (typeof window === 'undefined') return;
+  const targetPath = buildAppPath('/tools/');
+  if (replace) {
+    window.history.replaceState({ view: 'tools' }, '', targetPath);
+  } else {
+    window.history.pushState({ view: 'tools' }, '', targetPath);
   }
 }
 

@@ -78,6 +78,30 @@ test('every public tool has an alias redirect and a valid canonical static route
   }
 });
 
+test('the tools index is served as a canonical static page for GET and HEAD', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+
+  for (const method of ['GET', 'HEAD']) {
+    const response = await worker.fetch(
+      new Request('https://www.clickpdf.net/tools/', { method }),
+      env,
+    );
+    assert.equal(response.status, 200, `${method} /tools/ is available`);
+    assert.equal(response.headers.get('location'), null, `${method} /tools/ does not redirect`);
+    assert.match(
+      response.headers.get('content-type') || '',
+      /text\/html/i,
+      `${method} /tools/ serves HTML`,
+    );
+    if (method === 'GET') {
+      const html = await response.text();
+      assert.match(html, /<link rel="canonical" href="https:\/\/www\.clickpdf\.net\/tools\/"/);
+      assert.match(html, /<h1>All PDF Tools<\/h1>/);
+      assert.match(html, /name="robots" content="index,follow"/);
+    }
+  }
+});
+
 test('completed localized tool routes serve matching canonical static pages', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
   const localizedRoutes = tools.flatMap((tool) =>

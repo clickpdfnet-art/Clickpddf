@@ -76,7 +76,7 @@ const sitemap = await readFile(path.join(publicDir, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)]
   .map((match) => decodeXml(match[1].trim()));
 const activeTools = await readActiveToolRegistry(appDir);
-const toolUrls = urls.filter((value) => new URL(value).pathname.startsWith('/tools/'));
+const toolUrls = urls.filter((value) => /^\/tools\/[^/]+\/$/.test(new URL(value).pathname));
 const localizedToolUrls = urls.filter((value) => /^\/[a-z]{2}\/tools\//.test(new URL(value).pathname));
 const localizedToolCount = activeTools.reduce(
   (count, tool) => count + Object.keys(tool.localizedSeoContent || {}).length,
@@ -129,8 +129,13 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
   assert.equal(new Set(urls).size, urls.length, 'sitemap URLs are unique');
   assert.equal(
     urls.length,
-    activeTools.length + localizedToolCount + blogFiles.length + 10,
-    'sitemap includes all complete localized tool routes, all blog routes, and ten shared public routes',
+    activeTools.length + localizedToolCount + blogFiles.length + 11,
+    'sitemap includes all complete localized tool routes, all blog routes, and eleven shared public routes',
+  );
+  assert.equal(
+    urls.filter((value) => new URL(value).pathname === '/tools/').length,
+    1,
+    'the tools index has exactly one canonical sitemap entry',
   );
   assert.equal(toolUrls.length, activeTools.length, 'sitemap lists exactly the active public tools');
   for (const tool of activeTools) {
@@ -193,6 +198,36 @@ test('sitemap routes have static metadata and parseable head JSON-LD', async () 
     }
     assert.match(html, /<div id=["']root["']><\/div>/i, 'React createRoot mount remains empty and unchanged');
   }
+});
+
+test('tools index is indexable and lists exactly the active public tools', async () => {
+  const url = `${siteOrigin}/tools/`;
+  const { html, nodes } = await readHeadSchemas(url);
+  const main = staticMain(html, url);
+  const title = decodeXml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+  const description = decodeXml(
+    html.match(/<meta\b(?=[^>]*\bname=["']description["'])[^>]*\bcontent=["']([^"']+)["']/i)?.[1] || '',
+  );
+  const canonical = html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
+  const robots = html.match(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*\bcontent=["']([^"']+)["']/i)?.[1];
+  const toolIds = [...main.matchAll(/<li data-tool-id=["']([^"']+)["']/g)].map((match) => match[1]);
+
+  assert.equal(title, 'All PDF Tools for Documents | ClickPDF');
+  assert.ok(description.length >= 120 && description.length <= 158);
+  assert.equal(canonical, url);
+  assert.equal(robots, 'index,follow');
+  assert.equal((main.match(/<h1\b/gi) || []).length, 1);
+  assert.deepEqual(toolIds, activeTools.map((tool) => tool.id));
+
+  const collectionPage = nodes.find((node) => node['@type'] === 'CollectionPage' && node.url === url);
+  const itemList = nodes.find((node) => node['@type'] === 'ItemList' && node['@id'] === `${url}#tools`);
+  assert.ok(collectionPage, 'tools index has CollectionPage structured data');
+  assert.ok(itemList, 'tools index has an ItemList structured data node');
+  assert.equal(itemList.numberOfItems, activeTools.length);
+  assert.deepEqual(
+    itemList.itemListElement.map((item) => item.url),
+    activeTools.map((tool) => `${siteOrigin}/tools/${tool.slug}/`),
+  );
 });
 
 test('every blog translation group has complete cards and articles in all supported locales', async () => {
@@ -677,8 +712,8 @@ test('Cloudflare worker resolves percent-encoded Unicode blog routes to their ow
 test('all public routes keep localized heads, verified article metadata, headings, and image dimensions', async () => {
   assert.equal(
     urls.length,
-    activeTools.length + localizedToolCount + blogFiles.length + 10,
-    'sitemap includes all complete localized tool pages, all blog posts, and ten shared public routes',
+    activeTools.length + localizedToolCount + blogFiles.length + 11,
+    'sitemap includes all complete localized tool pages, all blog posts, and eleven shared public routes',
   );
 
   const expectedPersonAuthors = new Set(['Sarah Jenkins', 'Khurram Shah', 'Asad Tariq']);
