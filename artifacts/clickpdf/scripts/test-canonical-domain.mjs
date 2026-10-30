@@ -9,6 +9,38 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const publicDir = path.join(appDir, 'dist', 'public');
 
+test('www HTTP and legacy variants redirect directly to the final HTTPS canonical URL', async () => {
+  const cases = [
+    ['http://www.clickpdf.net/', 301, 'https://www.clickpdf.net/'],
+    ['http://www.clickpdf.net/tools/merge-pdf/', 301, 'https://www.clickpdf.net/tools/merge-pdf/'],
+    ['http://www.clickpdf.net/?source=query-test', 301, 'https://www.clickpdf.net/?source=query-test'],
+    [
+      'http://www.clickpdf.net/tools/merge-pdf?source=slashless',
+      301,
+      'https://www.clickpdf.net/tools/merge-pdf/?source=slashless',
+    ],
+    ['https://www.clickpdf.net/tools/merge-pdf', 301, 'https://www.clickpdf.net/tools/merge-pdf/'],
+    ['http://clickpdf.net/tools/image-to-pdf?source=apex', 301, 'https://www.clickpdf.net/tools/image-to-pdf/?source=apex'],
+    [
+      'http://www.clickpdf.net/protect-pdf?source=legacy',
+      301,
+      'https://www.clickpdf.net/tools/protect-pdf-password/?source=legacy',
+    ],
+    ['https://www.clickpdf.net/tools/merge-pdf/', 200, null],
+  ];
+  const env = {
+    ASSETS: {
+      fetch: async () => new Response('canonical page', { status: 200 }),
+    },
+  };
+
+  for (const [requestUrl, expectedStatus, expectedLocation] of cases) {
+    const response = await worker.fetch(new Request(requestUrl), env);
+    assert.equal(response.status, expectedStatus, requestUrl);
+    assert.equal(response.headers.get('location'), expectedLocation, requestUrl);
+  }
+});
+
 test('tool URL variants reach the canonical host and trailing-slash form in at most one redirect', async () => {
   const variants = [
     ['https://clickpdf.net/tools/image-to-pdf?source=test', 301, 'https://www.clickpdf.net/tools/image-to-pdf/?source=test'],

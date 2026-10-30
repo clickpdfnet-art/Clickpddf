@@ -131,6 +131,8 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const isApexHost = url.hostname.toLowerCase() === APEX_HOST;
+    const isInsecureCanonicalHost =
+      url.hostname.toLowerCase() === CANONICAL_HOST && url.protocol !== 'https:';
 
     let decodedPath;
     try {
@@ -161,7 +163,7 @@ export default {
       canonicalPath = `${normalizedToolPath(url.pathname)}/`;
     }
 
-    if (isApexHost || canonicalPath) {
+    if (isApexHost || isInsecureCanonicalHost || canonicalPath) {
       if (canonicalPath) url.pathname = canonicalPath;
       url.protocol = 'https:';
       url.hostname = CANONICAL_HOST;
