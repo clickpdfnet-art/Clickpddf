@@ -24,7 +24,7 @@ export const FeaturesSection: React.FC = () => {
         {/* 3 Value Cards - strictly 3 in 1 line */}
         <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-10">
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-3 sm:mb-5">
                 <Laptop className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -38,7 +38,7 @@ export const FeaturesSection: React.FC = () => {
           </div>
 
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-3 sm:mb-5">
                 <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -52,7 +52,7 @@ export const FeaturesSection: React.FC = () => {
           </div>
 
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
-            <div>
+            <div className="flex flex-col items-center text-center">
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-3 sm:mb-5">
                 <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -75,8 +75,8 @@ export const FeaturesSection: React.FC = () => {
             {t.trustSubtitle}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100 text-left">
-            <div className="flex items-center gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100">
+            <div className="flex flex-col items-center text-center gap-2.5">
               <Shield className="w-5 h-5 text-indigo-600 shrink-0" />
               <div>
                 <p className="text-xs font-bold text-slate-900">{t.trust1}</p>
@@ -84,7 +84,7 @@ export const FeaturesSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-col items-center text-center gap-2.5">
               <Lock className="w-5 h-5 text-emerald-600 shrink-0" />
               <div>
                 <p className="text-xs font-bold text-slate-900">{t.trust2}</p>
@@ -92,7 +92,7 @@ export const FeaturesSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-col items-center text-center gap-2.5">
               <Cpu className="w-5 h-5 text-cyan-600 shrink-0" />
               <div>
                 <p className="text-xs font-bold text-slate-900">{t.trust3}</p>
@@ -100,7 +100,7 @@ export const FeaturesSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-col items-center text-center gap-2.5">
               <CheckCircle className="w-5 h-5 text-amber-600 shrink-0" />
               <div>
                 <p className="text-xs font-bold text-slate-900">{t.trust4}</p>

@@ -1,0 +1,141 @@
+import React from 'react';
+import { Building2, CheckCircle, Cpu, Laptop, Lock, Shield, Smartphone } from 'lucide-react';
+import './_group.css';
+
+const t = {
+  privacyTag: 'Security & Privacy',
+  workYourWayTitle: 'Browser-based file processing · Page requests may occur',
+  workYourWaySubtitle:
+    'ClickPDF provides free PDF tools. Supported files are processed in your browser; the page may still request resources, ads, and enabled third-party services.',
+  feature1Title: 'Browser-based processing',
+  feature1Desc:
+    'Supported files are processed in your browser; the page may request resources, ads, and enabled third-party services.',
+  feature2Title: 'Made for mobile and desktop',
+  feature2Desc: 'Easy file selection and reordering on screens of every size.',
+  feature3Title: 'Browser-based file processing · Page requests may occur',
+  feature3Desc:
+    'ClickPDF provides free PDF tools. Supported files are processed in your browser; the page may still request resources, ads, and enabled third-party services.',
+  trustTitle: 'Trusted by privacy-conscious teams worldwide',
+  trustSubtitle:
+    'ClickPDF provides free PDF tools. Supported files are processed in your browser; the page may still request resources, ads, and enabled third-party services.',
+  trust1: 'Browser-based processing',
+  trust1Sub: 'Browser-based file processing · Page requests may occur',
+  trust2: 'No data logs',
+  trust2Sub: 'Data is cleared when you close the page',
+  trust3: 'WASM and JavaScript',
+  trust3Sub: 'No processing queues',
+  trust4: 'ISO 32000 standard',
+  trust4Sub: 'PDF structure support',
+};
+
+function FeaturesSection() {
+  return (
+    <div className="w-full bg-slate-50 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 pt-8 sm:pt-12 pb-6 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1.5 block">
+            {t.privacyTag}
+          </span>
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            {t.workYourWayTitle}
+          </h2>
+          <p className="mt-1.5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+            {t.workYourWaySubtitle}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-10">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-3 sm:mb-5">
+                <Laptop className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="text-xs sm:text-base font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2 line-clamp-2">
+                {t.feature1Title}
+              </h3>
+              <p className="text-[10.5px] sm:text-xs text-slate-500 dark:text-slate-400 leading-normal sm:leading-relaxed line-clamp-4">
+                {t.feature1Desc}
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-100 dark:border-cyan-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-3 sm:mb-5">
+                <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="text-xs sm:text-base font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2 line-clamp-2">
+                {t.feature2Title}
+              </h3>
+              <p className="text-[10.5px] sm:text-xs text-slate-500 dark:text-slate-400 leading-normal sm:leading-relaxed line-clamp-4">
+                {t.feature2Desc}
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 transition-all flex flex-col justify-between">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-3 sm:mb-5">
+                <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="text-xs sm:text-base font-bold text-slate-900 dark:text-white mb-1.5 sm:mb-2 line-clamp-2">
+                {t.feature3Title}
+              </h3>
+              <p className="text-[10.5px] sm:text-xs text-slate-500 dark:text-slate-400 leading-normal sm:leading-relaxed line-clamp-4">
+                {t.feature3Desc}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-6 text-center max-w-4xl mx-auto shadow-xs">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-1.5">
+            {t.trustTitle}
+          </h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-4">
+            {t.trustSubtitle}
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100">
+            <div className="flex flex-col items-center text-center gap-2.5">
+              <Shield className="w-5 h-5 text-indigo-600 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-slate-900">{t.trust1}</p>
+                <p className="text-[10px] text-slate-400">{t.trust1Sub}</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center text-center gap-2.5">
+              <Lock className="w-5 h-5 text-emerald-600 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-slate-900">{t.trust2}</p>
+                <p className="text-[10px] text-slate-400">{t.trust2Sub}</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center text-center gap-2.5">
+              <Cpu className="w-5 h-5 text-cyan-600 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-slate-900">{t.trust3}</p>
+                <p className="text-[10px] text-slate-400">{t.trust3Sub}</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center text-center gap-2.5">
+              <CheckCircle className="w-5 h-5 text-amber-600 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-slate-900">{t.trust4}</p>
+                <p className="text-[10px] text-slate-400">{t.trust4Sub}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Current() {
+  return (
+    <main className="min-h-screen bg-white dark:bg-slate-950">
+      <FeaturesSection />
+    </main>
+  );
+}
