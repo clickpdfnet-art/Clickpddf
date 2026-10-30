@@ -102,6 +102,33 @@ test('the tools index is served as a canonical static page for GET and HEAD', as
   }
 });
 
+test('bare /tools permanently redirects to the canonical URL in one step for GET and HEAD', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  const origins = [
+    'http://www.clickpdf.net',
+    'https://www.clickpdf.net',
+    'http://clickpdf.net',
+    'https://clickpdf.net',
+  ];
+  const canonicalUrl = 'https://www.clickpdf.net/tools/?audit=utility';
+
+  for (const method of ['GET', 'HEAD']) {
+    for (const origin of origins) {
+      const response = await worker.fetch(
+        new Request(`${origin}/tools?audit=utility`, { method }),
+        env,
+      );
+
+      assert.equal(response.status, 301, `${method} ${origin}/tools redirects permanently`);
+      assert.equal(
+        response.headers.get('location'),
+        canonicalUrl,
+        `${method} ${origin}/tools redirects directly and preserves its query`,
+      );
+    }
+  }
+});
+
 test('completed localized tool routes serve matching canonical static pages', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
   const localizedRoutes = tools.flatMap((tool) =>

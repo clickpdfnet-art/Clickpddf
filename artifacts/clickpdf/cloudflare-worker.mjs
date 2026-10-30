@@ -7,6 +7,7 @@ const AD_ASSET_PATHS = new Set(['/ad-320x50.html', '/ad-320x50']);
 const AD_ASSET_STORAGE_PATH = '/ad-320x50';
 const PUBLIC_STATIC_PAGE_PATHS = new Set([
   '/faq',
+  '/tools',
   '/batch',
   '/about',
   '/contact',
