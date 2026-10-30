@@ -2,6 +2,7 @@ import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readActiveToolRegistry } from './static-tool-registry.mjs';
+import { setGeneratedSitemapComment } from './sitemap-summary.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
@@ -249,7 +250,7 @@ const blogUrlBlocks = articles.map((article) => {
   return `  <url>\n    <loc>${escapeXml(article.url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imageXml}${alternateXml}${defaultXml}\n  </url>`;
 });
 
-const toolUrlBlocks = activeTools.flatMap((tool) => {
+const toolUrlEntries = activeTools.flatMap((tool) => {
   const englishUrl = `${baseUrl}/tools/${encodeURIComponent(tool.slug)}/`;
   const localizedLocales = Object.entries(toolSeoTranslations)
     .filter(([locale, localeData]) => Boolean(localeData?.tools?.[tool.id] && tool.localizedTitles?.[locale]))
@@ -267,10 +268,15 @@ const toolUrlBlocks = activeTools.flatMap((tool) => {
   ].map(({ locale, url }) =>
     `    <xhtml:link rel="alternate" hreflang="${escapeXml(locale)}" href="${escapeXml(url)}" />`,
   ).join('\n');
-  return alternateUrls.map(({ url }) =>
-    `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>`,
-  );
+  return alternateUrls.map(({ locale, url }) => ({
+    locale,
+    block: `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>`,
+  }));
 });
+const toolUrlBlocks = toolUrlEntries.map(({ block }) => block);
+const publicToolCount = activeTools.length;
+const generatedToolUrlCount = toolUrlEntries.length;
+const localizedToolRouteCount = toolUrlEntries.filter(({ locale }) => locale !== 'en').length;
 
 const utilityPageBlocks = [
   {
@@ -335,13 +341,14 @@ retainedBlocks.splice(blogIndexIndex >= 0 ? blogIndexIndex + 1 : retainedBlocks.
 
 const preservedHeader = sitemap.slice(0, sitemap.indexOf('  <url>'));
 const preservedFooter = sitemap.slice(sitemap.lastIndexOf('</urlset>'));
-const countComment = `<!-- Generated sitemap: ${retainedBlocks.length} URLs, including ${toolUrlBlocks.length} public tools, ${articles.length} Markdown blog posts and localized alternates. -->\n`;
+const countComment = `<!-- Generated sitemap: ${retainedBlocks.length} URLs, including ${publicToolCount} public tools and ${generatedToolUrlCount} tool route URLs (${localizedToolRouteCount} localized routes), ${articles.length} Markdown blog posts and localized alternates. -->`;
 const namespaceSafeHeader = preservedHeader
   .replace(/<!--\s*Total URLs:[\s\S]*?-->\s*/i, '')
   .replace(/<!--[\s\S]*?-->\s*$/, '');
-sitemap = `${namespaceSafeHeader}${countComment}${retainedBlocks.join('\n')}\n${preservedFooter}`;
+const sitemapWithoutSummary = `${namespaceSafeHeader}${retainedBlocks.join('\n')}\n${preservedFooter}`;
+sitemap = setGeneratedSitemapComment(sitemapWithoutSummary, countComment);
 
 await writeFile(sitemapPath, sitemap, 'utf8');
 console.log(
-  `Generated sitemap routes for ${toolUrlBlocks.length} public tools, ${articles.length} Markdown articles, FAQ, batch queue, and ${legalPages.length} legal pages.`,
+  `Generated sitemap routes for ${publicToolCount} public tools: ${generatedToolUrlCount} tool route URLs, including ${localizedToolRouteCount} localized routes; ${articles.length} Markdown articles, FAQ, batch queue, and ${legalPages.length} legal pages.`,
 );
