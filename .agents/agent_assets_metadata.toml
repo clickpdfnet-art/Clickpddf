@@ -154,3 +154,17 @@ mtime_ms = 1793165934328
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/1827a889-c74c-4e53-b9e3-ba14426e2665/94f8fd40-8583-4efe-929c-75fa8c3dfbb1"
 storage_version_token = "1793165965908761"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "2OpwCNtXFonrXtFx2rN02"
+uri = "file://artifacts/clickpdf/reports/final-multilingual-seo-verification-2026-10-30.md"
+type = "text"
+title = "ClickPDF multilingual SEO verification"
+description = "Full verification report with 21-tool and 21-language results, JSON-LD checks, live HTTP and sitemap evidence, tests, warnings, and screenshots."
+logical_id = "8363248c-6c31-42f4-992e-48c692fb497c"
+content_hash = "sha256:b9abac7ca4f656beb9980b59c6042f1bdab0ff49b4ae6ffe86d66619869f0efe"
+size = 13297
+mtime_ms = 1793371175391
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:2c97025c-c705-4512-9aaa-8b3400625633/8363248c-6c31-42f4-992e-48c692fb497c/5b77db08-4fd8-4cc3-9e30-bdb3802c1258"
+storage_version_token = "1793371200747902"
+content_type = "text/markdown"
