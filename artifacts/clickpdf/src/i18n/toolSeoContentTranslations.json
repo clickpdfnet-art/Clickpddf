@@ -2586,7 +2586,7 @@
           { "question": "转换会恢复原始演示文稿结构吗？", "answer": "通常不会。PDF 不包含完整的原始演示文稿结构、对象和动画信息。" },
           { "question": "幻灯片中的文字和图形都能单独编辑吗？", "answer": "不能保证。转换后的页面外观和内容可编辑性可能不同，请在目标应用中检查。" },
           { "question": "转换扫描版 PDF 需要 OCR 吗？", "answer": "扫描页是图像；要识别其中的文字可能需要 OCR，识别结果应校对。" },
-          { "question": "原始 PDF 会被更改吗？", "answer": "不会。转换会创建新的 PPTX 文件，原始 PDF 保持不变。" },
+          { "question": "转换后原始 PDF 文件还会保留吗？", "answer": "会。工具会创建新的 PPTX 文件，不会覆盖原始 PDF。" },
           { "question": "转换时文件会上传到服务器吗？", "answer": "所选文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和已启用的服务。" }
         ]
       },
@@ -2604,7 +2604,7 @@
           { "question": "可以用什么方式添加签名标记？", "answer": "可使用工作区提供的绘制、文字输入或图像选项；可用功能以当前工具界面为准。" },
           { "question": "添加的签名是法律认证的电子签名吗？", "answer": "不能据此认定。此功能不会提供身份核验或证书签名；请遵循文件接收方和当地法律的要求。" },
           { "question": "签名标记可以移动或调整大小吗？", "answer": "使用工作区中可用的控件调整位置和大小，并在下载前检查页面。" },
-          { "question": "原始 PDF 会被覆盖吗？", "answer": "不会。请下载带签名标记的新文件并保留原始文档。" },
+          { "question": "下载签名结果时应保留什么？", "answer": "请下载带签名标记的新文件，并保留原始 PDF 文档。" },
           { "question": "签名处理会上传文件吗？", "answer": "选中文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源或启用的服务。" }
         ]
       },
@@ -2618,12 +2618,120 @@
           { "title": "下载并检查", "description": "打开 PDF，检查页面、字体和图像后再提交或分享。" }
         ],
         "faqs": [
-          { "question": "可以转换哪些 Word 文件格式？", "answer": "此工具接受 DOCX；旧版 DOC 格式不受支持。" },
+          { "question": "此工具接受哪种 Word 文档扩展名？", "answer": "此工具接受 DOCX；旧版 DOC 格式不受支持。" },
           { "question": "输出 PDF 中的文字可以选择吗？", "answer": "生成的页面是图像，因此文字通常不能像常规文本 PDF 那样选择或搜索。" },
           { "question": "转换会完全保留 Word 的分页和版式吗？", "answer": "不保证完全一致。字体、分页、图像和页面布局可能变化；请检查生成的 PDF。" },
           { "question": "转换后的 PDF 页面是什么形式？", "answer": "页面以图像方式呈现；如果需要可选择的文字，请确认这种输出适合你的用途。" },
           { "question": "原始 DOCX 会被修改吗？", "answer": "不会。工具会生成新的 PDF 文件，原始 DOCX 保持不变。" },
           { "question": "转换时会把文档上传吗？", "answer": "选中文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和启用的服务。" }
+        ]
+      },
+      "protect": {
+        "introHeading": "使用 ClickPDF 格式为 PDF 添加密码保护",
+        "intro": "在浏览器中使用 AES-256-GCM 加密文件。生成的是 ClickPDF 专用保护格式，只能通过 ClickPDF Unlock 和正确密码打开；忘记密码后无法恢复。",
+        "stepsHeading": "三步保护 PDF",
+        "steps": [
+          { "title": "选择 PDF", "description": "添加需要保护的 PDF，并确认选择了正确文件。" },
+          { "title": "设置密码并加密", "description": "输入并确认密码，然后运行 AES-256-GCM 保护。" },
+          { "title": "下载并妥善保存", "description": "下载受保护文件并安全保存密码；请先用 ClickPDF Unlock 验证副本。" }
+        ],
+        "faqs": [
+          { "question": "这会使用哪种加密？", "answer": "工具通过浏览器 Web Crypto 使用 AES-256-GCM；不要把它描述为任何未经证明的认证或合规保证。" },
+          { "question": "普通 PDF 阅读器能打开受保护文件吗？", "answer": "不能保证。该文件使用 ClickPDF 专用保护格式，应使用 ClickPDF Unlock 和正确密码打开。" },
+          { "question": "忘记密码后可以恢复文件吗？", "answer": "不能。密码无法由 ClickPDF 恢复；请在加密前安全保存密码和原始文件。" },
+          { "question": "加密时 PDF 会上传到服务器吗？", "answer": "所选文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源或已启用服务。" },
+          { "question": "加密会覆盖原始 PDF 吗？", "answer": "工具会创建受保护的副本。请下载并检查结果，同时保留原始 PDF。" },
+          { "question": "如何打开 ClickPDF 保护的文件？", "answer": "在 ClickPDF Unlock 中选择该文件并输入保护时设置的正确密码。" }
+        ]
+      },
+      "unlock": {
+        "introHeading": "打开由 ClickPDF Protect 创建的文件",
+        "intro": "使用正确密码在浏览器中解密 ClickPDF Protect 生成的文件。此工具不能解锁任意标准 PDF 的密码保护，也无法绕过或恢复未知密码。",
+        "stepsHeading": "三步打开 ClickPDF 保护文件",
+        "steps": [
+          { "title": "选择 ClickPDF 文件", "description": "添加由 ClickPDF Protect 创建的受保护文件。" },
+          { "title": "输入正确密码", "description": "输入创建受保护副本时设置的密码。" },
+          { "title": "解锁并检查", "description": "运行解密，下载结果并确认页面可正常打开。" }
+        ],
+        "faqs": [
+          { "question": "这个工具能打开哪些受保护文件？", "answer": "它只支持 ClickPDF Protect 创建的专用文件，不能解锁任意标准 PDF。" },
+          { "question": "可以移除普通 PDF 的打开密码吗？", "answer": "不能。此工具不能打开或移除其他标准 PDF 的密码保护。" },
+          { "question": "忘记密码时能否恢复文件？", "answer": "不能。需要创建文件时设置的正确密码；ClickPDF 不提供密码恢复。" },
+          { "question": "解锁时文件内容会上传吗？", "answer": "所选文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和启用的服务。" },
+          { "question": "解锁会改写受保护的原始文件吗？", "answer": "工具生成可下载的解锁副本；请检查结果并保留原文件。" },
+          { "question": "为何普通 PDF 阅读器无法识别该文件？", "answer": "ClickPDF Protect 使用专用加密格式，需通过 ClickPDF Unlock 和正确密码解密。" }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "查看或编辑 PDF 的六项元数据",
+        "intro": "检查或修改作者、标题、主题、关键词、创建程序和生成器等受支持属性，或从保存副本中清除这些字段。仅编辑界面列出的属性。",
+        "stepsHeading": "三步编辑 PDF 元数据",
+        "steps": [
+          { "title": "选择 PDF", "description": "在浏览器中打开需要检查或更新的文件。" },
+          { "title": "修改支持的字段", "description": "查看作者、标题、主题、关键词、创建程序和生成器字段，并按需编辑或清除。" },
+          { "title": "保存并复核", "description": "下载新副本并重新打开，确认所需属性已更新。" }
+        ],
+        "faqs": [
+          { "question": "可以编辑哪些元数据？", "answer": "工具支持作者、标题、主题、关键词、创建程序和生成器这六项属性。" },
+          { "question": "修改元数据会改变 PDF 页面内容吗？", "answer": "这些字段描述文档属性；它们不会用于编辑页面正文、图像或版面。" },
+          { "question": "可以从保存副本中清除这些字段吗？", "answer": "可以。对工具列出的支持字段使用清除选项，然后保存并检查新副本。" },
+          { "question": "编辑会覆盖原始 PDF 吗？", "answer": "请将结果作为新副本下载；保留原件，并在分享前检查元数据。" },
+          { "question": "文件内容会发送到处理服务器吗？", "answer": "选中文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和已启用服务。" },
+          { "question": "清除元数据能保证匿名吗？", "answer": "不能保证完全匿名。请检查支持字段以外的文档内容和其他可能识别身份的信息。" }
+        ]
+      },
+      "organize": {
+        "introHeading": "可视化整理 PDF 页面",
+        "intro": "在页面网格中查看 PDF 页面，并使用工具提供的选项重新排序、旋转、交换或删除页面。删除页面不是安全的内容涂黑或脱敏。",
+        "stepsHeading": "三步整理 PDF 页面",
+        "steps": [
+          { "title": "选择 PDF", "description": "添加需要整理的文档，并等待页面缩略图加载。" },
+          { "title": "调整页面", "description": "按需要重新排序、旋转、交换或删除页面，并检查选择。" },
+          { "title": "保存并检查", "description": "下载处理后的 PDF，确认页面顺序、方向和内容。" }
+        ],
+        "faqs": [
+          { "question": "可以对页面执行哪些操作？", "answer": "使用工作区中可用的控件重新排序、旋转、交换或删除页面。" },
+          { "question": "整理时能否删除页面上的部分文字？", "answer": "不能。删除页面会移除整页，不会安全地涂黑或脱敏页面的一部分。" },
+          { "question": "可以调整页面顺序吗？", "answer": "可以。使用页面网格重新排列页面，然后在保存前检查顺序。" },
+          { "question": "工具会上传我的 PDF 吗？", "answer": "文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源或已启用服务。" },
+          { "question": "页面整理会替换原文件吗？", "answer": "请下载修改后的副本并保留原文件，以便在需要时恢复。" },
+          { "question": "手机上也能整理页面吗？", "answer": "可在支持的移动浏览器中尝试；可用内存和屏幕尺寸可能影响操作体验。" }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "为 PDF 插入动态页码",
+        "intro": "在浏览器中为 PDF 页面添加可配置位置的页码，可使用 Page 1 of N 这类格式。下载前请检查页码位置和文档范围。",
+        "stepsHeading": "三步为 PDF 添加页码",
+        "steps": [
+          { "title": "选择 PDF", "description": "添加需要编号的文件。" },
+          { "title": "设置编号样式和位置", "description": "选择工作区提供的页码格式、起始设置和对齐位置。" },
+          { "title": "应用并检查", "description": "生成 PDF 副本，检查页码是否清晰且未遮挡正文。" }
+        ],
+        "faqs": [
+          { "question": "可以显示总页数吗？", "answer": "如果工作区提供该样式，可使用 Page 1 of N 形式显示当前页和总页数。" },
+          { "question": "页码可以放在页眉或页脚吗？", "answer": "使用工具当前提供的位置或对齐选项，并检查结果页面。" },
+          { "question": "页码会覆盖页面原有内容吗？", "answer": "若页码与正文或页边元素重叠，请调整位置后重新检查输出。" },
+          { "question": "处理时 PDF 会上传吗？", "answer": "所选文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和启用的服务。" },
+          { "question": "添加页码会替换原文件吗？", "answer": "工具生成带页码的新副本；保存原件并核对全部页面。" },
+          { "question": "可以只给部分页面编号吗？", "answer": "仅使用工具界面实际提供的范围控制；如果没有范围选项，页码会按工具当前行为应用。" }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "将 XLSX、XLS 或 CSV 转换为 PDF",
+        "intro": "在浏览器中把支持的 XLSX、XLS 或 CSV 电子表格转换为分页 PDF 表格。较大的工作表可能跨多页；列宽、分页和打印版式需要在输出中复核。",
+        "stepsHeading": "三步将电子表格转换为 PDF",
+        "steps": [
+          { "title": "选择电子表格", "description": "添加 XLSX、XLS 或 CSV 文件。" },
+          { "title": "生成分页表格", "description": "运行转换，并检查列宽、横向布局和分页。" },
+          { "title": "下载并复核", "description": "打开 PDF，逐页查看内容和打印版式后再分享。" }
+        ],
+        "faqs": [
+          { "question": "支持哪些电子表格格式？", "answer": "工具接受 XLSX、XLS 和 CSV 文件；请先确认文件格式受支持。" },
+          { "question": "转换后表格会全部放在一页吗？", "answer": "不一定。较大的工作表可能分页；请检查列宽、行和分页位置。" },
+          { "question": "PDF 会完全保留电子表格的版式吗？", "answer": "不能保证完全一致。请在输出 PDF 中核对列宽、分页和打印布局。" },
+          { "question": "转换会上传工作簿吗？", "answer": "选中文件内容在浏览器中处理；网页仍可能请求页面资源和已启用的第三方服务。" },
+          { "question": "转换会修改原始工作簿吗？", "answer": "工具会生成新的 PDF；保留原始 XLSX、XLS 或 CSV 文件。" },
+          { "question": "生成的 PDF 可以直接打印吗？", "answer": "下载后先检查页面方向、缩放、列宽和分页，再决定是否打印。" }
         ]
       }
     }
@@ -2869,7 +2977,7 @@
           { "question": "Naibabalik ba ang orihinal na istruktura ng presentasyon?", "answer": "Karaniwang hindi. Hindi taglay ng PDF ang buong orihinal na istruktura ng presentasyon, mga object at animation." },
           { "question": "Mae-edit ba nang hiwalay ang teksto at mga graphic sa slide?", "answer": "Walang garantiyang mae-edit ang bawat elemento. Suriin ang itsura at kakayahang mag-edit sa app na gagamitin mo." },
           { "question": "Kailangan ba ng OCR ang scanned PDF?", "answer": "Mga larawan ang scanned page; maaaring kailanganin ang OCR para makilala ang teksto at dapat suriin ang pagkilala." },
-          { "question": "Binabago ba ang orihinal na PDF?", "answer": "Hindi. Gumagawa ang conversion ng bagong PPTX file at hindi binabago ang orihinal na PDF." },
+          { "question": "Nananatili ba ang napiling PDF pagkatapos ng conversion?", "answer": "Oo. Gumagawa ang conversion ng bagong PPTX file at hindi binabago ang orihinal na PDF." },
           { "question": "Ina-upload ba ang PDF habang kino-convert?", "answer": "Pinoproseso sa browser ang nilalaman ng napiling file at hindi ipinapadala sa mga server ng ClickPDF para sa pagproseso ng dokumento; maaari pa ring humiling ng resources at serbisyo ang webpage." }
         ]
       },
@@ -2887,7 +2995,7 @@
           { "question": "Paano ako makakapagdagdag ng marka ng lagda?", "answer": "Gamitin ang drawing, pag-type o pagdagdag ng larawan na ipinapakita sa workspace." },
           { "question": "Sertipikadong digital signature ba ito?", "answer": "Hindi. Hindi nagbibigay ang feature ng identity check o certificate-backed signature; sundin ang mga rekisito ng tatanggap at naaangkop na batas." },
           { "question": "Maaari ko bang ilipat o baguhin ang laki ng lagda?", "answer": "Gamitin ang mga kontrol sa workspace para itakda ang puwesto at laki, pagkatapos ay suriin ang pahina." },
-          { "question": "Mapapalitan ba ang orihinal na PDF?", "answer": "Hindi. I-download ang bagong kopyang may marka at itabi ang orihinal na dokumento." },
+          { "question": "Ano ang dapat itabi pagkatapos i-download ang nilagdaang kopya?", "answer": "I-download ang bagong kopyang may marka at itabi ang orihinal na dokumento." },
           { "question": "Ina-upload ba ang dokumento para lagdaan?", "answer": "Pinoproseso sa browser ang nilalaman ng napiling file at hindi ipinapadala sa mga server ng ClickPDF para sa pagproseso ng dokumento; maaari pa ring humiling ng resources o serbisyo ang webpage." }
         ]
       },
@@ -2907,6 +3015,114 @@
           { "question": "Ano ang anyo ng mga PDF page pagkatapos ng conversion?", "answer": "Larawan ang pagkakagawa sa mga pahina; tiyaking angkop ito kung kailangan mo ng napipiling teksto." },
           { "question": "Binabago ba ang orihinal na DOCX?", "answer": "Hindi. Gumagawa ang tool ng bagong PDF at iniiwan ang orihinal na DOCX na hindi nagbabago." },
           { "question": "Ina-upload ba ang dokumento habang kino-convert?", "answer": "Pinoproseso sa browser ang nilalaman ng napiling file at hindi ipinapadala sa mga server ng ClickPDF para sa pagproseso ng dokumento; maaari pa ring humiling ng resources at pinaganang serbisyo ang webpage." }
+        ]
+      },
+      "protect": {
+        "introHeading": "Protektahan ang PDF sa ClickPDF format",
+        "intro": "Gumagamit ang tool ng AES-256-GCM sa browser. Nasa espesyal na ClickPDF format ang output at mabubuksan lang sa ClickPDF Unlock gamit ang tamang password; hindi mare-recover ang nakalimutang password.",
+        "stepsHeading": "Protektahan ang PDF sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng PDF", "description": "Idagdag ang dokumentong gusto mong protektahan at tiyaking tama ang napili." },
+          { "title": "Magtakda ng password", "description": "Ilagay at kumpirmahin ang password bago patakbuhin ang encryption." },
+          { "title": "I-download at itabi", "description": "I-download ang protektadong kopya at ligtas na itabi ang password at orihinal na file." }
+        ],
+        "faqs": [
+          { "question": "Anong encryption ang ginagamit?", "answer": "AES-256-GCM ang ginagamit sa pamamagitan ng Web Crypto sa browser; hindi ito dapat ituring na hindi napatunayang certification o compliance guarantee." },
+          { "question": "Mabubuksan ba ito sa karaniwang PDF reader?", "answer": "Hindi garantisado. Espesyal na ClickPDF format ang output at kailangan ang ClickPDF Unlock at tamang password." },
+          { "question": "Mare-recover ba ang password na nakalimutan ko?", "answer": "Hindi. Hindi mare-recover ng ClickPDF ang password; itabi ito nang ligtas bago mag-encrypt." },
+          { "question": "Ina-upload ba ang file habang pinoprotektahan?", "answer": "Pinoproseso sa browser ang nilalaman ng file at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources at enabled services ang webpage." },
+          { "question": "Pinapalitan ba nito ang orihinal na PDF?", "answer": "Gumagawa ang tool ng protektadong kopya. I-download at suriin ito habang iniingatan ang orihinal." },
+          { "question": "Paano ko bubuksan ang protektadong file?", "answer": "Piliin ito sa ClickPDF Unlock at ilagay ang tamang password na itinakda noong pinrotektahan ang file." }
+        ]
+      },
+      "unlock": {
+        "introHeading": "Buksan ang file na ginawa ng ClickPDF Protect",
+        "intro": "Gamitin ang tamang password upang i-decrypt sa browser ang file na ginawa ng ClickPDF Protect. Hindi nito naa-unlock ang karaniwang password-protected PDF o nababawi ang hindi alam na password.",
+        "stepsHeading": "Buksan ang ClickPDF file sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng protektadong file", "description": "Idagdag ang file na ginawa ng ClickPDF Protect." },
+          { "title": "Ilagay ang password", "description": "I-type ang tamang password na ginamit sa pagprotekta sa file." },
+          { "title": "I-unlock at suriin", "description": "Patakbuhin ang decryption, i-download ang resulta at tiyaking nabubuksan ang mga pahina." }
+        ],
+        "faqs": [
+          { "question": "Anong mga file ang sinusuportahan ng tool?", "answer": "Mga file lang na ginawa ng ClickPDF Protect ang sinusuportahan; hindi nito naa-unlock ang karaniwang PDF." },
+          { "question": "Maaari ba nitong alisin ang password sa ordinaryong PDF?", "answer": "Hindi. Hindi nito binubuksan o inaalis ang proteksyon ng karaniwang PDF mula sa ibang tool." },
+          { "question": "Mababawi ba ang file kung nakalimutan ang password?", "answer": "Hindi. Kailangan ang tamang password na itinakda sa paglikha; walang password recovery ang ClickPDF." },
+          { "question": "Ipinapadala ba sa server ang nilalaman habang ina-unlock?", "answer": "Pinoproseso sa browser ang nilalaman ng napiling file at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources at enabled services ang webpage." },
+          { "question": "Binabago ba ang orihinal na protektadong file?", "answer": "Gumagawa ang tool ng mada-download na unlocked copy; suriin ang resulta at itabi ang orihinal." },
+          { "question": "Bakit hindi ito mabasa ng ordinaryong PDF reader?", "answer": "Gumagamit ang ClickPDF Protect ng espesyal na encrypted format na kailangang i-decrypt sa ClickPDF Unlock gamit ang tamang password." }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "Tingnan at i-edit ang anim na PDF metadata field",
+        "intro": "Suriin o baguhin ang may-akda, pamagat, paksa, keyword, application na gumawa at producer, o alisin ang mga field na ito sa bagong kopya. I-edit lang ang mga property na ipinapakita ng tool.",
+        "stepsHeading": "I-edit ang PDF metadata sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng PDF", "description": "Buksan sa browser ang file na gusto mong suriin o baguhin." },
+          { "title": "Baguhin ang mga field", "description": "Suriin ang anim na suportadong property at i-edit o i-clear ang kinakailangan." },
+          { "title": "I-save at tiyakin", "description": "I-download ang bagong kopya at buksan itong muli upang tiyaking tama ang mga field." }
+        ],
+        "faqs": [
+          { "question": "Aling metadata ang puwedeng baguhin?", "answer": "May anim na suportadong field: may-akda, pamagat, paksa, keyword, application na gumawa at producer." },
+          { "question": "Binabago ba nito ang teksto sa mga pahina?", "answer": "Hindi. Mga property ng dokumento ang mga field na ito; hindi nito ine-edit ang nakikitang teksto, larawan o layout." },
+          { "question": "Maaari ko bang alisin ang mga suportadong field?", "answer": "Oo. Gamitin ang clear option para sa mga field na ipinapakita ng tool, pagkatapos ay i-save at suriin ang kopya." },
+          { "question": "Pinapalitan ba ang orihinal na PDF?", "answer": "I-download ang binagong kopya at itabi ang orihinal. Suriin ang metadata bago magbahagi." },
+          { "question": "Ina-upload ba ang file sa processing server?", "answer": "Pinoproseso sa browser ang file at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources at enabled services ang webpage." },
+          { "question": "Tinitiyak ba ng pag-clear ng metadata ang pagiging anonymous?", "answer": "Hindi. Suriin din ang nilalaman ng dokumento at iba pang impormasyong maaaring makakilala sa iyo." }
+        ]
+      },
+      "organize": {
+        "introHeading": "Ayusin nang biswal ang mga PDF page",
+        "intro": "Tingnan ang mga page sa grid at gamitin ang mga opsyon ng tool upang mag-ayos ng pagkakasunod-sunod, umikot, magpalit o magtanggal ng pahina. Hindi ligtas na redaction ang pagtanggal ng page.",
+        "stepsHeading": "Ayusin ang PDF sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng PDF", "description": "Idagdag ang dokumento at hintaying lumabas ang mga thumbnail ng pahina." },
+          { "title": "Ayusin ang mga pahina", "description": "I-reorder, i-rotate, ipagpalit o tanggalin ang mga page gamit ang mga kontrol na available." },
+          { "title": "I-save at suriin", "description": "I-download ang naprosesong PDF at tiyakin ang pagkakasunod-sunod, direksyon at nilalaman." }
+        ],
+        "faqs": [
+          { "question": "Anong mga pagbabago sa page ang puwede?", "answer": "Gamitin ang mga kontrol sa workspace para mag-reorder, mag-rotate, magpalit o magtanggal ng mga page." },
+          { "question": "Maaari ko bang burahin ang bahagi ng teksto sa page?", "answer": "Hindi. Buong pahina ang inaalis; hindi nito ligtas na tinatakpan o nire-redact ang bahagi ng pahina." },
+          { "question": "Paano ko babaguhin ang pagkakasunod-sunod?", "answer": "Ayusin muli ang mga page sa grid at tiyakin ang tamang order bago mag-save." },
+          { "question": "Ina-upload ba sa server ang PDF?", "answer": "Pinoproseso sa browser ang file at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources at enabled services ang webpage." },
+          { "question": "Pinapalitan ba ang orihinal na file?", "answer": "I-download ang binagong kopya at itabi ang orihinal kung kailangan mong bumalik sa dating bersyon." },
+          { "question": "Magagamit ko ba ito sa mobile?", "answer": "Subukan sa suportadong mobile browser; maaaring makaapekto ang memory at laki ng screen sa paggamit." }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "Magdagdag ng dynamic na numero ng pahina",
+        "intro": "Maglagay ng numero sa mga PDF page sa napiling posisyon, kabilang ang format na Page 1 of N kung available sa tool. Suriin ang posisyon at saklaw bago i-download.",
+        "stepsHeading": "Maglagay ng page number sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng PDF", "description": "Idagdag ang file na lalagyan ng numero ng pahina." },
+          { "title": "Piliin ang format at puwesto", "description": "Gamitin ang format, panimulang setting at alignment na ipinapakita sa workspace." },
+          { "title": "Ilapat at suriin", "description": "Gumawa ng kopya at tiyaking nababasa ang mga numero at hindi natatakpan ang teksto." }
+        ],
+        "faqs": [
+          { "question": "Maipapakita ba ang kabuuang bilang ng page?", "answer": "Kung available ang setting, puwedeng gamitin ang format na Page 1 of N upang ipakita ang kasalukuyang pahina at kabuuan." },
+          { "question": "Saan maaaring ilagay ang mga numero?", "answer": "Pumili sa mga posisyon o alignment na aktuwal na ibinibigay ng tool at suriin ang resulta." },
+          { "question": "Maaari bang matakpan ng numero ang laman ng page?", "answer": "Kung may overlap sa teksto o gilid, baguhin ang posisyon at suriin muli ang PDF." },
+          { "question": "Ina-upload ba ang PDF habang nilalagyan ng numero?", "answer": "Pinoproseso sa browser ang nilalaman at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources ang webpage." },
+          { "question": "Pinapalitan ba nito ang orihinal na PDF?", "answer": "Gumagawa ang tool ng bagong kopyang may numero; itabi ang orihinal at suriin ang lahat ng pahina." },
+          { "question": "Puwede bang ilang pahina lang ang lagyan?", "answer": "Gamitin lang ang page-range control kung ipinapakita ito ng interface; kung wala, sundin ang default na saklaw ng tool." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "I-convert ang XLSX, XLS o CSV sa PDF",
+        "intro": "I-convert sa browser ang suportadong XLSX, XLS o CSV spreadsheet bilang may-pahinang PDF tables. Maaaring umabot sa maraming pahina ang malalaking sheet; suriin ang lapad ng column, page break at print layout.",
+        "stepsHeading": "I-convert ang spreadsheet sa PDF sa tatlong hakbang",
+        "steps": [
+          { "title": "Pumili ng spreadsheet", "description": "Idagdag ang XLSX, XLS o CSV file." },
+          { "title": "Gumawa ng PDF table", "description": "Patakbuhin ang conversion at suriin ang lapad ng column, landscape layout at mga page break." },
+          { "title": "I-download at suriin", "description": "Buksan ang PDF at tingnan ang bawat pahina at print layout bago ibahagi." }
+        ],
+        "faqs": [
+          { "question": "Anong spreadsheet format ang tinatanggap?", "answer": "Tinatanggap ng tool ang XLSX, XLS at CSV; tiyaking suportado ang format ng file." },
+          { "question": "Kasya ba sa isang page ang buong spreadsheet?", "answer": "Hindi palagi. Maaaring hatiin sa maraming pahina ang malalaking sheet; tingnan ang mga column at page break." },
+          { "question": "Eksaktong mapapanatili ba ang spreadsheet layout?", "answer": "Walang garantiyang eksakto. Suriin ang column width, pagination at print layout sa PDF." },
+          { "question": "Ina-upload ba ang workbook habang kino-convert?", "answer": "Pinoproseso sa browser ang nilalaman ng file; maaari pa ring humiling ang webpage ng resources at enabled third-party services." },
+          { "question": "Binabago ba ang orihinal na spreadsheet?", "answer": "Bagong PDF ang ginagawa ng tool; itabi ang orihinal na XLSX, XLS o CSV." },
+          { "question": "Handa na ba agad itong i-print?", "answer": "Suriin muna ang direksyon ng pahina, scaling, lapad ng column at page break bago mag-print." }
         ]
       }
     }
@@ -3151,8 +3367,8 @@
           { "question": "¿Qué formato tiene el archivo resultante?", "answer": "La herramienta crea un archivo PPTX que puedes abrir en PowerPoint o una aplicación compatible." },
           { "question": "¿Se recupera la estructura original de la presentación?", "answer": "Normalmente no. El PDF no contiene toda la estructura original de la presentación, sus objetos ni sus animaciones." },
           { "question": "¿Puedo editar por separado el texto y los gráficos de las diapositivas?", "answer": "No se garantiza que cada elemento sea editable. Comprueba el aspecto y la edición en la aplicación que vayas a usar." },
-          { "question": "¿Los PDF escaneados necesitan OCR?", "answer": "Las páginas escaneadas son imágenes y pueden necesitar OCR para reconocer el texto; revisa el reconocimiento." },
-          { "question": "¿Se modifica el PDF original?", "answer": "No. La conversión crea un archivo PPTX nuevo y deja intacto el PDF original." },
+          { "question": "¿Qué ocurre al convertir un PDF compuesto por páginas escaneadas?", "answer": "Las páginas escaneadas son imágenes y pueden necesitar OCR para reconocer el texto; revisa el reconocimiento." },
+          { "question": "¿La conversión conserva el archivo PDF que seleccioné?", "answer": "Sí. La conversión crea un archivo PPTX nuevo y deja intacto el PDF original." },
           { "question": "¿Se sube el PDF a un servidor durante la conversión?", "answer": "El contenido del archivo seleccionado se procesa en el navegador y no se envía a los servidores de procesamiento de documentos de ClickPDF; la página puede solicitar recursos y servicios habilitados." }
         ]
       },
@@ -3190,6 +3406,114 @@
           { "question": "¿Cómo se representan las páginas del PDF convertido?", "answer": "Las páginas se representan como imágenes; comprueba que este formato te sirve si necesitas texto seleccionable." },
           { "question": "¿Se modifica el DOCX original?", "answer": "No. La herramienta crea un PDF nuevo y deja intacto el DOCX original." },
           { "question": "¿Se sube el documento durante la conversión?", "answer": "El contenido del archivo seleccionado se procesa en el navegador y no se envía a los servidores de procesamiento de documentos de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." }
+        ]
+      },
+      "protect": {
+        "introHeading": "Protege un PDF con el formato de ClickPDF",
+        "intro": "El navegador usa AES-256-GCM para cifrar el archivo. El resultado tiene un formato protegido propio de ClickPDF y requiere ClickPDF Unlock y la contraseña correcta; una contraseña olvidada no se puede recuperar.",
+        "stepsHeading": "Protege un PDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona un PDF", "description": "Añade el documento que quieres proteger y comprueba que sea el archivo correcto." },
+          { "title": "Establece una contraseña", "description": "Escribe y confirma la contraseña antes de iniciar el cifrado." },
+          { "title": "Descarga y guarda", "description": "Descarga la copia protegida y guarda la contraseña y el original en un lugar seguro." }
+        ],
+        "faqs": [
+          { "question": "¿Qué cifrado utiliza la herramienta?", "answer": "Utiliza AES-256-GCM mediante Web Crypto en el navegador; esto no debe interpretarse como una certificación o garantía de cumplimiento no verificada." },
+          { "question": "¿Puedo abrir el archivo en cualquier lector PDF?", "answer": "No está garantizado. El archivo usa el formato propio de ClickPDF y requiere ClickPDF Unlock y la contraseña correcta." },
+          { "question": "¿Puedo recuperar una contraseña olvidada?", "answer": "No. ClickPDF no puede recuperar la contraseña; guárdala de forma segura antes de cifrar el archivo." },
+          { "question": "¿Se sube el PDF a un servidor?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de documentos de ClickPDF; la página aún puede solicitar recursos o servicios habilitados." },
+          { "question": "¿El cifrado reemplaza el PDF original?", "answer": "La herramienta crea una copia protegida. Descárgala y revísala, y conserva también el original." },
+          { "question": "¿Cómo abro un archivo protegido por ClickPDF?", "answer": "Selecciónalo en ClickPDF Unlock e introduce la contraseña correcta que se estableció al protegerlo." }
+        ]
+      },
+      "unlock": {
+        "introHeading": "Abre archivos creados con ClickPDF Protect",
+        "intro": "Descifra en el navegador los archivos de ClickPDF Protect con la contraseña correcta. La herramienta no desbloquea PDF estándar protegidos con contraseña ni recupera contraseñas desconocidas.",
+        "stepsHeading": "Abre un archivo ClickPDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona el archivo protegido", "description": "Añade un archivo creado con ClickPDF Protect." },
+          { "title": "Introduce la contraseña", "description": "Escribe la contraseña correcta que se usó para proteger el archivo." },
+          { "title": "Desbloquea y revisa", "description": "Ejecuta el descifrado, descarga el resultado y comprueba que se abren las páginas." }
+        ],
+        "faqs": [
+          { "question": "¿Qué archivos puede abrir esta herramienta?", "answer": "Solo admite archivos creados con ClickPDF Protect; no desbloquea PDF estándar." },
+          { "question": "¿Puede quitar la contraseña de un PDF estándar?", "answer": "No. No abre ni elimina la protección de PDF estándar creados con otras herramientas." },
+          { "question": "¿Se puede recuperar el archivo si olvido la contraseña?", "answer": "No. Hace falta la contraseña correcta usada al crear el archivo; ClickPDF no ofrece recuperación de contraseñas." },
+          { "question": "¿Se envía el archivo a un servidor al desbloquearlo?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de documentos de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." },
+          { "question": "¿Se modifica el archivo protegido original?", "answer": "La herramienta crea una copia desbloqueada para descargar; revisa el resultado y conserva el original." },
+          { "question": "¿Por qué un lector PDF normal no reconoce el archivo?", "answer": "ClickPDF Protect utiliza un formato cifrado propio que debe descifrarse con ClickPDF Unlock y la contraseña correcta." }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "Consulta o edita seis propiedades de metadatos PDF",
+        "intro": "Revisa o cambia autor, título, asunto, palabras clave, aplicación creadora y productor, o limpia esos campos en una copia guardada. Limítate a las propiedades que muestra la herramienta.",
+        "stepsHeading": "Edita los metadatos PDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona un PDF", "description": "Abre en el navegador el archivo que quieres inspeccionar o actualizar." },
+          { "title": "Edita los campos disponibles", "description": "Revisa las seis propiedades admitidas y modifica o limpia las que necesites." },
+          { "title": "Guarda y verifica", "description": "Descarga una copia nueva y vuelve a abrirla para comprobar los campos." }
+        ],
+        "faqs": [
+          { "question": "¿Qué metadatos puedo editar?", "answer": "La herramienta admite seis propiedades: autor, título, asunto, palabras clave, aplicación creadora y productor." },
+          { "question": "¿Cambiar los metadatos modifica el contenido de las páginas?", "answer": "No. Son propiedades del documento; no editan el texto visible, las imágenes ni el diseño de las páginas." },
+          { "question": "¿Puedo borrar los campos admitidos?", "answer": "Sí. Usa la opción de limpiar para los campos que muestra la herramienta y guarda una copia para revisarla." },
+          { "question": "¿Se reemplaza el PDF original?", "answer": "Descarga la copia modificada y conserva el original. Comprueba los metadatos antes de compartirla." },
+          { "question": "¿El archivo se envía a un servidor de procesamiento?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de ClickPDF; la página todavía puede solicitar recursos y servicios habilitados." },
+          { "question": "¿Borrar los metadatos garantiza el anonimato?", "answer": "No. Revisa también el contenido del documento y cualquier otra información que pueda identificarte." }
+        ]
+      },
+      "organize": {
+        "introHeading": "Organiza visualmente las páginas de un PDF",
+        "intro": "Revisa las páginas en una cuadrícula y usa los controles disponibles para reordenarlas, girarlas, intercambiarlas o eliminarlas. Eliminar una página no es una redacción segura.",
+        "stepsHeading": "Organiza un PDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona un PDF", "description": "Añade el documento y espera a que aparezcan las miniaturas." },
+          { "title": "Ajusta las páginas", "description": "Reordena, gira, intercambia o elimina páginas con las opciones disponibles y revisa la selección." },
+          { "title": "Guarda y comprueba", "description": "Descarga el PDF procesado y verifica el orden, la orientación y el contenido." }
+        ],
+        "faqs": [
+          { "question": "¿Qué acciones puedo realizar en las páginas?", "answer": "Usa los controles del espacio de trabajo para reordenar, girar, intercambiar o eliminar páginas." },
+          { "question": "¿Puedo borrar solo una parte del texto?", "answer": "No. Eliminar una página quita la página completa; no oculta ni redacta de forma segura una zona." },
+          { "question": "¿Cómo cambio el orden de las páginas?", "answer": "Reordena las miniaturas en la cuadrícula y comprueba la secuencia antes de guardar." },
+          { "question": "¿Se sube mi PDF a un servidor?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de documentos de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." },
+          { "question": "¿La herramienta sustituye el archivo original?", "answer": "Descarga la copia reorganizada y conserva el original por si necesitas volver a él." },
+          { "question": "¿Puedo organizar páginas en un móvil?", "answer": "Puedes probarlo en un navegador móvil compatible; la memoria disponible y el tamaño de pantalla pueden afectar el uso." }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "Añade numeración dinámica a las páginas PDF",
+        "intro": "Inserta números en una posición configurable, incluido un formato como Página 1 de N si está disponible. Revisa la ubicación y el alcance antes de descargar.",
+        "stepsHeading": "Numera un PDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona un PDF", "description": "Añade el documento que quieres numerar." },
+          { "title": "Elige formato y posición", "description": "Selecciona el formato, el inicio y la alineación que ofrece el espacio de trabajo." },
+          { "title": "Aplica y revisa", "description": "Genera una copia y comprueba que los números se lean y no tapen el texto." }
+        ],
+        "faqs": [
+          { "question": "¿Puedo mostrar el total de páginas?", "answer": "Si el ajuste está disponible, usa el formato Página 1 de N para mostrar la página actual y el total." },
+          { "question": "¿Dónde puedo colocar los números?", "answer": "Elige una posición o alineación que aparezca en la herramienta y revisa el resultado." },
+          { "question": "¿Un número puede cubrir el contenido de la página?", "answer": "Si se superpone al texto o a elementos del margen, cambia la posición y vuelve a revisar el PDF." },
+          { "question": "¿Se sube el PDF mientras se numera?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." },
+          { "question": "¿Se reemplaza el PDF original?", "answer": "La herramienta crea una copia numerada; conserva el original y revisa todas las páginas." },
+          { "question": "¿Puedo numerar solo algunas páginas?", "answer": "Usa un control de rango solo si aparece en la interfaz; si no, se aplica el alcance predeterminado de la herramienta." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Convierte XLSX, XLS o CSV a PDF",
+        "intro": "Convierte en el navegador hojas de cálculo XLSX, XLS o CSV compatibles en tablas PDF paginadas. Las hojas grandes pueden ocupar varias páginas; revisa columnas, saltos y diseño de impresión.",
+        "stepsHeading": "Convierte una hoja de cálculo a PDF en tres pasos",
+        "steps": [
+          { "title": "Selecciona una hoja de cálculo", "description": "Añade un archivo XLSX, XLS o CSV." },
+          { "title": "Genera las tablas paginadas", "description": "Ejecuta la conversión y revisa el ancho de columnas, la orientación y los saltos de página." },
+          { "title": "Descarga y comprueba", "description": "Abre el PDF y revisa cada página y su diseño antes de compartirlo." }
+        ],
+        "faqs": [
+          { "question": "¿Qué formatos de hoja de cálculo se admiten?", "answer": "La herramienta acepta archivos XLSX, XLS y CSV; confirma que el formato del archivo sea compatible." },
+          { "question": "¿Toda la hoja cabe en una sola página?", "answer": "No necesariamente. Las hojas grandes pueden dividirse en varias páginas; revisa columnas y saltos." },
+          { "question": "¿Se conserva exactamente el diseño de la hoja?", "answer": "No está garantizado. Comprueba en el PDF el ancho de columnas, la paginación y el diseño de impresión." },
+          { "question": "¿Se sube el libro durante la conversión?", "answer": "El contenido se procesa en el navegador; la página aún puede solicitar recursos y servicios de terceros habilitados." },
+          { "question": "¿La conversión modifica la hoja original?", "answer": "La herramienta crea un PDF nuevo; conserva el archivo XLSX, XLS o CSV original." },
+          { "question": "¿El PDF ya está listo para imprimir?", "answer": "Antes de imprimir, revisa la orientación, la escala, el ancho de columnas y los saltos de página." }
         ]
       }
     }
@@ -5852,8 +6176,8 @@
           { "question": "Welk bestandsformaat wordt gemaakt?", "answer": "De tool maakt een PPTX-bestand dat u in PowerPoint of een compatibele presentatie-app kunt openen." },
           { "question": "Wordt de oorspronkelijke presentatiestructuur hersteld?", "answer": "Meestal niet. Een PDF bevat niet de volledige oorspronkelijke presentatiestructuur, objecten en animaties." },
           { "question": "Kan ik tekst en afbeeldingen op dia's afzonderlijk bewerken?", "answer": "Dat is niet gegarandeerd. Controleer de weergave en bewerkbaarheid in de app die u wilt gebruiken." },
-          { "question": "Hebben gescande PDF's OCR nodig?", "answer": "Gescande pagina's zijn afbeeldingen en kunnen OCR nodig hebben om tekst te herkennen; controleer de herkenning." },
-          { "question": "Wordt de originele PDF gewijzigd?", "answer": "Nee. De conversie maakt een nieuw PPTX-bestand en laat de oorspronkelijke PDF intact." },
+          { "question": "Wat moet ik weten over OCR bij een gescande presentatiebron?", "answer": "Gescande pagina's zijn afbeeldingen en kunnen OCR nodig hebben om tekst te herkennen; controleer de herkenning." },
+          { "question": "Blijft de gekozen PDF beschikbaar na de conversie?", "answer": "Ja. De conversie maakt een nieuw PPTX-bestand en laat de oorspronkelijke PDF intact." },
           { "question": "Wordt de PDF tijdens conversie geüpload?", "answer": "De inhoud van het geselecteerde bestand wordt in de browser verwerkt en niet naar de documentverwerkingsservers van ClickPDF gestuurd; de pagina kan nog bronnen en ingeschakelde services opvragen." }
         ]
       },
@@ -5891,6 +6215,42 @@
           { "question": "Hoe worden PDF-pagina's na de conversie weergegeven?", "answer": "Pagina's worden als afbeeldingen weergegeven; controleer of dit geschikt is als u selecteerbare tekst nodig hebt." },
           { "question": "Wordt het originele DOCX-bestand gewijzigd?", "answer": "Nee. De tool maakt een nieuwe PDF en laat het oorspronkelijke DOCX-bestand intact." },
           { "question": "Wordt mijn document tijdens de conversie geüpload?", "answer": "De inhoud van het geselecteerde bestand wordt in de browser verwerkt en niet naar de documentverwerkingsservers van ClickPDF gestuurd; de pagina kan nog bronnen en ingeschakelde services opvragen." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Haal Word-tabellen en tekst op in een Excel-werkmap",
+        "intro": "Verwerk DOCX-documenten in de browser. Elke herkende tabel komt op een eigen werkblad; alinea’s en lijsten worden verzameld op een apart werkblad Tekst. De oorspronkelijke Word-paginaopmaak wordt niet nagebouwd.",
+        "stepsHeading": "Zet Word-inhoud in drie stappen om naar Excel",
+        "steps": [
+          { "title": "Kies DOCX-documenten", "description": "Selecteer een of meer DOCX-bestanden; sla oudere DOC-bestanden eerst op als DOCX." },
+          { "title": "Extraheer tabellen en tekst", "description": "Laat de tool tabellen naar afzonderlijke werkbladen en alinea’s en lijsten naar het werkblad Tekst verwerken." },
+          { "title": "Download de XLSX-werkmap", "description": "Download en controleer de werkmap; bij meerdere documenten worden resultaten samen als ZIP aangeboden." }
+        ],
+        "faqs": [
+          { "question": "Welke Word-invoer accepteert de converter?", "answer": "De tool accepteert DOCX-bestanden. Sla oudere DOC-documenten eerst op als DOCX." },
+          { "question": "Hoe komen tabellen en tekst in de werkmap terecht?", "answer": "Elke herkende tabel krijgt een eigen werkblad; alinea’s en lijsten komen op een apart werkblad Tekst." },
+          { "question": "Blijft de Word-paginaopmaak behouden in Excel?", "answer": "Nee. De tool haalt tabellen en tekst op, maar maakt Word-paginastijlen en paginering niet na." },
+          { "question": "Kan ik meerdere Word-documenten tegelijk verwerken?", "answer": "Ja. Selecteer meerdere DOCX-bestanden; de werkmappen worden samen als ZIP-download aangeboden." },
+          { "question": "Wat moet ik in de gemaakte XLSX controleren?", "answer": "Controleer de herkende tabellen, werkbladnamen, tekst en belangrijke gegevens voordat u de werkmap gebruikt." },
+          { "question": "Wordt de inhoud van mijn Word-document naar een server gestuurd?", "answer": "De geselecteerde bestandsinhoud wordt in de browser verwerkt en niet naar de documentverwerkingsservers van ClickPDF gestuurd; de pagina kan nog bronnen opvragen." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Zet XLSX-, XLS- en CSV-bestanden om naar PDF",
+        "intro": "Maak in de browser een PDF met gepagineerde tabellen uit ondersteunde XLSX-, XLS- of CSV-spreadsheets. Grote werkbladen kunnen meerdere pagina’s beslaan; controleer kolombreedtes, pagina-einden en afdrukindeling.",
+        "stepsHeading": "Converteer een spreadsheet in drie stappen naar PDF",
+        "steps": [
+          { "title": "Selecteer een spreadsheet", "description": "Voeg een XLSX-, XLS- of CSV-bestand toe." },
+          { "title": "Maak de gepagineerde PDF", "description": "Start de conversie en controleer kolommen, liggende indeling en pagina-einden." },
+          { "title": "Download en controleer", "description": "Open de PDF en bekijk elke pagina en de afdrukindeling voordat u deelt." }
+        ],
+        "faqs": [
+          { "question": "Welke bronbestanden kan ik naar PDF omzetten?", "answer": "De tool accepteert XLSX-, XLS- en CSV-spreadsheets." },
+          { "question": "Hoe worden grote werkbladen over pagina’s verdeeld?", "answer": "Een groot werkblad kan meerdere PDF-pagina’s beslaan; controleer de pagina-einden en kolomindeling." },
+          { "question": "Welke onderdelen moet ik na de export controleren?", "answer": "Controleer kolombreedtes, paginering, afdrukrichting en of belangrijke gegevens volledig zichtbaar zijn." },
+          { "question": "Verlaat mijn spreadsheet de browser tijdens de conversie?", "answer": "De bestandsinhoud wordt in de browser verwerkt; de pagina kan nog standaardbronnen en ingeschakelde services opvragen." },
+          { "question": "Blijft mijn XLSX-, XLS- of CSV-bestand behouden?", "answer": "De tool maakt een nieuwe PDF. Bewaar het oorspronkelijke spreadsheetbestand." },
+          { "question": "Kan ik het resultaat meteen afdrukken?", "answer": "Controleer eerst de schaal, paginarichting, kolombreedtes en pagina-einden in de gedownloade PDF." }
         ]
       }
     }
@@ -6207,8 +6567,8 @@
           { "question": "Jaki format pliku otrzymam?", "answer": "Narzędzie tworzy plik PPTX, który można otworzyć w PowerPoint lub zgodnej aplikacji prezentacyjnej." },
           { "question": "Czy zostaje odtworzona oryginalna struktura prezentacji?", "answer": "Zwykle nie. PDF nie zawiera pełnej oryginalnej struktury prezentacji, obiektów ani animacji." },
           { "question": "Czy tekst i grafiki na slajdach można edytować osobno?", "answer": "Nie ma takiej gwarancji. Sprawdź wygląd i możliwości edycji w aplikacji, której będziesz używać." },
-          { "question": "Czy skanowany PDF wymaga OCR?", "answer": "Skanowane strony są obrazami i mogą wymagać OCR do rozpoznania tekstu; sprawdź wynik rozpoznawania." },
-          { "question": "Czy oryginalny PDF zostanie zmieniony?", "answer": "Nie. Konwersja tworzy nowy plik PPTX i nie modyfikuje oryginalnego PDF-a." },
+          { "question": "Co warto wiedzieć o OCR przy konwersji skanowanych stron?", "answer": "Skanowane strony są obrazami i mogą wymagać OCR do rozpoznania tekstu; sprawdź wynik rozpoznawania." },
+          { "question": "Czy wybrany plik PDF pozostaje dostępny po konwersji?", "answer": "Tak. Konwersja tworzy nowy plik PPTX i nie modyfikuje oryginalnego PDF-a." },
           { "question": "Czy PDF jest wysyłany na serwer podczas konwersji?", "answer": "Zawartość wybranego pliku jest przetwarzana w przeglądarce i nie trafia na serwery ClickPDF do przetwarzania dokumentów; strona może nadal pobierać zasoby i korzystać z usług." }
         ]
       },
@@ -6246,6 +6606,42 @@
           { "question": "Jak są przedstawione strony wynikowego PDF-a?", "answer": "Strony są obrazami; sprawdź, czy taki format spełnia Twoje potrzeby, jeśli wymagany jest zaznaczalny tekst." },
           { "question": "Czy oryginalny plik DOCX zostanie zmieniony?", "answer": "Nie. Narzędzie tworzy nowy PDF i pozostawia oryginalny DOCX bez zmian." },
           { "question": "Czy dokument jest wysyłany podczas konwersji?", "answer": "Zawartość wybranego pliku jest przetwarzana w przeglądarce i nie trafia na serwery ClickPDF; strona może nadal pobierać zasoby i korzystać z usług." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Przenieś tabele i tekst z Worda do skoroszytu Excel",
+        "intro": "Przetwarzaj dokumenty DOCX w przeglądarce. Każda wykryta tabela trafia do osobnego arkusza, a akapity i listy do oddzielnego arkusza Tekst. Układ stron Worda nie jest odtwarzany.",
+        "stepsHeading": "Przenieś zawartość Worda do Excela w trzech krokach",
+        "steps": [
+          { "title": "Wybierz dokumenty DOCX", "description": "Wybierz jeden lub więcej plików DOCX; starsze pliki DOC zapisz wcześniej jako DOCX." },
+          { "title": "Wyodrębnij tabele i tekst", "description": "Pozwól narzędziu umieścić tabele w osobnych arkuszach, a akapity i listy w arkuszu Tekst." },
+          { "title": "Pobierz skoroszyt XLSX", "description": "Pobierz i sprawdź skoroszyt; przy wielu dokumentach wyniki są udostępniane w archiwum ZIP." }
+        ],
+        "faqs": [
+          { "question": "Jakie pliki Word przyjmuje konwerter?", "answer": "Narzędzie obsługuje pliki DOCX. Starsze dokumenty DOC trzeba wcześniej zapisać jako DOCX." },
+          { "question": "Jak tabele i tekst są rozmieszczane w skoroszycie?", "answer": "Każda wykryta tabela trafia do osobnego arkusza, a akapity i listy do oddzielnego arkusza Tekst." },
+          { "question": "Czy układ stron Worda zostanie zachowany w Excelu?", "answer": "Nie. Narzędzie wyodrębnia tabele i tekst, ale nie odtwarza stylów stron ani paginacji Worda." },
+          { "question": "Czy mogę przetworzyć kilka dokumentów Word naraz?", "answer": "Tak. Wybierz kilka plików DOCX; skoroszyty zostaną udostępnione razem jako archiwum ZIP." },
+          { "question": "Co sprawdzić w wygenerowanym pliku XLSX?", "answer": "Sprawdź wykryte tabele, arkusze, tekst i ważne wartości przed użyciem skoroszytu." },
+          { "question": "Czy zawartość dokumentu Word jest wysyłana na serwer?", "answer": "Zawartość wybranego pliku jest przetwarzana w przeglądarce i nie trafia na serwery ClickPDF; strona może nadal pobierać standardowe zasoby." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Konwertuj pliki XLSX, XLS i CSV do PDF",
+        "intro": "Twórz w przeglądarce stronicowany PDF z obsługiwanych arkuszy XLSX, XLS lub CSV. Duże arkusze mogą obejmować wiele stron; sprawdź szerokości kolumn, podziały stron i układ wydruku.",
+        "stepsHeading": "Konwertuj arkusz kalkulacyjny do PDF w trzech krokach",
+        "steps": [
+          { "title": "Wybierz arkusz", "description": "Dodaj plik XLSX, XLS lub CSV." },
+          { "title": "Utwórz stronicowany PDF", "description": "Uruchom konwersję i sprawdź kolumny, orientację poziomą oraz podziały stron." },
+          { "title": "Pobierz i sprawdź", "description": "Otwórz PDF i przejrzyj każdą stronę oraz układ wydruku przed udostępnieniem." }
+        ],
+        "faqs": [
+          { "question": "Jakie pliki źródłowe można przekonwertować do PDF?", "answer": "Narzędzie obsługuje arkusze XLSX, XLS i CSV." },
+          { "question": "Jak duży arkusz jest dzielony na strony?", "answer": "Duży arkusz może zająć kilka stron PDF; sprawdź podziały stron i układ kolumn." },
+          { "question": "Co należy sprawdzić po eksporcie?", "answer": "Sprawdź szerokości kolumn, paginację, orientację wydruku i widoczność ważnych danych." },
+          { "question": "Czy arkusz opuszcza przeglądarkę podczas konwersji?", "answer": "Zawartość pliku jest przetwarzana w przeglądarce; strona może nadal pobierać standardowe zasoby i korzystać z włączonych usług." },
+          { "question": "Czy plik XLSX, XLS lub CSV pozostaje bez zmian?", "answer": "Narzędzie tworzy nowy PDF. Zachowaj oryginalny plik arkusza." },
+          { "question": "Czy wynik można od razu wydrukować?", "answer": "Najpierw sprawdź skalę, orientację stron, szerokości kolumn i podziały w pobranym PDF-ie." }
         ]
       }
     }
@@ -6562,8 +6958,8 @@
           { "question": "Vilket filformat skapas?", "answer": "Verktyget skapar en PPTX-fil som kan öppnas i PowerPoint eller en kompatibel presentationsapp." },
           { "question": "Återskapas den ursprungliga presentationsstrukturen?", "answer": "Vanligtvis inte. En PDF innehåller inte hela den ursprungliga presentationsstrukturen, objekten eller animationerna." },
           { "question": "Kan text och grafik på bilder redigeras separat?", "answer": "Det garanteras inte att varje element går att redigera. Kontrollera utseendet och redigerbarheten i appen du ska använda." },
-          { "question": "Behöver skannade PDF-filer OCR?", "answer": "Skannade sidor är bilder och kan behöva OCR för textigenkänning; granska igenkänningen." },
-          { "question": "Ändras den ursprungliga PDF-filen?", "answer": "Nej. Konverteringen skapar en ny PPTX-fil och ändrar inte original-PDF:en." },
+          { "question": "Vad gäller för OCR när käll-PDF:en består av skannade sidor?", "answer": "Skannade sidor är bilder och kan behöva OCR för textigenkänning; granska igenkänningen." },
+          { "question": "Finns den valda PDF-filen kvar efter konverteringen?", "answer": "Ja. Konverteringen skapar en ny PPTX-fil och ändrar inte original-PDF:en." },
           { "question": "Skickas PDF-filen upp under konverteringen?", "answer": "Innehållet i den valda filen behandlas i webbläsaren och skickas inte till ClickPDF:s dokumentservrar; sidan kan fortfarande hämta resurser och aktiverade tjänster." }
         ]
       },
@@ -6581,7 +6977,7 @@
           { "question": "Hur kan jag lägga till en signaturmarkering?", "answer": "Använd de alternativ för ritning, text eller bild som visas i arbetsytan." },
           { "question": "Är detta en certifierad elektronisk signatur?", "answer": "Nej. Funktionen erbjuder inte identitetskontroll eller certifikat; följ mottagarens krav och tillämpliga regler." },
           { "question": "Kan jag flytta eller ändra storlek på signaturen?", "answer": "Använd tillgängliga kontroller för att justera position och storlek och granska sedan sidan." },
-          { "question": "Skrivs den ursprungliga PDF-filen över?", "answer": "Nej. Ladda ned den nya PDF-filen med markeringen och behåll originaldokumentet." },
+          { "question": "Vad bör jag behålla efter att jag laddat ned den signerade kopian?", "answer": "Ladda ned den nya PDF-filen med markeringen och behåll originaldokumentet." },
           { "question": "Skickas dokumentet till en server för signering?", "answer": "Valt filinnehåll behandlas i webbläsaren och skickas inte till ClickPDF:s dokumentservrar; sidan kan fortfarande hämta resurser och aktiverade tjänster." }
         ]
       },
@@ -6601,6 +6997,42 @@
           { "question": "Hur visas sidorna i den konverterade PDF-filen?", "answer": "Sidorna återges som bilder; kontrollera att formatet passar om du behöver markerbar text." },
           { "question": "Ändras den ursprungliga DOCX-filen?", "answer": "Nej. Verktyget skapar en ny PDF-fil och lämnar den ursprungliga DOCX-filen oförändrad." },
           { "question": "Skickas dokumentet upp under konverteringen?", "answer": "Innehållet i den valda filen behandlas i webbläsaren och skickas inte till ClickPDF:s dokumentservrar; sidan kan fortfarande hämta resurser och aktiverade tjänster." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Flytta Word-tabeller och text till en Excel-arbetsbok",
+        "intro": "Bearbeta DOCX-dokument i webbläsaren. Varje identifierad tabell placeras i ett eget kalkylblad; stycken och listor samlas i ett separat Text-blad. Word-sidornas layout återskapas inte.",
+        "stepsHeading": "Flytta Word-innehåll till Excel i tre steg",
+        "steps": [
+          { "title": "Välj DOCX-dokument", "description": "Välj en eller flera DOCX-filer; spara äldre DOC-filer som DOCX först." },
+          { "title": "Extrahera tabeller och text", "description": "Låt verktyget placera tabeller i separata blad och stycken och listor i Text-bladet." },
+          { "title": "Hämta XLSX-arbetsboken", "description": "Ladda ned och kontrollera arbetsboken; flera dokument paketeras tillsammans som en ZIP-fil." }
+        ],
+        "faqs": [
+          { "question": "Vilka Word-filer kan konverteraren läsa?", "answer": "Verktyget tar emot DOCX-filer. Äldre DOC-dokument måste först sparas som DOCX." },
+          { "question": "Hur ordnas tabeller och text i arbetsboken?", "answer": "Varje identifierad tabell får ett eget kalkylblad; stycken och listor samlas på ett separat Text-blad." },
+          { "question": "Bevaras Word-sidornas layout i Excel?", "answer": "Nej. Verktyget extraherar tabeller och text men återskapar inte Word-sidornas formatering eller paginering." },
+          { "question": "Kan jag bearbeta flera Word-dokument samtidigt?", "answer": "Ja. Välj flera DOCX-filer; arbetsböckerna tillhandahålls tillsammans som en ZIP-nedladdning." },
+          { "question": "Vad bör jag kontrollera i den skapade XLSX-filen?", "answer": "Kontrollera tabellerna, kalkylbladen, texten och viktiga värden innan arbetsboken används." },
+          { "question": "Skickas innehållet i Word-dokumentet till en server?", "answer": "Det valda filinnehållet behandlas i webbläsaren och skickas inte till ClickPDF:s dokumentservrar; sidan kan fortfarande hämta vanliga resurser." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Konvertera XLSX, XLS och CSV till PDF",
+        "intro": "Skapa en sidindelad PDF i webbläsaren från kalkylblad i XLSX-, XLS- eller CSV-format. Stora blad kan omfatta flera sidor; kontrollera kolumnbredder, sidbrytningar och utskriftslayout.",
+        "stepsHeading": "Konvertera ett kalkylblad till PDF i tre steg",
+        "steps": [
+          { "title": "Välj ett kalkylblad", "description": "Lägg till en XLSX-, XLS- eller CSV-fil." },
+          { "title": "Skapa den sidindelade PDF-filen", "description": "Starta konverteringen och kontrollera kolumner, liggande format och sidbrytningar." },
+          { "title": "Ladda ned och granska", "description": "Öppna PDF-filen och granska varje sida och utskriftslayout innan du delar den." }
+        ],
+        "faqs": [
+          { "question": "Vilka källfiler kan konverteras till PDF?", "answer": "Verktyget tar emot kalkylblad i XLSX-, XLS- och CSV-format." },
+          { "question": "Hur delas stora kalkylblad upp över flera sidor?", "answer": "Ett stort blad kan omfatta flera PDF-sidor; kontrollera sidbrytningar och kolumnlayout." },
+          { "question": "Vad behöver jag kontrollera efter exporten?", "answer": "Kontrollera kolumnbredder, sidindelning, utskriftsriktning och att viktiga data syns." },
+          { "question": "Lämnar kalkylbladet webbläsaren under konverteringen?", "answer": "Filinnehållet behandlas i webbläsaren; sidan kan fortfarande hämta standardresurser och använda aktiverade tjänster." },
+          { "question": "Ändras min XLSX-, XLS- eller CSV-fil?", "answer": "Verktyget skapar en ny PDF-fil. Behåll den ursprungliga kalkylbladsfilen." },
+          { "question": "Kan jag skriva ut resultatet direkt?", "answer": "Kontrollera först skala, sidriktning, kolumnbredder och sidbrytningar i den nedladdade PDF-filen." }
         ]
       }
     }

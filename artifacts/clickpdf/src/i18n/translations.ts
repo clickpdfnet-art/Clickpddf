@@ -1644,6 +1644,12 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     ru: { title: 'Excel в PDF', description: 'Преобразуйте XLSX, XLS и CSV в PDF с таблицами; проверьте ширину столбцов и разрывы страниц.' },
     ko: { title: 'Excel을 PDF로 변환', description: 'XLSX, XLS, CSV를 페이지가 나뉜 PDF 표로 변환하세요. 열 너비와 페이지 나눔을 확인하세요.' },
     tr: { title: 'Excel’i PDF’ye dönüştür', description: 'XLSX, XLS ve CSV dosyalarını sayfalı PDF tablolarına dönüştürün; sütun genişliklerini ve sayfa sonlarını kontrol edin.' },
+    zh: { title: 'Excel 转 PDF', description: '将 XLSX、XLS 或 CSV 电子表格转换为分页 PDF 表格；请检查列宽和分页。' },
+    tl: { title: 'Excel papuntang PDF', description: 'I-convert ang XLSX, XLS o CSV sa may-pahinang PDF na mga talahanayan; suriin ang lapad ng column at page break.' },
+    es: { title: 'Convertir Excel a PDF', description: 'Convierte archivos XLSX, XLS o CSV en tablas PDF paginadas; revisa el ancho de columnas y los saltos de página.' },
+    nl: { title: 'Excel naar PDF omzetten', description: 'Zet XLSX, XLS of CSV om naar PDF-tabellen met pagina’s; controleer kolombreedtes en pagina-einden.' },
+    pl: { title: 'Konwertuj Excel do PDF', description: 'Konwertuj pliki XLSX, XLS lub CSV na stronicowane tabele PDF; sprawdź szerokość kolumn i podziały stron.' },
+    sv: { title: 'Konvertera Excel till PDF', description: 'Konvertera XLSX, XLS eller CSV till PDF-tabeller med sidindelning; kontrollera kolumnbredder och sidbrytningar.' },
   },
   'word-to-pdf': {
     ja: { title: 'Word DOCXをPDFに変換', description: 'DOCXをPDFに変換します。古いDOC形式は非対応で、出力ページは画像として描画されます。' },
@@ -1800,5 +1806,8 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     ru: { title: 'Word в Excel', description: 'Поместите каждую таблицу Word на отдельный лист, а абзацы и списки соберите на листе «Текст».' },
     ko: { title: 'Word를 Excel로 변환', description: '각 Word 표를 별도 시트에 넣고 문단과 목록은 텍스트 시트에 모읍니다.' },
     tr: { title: 'Word’den Excel’e', description: 'Her Word tablosunu ayrı bir sayfaya aktarın; paragraflar ve listeler Metin sayfasında toplanır.' },
+    nl: { title: 'Word naar Excel', description: 'Zet elke Word-tabel op een eigen werkblad; verzamel alinea’s en lijsten op een apart tekstblad.' },
+    pl: { title: 'Word do Excela', description: 'Umieść każdą tabelę Worda w osobnym arkuszu, a akapity i listy w arkuszu tekstowym.' },
+    sv: { title: 'Word till Excel', description: 'Placera varje Word-tabell på ett eget kalkylblad och samla stycken och listor på ett separat textblad.' },
   },
 };

@@ -3026,6 +3026,150 @@
       "humanReviewed": false,
       "reviewer": null,
       "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "zh",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "tl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "es",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "nl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "pl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "sv",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "zh",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "tl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "es",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "nl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "pl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "sign",
+      "locale": "sv",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "zh",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "tl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "es",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "nl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "pl",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "sv",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
     }
   ]
 }
