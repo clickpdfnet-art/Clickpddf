@@ -298,6 +298,60 @@
           { "question": "変更は元のファイルに適用されますか？", "answer": "元ファイルを上書きせず、処理済みの出力を作成します。結果を確認するまで元ファイルを保管してください。" }
         ]
       },
+      "metadata": {
+        "introHeading": "PDFのOCRとページ情報を確認する",
+        "intro": "PDFのページ数や寸法を確認し、スキャンページの文字をOCRで読み取れます。認識結果は別に表示され、元のPDFに検索可能なテキスト層は追加されません。精度は画質や言語に左右されるため、重要な箇所を確認してください。",
+        "stepsHeading": "PDFを分析してOCR文字を確認する3つの手順",
+        "steps": [
+          { "title": "分析するPDFを選択", "description": "ページ情報や文字を確認したいPDFを選び、分析画面に追加します。" },
+          { "title": "分析とOCRを実行", "description": "必要に応じてOCR言語とページ範囲を選び、スキャン文字を認識してページ数や寸法を確認します。" },
+          { "title": "結果を確認して保存", "description": "認識された文字を確認し、利用できるコピーまたはテキスト保存機能を使います。元のPDFは検索可能な形に書き換えられません。" }
+        ],
+        "faqs": [
+          { "question": "OCRで元のPDFは検索可能になりますか？", "answer": "いいえ。認識結果を別に確認できますが、このツールは元のPDFに検索可能なテキスト層を追加しません。" },
+          { "question": "PDFのどのページ情報を確認できますか？", "answer": "ページ数や寸法などの情報を確認できます。表示される詳細は分析画面に示された内容を確認してください。" },
+          { "question": "スキャン画像から読み取った文字に誤りがあるのはなぜですか？", "answer": "認識精度は解像度、コントラスト、傾き、文字の状態、選択した言語によって異なります。名前、数字、重要な文章は原文と照合してください。" },
+          { "question": "OCRの言語は選択できますか？", "answer": "画面に表示される対応言語から選択できます。選択した言語データはブラウザーで読み込まれ、保存される場合があります。" },
+          { "question": "手書き文字も印刷文字と同じ精度で認識されますか？", "answer": "必ずしもそうではありません。手書きや品質の低いスキャンでは、認識結果に誤りや欠落が生じることがあります。" },
+          { "question": "PDFの内容はOCRのためにサーバーへ送られますか？", "answer": "対応するファイル内容はブラウザーで処理されます。ただし、ページがOCR言語データなどのリソースや有効な第三者サービスを読み込む場合があります。" }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Wordの表をExcelワークブックに抽出する",
+        "intro": "DOCX文書から検出された各表を別々のExcelワークシートに配置し、段落やリストはTextワークシートにまとめます。Wordのページデザインは再現されません。出力の表、セル、文字列を確認してから利用してください。",
+        "stepsHeading": "Word文書をExcelに変換する3つの手順",
+        "steps": [
+          { "title": "DOCX文書を選択", "description": "表を取り出したいDOCXファイルを1つ以上選びます。古いDOC形式は、先にDOCXとして保存してください。" },
+          { "title": "表と文章を抽出", "description": "変換を実行し、検出された各表が別のワークシートに、段落やリストがTextワークシートに整理されているか確認します。" },
+          { "title": "ワークブックを保存して確認", "description": "作成されたXLSXをダウンロードします。複数の文書を処理した場合はZIPでまとめられることがあるため、各ファイルを確認してください。" }
+        ],
+        "faqs": [
+          { "question": "どのWordファイル形式を変換できますか？", "answer": "このツールはDOCXファイルを受け付けます。古いDOCファイルはワープロソフトでDOCXとして保存してから選択してください。" },
+          { "question": "抽出された表はExcelでどのように配置されますか？", "answer": "検出された各表が別々のワークシートに配置されます。ワークブックを開き、シート名、表の範囲、行と列を確認してください。" },
+          { "question": "表に含まれない段落やリストはどうなりますか？", "answer": "文書の段落やリストは別のTextワークシートにまとめられます。欠落や順序の変化がないか確認してください。" },
+          { "question": "複数のWord文書を一度に変換できますか？", "answer": "複数のDOCXを選択できます。結果がZIPでまとめられた場合は、各ワークブックを元の文書と照合してください。" },
+          { "question": "セルの先頭のゼロやコードは保たれますか？", "answer": "セルの文字列は文字として扱われ、コードや先頭のゼロが数値に変換されるのを防ぎます。重要な値を元文書と照合してください。" },
+          { "question": "Excel出力はWordのページレイアウトを再現しますか？", "answer": "いいえ。文書の表と文章をワークシートに抽出するもので、Wordのページ装飾やページ割りを再現するものではありません。元のDOCXは変更されません。" }
+        ]
+      },
+      "sign": {
+        "introHeading": "PDFに見える署名マークを追加する",
+        "intro": "PDFのページに、描画・入力・PNG画像による署名マークを配置できます。これは見えるマークであり、本人確認、署名権限の確認、証明書付き電子署名ではありません。適用される手続きに従い、保存前に位置を確認してください。",
+        "stepsHeading": "PDFに署名マークを追加する3つの手順",
+        "steps": [
+          { "title": "署名するPDFを開く", "description": "PDFを選び、署名マークを配置するページを表示します。" },
+          { "title": "署名を作成して配置", "description": "描画、文字入力、PNG画像のいずれかで署名を作成し、ページ上で位置と大きさを調整します。" },
+          { "title": "別ファイルで保存して確認", "description": "署名入りPDFをダウンロードし、意図したページにマークが正しく配置されたか確認します。" }
+        ],
+        "faqs": [
+          { "question": "署名マークはどう作成できますか？", "answer": "ワークスペースで描画するか、名前を入力するか、PNG署名画像をアップロードできます。" },
+          { "question": "証明書付きの電子署名ですか？", "answer": "いいえ。PDFに見えるマークを追加する機能です。証明書、本人確認、改ざん検知機能付きの署名は提供しません。" },
+          { "question": "保存前に位置や大きさを調整できますか？", "answer": "はい。ワークスペースで署名を移動・拡大縮小し、ダウンロード前に配置を確認してください。" },
+          { "question": "署名者の本人確認や同意を証明しますか？", "answer": "いいえ。見えるマークだけでは本人、同意、署名権限を確認できません。適用される手続きに従ってください。" },
+          { "question": "元のPDFは上書きされますか？", "answer": "いいえ。署名入りの別PDFをダウンロードします。必要であれば元ファイルも保管してください。" },
+          { "question": "PDFや署名画像は処理サーバーへ送られますか？", "answer": "対応するファイル処理はブラウザー内で行われます。ただしページがリソースや有効な第三者サービスを読み込む場合があります。" }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "選択可能なPDFテキストをTXTまたはMarkdownに抽出",
         "intro": "PDF内の選択できる文字をTXTまたはMarkdownとして書き出します。画像だけのスキャンページには先にOCRが必要です。複雑な表や読み順は変わることがあるため、抽出結果を確認してください。",
@@ -633,6 +687,60 @@
           { "question": "کیا ٹول ہر XMP property یا embedded comment صاف کرتا ہے؟", "answer": "ایسی کوئی ضمانت نہیں۔ تبدیلی صرف interface میں دکھائے گئے supported fields تک محدود ہے۔" },
           { "question": "کیا شیئر کرنے سے پہلے بدلی ہوئی properties دیکھ سکتا ہوں؟", "answer": "ہاں۔ نتیجہ ڈاؤن لوڈ کریں اور PDF viewer یا metadata reader میں document properties چیک کریں۔" },
           { "question": "کیا metadata تبدیلیاں میری اصل فائل میں ہوتی ہیں؟", "answer": "ٹول source کو overwrite کرنے کے بجائے الگ processed output بناتا ہے۔ نتیجہ دیکھنے تک اصل فائل محفوظ رکھیں۔" }
+        ]
+      },
+      "metadata": {
+        "introHeading": "PDF کا OCR اور صفحے کی معلومات دیکھیں",
+        "intro": "PDF کے صفحات کی تعداد اور dimensions دیکھیں اور scanned pages کے متن کو OCR سے پہچانیں۔ پہچانا ہوا متن الگ نتیجے کے طور پر دکھایا جاتا ہے؛ اصل PDF میں searchable text layer شامل نہیں ہوتی۔ درستگی scan quality اور زبان پر منحصر ہے، اس لیے اہم متن ضرور جانچیں۔",
+        "stepsHeading": "PDF کا تجزیہ اور OCR متن دیکھنے کے تین مراحل",
+        "steps": [
+          { "title": "تجزیے کے لیے PDF منتخب کریں", "description": "وہ PDF شامل کریں جس کے صفحے کی معلومات یا متن دیکھنا ہو۔" },
+          { "title": "تجزیہ اور OCR چلائیں", "description": "ضرورت کے مطابق OCR language اور page range منتخب کریں، پھر پہچانا ہوا متن، صفحات کی تعداد اور dimensions دیکھیں۔" },
+          { "title": "نتیجہ جانچیں اور محفوظ کریں", "description": "پہچانے ہوئے متن کی پروف ریڈنگ کریں، پھر دستیاب copy یا text download اختیار استعمال کریں۔ اصل PDF کو searchable نہیں بنایا جاتا۔" }
+        ],
+        "faqs": [
+          { "question": "کیا OCR اصل PDF کو searchable بنا دیتا ہے؟", "answer": "نہیں۔ آپ پہچانا ہوا متن الگ دیکھ سکتے ہیں، مگر یہ ٹول اصل PDF میں searchable text layer شامل نہیں کرتا۔" },
+          { "question": "PDF کی کون سی page information دیکھ سکتا ہوں؟", "answer": "صفحوں کی تعداد اور dimensions جیسی معلومات دیکھی جا سکتی ہیں۔ دستیاب تفصیل کے لیے analyzer میں دکھایا گیا نتیجہ دیکھیں۔" },
+          { "question": "Scanned صفحے سے نکلا متن غلط کیوں ہو سکتا ہے؟", "answer": "OCR کا نتیجہ resolution، contrast، صفحے کے ٹیڑھے پن، متن کے معیار اور منتخب زبان سے متاثر ہوتا ہے۔ نام، اعداد اور اہم عبارت اصل سے ملا کر دیکھیں۔" },
+          { "question": "کیا میں OCR language منتخب کر سکتا ہوں؟", "answer": "جی ہاں، interface میں دستیاب زبانوں میں سے انتخاب کریں۔ منتخب language data براؤزر میں لوڈ اور cache ہو سکتا ہے۔" },
+          { "question": "کیا ہاتھ سے لکھا متن printed text جتنی درستگی سے پہچانا جاتا ہے؟", "answer": "ضروری نہیں۔ handwriting یا کم معیار کے scans سے OCR نامکمل یا غلط متن دے سکتا ہے۔" },
+          { "question": "کیا OCR کے لیے PDF سرور پر upload ہوتی ہے؟", "answer": "Supported file content براؤزر میں process ہوتا ہے۔ تاہم صفحہ OCR language data سمیت وسائل یا فعال third-party services کی درخواست کر سکتا ہے۔" }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Word کی tables کو Excel workbook میں نکالیں",
+        "intro": "DOCX document کی ہر شناخت شدہ table کو الگ Excel worksheet میں رکھا جاتا ہے، جبکہ paragraphs اور lists ایک علیحدہ Text worksheet میں آتے ہیں۔ Word کی page design دوبارہ نہیں بنتی۔ استعمال سے پہلے sheets، cells اور نکلا ہوا متن جانچیں۔",
+        "stepsHeading": "Word document کو Excel میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "DOCX document منتخب کریں", "description": "ایک یا زیادہ DOCX فائلیں منتخب کریں جن میں مطلوبہ tables موجود ہوں۔ پرانی DOC فائل پہلے DOCX کے طور پر محفوظ کریں۔" },
+          { "title": "Tables اور متن نکالیں", "description": "تبدیلی چلائیں اور دیکھیں کہ ہر شناخت شدہ table اپنی worksheet میں اور paragraphs یا lists Text worksheet میں آئے ہیں۔" },
+          { "title": "Workbook محفوظ کر کے جانچیں", "description": "تیار XLSX ڈاؤن لوڈ کریں۔ متعدد دستاویزات پر کام کرنے پر نتائج ZIP میں مل سکتے ہیں؛ ہر workbook کو اس کی اصل فائل سے ملائیں۔" }
+        ],
+        "faqs": [
+          { "question": "کون سے Word file formats تبدیل کیے جا سکتے ہیں؟", "answer": "یہ ٹول DOCX فائلیں قبول کرتا ہے۔ پرانی DOC فائل کو word processor میں DOCX کے طور پر محفوظ کر کے منتخب کریں۔" },
+          { "question": "نکالی گئی tables Excel میں کیسے رکھی جاتی ہیں؟", "answer": "ہر شناخت شدہ table اپنی worksheet میں آتی ہے۔ XLSX کھول کر sheet names، table boundaries، rows اور columns چیک کریں۔" },
+          { "question": "Tables سے باہر کے paragraphs اور lists کا کیا ہوتا ہے؟", "answer": "دستاویز کے paragraphs اور lists الگ Text worksheet میں جمع ہوتے ہیں۔ متن میں کمی یا ترتیب کی تبدیلی دیکھیں۔" },
+          { "question": "کیا کئی Word documents ایک ساتھ تبدیل کر سکتا ہوں؟", "answer": "آپ متعدد DOCX فائلیں منتخب کر سکتے ہیں۔ اگر نتائج ZIP میں ہوں تو ہر workbook کو متعلقہ source document کے ساتھ ملائیں۔" },
+          { "question": "کیا cell کے شروع کے صفر اور codes برقرار رہتے ہیں؟", "answer": "Cell text کو متن کے طور پر رکھا جاتا ہے تاکہ codes یا شروع کے صفر number میں تبدیل نہ ہوں۔ اہم values اصل document سے چیک کریں۔" },
+          { "question": "کیا Excel output Word کی page layout برقرار رکھتا ہے؟", "answer": "نہیں۔ ٹول tables اور متن کو worksheets میں نکالتا ہے؛ Word کی page styling یا pagination دوبارہ نہیں بناتا۔ اصل DOCX تبدیل نہیں ہوتی۔" }
+        ]
+      },
+      "sign": {
+        "introHeading": "PDF پر نظر آنے والا دستخطی نشان لگائیں",
+        "intro": "PDF کے صفحے پر ہاتھ سے بنائی، ٹائپ کی یا PNG کے طور پر اپلوڈ کی گئی دستخطی علامت رکھیں۔ یہ صرف نظر آنے والی image ہے؛ شناخت، رضامندی یا دستخط کے اختیار کی تصدیق یا certificate-backed digital signature نہیں۔ متعلقہ قانونی یا دفتری طریقہ اختیار کریں اور ڈاؤن لوڈ سے پہلے جگہ دیکھیں۔",
+        "stepsHeading": "PDF پر دستخطی نشان لگانے کے تین مراحل",
+        "steps": [
+          { "title": "دستخط والی PDF کھولیں", "description": "دستاویز منتخب کریں اور وہ صفحہ کھولیں جہاں دستخطی نشان رکھنا ہے۔" },
+          { "title": "نشان بنائیں اور جگہ مقرر کریں", "description": "نشان ہاتھ سے بنائیں، نام ٹائپ کریں یا PNG اپلوڈ کریں؛ پھر اسے مطلوبہ جگہ پر لے جا کر سائز درست کریں۔" },
+          { "title": "الگ PDF محفوظ کر کے دیکھیں", "description": "دستخط والی کاپی ڈاؤن لوڈ کریں اور چیک کریں کہ نشان درست صفحے اور جگہ پر ہے۔" }
+        ],
+        "faqs": [
+          { "question": "دستخطی نشان کیسے بنا سکتا ہوں؟", "answer": "آپ workspace میں نشان draw کر سکتے ہیں، نام ٹائپ کر سکتے ہیں یا PNG signature image upload کر سکتے ہیں۔" },
+          { "question": "کیا یہ certificate-backed digital signature ہے؟", "answer": "نہیں۔ یہ PDF پر صرف نظر آنے والا نشان لگاتا ہے؛ certificate، شناخت کی تصدیق یا tamper-evident digital signature فراہم نہیں کرتا۔" },
+          { "question": "کیا محفوظ کرنے سے پہلے نشان کی جگہ اور سائز بدل سکتا ہوں؟", "answer": "جی ہاں۔ workspace میں نشان move یا resize کریں اور download سے پہلے صفحے پر اس کی جگہ دیکھ لیں۔" },
+          { "question": "کیا یہ دستخط کرنے والے کی شناخت یا رضامندی ثابت کرتا ہے؟", "answer": "نہیں۔ محض نظر آنے والا نشان شناخت، رضامندی یا دستخط کے اختیار کی تصدیق نہیں کرتا۔ اپنے دستاویز پر لاگو طریقہ اپنائیں۔" },
+          { "question": "کیا دستخط والی PDF اصل فائل کی جگہ لے لیتی ہے؟", "answer": "نہیں۔ دستخط شدہ نتیجہ الگ PDF کے طور پر ڈاؤن لوڈ ہوتا ہے۔ ضرورت پڑنے تک source محفوظ رکھیں۔" },
+          { "question": "کیا PDF یا signature image processing server پر بھیجی جاتی ہے؟", "answer": "Supported file processing براؤزر میں ہوتا ہے، مگر صفحہ resources یا enabled third-party services کی درخواست کر سکتا ہے۔" }
         ]
       },
       "pdf-to-text": {
@@ -972,6 +1080,60 @@
           { "question": "Werden Metadaten in meiner Originaldatei geändert?", "answer": "Das Tool erstellt eine verarbeitete Ausgabe, statt die Quelle zu überschreiben. Bewahren Sie das Original auf, bis Sie das Ergebnis bestätigt haben." }
         ]
       },
+      "metadata": {
+        "introHeading": "PDF per OCR analysieren und Seitendaten prüfen",
+        "intro": "Prüfen Sie Seitenzahl und Abmessungen eines PDFs und erkennen Sie Text auf gescannten Seiten per OCR. Der erkannte Text wird separat angezeigt; die Quelldatei erhält dadurch keine durchsuchbare Textebene. Die Genauigkeit hängt von Scanqualität und Sprache ab, prüfen Sie daher wichtige Angaben.",
+        "stepsHeading": "PDF-Analyse und OCR in drei Schritten",
+        "steps": [
+          { "title": "PDF zur Analyse auswählen", "description": "Fügen Sie das PDF hinzu, dessen Seitenangaben oder Text Sie prüfen möchten." },
+          { "title": "Analyse und OCR starten", "description": "Wählen Sie bei Bedarf OCR-Sprache und Seitenbereich aus und prüfen Sie erkannten Text, Seitenzahl und Abmessungen." },
+          { "title": "Ergebnis prüfen und speichern", "description": "Lesen Sie den erkannten Text sorgfältig gegen und nutzen Sie die angebotene Kopier- oder Textspeicherfunktion. Das Original wird nicht durchsuchbar gemacht." }
+        ],
+        "faqs": [
+          { "question": "Wird das Original-PDF durch OCR durchsuchbar?", "answer": "Nein. Der erkannte Text wird separat zur Prüfung angezeigt; das Tool ergänzt keine durchsuchbare Textebene im Original-PDF." },
+          { "question": "Welche Seitenangaben kann ich prüfen?", "answer": "Sie können Angaben wie Seitenzahl und Seitenabmessungen prüfen. Welche Details verfügbar sind, zeigt der Analysebereich." },
+          { "question": "Warum enthält OCR-Text aus einem Scan Fehler?", "answer": "Das Ergebnis hängt von Auflösung, Kontrast, Schräglage, Schriftbild und gewählter Sprache ab. Vergleichen Sie Namen, Zahlen und wichtige Aussagen mit der Vorlage." },
+          { "question": "Kann ich die OCR-Sprache auswählen?", "answer": "Wählen Sie eine der im Arbeitsbereich angebotenen Sprachen. Die zugehörigen Sprachdaten können im Browser geladen und zwischengespeichert werden." },
+          { "question": "Erkennt OCR Handschrift so zuverlässig wie Drucktext?", "answer": "Nicht unbedingt. Handschrift und schlechte Scans können zu unvollständigen oder fehlerhaften Ergebnissen führen." },
+          { "question": "Wird mein PDF für OCR auf einen Server hochgeladen?", "answer": "Unterstützte Dateiinhalte werden im Browser verarbeitet. Die Seite kann jedoch Ressourcen wie OCR-Sprachdaten und aktivierte Drittanbieterdienste anfordern." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Word-Tabellen in eine Excel-Arbeitsmappe übernehmen",
+        "intro": "Jede erkannte Tabelle aus einem DOCX wird in ein eigenes Excel-Arbeitsblatt übertragen; Absätze und Listen kommen in ein separates Text-Arbeitsblatt. Das Seitenlayout von Word wird nicht nachgebildet. Prüfen Sie Tabellen, Zellen und Text vor der weiteren Verwendung.",
+        "stepsHeading": "Word-Dokumente in drei Schritten nach Excel umwandeln",
+        "steps": [
+          { "title": "DOCX-Dokument auswählen", "description": "Wählen Sie eine oder mehrere DOCX-Dateien mit den gewünschten Tabellen. Speichern Sie ältere DOC-Dateien zuerst im DOCX-Format." },
+          { "title": "Tabellen und Text extrahieren", "description": "Starten Sie die Umwandlung und prüfen Sie, ob jede erkannte Tabelle ein eigenes Arbeitsblatt und Absätze oder Listen das Text-Arbeitsblatt erhalten." },
+          { "title": "Arbeitsmappe speichern und prüfen", "description": "Laden Sie die erzeugte XLSX-Datei herunter. Bei mehreren Dokumenten können die Ergebnisse als ZIP bereitgestellt werden; ordnen Sie jede Datei ihrer Quelle zu." }
+        ],
+        "faqs": [
+          { "question": "Welche Word-Dateiformate kann ich umwandeln?", "answer": "Das Tool nimmt DOCX-Dateien an. Speichern Sie ältere DOC-Dateien in einem Textverarbeitungsprogramm zuerst als DOCX." },
+          { "question": "Wie werden extrahierte Tabellen in Excel angeordnet?", "answer": "Jede erkannte Tabelle kommt in ein eigenes Arbeitsblatt. Prüfen Sie nach dem Öffnen der XLSX Blattnamen, Tabellenbereiche, Zeilen und Spalten." },
+          { "question": "Was geschieht mit Absätzen und Listen außerhalb der Tabellen?", "answer": "Absätze und Listen werden in einem separaten Text-Arbeitsblatt gesammelt. Prüfen Sie, ob Inhalte fehlen oder anders angeordnet wurden." },
+          { "question": "Kann ich mehrere Word-Dokumente gleichzeitig umwandeln?", "answer": "Sie können mehrere DOCX-Dateien auswählen. Wenn die Ergebnisse in einer ZIP-Datei liegen, ordnen Sie jede Arbeitsmappe dem Quelldokument zu." },
+          { "question": "Bleiben führende Nullen und Codes in Zellen erhalten?", "answer": "Zelltext wird als Text behandelt, damit Codes und führende Nullen nicht als Zahlen umgewandelt werden. Vergleichen Sie wichtige Werte trotzdem mit der Quelle." },
+          { "question": "Übernimmt die Excel-Ausgabe das Seitenlayout von Word?", "answer": "Nein. Das Tool extrahiert Tabellen und Text in Arbeitsblätter und bildet weder Word-Seitenformatierung noch Seitenumbrüche nach. Die DOCX-Quelle bleibt unverändert." }
+        ]
+      },
+      "sign": {
+        "introHeading": "Eine sichtbare Signaturmarke zu einer PDF hinzufügen",
+        "intro": "Fügen Sie einer PDF-Seite eine gezeichnete, getippte oder als PNG hochgeladene Signaturmarke hinzu. Sie ist nur eine sichtbare Markierung und bestätigt weder Identität noch Berechtigung oder Zustimmung; eine zertifikatsbasierte digitale Signatur wird nicht erstellt. Beachten Sie den geltenden Ablauf und prüfen Sie die Position vor dem Speichern.",
+        "stepsHeading": "In drei Schritten eine Signaturmarke in eine PDF einfügen",
+        "steps": [
+          { "title": "PDF zum Unterschreiben öffnen", "description": "Wählen Sie das Dokument und öffnen Sie die Seite, auf der die sichtbare Marke erscheinen soll." },
+          { "title": "Marke erstellen und platzieren", "description": "Zeichnen Sie die Signatur, geben Sie einen Namen ein oder laden Sie ein PNG hoch; positionieren und skalieren Sie die Marke auf der Seite." },
+          { "title": "Separate PDF speichern und prüfen", "description": "Laden Sie die signierte Kopie herunter und prüfen Sie, ob die Marke auf der vorgesehenen Seite richtig sitzt." }
+        ],
+        "faqs": [
+          { "question": "Wie kann ich eine Signaturmarke erstellen?", "answer": "Zeichnen Sie sie im Arbeitsbereich, geben Sie einen Namen ein oder laden Sie ein PNG-Signaturbild hoch." },
+          { "question": "Ist das eine zertifikatsbasierte digitale Signatur?", "answer": "Nein. Das Tool setzt eine sichtbare Marke in die PDF ein; es bietet weder Zertifikat noch Identitätsprüfung oder manipulationssichere Signatur." },
+          { "question": "Kann ich Position und Größe vor dem Speichern ändern?", "answer": "Ja. Verschieben und skalieren Sie die Marke im Arbeitsbereich und prüfen Sie die Position vor dem Download." },
+          { "question": "Beweist die Marke die Identität oder Zustimmung der unterzeichnenden Person?", "answer": "Nein. Eine sichtbare Marke bestätigt weder Identität noch Zustimmung oder Zeichnungsberechtigung. Befolgen Sie den für das Dokument geltenden Ablauf." },
+          { "question": "Wird die ursprüngliche PDF überschrieben?", "answer": "Nein. Die signierte Ausgabe wird als separate PDF heruntergeladen. Bewahren Sie die Quelldatei bei Bedarf auf." },
+          { "question": "Werden PDF oder Signaturbild an einen Verarbeitungsserver gesendet?", "answer": "Unterstützte Dateiinhalte werden im Browser verarbeitet. Die Seite kann dennoch Ressourcen und aktivierte Drittanbieterdienste anfordern." }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "Auswählbaren PDF-Text als TXT oder Markdown extrahieren",
         "intro": "Extrahieren Sie auswählbaren Text aus einer PDF als TXT oder Markdown. Für gescannte Seiten, die nur aus Bildern bestehen, ist vorher OCR erforderlich. Komplexe Tabellen oder die Lesereihenfolge können sich ändern; prüfen Sie daher das Ergebnis.",
@@ -1289,6 +1451,78 @@
           { "question": "क्या टूल हर XMP property या embedded comment हटाता है?", "answer": "ऐसी कोई गारंटी नहीं है। बदलाव interface में दिखाए गए supported fields तक सीमित है।" },
           { "question": "क्या साझा करने से पहले बदली हुई properties देख सकता हूँ?", "answer": "हाँ। परिणाम डाउनलोड करें और PDF viewer या metadata reader से document properties जाँचें।" },
           { "question": "क्या metadata बदलाव मूल फ़ाइल में होते हैं?", "answer": "टूल source को overwrite करने के बजाय अलग processed output बनाता है। परिणाम की पुष्टि तक मूल फ़ाइल रखें।" }
+        ]
+      },
+      "metadata": {
+        "introHeading": "PDF का OCR करें और पृष्ठ की जानकारी जाँचें",
+        "intro": "PDF के पृष्ठों की संख्या और dimensions देखें तथा scanned pages के पाठ को OCR से पहचानें। पहचाना गया पाठ अलग दिखता है; मूल PDF में searchable text layer नहीं जुड़ती। सटीकता scan quality और भाषा पर निर्भर है, इसलिए जरूरी जानकारी जाँचें।",
+        "stepsHeading": "PDF विश्लेषण और OCR के तीन चरण",
+        "steps": [
+          { "title": "विश्लेषण के लिए PDF चुनें", "description": "वह PDF जोड़ें जिसकी page details या text देखना है।" },
+          { "title": "विश्लेषण और OCR चलाएँ", "description": "ज़रूरत हो तो OCR language और page range चुनें, फिर पहचाना पाठ, पृष्ठों की संख्या और dimensions देखें।" },
+          { "title": "परिणाम जाँचें और सहेजें", "description": "पहचाने पाठ को ध्यान से पढ़ें और उपलब्ध copy या text download विकल्प इस्तेमाल करें। मूल PDF searchable नहीं बनती।" }
+        ],
+        "faqs": [
+          { "question": "क्या OCR मूल PDF को searchable बना देता है?", "answer": "नहीं। पहचाना गया पाठ अलग दिखाया जाता है; यह tool मूल PDF में searchable text layer नहीं जोड़ता।" },
+          { "question": "PDF की कौन-सी page details देख सकता हूँ?", "answer": "पृष्ठों की संख्या और dimensions जैसी जानकारी देख सकते हैं। उपलब्ध विवरण analyzer में दिखता है।" },
+          { "question": "Scanned पृष्ठ से निकले पाठ में गलती क्यों हो सकती है?", "answer": "परिणाम resolution, contrast, पृष्ठ के तिरछेपन, text quality और चुनी गई भाषा पर निर्भर है। नाम, संख्या और महत्वपूर्ण अंश मूल से मिलाएँ।" },
+          { "question": "क्या OCR language चुन सकता हूँ?", "answer": "हाँ, workspace में उपलब्ध भाषा चुनें। चुनी हुई भाषा का data ब्राउज़र में लोड और cache हो सकता है।" },
+          { "question": "क्या handwriting भी printed text जितनी सही पहचानी जाती है?", "answer": "ज़रूरी नहीं। हस्तलिखित सामग्री या खराब scans से अधूरा या गलत OCR परिणाम मिल सकता है।" },
+          { "question": "क्या OCR के लिए PDF किसी server पर upload होती है?", "answer": "समर्थित file content ब्राउज़र में process होता है। फिर भी page OCR language data जैसे resources और enabled third-party services की requests कर सकता है।" }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Word tables को Excel workbook में निकालें",
+        "intro": "DOCX document की पहचानी गई हर table को अलग Excel worksheet में रखा जाता है; paragraphs और lists अलग Text worksheet में आते हैं। Word की page styling दोबारा नहीं बनती। आगे उपयोग से पहले tables, cells और निकला हुआ text जाँचें।",
+        "stepsHeading": "Word document को Excel में बदलने के तीन चरण",
+        "steps": [
+          { "title": "DOCX document चुनें", "description": "Tables वाली एक या अधिक DOCX files चुनें। पुरानी DOC file पहले DOCX format में save करें।" },
+          { "title": "Tables और text निकालें", "description": "Conversion चलाएँ और देखें कि हर पहचानी गई table अलग worksheet तथा paragraphs या lists Text worksheet में हैं।" },
+          { "title": "Workbook सहेजें और जाँचें", "description": "बनी हुई XLSX डाउनलोड करें। कई documents पर काम करने पर परिणाम ZIP में मिल सकते हैं; हर file को उसके source से मिलाएँ।" }
+        ],
+        "faqs": [
+          { "question": "कौन-से Word file formats convert हो सकते हैं?", "answer": "यह tool DOCX files स्वीकार करता है। पुरानी DOC file को word processor में DOCX के रूप में save करके चुनें।" },
+          { "question": "निकाली गई tables Excel में कैसे व्यवस्थित होती हैं?", "answer": "हर पहचानी गई table अपनी worksheet में जाती है। XLSX खोलकर sheet names, table boundaries, rows और columns जाँचें।" },
+          { "question": "Tables के बाहर के paragraphs और lists का क्या होता है?", "answer": "Document paragraphs और lists अलग Text worksheet में जमा होते हैं। देखें कि कोई सामग्री छूटी या क्रम बदला तो नहीं।" },
+          { "question": "क्या कई Word documents एक साथ convert कर सकता हूँ?", "answer": "आप कई DOCX files चुन सकते हैं। यदि परिणाम ZIP में हों तो हर workbook को संबंधित source document से मिलाएँ।" },
+          { "question": "क्या cell के शुरू के zero और codes सुरक्षित रहते हैं?", "answer": "Cell text को text की तरह रखा जाता है ताकि codes या शुरुआती zero number में न बदलें। फिर भी जरूरी values source से जाँचें।" },
+          { "question": "क्या Excel output Word का page layout बनाए रखता है?", "answer": "नहीं। यह tables और text को worksheets में निकालता है, Word की page styling या pagination नहीं दोहराता। मूल DOCX नहीं बदलती।" }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Excel स्प्रेडशीट को पृष्ठों वाली PDF में बदलें",
+        "intro": "XLSX, XLS और CSV फ़ाइलों को browser में PDF tables में बदलें। लंबी या चौड़ी spreadsheets कई पृष्ठों में आ सकती हैं; साझा करने से पहले column widths, page breaks और छोटे text की जाँच करें। समर्थित file content ब्राउज़र में process होता है, हालांकि page resources और enabled services की requests कर सकता है।",
+        "stepsHeading": "Excel या CSV को PDF में बदलने के तीन चरण",
+        "steps": [
+          { "title": "स्प्रेडशीट फ़ाइल चुनें", "description": "अपने device से समर्थित XLSX, XLS या CSV फ़ाइल चुनें।" },
+          { "title": "PDF तैयार करें", "description": "Conversion शुरू करें और spreadsheet content को PDF पृष्ठों में व्यवस्थित होने दें।" },
+          { "title": "PDF पृष्ठ जाँचें", "description": "बनी PDF डाउनलोड करें और columns, page breaks तथा छोटे text को ध्यान से देखें।" }
+        ],
+        "faqs": [
+          { "question": "कौन-से spreadsheet formats बदल सकते हैं?", "answer": "टूल XLSX, XLS और CSV फ़ाइलें स्वीकार करता है। फ़ाइल न दिखे तो file picker में उसका format जाँचें।" },
+          { "question": "क्या चौड़ी spreadsheet एक ही PDF पृष्ठ पर आएगी?", "answer": "ज़रूरी नहीं। आउटपुट कई पृष्ठों में बँट सकता है; columns और page breaks देखकर source spreadsheet समायोजित करें।" },
+          { "question": "क्या conversion में Excel formulas दोबारा calculate होते हैं?", "answer": "Excel के calculation engine जैसा परिणाम मिलेगा, यह न मानें। महत्वपूर्ण मानों को मूल workbook से मिलाकर देखें।" },
+          { "question": "क्या भेजने से पहले PDF की समीक्षा कर सकता हूँ?", "answer": "हाँ। डाउनलोड के बाद हर page में कटे हुए columns, छोटे text और अनुचित breaks देखें।" },
+          { "question": "क्या PDF बनाने से मेरी मूल spreadsheet बदलती है?", "answer": "नहीं। PDF अलग output होती है और source spreadsheet अपरिवर्तित रहती है।" },
+          { "question": "बड़ी workbook को बदलने में अधिक समय क्यों लगता है?", "answer": "अधिक rows, columns और sheets processing और browser memory बढ़ाते हैं; गति device के अनुसार बदलती है।" }
+        ]
+      },
+      "sign": {
+        "introHeading": "PDF में एक दृश्य हस्ताक्षर-चिह्न जोड़ें",
+        "intro": "PDF पृष्ठ पर हाथ से बनाया, टाइप किया या PNG के रूप में अपलोड किया गया हस्ताक्षर-चिह्न रखें। यह केवल दिखाई देने वाला चिह्न है; यह पहचान, सहमति या हस्ताक्षर-अधिकार की पुष्टि नहीं करता और certificate-backed digital signature नहीं बनाता। लागू प्रक्रिया का पालन करें और सहेजने से पहले स्थान जाँचें।",
+        "stepsHeading": "PDF पर हस्ताक्षर-चिह्न लगाने के तीन चरण",
+        "steps": [
+          { "title": "हस्ताक्षर वाली PDF खोलें", "description": "दस्तावेज़ चुनें और वह पृष्ठ खोलें जहाँ चिह्न रखना है।" },
+          { "title": "चिह्न बनाएँ और रखें", "description": "चिह्न बनाएँ, नाम टाइप करें या PNG अपलोड करें; फिर पृष्ठ पर उसकी जगह और आकार समायोजित करें।" },
+          { "title": "अलग PDF सहेजकर जाँचें", "description": "हस्ताक्षर-चिह्न वाली प्रति डाउनलोड करें और देखें कि चिह्न सही पृष्ठ पर है।" }
+        ],
+        "faqs": [
+          { "question": "हस्ताक्षर-चिह्न कैसे बना सकता हूँ?", "answer": "Workspace में हाथ से बनाएँ, नाम टाइप करें या PNG हस्ताक्षर-चित्र अपलोड करें।" },
+          { "question": "क्या यह certificate-backed digital signature है?", "answer": "नहीं। यह PDF पर दिखाई देने वाला चिह्न रखता है; certificate, पहचान जाँच या छेड़छाड़ पहचानने वाला डिजिटल हस्ताक्षर नहीं देता।" },
+          { "question": "क्या सहेजने से पहले चिह्न की जगह और आकार बदल सकता हूँ?", "answer": "हाँ। Workspace में चिह्न को move या resize करें और download से पहले उसकी जगह जाँचें।" },
+          { "question": "क्या चिह्न हस्ताक्षर करने वाले की पहचान या सहमति साबित करता है?", "answer": "नहीं। दिखाई देने वाला चिह्न पहचान, सहमति या अधिकार की पुष्टि नहीं करता। दस्तावेज़ पर लागू प्रक्रिया अपनाएँ।" },
+          { "question": "क्या मूल PDF overwrite होती है?", "answer": "नहीं। हस्ताक्षर-चिह्न वाली अलग PDF डाउनलोड होती है। ज़रूरत पड़ने तक मूल फ़ाइल रखें।" },
+          { "question": "क्या PDF या हस्ताक्षर-चित्र processing server पर भेजे जाते हैं?", "answer": "समर्थित फ़ाइल सामग्री browser में process होती है, लेकिन page resources और enabled third-party services की request कर सकता है।" }
         ]
       },
       "pdf-to-text": {
@@ -1610,6 +1844,78 @@
           { "question": "هل تُجرى التغييرات على ملفي الأصلي؟", "answer": "تنشئ الأداة ملفًا ناتجًا منفصلًا بدلًا من استبدال المصدر. احتفظ بالأصل حتى تتأكد من النتيجة." }
         ]
       },
+      "metadata": {
+        "introHeading": "تحليل PDF وقراءة معلومات الصفحات بتقنية OCR",
+        "intro": "تحقق من عدد صفحات PDF وأبعادها، واستخدم OCR للتعرف على النص في الصفحات الممسوحة. يظهر النص المستخرج بشكل منفصل ولا يضيف طبقة نص قابلة للبحث إلى ملف PDF الأصلي. تعتمد الدقة على جودة المسح واللغة؛ راجع المعلومات المهمة.",
+        "stepsHeading": "تحليل PDF ومراجعة OCR في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر PDF للتحليل", "description": "أضف ملف PDF الذي تريد فحص معلومات صفحاته أو نصه." },
+          { "title": "شغّل التحليل وOCR", "description": "اختر لغة OCR ونطاق الصفحات عند الحاجة، ثم راجع النص المستخرج وعدد الصفحات وأبعادها." },
+          { "title": "راجع النتيجة واحفظها", "description": "دقّق النص المتعرف عليه، ثم استخدم خيار النسخ أو حفظ النص المتاح. لا يتحول الملف الأصلي إلى PDF قابل للبحث." }
+        ],
+        "faqs": [
+          { "question": "هل يجعل OCR ملف PDF الأصلي قابلًا للبحث؟", "answer": "لا. يمكنك مراجعة النص المستخرج بشكل منفصل، لكن الأداة لا تضيف طبقة نص قابلة للبحث إلى PDF الأصلي." },
+          { "question": "ما معلومات الصفحات التي يمكنني فحصها؟", "answer": "يمكنك مراجعة عدد الصفحات وأبعادها وغيرها من التفاصيل التي يعرضها محلل PDF." },
+          { "question": "لماذا قد يخطئ OCR في النص المستخرج من صورة ممسوحة؟", "answer": "تتأثر النتيجة بالدقة والتباين وميل الصفحة وجودة الأحرف واللغة المختارة. قارن الأسماء والأرقام والمعلومات المهمة بالمصدر." },
+          { "question": "هل يمكنني اختيار لغة OCR؟", "answer": "نعم، اختر من اللغات المتاحة في مساحة العمل. قد تُحمّل بيانات اللغة المختارة وتُخزّن مؤقتًا في المتصفح." },
+          { "question": "هل يتعرف OCR على الكتابة اليدوية بدقة النص المطبوع؟", "answer": "ليس بالضرورة. قد تنتج الكتابة اليدوية أو الصور منخفضة الجودة نصًا غير مكتمل أو غير دقيق." },
+          { "question": "هل يُرفع PDF إلى خادم لإجراء OCR؟", "answer": "تُعالج محتويات الملفات المدعومة في المتصفح. ومع ذلك، قد تطلب الصفحة موارد مثل بيانات لغة OCR أو خدمات خارجية مفعّلة." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "استخراج جداول Word إلى مصنف Excel",
+        "intro": "يوضع كل جدول مكتشف في مستند DOCX في ورقة Excel مستقلة، بينما تُجمع الفقرات والقوائم في ورقة Text منفصلة. لا يعيد التحويل إنشاء تصميم صفحات Word. راجع الجداول والخلايا والنص قبل استخدام المصنف.",
+        "stepsHeading": "تحويل مستند Word إلى Excel في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر مستند DOCX", "description": "حدد ملف DOCX واحدًا أو أكثر يحتوي على الجداول المطلوبة. احفظ ملفات DOC القديمة بصيغة DOCX أولًا." },
+          { "title": "استخرج الجداول والنص", "description": "شغّل التحويل وتحقق من وضع كل جدول مكتشف في ورقة مستقلة، والفقرات أو القوائم في ورقة Text." },
+          { "title": "احفظ المصنف وراجعه", "description": "نزّل ملف XLSX الناتج. عند معالجة عدة مستندات قد تُجمع النتائج في ZIP؛ طابق كل ملف مع مصدره." }
+        ],
+        "faqs": [
+          { "question": "ما تنسيقات ملفات Word التي يمكن تحويلها؟", "answer": "تقبل الأداة ملفات DOCX. احفظ ملفات DOC القديمة بصيغة DOCX باستخدام محرر مستندات قبل اختيارها." },
+          { "question": "كيف تُنظم الجداول المستخرجة في Excel؟", "answer": "يوضع كل جدول مكتشف في ورقة مستقلة. افتح XLSX وتحقق من أسماء الأوراق وحدود الجداول والصفوف والأعمدة." },
+          { "question": "ماذا يحدث للفقرات والقوائم خارج الجداول؟", "answer": "تُجمع فقرات المستند وقوائمه في ورقة Text منفصلة. راجعها للتأكد من عدم فقدان محتوى أو تغير ترتيبه." },
+          { "question": "هل يمكن تحويل عدة مستندات Word معًا؟", "answer": "يمكنك تحديد عدة ملفات DOCX. إذا جُمعت النتائج في ZIP، طابق كل مصنف مع المستند المصدر المناسب." },
+          { "question": "هل تبقى الأصفار في بداية الخلايا والرموز كما هي؟", "answer": "يُحفظ نص الخلايا كنص لتجنب تحويل الرموز أو الأصفار البادئة إلى أرقام. راجع القيم المهمة بمقارنتها بالمصدر." },
+          { "question": "هل يحافظ ملف Excel على تخطيط صفحات Word؟", "answer": "لا. تستخرج الأداة الجداول والنص إلى أوراق عمل ولا تعيد إنشاء تنسيق صفحات Word أو تقسيمها. لا يتغير ملف DOCX الأصلي." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "تحويل جداول Excel إلى PDF مقسّم إلى صفحات",
+        "intro": "حوّل ملفات XLSX وXLS وCSV إلى جداول PDF في المتصفح. قد تمتد الجداول العريضة أو الطويلة على صفحات متعددة؛ راجع عرض الأعمدة وفواصل الصفحات وصغر النص قبل المشاركة. تُعالج الملفات المدعومة في المتصفح، مع احتمال طلب الصفحة موارد أو خدمات مفعّلة.",
+        "stepsHeading": "تحويل Excel أو CSV إلى PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر ملف جدول بيانات", "description": "حدد ملف XLSX أو XLS أو CSV مدعومًا من جهازك." },
+          { "title": "أنشئ ملف PDF", "description": "ابدأ التحويل واترك للأداة توزيع محتوى الجدول على صفحات PDF." },
+          { "title": "راجع صفحات PDF", "description": "نزّل الناتج وافحص الأعمدة وفواصل الصفحات والنص الصغير." }
+        ],
+        "faqs": [
+          { "question": "ما تنسيقات جداول البيانات المدعومة؟", "answer": "تقبل الأداة ملفات XLSX وXLS وCSV. إذا لم يظهر الملف، فتحقق من نوعه في نافذة اختيار الملفات." },
+          { "question": "هل يوضع الجدول العريض في صفحة PDF واحدة؟", "answer": "ليس بالضرورة. قد يتوزع الناتج على صفحات متعددة؛ راجع الأعمدة والفواصل وعدّل الجدول المصدر عند الحاجة." },
+          { "question": "هل يعيد التحويل حساب صيغ Excel؟", "answer": "لا تفترض أنه يستخدم محرك حساب Excel نفسه. قارن القيم المهمة بالمصنف الأصلي." },
+          { "question": "هل يمكنني مراجعة PDF قبل إرسالها؟", "answer": "نعم. افتح الملف بعد تنزيله وافحص كل صفحة بحثًا عن أعمدة مقصوصة أو نص صغير أو فواصل غير مناسبة." },
+          { "question": "هل يؤدي إنشاء PDF إلى تغيير جدول البيانات الأصلي؟", "answer": "لا. ملف PDF ناتج منفصل ويبقى جدول البيانات المصدر كما هو." },
+          { "question": "لماذا يستغرق المصنف الكبير وقتًا أطول؟", "answer": "قد تزيد الصفوف والأعمدة والأوراق من وقت المعالجة والذاكرة المطلوبة. وتعتمد السرعة أيضًا على جهازك." }
+        ]
+      },
+      "sign": {
+        "introHeading": "إضافة علامة توقيع مرئية إلى PDF",
+        "intro": "ضع على صفحة PDF علامة توقيع مرئية ترسمها أو تكتبها أو ترفعها كصورة PNG. إنها علامة بصرية فقط؛ لا تثبت الهوية أو الموافقة أو صلاحية التوقيع، ولا تنشئ توقيعًا رقميًا بشهادة. اتبع الإجراء المعمول به وافحص الموضع قبل الحفظ.",
+        "stepsHeading": "إضافة علامة توقيع إلى PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "افتح PDF المطلوب توقيعه", "description": "حدد المستند وافتح الصفحة التي تريد وضع علامة التوقيع عليها." },
+          { "title": "أنشئ العلامة وضعها", "description": "ارسم التوقيع أو اكتب الاسم أو ارفع صورة PNG، ثم اضبط الموضع والحجم على الصفحة." },
+          { "title": "احفظ نسخة منفصلة وراجعها", "description": "نزّل نسخة PDF الناتجة وتأكد من ظهور العلامة في الصفحة والموضع الصحيحين." }
+        ],
+        "faqs": [
+          { "question": "كيف يمكنني إنشاء علامة التوقيع؟", "answer": "يمكنك رسمها في مساحة العمل أو كتابة اسمك أو رفع صورة توقيع بصيغة PNG." },
+          { "question": "هل هذا توقيع رقمي معتمد بشهادة؟", "answer": "لا. تضيف الأداة علامة مرئية إلى PDF ولا توفر شهادة أو تحققًا من الهوية أو توقيعًا يكشف العبث." },
+          { "question": "هل أستطيع تغيير موضع العلامة وحجمها قبل الحفظ؟", "answer": "نعم. حرّك العلامة أو غيّر حجمها في مساحة العمل وافحص موضعها قبل التنزيل." },
+          { "question": "هل تثبت العلامة هوية الموقّع أو موافقته؟", "answer": "لا. العلامة المرئية وحدها لا تثبت الهوية أو الموافقة أو صلاحية التوقيع. اتبع الإجراء المناسب للمستند." },
+          { "question": "هل يُستبدل ملف PDF الأصلي؟", "answer": "لا. تُنزّل نسخة منفصلة تحمل علامة التوقيع. احتفظ بالملف المصدر إذا كنت تحتاج إليه." },
+          { "question": "هل تُرسل PDF أو صورة التوقيع إلى خادم معالجة؟", "answer": "تُعالج محتويات الملفات المدعومة في المتصفح، لكن الصفحة قد تطلب موارد أو خدمات خارجية مفعّلة." }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "استخراج PDF إلى TXT أو Markdown",
         "intro": "تستخرج الأداة نص PDF القابل للتحديد إلى TXT أو Markdown. تحتاج الصفحات الممسوحة كصور فقط إلى OCR أولًا؛ وراجع الجداول المعقدة وترتيب القراءة.",
@@ -1929,6 +2235,78 @@
           { "question": "Les modifications touchent-elles mon fichier d’origine ?", "answer": "L’outil crée un résultat traité séparé sans écraser la source. Conservez l’original jusqu’à la vérification." }
         ]
       },
+      "metadata": {
+        "introHeading": "Analyser un PDF et examiner ses pages avec l’OCR",
+        "intro": "Consultez le nombre de pages et leurs dimensions, puis utilisez l’OCR pour reconnaître le texte des pages numérisées. Le texte reconnu est présenté séparément et n’ajoute pas de couche consultable au PDF d’origine. La précision dépend de la qualité du scan et de la langue ; vérifiez les informations importantes.",
+        "stepsHeading": "Analyser un PDF et vérifier l’OCR en trois étapes",
+        "steps": [
+          { "title": "Choisir le PDF à analyser", "description": "Ajoutez le PDF dont vous souhaitez examiner les informations de page ou le texte." },
+          { "title": "Lancer l’analyse et l’OCR", "description": "Choisissez si nécessaire la langue OCR et les pages à traiter, puis consultez le texte reconnu, le nombre de pages et leurs dimensions." },
+          { "title": "Vérifier et enregistrer le résultat", "description": "Relisez le texte reconnu, puis utilisez l’option de copie ou d’enregistrement proposée. Le PDF d’origine n’est pas rendu consultable par recherche." }
+        ],
+        "faqs": [
+          { "question": "L’OCR rend-il le PDF d’origine consultable par recherche ?", "answer": "Non. Le texte reconnu s’affiche séparément pour vérification ; l’outil n’ajoute pas de couche de texte consultable au PDF d’origine." },
+          { "question": "Quelles informations de page puis-je examiner ?", "answer": "Vous pouvez consulter le nombre de pages, leurs dimensions et les détails affichés dans le panneau d’analyse." },
+          { "question": "Pourquoi le texte OCR d’un scan peut-il contenir des erreurs ?", "answer": "Le résultat varie selon la résolution, le contraste, l’inclinaison, la qualité des caractères et la langue choisie. Comparez les noms, chiffres et informations importantes avec la source." },
+          { "question": "Puis-je choisir la langue de l’OCR ?", "answer": "Oui, choisissez une langue proposée dans l’espace de travail. Ses données peuvent être chargées et mises en cache dans le navigateur." },
+          { "question": "L’OCR reconnaît-il l’écriture manuscrite aussi bien que le texte imprimé ?", "answer": "Pas nécessairement. L’écriture manuscrite ou les scans de mauvaise qualité peuvent produire un texte incomplet ou incorrect." },
+          { "question": "Le PDF est-il envoyé à un serveur pour l’OCR ?", "answer": "Les contenus des fichiers compatibles sont traités dans le navigateur. La page peut toutefois demander des ressources, comme les données linguistiques OCR, ou des services tiers activés." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Extraire les tableaux Word dans un classeur Excel",
+        "intro": "Chaque tableau détecté dans un document DOCX est placé dans une feuille Excel distincte ; les paragraphes et les listes sont réunis dans une feuille Text séparée. La mise en page des pages Word n’est pas reproduite. Vérifiez les tableaux, les cellules et le texte avant d’utiliser le classeur.",
+        "stepsHeading": "Convertir un document Word en Excel en trois étapes",
+        "steps": [
+          { "title": "Sélectionner un document DOCX", "description": "Choisissez un ou plusieurs fichiers DOCX contenant les tableaux voulus. Enregistrez d’abord les anciens fichiers DOC au format DOCX." },
+          { "title": "Extraire les tableaux et le texte", "description": "Lancez la conversion et vérifiez que chaque tableau détecté dispose de sa feuille et que les paragraphes ou listes figurent dans la feuille Text." },
+          { "title": "Enregistrer et vérifier le classeur", "description": "Téléchargez le fichier XLSX obtenu. Pour plusieurs documents, les résultats peuvent être regroupés dans un ZIP ; associez chaque fichier à sa source." }
+        ],
+        "faqs": [
+          { "question": "Quels formats de fichiers Word puis-je convertir ?", "answer": "L’outil accepte les fichiers DOCX. Enregistrez les anciens fichiers DOC au format DOCX dans un traitement de texte avant de les sélectionner." },
+          { "question": "Comment les tableaux extraits sont-ils organisés dans Excel ?", "answer": "Chaque tableau détecté est placé dans sa propre feuille. Ouvrez le XLSX pour vérifier les noms des feuilles, les limites des tableaux, les lignes et les colonnes." },
+          { "question": "Que deviennent les paragraphes et listes hors des tableaux ?", "answer": "Les paragraphes et listes du document sont réunis dans une feuille Text séparée. Vérifiez qu’aucun contenu ne manque et que l’ordre reste correct." },
+          { "question": "Puis-je convertir plusieurs documents Word à la fois ?", "answer": "Vous pouvez sélectionner plusieurs fichiers DOCX. Si les résultats sont regroupés dans un ZIP, associez chaque classeur au document source correspondant." },
+          { "question": "Les zéros initiaux et les codes des cellules sont-ils conservés ?", "answer": "Le texte des cellules reste du texte afin d’éviter que les codes ou zéros initiaux soient convertis en nombres. Vérifiez tout de même les valeurs importantes avec la source." },
+          { "question": "Le fichier Excel conserve-t-il la mise en page Word ?", "answer": "Non. L’outil extrait les tableaux et le texte dans des feuilles ; il ne reproduit ni la mise en forme des pages Word ni leur pagination. Le fichier DOCX d’origine reste inchangé." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Convertir un tableur Excel en PDF paginé",
+        "intro": "Convertissez des fichiers XLSX, XLS et CSV en tableaux PDF dans le navigateur. Les feuilles larges ou longues peuvent occuper plusieurs pages ; vérifiez les colonnes, les sauts de page et la taille du texte avant le partage. Les fichiers compatibles sont traités dans le navigateur, mais la page peut demander des ressources ou services activés.",
+        "stepsHeading": "Convertir un fichier Excel ou CSV en PDF en trois étapes",
+        "steps": [
+          { "title": "Choisir un tableur", "description": "Sélectionnez sur votre appareil un fichier XLSX, XLS ou CSV compatible." },
+          { "title": "Générer le PDF", "description": "Lancez la conversion et laissez l’outil répartir le contenu du tableur sur les pages PDF." },
+          { "title": "Vérifier les pages PDF", "description": "Téléchargez le résultat et contrôlez les colonnes, les sauts de page et les petits caractères." }
+        ],
+        "faqs": [
+          { "question": "Quels formats de tableur sont acceptés ?", "answer": "L’outil accepte les fichiers XLSX, XLS et CSV. Si un fichier n’apparaît pas, vérifiez son format dans le sélecteur." },
+          { "question": "Un grand tableau tiendra-t-il sur une seule page PDF ?", "answer": "Pas nécessairement. Le résultat peut comporter plusieurs pages ; vérifiez les colonnes et les sauts de page et ajustez la feuille source si besoin." },
+          { "question": "Les formules Excel sont-elles recalculées pendant la conversion ?", "answer": "Ne partez pas du principe que le moteur de calcul d’Excel est reproduit. Comparez les valeurs importantes avec le classeur source." },
+          { "question": "Puis-je vérifier le PDF avant de l’envoyer ?", "answer": "Oui. Ouvrez le fichier téléchargé et vérifiez chaque page, notamment les colonnes coupées, le texte réduit et les sauts de page." },
+          { "question": "La création du PDF modifie-t-elle mon tableur d’origine ?", "answer": "Non. Le PDF est un fichier séparé et le tableur source reste inchangé." },
+          { "question": "Pourquoi un grand classeur prend-il plus de temps ?", "answer": "Le nombre de lignes, de colonnes et de feuilles peut augmenter le temps de traitement et la mémoire nécessaire. La vitesse dépend aussi de votre appareil." }
+        ]
+      },
+      "sign": {
+        "introHeading": "Ajouter une marque de signature visible à un PDF",
+        "intro": "Placez sur une page PDF une marque de signature dessinée, saisie ou importée en PNG. Il s’agit uniquement d’un élément visuel : il ne vérifie ni l’identité, ni le consentement, ni l’autorité du signataire et ne constitue pas une signature numérique avec certificat. Suivez la procédure applicable et vérifiez l’emplacement avant l’enregistrement.",
+        "stepsHeading": "Ajouter une marque de signature à un PDF en trois étapes",
+        "steps": [
+          { "title": "Ouvrir le PDF à signer", "description": "Sélectionnez le document et affichez la page où la marque doit apparaître." },
+          { "title": "Créer et placer la marque", "description": "Dessinez la signature, saisissez un nom ou importez un PNG ; ajustez ensuite sa position et sa taille." },
+          { "title": "Enregistrer une copie et vérifier", "description": "Téléchargez le PDF avec la marque et confirmez qu’elle se trouve sur la bonne page et au bon endroit." }
+        ],
+        "faqs": [
+          { "question": "Comment créer une marque de signature ?", "answer": "Dessinez-la dans l’espace de travail, saisissez un nom ou importez une image de signature PNG." },
+          { "question": "S’agit-il d’une signature numérique avec certificat ?", "answer": "Non. L’outil ajoute une marque visible au PDF ; il ne fournit ni certificat, ni vérification d’identité, ni signature détectant les modifications." },
+          { "question": "Puis-je déplacer ou redimensionner la marque avant l’enregistrement ?", "answer": "Oui. Déplacez-la ou redimensionnez-la dans l’espace de travail et vérifiez son emplacement avant le téléchargement." },
+          { "question": "La marque prouve-t-elle l’identité ou le consentement du signataire ?", "answer": "Non. Une marque visible ne vérifie ni l’identité, ni le consentement, ni l’autorité. Suivez la procédure applicable au document." },
+          { "question": "Le PDF d’origine est-il remplacé ?", "answer": "Non. Le résultat est téléchargé dans un PDF séparé. Conservez le fichier source si nécessaire." },
+          { "question": "Le PDF ou l’image de signature est-il envoyé à un serveur ?", "answer": "Les fichiers compatibles sont traités dans le navigateur, mais la page peut demander des ressources ou services tiers activés." }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "Extraire un PDF en TXT ou Markdown",
         "intro": "L’outil extrait le texte sélectionnable d’un PDF en TXT ou Markdown. Les pages scannées uniquement sous forme d’image nécessitent d’abord un OCR ; vérifiez les tableaux complexes et l’ordre de lecture.",
@@ -1963,6 +2341,153 @@
           { "question": "Les tableaux et colonnes gardent-ils leur mise en page d’origine ?", "answer": "Les mises en page complexes peuvent changer dans Word. Vérifiez les tableaux, colonnes, en-têtes et sauts de page du fichier généré." },
           { "question": "La conversion remplace-t-elle mon PDF ?", "answer": "Non. L’outil crée un DOCX séparé et laisse le PDF source inchangé." },
           { "question": "Puis-je convertir un gros PDF sur un téléphone ?", "answer": "Cela dépend de la mémoire du navigateur et du document. Les gros fichiers peuvent mieux fonctionner sur un appareil disposant de plus de mémoire." }
+        ]
+      }
+    }
+  },
+  "zh": {
+    "labels": {
+      "home": "首页",
+      "quickAnswer": "快速回答",
+      "howTo": "操作步骤",
+      "faq": "常见问题",
+      "relatedTools": "相关 PDF 工具",
+      "browseTools": "浏览所有 ClickPDF 工具",
+      "privacy": "关于此工具"
+    },
+    "tools": {
+      "metadata": {
+        "introHeading": "分析 PDF 并识别扫描文字",
+        "intro": "查看 PDF 页数和页面尺寸，并对扫描页面运行 OCR。识别结果会单独显示，不会向原 PDF 添加可搜索的文字层。准确度受图像清晰度、倾斜程度和所选语言影响；请核对重要内容。",
+        "stepsHeading": "分析 PDF 和查看 OCR 文字的三个步骤",
+        "steps": [
+          { "title": "选择要分析的 PDF", "description": "添加需要查看页数、页面尺寸或扫描文字的 PDF。" },
+          { "title": "选择 OCR 语言并开始分析", "description": "如需识别扫描文字，请从工作区提供的语言中选择，并按需指定页面范围。" },
+          { "title": "核对并保存结果", "description": "检查识别出的文字和页面信息，并使用界面提供的复制或保存选项。原 PDF 不会因此变成可搜索文件。" }
+        ],
+        "faqs": [
+          { "question": "OCR 会让原 PDF 变成可搜索文件吗？", "answer": "不会。识别文字会单独显示供查看；此工具不会把可搜索文字层写入原 PDF。" },
+          { "question": "可以查看哪些 PDF 页面信息？", "answer": "可以查看页数、页面尺寸以及分析器显示的其他页面信息。" },
+          { "question": "为什么扫描件 OCR 可能会识别错误？", "answer": "结果受分辨率、对比度、页面倾斜、文字状况和所选语言影响。请将姓名、数字和重要内容与原件核对。" },
+          { "question": "可以选择 OCR 语言吗？", "answer": "可以，从工作区提供的语言中选择。相应语言数据可能会在浏览器中加载并缓存。" },
+          { "question": "手写内容能像印刷文字一样准确识别吗？", "answer": "不一定。手写文字或质量较差的扫描件可能产生遗漏或错误的识别结果。" },
+          { "question": "OCR 会把 PDF 上传到服务器吗？", "answer": "支持的文件内容在浏览器中处理；页面仍可能请求 OCR 语言数据等资源或已启用的第三方服务。" }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "将 Word 表格提取到 Excel 工作簿",
+        "intro": "工具会把 DOCX 中检测到的每个表格放入单独的 Excel 工作表，并把段落和列表放在独立的 Text 工作表中。它不会重现 Word 页面布局。使用前请检查表格、单元格和提取的文字。",
+        "stepsHeading": "将 Word 文档转换为 Excel 的三个步骤",
+        "steps": [
+          { "title": "选择 DOCX 文档", "description": "选择一个或多个包含所需表格的 DOCX 文件。旧版 DOC 文件需先另存为 DOCX。" },
+          { "title": "提取表格和文字", "description": "运行转换，并检查每个检测到的表格是否位于单独工作表，段落或列表是否在 Text 工作表中。" },
+          { "title": "保存并检查工作簿", "description": "下载生成的 XLSX。处理多个文档时，结果可能打包为 ZIP；请将每个工作簿与来源文件对应。" }
+        ],
+        "faqs": [
+          { "question": "可以转换哪些 Word 文件格式？", "answer": "工具接受 DOCX 文件。请先在文字处理软件中把旧版 DOC 文件另存为 DOCX。" },
+          { "question": "提取的表格在 Excel 中如何排列？", "answer": "每个检测到的表格会放入单独工作表。打开 XLSX 后检查工作表名称、表格范围、行和列。" },
+          { "question": "表格以外的段落和列表会怎样处理？", "answer": "文档段落和列表会集中到单独的 Text 工作表。请检查内容是否遗漏或顺序是否变化。" },
+          { "question": "可以一次转换多个 Word 文档吗？", "answer": "可以选择多个 DOCX 文件。若结果打包在 ZIP 中，请将每个工作簿与对应的源文档核对。" },
+          { "question": "单元格开头的零和代码会保留吗？", "answer": "单元格文字按文本处理，以免代码或前导零被转换成数字。重要数值仍应与源文档核对。" },
+          { "question": "Excel 输出会保留 Word 页面布局吗？", "answer": "不会。工具将表格和文字提取到工作表，不会重现 Word 页面样式或分页；原 DOCX 不会被修改。" }
+        ]
+      }
+    }
+  },
+  "tl": {
+    "labels": {
+      "home": "Home",
+      "quickAnswer": "Maikling sagot",
+      "howTo": "Paano gamitin",
+      "faq": "Mga madalas itanong",
+      "relatedTools": "Mga kaugnay na PDF tool",
+      "browseTools": "Tingnan ang lahat ng ClickPDF tool",
+      "privacy": "Tungkol sa tool na ito"
+    },
+    "tools": {
+      "metadata": {
+        "introHeading": "Suriin ang PDF at kilalanin ang teksto sa scan",
+        "intro": "Tingnan ang bilang at sukat ng mga pahina ng PDF at magpatakbo ng OCR sa mga na-scan na pahina. Hiwalay na ipinapakita ang nakilalang teksto; hindi nagdaragdag ang tool na ito ng searchable text layer sa orihinal na PDF. Nakasalalay ang resulta sa linaw ng scan, pagkakatagilid at napiling wika, kaya suriin ang mahahalagang detalye.",
+        "stepsHeading": "Tatlong hakbang sa pagsusuri ng PDF at OCR",
+        "steps": [
+          { "title": "Piliin ang PDF na susuriin", "description": "Idagdag ang PDF na gusto mong tingnan ang bilang o sukat ng pahina, o basahin ang mga scan." },
+          { "title": "Pumili ng OCR language at suriin", "description": "Kung kailangan ang pagkilala sa scan, pumili ng wikang available sa workspace at magtakda ng mga pahina kung kinakailangan." },
+          { "title": "Suriin at i-save ang resulta", "description": "Basahin ang nakilalang teksto at impormasyon ng pahina; gamitin ang copy o save option na ipinapakita ng tool. Hindi ginagawang searchable ang orihinal na PDF." }
+        ],
+        "faqs": [
+          { "question": "Magiging searchable ba ang orihinal na PDF pagkatapos ng OCR?", "answer": "Hindi. Hiwalay na ipinapakita ang nakilalang teksto; hindi naglalagay ang tool ng searchable text layer sa orihinal na PDF." },
+          { "question": "Anong impormasyon ng pahina ang makikita ko?", "answer": "Makikita mo ang bilang at sukat ng pahina at iba pang detalyeng ipinapakita sa analyzer." },
+          { "question": "Bakit maaaring magkamali ang OCR sa scan?", "answer": "Naaapektuhan ang resulta ng resolution, contrast, pagkakatagilid ng pahina, kalidad ng mga letra at napiling wika. Ihambing ang mga pangalan, numero at mahahalagang detalye sa pinagmulan." },
+          { "question": "Maaari ba akong pumili ng OCR language?", "answer": "Oo. Pumili mula sa mga wikang available sa workspace. Maaaring i-load at i-cache sa browser ang data ng napiling wika." },
+          { "question": "Kasing-tumpak ba ng naka-print na teksto ang sulat-kamay?", "answer": "Hindi palagi. Maaaring hindi kumpleto o mali ang resulta para sa sulat-kamay at mababang kalidad na scan." },
+          { "question": "Ina-upload ba ang PDF sa server para sa OCR?", "answer": "Pinoproseso sa browser ang suportadong file content, ngunit maaaring humiling ang page ng OCR language data, iba pang resource o naka-enable na third-party service." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Kunin ang mga Word table papunta sa Excel workbook",
+        "intro": "Inilalagay ang bawat table na nakita sa DOCX sa hiwalay na Excel worksheet; inilalagay naman ang mga talata at listahan sa hiwalay na Text worksheet. Hindi nito ginagaya ang page layout ng Word. Suriin ang mga table, cell at nakuhang teksto bago gamitin ang workbook.",
+        "stepsHeading": "Tatlong hakbang sa pag-convert ng Word sa Excel",
+        "steps": [
+          { "title": "Pumili ng DOCX document", "description": "Pumili ng isa o higit pang DOCX file na may mga table na kailangan mo. I-save muna bilang DOCX ang lumang DOC file." },
+          { "title": "Kunin ang mga table at teksto", "description": "Patakbuhin ang conversion at tiyaking nasa magkakahiwalay na worksheet ang mga table at nasa Text worksheet ang mga talata o listahan." },
+          { "title": "I-save at suriin ang workbook", "description": "I-download ang ginawang XLSX. Kapag maraming dokumento ang pinroseso, maaaring ZIP ang resulta; itugma ang bawat workbook sa pinagmulan nito." }
+        ],
+        "faqs": [
+          { "question": "Anong Word file format ang puwedeng i-convert?", "answer": "Tumatanggap ang tool ng DOCX. I-save muna bilang DOCX sa word processor ang mas lumang DOC file." },
+          { "question": "Paano inilalagay sa Excel ang mga nakuhang table?", "answer": "Nasa sariling worksheet ang bawat nakitang table. Buksan ang XLSX at suriin ang mga pangalan ng sheet, saklaw ng table, row at column." },
+          { "question": "Ano ang nangyayari sa mga talata at listahang wala sa table?", "answer": "Pinagsasama ang mga talata at listahan sa hiwalay na Text worksheet. Suriin kung may nawalang nilalaman o nagbago ang pagkakasunod-sunod." },
+          { "question": "Maaari ba akong mag-convert ng maraming Word document?", "answer": "Oo, pumili ng maraming DOCX file. Kung ZIP ang resulta, itugma ang bawat workbook sa tamang source document." },
+          { "question": "Nananatili ba ang mga zero sa unahan at mga code sa cell?", "answer": "Pinananatiling text ang nilalaman ng cell upang hindi maging numero ang mga code o zero sa unahan. Ihambing pa rin sa source ang mahahalagang value." },
+          { "question": "Gagayahin ba ng Excel output ang page layout ng Word?", "answer": "Hindi. Kinukuha ng tool ang mga table at teksto papunta sa worksheet; hindi nito ginagaya ang page styling o pagination ng Word. Hindi binabago ang orihinal na DOCX." }
+        ]
+      }
+    }
+  },
+  "es": {
+    "labels": {
+      "home": "Inicio",
+      "quickAnswer": "Respuesta rápida",
+      "howTo": "Cómo usarlo",
+      "faq": "Preguntas frecuentes",
+      "relatedTools": "Herramientas PDF relacionadas",
+      "browseTools": "Ver todas las herramientas de ClickPDF",
+      "privacy": "Acerca de esta herramienta"
+    },
+    "tools": {
+      "metadata": {
+        "introHeading": "Analiza el PDF y reconoce el texto de escaneos",
+        "intro": "Consulta el número y las dimensiones de las páginas y ejecuta OCR en páginas escaneadas. El texto reconocido se muestra por separado; esta herramienta no añade una capa de texto buscable al PDF original. La precisión depende de la calidad, la inclinación y el idioma elegido, así que revisa los datos importantes.",
+        "stepsHeading": "Analiza un PDF y revisa el OCR en tres pasos",
+        "steps": [
+          { "title": "Elige el PDF que quieres analizar", "description": "Añade el archivo del que quieras consultar las páginas, sus dimensiones o el texto escaneado." },
+          { "title": "Elige el idioma del OCR y analiza", "description": "Para reconocer texto escaneado, selecciona un idioma disponible en el espacio de trabajo y, si hace falta, el rango de páginas." },
+          { "title": "Revisa y guarda el resultado", "description": "Comprueba el texto reconocido y los datos de las páginas; usa las opciones de copia o guardado que aparezcan. El PDF original no se vuelve buscable." }
+        ],
+        "faqs": [
+          { "question": "¿El OCR hace que el PDF original sea buscable?", "answer": "No. El texto reconocido se muestra por separado; esta herramienta no añade una capa de texto buscable al PDF original." },
+          { "question": "¿Qué información de las páginas puedo consultar?", "answer": "Puedes consultar el número de páginas, sus dimensiones y otros datos que muestre el analizador." },
+          { "question": "¿Por qué el OCR puede equivocarse con un escaneo?", "answer": "Influyen la resolución, el contraste, la inclinación, la calidad de los caracteres y el idioma elegido. Compara nombres, cifras y datos importantes con el original." },
+          { "question": "¿Puedo elegir el idioma del OCR?", "answer": "Sí. Elige uno de los idiomas disponibles en el espacio de trabajo. Sus datos pueden cargarse y guardarse en la caché del navegador." },
+          { "question": "¿El OCR reconoce la escritura a mano igual que el texto impreso?", "answer": "No necesariamente. La escritura manuscrita y los escaneos de baja calidad pueden producir resultados incompletos o incorrectos." },
+          { "question": "¿Se sube el PDF a un servidor para hacer OCR?", "answer": "El contenido de los archivos compatibles se procesa en el navegador, aunque la página puede solicitar recursos como datos de idioma OCR o servicios de terceros activados." }
+        ]
+      },
+      "word-to-excel": {
+        "introHeading": "Extrae tablas de Word a un libro de Excel",
+        "intro": "Cada tabla detectada en un DOCX se coloca en una hoja de Excel independiente; los párrafos y las listas se reúnen en una hoja Text separada. No se reproduce el diseño de las páginas de Word. Revisa las tablas, las celdas y el texto extraído antes de usar el libro.",
+        "stepsHeading": "Convierte un documento Word a Excel en tres pasos",
+        "steps": [
+          { "title": "Elige un documento DOCX", "description": "Selecciona uno o varios archivos DOCX con las tablas que necesitas. Guarda primero los DOC antiguos como DOCX." },
+          { "title": "Extrae las tablas y el texto", "description": "Inicia la conversión y comprueba que cada tabla detectada tenga su propia hoja y que los párrafos o listas estén en la hoja Text." },
+          { "title": "Guarda y revisa el libro", "description": "Descarga el XLSX generado. Si conviertes varios documentos, los resultados pueden reunirse en un ZIP; relaciona cada libro con su archivo de origen." }
+        ],
+        "faqs": [
+          { "question": "¿Qué formatos de Word puedo convertir?", "answer": "La herramienta acepta archivos DOCX. Guarda los archivos DOC antiguos como DOCX en un procesador de texto antes de seleccionarlos." },
+          { "question": "¿Cómo se organizan en Excel las tablas extraídas?", "answer": "Cada tabla detectada va en una hoja distinta. Abre el XLSX y revisa los nombres de las hojas, los límites de las tablas, las filas y las columnas." },
+          { "question": "¿Qué ocurre con los párrafos y las listas que no están en tablas?", "answer": "Los párrafos y las listas se recopilan en una hoja Text separada. Comprueba que no falte contenido ni haya cambiado el orden." },
+          { "question": "¿Puedo convertir varios documentos Word a la vez?", "answer": "Sí, puedes seleccionar varios DOCX. Si se agrupan en un ZIP, relaciona cada libro con el documento de origen correcto." },
+          { "question": "¿Se conservan los ceros iniciales y los códigos de las celdas?", "answer": "El contenido de las celdas se mantiene como texto para evitar que los códigos o ceros iniciales se conviertan en números. Compara los valores importantes con el original." },
+          { "question": "¿El Excel conserva el diseño de las páginas de Word?", "answer": "No. La herramienta extrae tablas y texto a hojas de cálculo; no reproduce los estilos de página ni la paginación de Word. El DOCX original no se modifica." }
         ]
       }
     }
