@@ -74,6 +74,54 @@
       "humanReviewed": false,
       "reviewer": null,
       "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "split",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "split",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "split",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "rotate",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "rotate",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "rotate",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
     }
   ]
 }

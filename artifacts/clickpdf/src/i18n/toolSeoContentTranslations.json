@@ -63,6 +63,42 @@
           { "question": "変換すると画像の解像度は上がりますか？", "answer": "いいえ。PDFにまとめても、元画像の解像度や細部が増えるわけではありません。必要な画質の画像を選んでください。" },
           { "question": "変換後に元の画像は変更されますか？", "answer": "変換結果は新しいPDFです。元画像は別に保管されるため、PDFを確認するまでは元ファイルも残しておけます。" }
         ]
+      },
+      "split": {
+        "introHeading": "必要なページだけをPDFから分ける",
+        "intro": "抽出するページ番号や範囲を選び、別々のPDFファイルを作成します。選択した内容によっては、結果を個別に、またはZIPでダウンロードできます。共有する前にページ順と出力ファイルを確認してください。",
+        "stepsHeading": "PDFを3つの手順で分割する",
+        "steps": [
+          { "title": "元のPDFを開く", "description": "分割するPDFをデバイスから選び、Split PDFのワークスペースに追加します。" },
+          { "title": "ページまたは範囲を選ぶ", "description": "取り出すページ番号や範囲を入力するか、利用可能な場合はページごとに分割するモードを選びます。" },
+          { "title": "分割して結果を保存", "description": "分割を実行し、作成されたPDFを個別に、または表示されるZIP形式でダウンロードします。" }
+        ],
+        "faqs": [
+          { "question": "連続していないページも取り出せますか？", "answer": "はい。ページ選択欄で利用できる番号や範囲を入力し、処理前に選択内容を確認してください。" },
+          { "question": "各ページを別々のPDFにできますか？", "answer": "ワークスペースにページごとの分割モードが表示されている場合は、それを選択します。作成したファイルは個別に、またはZIPでダウンロードできます。" },
+          { "question": "抽出したページはどの順序で出力されますか？", "answer": "出力は選択したページの順序に従います。希望する並びがある場合は、分割前にページ一覧を確認してください。" },
+          { "question": "スキャンしたPDFを分割すると、検索できる文字が追加されますか？", "answer": "いいえ。分割は既存のページを切り分ける機能で、OCRは実行しません。別途OCRを行わない限り、スキャンページは画像のままです。" },
+          { "question": "分割すると元のPDFからページが削除されますか？", "answer": "いいえ。分割結果は新しいファイルとして作成され、元のPDFは上書きされません。" },
+          { "question": "大量のページを抽出すると時間がかかるのはなぜですか？", "answer": "長いPDFや大きなページ画像は、デバイスのメモリを多く使うことがあります。処理速度はファイル、ブラウザー、利用可能なメモリによって異なります。" }
+        ]
+      },
+      "rotate": {
+        "introHeading": "PDFページの向きを整えて保存",
+        "intro": "ページごとの操作で一部のページを回転するか、ワークスペースに表示される全ページ用の操作を使います。プレビューで向きを確認してから、回転したPDFを別ファイルとして保存してください。",
+        "stepsHeading": "PDFを3つの手順で回転する",
+        "steps": [
+          { "title": "PDFを開く", "description": "デバイスからPDFを選び、回転ワークスペースにページのプレビューが表示されるまで待ちます。" },
+          { "title": "ページと回転方向を選ぶ", "description": "個別ページの操作、またはツールに表示される全ページ用の操作を使って向きを調整します。" },
+          { "title": "保存してページを確認", "description": "回転後のPDFをダウンロードし、PDFビューアーで変更したページを確認します。" }
+        ],
+        "faqs": [
+          { "question": "1ページだけ回転して、ほかのページはそのままにできますか？", "answer": "はい。修正が必要なページの操作を使います。全ページ用の操作を選ぶと文書全体に適用されるため、実行前に確認してください。" },
+          { "question": "すべてのページに同じ回転を適用できますか？", "answer": "ワークスペースに表示される全ページ用の操作を使えます。正しい向きのページまで変わらないよう、先にプレビューを確認してください。" },
+          { "question": "回転するとページ内の文字や画像も変わりますか？", "answer": "回転で変わるのはページの向きで、文字や画像そのものではありません。保存したコピーを開き、内容が切れていないか確認してください。" },
+          { "question": "保存前に誤った回転を直せますか？", "answer": "ダウンロード前にページの回転操作をもう一度使って向きを調整できます。最初からやり直す場合は元のPDFを開き直してください。" },
+          { "question": "回転後に元のPDFは置き換わりますか？", "answer": "いいえ。回転したPDFは別ファイルとしてダウンロードされ、デバイス上の元ファイルは変更されません。" },
+          { "question": "ページのプレビューが遅く表示されることがあるのはなぜですか？", "answer": "プレビュー画像の表示にはブラウザーのメモリを使います。大きなPDFや画像の多いページは、デバイスによって時間がかかることがあります。" }
+        ]
       }
     }
   },
@@ -130,6 +166,42 @@
           { "question": "کیا PDF میں بدلنے سے تصویر کی resolution بڑھ جاتی ہے؟", "answer": "نہیں۔ PDF بنانا اصل تصویر کی resolution یا باریک تفصیل نہیں بڑھاتا۔ مطلوبہ وضاحت والی اصل تصویر استعمال کریں۔" },
           { "question": "کیا PDF بنانے سے اصل تصاویر بدل جائیں گی؟", "answer": "نہیں۔ نتیجہ ایک نئی PDF فائل ہوتا ہے۔ PDF چیک کرنے تک اصل تصاویر بھی اپنے پاس رکھ سکتے ہیں۔" }
         ]
+      },
+      "split": {
+        "introHeading": "PDF سے مطلوبہ صفحات الگ کریں",
+        "intro": "نکالنے کے لیے صفحات کے نمبر یا رینج منتخب کریں اور الگ PDF فائلیں بنائیں۔ منتخب آپشن کے مطابق نتائج الگ الگ یا ZIP میں ڈاؤن لوڈ ہو سکتے ہیں۔ شیئر کرنے سے پہلے صفحات کی ترتیب اور بننے والی فائلیں چیک کریں۔",
+        "stepsHeading": "PDF تقسیم کرنے کے تین مراحل",
+        "steps": [
+          { "title": "اصل PDF کھولیں", "description": "ڈیوائس سے وہ PDF منتخب کریں جسے تقسیم کرنا ہے اور اسے Split PDF ورک اسپیس میں شامل کریں۔" },
+          { "title": "صفحات یا رینج منتخب کریں", "description": "نکالنے کے لیے صفحات کے نمبر یا رینج درج کریں، یا اگر دستیاب ہو تو ہر صفحے کو الگ کرنے کا آپشن منتخب کریں۔" },
+          { "title": "فائلیں بنائیں اور محفوظ کریں", "description": "تقسیم کا عمل چلائیں، پھر بننے والی PDFs الگ الگ یا دکھائے گئے ZIP پیکج میں ڈاؤن لوڈ کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا ایک دوسرے کے ساتھ نہ آنے والے صفحات بھی نکال سکتا ہوں؟", "answer": "جی ہاں۔ page selection میں دستیاب نمبرز یا رینج درج کریں اور پروسیسنگ سے پہلے انتخاب دوبارہ دیکھیں۔" },
+          { "question": "کیا ہر صفحے کی الگ PDF بن سکتی ہے؟", "answer": "اگر ورک اسپیس میں ہر صفحے کو الگ کرنے کا موڈ موجود ہو تو اسے منتخب کریں۔ بننے والی فائلیں الگ یا ZIP میں ڈاؤن لوڈ کی جا سکتی ہیں۔" },
+          { "question": "نکالے گئے صفحات کس ترتیب سے آئیں گے؟", "answer": "نتیجہ منتخب صفحات کی ترتیب کے مطابق بنتا ہے۔ اگر کوئی خاص ترتیب چاہیے تو تقسیم سے پہلے page list چیک کریں۔" },
+          { "question": "کیا scanned PDF تقسیم کرنے سے searchable متن شامل ہو جاتا ہے؟", "answer": "نہیں۔ PDF تقسیم کرنا موجودہ صفحات الگ کرتا ہے، OCR نہیں چلاتا۔ الگ سے OCR کیے بغیر scanned صفحات تصویر ہی رہتے ہیں۔" },
+          { "question": "کیا صفحات تقسیم ہونے پر اصل PDF سے حذف ہو جاتے ہیں؟", "answer": "نہیں۔ تقسیم کے نتیجے میں نئی فائلیں بنتی ہیں اور اصل PDF اووررائٹ نہیں ہوتی۔" },
+          { "question": "بڑی PDF میں صفحات نکالنے میں زیادہ وقت کیوں لگ سکتا ہے؟", "answer": "لمبی PDFs اور بڑی صفحہ تصاویر ڈیوائس کی زیادہ میموری استعمال کر سکتی ہیں۔ رفتار فائل، براؤزر اور دستیاب میموری پر منحصر ہے۔" }
+        ]
+      },
+      "rotate": {
+        "introHeading": "PDF صفحات کا رخ درست کر کے محفوظ کریں",
+        "intro": "کچھ صفحات گھمانے کے لیے ہر صفحے کے controls استعمال کریں، یا ورک اسپیس میں دستیاب all-pages control سے پوری دستاویز کا رخ بدلیں۔ محفوظ کرنے سے پہلے preview دیکھیں اور گھمائی گئی PDF کو الگ فائل کے طور پر ڈاؤن لوڈ کریں۔",
+        "stepsHeading": "PDF گھمانے کے تین مراحل",
+        "steps": [
+          { "title": "PDF کھولیں", "description": "ڈیوائس سے PDF منتخب کریں اور rotate ورک اسپیس میں صفحات کے previews آنے تک انتظار کریں۔" },
+          { "title": "صفحات اور سمت منتخب کریں", "description": "صرف متعلقہ صفحے کے controls استعمال کریں، یا ٹول میں دکھائے گئے پوری دستاویز کے آپشن سے تمام صفحات گھمائیں۔" },
+          { "title": "محفوظ کریں اور صفحات دیکھیں", "description": "گھمائی ہوئی PDF ڈاؤن لوڈ کریں اور PDF viewer میں متاثرہ صفحات کا رخ چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا باقی صفحات گھمائے بغیر صرف ایک صفحہ گھما سکتا ہوں؟", "answer": "جی ہاں۔ جس صفحے کو درست کرنا ہو اسی کے controls استعمال کریں۔ پوری دستاویز والا آپشن تمام صفحات پر لاگو ہوتا ہے، اس لیے پہلے اسے چیک کریں۔" },
+          { "question": "کیا ایک ہی rotation پوری PDF کے تمام صفحات پر لگ سکتی ہے؟", "answer": "ورک اسپیس میں دکھایا گیا all-pages control استعمال کریں۔ درست رخ والے صفحات غیرضروری طور پر نہ بدلیں، اس لیے پہلے previews دیکھیں۔" },
+          { "question": "کیا گھمانے سے صفحے کا متن یا تصاویر بدلتے ہیں؟", "answer": "Rotation صفحے کا رخ بدلتی ہے، متن یا تصویر کا مواد نہیں۔ محفوظ شدہ copy کھول کر دیکھیں کہ کوئی حصہ کٹا ہوا یا بےترتیب تو نہیں۔" },
+          { "question": "کیا محفوظ کرنے سے پہلے غلط سمت درست کر سکتا ہوں؟", "answer": "ڈاؤن لوڈ سے پہلے page rotation controls دوبارہ استعمال کر کے رخ درست کریں۔ بالکل شروع سے کرنا ہو تو اصل PDF دوبارہ کھولیں۔" },
+          { "question": "کیا Rotate PDF اصل فائل کو اووررائٹ کرتا ہے؟", "answer": "نہیں۔ گھمائی ہوئی PDF الگ فائل کے طور پر ڈاؤن لوڈ ہوتی ہے؛ ڈیوائس میں موجود اصل فائل تبدیل نہیں ہوتی۔" },
+          { "question": "صفحات کے previews آنے میں دیر کیوں لگ سکتی ہے؟", "answer": "تھمب نیلز بنانے میں براؤزر میموری استعمال ہوتی ہے۔ بڑی PDFs یا تصاویر والے صفحات کو ڈیوائس کے لحاظ سے زیادہ وقت لگ سکتا ہے۔" }
+        ]
       }
     }
   },
@@ -196,6 +268,42 @@
           { "question": "Kann ich Ausrichtung oder Ränder der PDF-Seiten einstellen?", "answer": "Nutzen Sie die Seiteneinstellungen, die im Tool angezeigt werden. Prüfen Sie die verfügbaren Optionen sowie die Ausrichtung und den Bildausschnitt vor dem Speichern." },
           { "question": "Erhöht die Umwandlung die Bildauflösung?", "answer": "Nein. Das Erstellen einer PDF erhöht weder die Auflösung noch die Detailgenauigkeit der Originalbilder. Verwenden Sie Bilder mit der benötigten Qualität." },
           { "question": "Werden meine Originalbilder durch die Umwandlung geändert?", "answer": "Nein. Das Ergebnis ist eine neue PDF-Datei. Sie können die Originalbilder behalten, bis Sie die PDF geprüft haben." }
+        ]
+      },
+      "split": {
+        "introHeading": "Ausgewählte Seiten aus einer PDF trennen",
+        "intro": "Wählen Sie Seitenzahlen oder Seitenbereiche aus, um separate PDF-Dateien zu erstellen. Je nach Auswahl können die Ergebnisse einzeln oder als ZIP heruntergeladen werden. Prüfen Sie Seitenreihenfolge und Ausgabedateien, bevor Sie sie teilen.",
+        "stepsHeading": "PDF in drei Schritten aufteilen",
+        "steps": [
+          { "title": "Quelldatei öffnen", "description": "Wählen Sie die PDF auf Ihrem Gerät aus und fügen Sie sie im Split-PDF-Arbeitsbereich hinzu." },
+          { "title": "Seiten oder Bereiche auswählen", "description": "Geben Sie die gewünschten Seitenzahlen oder Bereiche ein oder wählen Sie, falls verfügbar, den Modus für einzelne Seiten." },
+          { "title": "Ergebnisse erstellen und speichern", "description": "Starten Sie die Aufteilung und laden Sie die erzeugten PDFs einzeln oder im angebotenen ZIP-Paket herunter." }
+        ],
+        "faqs": [
+          { "question": "Kann ich auch nicht aufeinanderfolgende Seiten extrahieren?", "answer": "Ja. Geben Sie die Seitenzahlen oder Bereiche ein, die das Auswahlfeld unterstützt, und prüfen Sie die Auswahl vor der Verarbeitung." },
+          { "question": "Kann jede Seite als eigene PDF gespeichert werden?", "answer": "Wählen Sie den Modus zum Aufteilen einzelner Seiten, falls er im Arbeitsbereich angezeigt wird. Die Dateien können einzeln oder zusammen als ZIP heruntergeladen werden." },
+          { "question": "In welcher Reihenfolge erscheinen die extrahierten Seiten?", "answer": "Die Ausgabe folgt der ausgewählten Seitenfolge. Prüfen Sie die Seitenliste vor dem Aufteilen, wenn Sie eine bestimmte Reihenfolge benötigen." },
+          { "question": "Fügt das Aufteilen einer gescannten PDF durchsuchbaren Text hinzu?", "answer": "Nein. Das Tool trennt vorhandene Seiten und führt keine OCR aus. Gescannte Seiten bleiben Bilder, solange Sie nicht separat ein OCR-Tool verwenden." },
+          { "question": "Werden Seiten aus dem Originaldokument entfernt?", "answer": "Nein. Beim Aufteilen entstehen neue Ausgabedateien; die Quelldatei wird nicht überschrieben." },
+          { "question": "Warum kann das Extrahieren vieler Seiten länger dauern?", "answer": "Lange PDFs und große Seitenbilder können viel Gerätespeicher beanspruchen. Die Geschwindigkeit hängt von Datei, Browser und verfügbarem Speicher ab." }
+        ]
+      },
+      "rotate": {
+        "introHeading": "PDF-Seitenausrichtung korrigieren und speichern",
+        "intro": "Nutzen Sie die Steuerelemente einzelner Seiten, wenn nur einige Seiten gedreht werden sollen, oder die im Arbeitsbereich angebotene Funktion für das ganze Dokument. Prüfen Sie die Vorschau und speichern Sie die gedrehte PDF als separate Datei.",
+        "stepsHeading": "PDF in drei Schritten drehen",
+        "steps": [
+          { "title": "PDF öffnen", "description": "Wählen Sie die PDF auf Ihrem Gerät aus und warten Sie, bis die Seitenvorschauen im Arbeitsbereich angezeigt werden." },
+          { "title": "Seiten und Richtung wählen", "description": "Drehen Sie einzelne Seiten über deren Steuerelemente oder nutzen Sie die angezeigte Funktion für das ganze Dokument." },
+          { "title": "Speichern und Seiten prüfen", "description": "Laden Sie die gedrehte PDF herunter und kontrollieren Sie die betroffenen Seiten in einem PDF-Viewer." }
+        ],
+        "faqs": [
+          { "question": "Kann ich eine einzelne Seite drehen, ohne alle Seiten zu ändern?", "answer": "Ja. Verwenden Sie das Steuerelement der betroffenen Seite. Die Funktion für das ganze Dokument wirkt sich auf alle Seiten aus und sollte vorher geprüft werden." },
+          { "question": "Lässt sich dieselbe Drehung auf jede Seite anwenden?", "answer": "Verwenden Sie die im Arbeitsbereich angezeigte Funktion für alle Seiten. Prüfen Sie vorher die Vorschauen, damit richtig ausgerichtete Seiten nicht unnötig geändert werden." },
+          { "question": "Verändert das Drehen den Text oder die Bilder einer Seite?", "answer": "Die Drehung ändert die Ausrichtung der Seite, nicht deren Text- oder Bildinhalt. Prüfen Sie die gespeicherte Kopie auf abgeschnittene oder unpassend wirkende Inhalte." },
+          { "question": "Kann ich eine falsche Drehung vor dem Speichern korrigieren?", "answer": "Nutzen Sie die Seitensteuerung erneut, um die Ausrichtung vor dem Download zu korrigieren. Wenn Sie neu beginnen möchten, öffnen Sie die Quelldatei erneut." },
+          { "question": "Überschreibt Rotate PDF meine Quelldatei?", "answer": "Nein. Die gedrehte PDF wird als separate Datei heruntergeladen; die Originaldatei auf Ihrem Gerät bleibt unverändert." },
+          { "question": "Warum werden Seitenvorschauen manchmal langsam geladen?", "answer": "Das Rendern der Vorschauen benötigt Browser-Speicher. Große PDFs oder bildreiche Seiten können je nach Gerät länger benötigen." }
         ]
       }
     }

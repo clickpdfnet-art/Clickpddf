@@ -137,10 +137,11 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     contentPairs,
     [
       'de:compress', 'de:jpg-to-pdf', 'de:merge',
-      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge',
-      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge',
+      'de:rotate', 'de:split',
+      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:rotate', 'ja:split',
+      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:rotate', 'ur:split',
     ],
-    'only the six new draft pages and three pre-existing localized Merge pages are complete',
+    'only the twelve new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -286,9 +287,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 9);
-  assert.equal(routePaths.length, 30, '30 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 411, '411 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 15);
+  assert.equal(routePaths.length, 36, '36 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 405, '405 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,
