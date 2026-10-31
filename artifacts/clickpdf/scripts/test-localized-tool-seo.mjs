@@ -140,14 +140,14 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
-      'ar:compress', 'ar:jpg-to-pdf', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:word-to-pdf',
+      'ar:compress', 'ar:jpg-to-pdf', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:rotate', 'ar:split', 'ar:word-to-pdf',
       'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
-      'fr:compress', 'fr:jpg-to-pdf', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:word-to-pdf',
-      'hi:compress', 'hi:jpg-to-pdf', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:word-to-pdf',
+      'fr:compress', 'fr:jpg-to-pdf', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:rotate', 'fr:split', 'fr:word-to-pdf',
+      'hi:compress', 'hi:jpg-to-pdf', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:rotate', 'hi:split', 'hi:word-to-pdf',
       'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
       'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
     ],
-    'only the thirty-six new draft pages and three pre-existing localized Merge pages are complete',
+    'only the forty-eight new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -196,7 +196,7 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       }
       if (toolId === 'jpg-to-pdf') {
         assert.match(contentText, /JPG[\s\S]*PNG[\s\S]*WebP/i, `${locale} names all supported image formats`);
-        const resolutionFaq = content.faqs.find((faq) => /resolution|auflösung|解像度|ریزولوشن|دقة الصور|résolution/i.test(faq.question));
+        const resolutionFaq = content.faqs.find((faq) => /resolution|auflösung|解像度|ریزولوشن|دقة|résolution/i.test(faq.question));
         assert.ok(resolutionFaq, `${locale} explains that conversion does not increase image resolution`);
         assert.match(resolutionFaq.answer, /^(?:Nein|いいえ|نہیں|नहीं|لا|Non)/u, `${locale} does not promise image upscaling`);
       }
@@ -262,6 +262,27 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
         const imageAnswerMarkers = { hi: 'छवियों', ar: 'صور', fr: 'images' };
         assert.ok(selectableQuestion.answer.includes(imageAnswerMarkers[locale]), `${locale} says output pages are images`);
       }
+      if (toolId === 'split' && ['hi', 'ar', 'fr'].includes(locale)) {
+        const scannedFaqMarkers = {
+          hi: 'क्या scanned PDF बाँटने से searchable text जुड़ता है?',
+          ar: 'هل يضيف تقسيم PDF ممسوح ضوئيًا نصًا قابلًا للبحث؟',
+          fr: 'La division d’un PDF scanné ajoute-t-elle du texte recherchable ?',
+        };
+        const scannedFaq = content.faqs.find((faq) => faq.question === scannedFaqMarkers[locale]);
+        assert.ok(scannedFaq, `${locale} explains scanned-PDF OCR limitations`);
+        assert.match(scannedFaq.answer, /^(?:नहीं|لا|Non)/u);
+        assert.match(scannedFaq.answer, /OCR/i);
+      }
+      if (toolId === 'rotate' && ['hi', 'ar', 'fr'].includes(locale)) {
+        const orientationFaqMarkers = {
+          hi: 'क्या rotation से पृष्ठ की सामग्री बदलती है?',
+          ar: 'هل يغيّر التدوير محتوى الصفحة؟',
+          fr: 'La rotation modifie-t-elle le contenu d’une page ?',
+        };
+        const orientationFaq = content.faqs.find((faq) => faq.question === orientationFaqMarkers[locale]);
+        assert.ok(orientationFaq, `${locale} distinguishes page orientation from page content`);
+        assert.match(orientationFaq.answer, /(?:text|image content|نصها|محتواها|texte|contenu des images)/iu);
+      }
 
       const allQuestions = localizedQuestionsByLocale.get(locale) || [];
       allQuestions.push(...content.faqs.map((faq) => faq.question));
@@ -277,7 +298,10 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       assert.match(html, new RegExp(`<html[^>]*dir=["']${['ur', 'ar'].includes(locale) ? 'rtl' : 'ltr'}["']`, 'i'));
       assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']${localizedUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`));
       assert.match(html, new RegExp(`<title>${escapeHtml(`${tool.localizedTitles[locale].title} | ClickPDF`)}</title>`));
-      assert.match(html, new RegExp(`<meta name="description" content="${escapeHtml(tool.localizedTitles[locale].description)}"`));
+      assert.ok(
+        html.includes(`<meta name="description" content="${escapeHtml(tool.localizedTitles[locale].description)}"`),
+        `${localizedUrl} has its localized meta description`,
+      );
       assert.match(html, /property=["']og:title["']/i, 'localized page has Open Graph title metadata');
       assert.match(html, /name=["']twitter:title["']/i, 'localized page has Twitter title metadata');
       assert.equal((main.match(/<h1\b/gi) || []).length, 1, `${localizedUrl} has exactly one visible H1`);
@@ -355,9 +379,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 45);
-  assert.equal(routePaths.length, 66, '66 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 375, '375 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 51);
+  assert.equal(routePaths.length, 72, '72 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 369, '369 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

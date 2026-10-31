@@ -14,3 +14,9 @@ For legal content, all six public pages should be available in all 21 languages,
 **Why:** the user explicitly chose all six pages and confirmed the modal should reuse the canonical page text.
 
 **How to apply:** keep route and modal wording aligned, including the Disclaimer, and retain the existing localized footer labels.
+
+When adding localized SEO content, extend the existing locale object rather than appending another object with the same JSON key. JavaScript silently keeps the later duplicate key, which can hide or discard a locale’s earlier tool entries.
+
+**Why:** a staged batch edit once introduced repeated locale keys; ordinary JSON parsing did not report the duplicate, while the last object replaced prior translations.
+
+**How to apply:** after editing the locale bundle, verify that each locale key occurs once and that the expected tool-language pairs and generated routes still match.
