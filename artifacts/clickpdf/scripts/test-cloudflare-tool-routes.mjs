@@ -129,7 +129,7 @@ test('bare /tools permanently redirects to the canonical URL in one step for GET
   }
 });
 
-test('completed localized tool routes serve matching canonical static pages', async (t) => {
+test('complete localized tool routes serve matching canonical static pages', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
   const localizedRoutes = tools.flatMap((tool) =>
     Object.keys(tool.localizedSeoContent || {}).map((locale) => ({
@@ -139,7 +139,7 @@ test('completed localized tool routes serve matching canonical static pages', as
     })),
   );
 
-  assert.equal(localizedRoutes.length, 3, 'only the three reviewed Merge PDF locale routes are exposed');
+  assert.equal(localizedRoutes.length, 9, 'only the nine complete Merge, Compress, and Image-to-PDF locale routes are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {
@@ -159,6 +159,17 @@ test('completed localized tool routes serve matching canonical static pages', as
       assert.match(html, new RegExp(`<html[^>]*lang=["']${locale}["']`, 'i'));
       assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']https:\\/\\/www\\.clickpdf\\.net${routePath.replaceAll('/', '\\/')}["']`));
     });
+  }
+});
+
+test('untranslated tool-language pairs are not exposed as localized routes', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  for (const routePath of ['/hi/tools/compress-pdf/', '/de/tools/pdf-to-word/']) {
+    const response = await worker.fetch(
+      new Request(`https://www.clickpdf.net${routePath}`),
+      env,
+    );
+    assert.equal(response.status, 404, `${routePath} is unavailable until localized SEO content is complete`);
   }
 });
 

@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "statuses": {
+    "generated_draft": "Agent-authored translation; not reviewed by a human native speaker.",
+    "existing_unverified": "Localized page existed before this batch; no human-review record was found.",
+    "human_reviewed": "Reviewed and approved by a named human reviewer."
+  },
+  "entries": [
+    {
+      "tool": "merge",
+      "locale": "de",
+      "status": "existing_unverified",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "tool": "merge",
+      "locale": "ja",
+      "status": "existing_unverified",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "tool": "merge",
+      "locale": "ur",
+      "status": "existing_unverified",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "tool": "compress",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "compress",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "compress",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "jpg-to-pdf",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "jpg-to-pdf",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "jpg-to-pdf",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    }
+  ]
+}

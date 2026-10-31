@@ -13,6 +13,8 @@ export interface ToolPageSeoLabels {
 }
 
 interface LocalizedToolContent {
+  introHeading?: string;
+  intro?: string;
   stepsHeading: string;
   steps: Array<{ title: string; description: string }>;
   faqs: Array<{ question: string; answer: string }>;
@@ -35,6 +37,8 @@ export function getLocalizedToolPageSeoContent(
   if (!translated) return undefined;
 
   return {
+    introHeading: translated.introHeading,
+    intro: translated.intro,
     stepsHeading: translated.stepsHeading,
     steps: translated.steps.map((step, index) => ({
       step: index + 1,

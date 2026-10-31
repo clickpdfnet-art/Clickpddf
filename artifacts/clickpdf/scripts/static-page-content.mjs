@@ -270,7 +270,9 @@ export function renderToolFallback(tool, tools, { language = 'en', labels = {} }
     : '';
   const toolOverview = isEnglish && tool.overviewHeading && tool.overview && tool.secondaryOverview
     ? `<section aria-labelledby="seo-tool-overview"><p><strong>${escapeHtml(tool.badge)}</strong></p><h2 id="seo-tool-overview">${escapeHtml(tool.overviewHeading)}</h2><p>${escapeHtml(tool.overview)}</p><p>${escapeHtml(tool.secondaryOverview)}</p></section>`
-    : '';
+    : !isEnglish && tool.introHeading && tool.intro
+      ? `<section aria-labelledby="seo-tool-overview"><h2 id="seo-tool-overview">${escapeHtml(tool.introHeading)}</h2><p>${escapeHtml(tool.intro)}</p></section>`
+      : '';
   const steps = `<section aria-labelledby="seo-tool-steps"><h2 id="seo-tool-steps">${escapeHtml(tool.stepsHeading || `How to use ${tool.name}`)}</h2><ol>${tool.steps
     .map((step) => `<li><h3>${escapeHtml(step.title)}</h3><p>${escapeHtml(step.description)}</p></li>`)
     .join('')}</ol></section>`;

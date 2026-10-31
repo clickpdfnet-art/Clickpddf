@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 266 URLs, including 21 public tools and 24 tool route URLs (3 localized routes), 231 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 272 URLs, including 21 public tools and 30 tool route URLs (9 localized routes), 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/merge-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
@@ -24,7 +24,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/ja/tools/merge-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
@@ -35,7 +35,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/ur/tools/merge-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/de/tools/merge-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/split-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/split-pdf/" />
@@ -65,23 +65,95 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/compress-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/compress-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/compress-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/compress-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/compress-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/compress-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/compress-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/compress-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/compress-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/compress-pdf/" />
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/image-to-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/image-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/image-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/image-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/image-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/image-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/image-to-pdf/" />
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/pdf-to-image/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
@@ -89,7 +161,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/rotate-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/rotate-pdf/" />
@@ -97,7 +169,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/watermark-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
@@ -105,7 +177,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/page-numbers-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
@@ -113,7 +185,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/organize-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
@@ -121,7 +193,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/edit-pdf-metadata/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
@@ -129,7 +201,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/ocr-pdf-analysis/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/ocr-pdf-analysis/" />
@@ -137,7 +209,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/protect-pdf-password/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
@@ -145,7 +217,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/unlock-pdf-password/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
@@ -153,7 +225,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/pdf-to-text/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-text/" />
@@ -161,7 +233,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/pdf-to-word/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-word/" />
@@ -169,7 +241,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/pdf-to-excel/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
@@ -177,7 +249,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/pdf-to-powerpoint/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
@@ -185,7 +257,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/word-to-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
@@ -193,7 +265,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/word-to-excel/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-excel/" />
@@ -201,7 +273,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/excel-to-pdf/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
@@ -209,7 +281,7 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/sign-pdf-online/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/sign-pdf-online/" />
@@ -217,55 +289,55 @@
   </url>
   <url>
     <loc>https://www.clickpdf.net/tools/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/faq/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/batch/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/about/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/contact/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/privacy-policy/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/terms-of-service/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/cookies/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.clickpdf.net/disclaimer/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

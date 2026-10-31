@@ -11,6 +11,8 @@
     },
     "tools": {
       "merge": {
+        "introHeading": "複数のPDFを1つにまとめる",
+        "intro": "2つ以上のPDFを追加し、結合する順序を整えてから1つのファイルを作成します。元のPDFは別に残ります。リンク、フォーム、注釈の動作は文書によって異なる場合があるため、保存後に結果を確認してください。",
         "stepsHeading": "PDFファイルを3つの手順で結合する方法",
         "steps": [
           { "title": "PDFファイルを追加", "description": "デバイスから2つ以上のPDF文書を選ぶか、結合ワークスペースにドラッグします。" },
@@ -24,6 +26,42 @@
           { "question": "ページサイズの異なるPDFを1つに結合できますか？", "answer": "ページ寸法が異なるPDFも結合できますが、閲覧時や印刷時にページごとに見え方が異なることがあります。共有する前に出力を確認してください。" },
           { "question": "結合すると元のPDFは上書きされますか？", "answer": "いいえ。結合後の文書は別のファイルとして作成されます。結合したコピーを確認して保存するまでは、元のファイルを保管してください。" },
           { "question": "大きなPDFの結合にかかる時間は何で変わりますか？", "answer": "処理時間はPDFの数やサイズ、ブラウザーとデバイスで使用できるメモリによって異なります。非常に大きな一括処理は、少数ずつ分けると安定する場合があります。" }
+        ]
+      },
+      "compress": {
+        "introHeading": "PDFのファイルサイズを調整して結果を確認",
+        "intro": "圧縮設定を選んでPDFを処理します。サイズの減少量は、元のPDFに含まれる画像やフォント、既存の圧縮状態、選択した設定によって異なります。保存前に重要な文字や画像の見やすさを確認してください。",
+        "stepsHeading": "PDFを圧縮する3つの手順",
+        "steps": [
+          { "title": "PDFを選択", "description": "サイズを小さくしたいPDFファイルをデバイスから選び、ツールに追加します。" },
+          { "title": "圧縮設定を選ぶ", "description": "ツールに現在表示されている圧縮設定から選択します。結果は元の文書と設定によって異なります。" },
+          { "title": "結果を確認して保存", "description": "処理後のファイルサイズと読みやすさを確認し、圧縮後のPDFを別ファイルとして保存します。" }
+        ],
+        "faqs": [
+          { "question": "指定したファイルサイズまで必ず小さくできますか？", "answer": "いいえ。削減量は文書内の画像やフォント、元の圧縮状態などによって異なるため、特定のKBサイズは保証できません。" },
+          { "question": "圧縮すると文字や画像がぼやけますか？", "answer": "元のPDFと選択した設定によっては、見え方が変わることがあります。重要な文字、図、画像を元ファイルと比較してください。" },
+          { "question": "どの圧縮設定を選べばよいですか？", "answer": "ツールに現在表示されている選択肢を確認してください。各設定の効果は、元のPDFと選択内容によって異なります。" },
+          { "question": "圧縮してもファイルサイズがほとんど変わらないことはありますか？", "answer": "あります。元のPDFがすでに圧縮されている場合や、削減できるデータが少ない場合、サイズがわずかにしか変わらないことがあります。" },
+          { "question": "圧縮後に元のPDFは置き換わりますか？", "answer": "いいえ。処理結果は別のPDFとして保存してください。新しいファイルを確認するまでは元ファイルを残しておきます。" },
+          { "question": "写真の多いPDFの処理に時間がかかるのはなぜですか？", "answer": "大きな画像は文字中心のページより多くのブラウザー処理とデバイスメモリを使うことがあります。処理時間は端末や選択した設定にも左右されます。" }
+        ]
+      },
+      "jpg-to-pdf": {
+        "introHeading": "複数の画像をPDFにまとめる",
+        "intro": "JPG、PNG、WebP画像を選び、ページにする順序や利用可能なページ設定を確認してからPDFを作成します。出力を保存する前に、各ページの向き、余白、画像の収まりを確認してください。",
+        "stepsHeading": "画像をPDFに変換する3つの手順",
+        "steps": [
+          { "title": "画像を追加", "description": "デバイスからJPG、PNG、またはWebP画像を選び、必要な画像がすべてワークスペースに表示されていることを確認します。" },
+          { "title": "順序とページ設定を確認", "description": "画像の順序を整え、ツールで選べるページの向きや余白などの設定を確認します。" },
+          { "title": "PDFを作成して確認", "description": "画像からPDFを作成して保存し、ページ順、向き、余白、画像の収まりを確認します。" }
+        ],
+        "faqs": [
+          { "question": "PDFに変換できる画像形式は何ですか？", "answer": "JPG、PNG、WebP画像に対応しています。変換前にファイル選択欄で各画像が追加されていることを確認してください。" },
+          { "question": "複数の画像を1つのPDFにまとめられますか？", "answer": "はい。選択した画像をPDFのページとしてまとめられます。保存前にページ数と順序を確認してください。" },
+          { "question": "PDFにする前に画像の順序を変更できますか？", "answer": "はい。ワークスペースで画像を並べ替えてからPDFを作成できます。出力ファイルで順序をもう一度確認してください。" },
+          { "question": "ページの向きや余白を調整できますか？", "answer": "ツールに表示されるページ設定を利用できます。利用可能な設定を確認し、保存前にページの向きと画像の収まりを確認してください。" },
+          { "question": "変換すると画像の解像度は上がりますか？", "answer": "いいえ。PDFにまとめても、元画像の解像度や細部が増えるわけではありません。必要な画質の画像を選んでください。" },
+          { "question": "変換後に元の画像は変更されますか？", "answer": "変換結果は新しいPDFです。元画像は別に保管されるため、PDFを確認するまでは元ファイルも残しておけます。" }
         ]
       }
     }
@@ -40,6 +78,8 @@
     },
     "tools": {
       "merge": {
+        "introHeading": "متعدد PDF فائلیں ایک ساتھ جوڑیں",
+        "intro": "کم از کم دو PDFs شامل کریں، ان کی ترتیب بنائیں اور پھر ایک مشترکہ فائل تیار کریں۔ اصل PDFs الگ رہتی ہیں۔ لنکس، فارمز اور annotations کا رویہ دستاویز کے لحاظ سے بدل سکتا ہے، اس لیے محفوظ کرنے کے بعد نتیجہ چیک کریں۔",
         "stepsHeading": "PDF فائلوں کو تین مراحل میں جوڑنے کا طریقہ",
         "steps": [
           { "title": "PDF فائلیں شامل کریں", "description": "اپنے ڈیوائس سے کم از کم دو PDF دستاویزات منتخب کریں یا انہیں مرج ورک اسپیس میں کھینچ کر ڈالیں۔" },
@@ -53,6 +93,42 @@
           { "question": "کیا مختلف سائز کے صفحات والی PDFs ایک ساتھ جوڑ سکتا ہوں؟", "answer": "مختلف page dimensions والی PDFs جوڑی جا سکتی ہیں، لیکن دیکھنے یا پرنٹ کرنے پر صفحات مختلف دکھائی دے سکتے ہیں۔ شیئر کرنے سے پہلے نتیجہ دیکھیں۔" },
           { "question": "کیا PDF ملانے سے میری اصل فائلیں اووررائٹ ہوں گی؟", "answer": "نہیں۔ جوڑی گئی دستاویز الگ نتیجے کے طور پر بنتی ہے۔ مشترکہ کاپی کی جانچ اور محفوظ کرنے تک اصل فائلیں اپنے پاس رکھیں۔" },
           { "question": "بڑی PDFs کو ملانے میں کتنا وقت لگے گا، یہ کن باتوں پر منحصر ہے؟", "answer": "وقت PDFs کی تعداد اور سائز، اور براؤزر و ڈیوائس کی دستیاب میموری پر منحصر ہے۔ بہت بڑی batch کو چھوٹے حصوں میں چلانا زیادہ قابلِ اعتماد ہو سکتا ہے۔" }
+        ]
+      },
+      "compress": {
+        "introHeading": "PDF کا سائز کم کریں اور نتیجہ چیک کریں",
+        "intro": "PDF منتخب کریں اور ٹول میں موجود کمپریشن سیٹنگ استعمال کریں۔ سائز میں کمی اصل دستاویز کی تصاویر، فونٹس، پہلے سے ہوئی کمپریشن اور منتخب سیٹنگ پر منحصر ہے۔ فائل محفوظ کرنے سے پہلے اہم متن اور تصاویر کی وضاحت ضرور دیکھیں۔",
+        "stepsHeading": "PDF کمپریس کرنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF منتخب کریں", "description": "اپنے ڈیوائس سے وہ PDF شامل کریں جس کا سائز کم کرنا ہے۔" },
+          { "title": "کمپریشن سیٹنگ منتخب کریں", "description": "کمپریسر میں اس وقت دستیاب آپشنز میں سے انتخاب کریں۔ نتیجہ اصل فائل اور منتخب سیٹنگ کے مطابق بدل سکتا ہے۔" },
+          { "title": "نتیجہ دیکھیں اور محفوظ کریں", "description": "نئی فائل کا سائز اور پڑھنے کی وضاحت چیک کریں، پھر کمپریس شدہ PDF کو الگ فائل کے طور پر ڈاؤن لوڈ کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا ٹول PDF کو کسی خاص فائل سائز تک کم کرنے کی ضمانت دیتا ہے؟", "answer": "نہیں۔ سائز میں کمی تصاویر، فونٹس، اصل فائل کی پہلے سے ہوئی کمپریشن اور دوسری خصوصیات پر منحصر ہے؛ کسی مخصوص KB سائز کی ضمانت نہیں دی جا سکتی۔" },
+          { "question": "کیا کمپریشن سے متن یا تصاویر دھندلی ہو سکتی ہیں؟", "answer": "اصل PDF اور منتخب آپشن کے لحاظ سے وضاحت بدل سکتی ہے۔ اہم متن، diagrams اور تصاویر کو اصل فائل کے ساتھ موازنہ کریں۔" },
+          { "question": "کون سی کمپریشن سیٹنگ منتخب کروں؟", "answer": "کمپریسر میں اس وقت دکھائے گئے آپشنز دیکھیں۔ ہر آپشن کا اثر اصل PDF اور منتخب سیٹنگ کے مطابق مختلف ہو سکتا ہے۔" },
+          { "question": "کیا کمپریشن کے بعد فائل کا سائز تقریباً وہی رہ سکتا ہے؟", "answer": "جی ہاں۔ اگر PDF پہلے ہی کم سائز کی ہو یا اس میں کم ہونے والا ڈیٹا کم ہو تو نتیجہ تھوڑا ہی چھوٹا ہو سکتا ہے یا سائز تقریباً یکساں رہ سکتا ہے۔" },
+          { "question": "کیا کمپریسر میری اصل PDF کو بدل دیتا ہے؟", "answer": "نہیں۔ نتیجہ الگ PDF کے طور پر ڈاؤن لوڈ کریں۔ نئی فائل چیک ہونے تک اصل فائل اپنے پاس رکھیں۔" },
+          { "question": "زیادہ تصاویر والی PDF کو کمپریس ہونے میں زیادہ وقت کیوں لگ سکتا ہے؟", "answer": "بڑی تصاویر میں صرف متن والے صفحات کے مقابلے میں زیادہ براؤزر پروسیسنگ اور ڈیوائس میموری درکار ہو سکتی ہے۔ وقت ڈیوائس اور منتخب سیٹنگ پر بھی منحصر ہے۔" }
+        ]
+      },
+      "jpg-to-pdf": {
+        "introHeading": "متعدد تصاویر کو ایک PDF میں بنائیں",
+        "intro": "JPG، PNG یا WebP تصاویر منتخب کریں اور انہیں PDF صفحات میں بدلنے سے پہلے ترتیب اور دستیاب صفحہ سیٹنگ دیکھیں۔ نتیجہ محفوظ کرنے سے پہلے صفحات کی ترتیب، رخ، مارجن اور تصویر کا فٹ ہونا چیک کریں۔",
+        "stepsHeading": "تصاویر کو PDF میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "تصاویر شامل کریں", "description": "ڈیوائس سے JPG، PNG یا WebP تصاویر منتخب کریں اور تصدیق کریں کہ مطلوبہ تمام تصاویر ورک اسپیس میں آ گئی ہیں۔" },
+          { "title": "ترتیب اور صفحہ سیٹنگ دیکھیں", "description": "تصاویر کی ترتیب بنائیں اور ٹول میں دستیاب صفحے کے رخ، سائز یا مارجن کی سیٹنگ دیکھیں۔" },
+          { "title": "PDF بنائیں اور چیک کریں", "description": "تصاویر سے PDF بنائیں اور محفوظ کریں، پھر صفحات کی ترتیب، رخ، مارجن اور تصویر کا فٹ ہونا دیکھیں۔" }
+        ],
+        "faqs": [
+          { "question": "کون سے image formats کو PDF میں بدل سکتا ہوں؟", "answer": "ٹول JPG، PNG اور WebP تصاویر قبول کرتا ہے۔ تبدیل کرنے سے پہلے فائل picker میں دیکھیں کہ ہر مطلوبہ تصویر شامل ہے۔" },
+          { "question": "کیا کئی تصاویر ایک ہی PDF میں شامل ہو سکتی ہیں؟", "answer": "جی ہاں۔ منتخب تصاویر کو ایک PDF کے الگ صفحات بنایا جا سکتا ہے۔ محفوظ کرنے سے پہلے صفحات کی تعداد اور ترتیب چیک کریں۔" },
+          { "question": "PDF بنانے سے پہلے تصاویر کی ترتیب بدل سکتی ہے؟", "answer": "جی ہاں۔ PDF بنانے سے پہلے ورک اسپیس میں تصاویر کی ترتیب بدلیں، پھر تیار شدہ فائل میں ترتیب کی تصدیق کریں۔" },
+          { "question": "کیا صفحے کا رخ یا مارجن منتخب کر سکتا ہوں؟", "answer": "ٹول میں دکھائی گئی page settings استعمال کریں۔ دستیاب آپشنز دیکھیں اور محفوظ کرنے سے پہلے ہر صفحے کا رخ اور تصویر کا فٹ ہونا چیک کریں۔" },
+          { "question": "کیا PDF میں بدلنے سے تصویر کی resolution بڑھ جاتی ہے؟", "answer": "نہیں۔ PDF بنانا اصل تصویر کی resolution یا باریک تفصیل نہیں بڑھاتا۔ مطلوبہ وضاحت والی اصل تصویر استعمال کریں۔" },
+          { "question": "کیا PDF بنانے سے اصل تصاویر بدل جائیں گی؟", "answer": "نہیں۔ نتیجہ ایک نئی PDF فائل ہوتا ہے۔ PDF چیک کرنے تک اصل تصاویر بھی اپنے پاس رکھ سکتے ہیں۔" }
         ]
       }
     }
@@ -69,6 +145,8 @@
     },
     "tools": {
       "merge": {
+        "introHeading": "Mehrere PDFs zu einer Datei zusammenfügen",
+        "intro": "Fügen Sie mindestens zwei PDFs hinzu und ordnen Sie sie, bevor Sie eine gemeinsame Datei erstellen. Die Originale bleiben getrennt erhalten. Links, Formulare und Anmerkungen können sich je nach Dokument anders verhalten; prüfen Sie daher das Ergebnis nach dem Speichern.",
         "stepsHeading": "PDF-Dateien in drei Schritten zusammenfügen",
         "steps": [
           { "title": "PDF-Dateien hinzufügen", "description": "Wählen Sie mindestens zwei PDF-Dokumente auf Ihrem Gerät aus oder ziehen Sie sie in den Arbeitsbereich zum Zusammenfügen." },
@@ -82,6 +160,42 @@
           { "question": "Kann eine zusammengeführte PDF Seiten unterschiedlicher Größe enthalten?", "answer": "PDFs mit unterschiedlichen Seitenmaßen lassen sich zusammenfügen. Die Seiten können beim Anzeigen oder Drucken dennoch verschieden wirken. Prüfen Sie die Ausgabe vor dem Teilen." },
           { "question": "Überschreibt das Zusammenfügen meine Originaldateien?", "answer": "Nein. Das zusammengeführte Dokument wird als separate Datei erstellt. Bewahren Sie die Originale auf, bis Sie die kombinierte Kopie geprüft und gespeichert haben." },
           { "question": "Wovon hängt die Dauer beim Zusammenfügen großer PDFs ab?", "answer": "Die Verarbeitungszeit hängt von Anzahl und Größe der PDFs sowie vom verfügbaren Speicher im Browser und auf dem Gerät ab. Sehr große Stapel lassen sich möglicherweise zuverlässiger in kleineren Gruppen verarbeiten." }
+        ]
+      },
+      "compress": {
+        "introHeading": "PDF-Dateigröße reduzieren und Ergebnis prüfen",
+        "intro": "Wählen Sie eine PDF-Datei und nutzen Sie eine der im Kompressor angezeigten Einstellungen. Wie stark die Datei kleiner wird, hängt unter anderem von Bildern, Schriftarten, der bisherigen Komprimierung und der gewählten Einstellung ab. Prüfen Sie wichtige Texte und Bilder, bevor Sie die Datei verwenden.",
+        "stepsHeading": "PDF in drei Schritten komprimieren",
+        "steps": [
+          { "title": "PDF-Datei auswählen", "description": "Fügen Sie die PDF von Ihrem Gerät hinzu, deren Dateigröße Sie reduzieren möchten." },
+          { "title": "Komprimierung einstellen", "description": "Wählen Sie eine der Optionen, die der Kompressor aktuell anzeigt. Das Ergebnis hängt von der Quelldatei und der Einstellung ab." },
+          { "title": "Ergebnis prüfen und speichern", "description": "Kontrollieren Sie Dateigröße und Lesbarkeit und laden Sie die komprimierte PDF als separate Datei herunter." }
+        ],
+        "faqs": [
+          { "question": "Kann das Tool eine bestimmte Zieldateigröße garantieren?", "answer": "Nein. Die Reduzierung hängt von Bildern, Schriftarten, der bisherigen Komprimierung und weiteren Eigenschaften des Dokuments ab. Eine bestimmte Größe in KB lässt sich nicht garantieren." },
+          { "question": "Können Text oder Bilder durch die Komprimierung unschärfer werden?", "answer": "Je nach Ausgangsdatei und gewählter Option kann sich die Darstellung verändern. Vergleichen Sie wichtige Texte, Diagramme und Bilder mit dem Original." },
+          { "question": "Welche Komprimierungseinstellung sollte ich wählen?", "answer": "Prüfen Sie die Optionen, die der Kompressor aktuell anzeigt. Ihre Wirkung hängt von der Quelldatei und der ausgewählten Einstellung ab." },
+          { "question": "Kann die PDF nach der Komprimierung fast gleich groß bleiben?", "answer": "Ja. Eine bereits kompakte PDF oder eine Datei mit wenig reduzierbaren Daten wird möglicherweise nur geringfügig kleiner oder bleibt ähnlich groß." },
+          { "question": "Ersetzt der Kompressor meine Originaldatei?", "answer": "Nein. Laden Sie das Ergebnis als separate PDF herunter. Bewahren Sie die Quelldatei auf, bis Sie die neue Datei geprüft haben." },
+          { "question": "Warum kann eine PDF mit vielen Fotos länger dauern?", "answer": "Große Bilder benötigen im Browser oft mehr Verarbeitung und Gerätespeicher als textlastige Seiten. Auch Gerät und ausgewählte Einstellung beeinflussen die Dauer." }
+        ]
+      },
+      "jpg-to-pdf": {
+        "introHeading": "Mehrere Bilder zu einer PDF zusammenstellen",
+        "intro": "Wählen Sie JPG-, PNG- oder WebP-Bilder aus und prüfen Sie Reihenfolge sowie verfügbare Seiteneinstellungen, bevor Sie daraus eine PDF erstellen. Kontrollieren Sie vor dem Speichern die Seitenreihenfolge, Ausrichtung, Ränder und den Bildausschnitt.",
+        "stepsHeading": "Bilder in drei Schritten in PDF umwandeln",
+        "steps": [
+          { "title": "Bilder hinzufügen", "description": "Wählen Sie JPG-, PNG- oder WebP-Dateien auf Ihrem Gerät aus und prüfen Sie, ob alle gewünschten Bilder im Arbeitsbereich erscheinen." },
+          { "title": "Reihenfolge und Seitenlayout prüfen", "description": "Ordnen Sie die Bilder und prüfen Sie die verfügbaren Einstellungen für Seitenausrichtung, Seitengröße oder Ränder." },
+          { "title": "PDF erstellen und prüfen", "description": "Erstellen und speichern Sie die PDF. Kontrollieren Sie anschließend Reihenfolge, Ausrichtung, Ränder und den Bildausschnitt." }
+        ],
+        "faqs": [
+          { "question": "Welche Bildformate kann ich in eine PDF umwandeln?", "answer": "Das Tool unterstützt JPG-, PNG- und WebP-Bilder. Prüfen Sie vor der Umwandlung im Dateiauswahldialog, ob jedes gewünschte Bild hinzugefügt wurde." },
+          { "question": "Kann ich mehrere Bilder in einer PDF zusammenfassen?", "answer": "Ja. Die ausgewählten Bilder werden zu einzelnen PDF-Seiten. Prüfen Sie vor dem Speichern die Seitenzahl und Reihenfolge." },
+          { "question": "Kann ich die Bildreihenfolge vor dem Erstellen der PDF ändern?", "answer": "Ja. Ordnen Sie die Bilder im Arbeitsbereich neu an und prüfen Sie die Reihenfolge anschließend in der fertigen Datei." },
+          { "question": "Kann ich Ausrichtung oder Ränder der PDF-Seiten einstellen?", "answer": "Nutzen Sie die Seiteneinstellungen, die im Tool angezeigt werden. Prüfen Sie die verfügbaren Optionen sowie die Ausrichtung und den Bildausschnitt vor dem Speichern." },
+          { "question": "Erhöht die Umwandlung die Bildauflösung?", "answer": "Nein. Das Erstellen einer PDF erhöht weder die Auflösung noch die Detailgenauigkeit der Originalbilder. Verwenden Sie Bilder mit der benötigten Qualität." },
+          { "question": "Werden meine Originalbilder durch die Umwandlung geändert?", "answer": "Nein. Das Ergebnis ist eine neue PDF-Datei. Sie können die Originalbilder behalten, bis Sie die PDF geprüft haben." }
         ]
       }
     }

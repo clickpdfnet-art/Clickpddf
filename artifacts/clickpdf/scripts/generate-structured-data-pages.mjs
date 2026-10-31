@@ -567,11 +567,16 @@ function setHtmlLanguage(html, language) {
   const safeLanguage = /^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(language || '')
     ? language
     : 'en';
+  const baseLanguage = safeLanguage.split('-')[0].toLowerCase();
+  const direction = ['ar', 'ur'].includes(baseLanguage) ? 'rtl' : 'ltr';
   return html.replace(/<html\b([^>]*)>/i, (_match, attributes) => {
     const withLanguage = /\blang\s*=/i.test(attributes)
       ? attributes.replace(/\blang\s*=\s*(["'])[^"']*\1/i, `lang="${safeLanguage}"`)
       : `${attributes} lang="${safeLanguage}"`;
-    return `<html${withLanguage}>`;
+    const withDirection = /\bdir\s*=/i.test(withLanguage)
+      ? withLanguage.replace(/\bdir\s*=\s*(["'])[^"']*\1/i, `dir="${direction}"`)
+      : `${withLanguage} dir="${direction}"`;
+    return `<html${withDirection}>`;
   });
 }
 
@@ -704,6 +709,8 @@ for (const absoluteUrl of sitemapUrls) {
         description: localizedTitle.description,
         shortDescription: localizedTitle.description,
         privacySummary: tool.privacySummaries?.[language] || '',
+        introHeading: translation.content.introHeading,
+        intro: translation.content.intro,
         stepsHeading: translation.content.stepsHeading,
         steps: translation.content.steps,
         faqs: translation.content.faqs,

@@ -167,6 +167,20 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
           </p>
         </div>
 
+        {specificContent?.introHeading && specificContent.intro && (
+          <section
+            aria-labelledby="localized-tool-intro-heading"
+            className="rounded-xl border border-slate-200 bg-white p-5 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300"
+          >
+            <h3
+              id="localized-tool-intro-heading"
+              className="mb-2 text-sm font-bold text-slate-900 dark:text-white"
+            >
+              {specificContent.introHeading}
+            </h3>
+            <p>{specificContent.intro}</p>
+          </section>
+        )}
 
         {/* Supplemental metadata guidance */}
         {isEnglishSeoPage && (

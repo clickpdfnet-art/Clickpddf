@@ -10,6 +10,8 @@ type ToolHowToContent = {
 };
 
 export type ToolPageContent = {
+  introHeading?: string;
+  intro?: string;
   stepsHeading: string;
   steps: ToolHowToContent[];
   faqs: ToolFaqContent[];
