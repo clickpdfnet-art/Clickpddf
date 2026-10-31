@@ -139,7 +139,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 378, 'only the 378 complete localized routes for the translated tool-language pairs are exposed');
+  assert.equal(localizedRoutes.length, 420, 'all 420 localized routes for the completed tool-language matrix are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {
@@ -162,14 +162,13 @@ test('complete localized tool routes serve matching canonical static pages', asy
   }
 });
 
-test('untranslated tool-language pairs are not exposed as localized routes', async () => {
-  const env = { ASSETS: createAssetsBinding() };
-  for (const routePath of ['/nl/tools/sign-pdf-online/']) {
-    const response = await worker.fetch(
-      new Request(`https://www.clickpdf.net${routePath}`),
-      env,
+test('every public tool has localized SEO content in all 20 non-English locales', () => {
+  for (const tool of tools) {
+    assert.equal(
+      Object.keys(tool.localizedSeoContent || {}).length,
+      20,
+      `${tool.id} has localized content for every non-English language`,
     );
-    assert.equal(response.status, 404, `${routePath} is unavailable until localized SEO content is complete`);
   }
 });
 

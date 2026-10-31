@@ -1477,7 +1477,7 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     ur: { title: 'ClickPDF فارمیٹ میں PDF محفوظ کریں', description: 'PDF کو ClickPDF کے مخصوص AES-256-GCM فارمیٹ میں محفوظ کریں؛ کھولنے کے لیے ClickPDF Unlock اور مقررہ password درکار ہے۔' },
     hi: { title: 'PDF पासवर्ड सुरक्षा', description: 'Web Crypto AES-256-GCM का उपयोग करके पासवर्ड से PDF सुरक्षित करें।' },
     ar: { title: 'حماية PDF بكلمة مرور', description: 'حماية وتشفير ملفات PDF باستخدام Web Crypto AES-256-GCM القوي.' },
-    zh: { title: '密码保护 PDF', description: '使用浏览器内置 Web Crypto AES-256-GCM 军工级算法加密文档。' },
+    zh: { title: '密码保护 PDF', description: '使用浏览器内置 Web Crypto AES-256-GCM 加密文档。' },
     ja: { title: 'ClickPDF形式でPDFを保護', description: 'PDFをClickPDF独自のAES-256-GCM形式で保護します。開くにはClickPDF Unlockと設定したパスワードが必要です。' },
     tl: { title: 'Protektahan ang PDF', description: 'I-encrypt at lagyan ng password ang PDF gamit ang Web Crypto AES-256-GCM.' },
     de: { title: 'PDF im ClickPDF-Format schützen', description: 'Schützen Sie PDFs im ClickPDF-eigenen AES-256-GCM-Format. Zum Öffnen benötigen Sie ClickPDF Unlock und das festgelegte Passwort.' },

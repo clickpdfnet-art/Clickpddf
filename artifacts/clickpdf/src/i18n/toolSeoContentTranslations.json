@@ -3103,7 +3103,7 @@
           { "question": "Saan maaaring ilagay ang mga numero?", "answer": "Pumili sa mga posisyon o alignment na aktuwal na ibinibigay ng tool at suriin ang resulta." },
           { "question": "Maaari bang matakpan ng numero ang laman ng page?", "answer": "Kung may overlap sa teksto o gilid, baguhin ang posisyon at suriin muli ang PDF." },
           { "question": "Ina-upload ba ang PDF habang nilalagyan ng numero?", "answer": "Pinoproseso sa browser ang nilalaman at hindi ipinapadala sa ClickPDF document-processing server; maaari pa ring humiling ng resources ang webpage." },
-          { "question": "Pinapalitan ba nito ang orihinal na PDF?", "answer": "Gumagawa ang tool ng bagong kopyang may numero; itabi ang orihinal at suriin ang lahat ng pahina." },
+          { "question": "Anong kopya ang ginagawa ng page-number tool?", "answer": "Gumagawa ang tool ng bagong kopyang may numero; itabi ang orihinal at suriin ang lahat ng pahina." },
           { "question": "Puwede bang ilang pahina lang ang lagyan?", "answer": "Gamitin lang ang page-range control kung ipinapakita ito ng interface; kung wala, sundin ang default na saklaw ng tool." }
         ]
       },
@@ -3386,7 +3386,7 @@
           { "question": "¿Cómo puedo añadir una marca de firma?", "answer": "Usa las opciones de dibujo, escritura o imagen disponibles en el espacio de trabajo." },
           { "question": "¿Es una firma electrónica certificada?", "answer": "No. La función no ofrece verificación de identidad ni firma con certificado; sigue las normas del destinatario y la legislación aplicable." },
           { "question": "¿Puedo mover o cambiar el tamaño de la firma?", "answer": "Usa los controles disponibles en el espacio de trabajo para ajustar la posición y el tamaño, y revisa la página." },
-          { "question": "¿Se reemplaza el PDF original?", "answer": "No. Descarga el nuevo archivo con la marca y conserva el documento original." },
+          { "question": "¿Qué debo guardar después de añadir la marca de firma?", "answer": "Descarga el nuevo archivo con la marca y conserva el documento original." },
           { "question": "¿Se sube el archivo para añadir la firma?", "answer": "El contenido seleccionado se procesa en el navegador y no se envía a los servidores de procesamiento de documentos de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." }
         ]
       },
@@ -3457,7 +3457,7 @@
           { "question": "¿Qué metadatos puedo editar?", "answer": "La herramienta admite seis propiedades: autor, título, asunto, palabras clave, aplicación creadora y productor." },
           { "question": "¿Cambiar los metadatos modifica el contenido de las páginas?", "answer": "No. Son propiedades del documento; no editan el texto visible, las imágenes ni el diseño de las páginas." },
           { "question": "¿Puedo borrar los campos admitidos?", "answer": "Sí. Usa la opción de limpiar para los campos que muestra la herramienta y guarda una copia para revisarla." },
-          { "question": "¿Se reemplaza el PDF original?", "answer": "Descarga la copia modificada y conserva el original. Comprueba los metadatos antes de compartirla." },
+          { "question": "¿Qué archivo debo descargar después de editar las propiedades?", "answer": "Descarga la copia modificada y conserva el original. Comprueba los metadatos antes de compartirla." },
           { "question": "¿El archivo se envía a un servidor de procesamiento?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de ClickPDF; la página todavía puede solicitar recursos y servicios habilitados." },
           { "question": "¿Borrar los metadatos garantiza el anonimato?", "answer": "No. Revisa también el contenido del documento y cualquier otra información que pueda identificarte." }
         ]
@@ -3494,7 +3494,7 @@
           { "question": "¿Dónde puedo colocar los números?", "answer": "Elige una posición o alineación que aparezca en la herramienta y revisa el resultado." },
           { "question": "¿Un número puede cubrir el contenido de la página?", "answer": "Si se superpone al texto o a elementos del margen, cambia la posición y vuelve a revisar el PDF." },
           { "question": "¿Se sube el PDF mientras se numera?", "answer": "El contenido se procesa en el navegador y no se envía al servidor de procesamiento de ClickPDF; la página aún puede solicitar recursos y servicios habilitados." },
-          { "question": "¿Se reemplaza el PDF original?", "answer": "La herramienta crea una copia numerada; conserva el original y revisa todas las páginas." },
+          { "question": "¿La numeración se añade a una copia nueva?", "answer": "La herramienta crea una copia numerada; conserva el original y revisa todas las páginas." },
           { "question": "¿Puedo numerar solo algunas páginas?", "answer": "Usa un control de rango solo si aparece en la interfaz; si no, se aplica el alcance predeterminado de la herramienta." }
         ]
       },
