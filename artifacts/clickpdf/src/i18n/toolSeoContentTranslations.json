@@ -262,6 +262,42 @@
           { "question": "元のPDFは変更されますか？", "answer": "いいえ。透かしを付けると別のPDFが作成されます。透かしのない版が必要な場合は元ファイルを保管してください。" }
         ]
       },
+      "organize": {
+        "introHeading": "PDFページを並べ替えて整理",
+        "intro": "ブラウザーでPDFページを並べ替え、必要に応じて回転し、不要なページを削除できます。削除は安全な墨消しではなく、元ファイルは上書きされません。",
+        "stepsHeading": "PDFページを整理する3つの手順",
+        "steps": [
+          { "title": "PDFページを読み込む", "description": "PDFを選択し、整理画面にページのサムネイルが表示されるまで待ちます。" },
+          { "title": "ページ単位で変更する", "description": "サムネイルをドラッグして並べ替え、必要なら回転し、不要なページを削除します。" },
+          { "title": "別ファイルを保存して確認", "description": "整理後のPDFをダウンロードし、順序とページ数を確認します。確認が終わるまで元ファイルを保管してください。" }
+        ],
+        "faqs": [
+          { "question": "ページを別の位置に移動するには？", "answer": "サムネイルをページ一覧の目的の位置へドラッグし、保存前に並び順を確認します。" },
+          { "question": "不要なページを複数削除できますか？", "answer": "除外する各ページで削除操作を行い、ダウンロード前に変更後のページ数を確認してください。" },
+          { "question": "ページを削除すると内容は安全に消去されますか？", "answer": "いいえ。出力からページを除くことは、文書内の機密情報を安全に墨消しする代わりにはなりません。" },
+          { "question": "整理中にページを回転できますか？", "answer": "整理画面にはページ回転操作があります。対象ページで使い、保存したPDFの向きを確認してください。" },
+          { "question": "変更後に元の順序へ戻せますか？", "answer": "変更されていない元のPDFを開き直せば、元の順序からやり直せます。出力で元ファイルは上書きされません。" },
+          { "question": "大きなPDFでサムネイル表示に時間がかかるのはなぜですか？", "answer": "ブラウザーがページのプレビューを描画するためです。ページ数や画像が多い文書はメモリーを多く使い、表示に時間がかかることがあります。" }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "PDFのメタデータを編集",
+        "intro": "PDFのTitle、Author、Subject、Keywords、Creator、Producerを編集または消去できます。ほかのメタデータやページ上の表示内容は残る場合があります。",
+        "stepsHeading": "PDFメタデータを編集する3つの手順",
+        "steps": [
+          { "title": "PDFのプロパティを開く", "description": "PDFを選び、ツールに表示される対応メタデータ項目を確認します。" },
+          { "title": "項目を編集または消去", "description": "必要に応じてTitle、Author、Subject、Keywords、Creator、Producerを更新または空にします。" },
+          { "title": "保存して結果を確認", "description": "編集後のPDFをダウンロードし、共有前にプロパティとページの表示内容を確認します。" }
+        ],
+        "faqs": [
+          { "question": "編集できるPDFメタデータ項目は何ですか？", "answer": "Title、Author、Subject、Keywords、Creator、Producerに対応しています。ほかの項目は変更されず残る場合があります。" },
+          { "question": "対応項目を消去すればPDFは匿名になりますか？", "answer": "いいえ。匿名化は保証されません。ほかのメタデータ、表示内容、コメント、添付ファイル、識別情報が残ることがあります。" },
+          { "question": "メタデータ編集でページ上の文字も削除されますか？", "answer": "いいえ。対応する文書プロパティを編集する機能であり、ページに表示された文字の墨消しや削除は行いません。" },
+          { "question": "すべてのXMP項目や埋め込みコメントを消去しますか？", "answer": "その保証はありません。操作は画面に表示される対応項目に限られます。" },
+          { "question": "共有前に変更後のプロパティを確認できますか？", "answer": "はい。結果をダウンロードし、PDFビューアーやメタデータ確認ツールで文書プロパティを調べてください。" },
+          { "question": "変更は元のファイルに適用されますか？", "answer": "元ファイルを上書きせず、処理済みの出力を作成します。結果を確認するまで元ファイルを保管してください。" }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "選択可能なPDFテキストをTXTまたはMarkdownに抽出",
         "intro": "PDF内の選択できる文字をTXTまたはMarkdownとして書き出します。画像だけのスキャンページには先にOCRが必要です。複雑な表や読み順は変わることがあるため、抽出結果を確認してください。",
@@ -561,6 +597,42 @@
           { "question": "کیا واٹرمارک اصل page content چھپاتا یا مٹاتا ہے؟", "answer": "نہیں۔ نمایاں متن redaction یا محفوظ deletion نہیں ہے؛ نیچے کا document content پھر بھی پڑھا یا نکالا جا سکتا ہے۔" },
           { "question": "کیا ہلکا واٹرمارک ہر background پر نظر آئے گا؟", "answer": "نظر آنا رنگ، opacity اور page content پر منحصر ہے۔ share کرنے سے پہلے مختلف backgrounds والے صفحات دیکھیں۔" },
           { "question": "کیا اصل PDF بدل جاتی ہے؟", "answer": "نہیں۔ واٹرمارک لگانے سے الگ output PDF بنتی ہے۔ بغیر نشان والی copy چاہیے تو source فائل محفوظ رکھیں۔" }
+        ]
+      },
+      "organize": {
+        "introHeading": "PDF صفحات کو ترتیب دیں",
+        "intro": "Browser میں PDF pages کی ترتیب بدلیں، ضرورت کے مطابق گھمائیں، اور غیر ضروری صفحات ہٹائیں۔ صفحہ حذف کرنا secure redaction نہیں؛ اصل فائل overwrite نہیں ہوتی۔",
+        "stepsHeading": "PDF صفحات ترتیب دینے کے تین مراحل",
+        "steps": [
+          { "title": "PDF pages لوڈ کریں", "description": "PDF منتخب کریں اور organizer میں page thumbnails آنے کا انتظار کریں۔" },
+          { "title": "صفحات میں تبدیلی کریں", "description": "Thumbnails کو drag کر کے ترتیب بدلیں، ضرورت پر rotation controls استعمال کریں، یا ناپسندیدہ صفحات ہٹائیں۔" },
+          { "title": "الگ copy محفوظ کر کے چیک کریں", "description": "ترتیب دی ہوئی PDF ڈاؤن لوڈ کریں اور page order اور تعداد دیکھیں؛ جائزہ مکمل ہونے تک اصل فائل رکھیں۔" }
+        ],
+        "faqs": [
+          { "question": "صفحہ نئی جگہ کیسے منتقل کروں؟", "answer": "اس کا thumbnail page grid میں مطلوبہ مقام پر drag کریں، پھر save کرنے سے پہلے ترتیب دیکھیں۔" },
+          { "question": "کیا کئی غیر ضروری صفحات ہٹا سکتا ہوں؟", "answer": "ہر خارج کیے جانے والے صفحے کے لیے removal control استعمال کریں، پھر download سے پہلے نئی page count کی تصدیق کریں۔" },
+          { "question": "کیا صفحہ حذف کرنے سے اس کا مواد محفوظ طریقے سے مٹ جاتا ہے؟", "answer": "نہیں۔ output سے صفحہ ہٹانا document میں حساس معلومات کی secure redaction کا متبادل نہیں۔" },
+          { "question": "کیا PDF ترتیب دیتے ہوئے صفحہ گھما سکتا ہوں؟", "answer": "Organizer میں page rotation controls ہیں۔ متعلقہ thumbnails پر انہیں استعمال کریں اور محفوظ PDF کی سمت چیک کریں۔" },
+          { "question": "کیا تبدیلیوں کے بعد اصل ترتیب واپس لا سکتا ہوں؟", "answer": "بغیر تبدیل شدہ اصل PDF دوبارہ کھولیں تاکہ اس کی موجودہ ترتیب سے شروع کریں۔ اصل فائل output سے overwrite نہیں ہوتی۔" },
+          { "question": "بڑی فائل میں thumbnails آنے میں وقت کیوں لگتا ہے؟", "answer": "Browser کو page previews render کرنے پڑتے ہیں۔ زیادہ صفحات یا تصاویر والی فائل زیادہ memory لے سکتی ہے اور آہستہ کھل سکتی ہے۔" }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "PDF میٹا ڈیٹا میں ترمیم کریں",
+        "intro": "PDF کے Title، Author، Subject، Keywords، Creator اور Producer میں ترمیم یا انہیں خالی کریں۔ دوسرے metadata اور صفحات پر دکھائی دینے والا مواد باقی رہ سکتا ہے۔",
+        "stepsHeading": "PDF میٹا ڈیٹا بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF properties کھولیں", "description": "PDF منتخب کریں اور ٹول میں دکھائے گئے supported metadata fields دیکھیں۔" },
+          { "title": "منتخب fields بدلیں یا خالی کریں", "description": "ضرورت کے مطابق Title، Author، Subject، Keywords، Creator یا Producer update کریں یا صاف کریں۔" },
+          { "title": "محفوظ کر کے نتیجہ دیکھیں", "description": "ترمیم شدہ PDF ڈاؤن لوڈ کریں اور شیئر کرنے سے پہلے properties اور نظر آنے والے صفحات چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "یہاں کون سے PDF metadata fields بدل سکتا ہوں؟", "answer": "ٹول Title، Author، Subject، Keywords، Creator اور Producer support کرتا ہے۔ دوسرے fields بغیر تبدیلی رہ سکتے ہیں۔" },
+          { "question": "کیا supported fields خالی کرنے سے PDF گمنام ہو جاتی ہے؟", "answer": "نہیں۔ اس سے anonymity کی ضمانت نہیں ملتی۔ دوسرے metadata، visible content، comments، attachments یا شناختی تفصیل باقی رہ سکتی ہے۔" },
+          { "question": "کیا metadata بدلنے سے PDF pages کے الفاظ مٹیں گے؟", "answer": "نہیں۔ یہ supported document properties بدلتا ہے؛ صفحے پر دکھائی دینے والا متن redact یا erase نہیں کرتا۔" },
+          { "question": "کیا ٹول ہر XMP property یا embedded comment صاف کرتا ہے؟", "answer": "ایسی کوئی ضمانت نہیں۔ تبدیلی صرف interface میں دکھائے گئے supported fields تک محدود ہے۔" },
+          { "question": "کیا شیئر کرنے سے پہلے بدلی ہوئی properties دیکھ سکتا ہوں؟", "answer": "ہاں۔ نتیجہ ڈاؤن لوڈ کریں اور PDF viewer یا metadata reader میں document properties چیک کریں۔" },
+          { "question": "کیا metadata تبدیلیاں میری اصل فائل میں ہوتی ہیں؟", "answer": "ٹول source کو overwrite کرنے کے بجائے الگ processed output بناتا ہے۔ نتیجہ دیکھنے تک اصل فائل محفوظ رکھیں۔" }
         ]
       },
       "pdf-to-text": {
@@ -864,6 +936,42 @@
           { "question": "Wird das Original-PDF verändert?", "answer": "Nein. Das Anwenden erstellt ein separates Ausgabe-PDF. Bewahren Sie die Quelle auf, wenn Sie eine Version ohne Zeichen benötigen." }
         ]
       },
+      "organize": {
+        "introHeading": "PDF-Seiten neu ordnen und organisieren",
+        "intro": "Ordnen Sie PDF-Seiten im Browser neu, drehen Sie sie bei Bedarf und entfernen Sie unerwünschte Seiten. Das Entfernen ist keine sichere Schwärzung; die Quelldatei wird nicht überschrieben.",
+        "stepsHeading": "PDF-Seiten in drei Schritten organisieren",
+        "steps": [
+          { "title": "PDF-Seiten laden", "description": "Wählen Sie ein PDF und warten Sie, bis die Seitenvorschauen im Organizer erscheinen." },
+          { "title": "Seiten einzeln bearbeiten", "description": "Ziehen Sie Vorschauen zum Sortieren, verwenden Sie bei Bedarf die Drehsteuerung oder entfernen Sie unerwünschte Seiten." },
+          { "title": "Kopie speichern und prüfen", "description": "Laden Sie das neu geordnete PDF herunter und prüfen Sie Reihenfolge und Seitenzahl. Bewahren Sie das Original bis zum Abschluss der Kontrolle auf." }
+        ],
+        "faqs": [
+          { "question": "Wie verschiebe ich eine Seite an eine neue Stelle?", "answer": "Ziehen Sie die Vorschau an die gewünschte Position im Seitengitter und prüfen Sie die Reihenfolge vor dem Speichern." },
+          { "question": "Kann ich mehrere unerwünschte Seiten entfernen?", "answer": "Verwenden Sie für jede auszuschließende Seite die Entfernen-Steuerung und bestätigen Sie vor dem Download die neue Seitenzahl." },
+          { "question": "Werden Seiteninhalte beim Löschen sicher entfernt?", "answer": "Nein. Eine Seite aus der Ausgabe zu entfernen ersetzt keine sichere Schwärzung vertraulicher Informationen im Dokument." },
+          { "question": "Kann ich eine Seite beim Organisieren drehen?", "answer": "Der Organizer bietet Drehsteuerungen für Seiten. Wenden Sie sie auf die passenden Vorschauen an und prüfen Sie danach die Ausrichtung." },
+          { "question": "Kann ich nach Änderungen die ursprüngliche Reihenfolge wiederherstellen?", "answer": "Öffnen Sie das unveränderte Original erneut, um mit seiner ursprünglichen Seitenfolge zu beginnen. Die Quelle wird nicht überschrieben." },
+          { "question": "Warum dauert es bei großen Dokumenten, bis Vorschauen erscheinen?", "answer": "Der Browser rendert Seitenvorschauen. Lange Dokumente und bildreiche Seiten können mehr Speicher benötigen und langsamer laden." }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "PDF-Metadaten bearbeiten",
+        "intro": "Bearbeiten oder leeren Sie Title, Author, Subject, Keywords, Creator und Producer eines PDFs. Andere Metadaten und sichtbare Seiteninhalte können erhalten bleiben.",
+        "stepsHeading": "PDF-Metadaten in drei Schritten bearbeiten",
+        "steps": [
+          { "title": "PDF-Eigenschaften öffnen", "description": "Wählen Sie ein PDF und prüfen Sie die unterstützten Metadatenfelder im Tool." },
+          { "title": "Ausgewählte Felder bearbeiten oder leeren", "description": "Aktualisieren oder leeren Sie bei Bedarf Title, Author, Subject, Keywords, Creator oder Producer." },
+          { "title": "Ergebnis speichern und prüfen", "description": "Laden Sie das bearbeitete PDF herunter und prüfen Sie vor dem Teilen Eigenschaften und sichtbare Seiten." }
+        ],
+        "faqs": [
+          { "question": "Welche PDF-Metadatenfelder kann ich hier bearbeiten?", "answer": "Das Tool unterstützt Title, Author, Subject, Keywords, Creator und Producer. Andere Felder können unverändert bleiben." },
+          { "question": "Wird ein PDF anonym, wenn ich die unterstützten Felder leere?", "answer": "Nein. Anonymität ist nicht garantiert. Andere Metadaten, sichtbare Inhalte, Kommentare, Anhänge oder identifizierende Angaben können bestehen bleiben." },
+          { "question": "Entfernt die Metadatenbearbeitung Wörter von den PDF-Seiten?", "answer": "Nein. Das Tool bearbeitet unterstützte Dokumenteigenschaften; sichtbarer Text auf Seiten wird weder geschwärzt noch gelöscht." },
+          { "question": "Entfernt das Tool alle XMP-Eigenschaften oder eingebetteten Kommentare?", "answer": "Das wird nicht zugesichert. Die Bearbeitung beschränkt sich auf die in der Oberfläche angezeigten unterstützten Felder." },
+          { "question": "Kann ich die geänderten Eigenschaften vor dem Teilen prüfen?", "answer": "Ja. Laden Sie das Ergebnis herunter und prüfen Sie die Dokumenteigenschaften mit einem PDF-Viewer oder Metadatenleser." },
+          { "question": "Werden Metadaten in meiner Originaldatei geändert?", "answer": "Das Tool erstellt eine verarbeitete Ausgabe, statt die Quelle zu überschreiben. Bewahren Sie das Original auf, bis Sie das Ergebnis bestätigt haben." }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "Auswählbaren PDF-Text als TXT oder Markdown extrahieren",
         "intro": "Extrahieren Sie auswählbaren Text aus einer PDF als TXT oder Markdown. Für gescannte Seiten, die nur aus Bildern bestehen, ist vorher OCR erforderlich. Komplexe Tabellen oder die Lesereihenfolge können sich ändern; prüfen Sie daher das Ergebnis.",
@@ -1145,6 +1253,42 @@
           { "question": "क्या watermark मूल page content छिपाता या हटाता है?", "answer": "नहीं। Visible text mark redaction या सुरक्षित deletion नहीं है; नीचे का document content पढ़ा या निकाला जा सकता है।" },
           { "question": "क्या हल्का watermark हर background पर दिखेगा?", "answer": "दिखना color, opacity और page content पर निर्भर करता है। Share करने से पहले अलग backgrounds वाले pages जाँचें।" },
           { "question": "क्या original PDF बदल जाती है?", "answer": "नहीं। Watermark लगाने से अलग output PDF बनती है। बिना mark वाली copy की जरूरत हो तो source रखें।" }
+        ]
+      },
+      "organize": {
+        "introHeading": "PDF पृष्ठों को व्यवस्थित करें",
+        "intro": "ब्राउज़र में PDF पृष्ठों का क्रम बदलें, ज़रूरत पड़ने पर उन्हें घुमाएँ और अनचाहे पृष्ठ हटाएँ। पृष्ठ हटाना सुरक्षित redaction नहीं है और मूल फ़ाइल overwrite नहीं होती।",
+        "stepsHeading": "PDF पृष्ठ व्यवस्थित करने के तीन चरण",
+        "steps": [
+          { "title": "PDF पृष्ठ लोड करें", "description": "PDF चुनें और organizer में पृष्ठों के thumbnails दिखाई देने तक प्रतीक्षा करें।" },
+          { "title": "पृष्ठों में बदलाव करें", "description": "क्रम बदलने के लिए thumbnails खींचें, ज़रूरत पर rotation controls इस्तेमाल करें या अनचाहे पृष्ठ हटाएँ।" },
+          { "title": "अलग copy सहेजकर जाँचें", "description": "व्यवस्थित PDF डाउनलोड करें और क्रम व पृष्ठों की संख्या जाँचें। समीक्षा पूरी होने तक मूल फ़ाइल रखें।" }
+        ],
+        "faqs": [
+          { "question": "मैं किसी पृष्ठ को नई जगह कैसे ले जाऊँ?", "answer": "उसका thumbnail page grid में इच्छित जगह खींचें और सहेजने से पहले क्रम देखें।" },
+          { "question": "क्या मैं कई अनचाहे पृष्ठ हटा सकता हूँ?", "answer": "हर हटाए जाने वाले पृष्ठ का removal control इस्तेमाल करें और डाउनलोड से पहले नई page count की पुष्टि करें।" },
+          { "question": "क्या पृष्ठ हटाने से उसका content सुरक्षित रूप से मिट जाता है?", "answer": "नहीं। output से पृष्ठ हटाना दस्तावेज़ में संवेदनशील जानकारी की secure redaction का विकल्प नहीं है।" },
+          { "question": "क्या PDF व्यवस्थित करते समय पृष्ठ घुमा सकता हूँ?", "answer": "Organizer में page rotation controls हैं। संबंधित thumbnails पर उनका उपयोग करें और सहेजे हुए पृष्ठों की दिशा जाँचें।" },
+          { "question": "क्या बदलाव के बाद मूल क्रम वापस पा सकता हूँ?", "answer": "बिना बदली हुई मूल PDF फिर खोलें और उसके क्रम से शुरू करें। reorganized output मूल फ़ाइल को overwrite नहीं करता।" },
+          { "question": "बड़ी PDF में thumbnails दिखने में समय क्यों लगता है?", "answer": "ब्राउज़र page previews render करता है। लंबे दस्तावेज़ और image-heavy pages अधिक memory ले सकते हैं और धीरे load हो सकते हैं।" }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "PDF मेटाडेटा संपादित करें",
+        "intro": "PDF के Title, Author, Subject, Keywords, Creator और Producer को बदलें या खाली करें। अन्य metadata और पृष्ठों पर दिखने वाला content बना रह सकता है।",
+        "stepsHeading": "PDF मेटाडेटा संपादित करने के तीन चरण",
+        "steps": [
+          { "title": "PDF properties खोलें", "description": "PDF चुनें और टूल में दिखाए गए supported metadata fields देखें।" },
+          { "title": "चुने हुए fields बदलें या साफ़ करें", "description": "ज़रूरत के अनुसार Title, Author, Subject, Keywords, Creator या Producer अपडेट करें या खाली करें।" },
+          { "title": "सहेजकर परिणाम जाँचें", "description": "संपादित PDF डाउनलोड करें और साझा करने से पहले properties तथा दिखाई देने वाले पृष्ठ जाँचें।" }
+        ],
+        "faqs": [
+          { "question": "यहाँ कौन-से PDF metadata fields संपादित कर सकता हूँ?", "answer": "टूल Title, Author, Subject, Keywords, Creator और Producer को support करता है। अन्य fields बिना बदलाव रह सकते हैं।" },
+          { "question": "क्या supported fields साफ़ करने से PDF anonymous हो जाती है?", "answer": "नहीं। इससे anonymity की गारंटी नहीं मिलती। अन्य metadata, दिखने वाला content, comments, attachments या पहचान संबंधी जानकारी रह सकती है।" },
+          { "question": "क्या metadata संपादन से PDF पृष्ठों के शब्द हटेंगे?", "answer": "नहीं। टूल supported document properties बदलता है; पृष्ठों पर दिखने वाला text redact या erase नहीं करता।" },
+          { "question": "क्या टूल हर XMP property या embedded comment हटाता है?", "answer": "ऐसी कोई गारंटी नहीं है। बदलाव interface में दिखाए गए supported fields तक सीमित है।" },
+          { "question": "क्या साझा करने से पहले बदली हुई properties देख सकता हूँ?", "answer": "हाँ। परिणाम डाउनलोड करें और PDF viewer या metadata reader से document properties जाँचें।" },
+          { "question": "क्या metadata बदलाव मूल फ़ाइल में होते हैं?", "answer": "टूल source को overwrite करने के बजाय अलग processed output बनाता है। परिणाम की पुष्टि तक मूल फ़ाइल रखें।" }
         ]
       },
       "pdf-to-text": {
@@ -1430,6 +1574,42 @@
           { "question": "هل يتغير ملف PDF الأصلي؟", "answer": "لا. ينشئ تطبيق العلامة ملف PDF منفصلًا. احتفظ بالمصدر إذا احتجت إلى نسخة بلا علامة." }
         ]
       },
+      "organize": {
+        "introHeading": "تنظيم صفحات PDF",
+        "intro": "أعد ترتيب صفحات PDF في المتصفح، ودوّرها عند الحاجة، واحذف الصفحات غير المطلوبة. حذف الصفحة ليس تنقيحًا آمنًا ولا يستبدل الملف الأصلي.",
+        "stepsHeading": "تنظيم صفحات PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "تحميل صفحات PDF", "description": "اختر ملف PDF وانتظر ظهور الصور المصغرة للصفحات في أداة التنظيم." },
+          { "title": "إجراء تغييرات على الصفحات", "description": "اسحب الصور المصغرة لإعادة الترتيب، واستخدم عناصر التدوير عند الحاجة، أو احذف الصفحات غير المطلوبة." },
+          { "title": "حفظ نسخة منفصلة ومراجعتها", "description": "نزّل PDF بعد التنظيم وتحقق من الترتيب وعدد الصفحات. احتفظ بالأصل حتى تنتهي من المراجعة." }
+        ],
+        "faqs": [
+          { "question": "كيف أنقل صفحة إلى موضع جديد؟", "answer": "اسحب الصورة المصغرة إلى مكانها المقصود في شبكة الصفحات، ثم راجع التسلسل قبل الحفظ." },
+          { "question": "هل يمكنني حذف عدة صفحات غير مطلوبة؟", "answer": "استخدم عنصر إزالة الصفحة لكل صفحة تريد استبعادها، ثم تحقق من العدد الجديد قبل التنزيل." },
+          { "question": "هل يؤدي حذف الصفحة إلى محو محتواها بأمان؟", "answer": "لا. إزالة صفحة من الناتج ليست بديلًا عن التنقيح الآمن للمعلومات الحساسة في المستند." },
+          { "question": "هل يمكن تدوير صفحة أثناء تنظيم PDF؟", "answer": "تتضمن الأداة عناصر لتدوير الصفحات. استخدمها مع الصور المصغرة المناسبة وراجع اتجاه الصفحات المحفوظة." },
+          { "question": "هل يمكن استعادة الترتيب الأصلي بعد التغييرات؟", "answer": "أعد فتح ملف PDF الأصلي غير المعدّل للبدء من تسلسله الأصلي. لا تستبدل النسخة الناتجة الملف المصدر." },
+          { "question": "لماذا يستغرق ظهور الصور المصغرة وقتًا في المستندات الكبيرة؟", "answer": "يعرض المتصفح معاينات الصفحات. قد تحتاج المستندات الطويلة والصفحات كثيرة الصور إلى ذاكرة أكبر وتُحمّل ببطء." }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "تعديل بيانات PDF الوصفية",
+        "intro": "عدّل أو امسح حقول Title وAuthor وSubject وKeywords وCreator وProducer في PDF. قد تبقى بيانات أخرى ومحتويات الصفحات المرئية كما هي.",
+        "stepsHeading": "تعديل بيانات PDF الوصفية في ثلاث خطوات",
+        "steps": [
+          { "title": "فتح خصائص PDF", "description": "اختر ملف PDF وراجع حقول البيانات الوصفية التي تعرضها الأداة." },
+          { "title": "تعديل الحقول أو مسحها", "description": "حدّث أو امسح Title أو Author أو Subject أو Keywords أو Creator أو Producer حسب الحاجة." },
+          { "title": "حفظ النتيجة وفحصها", "description": "نزّل PDF المعدّل وافحص خصائصه وصفحاته المرئية قبل مشاركته." }
+        ],
+        "faqs": [
+          { "question": "ما حقول بيانات PDF الوصفية التي يمكن تعديلها هنا؟", "answer": "تدعم الأداة Title وAuthor وSubject وKeywords وCreator وProducer. قد تبقى حقول أخرى دون تغيير." },
+          { "question": "هل يصبح PDF مجهول الهوية بعد مسح الحقول المدعومة؟", "answer": "لا. لا يضمن ذلك إخفاء الهوية؛ فقد تبقى بيانات أخرى أو محتويات مرئية أو تعليقات أو مرفقات أو تفاصيل تعريفية." },
+          { "question": "هل يزيل تعديل البيانات الوصفية الكلمات من صفحات PDF؟", "answer": "لا. تعدّل الأداة خصائص المستند المدعومة ولا تنقّح النص الظاهر على الصفحات أو تمحوه." },
+          { "question": "هل تمسح الأداة كل خصائص XMP أو التعليقات المضمنة؟", "answer": "لا يوجد مثل هذا الضمان. تقتصر العملية على الحقول المدعومة الظاهرة في الواجهة." },
+          { "question": "هل يمكنني فحص الخصائص بعد تغييرها قبل المشاركة؟", "answer": "نعم. نزّل الناتج وافحص خصائص المستند باستخدام عارض PDF أو قارئ للبيانات الوصفية." },
+          { "question": "هل تُجرى التغييرات على ملفي الأصلي؟", "answer": "تنشئ الأداة ملفًا ناتجًا منفصلًا بدلًا من استبدال المصدر. احتفظ بالأصل حتى تتأكد من النتيجة." }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "استخراج PDF إلى TXT أو Markdown",
         "intro": "تستخرج الأداة نص PDF القابل للتحديد إلى TXT أو Markdown. تحتاج الصفحات الممسوحة كصور فقط إلى OCR أولًا؛ وراجع الجداول المعقدة وترتيب القراءة.",
@@ -1711,6 +1891,42 @@
           { "question": "Un filigrane masque-t-il ou supprime-t-il le contenu d’origine ?", "answer": "Non. Une marque textuelle visible n’est ni un caviardage ni une suppression sécurisée ; le contenu sous-jacent peut rester lisible ou extractible." },
           { "question": "Un filigrane clair reste-t-il visible sur tous les fonds ?", "answer": "La visibilité dépend de la couleur, de l’opacité et du contenu de la page. Vérifiez des pages aux fonds différents avant le partage." },
           { "question": "Le PDF d’origine sera-t-il modifié ?", "answer": "Non. L’application du filigrane crée un PDF de sortie séparé. Gardez la source si vous avez besoin d’une copie sans marque." }
+        ]
+      },
+      "organize": {
+        "introHeading": "Organiser les pages d’un PDF",
+        "intro": "Réorganisez les pages d’un PDF dans le navigateur, faites-les pivoter si nécessaire et supprimez celles qui ne sont pas utiles. La suppression n’est pas un caviardage sécurisé et le fichier source n’est pas remplacé.",
+        "stepsHeading": "Organiser un PDF en trois étapes",
+        "steps": [
+          { "title": "Charger les pages du PDF", "description": "Sélectionnez un PDF et attendez l’affichage des miniatures dans l’outil d’organisation." },
+          { "title": "Modifier les pages", "description": "Faites glisser les miniatures pour les réordonner, utilisez la rotation si nécessaire ou retirez les pages inutiles." },
+          { "title": "Enregistrer et vérifier une copie", "description": "Téléchargez le PDF réorganisé, contrôlez l’ordre et le nombre de pages, puis conservez l’original pendant la vérification." }
+        ],
+        "faqs": [
+          { "question": "Comment déplacer une page à un nouvel emplacement ?", "answer": "Faites glisser sa miniature jusqu’à la position souhaitée dans la grille, puis vérifiez l’ordre avant l’enregistrement." },
+          { "question": "Puis-je supprimer plusieurs pages inutiles ?", "answer": "Utilisez la commande de suppression pour chaque page à exclure, puis vérifiez le nouveau nombre de pages avant le téléchargement." },
+          { "question": "La suppression d’une page efface-t-elle son contenu de façon sécurisée ?", "answer": "Non. Retirer une page du résultat ne remplace pas le caviardage sécurisé des informations sensibles dans un document." },
+          { "question": "Puis-je faire pivoter une page pendant l’organisation ?", "answer": "L’outil propose des commandes de rotation. Utilisez-les sur les miniatures concernées et vérifiez l’orientation des pages enregistrées." },
+          { "question": "Puis-je retrouver l’ordre initial après les changements ?", "answer": "Rouvrez le PDF source, qui n’a pas été modifié, pour repartir de son ordre initial. Le résultat ne remplace pas le fichier source." },
+          { "question": "Pourquoi les miniatures d’un document volumineux s’affichent-elles lentement ?", "answer": "Le navigateur doit générer les aperçus des pages. Les documents longs ou riches en images peuvent utiliser plus de mémoire et charger plus lentement." }
+        ]
+      },
+      "edit-metadata": {
+        "introHeading": "Modifier les métadonnées d’un PDF",
+        "intro": "Modifiez ou effacez les champs Title, Author, Subject, Keywords, Creator et Producer d’un PDF. D’autres métadonnées et le contenu visible des pages peuvent subsister.",
+        "stepsHeading": "Modifier les métadonnées d’un PDF en trois étapes",
+        "steps": [
+          { "title": "Ouvrir les propriétés du PDF", "description": "Sélectionnez un PDF et examinez les champs de métadonnées pris en charge par l’outil." },
+          { "title": "Modifier ou effacer les champs choisis", "description": "Mettez à jour ou videz Title, Author, Subject, Keywords, Creator ou Producer selon vos besoins." },
+          { "title": "Enregistrer et vérifier le résultat", "description": "Téléchargez le PDF modifié et contrôlez ses propriétés ainsi que ses pages visibles avant le partage." }
+        ],
+        "faqs": [
+          { "question": "Quels champs de métadonnées PDF puis-je modifier ici ?", "answer": "L’outil prend en charge Title, Author, Subject, Keywords, Creator et Producer. D’autres champs peuvent rester inchangés." },
+          { "question": "Effacer ces champs rend-il le PDF anonyme ?", "answer": "Non. L’anonymat n’est pas garanti : d’autres métadonnées, contenus visibles, commentaires, pièces jointes ou éléments identifiants peuvent subsister." },
+          { "question": "La modification des métadonnées supprime-t-elle des mots sur les pages ?", "answer": "Non. L’outil modifie les propriétés prises en charge ; il ne caviarde ni n’efface le texte visible des pages." },
+          { "question": "L’outil efface-t-il toutes les propriétés XMP ou les commentaires intégrés ?", "answer": "Aucune garantie de ce type n’est donnée. L’opération se limite aux champs pris en charge affichés dans l’interface." },
+          { "question": "Puis-je vérifier les propriétés modifiées avant le partage ?", "answer": "Oui. Téléchargez le résultat et inspectez les propriétés du document avec un lecteur PDF ou un outil de métadonnées." },
+          { "question": "Les modifications touchent-elles mon fichier d’origine ?", "answer": "L’outil crée un résultat traité séparé sans écraser la source. Conservez l’original jusqu’à la vérification." }
         ]
       },
       "pdf-to-text": {

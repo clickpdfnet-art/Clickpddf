@@ -140,14 +140,14 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
-      'ar:compress', 'ar:jpg-to-pdf', 'ar:merge', 'ar:page-numbers', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:pdf-to-text', 'ar:pdf-to-word', 'ar:protect', 'ar:rotate', 'ar:split', 'ar:unlock', 'ar:watermark', 'ar:word-to-pdf',
-      'de:compress', 'de:excel-to-pdf', 'de:jpg-to-pdf', 'de:merge', 'de:page-numbers', 'de:pdf-to-excel', 'de:pdf-to-image', 'de:pdf-to-powerpoint', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock', 'de:watermark', 'de:word-to-pdf',
-      'fr:compress', 'fr:jpg-to-pdf', 'fr:merge', 'fr:page-numbers', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:pdf-to-text', 'fr:pdf-to-word', 'fr:protect', 'fr:rotate', 'fr:split', 'fr:unlock', 'fr:watermark', 'fr:word-to-pdf',
-      'hi:compress', 'hi:jpg-to-pdf', 'hi:merge', 'hi:page-numbers', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:pdf-to-text', 'hi:pdf-to-word', 'hi:protect', 'hi:rotate', 'hi:split', 'hi:unlock', 'hi:watermark', 'hi:word-to-pdf',
-      'ja:compress', 'ja:excel-to-pdf', 'ja:jpg-to-pdf', 'ja:merge', 'ja:page-numbers', 'ja:pdf-to-excel', 'ja:pdf-to-image', 'ja:pdf-to-powerpoint', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock', 'ja:watermark', 'ja:word-to-pdf',
-      'ur:compress', 'ur:excel-to-pdf', 'ur:jpg-to-pdf', 'ur:merge', 'ur:page-numbers', 'ur:pdf-to-excel', 'ur:pdf-to-image', 'ur:pdf-to-powerpoint', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock', 'ur:watermark', 'ur:word-to-pdf',
+      'ar:compress', 'ar:edit-metadata', 'ar:jpg-to-pdf', 'ar:merge', 'ar:organize', 'ar:page-numbers', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:pdf-to-text', 'ar:pdf-to-word', 'ar:protect', 'ar:rotate', 'ar:split', 'ar:unlock', 'ar:watermark', 'ar:word-to-pdf',
+      'de:compress', 'de:edit-metadata', 'de:excel-to-pdf', 'de:jpg-to-pdf', 'de:merge', 'de:organize', 'de:page-numbers', 'de:pdf-to-excel', 'de:pdf-to-image', 'de:pdf-to-powerpoint', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock', 'de:watermark', 'de:word-to-pdf',
+      'fr:compress', 'fr:edit-metadata', 'fr:jpg-to-pdf', 'fr:merge', 'fr:organize', 'fr:page-numbers', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:pdf-to-text', 'fr:pdf-to-word', 'fr:protect', 'fr:rotate', 'fr:split', 'fr:unlock', 'fr:watermark', 'fr:word-to-pdf',
+      'hi:compress', 'hi:edit-metadata', 'hi:jpg-to-pdf', 'hi:merge', 'hi:organize', 'hi:page-numbers', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:pdf-to-text', 'hi:pdf-to-word', 'hi:protect', 'hi:rotate', 'hi:split', 'hi:unlock', 'hi:watermark', 'hi:word-to-pdf',
+      'ja:compress', 'ja:edit-metadata', 'ja:excel-to-pdf', 'ja:jpg-to-pdf', 'ja:merge', 'ja:organize', 'ja:page-numbers', 'ja:pdf-to-excel', 'ja:pdf-to-image', 'ja:pdf-to-powerpoint', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock', 'ja:watermark', 'ja:word-to-pdf',
+      'ur:compress', 'ur:edit-metadata', 'ur:excel-to-pdf', 'ur:jpg-to-pdf', 'ur:merge', 'ur:organize', 'ur:page-numbers', 'ur:pdf-to-excel', 'ur:pdf-to-image', 'ur:pdf-to-powerpoint', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock', 'ur:watermark', 'ur:word-to-pdf',
     ],
-    'only the ninety-six new draft pages and three pre-existing localized Merge pages are complete',
+    'only the one hundred two new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -390,9 +390,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 93);
-  assert.equal(routePaths.length, 114, '114 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 327, '327 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 105);
+  assert.equal(routePaths.length, 126, '126 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 315, '315 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

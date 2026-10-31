@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 356 URLs, including 21 public tools and 114 tool route URLs (93 localized routes), 231 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 368 URLs, including 21 public tools and 126 tool route URLs (105 localized routes), 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -801,6 +801,96 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/organize-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/organize-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/organize-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/organize-pdf/" />
   </url>
   <url>
@@ -809,6 +899,96 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/edit-pdf-metadata/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/edit-pdf-metadata/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/edit-pdf-metadata/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/edit-pdf-metadata/" />
   </url>
   <url>
