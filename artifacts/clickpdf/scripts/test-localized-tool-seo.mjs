@@ -49,7 +49,7 @@ test('every completed localized Merge PDF route has matching page, schema, sitem
     .filter(([, localeData]) => localeData.tools.merge)
     .map(([locale]) => locale)
     .sort();
-  assert.deepEqual(mergeLocales, ['de', 'ja', 'ur']);
+  assert.deepEqual(mergeLocales, ['ar', 'de', 'fr', 'hi', 'ja', 'ur']);
 
   for (const locale of mergeLocales) {
     const content = contentByLocale[locale].tools.merge;
@@ -140,14 +140,14 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
-      'ar:compress', 'ar:jpg-to-pdf', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:rotate', 'ar:split', 'ar:word-to-pdf',
-      'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
-      'fr:compress', 'fr:jpg-to-pdf', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:rotate', 'fr:split', 'fr:word-to-pdf',
-      'hi:compress', 'hi:jpg-to-pdf', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:rotate', 'hi:split', 'hi:word-to-pdf',
-      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
-      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
+      'ar:compress', 'ar:jpg-to-pdf', 'ar:merge', 'ar:page-numbers', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:pdf-to-text', 'ar:pdf-to-word', 'ar:protect', 'ar:rotate', 'ar:split', 'ar:unlock', 'ar:watermark', 'ar:word-to-pdf',
+      'de:compress', 'de:excel-to-pdf', 'de:jpg-to-pdf', 'de:merge', 'de:page-numbers', 'de:pdf-to-excel', 'de:pdf-to-image', 'de:pdf-to-powerpoint', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock', 'de:watermark', 'de:word-to-pdf',
+      'fr:compress', 'fr:jpg-to-pdf', 'fr:merge', 'fr:page-numbers', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:pdf-to-text', 'fr:pdf-to-word', 'fr:protect', 'fr:rotate', 'fr:split', 'fr:unlock', 'fr:watermark', 'fr:word-to-pdf',
+      'hi:compress', 'hi:jpg-to-pdf', 'hi:merge', 'hi:page-numbers', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:pdf-to-text', 'hi:pdf-to-word', 'hi:protect', 'hi:rotate', 'hi:split', 'hi:unlock', 'hi:watermark', 'hi:word-to-pdf',
+      'ja:compress', 'ja:excel-to-pdf', 'ja:jpg-to-pdf', 'ja:merge', 'ja:page-numbers', 'ja:pdf-to-excel', 'ja:pdf-to-image', 'ja:pdf-to-powerpoint', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock', 'ja:watermark', 'ja:word-to-pdf',
+      'ur:compress', 'ur:excel-to-pdf', 'ur:jpg-to-pdf', 'ur:merge', 'ur:page-numbers', 'ur:pdf-to-excel', 'ur:pdf-to-image', 'ur:pdf-to-powerpoint', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock', 'ur:watermark', 'ur:word-to-pdf',
     ],
-    'only the forty-eight new draft pages and three pre-existing localized Merge pages are complete',
+    'only the ninety-six new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -161,7 +161,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       ['existing_unverified', 'generated_draft', 'human_reviewed'].includes(entry.status),
       `${pair} uses a documented QA status`,
     );
-    if (!pair.endsWith(':merge')) {
+    if (['de:merge', 'ja:merge', 'ur:merge'].includes(pair)) {
+      assert.equal(entry.status, 'existing_unverified', `${pair} preserves the pre-existing unverified Merge status`);
+    } else {
       assert.equal(entry.status, 'generated_draft', `${pair} remains identified as a draft`);
       assert.equal(entry.contentCheckedAgainstToolBehavior, true, `${pair} is checked against the tool behavior`);
     }
@@ -211,6 +213,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
           de: 'Beliebige passwortgeschützte Standard-PDFs',
           ja: '一般的なPDFのパスワード解除',
           ur: 'عام password-protected PDFs',
+          hi: 'दूसरे सामान्य PDF',
+          ar: 'ملفات PDF القياسية الأخرى',
+          fr: 'PDF standard quelconque',
         }[locale];
         assert.ok(contentText.includes(scopeLimit), `${locale} states that arbitrary standard PDFs are not supported`);
       }
@@ -223,6 +228,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
           de: ['bearbeitbaren Text', 'Bild-Fallback'],
           ja: ['編集可能なテキスト', '画像フォールバック'],
           ur: ['قابلِ تدوین متن', 'image fallback'],
+          hi: ['संपादन योग्य पाठ', 'छवि fallback'],
+          ar: ['نص قابل للتحرير', 'الخيار الاحتياطي للصور'],
+          fr: ['texte modifiable', 'solution de repli en images'],
         }[locale];
         for (const marker of conversionMarkers) {
           assert.ok(contentText.includes(marker), `${locale} distinguishes editable text from the optional image fallback`);
@@ -232,15 +240,15 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       if (toolId === 'pdf-to-excel') {
         assert.match(contentText, /XLSX/i, `${locale} identifies the workbook output format`);
         assert.match(contentText, /OCR/i, `${locale} explains OCR needs for scanned tables`);
-        const formulaQuestion = content.faqs.find((faq) => /सूत्र|صيغ|formules/i.test(faq.question));
+        const formulaQuestion = content.faqs.find((faq) => /सूत्र|صيغ|formules|Formeln|数式|فارمولے/iu.test(faq.question));
         assert.ok(formulaQuestion, `${locale} addresses whether PDF formulas are recreated`);
-        assert.match(formulaQuestion.answer, /^(?:नहीं|لا|Non)/u, `${locale} does not claim original spreadsheet formulas are restored`);
+        assert.match(formulaQuestion.answer, /^(?:नहीं|لا|Non|Nein|いいえ|نہیں)/u, `${locale} does not claim original spreadsheet formulas are restored`);
       }
       if (toolId === 'pdf-to-powerpoint') {
         assert.match(contentText, /PPTX/i, `${locale} identifies the presentation output format`);
-        const originalStructureQuestion = content.faqs.find((faq) => /मूल PowerPoint objects|عناصر PowerPoint الأصلية|objets PowerPoint d’origine/i.test(faq.question));
+        const originalStructureQuestion = content.faqs.find((faq) => /मूल PowerPoint objects|عناصر PowerPoint الأصلية|objets PowerPoint d’origine|ursprünglichen PowerPoint-Objekte|元のPowerPointオブジェクト|اصل PowerPoint objects/iu.test(faq.question));
         assert.ok(originalStructureQuestion, `${locale} explains that a PDF does not preserve the original presentation structure`);
-        assert.match(originalStructureQuestion.answer, /^(?:आमतौर पर नहीं|غالبًا لا|Généralement non)/u, `${locale} avoids promising original slide objects`);
+        assert.match(originalStructureQuestion.answer, /^(?:आमतौर पर नहीं|غالبًا لا|Généralement non|Meistens nicht|通常は含まれません|عام طور پر نہیں)/u, `${locale} avoids promising original slide objects`);
       }
       if (toolId === 'pdf-to-image') {
         assert.match(contentText, /PNG/i, `${locale} identifies the actual PNG image output`);
@@ -256,10 +264,13 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
           hi: 'क्या बदली हुई PDF में text चुना जा सकता है?',
           ar: 'هل يمكن تحديد النص في PDF المحوّل؟',
           fr: 'Le texte du PDF converti est-il sélectionnable ?',
+          ja: '変換したPDF内のテキストを選択できますか？',
+          ur: 'کیا تبدیل شدہ PDF میں متن منتخب کیا جا سکتا ہے؟',
+          de: 'Ist der Text im umgewandelten PDF auswählbar?',
         };
         const selectableQuestion = content.faqs.find((faq) => faq.question === selectableQuestionMarkers[locale]);
         assert.ok(selectableQuestion, `${locale} explains the image-based PDF text limitation`);
-        const imageAnswerMarkers = { hi: 'छवियों', ar: 'صور', fr: 'images' };
+        const imageAnswerMarkers = { hi: 'छवियों', ar: 'صور', fr: 'images', ja: '画像', ur: 'تصاویر', de: 'Bilder' };
         assert.ok(selectableQuestion.answer.includes(imageAnswerMarkers[locale]), `${locale} says output pages are images`);
       }
       if (toolId === 'split' && ['hi', 'ar', 'fr'].includes(locale)) {
@@ -379,9 +390,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 51);
-  assert.equal(routePaths.length, 72, '72 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 369, '369 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 93);
+  assert.equal(routePaths.length, 114, '114 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 327, '327 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

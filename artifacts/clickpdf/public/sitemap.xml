@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 314 URLs, including 21 public tools and 72 tool route URLs (51 localized routes), 231 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 356 URLs, including 21 public tools and 114 tool route URLs (93 localized routes), 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -20,6 +20,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
   </url>
   <url>
@@ -31,6 +34,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
   </url>
   <url>
@@ -42,6 +48,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
   </url>
   <url>
@@ -53,6 +62,51 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/merge-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/merge-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/merge-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/merge-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/merge-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/merge-pdf/" />
   </url>
   <url>
@@ -355,6 +409,51 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/pdf-to-image/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/pdf-to-image/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/pdf-to-image/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
@@ -366,6 +465,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
@@ -377,6 +479,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
@@ -388,6 +493,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-image/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-image/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-image/" />
@@ -497,6 +605,96 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/watermark-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/watermark-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/watermark-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/watermark-pdf/" />
   </url>
   <url>
@@ -505,6 +703,96 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/page-numbers-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/page-numbers-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/page-numbers-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/page-numbers-pdf/" />
   </url>
   <url>
@@ -540,6 +828,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
   </url>
   <url>
@@ -551,6 +842,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
   </url>
   <url>
@@ -562,6 +856,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
   </url>
   <url>
@@ -573,6 +870,51 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
   </url>
   <url>
@@ -584,6 +926,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
   </url>
   <url>
@@ -595,6 +940,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
   </url>
   <url>
@@ -606,6 +954,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
   </url>
   <url>
@@ -617,6 +968,51 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
   </url>
   <url>
@@ -628,6 +1024,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
   </url>
   <url>
@@ -639,6 +1038,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
   </url>
   <url>
@@ -650,6 +1052,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
   </url>
   <url>
@@ -661,6 +1066,51 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/pdf-to-text/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/pdf-to-text/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/pdf-to-text/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-text/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-text/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-text/" />
   </url>
   <url>
@@ -672,6 +1122,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
   </url>
   <url>
@@ -683,6 +1136,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
   </url>
   <url>
@@ -694,6 +1150,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
   </url>
   <url>
@@ -705,6 +1164,51 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/pdf-to-word/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/pdf-to-word/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/pdf-to-word/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-word/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-word/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-word/" />
   </url>
   <url>
@@ -713,6 +1217,51 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
@@ -724,6 +1273,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
@@ -735,6 +1287,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
@@ -746,6 +1301,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
@@ -757,6 +1315,51 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
@@ -768,6 +1371,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
@@ -779,6 +1385,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
@@ -790,6 +1399,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
@@ -801,6 +1413,51 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/word-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/word-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/word-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
@@ -812,6 +1469,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
@@ -823,6 +1483,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
@@ -834,6 +1497,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/word-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/word-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/word-to-pdf/" />
@@ -853,6 +1519,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/excel-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/excel-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/excel-to-pdf/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/excel-to-pdf/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/excel-to-pdf/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/excel-to-pdf/" />
   </url>
   <url>

@@ -410,6 +410,342 @@
       "humanReviewed": false,
       "reviewer": null,
       "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-text",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-text",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-text",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-word",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-word",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-word",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-excel",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-excel",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-excel",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-powerpoint",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-image",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-image",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "pdf-to-image",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "merge",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "merge",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "merge",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "excel-to-pdf",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "excel-to-pdf",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "excel-to-pdf",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "word-to-pdf",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "hi",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "ar",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "fr",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "page-numbers",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "watermark",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
     }
   ]
 }

@@ -136,6 +136,132 @@
           { "question": "ファイルの内容は文書サーバーに送信されますか？", "answer": "対応するファイル処理はブラウザー内で行われます。ただし、ウェブページのリソースや有効になっている第三者サービスへの通信は発生する場合があります。" }
         ]
       },
+      "pdf-to-excel": {
+        "introHeading": "PDFの表をExcelブックに抽出",
+        "intro": "PDF内の表を検出して、ブラウザーでXLSXブックに書き出します。スキャン文書や複雑なレイアウトではOCRが必要な場合があり、行・列・数値を確認してください。",
+        "stepsHeading": "PDFの表をExcelに抽出する3つの手順",
+        "steps": [
+          { "title": "表を含むPDFを選択", "description": "読み取れる表の文字や、行と列が明確な文書を選びます。" },
+          { "title": "表を抽出", "description": "変換を開始し、検出された表の内容がどのようにまとめられたか確認します。" },
+          { "title": "XLSXをダウンロードして確認", "description": "ブックを開き、行順、列の対応、数値を利用前に照合します。" }
+        ],
+        "faqs": [
+          { "question": "スキャンした文書から表を抽出できますか？", "answer": "スキャンページには選択可能な文字がない場合があります。先にOCRが必要になることがあり、抽出後の行も確認してください。" },
+          { "question": "表のレイアウトはPDFと完全に一致しますか？", "answer": "完全一致は保証されません。列、結合セル、読み取り順を確認してください。" },
+          { "question": "PDFから元のExcel数式も復元されますか？", "answer": "いいえ。PDFには通常、表示された内容が含まれ、元の表計算数式は保存されていません。セルを確認し、数式が再作成されたと想定しないでください。" },
+          { "question": "1つのPDFから複数の表を抽出できますか？", "answer": "表構造の検出を試みますが、結果はPDF内の配置によって異なります。抽出された各表を確認してください。" },
+          { "question": "変換すると元のPDFも変更されますか？", "answer": "いいえ。出力は別のXLSXブックで、元のPDFは変更されません。" },
+          { "question": "抽出した数値を使う前に何を確認すべきですか？", "answer": "特に財務資料やスキャン文書では、合計、小数点、日付、行の対応、列見出しをPDFと照合してください。" }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "PDFのページをPowerPointスライドに変換",
+        "intro": "PDFページの内容をブラウザーでPPTXスライドに変換します。PDFには元のプレゼン構造が保存されないため、変換後に文字とレイアウトを確認してください。",
+        "stepsHeading": "PDFページをPowerPointに変換する3つの手順",
+        "steps": [
+          { "title": "PDFを選択", "description": "ページをPowerPointプレゼンテーションに入れたいPDFを選びます。" },
+          { "title": "スライド変換を実行", "description": "変換を開始し、PDFページの内容をPPTXに配置します。" },
+          { "title": "スライドを開いて確認", "description": "プレゼンをダウンロードし、PowerPointなどで各スライドの文字、配置、編集可否を確認します。" }
+        ],
+        "faqs": [
+          { "question": "PDFには元のPowerPointオブジェクトが含まれていますか？", "answer": "通常は含まれません。PDFには元のスライドマスター、アニメーション、発表者ノートや編集構造が保存されないため、変換後の資料は異なる場合があります。" },
+          { "question": "PDFの各ページがプレゼンのスライドになりますか？", "answer": "変換ではPDFページの内容をPPTXに配置します。ページとスライドの順序を確認してください。" },
+          { "question": "変換後にテキストを編集できますか？", "answer": "編集可否はPDF内の文字や図形の構成、出力方法によって異なります。編集予定のスライドを個別に確認してください。" },
+          { "question": "スライドのレイアウトはPDFと同じですか？", "answer": "ページとスライドの縦横比が異なると、余白や配置が変わる場合があります。発表サイズで確認してください。" },
+          { "question": "PPTXへの変換で元のPDFは変更されますか？", "answer": "いいえ。プレゼンテーションは別の出力ファイルです。" },
+          { "question": "長いPDFの変換に時間がかかるのはなぜですか？", "answer": "ページ数と視覚的な複雑さが増えると、ブラウザーの処理とメモリーを多く使います。モバイルでは大きな文書に時間がかかる場合があります。" }
+        ]
+      },
+      "pdf-to-image": {
+        "introHeading": "PDFページをPNG画像に書き出す",
+        "intro": "PDFページをPNG画像として書き出し、ページを並べ替えたり、回転・複製・削除したりしてZIPで保存できます。バッチ処理できる量は端末のメモリーに左右されます。",
+        "stepsHeading": "PDFページをPNGで書き出す3つの手順",
+        "steps": [
+          { "title": "PDFを追加", "description": "ページを画像に書き出したいPDFを選びます。" },
+          { "title": "ページと出力設定を確認", "description": "PNG出力を始める前に、ワークスペースでページと調整項目を選びます。" },
+          { "title": "PNGをダウンロード", "description": "ページを書き出して生成されたPNGを保存します。複数の結果はZIPでダウンロードできます。" }
+        ],
+        "faqs": [
+          { "question": "PDFページはPNGとJPGのどちらで書き出されますか？", "answer": "現在のツールはページをPNG画像として書き出します。編集可能なテキストファイルは作成しません。" },
+          { "question": "PDFから一部のページだけを書き出せますか？", "answer": "ワークスペースのページ操作で対象を選び、処理前に選択内容を確認してください。" },
+          { "question": "複数PDFからの画像はどのように整理されますか？", "answer": "複数の結果がZIPにまとめられる場合があります。生成されたフォルダーとファイル名で元の文書を確認してください。" },
+          { "question": "書き出したPNGの文字を編集できますか？", "answer": "いいえ。PNGはページのラスター画像であり、編集可能なテキスト文書ではありません。編集可能な内容にはテキスト抽出や文書変換を使ってください。" },
+          { "question": "ページ画像の鮮明さに影響するものは何ですか？", "answer": "表示される細部は元のPDFと描画設定によって決まります。小さい文字はダウンロードしたPNGを拡大して確認してください。" },
+          { "question": "長いPDFの書き出しにメモリーが必要なのはなぜですか？", "answer": "書き出す各ページの画像データをブラウザーが作成します。大きな文書や高精細ページでは、端末のメモリーと処理時間が増えます。" }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "ExcelやCSVの表をPDFに変換",
+        "intro": "XLSX、XLS、CSVの表計算ファイルをブラウザーでページ分割PDFに変換します。共有前に列幅、改ページ、印刷レイアウトを確認してください。",
+        "stepsHeading": "ExcelまたはCSVをPDFにする3つの手順",
+        "steps": [
+          { "title": "表計算ファイルを選択", "description": "端末から対応形式のXLSX、XLS、またはCSVを選びます。" },
+          { "title": "ページ分割されたPDFを作成", "description": "変換を開始し、表の内容が複数ページに配置されるのを待ちます。" },
+          { "title": "PDFのページを確認", "description": "PDFをダウンロードし、列幅、改ページ、複数ページにまたがる行を確認します。" }
+        ],
+        "faqs": [
+          { "question": "Excel to PDFで開ける表計算形式は何ですか？", "answer": "XLSX、XLS、CSVに対応しています。ファイルが選択画面に表示されない場合は形式を確認してください。" },
+          { "question": "幅の広い表はPDFの1ページに収まりますか？", "answer": "必ずしもそうではありません。PDFはページ分割されるため、幅の広い列と改ページを確認してください。" },
+          { "question": "変換中に表計算の数式は再計算されますか？", "answer": "Excelの計算エンジンと同じ結果になるとは限りません。値を使う前に、表示値を元のブックと照合してください。" },
+          { "question": "送る前にPDFを確認できますか？", "answer": "はい。ダウンロードした結果を開き、切れた列、小さな文字、不自然な改ページがないか全ページを確認します。" },
+          { "question": "PDF作成で元のブックは変更されますか？", "answer": "いいえ。PDFは別の出力ファイルで、元の表計算ファイルは変更されません。" },
+          { "question": "大きなブックの書き出しに時間がかかるのはなぜですか？", "answer": "行、列、シートが多いとブラウザーの処理とメモリー使用量が増えます。速度は端末にも左右されます。" }
+        ]
+      },
+      "word-to-pdf": {
+        "introHeading": "Word DOCXをPDFに変換",
+        "intro": "DOCXファイルをブラウザーでPDFに変換します。出力ページは画像として描画されるため文字を選択できない場合があり、古いDOC形式には対応していません。",
+        "stepsHeading": "DOCXをPDFに変換する3つの手順",
+        "steps": [
+          { "title": "DOCXファイルを選択", "description": "古いDOCではなく、対応する.docx文書を選びます。" },
+          { "title": "文書ページを変換", "description": "ブラウザーで変換を開始し、ページの描画が完了するまで待ちます。" },
+          { "title": "PDFをダウンロードして確認", "description": "共有前にPDFの改ページ、余白、画像、読みやすさを確認します。" }
+        ],
+        "faqs": [
+          { "question": "古いDOC形式をWord to PDFで変換できますか？", "answer": "このツールはDOCXに対応しています。古いDOC文書はワープロで開き、DOCXとして保存してから変換してください。" },
+          { "question": "変換したPDF内のテキストを選択できますか？", "answer": "出力ページは画像として描画されるため、ネイティブPDFの文字のように選択や検索ができない場合があります。" },
+          { "question": "PDFのレイアウトがWordと異なるのはなぜですか？", "answer": "フォント、ページ設定、表、埋め込み画像がブラウザーでの描画に影響します。出力と元文書を比較してください。" },
+          { "question": "提出前に改ページを確認すべきですか？", "answer": "はい。予期しない改ページ、切れた内容、余白の変化がないか全ページを確認してください。" },
+          { "question": "変換でDOCXの元ファイルは変更されますか？", "answer": "いいえ。PDFは別ファイルとして作られ、元のDOCXは変更されません。" },
+          { "question": "大きなDOCXをモバイル端末で変換できますか？", "answer": "ブラウザーと端末のメモリーによります。画像が多い文書は描画に時間がかかる場合があります。" }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "PDFにページ番号を追加",
+        "intro": "PDFに番号を付けるには、利用可能な位置、形式、開始番号、表紙のオプションを選びます。保存された別ファイルで配置と順序を確認してください。",
+        "stepsHeading": "PDFにページ番号を追加する3つの手順",
+        "steps": [
+          { "title": "文書を開く", "description": "番号を付けるPDFを選び、ページ数を確認します。" },
+          { "title": "番号設定を選ぶ", "description": "表示される選択肢から位置、形式、開始番号、表紙の扱いを設定します。" },
+          { "title": "適用して配置を確認", "description": "番号付きPDFを作成し、既存の文字やページ内容に重なっていないか調べます。" }
+        ],
+        "faqs": [
+          { "question": "ページ番号を1以外から始められますか？", "answer": "開始値の設定が表示される場合は値を指定し、出力の最初の番号付きページを確認してください。" },
+          { "question": "表紙には印刷された番号を付けずに済みますか？", "answer": "ツールに表紙のオプションがある場合は利用します。処理後、最初に表示される番号と後続の順序を確認してください。" },
+          { "question": "ページ番号はどこに配置できますか？", "answer": "作業画面で選べる位置から選択します。利用可能なヘッダーまたはフッターの配置が含まれる場合があります。" },
+          { "question": "ページ番号が既存の文字に重なることはありますか？", "answer": "選んだ場所に内容があると重なる場合があります。ヘッダー、フッター、文字の多いページを確認し、配置を調整してください。" },
+          { "question": "番号を追加すると元のPDFは変わりますか？", "answer": "いいえ。番号付きの別ファイルが作成され、入力したPDFは上書きされません。" },
+          { "question": "番号はすべてのページに自動で追加されますか？", "answer": "結果は選んだページと表紙の設定に従います。対象ページと番号の順序を確認してください。" }
+        ]
+      },
+      "watermark": {
+        "introHeading": "PDFにテキスト透かしを追加",
+        "intro": "PDFのページに見えるテキスト透かしを追加できます。文言、色、角度、不透明度、利用可能なページ範囲を設定してください。透かしは文書の暗号化や墨消しではありません。",
+        "stepsHeading": "PDFにテキスト透かしを追加する3つの手順",
+        "steps": [
+          { "title": "PDFを選択", "description": "見えるテキストの透かしを付ける文書を開きます。" },
+          { "title": "文言と外観を設定", "description": "透かしの文字を入力し、利用できる色、角度、不透明度、ページ設定を調整します。" },
+          { "title": "適用して確認", "description": "透かし付きPDFを作成し、重要な内容を隠さず読める状態か確認します。" }
+        ],
+        "faqs": [
+          { "question": "ロゴ画像を透かしとして使えますか？", "answer": "ClickPDFのこのツールはテキスト透かしを追加します。画像ロゴには対応していないため、画像マーク対応を明記したツールを使ってください。" },
+          { "question": "透かしを特定のページだけに表示できますか？", "answer": "適用前に作業画面で利用可能なページ範囲を選び、処理後にどのページへ付いたか確認してください。" },
+          { "question": "テキスト透かしにはどの外観設定がありますか？", "answer": "色、角度、不透明度などの文字設定を利用できます。現在の作業画面に表示される操作項目を確認してください。" },
+          { "question": "透かしは元のページ内容を隠したり削除したりしますか？", "answer": "いいえ。見える文字の追加は墨消しや安全な削除ではありません。背後の文書内容は読めたり抽出できたりする場合があります。" },
+          { "question": "薄い透かしはどの背景でも見えますか？", "answer": "見え方は色、不透明度、ページ内容によって異なります。共有前に背景の異なるページを確認してください。" },
+          { "question": "元のPDFは変更されますか？", "answer": "いいえ。透かしを付けると別のPDFが作成されます。透かしのない版が必要な場合は元ファイルを保管してください。" }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "選択可能なPDFテキストをTXTまたはMarkdownに抽出",
         "intro": "PDF内の選択できる文字をTXTまたはMarkdownとして書き出します。画像だけのスキャンページには先にOCRが必要です。複雑な表や読み順は変わることがあるため、抽出結果を確認してください。",
@@ -311,6 +437,132 @@
           { "question": "کیا فائل کا مواد document server کو بھیجا جاتا ہے؟", "answer": "موزوں فائل processing براؤزر میں ہوتی ہے۔ ویب پیج کے resources اور فعال third-party services کی درخواستیں پھر بھی ہو سکتی ہیں۔" }
         ]
       },
+      "pdf-to-excel": {
+        "introHeading": "PDF tables کو Excel workbook میں نکالیں",
+        "intro": "یہ ٹول PDF کے tables شناخت کر کے براؤزر میں XLSX workbook بناتا ہے۔ scanned pages یا پیچیدہ layout میں OCR درکار ہو سکتا ہے؛ rows، columns اور values چیک کریں۔",
+        "stepsHeading": "PDF tables کو Excel میں نکالنے کے تین مراحل",
+        "steps": [
+          { "title": "Tables والی PDF منتخب کریں", "description": "ایسی فائل چنیں جس میں پڑھنے کے قابل table text یا واضح rows اور columns ہوں۔" },
+          { "title": "Table extraction چلائیں", "description": "Conversion شروع کریں اور دیکھیں کہ شناخت شدہ table data کس طرح گروپ ہوا ہے۔" },
+          { "title": "XLSX ڈاؤن لوڈ اور چیک کریں", "description": "Workbook کھول کر استعمال سے پہلے row order، column alignment اور numbers کی تصدیق کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا PDF to Excel scanned document سے tables نکال سکتا ہے؟", "answer": "Scanned pages میں منتخب ہونے والے حروف موجود نہ ہوں۔ پہلے OCR درکار ہو سکتا ہے، اور نکلی ہوئی rows کو پھر بھی چیک کریں۔" },
+          { "question": "کیا spreadsheet بالکل PDF جیسا layout رکھے گی؟", "answer": "بالکل یکساں layout کی ضمانت نہیں۔ Columns، merged cells اور reading order چیک کریں۔" },
+          { "question": "کیا Excel میں اصل PDF کے فارمولے بحال ہوتے ہیں؟", "answer": "نہیں۔ PDF عموماً دکھائی دینے والا content رکھتی ہے، اصل spreadsheet formulas نہیں۔ Cells چیک کریں اور formulas دوبارہ بننے کا فرض نہ کریں۔" },
+          { "question": "کیا ایک PDF سے ایک سے زیادہ tables نکل سکتے ہیں؟", "answer": "ٹول table structure شناخت کرنے کی کوشش کرتا ہے، مگر نتیجہ PDF کی ترتیب پر منحصر ہے۔ ہر نکلی table کا معائنہ کریں۔" },
+          { "question": "کیا converter میری PDF بدل دے گا؟", "answer": "نہیں۔ نتیجہ الگ XLSX workbook ہے؛ اصل PDF برقرار رہتی ہے۔" },
+          { "question": "نکلی ہوئی figures استعمال کرنے سے پہلے کیا دیکھوں؟", "answer": "خاص طور پر financial یا scanned documents میں totals، decimal points، dates، row links اور column headings کو اصل PDF سے ملائیں۔" }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "PDF pages کو PowerPoint slides میں بدلیں",
+        "intro": "یہ ٹول براؤزر میں PDF pages کو PPTX slides میں تبدیل کرتا ہے۔ PDF میں اصل presentation structure محفوظ نہیں ہوتا، اس لیے تبدیلی کے بعد متن اور layout دیکھیں۔",
+        "stepsHeading": "PDF pages کو PowerPoint میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF فائل منتخب کریں", "description": "وہ PDF چنیں جس کے pages presentation میں شامل کرنے ہیں۔" },
+          { "title": "Slide conversion چلائیں", "description": "عمل شروع کریں تاکہ PDF page content کو PPTX میں منتقل کیا جا سکے۔" },
+          { "title": "Slides کھول کر دیکھیں", "description": "Presentation ڈاؤن لوڈ کریں اور PowerPoint یا compatible app میں ہر slide کا متن، layout اور editability چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا PDF میں اصل PowerPoint objects موجود ہوتے ہیں؟", "answer": "عام طور پر نہیں۔ PDF میں اصل slide master، animations، speaker notes یا editing structure محفوظ نہیں ہوتے، اس لیے deck مختلف ہو سکتی ہے۔" },
+          { "question": "کیا PDF کا ہر page presentation slide بنے گا؟", "answer": "Conversion PDF page content کو PPTX میں منتقل کرتا ہے۔ deck میں page-to-slide ترتیب کی تصدیق کریں۔" },
+          { "question": "کیا تبدیلی کے بعد متن edit ہو سکتا ہے؟", "answer": "Editability کا انحصار PDF کے text اور graphics کی نمائندگی پر ہے۔ آئندہ edits سے پہلے ہر متعلقہ slide چیک کریں۔" },
+          { "question": "کیا slide layout PDF جیسا رہے گا؟", "answer": "Page اور slide proportions مختلف ہو سکتے ہیں؛ margins یا مواد کی جگہ بدل سکتی ہے۔ Slides کو presentation size پر دیکھیں۔" },
+          { "question": "کیا PPTX میں بدلنے سے source PDF تبدیل ہوگی؟", "answer": "نہیں۔ Presentation الگ output file ہے۔" },
+          { "question": "طویل PDF کی conversion میں وقت کیوں لگتا ہے؟", "answer": "زیادہ pages اور پیچیدہ visuals کے لیے browser processing اور memory بڑھتی ہے۔ بڑی فائل mobile پر زیادہ وقت لے سکتی ہے۔" }
+        ]
+      },
+      "pdf-to-image": {
+        "introHeading": "PDF صفحات کو PNG تصاویر کے طور پر export کریں",
+        "intro": "PDF صفحات کو PNG images میں export کریں، انہیں ترتیب دیں، rotate یا duplicate کریں، یا غیر مطلوب pages ہٹا کر ZIP ڈاؤن لوڈ کریں۔ batch size device memory پر منحصر ہے۔",
+        "stepsHeading": "PDF pages کو PNG میں export کرنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF فائلیں شامل کریں", "description": "وہ PDF منتخب کریں جن کے pages کو images میں export کرنا ہے۔" },
+          { "title": "Pages اور export options دیکھیں", "description": "PNG export شروع کرنے سے پہلے workspace میں pages اور دستیاب تبدیلیاں منتخب کریں۔" },
+          { "title": "PNG output ڈاؤن لوڈ کریں", "description": "Pages export کر کے PNG files محفوظ کریں؛ متعدد نتائج دستیاب ہوں تو ZIP ڈاؤن لوڈ کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا یہ ٹول PDF pages کو PNG یا JPG میں export کرتا ہے؟", "answer": "موجودہ ٹول pages کو PNG images کے طور پر export کرتا ہے۔ یہ editable text files نہیں بناتا۔" },
+          { "question": "کیا صرف منتخب pages export کر سکتا ہوں؟", "answer": "Workspace کے page controls سے pages منتخب کریں اور processing سے پہلے انتخاب کی تصدیق کریں۔" },
+          { "question": "کئی PDFs کی images کیسے ترتیب دی جاتی ہیں؟", "answer": "متعدد نتائج ZIP میں آ سکتے ہیں۔ ہر image کو اس کی source PDF سے ملانے کے لیے generated folders اور filenames دیکھیں۔" },
+          { "question": "کیا exported PNG میں متن edit کر سکتا ہوں؟", "answer": "نہیں۔ PNG صفحے کی raster image ہے، editable text document نہیں۔ قابلِ تدوین مواد کے لیے text یا document conversion tool استعمال کریں۔" },
+          { "question": "Page image کی وضاحت پر کیا اثر پڑتا ہے؟", "answer": "نظر آنے والی detail source PDF اور rendering settings پر منحصر ہے۔ چھوٹا متن استعمال کرنے سے پہلے downloaded PNG میں zoom کر کے دیکھیں۔" },
+          { "question": "طویل PDF export کرنے میں memory زیادہ کیوں لگتی ہے؟", "answer": "ہر exported page browser میں image data بناتا ہے۔ بڑی PDFs اور زیادہ detail والے pages device memory اور وقت بڑھا سکتے ہیں۔" }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Excel یا CSV spreadsheet کو PDF میں تبدیل کریں",
+        "intro": "XLSX، XLS یا CSV spreadsheet کو browser میں صفحات والی PDF tables میں بدلیں۔ share کرنے سے پہلے column widths، page breaks اور print layout چیک کریں۔",
+        "stepsHeading": "Excel یا CSV کو PDF میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "Spreadsheet فائل منتخب کریں", "description": "اپنے device سے supported XLSX، XLS یا CSV فائل چنیں۔" },
+          { "title": "صفحوں والا output بنائیں", "description": "Conversion شروع کریں اور spreadsheet مواد کو PDF pages پر ترتیب پانے دیں۔" },
+          { "title": "PDF pages دیکھیں", "description": "PDF ڈاؤن لوڈ کر کے column widths، page breaks اور کئی pages میں پھیلی rows چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "Excel to PDF کون سے spreadsheet formats کھول سکتا ہے؟", "answer": "یہ XLSX، XLS اور CSV فائلیں قبول کرتا ہے۔ فائل نظر نہ آئے تو picker میں اس کی type تصدیق کریں۔" },
+          { "question": "کیا چوڑی spreadsheet ایک PDF page پر آ جائے گی؟", "answer": "ضروری نہیں۔ PDF کئی pages میں تقسیم ہوتی ہے؛ wide columns اور page breaks چیک کریں۔" },
+          { "question": "کیا conversion کے دوران spreadsheet formulas دوبارہ calculate ہوتے ہیں؟", "answer": "Excel کے calculation engine جیسا نتیجہ فرض نہ کریں۔ values استعمال کرنے سے پہلے displayed values کو source workbook سے ملائیں۔" },
+          { "question": "کیا بھیجنے سے پہلے PDF دیکھ سکتا ہوں؟", "answer": "ہاں۔ downloaded result کھول کر تمام pages پر کٹے ہوئے columns، چھوٹا متن اور غیر مناسب breaks دیکھیں۔" },
+          { "question": "کیا PDF بننے سے میری workbook بدل جائے گی؟", "answer": "نہیں۔ PDF الگ output ہے اور اصل spreadsheet برقرار رہتی ہے۔" },
+          { "question": "بڑی workbook export ہونے میں زیادہ وقت کیوں لیتی ہے؟", "answer": "زیادہ rows، columns اور sheets browser processing اور memory بڑھا سکتے ہیں؛ کارکردگی device پر بھی منحصر ہے۔" }
+        ]
+      },
+      "word-to-pdf": {
+        "introHeading": "Word DOCX کو PDF میں تبدیل کریں",
+        "intro": "DOCX فائلوں کو browser میں PDF میں بدلیں۔ output pages images کے طور پر render ہوتے ہیں، اس لیے متن selectable نہ ہو؛ پرانی DOC فائلیں supported نہیں۔",
+        "stepsHeading": "DOCX دستاویز کو PDF میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "DOCX فائل منتخب کریں", "description": "جدید .docx دستاویز چنیں؛ پرانی .doc فائلیں اس ٹول میں قبول نہیں ہوتیں۔" },
+          { "title": "دستاویز کے صفحات بدلیں", "description": "Browser conversion شروع کریں اور rendered page output تیار ہونے کا انتظار کریں۔" },
+          { "title": "PDF ڈاؤن لوڈ اور معائنہ کریں", "description": "شیئر کرنے سے پہلے PDF میں page breaks، spacing، images اور readability چیک کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا Word to PDF پرانا DOC format تبدیل کر سکتا ہے؟", "answer": "یہ ٹول DOCX قبول کرتا ہے۔ پرانی DOC فائل کو word processor میں کھول کر DOCX کے طور پر save کریں، پھر تبدیل کریں۔" },
+          { "question": "کیا تبدیل شدہ PDF میں متن منتخب کیا جا سکتا ہے؟", "answer": "یہ ٹول output pages کو تصاویر کے طور پر render کرتا ہے، اس لیے متن native PDF کی طرح selectable یا searchable نہ ہو۔" },
+          { "question": "PDF کا layout Word سے مختلف کیوں ہو سکتا ہے؟", "answer": "Fonts، page setup، tables اور embedded images browser rendering پر اثر ڈال سکتے ہیں۔ نتیجے کو source document سے ملائیں۔" },
+          { "question": "جمع کرانے سے پہلے page breaks چیک کرنے چاہئیں؟", "answer": "جی ہاں۔ ہر page میں غیر متوقع breaks، کٹا ہوا مواد یا spacing کی تبدیلی دیکھیں۔" },
+          { "question": "کیا conversion DOCX source کو بدلتا ہے؟", "answer": "نہیں۔ تبدیل شدہ PDF الگ فائل ہے؛ اصل DOCX برقرار رہتی ہے۔" },
+          { "question": "کیا mobile device پر بڑی DOCX تبدیل ہو سکتی ہے؟", "answer": "یہ browser اور دستیاب device memory پر منحصر ہے۔ بہت سی images والی بڑی فائل render ہونے میں زیادہ وقت لے سکتی ہے۔" }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "PDF میں صفحہ نمبر شامل کریں",
+        "intro": "PDF پر نمبر لگانے کے لیے دستیاب مقام، فارمیٹ، ابتدائی نمبر اور سرورق کے اختیارات منتخب کریں۔ محفوظ شدہ الگ copy میں مقام اور ترتیب چیک کریں۔",
+        "stepsHeading": "PDF میں صفحہ نمبر شامل کرنے کے تین مراحل",
+        "steps": [
+          { "title": "دستاویز کھولیں", "description": "نمبر لگانے والی PDF منتخب کریں اور صفحات کی تعداد دیکھیں۔" },
+          { "title": "نمبرنگ کے اختیارات چنیں", "description": "دستیاب مقام، فارمیٹ، ابتدائی نمبر اور سرورق کا رویہ سیٹ کریں۔" },
+          { "title": "لگائیں اور جگہ چیک کریں", "description": "نمبر والی PDF بنائیں اور دیکھیں کہ نمبر موجودہ متن یا صفحے کے مواد پر تو نہیں چڑھ رہے۔" }
+        ],
+        "faqs": [
+          { "question": "کیا نمبر ایک کے بجائے کسی اور عدد سے شروع ہو سکتے ہیں؟", "answer": "اگر اختیارات میں ابتدائی عدد دستیاب ہو تو اسے سیٹ کریں، پھر output کا پہلا numbered صفحہ دیکھیں۔" },
+          { "question": "کیا سرورق پر چھپا ہوا نمبر چھوڑا جا سکتا ہے؟", "answer": "اگر ٹول سرورق کا option دکھائے تو استعمال کریں۔ کارروائی کے بعد پہلا نظر آنے والا نمبر اور اگلی ترتیب چیک کریں۔" },
+          { "question": "صفحہ نمبر کہاں رکھے جا سکتے ہیں؟", "answer": "Workspace میں دکھائی گئی جگہوں میں سے منتخب کریں، مثلاً دستیاب header یا footer alignment۔" },
+          { "question": "کیا نمبر موجودہ متن کو ڈھانپ سکتے ہیں؟", "answer": "اگر منتخب مقام پہلے سے مصروف ہو تو overlap ہو سکتا ہے۔ headers، footers یا گھنے متن والے صفحات دیکھیں اور مقام بدلیں۔" },
+          { "question": "کیا نمبر لگانے سے اصل PDF بدل جاتی ہے؟", "answer": "نہیں۔ ٹول الگ numbered copy بناتا ہے؛ input PDF overwrite نہیں ہوتی۔" },
+          { "question": "کیا نمبر خود بخود ہر صفحے پر لگتے ہیں؟", "answer": "نتیجہ منتخب page اور cover settings کے مطابق ہوتا ہے۔ مطلوبہ صفحات اور نمبرنگ کی ترتیب کی تصدیق کریں۔" }
+        ]
+      },
+      "watermark": {
+        "introHeading": "PDF پر متن کا واٹرمارک لگائیں",
+        "intro": "PDF pages پر نظر آنے والا متنی واٹرمارک لگائیں۔ عبارت، رنگ، زاویہ، opacity اور دستیاب صفحات سیٹ کریں۔ واٹرمارک document کو encrypt یا redact نہیں کرتا۔",
+        "stepsHeading": "PDF پر متن کا واٹرمارک لگانے کے تین مراحل",
+        "steps": [
+          { "title": "PDF منتخب کریں", "description": "وہ document کھولیں جس پر نمایاں متن کا نشان لگانا ہے۔" },
+          { "title": "عبارت اور انداز سیٹ کریں", "description": "واٹرمارک لکھیں اور دستیاب رنگ، زاویہ، opacity اور page settings بدلیں۔" },
+          { "title": "لگائیں اور جائزہ لیں", "description": "واٹرمارک والی PDF بنائیں اور دیکھیں کہ نشان پڑھنے کے قابل ہے اور ضروری مواد نہیں ڈھانپتا۔" }
+        ],
+        "faqs": [
+          { "question": "کیا logo image کو واٹرمارک بنا سکتا ہوں؟", "answer": "یہ ClickPDF tool متنی واٹرمارک لگاتا ہے؛ image-logo watermarking نہیں دیتا۔ اس کام کے لیے ایسا tool لیں جو image marks کی واضح حمایت کرتا ہو۔" },
+          { "question": "کیا واٹرمارک صرف مخصوص صفحات پر دکھا سکتا ہوں؟", "answer": "لگانے سے پہلے workspace میں دستیاب page targets منتخب کریں، پھر output میں تصدیق کریں کہ نشان کن صفحات پر آیا۔" },
+          { "question": "متنی نشان کے لیے کون سی ظاہری settings دستیاب ہیں؟", "answer": "Tool میں رنگ، زاویہ اور opacity جیسے controls ہیں۔ موجودہ workspace میں دکھائے گئے اختیارات استعمال کریں۔" },
+          { "question": "کیا واٹرمارک اصل page content چھپاتا یا مٹاتا ہے؟", "answer": "نہیں۔ نمایاں متن redaction یا محفوظ deletion نہیں ہے؛ نیچے کا document content پھر بھی پڑھا یا نکالا جا سکتا ہے۔" },
+          { "question": "کیا ہلکا واٹرمارک ہر background پر نظر آئے گا؟", "answer": "نظر آنا رنگ، opacity اور page content پر منحصر ہے۔ share کرنے سے پہلے مختلف backgrounds والے صفحات دیکھیں۔" },
+          { "question": "کیا اصل PDF بدل جاتی ہے؟", "answer": "نہیں۔ واٹرمارک لگانے سے الگ output PDF بنتی ہے۔ بغیر نشان والی copy چاہیے تو source فائل محفوظ رکھیں۔" }
+        ]
+      },
       "pdf-to-text": {
         "introHeading": "منتخب PDF متن کو TXT یا Markdown میں نکالیں",
         "intro": "PDF میں وہ متن نکالیں جسے منتخب کیا جا سکتا ہو اور اسے TXT یا Markdown کے طور پر محفوظ کریں۔ صرف تصاویر والے scanned صفحات کے لیے پہلے OCR درکار ہے۔ پیچیدہ tables یا پڑھنے کی ترتیب بدل سکتی ہے، اس لیے نتیجہ چیک کریں۔",
@@ -484,6 +736,132 @@
           { "question": "Kann ich die geschützte Datei vor dem Öffnen in einem normalen PDF-Viewer lesen?", "answer": "Vor dem Öffnen ist die eigene Schutzdatei keine normale PDF. Nutzen Sie zuerst ClickPDF Unlock und prüfen Sie die Ausgabe danach in einem kompatiblen Viewer." },
           { "question": "Ändert das Öffnen die geschützte Quelldatei?", "answer": "Nein. Das Tool erstellt eine separate geöffnete PDF-Datei. Die geschützte Eingabedatei bleibt erhalten." },
           { "question": "Werden die Dateiinhalte an einen Dokumentserver gesendet?", "answer": "Die unterstützte Dateiverarbeitung läuft im Browser. Die Webseite kann dennoch Ressourcen und aktivierte Drittanbieterdienste anfordern." }
+        ]
+      },
+      "pdf-to-excel": {
+        "introHeading": "PDF-Tabellen in eine Excel-Arbeitsmappe extrahieren",
+        "intro": "Das Tool erkennt Tabellen in einer PDF und exportiert sie im Browser in eine XLSX-Arbeitsmappe. Bei Scans oder komplexen Layouts kann OCR nötig sein; prüfen Sie Zeilen, Spalten und Werte.",
+        "stepsHeading": "PDF-Tabellen in drei Schritten nach Excel exportieren",
+        "steps": [
+          { "title": "PDF mit Tabellen auswählen", "description": "Wählen Sie ein Dokument mit lesbarem Tabellentext oder klar getrennten Zeilen und Spalten." },
+          { "title": "Tabellenextraktion starten", "description": "Starten Sie die Umwandlung und prüfen Sie, wie erkannte Tabelleninhalte gruppiert wurden." },
+          { "title": "XLSX herunterladen und prüfen", "description": "Öffnen Sie die Arbeitsmappe und kontrollieren Sie vor der Nutzung Zeilenfolge, Spalten und Zahlen." }
+        ],
+        "faqs": [
+          { "question": "Kann PDF to Excel Tabellen aus einem Scan extrahieren?", "answer": "Gescannte Seiten enthalten möglicherweise keine auswählbaren Zeichen. Zuerst kann OCR nötig sein; prüfen Sie anschließend auch die extrahierten Zeilen." },
+          { "question": "Behält die Tabelle das PDF-Layout exakt bei?", "answer": "Eine exakte Übereinstimmung ist nicht garantiert. Prüfen Sie Spalten, verbundene Zellen und Lesereihenfolge." },
+          { "question": "Werden die ursprünglichen Excel-Formeln aus der PDF wiederhergestellt?", "answer": "Nein. Eine PDF enthält meist angezeigte Inhalte, nicht die ursprünglichen Tabellenformeln. Prüfen Sie die Zellen und setzen Sie nicht voraus, dass Formeln rekonstruiert wurden." },
+          { "question": "Kann eine PDF mehrere Tabellen in der Arbeitsmappe ergeben?", "answer": "Das Tool versucht, Tabellenstrukturen zu erkennen; das Ergebnis hängt vom Aufbau der PDF ab. Prüfen Sie jede extrahierte Tabelle." },
+          { "question": "Ändert der Konverter meine PDF?", "answer": "Nein. Die XLSX-Arbeitsmappe ist eine separate Ausgabe; die Quell-PDF bleibt unverändert." },
+          { "question": "Was sollte ich vor der Verwendung extrahierter Zahlen prüfen?", "answer": "Vergleichen Sie Summen, Dezimalstellen, Datumsangaben, Zeilenzuordnungen und Spaltenüberschriften mit der PDF, besonders bei Finanzdaten oder Scans." }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "PDF-Seiten in PowerPoint-Folien umwandeln",
+        "intro": "Das Tool wandelt PDF-Seiten im Browser in PPTX-Folien um. Eine PDF enthält nicht die ursprüngliche Präsentationsstruktur; prüfen Sie nach der Umwandlung Text und Layout.",
+        "stepsHeading": "PDF-Seiten in drei Schritten in PowerPoint umwandeln",
+        "steps": [
+          { "title": "PDF-Datei auswählen", "description": "Wählen Sie die PDF, deren Seiten in eine Präsentation übernommen werden sollen." },
+          { "title": "Folienumwandlung starten", "description": "Starten Sie den Vorgang, damit PDF-Inhalte in eine PPTX-Datei übertragen werden." },
+          { "title": "Folien öffnen und prüfen", "description": "Laden Sie die Präsentation herunter und prüfen Sie Text, Layout und Bearbeitbarkeit in PowerPoint oder einer kompatiblen App." }
+        ],
+        "faqs": [
+          { "question": "Enthält ein PDF die ursprünglichen PowerPoint-Objekte?", "answer": "Meistens nicht. Eine PDF bewahrt Folienmaster, Animationen, Sprechernotizen und Bearbeitungsstruktur gewöhnlich nicht; die konvertierte Präsentation kann daher abweichen." },
+          { "question": "Wird jede PDF-Seite zu einer Präsentationsfolie?", "answer": "Die Umwandlung überträgt PDF-Seiteninhalte in PPTX. Prüfen Sie die Reihenfolge von Seiten und Folien." },
+          { "question": "Kann ich Text nach der Umwandlung bearbeiten?", "answer": "Die Bearbeitbarkeit hängt davon ab, wie Text und Grafiken in PDF und Ausgabe vorliegen. Prüfen Sie betroffene Folien vor weiteren Änderungen." },
+          { "question": "Entspricht das Folienlayout genau der PDF-Seite?", "answer": "Seiten- und Folienproportionen können abweichen, sodass sich Ränder oder Platzierung ändern. Prüfen Sie die Folien in Präsentationsgröße." },
+          { "question": "Ändert die PPTX-Umwandlung die Quell-PDF?", "answer": "Nein. Die Präsentation wird als separate Ausgabedatei erstellt." },
+          { "question": "Was kann eine lange PDF-Umwandlung verlangsamen?", "answer": "Mehr Seiten und komplexe visuelle Inhalte beanspruchen zusätzliche Browserverarbeitung und Speicher. Große Dokumente können auf Mobilgeräten länger dauern." }
+        ]
+      },
+      "pdf-to-image": {
+        "introHeading": "PDF-Seiten als PNG-Bilder exportieren",
+        "intro": "Exportieren Sie PDF-Seiten als PNG, ordnen Sie sie neu, drehen oder duplizieren Sie Seiten oder entfernen Sie unerwünschte Seiten und laden Sie ein ZIP herunter. Die Stapelgröße hängt vom Gerätespeicher ab.",
+        "stepsHeading": "PDF-Seiten in drei Schritten als PNG exportieren",
+        "steps": [
+          { "title": "PDF-Dokumente hinzufügen", "description": "Wählen Sie die PDFs aus, deren Seiten als Bilder exportiert werden sollen." },
+          { "title": "Seiten und Exportoptionen prüfen", "description": "Wählen Sie vor dem PNG-Export im Arbeitsbereich die gewünschten Seiten und verfügbaren Anpassungen." },
+          { "title": "PNG-Ausgabe herunterladen", "description": "Exportieren und speichern Sie die PNG-Dateien; mehrere Ergebnisse können als ZIP geladen werden." }
+        ],
+        "faqs": [
+          { "question": "Exportiert dieses Tool PDF-Seiten als PNG oder JPG?", "answer": "Das aktuelle Tool exportiert Seiten als PNG-Bilder. Es erstellt keine bearbeitbaren Textdateien aus den Seitenbildern." },
+          { "question": "Kann ich nur bestimmte PDF-Seiten exportieren?", "answer": "Wählen Sie die Seiten über die Steuerelemente im Arbeitsbereich aus und prüfen Sie die Auswahl vor der Verarbeitung." },
+          { "question": "Wie werden Bilder aus mehreren PDFs organisiert?", "answer": "Mehrere Ergebnisse können in einem ZIP gebündelt sein. Prüfen Sie Ordner und Dateinamen, um Bilder dem Quelldokument zuzuordnen." },
+          { "question": "Kann ich Text in einem exportierten PNG bearbeiten?", "answer": "Nein. Ein PNG ist ein Rasterbild einer Seite, kein bearbeitbares Textdokument. Für bearbeitbare Inhalte eignet sich ein Text- oder Dokumentkonverter." },
+          { "question": "Was beeinflusst die Klarheit eines Seitenbilds?", "answer": "Die sichtbaren Details hängen von der Quell-PDF und den Rendereinstellungen ab. Vergrößern Sie kleine Schrift im heruntergeladenen PNG." },
+          { "question": "Warum benötigt der Export einer langen PDF mehr Speicher?", "answer": "Für jede exportierte Seite erstellt der Browser Bilddaten. Große Dokumente und detailreiche Seiten können mehr Gerätespeicher und Zeit beanspruchen." }
+        ]
+      },
+      "excel-to-pdf": {
+        "introHeading": "Excel- oder CSV-Tabellen in PDF umwandeln",
+        "intro": "Wandeln Sie XLSX-, XLS- oder CSV-Tabellen im Browser in ein mehrseitiges PDF um. Prüfen Sie vor dem Teilen Spaltenbreiten, Seitenumbrüche und Drucklayout.",
+        "stepsHeading": "Excel oder CSV in drei Schritten in PDF umwandeln",
+        "steps": [
+          { "title": "Tabellendatei auswählen", "description": "Wählen Sie eine unterstützte XLSX-, XLS- oder CSV-Datei von Ihrem Gerät." },
+          { "title": "Mehrseitige Ausgabe erstellen", "description": "Starten Sie die Umwandlung und lassen Sie die Tabelleninhalte auf PDF-Seiten verteilen." },
+          { "title": "PDF-Seiten prüfen", "description": "Laden Sie das PDF herunter und prüfen Sie Spaltenbreiten, Seitenumbrüche und seitenübergreifende Zeilen." }
+        ],
+        "faqs": [
+          { "question": "Welche Tabellenformate kann Excel to PDF öffnen?", "answer": "Das Tool akzeptiert XLSX, XLS und CSV. Prüfen Sie den Dateityp im Auswahlfenster, falls die Datei nicht angezeigt wird." },
+          { "question": "Passt eine breite Tabelle auf eine PDF-Seite?", "answer": "Nicht unbedingt. Das PDF wird paginiert; prüfen Sie breite Spalten und Seitenumbrüche." },
+          { "question": "Werden Tabellenformeln bei der Umwandlung neu berechnet?", "answer": "Gehen Sie nicht davon aus, dass die Berechnungslogik von Excel reproduziert wird. Vergleichen Sie angezeigte Werte vor der Nutzung mit der Quellarbeitsmappe." },
+          { "question": "Kann ich das PDF vor dem Versenden prüfen?", "answer": "Ja. Öffnen Sie die heruntergeladene Datei und prüfen Sie alle Seiten auf abgeschnittene Spalten, kleine Schrift und ungünstige Umbrüche." },
+          { "question": "Ändert die PDF-Erstellung meine Arbeitsmappe?", "answer": "Nein. Das PDF ist eine separate Ausgabe; die Quell-Tabelle bleibt unverändert." },
+          { "question": "Warum dauert der Export einer großen Arbeitsmappe länger?", "answer": "Mehr Zeilen, Spalten und Tabellenblätter erhöhen Browserverarbeitung und Speicherbedarf. Die Leistung hängt auch vom Gerät ab." }
+        ]
+      },
+      "word-to-pdf": {
+        "introHeading": "Word-DOCX in PDF umwandeln",
+        "intro": "Wandeln Sie DOCX-Dateien im Browser in PDF um. Die Ausgabeseiten werden als Bilder gerendert, daher ist Text möglicherweise nicht auswählbar; ältere DOC-Dateien werden nicht unterstützt.",
+        "stepsHeading": "Ein DOCX-Dokument in drei Schritten in PDF umwandeln",
+        "steps": [
+          { "title": "DOCX-Datei auswählen", "description": "Wählen Sie ein modernes .docx-Dokument; ältere .doc-Dateien werden nicht angenommen." },
+          { "title": "Dokumentseiten umwandeln", "description": "Starten Sie die Umwandlung im Browser und warten Sie auf die gerenderten Seiten." },
+          { "title": "PDF herunterladen und prüfen", "description": "Kontrollieren Sie vor dem Teilen Seitenumbrüche, Abstände, Bilder und Lesbarkeit." }
+        ],
+        "faqs": [
+          { "question": "Kann Word to PDF das ältere DOC-Format umwandeln?", "answer": "Das Tool akzeptiert DOCX. Öffnen Sie ein älteres DOC-Dokument in einem Textprogramm und speichern Sie es vor der Umwandlung als DOCX." },
+          { "question": "Ist der Text im umgewandelten PDF auswählbar?", "answer": "Das Tool rendert Ausgabeseiten als Bilder, daher ist Text möglicherweise nicht wie in einem nativen PDF auswählbar oder durchsuchbar." },
+          { "question": "Warum kann das PDF-Layout anders aussehen als in Word?", "answer": "Verfügbare Schriftarten, Seiteneinstellungen, Tabellen und eingebettete Bilder beeinflussen das Rendering im Browser. Vergleichen Sie die Ausgabe mit der Quelldatei." },
+          { "question": "Sollte ich Seitenumbrüche vor der Abgabe prüfen?", "answer": "Ja. Prüfen Sie jede Seite auf unerwartete Umbrüche, abgeschnittene Inhalte oder geänderte Abstände." },
+          { "question": "Ändert die Umwandlung die DOCX-Quelldatei?", "answer": "Nein. Das PDF ist eine separate Datei; die ursprüngliche DOCX bleibt unverändert." },
+          { "question": "Kann ich eine große DOCX-Datei auf einem Mobilgerät umwandeln?", "answer": "Das hängt vom Browser und verfügbaren Gerätespeicher ab. Große Dokumente mit vielen Bildern können langsamer gerendert werden." }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "PDF-Seitenzahlen hinzufügen",
+        "intro": "Wählen Sie die verfügbaren Optionen für Position, Format, Startnummer und Deckblatt, um ein PDF zu nummerieren. Prüfen Sie Position und Reihenfolge in der gespeicherten separaten Kopie.",
+        "stepsHeading": "PDF-Seitenzahlen in drei Schritten hinzufügen",
+        "steps": [
+          { "title": "Dokument öffnen", "description": "Wählen Sie das zu nummerierende PDF und prüfen Sie die Seitenzahl." },
+          { "title": "Nummerierungsoptionen wählen", "description": "Legen Sie die verfügbare Position, das Format, die Startnummer und das Verhalten des Deckblatts fest." },
+          { "title": "Anwenden und Position prüfen", "description": "Erstellen Sie das nummerierte PDF und kontrollieren Sie, ob Zahlen vorhandenen Text oder Seiteninhalt überdecken." }
+        ],
+        "faqs": [
+          { "question": "Kann die Nummerierung mit einer anderen Zahl als eins beginnen?", "answer": "Legen Sie den Startwert fest, wenn die Option verfügbar ist, und prüfen Sie die erste nummerierte Seite der Ausgabe." },
+          { "question": "Kann das Deckblatt ohne gedruckte Nummer bleiben?", "answer": "Nutzen Sie die Deckblattoption, falls sie im Tool angezeigt wird. Prüfen Sie danach die erste sichtbare Zahl und die weitere Folge." },
+          { "question": "Wo können Seitenzahlen platziert werden?", "answer": "Wählen Sie eine Position aus den Optionen im Arbeitsbereich, etwa eine verfügbare Ausrichtung in Kopf- oder Fußzeile." },
+          { "question": "Können die Zahlen vorhandenen Text überdecken?", "answer": "Das ist möglich, wenn die gewählte Stelle belegt ist. Prüfen Sie Seiten mit Kopfzeilen, Fußzeilen oder dichtem Inhalt und passen Sie die Position an." },
+          { "question": "Wird das ursprüngliche PDF durch die Nummerierung geändert?", "answer": "Nein. Das Tool erstellt eine separate nummerierte Kopie und überschreibt die Eingabedatei nicht." },
+          { "question": "Werden alle Seiten automatisch nummeriert?", "answer": "Das Ergebnis richtet sich nach den gewählten Seiten- und Deckblatteinstellungen. Prüfen Sie die vorgesehenen Seiten und die Nummernfolge." }
+        ]
+      },
+      "watermark": {
+        "introHeading": "Textwasserzeichen zu PDF hinzufügen",
+        "intro": "Fügen Sie den PDF-Seiten ein sichtbares Textwasserzeichen hinzu. Legen Sie Text, Farbe, Winkel, Deckkraft und verfügbare Seiten fest. Ein Wasserzeichen verschlüsselt und schwärzt den Dokumentinhalt nicht.",
+        "stepsHeading": "Ein Textwasserzeichen in drei Schritten hinzufügen",
+        "steps": [
+          { "title": "PDF auswählen", "description": "Öffnen Sie das Dokument, das ein sichtbares Textzeichen erhalten soll." },
+          { "title": "Text und Darstellung einstellen", "description": "Geben Sie den Wasserzeichentext ein und passen Sie verfügbare Farbe, Winkel, Deckkraft und Seitenauswahl an." },
+          { "title": "Anwenden und prüfen", "description": "Erstellen Sie das wasserzeichenversehene PDF und prüfen Sie, ob das Zeichen lesbar bleibt und keine wichtigen Inhalte verdeckt." }
+        ],
+        "faqs": [
+          { "question": "Kann ich ein Logo als Bildwasserzeichen verwenden?", "answer": "Dieses ClickPDF-Tool fügt Textwasserzeichen hinzu und bietet keine Bildlogos. Verwenden Sie dafür ein Tool, das Bildmarkierungen ausdrücklich unterstützt." },
+          { "question": "Kann das Wasserzeichen nur auf bestimmten Seiten erscheinen?", "answer": "Wählen Sie vor dem Anwenden die im Arbeitsbereich verfügbaren Seiten aus. Prüfen Sie anschließend, welche Seiten das Zeichen enthalten." },
+          { "question": "Welche Darstellungseinstellungen gibt es für das Textzeichen?", "answer": "Das Tool bietet Textoptionen wie Farbe, Winkel und Deckkraft. Verwenden Sie die Steuerelemente, die im aktuellen Arbeitsbereich angezeigt werden." },
+          { "question": "Verdeckt oder entfernt ein Wasserzeichen den ursprünglichen Seiteninhalt?", "answer": "Nein. Ein sichtbares Textzeichen ist weder Schwärzung noch sichere Löschung; darunterliegender Inhalt kann weiterhin lesbar oder extrahierbar sein." },
+          { "question": "Ist ein helles Wasserzeichen auf jedem Hintergrund sichtbar?", "answer": "Die Sichtbarkeit hängt von Farbe, Deckkraft und Seiteninhalt ab. Prüfen Sie vor dem Teilen Seiten mit unterschiedlichen Hintergründen." },
+          { "question": "Wird das Original-PDF verändert?", "answer": "Nein. Das Anwenden erstellt ein separates Ausgabe-PDF. Bewahren Sie die Quelle auf, wenn Sie eine Version ohne Zeichen benötigen." }
         ]
       },
       "pdf-to-text": {
@@ -678,6 +1056,132 @@
           { "question": "क्या पृष्ठ मूल दस्तावेज़ से हट जाते हैं?", "answer": "नहीं। Splitting नई output फ़ाइलें बनाता है और स्रोत PDF को overwrite नहीं करता।" },
           { "question": "पृष्ठों की बड़ी PDF निकालने में क्या समय बढ़ा सकता है?", "answer": "लंबी PDF और बड़ी page images डिवाइस की काफी memory ले सकती हैं। गति फ़ाइल, browser और उपलब्ध memory पर निर्भर करती है।" }
         ]
+      },
+      "protect": {
+        "introHeading": "ClickPDF Protect से PDF सुरक्षित करें",
+        "intro": "यह टूल ब्राउज़र में AES-256-GCM का उपयोग करके ClickPDF का अपना encrypted wrapper बनाता है। यह सामान्य PDF-reader password security नहीं है; फ़ाइल खोलने के लिए पासवर्ड रखें और ClickPDF Unlock इस्तेमाल करें।",
+        "stepsHeading": "ClickPDF Protect से PDF सुरक्षित करने के तीन चरण",
+        "steps": [
+          { "title": "PDF चुनें", "description": "वह दस्तावेज़ चुनें जिसे ClickPDF Protect format में रखना है।" },
+          { "title": "पासवर्ड सेट करें", "description": "Protection workspace में पासवर्ड दर्ज करें और protected file बनाने से पहले उसे जाँचें।" },
+          { "title": "सुरक्षित फ़ाइल डाउनलोड करें", "description": "Output अलग सेव करें, पासवर्ड संभालकर रखें और बाद में खोलने के लिए ClickPDF Unlock इस्तेमाल करें।" }
+        ],
+        "faqs": [
+          { "question": "क्या Protect PDF सामान्य PDF password जोड़ता है?", "answer": "नहीं। ClickPDF Protect अपना encrypted wrapper बनाता है; यह आम PDF readers की standard password-protection सुविधा नहीं है।" },
+          { "question": "क्या Adobe Acrobat इस फ़ाइल को सीधे खोल सकता है?", "answer": "यह custom protected file सही password के साथ ClickPDF Unlock में खोलने के लिए है, हर PDF viewer में सामान्य PDF की तरह नहीं।" },
+          { "question": "पासवर्ड भूल जाने पर क्या होगा?", "answer": "Protected file खोलने के लिए वही पासवर्ड चाहिए। उसे सुरक्षित रखें; टूल password recovery या bypass का वादा नहीं करता।" },
+          { "question": "क्या सुरक्षा लगाने पर स्रोत PDF बदल जाती है?", "answer": "नहीं। Protected output अलग फ़ाइल के रूप में डाउनलोड करें; अपनी जरूरत के अनुसार मूल फ़ाइल रखें।" },
+          { "question": "क्या यह संवेदनशील text redact करने जैसा है?", "answer": "नहीं। यह access को custom output तक सीमित करता है; मूल PDF से संवेदनशील text नहीं हटाता और उचित redaction का विकल्प नहीं है।" },
+          { "question": "ClickPDF Protect से बनी फ़ाइल कहाँ खोलूँ?", "answer": "सुरक्षा के समय सेट किए पासवर्ड के साथ ClickPDF Unlock इस्तेमाल करें। इसे अन्य PDF decryption tools के साथ compatible न मानें।" }
+        ]
+      },
+      "unlock": {
+        "introHeading": "ClickPDF Protect फ़ाइल को खोलें",
+        "intro": "सही पासवर्ड से ClickPDF Protect की custom फ़ाइल खोलें। यह दूसरे सामान्य PDF के पासवर्ड हटाने या arbitrary PDF encryption bypass करने का टूल नहीं है।",
+        "stepsHeading": "ClickPDF-सुरक्षित फ़ाइल खोलने के तीन चरण",
+        "steps": [
+          { "title": "सुरक्षित फ़ाइल चुनें", "description": "ClickPDF Protect से बनी फ़ाइल Unlock PDF workspace में खोलें।" },
+          { "title": "उसका पासवर्ड डालें", "description": "फ़ाइल सुरक्षित करते समय सेट पासवर्ड दर्ज करें और typing जाँचें।" },
+          { "title": "खोलकर सेव करें", "description": "Unlock चलाएँ, बनी PDF डाउनलोड करें और उसके पृष्ठ जाँचें।" }
+        ],
+        "faqs": [
+          { "question": "क्या Unlock PDF किसी भी सामान्य PDF का पासवर्ड हटा सकता है?", "answer": "नहीं। यह ClickPDF Protect की custom files के लिए है; दूसरे सामान्य PDF के पासवर्ड या encryption को bypass नहीं करता।" },
+          { "question": "क्या वही पासवर्ड चाहिए जो सुरक्षा लगाते समय दिया था?", "answer": "हाँ। फ़ाइल decrypt करने के लिए उससे जुड़ा सही ClickPDF Protect password दर्ज करें।" },
+          { "question": "गलत पासवर्ड से फ़ाइल reset या recover होगी?", "answer": "नहीं। गलत पासवर्ड protected content नहीं खोलता; टूल password bypass या reset नहीं देता।" },
+          { "question": "क्या protected file को पहले सामान्य PDF reader में खोल सकता हूँ?", "answer": "Unlock होने से पहले custom wrapper सामान्य PDF नहीं है। ClickPDF Unlock चलाएँ, फिर बनी PDF compatible viewer में खोलें।" },
+          { "question": "क्या unlock करने से सुरक्षित स्रोत फ़ाइल बदलती है?", "answer": "नहीं। टूल खुली हुई अलग output बनाता है; protected input को अपनी जरूरत के अनुसार रखें या हटाएँ।" },
+          { "question": "क्या फ़ाइल की सामग्री document server पर भेजी जाती है?", "answer": "समर्थित file processing ब्राउज़र में होती है। वेबपेज फिर भी अपने resources और सक्षम third-party services माँग सकता है।" }
+        ]
+      },
+      "merge": {
+        "introHeading": "PDF फ़ाइलों को तीन चरणों में जोड़ें",
+        "intro": "कई PDF को एक फ़ाइल में जोड़ें, उनका क्रम बदलें और संयुक्त दस्तावेज़ डाउनलोड करें। काम browser में होता है; फिर भी पेज के resources network requests कर सकते हैं।",
+        "stepsHeading": "PDF फ़ाइलें जोड़ने के तीन चरण",
+        "steps": [
+          { "title": "PDF फ़ाइलें जोड़ें", "description": "Merge workspace में अपने device से कम से कम दो PDFs चुनें या उन्हें वहाँ छोड़ें।" },
+          { "title": "दस्तावेज़ों का क्रम तय करें", "description": "जोड़ने से पहले फ़ाइलों को drag करके क्रम में रखें या उपलब्ध sort controls इस्तेमाल करें।" },
+          { "title": "जोड़ें और जाँचें", "description": "संयुक्त PDF बनाकर डाउनलोड करें और ज़रूरी पृष्ठ क्रम, links, forms या annotations जाँचें।" }
+        ],
+        "faqs": [
+          { "question": "Merge PDF को एक से अधिक फ़ाइलें क्यों चाहिए?", "answer": "यह अलग दस्तावेज़ जोड़ता है, इसलिए कम से कम दो PDFs चुनें। सही pages की पुष्टि करनी हो तो पहले हर फ़ाइल खोलें।" },
+          { "question": "क्या PDFs जोड़ने से पहले उनका क्रम बदल सकता हूँ?", "answer": "हाँ। Merge शुरू करने से पहले workspace में दस्तावेज़ों को फिर से क्रम में रखें या sort controls इस्तेमाल करें।" },
+          { "question": "क्या links, forms और annotations पहले जैसे ही काम करेंगे?", "answer": "यह source PDFs और viewers के अनुसार बदल सकता है। संयुक्त फ़ाइल खोलकर ज़रूरी interactive items जाँचें।" },
+          { "question": "क्या संयुक्त PDF में अलग-अलग आकार के पृष्ठ हो सकते हैं?", "answer": "अलग dimensions वाले पृष्ठ जोड़े जा सकते हैं, पर viewer या print में अलग दिख सकते हैं। साझा करने से पहले output देखें।" },
+          { "question": "क्या merge मेरी मूल PDFs को overwrite करता है?", "answer": "नहीं। संयुक्त दस्तावेज़ अलग output है। जाँच और save करने तक मूल फ़ाइलें रखें।" },
+          { "question": "बड़े merge को पूरा होने में क्या समय लगाता है?", "answer": "समय PDFs की संख्या और आकार तथा browser और device memory पर निर्भर करता है। बहुत बड़े batches को छोटे समूहों में चलाना अधिक भरोसेमंद हो सकता है।" }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "PDF में पृष्ठ संख्या जोड़ें",
+        "intro": "PDF पर numbers जोड़ने के लिए उपलब्ध position, format, starting number और cover-page विकल्प चुनें। सेव की हुई अलग copy में placement और क्रम जाँचें।",
+        "stepsHeading": "PDF में पृष्ठ संख्या जोड़ने के तीन चरण",
+        "steps": [
+          { "title": "दस्तावेज़ खोलें", "description": "जिस PDF में numbers चाहिए उसे चुनें और page count देखें।" },
+          { "title": "Numbering विकल्प चुनें", "description": "उपलब्ध position, format, शुरुआती संख्या और cover-page व्यवहार सेट करें।" },
+          { "title": "लगाकर placement जाँचें", "description": "Numbered PDF बनाएँ और देखें कि numbers मौजूदा text या page content को ढक तो नहीं रहे।" }
+        ],
+        "faqs": [
+          { "question": "क्या numbering एक से शुरू होने के बजाय दूसरी संख्या से शुरू हो सकती है?", "answer": "यदि numbering options में starting value उपलब्ध हो तो उसे सेट करें और output का पहला numbered page जाँचें।" },
+          { "question": "क्या cover page पर printed number हटाया जा सकता है?", "answer": "यदि टूल में cover-page option दिखे तो उसका उपयोग करें। प्रक्रिया के बाद पहला दिखाई देने वाला number और आगे का क्रम जाँचें।" },
+          { "question": "पृष्ठ संख्या कहाँ रखी जा सकती है?", "answer": "Workspace में उपलब्ध positions में से चुनें, जैसे header या footer का दिया हुआ alignment।" },
+          { "question": "क्या numbers मौजूदा text को ढक सकते हैं?", "answer": "हाँ, अगर चुनी हुई जगह पर सामग्री हो। Footers, headers या घने text वाले pages जाँचें और placement बदलें।" },
+          { "question": "क्या numbering से मूल PDF बदल जाती है?", "answer": "नहीं। टूल अलग numbered copy बनाता है और input PDF overwrite नहीं होती।" },
+          { "question": "क्या हर page पर numbers अपने-आप लगते हैं?", "answer": "परिणाम आपके चुने page और cover settings के अनुसार होता है। Intended pages और number sequence की पुष्टि करें।" }
+        ]
+      },
+      "watermark": {
+        "introHeading": "PDF पर text watermark जोड़ें",
+        "intro": "PDF pages पर दिखाई देने वाला text watermark जोड़ें। उसका text, color, angle, opacity और उपलब्ध page targets सेट करें। Watermark document content को encrypt या redact नहीं करता।",
+        "stepsHeading": "PDF पर text watermark जोड़ने के तीन चरण",
+        "steps": [
+          { "title": "PDF चुनें", "description": "वह document खोलें जिस पर visible text mark चाहिए।" },
+          { "title": "Text और appearance सेट करें", "description": "Watermark लिखें और उपलब्ध color, angle, opacity तथा page settings समायोजित करें।" },
+          { "title": "लगाकर समीक्षा करें", "description": "Watermarked PDF बनाएँ और देखें कि mark पढ़ने योग्य है तथा महत्वपूर्ण content को नहीं ढकता।" }
+        ],
+        "faqs": [
+          { "question": "क्या watermark के रूप में logo image लगा सकता हूँ?", "answer": "यह ClickPDF tool text watermarks जोड़ता है, image-logo watermarking नहीं। Image mark के लिए ऐसा tool चुनें जो इसे स्पष्ट रूप से support करे।" },
+          { "question": "क्या watermark केवल कुछ pages पर दिखा सकता हूँ?", "answer": "लगाने से पहले workspace में उपलब्ध page targets चुनें। Output में जाँचें कि किन pages पर mark आया।" },
+          { "question": "Text watermark के कौन-से appearance विकल्प उपलब्ध हैं?", "answer": "Tool में text styling के लिए color, angle और opacity जैसे controls हैं। मौजूदा workspace में दिखे विकल्प इस्तेमाल करें।" },
+          { "question": "क्या watermark मूल page content छिपाता या हटाता है?", "answer": "नहीं। Visible text mark redaction या सुरक्षित deletion नहीं है; नीचे का document content पढ़ा या निकाला जा सकता है।" },
+          { "question": "क्या हल्का watermark हर background पर दिखेगा?", "answer": "दिखना color, opacity और page content पर निर्भर करता है। Share करने से पहले अलग backgrounds वाले pages जाँचें।" },
+          { "question": "क्या original PDF बदल जाती है?", "answer": "नहीं। Watermark लगाने से अलग output PDF बनती है। बिना mark वाली copy की जरूरत हो तो source रखें।" }
+        ]
+      },
+      "pdf-to-text": {
+        "introHeading": "PDF से TXT या Markdown निकालें",
+        "intro": "यह टूल PDF से चुने जा सकने वाले पाठ को TXT या Markdown में निकालता है। केवल image वाले scanned पृष्ठों के लिए पहले OCR करें; जटिल तालिकाओं और पढ़ने के क्रम की जाँच करें।",
+        "stepsHeading": "PDF से पाठ निकालने के तीन चरण",
+        "steps": [
+          { "title": "पाठ वाला PDF खोलें", "description": "वह दस्तावेज़ चुनें जिसका selectable text निकालना है।" },
+          { "title": "आउटपुट format चुनें", "description": "Text workspace में उपलब्ध TXT या Markdown विकल्प चुनें।" },
+          { "title": "पाठ जाँचकर निर्यात करें", "description": "निकला हुआ परिणाम देखें, फिर उसे copy करें या चुनी हुई file डाउनलोड करें।" }
+        ],
+        "faqs": [
+          { "question": "क्या PDF to Text केवल scan वाली page पढ़ सकता है?", "answer": "Image-only पृष्ठों में इस extractor के लिए selectable text नहीं होता। Scan से text पहचानने के लिए पहले अलग OCR चलाएँ।" },
+          { "question": "TXT या Markdown में से क्या चुनूँ?", "answer": "TXT साधारण text है; Markdown जहाँ संभव हो headings और lists जैसी सरल संरचना रख सकता है। Layout बदलने की जाँच करें।" },
+          { "question": "क्या निकली हुई तालिका के columns बिल्कुल वैसे रहेंगे?", "answer": "हमेशा नहीं। जटिल tables, कई columns और असामान्य reading order के लिए manual सुधार लग सकता है।" },
+          { "question": "क्या बिना file डाउनलोड किए text copy कर सकता हूँ?", "answer": "हाँ। Workspace का copy control इस्तेमाल करें या उपलब्ध TXT अथवा Markdown output डाउनलोड करें।" },
+          { "question": "क्या text निकालने से मूल PDF बदलती है?", "answer": "नहीं। निकला text अलग परिणाम है और स्रोत दस्तावेज़ overwrite नहीं होता।" },
+          { "question": "अलग PDFs में extraction का समय क्यों बदलता है?", "answer": "पृष्ठों की संख्या, दस्तावेज़ संरचना और browser memory असर डालते हैं। Image-heavy दस्तावेज़ अधिक समय ले सकते हैं।" }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "PDF को संपादन योग्य Word DOCX में बदलें",
+        "intro": "डिफ़ॉल्ट रूप से यह टूल PDF text को संपादन योग्य पाठ में बदलता है। वैकल्पिक छवि fallback पृष्ठों का रूप प्राथमिकता देता है, editable text नहीं; scanned pages को पहले OCR चाहिए।",
+        "stepsHeading": "PDF को Word में बदलने के तीन चरण",
+        "steps": [
+          { "title": "PDF दस्तावेज़ चुनें", "description": "वह PDF जोड़ें जिसे DOCX में बदलना है।" },
+          { "title": "Conversion तरीका चुनें", "description": "डिफ़ॉल्ट editable text रखें; छवि fallback केवल तब चुनें जब पृष्ठों का दिखना संपादन से अधिक महत्वपूर्ण हो।" },
+          { "title": "DOCX डाउनलोड कर जाँचें", "description": "परिणाम Word या compatible editor में खोलकर text, page breaks और formatting देखें।" }
+        ],
+        "faqs": [
+          { "question": "क्या बदली हुई Word फ़ाइल संपादन योग्य होगी?", "answer": "डिफ़ॉल्ट conversion editable text है। Formatting और reading order बदल सकते हैं, इसलिए DOCX को word processor में जाँचें।" },
+          { "question": "छवि fallback क्या करता है?", "answer": "वैकल्पिक छवि fallback DOCX में page images रखकर पृष्ठों का रूप बचाता है। ये छवियाँ editable Word text नहीं हैं।" },
+          { "question": "क्या scanned PDF अपने आप editable शब्दों में बदलता है?", "answer": "Image-only scans के text के लिए पहले OCR चाहिए। पहचाने गए text के बिना scan से editable शब्द भरोसेमंद ढंग से नहीं निकलते।" },
+          { "question": "क्या tables और columns का मूल layout रहेगा?", "answer": "जटिल layout Word में बिल्कुल वैसा नहीं रह सकता। बनी फ़ाइल में tables, columns, headers और page breaks जाँचें।" },
+          { "question": "क्या conversion मेरी PDF overwrite करता है?", "answer": "नहीं। टूल DOCX output बनाता है और मूल PDF अपरिवर्तित रहती है।" },
+          { "question": "क्या बड़े PDF को फोन पर बदल सकता हूँ?", "answer": "यह browser memory और दस्तावेज़ पर निर्भर करता है। अधिक memory वाले device पर बड़ी फ़ाइल बेहतर चल सकती है।" }
+        ]
       }
     }
   },
@@ -835,6 +1339,132 @@
           { "question": "هل تُحذف الصفحات من المستند الأصلي؟", "answer": "لا. ينشئ التقسيم ملفات ناتجة جديدة ولا يستبدل PDF المصدر." },
           { "question": "ما الذي قد يبطئ استخراج عدد كبير من الصفحات؟", "answer": "قد تستهلك ملفات PDF الطويلة وصور الصفحات الكبيرة ذاكرة ملحوظة. تعتمد السرعة على الملف والمتصفح والذاكرة المتاحة." }
         ]
+      },
+      "protect": {
+        "introHeading": "حماية PDF باستخدام ClickPDF Protect",
+        "intro": "تنشئ الأداة حاوية ClickPDF مشفّرة باستخدام AES-256-GCM في المتصفح. ليست هذه ميزة كلمة مرور PDF قياسية؛ احتفظ بكلمة المرور وافتح الملف باستخدام ClickPDF Unlock.",
+        "stepsHeading": "حماية PDF باستخدام ClickPDF Protect في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر ملف PDF", "description": "حدد المستند الذي تريد وضعه في تنسيق ClickPDF Protect." },
+          { "title": "عيّن كلمة مرور", "description": "أدخل كلمة المرور في مساحة الحماية وراجعها قبل إنشاء الملف المحمي." },
+          { "title": "نزّل الملف المحمي", "description": "احفظ الناتج في ملف منفصل واحتفظ بكلمة المرور؛ واستخدم ClickPDF Unlock لفتحه لاحقًا." }
+        ],
+        "faqs": [
+          { "question": "هل يضيف Protect PDF كلمة مرور PDF قياسية؟", "answer": "لا. ينشئ ClickPDF Protect حاوية مشفرة خاصة به؛ وليس ميزة الحماية القياسية التي تستخدمها قارئات PDF العادية." },
+          { "question": "هل يستطيع Adobe Acrobat فتح الملف المحمي مباشرة؟", "answer": "صُمم الملف المخصص لفتحه باستخدام ClickPDF Unlock وكلمة المرور الصحيحة، وليس كملف PDF عادي في كل قارئ." },
+          { "question": "ماذا يحدث إذا نسيت كلمة المرور؟", "answer": "تحتاج إلى كلمة المرور لفتح الملف المحمي. احتفظ بها في مكان آمن؛ ولا تعد الأداة باستعادة كلمة المرور أو تجاوزها." },
+          { "question": "هل يُستبدل ملف PDF المصدر عند حمايته؟", "answer": "لا. نزّل الناتج المحمي كملف منفصل واحتفظ بالأصل وفق احتياجاتك الأمنية." },
+          { "question": "هل هذه الميزة مثل تنقيح نص حساس؟", "answer": "لا. تغيّر الحماية إمكانية الوصول إلى الناتج المخصص؛ ولا تحذف النص الحساس من PDF الأصلي ولا تستبدل عملية التنقيح الصحيحة." },
+          { "question": "أين أفتح ملفًا أنشأه ClickPDF Protect؟", "answer": "استخدم ClickPDF Unlock مع كلمة المرور المحددة أثناء الحماية. لا تفترض توافق الملف مع أدوات فك تشفير PDF الأخرى." }
+        ]
+      },
+      "unlock": {
+        "introHeading": "فتح ملفات ClickPDF Protect",
+        "intro": "افتح ملفات ClickPDF Protect المخصصة باستخدام كلمة المرور الصحيحة. لا تزيل هذه الأداة كلمات مرور PDF القياسية الأخرى ولا تتجاوز تشفير ملفات PDF عامة.",
+        "stepsHeading": "فتح ملف محمي بواسطة ClickPDF في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر الملف المحمي", "description": "افتح الملف الذي أنشأه ClickPDF Protect في مساحة Unlock PDF." },
+          { "title": "أدخل كلمة المرور", "description": "اكتب كلمة المرور المحددة عند حماية الملف وتحقق من عدم وجود أخطاء مطبعية." },
+          { "title": "فك التشفير واحفظ", "description": "شغّل الفتح ونزّل ملف PDF الناتج، ثم افتحه للتحقق من الصفحات." }
+        ],
+        "faqs": [
+          { "question": "هل يستطيع Unlock PDF إزالة كلمة مرور أي PDF عادي؟", "answer": "لا. الأداة مخصصة لملفات ClickPDF Protect؛ ولا تزيل كلمات مرور ملفات PDF القياسية الأخرى أو تتجاوز تشفيرها." },
+          { "question": "هل أحتاج إلى كلمة المرور نفسها المستخدمة للحماية؟", "answer": "نعم. أدخل كلمة المرور الصحيحة المرتبطة بملف ClickPDF Protect لفك تشفيره." },
+          { "question": "هل تستعيد كلمة المرور الخاطئة الملف أو تعيد ضبطه؟", "answer": "لا. لا تفتح كلمة المرور الخاطئة المحتوى المحمي، ولا توفر الأداة تجاوزًا أو إعادة ضبط لكلمة المرور." },
+          { "question": "هل يمكنني فتح الملف المحمي أولًا في قارئ PDF عادي؟", "answer": "الحاوية المخصصة ليست PDF عاديًا قبل فتحها. استخدم ClickPDF Unlock، ثم افتح PDF الناتج في قارئ متوافق." },
+          { "question": "هل يغيّر فتح الملف النسخة المحمية الأصلية؟", "answer": "لا. تنشئ الأداة ناتجًا مفتوحًا منفصلًا؛ احتفظ بالملف المحمي أو أزله حسب حاجتك." },
+          { "question": "هل تُرسل محتويات الملف إلى خادم مستندات؟", "answer": "تتم معالجة الملفات المدعومة في المتصفح. قد تظل صفحة الويب تطلب مواردها وخدمات الجهات الخارجية المفعّلة." }
+        ]
+      },
+      "merge": {
+        "introHeading": "دمج ملفات PDF في ثلاث خطوات",
+        "intro": "اجمع عدة ملفات PDF في ملف واحد، ورتبها ثم نزّل المستند الموحّد. تتم المعالجة في المتصفح، لكن موارد الصفحة قد تظل تُجري طلبات شبكة.",
+        "stepsHeading": "دمج ملفات PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "أضف ملفات PDF", "description": "حدد مستندين على الأقل من جهازك أو اسحبهما إلى مساحة الدمج." },
+          { "title": "رتب المستندات", "description": "اسحب الملفات إلى الترتيب المطلوب أو استخدم أدوات الفرز المتاحة قبل الدمج." },
+          { "title": "ادمج وراجع", "description": "أنشئ ملف PDF الموحّد ونزّله، ثم تحقق من ترتيب الصفحات والروابط والنماذج أو التعليقات المهمة." }
+        ],
+        "faqs": [
+          { "question": "لماذا يحتاج دمج PDF إلى أكثر من ملف؟", "answer": "تجمع العملية مستندات منفصلة، لذا أضف ملفي PDF على الأقل. افتح كل ملف أولًا إذا أردت التأكد من صفحاته." },
+          { "question": "هل يمكنني تغيير ترتيب الملفات قبل الدمج؟", "answer": "نعم. أعد ترتيب المستندات في مساحة العمل أو استخدم أدوات الفرز المتاحة قبل بدء الدمج." },
+          { "question": "هل ستعمل الروابط والنماذج والتعليقات كما كانت تمامًا؟", "answer": "قد يختلف ذلك حسب ملفات PDF الأصلية وبرامج العرض. افتح الناتج واختبر العناصر التفاعلية المهمة." },
+          { "question": "هل يمكن أن يحتوي الملف الموحّد على صفحات بأحجام مختلفة؟", "answer": "يمكن جمع الصفحات ذات الأبعاد المختلفة، لكن قد يظهر اختلافها في العارض أو عند الطباعة. راجع الناتج قبل مشاركته." },
+          { "question": "هل يستبدل الدمج ملفات PDF الأصلية؟", "answer": "لا. المستند الموحّد ناتج منفصل. احتفظ بالملفات الأصلية حتى تراجع النسخة المجمعة وتحفظها." },
+          { "question": "ما الذي يؤثر في سرعة دمج ملفات كبيرة؟", "answer": "يعتمد الوقت على عدد الملفات وأحجامها وذاكرة المتصفح والجهاز. قد تكون معالجة الدفعات الكبيرة أكثر موثوقية عند تقسيمها." }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "إضافة أرقام الصفحات إلى PDF",
+        "intro": "اختر الموضع والتنسيق ورقم البداية وخيار صفحة الغلاف المتاح لإضافة الأرقام إلى PDF. راجع الموضع والتسلسل في نسخة منفصلة محفوظة.",
+        "stepsHeading": "إضافة أرقام الصفحات إلى PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "افتح المستند", "description": "حدد ملف PDF الذي يحتاج إلى ترقيم وراجع عدد صفحاته." },
+          { "title": "اختر خيارات الترقيم", "description": "حدد الموضع والتنسيق ورقم البداية وسلوك صفحة الغلاف من الخيارات المتاحة." },
+          { "title": "طبّق الترقيم وتحقق من موضعه", "description": "أنشئ PDF مرقمًا وافحص الصفحات للتأكد من عدم تداخل الأرقام مع النص أو المحتوى." }
+        ],
+        "faqs": [
+          { "question": "هل يمكن أن يبدأ الترقيم برقم غير واحد؟", "answer": "اضبط قيمة البداية إذا كان الخيار متاحًا، ثم تحقق من أول صفحة مرقمة في الناتج." },
+          { "question": "هل يمكن إبقاء صفحة الغلاف بلا رقم مطبوع؟", "answer": "استخدم خيار صفحة الغلاف إن ظهر في الأداة. بعد المعالجة راجع أول رقم ظاهر والتسلسل اللاحق." },
+          { "question": "أين يمكن وضع رقم الصفحة؟", "answer": "اختر موضعًا من المواضع التي تعرضها مساحة العمل، مثل محاذاة الرأس أو التذييل المتاحة." },
+          { "question": "هل يمكن أن تغطي الأرقام نصًا موجودًا؟", "answer": "قد تتداخل مع المحتوى إذا كان الموضع المحدد مشغولًا. راجع الصفحات ذات الرؤوس أو التذييلات أو النص الكثيف وعدّل الموضع." },
+          { "question": "هل تؤدي إضافة الأرقام إلى تغيير PDF الأصلي؟", "answer": "لا. تنشئ الأداة نسخة مرقمة منفصلة ولا تستبدل ملف PDF المدخل." },
+          { "question": "هل تُضاف الأرقام تلقائيًا إلى كل الصفحات؟", "answer": "يتبع الناتج إعدادات الصفحات والغلاف التي تختارها. تحقق من الصفحات المقصودة وتسلسل الترقيم." }
+        ]
+      },
+      "watermark": {
+        "introHeading": "إضافة علامة نصية مائية إلى PDF",
+        "intro": "أضف علامة نصية ظاهرة إلى صفحات PDF. حدد النص واللون والزاوية والشفافية والصفحات المتاحة. لا تقوم العلامة المائية بتشفير محتوى المستند أو تنقيحه.",
+        "stepsHeading": "إضافة علامة نصية مائية في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر ملف PDF", "description": "افتح المستند الذي تريد إضافة علامة نصية ظاهرة إليه." },
+          { "title": "اضبط النص والمظهر", "description": "اكتب نص العلامة وعدّل اللون والزاوية والشفافية وإعدادات الصفحات المتاحة." },
+          { "title": "طبّق العلامة وراجعها", "description": "أنشئ PDF بعلامة مائية وتأكد من وضوحها وعدم حجبها للمحتوى المهم." }
+        ],
+        "faqs": [
+          { "question": "هل يمكنني استخدام صورة شعار كعلامة مائية؟", "answer": "تضيف أداة ClickPDF علامات نصية، ولا توفر وضع شعار كصورة. استخدم أداة تدعم علامات الصور صراحةً لهذا الغرض." },
+          { "question": "هل يمكن إظهار العلامة على صفحات محددة فقط؟", "answer": "اختر الصفحات المتاحة في مساحة العمل قبل التطبيق، ثم راجع الناتج للتأكد من الصفحات التي ظهرت عليها العلامة." },
+          { "question": "ما إعدادات مظهر العلامة النصية المتاحة؟", "answer": "توفر الأداة عناصر لتنسيق النص مثل اللون والزاوية والشفافية. استخدم الخيارات الظاهرة في مساحة العمل الحالية." },
+          { "question": "هل تخفي العلامة المائية محتوى الصفحة الأصلي أو تحذفه؟", "answer": "لا. العلامة النصية الظاهرة ليست تنقيحًا أو حذفًا آمنًا؛ قد يظل محتوى المستند أسفلها مقروءًا أو قابلًا للاستخراج." },
+          { "question": "هل ستظهر علامة باهتة على كل الخلفيات؟", "answer": "تعتمد الرؤية على لون العلامة وشفافيتها ومحتوى الصفحة. افحص صفحات بخلفيات مختلفة قبل مشاركة الناتج." },
+          { "question": "هل يتغير ملف PDF الأصلي؟", "answer": "لا. ينشئ تطبيق العلامة ملف PDF منفصلًا. احتفظ بالمصدر إذا احتجت إلى نسخة بلا علامة." }
+        ]
+      },
+      "pdf-to-text": {
+        "introHeading": "استخراج PDF إلى TXT أو Markdown",
+        "intro": "تستخرج الأداة نص PDF القابل للتحديد إلى TXT أو Markdown. تحتاج الصفحات الممسوحة كصور فقط إلى OCR أولًا؛ وراجع الجداول المعقدة وترتيب القراءة.",
+        "stepsHeading": "استخراج نص PDF في ثلاث خطوات",
+        "steps": [
+          { "title": "افتح PDF يحتوي على نص", "description": "حدد المستند الذي تريد استخراج نصه القابل للتحديد." },
+          { "title": "اختر تنسيق الناتج", "description": "اختر TXT أو Markdown من التنسيقات المتاحة في مساحة استخراج النص." },
+          { "title": "راجع النص وصدّره", "description": "افحص النتيجة المستخرجة، ثم انسخها أو نزّل الملف النصي المحدد." }
+        ],
+        "faqs": [
+          { "question": "هل يستطيع PDF to Text قراءة صفحة ممسوحة كصورة فقط؟", "answer": "لا تحتوي الصفحات الصورية فقط على نص قابل للتحديد لهذا الاستخراج. شغّل OCR منفصلًا أولًا إذا أردت التعرف على نص المسح." },
+          { "question": "هل أختار TXT أم Markdown؟", "answer": "TXT نص عادي؛ وقد يحتفظ Markdown ببنية بسيطة مثل العناوين والقوائم عند إمكانية استنتاجها. راجع تغييرات التخطيط." },
+          { "question": "هل تحافظ الجداول على أعمدتها الأصلية تمامًا؟", "answer": "ليس دائمًا. قد تحتاج الجداول المعقدة والصفحات متعددة الأعمدة وترتيب القراءة غير المعتاد إلى تعديل يدوي." },
+          { "question": "هل يمكنني نسخ النص دون تنزيل ملف؟", "answer": "نعم. استخدم زر النسخ في مساحة العمل أو نزّل ناتج TXT أو Markdown المتاح." },
+          { "question": "هل يؤدي استخراج النص إلى تغيير PDF؟", "answer": "لا. ينشئ الاستخراج نتيجة نصية منفصلة أو ينسخها، ولا يستبدل المستند المصدر." },
+          { "question": "لماذا يختلف وقت الاستخراج بين ملفات PDF؟", "answer": "يؤثر عدد الصفحات وبنية المستند وذاكرة المتصفح في المعالجة. قد تستغرق المستندات كثيرة الصور وقتًا أطول." }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "تحويل PDF إلى Word DOCX قابل للتحرير",
+        "intro": "المسار الافتراضي يحوّل نص PDF إلى نص قابل للتحرير. أما الخيار الاحتياطي للصور فيعطي أولوية لمظهر الصفحات لا للنص القابل للتحرير؛ وتحتاج الصفحات الممسوحة إلى OCR أولًا.",
+        "stepsHeading": "تحويل PDF إلى Word في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر مستند PDF", "description": "أضف ملف PDF الذي تريد تحويله إلى DOCX." },
+          { "title": "اختر مسار التحويل", "description": "استخدم النص القابل للتحرير افتراضيًا؛ واختر الخيار الاحتياطي للصور فقط عندما يكون مظهر الصفحات أهم من تحرير النص." },
+          { "title": "نزّل DOCX وراجعه", "description": "افتح الناتج في Word أو محرر متوافق وتحقق من النص وفواصل الصفحات والتنسيق." }
+        ],
+        "faqs": [
+          { "question": "هل سيكون مستند Word الناتج قابلًا للتحرير؟", "answer": "النص القابل للتحرير هو المسار الافتراضي. قد يتغير التنسيق وترتيب القراءة، لذا راجع DOCX في معالج نصوص." },
+          { "question": "ماذا يفعل الخيار الاحتياطي للصور؟", "answer": "يضع الخيار الاختياري صور الصفحات في DOCX للحفاظ على مظهرها. هذه الصور ليست نص Word قابلًا للتحرير." },
+          { "question": "هل تتحول ملفات PDF الممسوحة تلقائيًا إلى كلمات قابلة للتحرير؟", "answer": "تحتاج عمليات المسح الصورية فقط إلى OCR قبل استخراج النص. من دون نص مُتعرف عليه، لا يمكن إنشاء كلمات قابلة للتحرير بدقة." },
+          { "question": "هل تحتفظ الجداول والأعمدة بتخطيطها الأصلي؟", "answer": "قد لا تنتقل التخطيطات المعقدة إلى Word كما هي. تحقق من الجداول والأعمدة والرؤوس وفواصل الصفحات في الناتج." },
+          { "question": "هل يستبدل التحويل ملف PDF؟", "answer": "لا. تنشئ الأداة ملف DOCX منفصلًا ويبقى PDF الأصلي دون تغيير." },
+          { "question": "هل يمكنني تحويل PDF كبير على الهاتف؟", "answer": "يعتمد ذلك على ذاكرة المتصفح والمستند. قد تعمل الملفات الكبيرة بصورة أفضل على جهاز تتوفر فيه ذاكرة أكثر." }
+        ]
       }
     }
   },
@@ -991,6 +1621,132 @@
           { "question": "La division d’un PDF scanné ajoute-t-elle du texte recherchable ?", "answer": "Non. La division sépare les pages, mais ne lance pas d’OCR. Les pages scannées restent des scans sans traitement OCR séparé." },
           { "question": "Les pages sont-elles retirées du document d’origine ?", "answer": "Non. La division crée de nouveaux fichiers et ne remplace pas le PDF source." },
           { "question": "Qu’est-ce qui peut ralentir l’extraction de nombreuses pages ?", "answer": "Les PDF longs et les grandes images de page peuvent utiliser beaucoup de mémoire. La vitesse dépend du fichier, du navigateur et de la mémoire disponible." }
+        ]
+      },
+      "protect": {
+        "introHeading": "Protéger un PDF avec ClickPDF Protect",
+        "intro": "L’outil crée dans le navigateur une enveloppe chiffrée ClickPDF avec AES-256-GCM. Ce n’est pas la protection par mot de passe standard d’un PDF ; gardez le mot de passe et utilisez ClickPDF Unlock pour ouvrir le fichier.",
+        "stepsHeading": "Protéger un PDF avec ClickPDF Protect en trois étapes",
+        "steps": [
+          { "title": "Choisir le PDF", "description": "Sélectionnez le document à placer au format ClickPDF Protect." },
+          { "title": "Définir un mot de passe", "description": "Saisissez le mot de passe dans l’espace de protection et vérifiez-le avant de créer le fichier." },
+          { "title": "Télécharger le fichier protégé", "description": "Enregistrez le résultat dans un fichier séparé, conservez le mot de passe et utilisez ClickPDF Unlock pour le rouvrir." }
+        ],
+        "faqs": [
+          { "question": "Protect PDF ajoute-t-il un mot de passe PDF standard ?", "answer": "Non. ClickPDF Protect crée une enveloppe chiffrée personnalisée ; ce n’est pas la protection standard des lecteurs PDF ordinaires." },
+          { "question": "Adobe Acrobat peut-il ouvrir directement le fichier protégé ?", "answer": "Ce fichier personnalisé est prévu pour ClickPDF Unlock avec le bon mot de passe, et non pour être traité comme un PDF ordinaire par chaque lecteur." },
+          { "question": "Que se passe-t-il si j’oublie le mot de passe ?", "answer": "Le mot de passe est nécessaire pour ouvrir le fichier protégé. Conservez-le en lieu sûr ; l’outil ne promet ni récupération ni contournement." },
+          { "question": "La protection remplace-t-elle le PDF source ?", "answer": "Non. Téléchargez le résultat protégé dans un fichier distinct et gardez l’original selon vos besoins de sécurité." },
+          { "question": "Est-ce la même chose que masquer un texte sensible ?", "answer": "Non. La protection limite l’accès au résultat personnalisé ; elle ne supprime pas le texte sensible du PDF source et ne remplace pas une vraie procédure de caviardage." },
+          { "question": "Où ouvrir un fichier créé avec ClickPDF Protect ?", "answer": "Utilisez ClickPDF Unlock avec le mot de passe défini lors de la protection. Ne supposez pas que d’autres outils de déchiffrement PDF sont compatibles." }
+        ]
+      },
+      "unlock": {
+        "introHeading": "Ouvrir un fichier ClickPDF Protect",
+        "intro": "Ouvrez les fichiers personnalisés créés par ClickPDF Protect avec le bon mot de passe. Cet outil ne retire pas le mot de passe d’un PDF standard quelconque et ne contourne pas son chiffrement.",
+        "stepsHeading": "Ouvrir un fichier protégé par ClickPDF en trois étapes",
+        "steps": [
+          { "title": "Sélectionner le fichier protégé", "description": "Ouvrez dans l’espace Unlock PDF le fichier créé avec ClickPDF Protect." },
+          { "title": "Saisir son mot de passe", "description": "Entrez le mot de passe défini lors de la protection et vérifiez les erreurs de saisie." },
+          { "title": "Déchiffrer et enregistrer", "description": "Lancez l’ouverture et téléchargez le PDF obtenu, puis vérifiez ses pages." }
+        ],
+        "faqs": [
+          { "question": "Unlock PDF peut-il retirer le mot de passe d’un PDF standard quelconque ?", "answer": "Non. L’outil concerne les fichiers personnalisés ClickPDF Protect ; il ne retire pas le mot de passe d’un PDF standard quelconque et ne contourne pas son chiffrement." },
+          { "question": "Faut-il le même mot de passe que lors de la protection ?", "answer": "Oui. Saisissez le bon mot de passe associé à ce fichier ClickPDF Protect pour le déchiffrer." },
+          { "question": "Un mauvais mot de passe récupère-t-il ou réinitialise-t-il le fichier ?", "answer": "Non. Un mauvais mot de passe n’ouvre pas le contenu protégé et l’outil ne propose ni contournement ni réinitialisation." },
+          { "question": "Puis-je ouvrir d’abord le fichier protégé dans un lecteur PDF ordinaire ?", "answer": "L’enveloppe personnalisée n’est pas un PDF ordinaire avant son ouverture. Utilisez ClickPDF Unlock, puis ouvrez le PDF obtenu dans un lecteur compatible." },
+          { "question": "L’ouverture modifie-t-elle le fichier protégé source ?", "answer": "Non. L’outil crée un résultat ouvert séparé ; gardez ou supprimez le fichier protégé selon vos besoins." },
+          { "question": "Le contenu du fichier est-il envoyé à un serveur de documents ?", "answer": "Le traitement des fichiers pris en charge s’effectue dans le navigateur. La page peut toujours demander ses ressources et les services tiers activés." }
+        ]
+      },
+      "merge": {
+        "introHeading": "Fusionner des PDF en trois étapes",
+        "intro": "Réunissez plusieurs PDF dans un seul fichier, réorganisez-les et téléchargez le document assemblé. Le traitement s’effectue dans le navigateur, mais les ressources de la page peuvent encore faire des requêtes réseau.",
+        "stepsHeading": "Fusionner des fichiers PDF en trois étapes",
+        "steps": [
+          { "title": "Ajouter les fichiers PDF", "description": "Sélectionnez au moins deux documents sur votre appareil ou déposez-les dans l’espace de fusion." },
+          { "title": "Définir l’ordre des documents", "description": "Faites glisser les fichiers pour les ordonner ou utilisez les commandes de tri disponibles avant la fusion." },
+          { "title": "Fusionner et vérifier", "description": "Créez et téléchargez le PDF combiné, puis vérifiez l’ordre des pages et les liens, formulaires ou annotations utiles." }
+        ],
+        "faqs": [
+          { "question": "Pourquoi Merge PDF nécessite-t-il plusieurs fichiers ?", "answer": "La fusion rassemble des documents distincts ; ajoutez donc au moins deux PDF. Ouvrez-les d’abord pour vérifier les pages si nécessaire." },
+          { "question": "Puis-je changer l’ordre des fichiers avant la fusion ?", "answer": "Oui. Réorganisez les documents dans l’espace de travail ou utilisez les commandes de tri avant de lancer la fusion." },
+          { "question": "Les liens, formulaires et annotations fonctionneront-ils exactement comme avant ?", "answer": "Cela peut varier selon les PDF et les lecteurs utilisés. Ouvrez le résultat et testez les éléments interactifs importants." },
+          { "question": "Un PDF fusionné peut-il contenir des pages de tailles différentes ?", "answer": "Oui, mais leurs dimensions peuvent différer à l’écran ou à l’impression. Vérifiez le résultat avant de le partager." },
+          { "question": "La fusion remplace-t-elle mes PDF d’origine ?", "answer": "Non. Le document fusionné est un résultat séparé. Gardez les fichiers d’origine jusqu’à ce que vous ayez vérifié et enregistré la copie." },
+          { "question": "Qu’est-ce qui influe sur la durée d’une grande fusion ?", "answer": "La durée dépend du nombre et de la taille des PDF ainsi que de la mémoire du navigateur et de l’appareil. Les très grands lots peuvent être plus fiables en petits groupes." }
+        ]
+      },
+      "page-numbers": {
+        "introHeading": "Ajouter des numéros de page à un PDF",
+        "intro": "Choisissez la position, le format, le numéro de départ et l’option de page de couverture proposés pour numéroter un PDF. Vérifiez la position et la séquence dans la copie enregistrée.",
+        "stepsHeading": "Ajouter des numéros de page en trois étapes",
+        "steps": [
+          { "title": "Ouvrir le document", "description": "Sélectionnez le PDF à numéroter et vérifiez son nombre de pages." },
+          { "title": "Choisir les options de numérotation", "description": "Définissez la position, le format, le numéro de départ et le comportement de la couverture parmi les options disponibles." },
+          { "title": "Appliquer et vérifier la position", "description": "Créez le PDF numéroté et vérifiez qu’aucun numéro ne chevauche le texte ou le contenu des pages." }
+        ],
+        "faqs": [
+          { "question": "Puis-je commencer la numérotation par un autre nombre que un ?", "answer": "Définissez la valeur de départ si l’option est proposée, puis vérifiez la première page numérotée." },
+          { "question": "Puis-je laisser la couverture sans numéro imprimé ?", "answer": "Utilisez l’option de couverture si elle apparaît dans l’outil. Après le traitement, contrôlez le premier numéro visible et la suite." },
+          { "question": "Où le numéro de page peut-il être placé ?", "answer": "Choisissez parmi les positions proposées dans l’espace de travail, comme les alignements disponibles en en-tête ou en pied de page." },
+          { "question": "Les numéros peuvent-ils couvrir du texte existant ?", "answer": "Ils peuvent chevaucher le contenu si la position choisie est occupée. Vérifiez les pages avec en-têtes, pieds de page ou texte dense et ajustez la position." },
+          { "question": "L’ajout de numéros modifie-t-il le PDF d’origine ?", "answer": "Non. L’outil crée une copie numérotée distincte et ne remplace pas le PDF source." },
+          { "question": "Les numéros sont-ils ajoutés automatiquement à chaque page ?", "answer": "Le résultat suit les réglages de pages et de couverture choisis. Vérifiez les pages concernées et la séquence." }
+        ]
+      },
+      "watermark": {
+        "introHeading": "Ajouter un filigrane textuel à un PDF",
+        "intro": "Ajoutez un filigrane textuel visible aux pages PDF. Réglez son texte, sa couleur, son angle, son opacité et les pages proposées. Un filigrane ne chiffre ni ne caviarde le contenu du document.",
+        "stepsHeading": "Ajouter un filigrane textuel en trois étapes",
+        "steps": [
+          { "title": "Sélectionner le PDF", "description": "Ouvrez le document auquel vous souhaitez ajouter un texte visible." },
+          { "title": "Régler le texte et l’apparence", "description": "Saisissez le texte du filigrane et ajustez la couleur, l’angle, l’opacité et les pages disponibles." },
+          { "title": "Appliquer et vérifier", "description": "Créez le PDF filigrané et vérifiez que la marque reste lisible sans masquer le contenu important." }
+        ],
+        "faqs": [
+          { "question": "Puis-je utiliser une image de logo comme filigrane ?", "answer": "L’outil ClickPDF ajoute des filigranes textuels et ne propose pas de logo image. Pour cela, choisissez un outil qui prend explicitement en charge les marques illustrées." },
+          { "question": "Le filigrane peut-il apparaître uniquement sur certaines pages ?", "answer": "Choisissez les pages proposées dans l’espace de travail avant l’application, puis vérifiez dans le résultat celles qui portent la marque." },
+          { "question": "Quels réglages d’apparence sont disponibles pour le texte ?", "answer": "L’outil propose des réglages comme la couleur, l’angle et l’opacité. Utilisez les commandes visibles dans l’espace de travail." },
+          { "question": "Un filigrane masque-t-il ou supprime-t-il le contenu d’origine ?", "answer": "Non. Une marque textuelle visible n’est ni un caviardage ni une suppression sécurisée ; le contenu sous-jacent peut rester lisible ou extractible." },
+          { "question": "Un filigrane clair reste-t-il visible sur tous les fonds ?", "answer": "La visibilité dépend de la couleur, de l’opacité et du contenu de la page. Vérifiez des pages aux fonds différents avant le partage." },
+          { "question": "Le PDF d’origine sera-t-il modifié ?", "answer": "Non. L’application du filigrane crée un PDF de sortie séparé. Gardez la source si vous avez besoin d’une copie sans marque." }
+        ]
+      },
+      "pdf-to-text": {
+        "introHeading": "Extraire un PDF en TXT ou Markdown",
+        "intro": "L’outil extrait le texte sélectionnable d’un PDF en TXT ou Markdown. Les pages scannées uniquement sous forme d’image nécessitent d’abord un OCR ; vérifiez les tableaux complexes et l’ordre de lecture.",
+        "stepsHeading": "Extraire le texte d’un PDF en trois étapes",
+        "steps": [
+          { "title": "Ouvrir un PDF avec du texte", "description": "Sélectionnez le document dont vous souhaitez extraire le texte sélectionnable." },
+          { "title": "Choisir le format de sortie", "description": "Choisissez TXT ou Markdown parmi les formats proposés dans l’espace d’extraction." },
+          { "title": "Vérifier et exporter le texte", "description": "Examinez le résultat extrait, puis copiez-le ou téléchargez le fichier choisi." }
+        ],
+        "faqs": [
+          { "question": "PDF to Text peut-il lire une page qui est uniquement un scan ?", "answer": "Les pages uniquement en image ne contiennent pas de texte sélectionnable pour cet extracteur. Lancez d’abord un OCR séparé si vous devez reconnaître le texte." },
+          { "question": "Dois-je choisir TXT ou Markdown ?", "answer": "TXT est du texte brut ; Markdown peut conserver une structure simple comme les titres et les listes lorsqu’elle peut être déduite. Vérifiez la mise en page." },
+          { "question": "Les tableaux garderont-ils exactement leurs colonnes ?", "answer": "Pas toujours. Les tableaux complexes, pages à plusieurs colonnes et ordres de lecture inhabituels peuvent nécessiter une correction manuelle." },
+          { "question": "Puis-je copier le texte sans télécharger de fichier ?", "answer": "Oui. Utilisez la commande de copie dans l’espace de travail ou téléchargez le résultat TXT ou Markdown proposé." },
+          { "question": "L’extraction modifie-t-elle le PDF ?", "answer": "Non. L’extraction crée ou copie un résultat texte séparé et ne remplace pas le document source." },
+          { "question": "Pourquoi la durée d’extraction varie-t-elle entre les PDF ?", "answer": "Le nombre de pages, la structure du document et la mémoire du navigateur influencent le traitement. Les documents riches en images peuvent être plus longs." }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "Convertir un PDF en Word DOCX modifiable",
+        "intro": "La conversion par défaut produit du texte modifiable. La solution de repli en images privilégie l’apparence des pages plutôt que le texte modifiable ; les scans nécessitent d’abord un OCR.",
+        "stepsHeading": "Convertir un PDF en Word en trois étapes",
+        "steps": [
+          { "title": "Sélectionner le PDF", "description": "Ajoutez le PDF à convertir en fichier DOCX." },
+          { "title": "Choisir le mode de conversion", "description": "Gardez le texte modifiable par défaut ; choisissez la solution de repli en images uniquement si l’apparence des pages prime sur la modification du texte." },
+          { "title": "Télécharger et vérifier le DOCX", "description": "Ouvrez le résultat dans Word ou un éditeur compatible et contrôlez le texte, les sauts de page et la mise en forme." }
+        ],
+        "faqs": [
+          { "question": "Le document Word converti sera-t-il modifiable ?", "answer": "Le texte modifiable est le mode par défaut. La mise en forme et l’ordre de lecture peuvent changer ; vérifiez le DOCX dans un traitement de texte." },
+          { "question": "Que fait la solution de repli en images ?", "answer": "Cette option place des images de page dans le DOCX pour privilégier l’apparence. Ces images ne sont pas du texte Word modifiable." },
+          { "question": "Les PDF scannés deviennent-ils automatiquement des mots modifiables ?", "answer": "Les scans uniquement en image nécessitent un OCR avant l’extraction du texte. Sans texte reconnu, la conversion ne peut pas produire des mots modifiables de façon fiable." },
+          { "question": "Les tableaux et colonnes gardent-ils leur mise en page d’origine ?", "answer": "Les mises en page complexes peuvent changer dans Word. Vérifiez les tableaux, colonnes, en-têtes et sauts de page du fichier généré." },
+          { "question": "La conversion remplace-t-elle mon PDF ?", "answer": "Non. L’outil crée un DOCX séparé et laisse le PDF source inchangé." },
+          { "question": "Puis-je convertir un gros PDF sur un téléphone ?", "answer": "Cela dépend de la mémoire du navigateur et du document. Les gros fichiers peuvent mieux fonctionner sur un appareil disposant de plus de mémoire." }
         ]
       }
     }
