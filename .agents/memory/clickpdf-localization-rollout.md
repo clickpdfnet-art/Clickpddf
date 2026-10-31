@@ -15,11 +15,11 @@ For legal content, all six public pages should be available in all 21 languages,
 
 **How to apply:** keep route and modal wording aligned, including the Disclaimer, and retain the existing localized footer labels.
 
-When adding localized SEO content, extend the existing locale object rather than appending another object with the same JSON key. JavaScript silently keeps the later duplicate key, which can hide or discard a locale’s earlier tool entries.
+When editing localized SEO JSON, use locale-scoped patch context; generic repeated tool anchors can place copy under the wrong locale. Extend existing locale objects and check for duplicate keys, which normal JSON parsing may silently accept.
 
-**Why:** a staged batch edit once introduced repeated locale keys; ordinary JSON parsing did not report the duplicate, while the last object replaced prior translations.
+**Why:** a staged batch edit once introduced repeated locale keys, and a later context-free insertion matched an earlier tool key in the file. Ordinary JSON parsing can hide duplicate keys, and misplaced copy can silently replace valid translations.
 
-**How to apply:** after editing the locale bundle, verify that each locale key occurs once and that the expected tool-language pairs and generated routes still match.
+**How to apply:** anchor changes to the target locale and tool, then parse with duplicate-key detection and verify exact tool-language pairs and generated routes before building.
 
 Source-level translations alone do not prove a localized SEO page is complete: translated tool content and its localized title/description must both appear in the generated HTML and sitemap.
 
