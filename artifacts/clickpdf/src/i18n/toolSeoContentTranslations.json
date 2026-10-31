@@ -135,6 +135,42 @@
           { "question": "解除すると保護された元ファイルは変更されますか？", "answer": "いいえ。解除後のPDFは別の出力ファイルです。保護された入力ファイルを残すかどうかはご自身で判断できます。" },
           { "question": "ファイルの内容は文書サーバーに送信されますか？", "answer": "対応するファイル処理はブラウザー内で行われます。ただし、ウェブページのリソースや有効になっている第三者サービスへの通信は発生する場合があります。" }
         ]
+      },
+      "pdf-to-text": {
+        "introHeading": "選択可能なPDFテキストをTXTまたはMarkdownに抽出",
+        "intro": "PDF内の選択できる文字をTXTまたはMarkdownとして書き出します。画像だけのスキャンページには先にOCRが必要です。複雑な表や読み順は変わることがあるため、抽出結果を確認してください。",
+        "stepsHeading": "PDFからテキストを3つの手順で抽出",
+        "steps": [
+          { "title": "テキストを含むPDFを開く", "description": "選択可能な文字を取り出したいPDFをワークスペースに追加します。" },
+          { "title": "出力形式を選ぶ", "description": "テキスト抽出ワークスペースで利用できるTXTまたはMarkdownを選択します。" },
+          { "title": "結果を確認して出力", "description": "抽出された内容を確認し、コピーするか選択した形式でダウンロードします。" }
+        ],
+        "faqs": [
+          { "question": "スキャン画像だけのPDFからテキストを抽出できますか？", "answer": "画像だけのページには、この抽出機能で選択できるテキストがありません。文字を認識するには、先に別のOCR処理を行ってください。" },
+          { "question": "TXTとMarkdownのどちらを選べばよいですか？", "answer": "TXTはプレーンテキストです。Markdownは見出しやリストなど推測できる簡単な構造を保持できます。配置の変化を確認してください。" },
+          { "question": "表の列は元の配置どおりに残りますか？", "answer": "必ずしもそうではありません。複雑な表、複数段組み、特殊な読み順は、抽出後に手作業で整える必要がある場合があります。" },
+          { "question": "ダウンロードせずに抽出テキストをコピーできますか？", "answer": "はい。ワークスペースのコピー操作を使うか、利用できるTXTまたはMarkdownをダウンロードしてください。" },
+          { "question": "テキスト抽出で元のPDFは変更されますか？", "answer": "いいえ。別のテキスト結果を作成またはコピーするだけで、元のPDFは上書きされません。" },
+          { "question": "PDFによって抽出時間が異なるのはなぜですか？", "answer": "ページ数、文書構造、ブラウザーのメモリが処理に影響します。画像の多い文書は、テキスト抽出だけでも時間がかかる場合があります。" }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "PDFのテキストを編集できるWordファイルに変換",
+        "intro": "標準の変換では編集可能なテキストをDOCXにします。ページの見た目を優先する場合は、任意の画像フォールバックを選べますが、ページ画像はWordの編集可能なテキストではありません。複雑な書式はWordで確認してください。",
+        "stepsHeading": "PDFを編集可能なWordファイルにする3つの手順",
+        "steps": [
+          { "title": "PDFを選択", "description": "DOCXに変換したいPDFをワークスペースに追加します。" },
+          { "title": "変換方法を選ぶ", "description": "通常は編集可能なテキスト変換を使います。編集よりページの見た目を優先する場合だけ、明示された画像フォールバックを選択します。" },
+          { "title": "DOCXを保存して確認", "description": "結果をダウンロードし、Wordまたは互換エディターでテキスト、改ページ、書式を確認します。" }
+        ],
+        "faqs": [
+          { "question": "変換したWord文書は編集できますか？", "answer": "標準の変換方法は編集可能なテキストです。書式や読み順が変わる場合があるため、ワープロでDOCXを確認してください。" },
+          { "question": "画像フォールバックを選ぶとどうなりますか？", "answer": "任意の画像フォールバックはページ画像をDOCXに配置し、見た目を優先します。画像は編集可能なWordテキストとは異なります。" },
+          { "question": "スキャンPDFから自動で編集可能な文字を作れますか？", "answer": "画像だけのスキャンは文字を取り出す前にOCRが必要です。文字認識なしでは、スキャンから編集可能な語句を確実に作れません。" },
+          { "question": "表や段組みは元のレイアウトを保ちますか？", "answer": "複雑なレイアウトはWordに正確に変換されない場合があります。生成されたファイルで表、段組み、ヘッダー、改ページを確認してください。" },
+          { "question": "変換で元のPDFは上書きされますか？", "answer": "いいえ。ツールはDOCXを別ファイルとして作成し、元のPDFは変更しません。" },
+          { "question": "スマートフォンで大きなPDFを変換できますか？", "answer": "ファイルやブラウザーのメモリによります。大きなファイルは、利用可能なメモリが多いデバイスのほうが処理しやすい場合があります。" }
+        ]
       }
     }
   },
@@ -274,6 +310,42 @@
           { "question": "کیا unlock کرنے سے اصل protected فائل تبدیل ہوتی ہے؟", "answer": "نہیں۔ ٹول unlocked نتیجہ الگ فائل کے طور پر بناتا ہے؛ اصل protected فائل برقرار رہتی ہے۔" },
           { "question": "کیا فائل کا مواد document server کو بھیجا جاتا ہے؟", "answer": "موزوں فائل processing براؤزر میں ہوتی ہے۔ ویب پیج کے resources اور فعال third-party services کی درخواستیں پھر بھی ہو سکتی ہیں۔" }
         ]
+      },
+      "pdf-to-text": {
+        "introHeading": "منتخب PDF متن کو TXT یا Markdown میں نکالیں",
+        "intro": "PDF میں وہ متن نکالیں جسے منتخب کیا جا سکتا ہو اور اسے TXT یا Markdown کے طور پر محفوظ کریں۔ صرف تصاویر والے scanned صفحات کے لیے پہلے OCR درکار ہے۔ پیچیدہ tables یا پڑھنے کی ترتیب بدل سکتی ہے، اس لیے نتیجہ چیک کریں۔",
+        "stepsHeading": "PDF سے متن نکالنے کے تین مراحل",
+        "steps": [
+          { "title": "متن والی PDF کھولیں", "description": "وہ PDF ورک اسپیس میں شامل کریں جس میں سے منتخب کیا جا سکنے والا متن نکالنا ہے۔" },
+          { "title": "نتیجے کا فارمیٹ منتخب کریں", "description": "text extraction ورک اسپیس میں دستیاب TXT یا Markdown منتخب کریں۔" },
+          { "title": "متن دیکھیں اور برآمد کریں", "description": "نکلا ہوا متن پڑھیں، پھر اسے کاپی کریں یا منتخب فارمیٹ کی فائل ڈاؤن لوڈ کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا صرف scanned image والی PDF سے متن نکل سکتا ہے؟", "answer": "تصویر والے صفحے میں اس extractor کے لیے منتخب کیا جا سکنے والا متن نہیں ہوتا۔ تصویر سے حروف پہچاننے کے لیے پہلے الگ OCR چلائیں۔" },
+          { "question": "TXT اور Markdown میں سے کون سا فارمیٹ چنوں؟", "answer": "TXT سادہ متن ہے۔ Markdown وہاں headings اور lists جیسی بنیادی ساخت رکھ سکتا ہے جہاں اسے پہچانا جا سکے۔ نکلا ہوا layout ضرور دیکھیں۔" },
+          { "question": "کیا tables کے کالم بالکل اصل ترتیب میں رہیں گے؟", "answer": "ضروری نہیں۔ پیچیدہ tables، کئی کالم والے صفحات یا غیرمعمولی reading order کو نکالنے کے بعد دستی طور پر درست کرنا پڑ سکتا ہے۔" },
+          { "question": "کیا فائل ڈاؤن لوڈ کیے بغیر متن copy کر سکتا ہوں؟", "answer": "جی ہاں۔ ورک اسپیس کا copy control استعمال کریں یا دستیاب TXT یا Markdown فائل ڈاؤن لوڈ کریں۔" },
+          { "question": "کیا متن نکالنے سے اصل PDF بدل جاتی ہے؟", "answer": "نہیں۔ الگ متن بنایا یا copy کیا جاتا ہے؛ اصل PDF اووررائٹ نہیں ہوتی۔" },
+          { "question": "مختلف PDFs سے متن نکالنے کا وقت مختلف کیوں ہوتا ہے؟", "answer": "صفحات کی تعداد، دستاویز کی ساخت اور براؤزر میموری رفتار پر اثر انداز ہوتے ہیں۔ زیادہ تصاویر والی PDF میں بھی وقت لگ سکتا ہے۔" }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "PDF متن کو قابلِ تدوین Word فائل میں بدلیں",
+        "intro": "معمول کا طریقہ PDF کے متن کو قابلِ تدوین DOCX میں تبدیل کرتا ہے۔ اگر صفحے کی شکل زیادہ اہم ہو تو اختیاری image fallback منتخب کریں، مگر اس سے DOCX میں page images آئیں گی، قابلِ تدوین Word متن نہیں۔ پیچیدہ formatting کو Word میں دیکھیں۔",
+        "stepsHeading": "PDF کو Word فائل میں بدلنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF دستاویز منتخب کریں", "description": "وہ PDF شامل کریں جسے DOCX میں تبدیل کرنا ہے۔" },
+          { "title": "تبدیلی کا طریقہ چنیں", "description": "عام طور پر قابلِ تدوین متن والا طریقہ استعمال کریں۔ image fallback صرف تب منتخب کریں جب قابلِ تدوین متن سے زیادہ صفحے کی ظاہری شکل اہم ہو۔" },
+          { "title": "DOCX ڈاؤن لوڈ اور چیک کریں", "description": "نتیجہ محفوظ کریں، پھر Word یا compatible editor میں متن، page breaks اور formatting دیکھیں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا بننے والی Word دستاویز قابلِ تدوین ہوگی؟", "answer": "عام طریقے میں متن قابلِ تدوین ہوتا ہے۔ formatting اور پڑھنے کی ترتیب بدل سکتی ہے، اس لیے DOCX کو Word میں چیک کریں۔" },
+          { "question": "image fallback کیا کرتا ہے؟", "answer": "اختیاری image fallback صفحے کی ظاہری شکل کو ترجیح دیتے ہوئے DOCX میں page images رکھتا ہے۔ یہ تصاویر قابلِ تدوین Word متن نہیں ہوتیں۔" },
+          { "question": "کیا scanned PDF خودکار طور پر قابلِ تدوین الفاظ میں بدل سکتی ہے؟", "answer": "صرف تصاویر والے scanned صفحات کا متن نکالنے سے پہلے OCR ضروری ہے۔ متن پہچانے بغیر scan سے قابلِ تدوین الفاظ بننے کی ضمانت نہیں۔" },
+          { "question": "کیا tables اور کالم اصل layout برقرار رکھیں گے؟", "answer": "پیچیدہ layout Word میں بالکل ویسا منتقل نہ ہو۔ بننے والی فائل میں tables، کالم، headers اور page breaks چیک کریں۔" },
+          { "question": "کیا تبدیلی اصل PDF کو اووررائٹ کرے گی؟", "answer": "نہیں۔ ٹول الگ DOCX بناتا ہے اور اصل PDF تبدیل نہیں ہوتی۔" },
+          { "question": "کیا فون پر بڑی PDF تبدیل ہو سکتی ہے؟", "answer": "یہ دستاویز اور براؤزر میموری پر منحصر ہے۔ زیادہ دستیاب میموری والے ڈیوائس پر بڑی فائل بہتر چل سکتی ہے۔" }
+        ]
       }
     }
   },
@@ -412,6 +484,42 @@
           { "question": "Kann ich die geschützte Datei vor dem Öffnen in einem normalen PDF-Viewer lesen?", "answer": "Vor dem Öffnen ist die eigene Schutzdatei keine normale PDF. Nutzen Sie zuerst ClickPDF Unlock und prüfen Sie die Ausgabe danach in einem kompatiblen Viewer." },
           { "question": "Ändert das Öffnen die geschützte Quelldatei?", "answer": "Nein. Das Tool erstellt eine separate geöffnete PDF-Datei. Die geschützte Eingabedatei bleibt erhalten." },
           { "question": "Werden die Dateiinhalte an einen Dokumentserver gesendet?", "answer": "Die unterstützte Dateiverarbeitung läuft im Browser. Die Webseite kann dennoch Ressourcen und aktivierte Drittanbieterdienste anfordern." }
+        ]
+      },
+      "pdf-to-text": {
+        "introHeading": "Auswählbaren PDF-Text als TXT oder Markdown extrahieren",
+        "intro": "Extrahieren Sie auswählbaren Text aus einer PDF als TXT oder Markdown. Für gescannte Seiten, die nur aus Bildern bestehen, ist vorher OCR erforderlich. Komplexe Tabellen oder die Lesereihenfolge können sich ändern; prüfen Sie daher das Ergebnis.",
+        "stepsHeading": "PDF-Text in drei Schritten extrahieren",
+        "steps": [
+          { "title": "PDF mit Text öffnen", "description": "Fügen Sie die PDF hinzu, aus der Sie auswählbaren Text extrahieren möchten." },
+          { "title": "Ausgabeformat wählen", "description": "Wählen Sie im Arbeitsbereich für die Textextraktion TXT oder Markdown aus den verfügbaren Formaten." },
+          { "title": "Text prüfen und exportieren", "description": "Prüfen Sie das extrahierte Ergebnis und kopieren Sie es oder laden Sie die gewählte Textdatei herunter." }
+        ],
+        "faqs": [
+          { "question": "Kann PDF zu Text reine Scan-Seiten lesen?", "answer": "Bildseiten enthalten für diesen Extraktor keinen auswählbaren Text. Wenn Sie Text aus einem Scan benötigen, führen Sie zuerst separat OCR aus." },
+          { "question": "Sollte ich TXT oder Markdown wählen?", "answer": "TXT ist reiner Text. Markdown kann einfache erkannte Strukturen wie Überschriften und Listen erhalten. Prüfen Sie das Ergebnis auf Layoutänderungen." },
+          { "question": "Bleiben Tabellenspalten nach dem Extrahieren exakt erhalten?", "answer": "Nicht immer. Komplexe Tabellen, mehrspaltige Seiten und ungewöhnliche Lesereihenfolgen müssen im extrahierten Text möglicherweise manuell korrigiert werden." },
+          { "question": "Kann ich den extrahierten Text kopieren, ohne eine Datei herunterzuladen?", "answer": "Ja. Nutzen Sie die Kopierfunktion im Arbeitsbereich oder laden Sie die verfügbare TXT- oder Markdown-Ausgabe herunter." },
+          { "question": "Ändert die Textextraktion meine PDF?", "answer": "Nein. Es wird ein separates Textergebnis erstellt oder kopiert; die Quelldatei wird nicht überschrieben." },
+          { "question": "Warum dauert die Extraktion je nach PDF unterschiedlich lange?", "answer": "Seitenzahl, Dokumentstruktur und verfügbarer Browserspeicher beeinflussen die Verarbeitung. Bildreiche Dokumente können länger benötigen, auch wenn nur Text extrahiert wird." }
+        ]
+      },
+      "pdf-to-word": {
+        "introHeading": "PDF-Text in ein bearbeitbares Word-Dokument umwandeln",
+        "intro": "Die Standardumwandlung erzeugt bearbeitbaren Text in einer DOCX-Datei. Wenn das Aussehen der Seiten wichtiger ist, können Sie optional den Bild-Fallback wählen; die Seitenbilder sind jedoch kein bearbeitbarer Word-Text. Prüfen Sie komplexe Formatierungen in Word.",
+        "stepsHeading": "PDF in drei Schritten in eine bearbeitbare Word-Datei umwandeln",
+        "steps": [
+          { "title": "PDF-Dokument auswählen", "description": "Fügen Sie die PDF hinzu, die Sie in eine DOCX-Datei umwandeln möchten." },
+          { "title": "Umwandlungsweg wählen", "description": "Nutzen Sie standardmäßig die Umwandlung in bearbeitbaren Text. Wählen Sie den ausdrücklich gekennzeichneten Bild-Fallback nur, wenn das Seitenbild wichtiger ist als bearbeitbarer Text." },
+          { "title": "DOCX herunterladen und prüfen", "description": "Öffnen Sie das Ergebnis in Word oder einem kompatiblen Editor und prüfen Sie Text, Seitenumbrüche und Formatierung." }
+        ],
+        "faqs": [
+          { "question": "Ist das umgewandelte Word-Dokument bearbeitbar?", "answer": "Die Standardumwandlung erstellt bearbeitbaren Text. Formatierung und Lesereihenfolge können sich ändern; prüfen Sie die DOCX-Datei in einem Textverarbeitungsprogramm." },
+          { "question": "Was bewirkt der Bild-Fallback?", "answer": "Der optionale Bild-Fallback priorisiert das Aussehen der Seiten und fügt Seitenbilder in die DOCX-Datei ein. Diese Bilder sind nicht dasselbe wie bearbeitbarer Word-Text." },
+          { "question": "Lassen sich gescannte PDFs automatisch in bearbeitbaren Text umwandeln?", "answer": "Für Scans, die nur aus Bildern bestehen, ist vor der Textextraktion OCR nötig. Ohne erkannte Zeichen lässt sich aus dem Scan kein verlässlicher bearbeitbarer Text erzeugen." },
+          { "question": "Bleiben Tabellen und Spalten im ursprünglichen Layout?", "answer": "Komplexe Layouts lassen sich möglicherweise nicht exakt nach Word übertragen. Prüfen Sie Tabellen, Spalten, Kopfzeilen und Seitenumbrüche in der Ausgabedatei." },
+          { "question": "Überschreibt die Umwandlung meine PDF?", "answer": "Nein. Das Tool erstellt eine separate DOCX-Datei und lässt die Original-PDF unverändert." },
+          { "question": "Kann ich eine große PDF auf dem Smartphone umwandeln?", "answer": "Das hängt von Dokument und Browserspeicher ab. Große Dateien funktionieren möglicherweise besser auf einem Gerät mit mehr verfügbarem Speicher." }
         ]
       }
     }

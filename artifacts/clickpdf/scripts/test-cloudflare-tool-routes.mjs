@@ -139,7 +139,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 21, 'only the 21 complete localized routes for the seven translated tools are exposed');
+  assert.equal(localizedRoutes.length, 27, 'only the 27 complete localized routes for the nine translated tools are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {
@@ -164,7 +164,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
 
 test('untranslated tool-language pairs are not exposed as localized routes', async () => {
   const env = { ASSETS: createAssetsBinding() };
-  for (const routePath of ['/hi/tools/compress-pdf/', '/de/tools/pdf-to-word/']) {
+  for (const routePath of ['/hi/tools/compress-pdf/', '/de/tools/pdf-to-excel/']) {
     const response = await worker.fetch(
       new Request(`https://www.clickpdf.net${routePath}`),
       env,

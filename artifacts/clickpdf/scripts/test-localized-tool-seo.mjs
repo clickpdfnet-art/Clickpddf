@@ -136,11 +136,11 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
-      'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
-      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
-      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
+      'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
+      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
+      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
     ],
-    'only the eighteen new draft pages and three pre-existing localized Merge pages are complete',
+    'only the twenty-four new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -206,6 +206,21 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
           ur: 'عام password-protected PDFs',
         }[locale];
         assert.ok(contentText.includes(scopeLimit), `${locale} states that arbitrary standard PDFs are not supported`);
+      }
+      if (toolId === 'pdf-to-text') {
+        assert.match(contentText, /TXT[\s\S]*Markdown/i, `${locale} documents both text export formats`);
+        assert.match(contentText, /OCR/i, `${locale} explains that image-only scans need OCR`);
+      }
+      if (toolId === 'pdf-to-word') {
+        const conversionMarkers = {
+          de: ['bearbeitbaren Text', 'Bild-Fallback'],
+          ja: ['編集可能なテキスト', '画像フォールバック'],
+          ur: ['قابلِ تدوین متن', 'image fallback'],
+        }[locale];
+        for (const marker of conversionMarkers) {
+          assert.ok(contentText.includes(marker), `${locale} distinguishes editable text from the optional image fallback`);
+        }
+        assert.match(contentText, /OCR/i, `${locale} explains OCR needs for scanned pages`);
       }
 
       const allQuestions = localizedQuestionsByLocale.get(locale) || [];
@@ -300,9 +315,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 21);
-  assert.equal(routePaths.length, 42, '42 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 399, '399 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 27);
+  assert.equal(routePaths.length, 48, '48 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 393, '393 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

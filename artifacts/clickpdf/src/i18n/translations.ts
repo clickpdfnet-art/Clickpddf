@@ -1520,13 +1520,13 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
   },
   'pdf-to-text': {
     en: { title: 'PDF to Text / Markdown', description: 'Extract raw text, structure, and readable content from your PDF documents.' },
-    ur: { title: 'PDF سے ٹیکسٹ حاصل کریں', description: 'دستاویز سے خالص متن، پیراگراف اور ساخت نکال کر کاپی کریں۔' },
+    ur: { title: 'PDF سے ٹیکسٹ حاصل کریں', description: 'منتخب PDF متن کو TXT یا Markdown میں نکالیں؛ scanned تصاویر کے لیے پہلے OCR درکار ہے۔' },
     hi: { title: 'PDF से टेक्स्ट / मार्कडाउन', description: 'अपने PDF दस्तावेज़ों से कच्चा टेक्स्ट और पठनीय सामग्री निकालें।' },
     ar: { title: 'تحويل PDF إلى نص', description: 'استخراج النصوص الصافية والمحتوى القابل للقراءة من مستندات PDF.' },
     zh: { title: 'PDF 转纯文本 / Markdown', description: '从 PDF 文档中提取格式化文本结构和段落内容。' },
-    ja: { title: 'PDFテキスト抽出', description: 'PDFドキュメントからプレーンテキストやMarkdown形式で文章を抽出します。' },
+    ja: { title: 'PDFテキスト抽出', description: '選択可能なPDFテキストをTXTまたはMarkdownで抽出します。画像だけのスキャンにはOCRが必要です。' },
     tl: { title: 'PDF patungong Teksto', description: 'Mag-extract ng teksto at nababasang nilalaman mula sa iyong mga PDF.' },
-    de: { title: 'PDF zu Text / Markdown', description: 'Extrahieren Sie formatierten Text und lesbare Inhalte aus Ihren PDFs.' },
+    de: { title: 'PDF zu Text / Markdown', description: 'Extrahieren Sie auswählbaren PDF-Text als TXT oder Markdown; Scans benötigen OCR, komplexe Layouts sollten geprüft werden.' },
     fr: { title: 'PDF en Texte / Markdown', description: 'Extrayez le texte brut et le contenu structuré de vos fichiers PDF.' },
     es: { title: 'PDF a Texto / Markdown', description: 'Extrae texto sin formato y estructura legible de tus documentos PDF.' },
     it: { title: 'PDF in Testo / Markdown', description: 'Estrai testo formattato e contenuti leggibili dai tuoi documenti PDF.' },
@@ -1540,6 +1540,11 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     sv: { title: 'PDF till text / Markdown', description: 'Extrahera råtext och läsbart innehåll från dina PDF-dokument.' },
     id: { title: 'PDF ke Teks / Markdown', description: 'Ekstrak teks mentah dan konten terstruktur dari dokumen PDF Anda.' },
     vi: { title: 'PDF sang Văn bản', description: 'Trích xuất văn bản thuần và nội dung có thể đọc từ tài liệu PDF của bạn.' },
+  },
+  'pdf-to-word': {
+    de: { title: 'PDF in Word umwandeln', description: 'Konvertieren Sie PDF-Text in eine bearbeitbare DOCX-Datei. Das Layout kann sich ändern; prüfen Sie die Ausgabe in Word.' },
+    ja: { title: 'PDFをWord（DOCX）に変換', description: 'PDFテキストを編集可能なDOCXに変換します。レイアウトが変わる場合があるため、Wordで出力を確認してください。' },
+    ur: { title: 'PDF کو Word (DOCX) میں تبدیل کریں', description: 'PDF متن کو قابلِ تدوین DOCX میں بدلیں؛ layout بدل سکتا ہے، اس لیے Word میں نتیجہ چیک کریں۔' },
   },
   sign: {
     en: { title: 'Sign PDF', description: 'Draw, type, or upload a visual signature mark onto PDF pages in your browser.' },
