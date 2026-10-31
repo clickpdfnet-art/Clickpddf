@@ -1291,13 +1291,13 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
   compress: {
     en: { title: 'Compress PDF', description: 'Reduce PDF file size in your browser with adjustable compression and visual quality.' },
     ur: { title: 'PDF سائز کم کریں (کمپریس)', description: 'PDF کا سائز کم کریں؛ کمی اصل فائل اور منتخب سیٹنگ پر منحصر ہے۔ محفوظ کرنے سے پہلے متن اور تصاویر کی وضاحت چیک کریں۔' },
-    hi: { title: 'PDF कंप्रेस करें', description: 'गुणवत्ता खोए बिना ब्राउज़र में सीधे PDF फ़ाइल का आकार कम करें।' },
-    ar: { title: 'ضغط PDF', description: 'تقليل حجم ملف PDF مباشرة في المتصفح دون فقدان الجودة.' },
+    hi: { title: 'PDF कंप्रेस करें', description: 'ब्राउज़र में PDF का आकार कम करें; परिणाम मूल फ़ाइल और चुनी गई सेटिंग पर निर्भर करता है।' },
+    ar: { title: 'ضغط PDF', description: 'قلّل حجم PDF في المتصفح؛ تعتمد النتيجة والجودة على الملف الأصلي والإعدادات المختارة.' },
     zh: { title: '压缩 PDF', description: '在浏览器中直接优化并大幅减小 PDF 文件大小，保持清晰度。' },
     ja: { title: 'PDF圧縮', description: 'ブラウザーでPDFのサイズを圧縮します。削減量や画質は元ファイルと設定によって異なるため、保存前に結果を確認してください。' },
     tl: { title: 'I-compress ang PDF', description: 'Bawasan ang laki ng PDF file sa browser nang walang pagkawala ng kalidad.' },
     de: { title: 'PDF komprimieren', description: 'Reduzieren Sie die PDF-Dateigröße im Browser. Ergebnis und Bildqualität hängen von der Quelldatei und der Einstellung ab.' },
-    fr: { title: 'Compresser PDF', description: 'Réduisez la taille de vos fichiers PDF directement dans le navigateur sans perte.' },
+    fr: { title: 'Compresser PDF', description: 'Réduisez la taille du PDF dans le navigateur ; le résultat et la qualité dépendent du fichier d’origine et des réglages choisis.' },
     es: { title: 'Comprimir PDF', description: 'Optimiza y reduce el tamaño de tus archivos PDF en el navegador sin perder calidad.' },
     it: { title: 'Comprimi PDF', description: 'Ottimizza e riduci le dimensioni del file PDF direttamente nel browser senza perdite.' },
     no: { title: 'Komprimer PDF', description: 'Reduser PDF-filstørrelsen direkte i nettleseren uten tap av kvalitet.' },
@@ -1555,6 +1555,16 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     hi: { title: 'PDF को PowerPoint (PPTX) में बदलें', description: 'PDF पृष्ठों से PPTX स्लाइड बनाएं। मूल प्रस्तुति की संरचना या एनिमेशन वापस नहीं आते; लेआउट जाँचें।' },
     ar: { title: 'تحويل PDF إلى PowerPoint (PPTX)', description: 'حوّل صفحات PDF إلى شرائح PPTX؛ لا تُستعاد بنية العرض الأصلي أو حركاته، لذا راجع التخطيط.' },
     fr: { title: 'Convertir un PDF en PowerPoint (PPTX)', description: 'Convertissez les pages en diapositives PPTX. La structure et les animations d’origine ne sont pas récupérées ; vérifiez le résultat.' },
+  },
+  'pdf-to-image': {
+    hi: { title: 'PDF पृष्ठों को PNG छवियों में बदलें', description: 'PDF पृष्ठों को PNG के रूप में निर्यात करें। चित्रों में चुना जा सकने वाला पाठ नहीं होता; लंबी फ़ाइलें अधिक मेमोरी ले सकती हैं।' },
+    ar: { title: 'تحويل صفحات PDF إلى صور PNG', description: 'صدّر صفحات PDF بصيغة PNG. لا تحتوي الصور على نص قابل للتحديد، وقد تستهلك الملفات الطويلة ذاكرة أكبر.' },
+    fr: { title: 'Convertir des pages PDF en images PNG', description: 'Exportez les pages PDF en PNG. Les images ne contiennent pas de texte sélectionnable et les longs fichiers peuvent demander plus de mémoire.' },
+  },
+  'word-to-pdf': {
+    hi: { title: 'Word DOCX को PDF में बदलें', description: 'DOCX फ़ाइल को PDF में बदलें; पुराने DOC समर्थित नहीं हैं और आउटपुट पृष्ठ चित्र होते हैं।' },
+    ar: { title: 'تحويل Word DOCX إلى PDF', description: 'حوّل ملف DOCX إلى PDF؛ لا تُقبل ملفات DOC القديمة وتُعرض صفحات الناتج كصور.' },
+    fr: { title: 'Convertir un document Word DOCX en PDF', description: 'Convertissez un fichier DOCX en PDF ; les anciens fichiers DOC ne sont pas acceptés et les pages de sortie sont des images.' },
   },
   sign: {
     en: { title: 'Sign PDF', description: 'Draw, type, or upload a visual signature mark onto PDF pages in your browser.' },
