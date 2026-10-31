@@ -523,5 +523,152 @@
         ]
       }
     }
+  },
+  "hi": {
+    "labels": {
+      "home": "मुखपृष्ठ",
+      "quickAnswer": "संक्षिप्त उत्तर",
+      "howTo": "इस्तेमाल करने का तरीका",
+      "faq": "अक्सर पूछे जाने वाले प्रश्न",
+      "relatedTools": "संबंधित PDF टूल",
+      "browseTools": "सभी ClickPDF टूल देखें",
+      "privacy": "इस टूल के बारे में"
+    },
+    "tools": {
+      "pdf-to-excel": {
+        "introHeading": "PDF तालिकाओं को XLSX में निकालें",
+        "intro": "यह टूल PDF में पढ़े जा सकने वाले तालिका-पाठ को XLSX कार्यपुस्तिका में निकालता है। स्कैन किए पृष्ठों के लिए पहले OCR की ज़रूरत हो सकती है। जटिल लेआउट में कक्ष खिसक सकते हैं, इसलिए मान और कुल जाँचें।",
+        "stepsHeading": "PDF तालिकाओं को Excel में बदलने के तीन चरण",
+        "steps": [
+          { "title": "तालिकाओं वाली PDF चुनें", "description": "ऐसा दस्तावेज़ चुनें जिसमें पढ़ने योग्य तालिका-पाठ या स्पष्ट पंक्तियाँ और कॉलम हों।" },
+          { "title": "तालिका निष्कर्षण चलाएँ", "description": "रूपांतरण शुरू करें और देखें कि टूल ने तालिका की सामग्री को किस तरह समूहित किया है।" },
+          { "title": "XLSX डाउनलोड करके जाँचें", "description": "Workbook खोलें और इस्तेमाल से पहले पंक्तियों का क्रम, कॉलम और संख्यात्मक मान जाँचें।" }
+        ],
+        "faqs": [
+          { "question": "क्या PDF to Excel स्कैन किए दस्तावेज़ से तालिका निकाल सकता है?", "answer": "स्कैन किए पेजों में निष्कर्षण के लिए चुने जा सकने वाले अक्षर नहीं हो सकते। पहले OCR की ज़रूरत पड़ सकती है; बनी हुई पंक्तियों की फिर भी जाँच करें।" },
+          { "question": "क्या स्प्रेडशीट में PDF की तालिका बिल्कुल उसी तरह रहेगी?", "answer": "बिल्कुल समान layout की गारंटी नहीं है। टूल डेटा को कार्यपुस्तिका में निकालता है, इसलिए स्तंभ, merged cells और पढ़ने का क्रम जाँचें।" },
+          { "question": "क्या PDF के मूल सूत्र Excel में वापस बनेंगे?", "answer": "नहीं। PDF में आमतौर पर दिखाए गए मान होते हैं, मूल spreadsheet के सूत्र नहीं। निकले हुए cells जाँचें और यह न मानें कि सूत्र फिर से बन गए हैं।" },
+          { "question": "क्या एक PDF से कार्यपुस्तिका में कई तालिकाएँ आ सकती हैं?", "answer": "टूल तालिका की संरचना पहचानने की कोशिश करता है, लेकिन नतीजा स्रोत PDF के layout पर निर्भर है। हर निकाली गई तालिका देखें।" },
+          { "question": "क्या रूपांतरण मेरी PDF बदल देता है?", "answer": "नहीं। परिणाम अलग XLSX कार्यपुस्तिका होती है; स्रोत PDF अपरिवर्तित रहती है।" },
+          { "question": "निकाले गए आँकड़े इस्तेमाल करने से पहले क्या जाँचूँ?", "answer": "योग, दशमलव, तारीखें, पंक्तियों का संबंध और column headings को स्रोत PDF से मिलाएँ—खासकर वित्तीय या स्कैन किए दस्तावेज़ों में।" }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "PDF पृष्ठों को PowerPoint स्लाइड में बदलें",
+        "intro": "टूल PDF पृष्ठों की सामग्री को PPTX स्लाइडों में रखता है। PDF में मूल slide master, animations, speaker notes या संपादन संरचना आम तौर पर सुरक्षित नहीं रहती; प्रस्तुति से पहले हर स्लाइड जाँचें।",
+        "stepsHeading": "PDF पृष्ठों को PowerPoint में बदलने के तीन चरण",
+        "steps": [
+          { "title": "PDF चुनें", "description": "वह PDF चुनें जिसके पृष्ठों को PowerPoint प्रस्तुति में रखना है।" },
+          { "title": "स्लाइड रूपांतरण चलाएँ", "description": "रूपांतरण शुरू करें ताकि पृष्ठ की सामग्री को PPTX फ़ाइल में व्यवस्थित किया जा सके।" },
+          { "title": "स्लाइड खोलकर जाँचें", "description": "प्रस्तुति डाउनलोड करें और PowerPoint या संगत ऐप में हर स्लाइड का पाठ, layout और editability देखें।" }
+        ],
+        "faqs": [
+          { "question": "क्या PDF में मूल PowerPoint objects सुरक्षित रहते हैं?", "answer": "आमतौर पर नहीं। PDF में मूल प्रस्तुति की संरचना, animations, speaker notes या संपादन वाले objects नहीं रहते, इसलिए बनी प्रस्तुति अलग हो सकती है।" },
+          { "question": "क्या PDF का हर पृष्ठ एक presentation slide बनेगा?", "answer": "रूपांतरण PDF पृष्ठों को PPTX में रखता है। क्रम की पुष्टि के लिए पूरी प्रस्तुति देखें।" },
+          { "question": "क्या conversion के बाद text संपादित कर सकता हूँ?", "answer": "यह इस पर निर्भर करता है कि PDF में text और graphics कैसे रखे गए थे और output में कैसे आए। आगे संपादन से पहले हर slide जाँचें।" },
+          { "question": "क्या स्लाइड का layout PDF पृष्ठ जैसा ही रहेगा?", "answer": "पृष्ठ और स्लाइड का अनुपात अलग हो सकता है, जिससे margins या सामग्री की जगह बदल सकती है। प्रस्तुति आकार में स्लाइडें देखें।" },
+          { "question": "क्या PPTX बनाने से स्रोत PDF बदलती है?", "answer": "नहीं। प्रस्तुति अलग output फ़ाइल होती है।" },
+          { "question": "लंबी PDF प्रस्तुति बनाने में समय क्यों लग सकता है?", "answer": "अधिक पृष्ठों और जटिल दृश्य सामग्री के लिए ब्राउज़र में ज़्यादा processing और memory लगती है। मोबाइल पर बड़ी फ़ाइलों को अधिक समय लग सकता है।" }
+        ]
+      }
+    }
+  },
+  "ar": {
+    "labels": {
+      "home": "الرئيسية",
+      "quickAnswer": "إجابة سريعة",
+      "howTo": "طريقة الاستخدام",
+      "faq": "الأسئلة الشائعة",
+      "relatedTools": "أدوات PDF ذات صلة",
+      "browseTools": "استكشف جميع أدوات ClickPDF",
+      "privacy": "حول هذه الأداة"
+    },
+    "tools": {
+      "pdf-to-excel": {
+        "introHeading": "استخراج جداول PDF إلى XLSX",
+        "intro": "تستخرج هذه الأداة نصوص الجداول القابلة للقراءة من PDF إلى مصنف XLSX. قد تحتاج الصفحات الممسوحة ضوئيًا إلى OCR أولاً. يمكن أن تتحرك الخلايا في التخطيطات المعقدة، لذا تحقق من القيم والمجاميع.",
+        "stepsHeading": "استخراج جداول PDF إلى Excel في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر ملف PDF يحتوي على جداول", "description": "اختر مستندًا يحتوي على نص جدول مقروء أو صفوف وأعمدة واضحة." },
+          { "title": "ابدأ استخراج الجداول", "description": "شغّل التحويل وراجع طريقة تجميع الأداة لمحتوى الجدول المكتشف." },
+          { "title": "نزّل ملف XLSX وتحقق منه", "description": "افتح المصنف وتحقق من ترتيب الصفوف ومحاذاة الأعمدة والقيم الرقمية قبل استخدامه." }
+        ],
+        "faqs": [
+          { "question": "هل يستطيع PDF to Excel استخراج الجداول من مستند ممسوح ضوئيًا؟", "answer": "قد لا تحتوي الصفحات الممسوحة على أحرف قابلة للتحديد للاستخراج. قد تحتاج إلى OCR أولاً، ثم راجع الصفوف الناتجة." },
+          { "question": "هل يحافظ جدول Excel على تخطيط PDF كما هو تمامًا؟", "answer": "لا يوجد ضمان لتطابق التخطيط تمامًا. تُستخرج البيانات إلى مصنف، لذا تحقق من الأعمدة والخلايا المدمجة وترتيب القراءة." },
+          { "question": "هل تُعاد صيغ PDF الأصلية في Excel؟", "answer": "لا. يحتوي PDF عادةً على القيم المعروضة، وليس صيغ جدول البيانات الأصلية. راجع الخلايا ولا تفترض إنشاء الصيغ من جديد." },
+          { "question": "هل يمكن أن يحتوي المصنف على أكثر من جدول من PDF واحد؟", "answer": "تحاول الأداة اكتشاف بنية الجداول، لكن النتيجة تعتمد على تخطيط PDF المصدر. افحص كل جدول مستخرج." },
+          { "question": "هل يغيّر التحويل ملف PDF الأصلي؟", "answer": "لا. الناتج مصنف XLSX منفصل، ويبقى ملف PDF المصدر دون تغيير." },
+          { "question": "ما الذي ينبغي التحقق منه قبل استخدام الأرقام المستخرجة؟", "answer": "قارن المجاميع والفواصل العشرية والتواريخ وارتباط الصفوف وعناوين الأعمدة بملف PDF المصدر، خصوصًا في المستندات المالية أو الممسوحة." }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "تحويل صفحات PDF إلى شرائح PowerPoint",
+        "intro": "تنقل الأداة محتوى صفحات PDF إلى شرائح PPTX. لا يحتفظ PDF عادةً بالقالب الرئيسي أو الحركات أو ملاحظات المتحدث أو بنية التحرير الأصلية؛ راجع كل شريحة قبل العرض.",
+        "stepsHeading": "تحويل صفحات PDF إلى PowerPoint في ثلاث خطوات",
+        "steps": [
+          { "title": "اختر ملف PDF", "description": "حدد PDF الذي تريد وضع صفحاته في عرض PowerPoint." },
+          { "title": "ابدأ تحويل الشرائح", "description": "شغّل التحويل لوضع محتوى صفحات PDF في ملف PPTX." },
+          { "title": "افتح الشرائح وراجعها", "description": "نزّل العرض وتحقق من النص والتخطيط وإمكانية التحرير في PowerPoint أو تطبيق متوافق." }
+        ],
+        "faqs": [
+          { "question": "هل يحتوي PDF على عناصر PowerPoint الأصلية؟", "answer": "غالبًا لا. لا يحتفظ PDF عادةً ببنية العرض الأصلية أو الحركات أو ملاحظات المتحدث أو عناصر التحرير، لذلك قد يختلف الملف الناتج." },
+          { "question": "هل تصبح كل صفحة PDF شريحة في العرض؟", "answer": "ينقل التحويل محتوى صفحات PDF إلى عرض PPTX. راجع ترتيب الشرائح للتأكد من تسلسل الصفحات." },
+          { "question": "هل يمكنني تعديل النص بعد التحويل؟", "answer": "تعتمد إمكانية التحرير على طريقة تمثيل النص والرسومات في PDF والناتج. افحص الشرائح قبل التخطيط لتعديلات إضافية." },
+          { "question": "هل سيطابق تخطيط الشريحة صفحة PDF تمامًا؟", "answer": "قد تختلف نسب الصفحة عن الشريحة، فتتغير الهوامش أو مواضع المحتوى. افحص الشرائح بحجم العرض." },
+          { "question": "هل يؤدي التحويل إلى PPTX إلى تعديل PDF المصدر؟", "answer": "لا. العرض التقديمي ملف ناتج منفصل." },
+          { "question": "ما الذي قد يبطئ تحويل عرض PDF طويل؟", "answer": "تتطلب الصفحات الكثيرة والمحتويات المرئية المعقدة معالجة وذاكرة أكبر في المتصفح. قد تستغرق الملفات الكبيرة وقتًا أطول على الأجهزة المحمولة." }
+        ]
+      }
+    }
+  },
+  "fr": {
+    "labels": {
+      "home": "Accueil",
+      "quickAnswer": "Réponse rapide",
+      "howTo": "Mode d’emploi",
+      "faq": "Questions fréquentes",
+      "relatedTools": "Outils PDF associés",
+      "browseTools": "Voir tous les outils ClickPDF",
+      "privacy": "À propos de cet outil"
+    },
+    "tools": {
+      "pdf-to-excel": {
+        "introHeading": "Extraire les tableaux PDF vers XLSX",
+        "intro": "Cet outil extrait le texte des tableaux lisibles d’un PDF dans un classeur XLSX. Les pages scannées peuvent nécessiter un OCR préalable. Les mises en page complexes peuvent décaler des cellules : vérifiez les valeurs et les totaux.",
+        "stepsHeading": "Extraire des tableaux PDF vers Excel en trois étapes",
+        "steps": [
+          { "title": "Choisir un PDF contenant des tableaux", "description": "Sélectionnez un document avec du texte de tableau lisible ou des lignes et colonnes clairement séparées." },
+          { "title": "Lancer l’extraction des tableaux", "description": "Démarrez la conversion et vérifiez comment l’outil a regroupé les données détectées." },
+          { "title": "Télécharger et vérifier le XLSX", "description": "Ouvrez le classeur et contrôlez l’ordre des lignes, l’alignement des colonnes et les valeurs numériques avant de l’utiliser." }
+        ],
+        "faqs": [
+          { "question": "PDF to Excel peut-il extraire des tableaux d’un document scanné ?", "answer": "Les pages scannées peuvent ne pas contenir de caractères sélectionnables. Un OCR peut être nécessaire avant l’extraction ; vérifiez ensuite les lignes obtenues." },
+          { "question": "Le tableur conservera-t-il exactement la mise en page du PDF ?", "answer": "La mise en page ne peut pas être garantie à l’identique. Les données sont extraites dans un classeur : vérifiez les colonnes, cellules fusionnées et l’ordre de lecture." },
+          { "question": "Les formules d’origine du PDF sont-elles recréées dans Excel ?", "answer": "Non. Un PDF contient généralement les valeurs affichées, pas les formules du tableur d’origine. Vérifiez les cellules et ne supposez pas que les formules sont recréées." },
+          { "question": "Un PDF peut-il produire plusieurs tableaux dans le classeur ?", "answer": "L’outil tente de détecter la structure des tableaux, mais le résultat dépend de la mise en page du PDF source. Examinez chaque tableau extrait." },
+          { "question": "La conversion modifie-t-elle mon PDF ?", "answer": "Non. Le résultat est un classeur XLSX séparé ; le PDF source reste inchangé." },
+          { "question": "Que vérifier avant d’utiliser les chiffres extraits ?", "answer": "Comparez totaux, séparateurs décimaux, dates, associations de lignes et en-têtes au PDF source, surtout pour les documents financiers ou scannés." }
+        ]
+      },
+      "pdf-to-powerpoint": {
+        "introHeading": "Convertir les pages PDF en diapositives PowerPoint",
+        "intro": "L’outil place le contenu des pages PDF dans des diapositives PPTX. Un PDF ne conserve généralement pas le masque, les animations, les notes du présentateur ni la structure modifiable d’origine ; vérifiez chaque diapositive avant la présentation.",
+        "stepsHeading": "Convertir des pages PDF en PowerPoint en trois étapes",
+        "steps": [
+          { "title": "Choisir le fichier PDF", "description": "Sélectionnez le PDF dont vous souhaitez placer les pages dans une présentation PowerPoint." },
+          { "title": "Lancer la conversion des diapositives", "description": "Démarrez la conversion pour placer le contenu des pages PDF dans un fichier PPTX." },
+          { "title": "Ouvrir et vérifier les diapositives", "description": "Téléchargez la présentation et vérifiez le texte, la mise en page et la possibilité de modifier chaque diapositive dans PowerPoint ou une application compatible." }
+        ],
+        "faqs": [
+          { "question": "Un PDF contient-il les objets PowerPoint d’origine ?", "answer": "Généralement non. Un PDF ne conserve pas le masque de diapositives, les animations, les notes du présentateur ni la structure de modification d’origine ; le fichier converti peut donc différer." },
+          { "question": "Chaque page PDF devient-elle une diapositive ?", "answer": "La conversion place le contenu des pages PDF dans une présentation PPTX. Vérifiez l’ordre des diapositives pour confirmer la séquence." },
+          { "question": "Puis-je modifier le texte après la conversion ?", "answer": "Cela dépend de la représentation du texte et des graphiques dans le PDF et dans le résultat. Vérifiez les diapositives avant de prévoir des modifications." },
+          { "question": "La mise en page des diapositives sera-t-elle identique à celle du PDF ?", "answer": "Les proportions des pages et des diapositives peuvent différer, ce qui peut déplacer les marges ou le contenu. Examinez les diapositives en taille de présentation." },
+          { "question": "La conversion en PPTX modifie-t-elle le PDF source ?", "answer": "Non. La présentation est un fichier de sortie séparé." },
+          { "question": "Qu’est-ce qui peut ralentir la conversion d’une longue présentation PDF ?", "answer": "Un grand nombre de pages et des visuels complexes demandent plus de traitement et de mémoire au navigateur. Les gros documents peuvent prendre plus de temps sur mobile." }
+        ]
+      }
+    }
   }
 }

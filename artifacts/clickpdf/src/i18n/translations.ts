@@ -1546,6 +1546,16 @@ export const TOOL_TRANSLATIONS: Record<string, Partial<Record<Language, { title:
     ja: { title: 'PDFをWord（DOCX）に変換', description: 'PDFテキストを編集可能なDOCXに変換します。レイアウトが変わる場合があるため、Wordで出力を確認してください。' },
     ur: { title: 'PDF کو Word (DOCX) میں تبدیل کریں', description: 'PDF متن کو قابلِ تدوین DOCX میں بدلیں؛ layout بدل سکتا ہے، اس لیے Word میں نتیجہ چیک کریں۔' },
   },
+  'pdf-to-excel': {
+    hi: { title: 'PDF को Excel (XLSX) में बदलें', description: 'PDF तालिकाओं को XLSX में निकालें; स्कैन या जटिल लेआउट में सेल और योग जाँचें।' },
+    ar: { title: 'تحويل PDF إلى Excel (XLSX)', description: 'استخرج الجداول إلى XLSX، ثم تحقق من القيم والمجاميع لأن التخطيطات المعقدة أو الممسوحة قد تتغير.' },
+    fr: { title: 'Convertir un PDF en Excel (XLSX)', description: 'Extrayez les tableaux d’un PDF dans un classeur XLSX. Les scans et mises en page complexes peuvent nécessiter des corrections.' },
+  },
+  'pdf-to-powerpoint': {
+    hi: { title: 'PDF को PowerPoint (PPTX) में बदलें', description: 'PDF पृष्ठों से PPTX स्लाइड बनाएं। मूल प्रस्तुति की संरचना या एनिमेशन वापस नहीं आते; लेआउट जाँचें।' },
+    ar: { title: 'تحويل PDF إلى PowerPoint (PPTX)', description: 'حوّل صفحات PDF إلى شرائح PPTX؛ لا تُستعاد بنية العرض الأصلي أو حركاته، لذا راجع التخطيط.' },
+    fr: { title: 'Convertir un PDF en PowerPoint (PPTX)', description: 'Convertissez les pages en diapositives PPTX. La structure et les animations d’origine ne sont pas récupérées ; vérifiez le résultat.' },
+  },
   sign: {
     en: { title: 'Sign PDF', description: 'Draw, type, or upload a visual signature mark onto PDF pages in your browser.' },
     ur: { title: 'PDF پر دستخط کریں', description: 'اپنے براؤزر میں PDF صفحات پر دستخط کا ظاہری نشان بنائیں، لکھیں یا PNG تصویر لگائیں۔' },

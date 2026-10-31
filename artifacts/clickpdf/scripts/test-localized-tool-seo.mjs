@@ -45,10 +45,14 @@ function schemaNodes(html) {
 
 test('every completed localized Merge PDF route has matching page, schema, sitemap, and alternates', async () => {
   assert.ok(mergeTool, 'the Merge PDF tool is active');
-  assert.deepEqual(Object.keys(contentByLocale).sort(), ['de', 'ja', 'ur']);
+  const mergeLocales = Object.entries(contentByLocale)
+    .filter(([, localeData]) => localeData.tools.merge)
+    .map(([locale]) => locale)
+    .sort();
+  assert.deepEqual(mergeLocales, ['de', 'ja', 'ur']);
 
-  for (const [locale, localeData] of Object.entries(contentByLocale)) {
-    const content = localeData.tools.merge;
+  for (const locale of mergeLocales) {
+    const content = contentByLocale[locale].tools.merge;
     assert.equal(content.steps.length, 3, `${locale} has exactly three How-to steps`);
     assert.equal(content.faqs.length, 6, `${locale} has exactly six tool-specific FAQs`);
     assert.equal(new Set(content.faqs.map((faq) => faq.question)).size, 6, `${locale} FAQ questions are distinct`);
@@ -103,12 +107,12 @@ test('every completed localized Merge PDF route has matching page, schema, sitem
     const pageAlternates = [...html.matchAll(/<link rel=["']alternate["'] hreflang=["']([^"']+)["'] href=["']([^"']+)["']/g)];
     assert.equal(
       pageAlternates.length,
-      Object.keys(contentByLocale).length + 2,
+      mergeLocales.length + 2,
       `${locale} static page has one alternate per locale plus x-default`,
     );
     const alternateMap = new Map(pageAlternates.map((match) => [match[1], match[2]]));
     assert.equal(alternateMap.get('en'), `${siteOrigin}/tools/${mergeTool.slug}/`);
-    for (const alternateLocale of Object.keys(contentByLocale)) {
+    for (const alternateLocale of mergeLocales) {
       assert.equal(
         alternateMap.get(alternateLocale),
         `${siteOrigin}/${alternateLocale}/tools/${mergeTool.slug}/`,
@@ -136,11 +140,14 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
+      'ar:pdf-to-excel', 'ar:pdf-to-powerpoint',
       'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
+      'fr:pdf-to-excel', 'fr:pdf-to-powerpoint',
+      'hi:pdf-to-excel', 'hi:pdf-to-powerpoint',
       'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
       'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
     ],
-    'only the twenty-four new draft pages and three pre-existing localized Merge pages are complete',
+    'only the thirty new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -222,6 +229,19 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
         }
         assert.match(contentText, /OCR/i, `${locale} explains OCR needs for scanned pages`);
       }
+      if (toolId === 'pdf-to-excel') {
+        assert.match(contentText, /XLSX/i, `${locale} identifies the workbook output format`);
+        assert.match(contentText, /OCR/i, `${locale} explains OCR needs for scanned tables`);
+        const formulaQuestion = content.faqs.find((faq) => /सूत्र|صيغ|formules/i.test(faq.question));
+        assert.ok(formulaQuestion, `${locale} addresses whether PDF formulas are recreated`);
+        assert.match(formulaQuestion.answer, /^(?:नहीं|لا|Non)/u, `${locale} does not claim original spreadsheet formulas are restored`);
+      }
+      if (toolId === 'pdf-to-powerpoint') {
+        assert.match(contentText, /PPTX/i, `${locale} identifies the presentation output format`);
+        const originalStructureQuestion = content.faqs.find((faq) => /मूल PowerPoint objects|عناصر PowerPoint الأصلية|objets PowerPoint d’origine/i.test(faq.question));
+        assert.ok(originalStructureQuestion, `${locale} explains that a PDF does not preserve the original presentation structure`);
+        assert.match(originalStructureQuestion.answer, /^(?:आमतौर पर नहीं|غالبًا لا|Généralement non)/u, `${locale} avoids promising original slide objects`);
+      }
 
       const allQuestions = localizedQuestionsByLocale.get(locale) || [];
       allQuestions.push(...content.faqs.map((faq) => faq.question));
@@ -234,7 +254,7 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       const main = html.match(/<main\b(?=[^>]*\bid=["']seo-static-content["'])[^>]*>([\s\S]*?)<\/main>/i)?.[1];
       assert.ok(main, `${localizedUrl} has crawlable static content`);
       assert.match(html, new RegExp(`<html[^>]*lang=["']${locale}["']`, 'i'));
-      assert.match(html, new RegExp(`<html[^>]*dir=["']${locale === 'ur' ? 'rtl' : 'ltr'}["']`, 'i'));
+      assert.match(html, new RegExp(`<html[^>]*dir=["']${['ur', 'ar'].includes(locale) ? 'rtl' : 'ltr'}["']`, 'i'));
       assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']${localizedUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`));
       assert.match(html, new RegExp(`<title>${escapeHtml(`${tool.localizedTitles[locale].title} | ClickPDF`)}</title>`));
       assert.match(html, new RegExp(`<meta name="description" content="${escapeHtml(tool.localizedTitles[locale].description)}"`));
@@ -315,9 +335,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 27);
-  assert.equal(routePaths.length, 48, '48 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 393, '393 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 33);
+  assert.equal(routePaths.length, 54, '54 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 387, '387 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

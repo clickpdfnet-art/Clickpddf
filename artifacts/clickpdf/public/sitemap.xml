@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 290 URLs, including 21 public tools and 48 tool route URLs (27 localized routes), 231 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 296 URLs, including 21 public tools and 54 tool route URLs (33 localized routes), 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -461,6 +461,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/pdf-to-excel/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-excel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-excel/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-excel/" />
   </url>
   <url>
@@ -469,6 +505,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.clickpdf.net/hi/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.clickpdf.net/ar/tools/pdf-to-powerpoint/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.clickpdf.net/fr/tools/pdf-to-powerpoint/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/pdf-to-powerpoint/" />
   </url>
   <url>

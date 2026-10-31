@@ -139,7 +139,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 27, 'only the 27 complete localized routes for the nine translated tools are exposed');
+  assert.equal(localizedRoutes.length, 33, 'only the 33 complete localized routes for the eleven translated tools are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {
