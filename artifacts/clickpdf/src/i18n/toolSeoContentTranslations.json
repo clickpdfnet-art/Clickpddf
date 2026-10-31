@@ -99,6 +99,42 @@
           { "question": "回転後に元のPDFは置き換わりますか？", "answer": "いいえ。回転したPDFは別ファイルとしてダウンロードされ、デバイス上の元ファイルは変更されません。" },
           { "question": "ページのプレビューが遅く表示されることがあるのはなぜですか？", "answer": "プレビュー画像の表示にはブラウザーのメモリを使います。大きなPDFや画像の多いページは、デバイスによって時間がかかることがあります。" }
         ]
+      },
+      "protect": {
+        "introHeading": "ClickPDF専用形式でPDFを保護",
+        "intro": "ClickPDF ProtectはAES-256-GCMを使って専用の保護ファイルを作成します。通常のPDFに閲覧パスワードを追加する機能ではありません。設定したパスワードを保管し、あとで開くときはClickPDF Unlockを使ってください。",
+        "stepsHeading": "ClickPDF Protectで保護ファイルを作る3つの手順",
+        "steps": [
+          { "title": "PDFを選択", "description": "ClickPDF専用形式で保護したいPDFをワークスペースに追加します。" },
+          { "title": "パスワードを設定", "description": "保護ワークスペースでパスワードを入力し、ファイルを作成する前に入力内容を確認します。" },
+          { "title": "保護ファイルを保存", "description": "出力をダウンロードし、設定したパスワードを保管します。あとで開くにはClickPDF Unlockを使用します。" }
+        ],
+        "faqs": [
+          { "question": "通常のPDF閲覧パスワードを追加できますか？", "answer": "いいえ。ClickPDF Protectは独自の暗号化形式でファイルを作成し、一般的なPDFの閲覧パスワード機能とは異なります。" },
+          { "question": "保護したファイルを通常のPDFビューアーで直接開けますか？", "answer": "この独自形式のファイルは通常のPDFとして扱われない場合があります。正しいパスワードを入力し、ClickPDF Unlockで開いてください。" },
+          { "question": "設定したパスワードを忘れた場合、復元できますか？", "answer": "パスワードは保護ファイルを開くために必要です。ツールはパスワードの復元や回避を保証しないため、安全な場所に保管してください。" },
+          { "question": "保護すると元のPDFは上書きされますか？", "answer": "いいえ。保護された出力は別ファイルとして保存されます。必要に応じて元のPDFも保管してください。" },
+          { "question": "この機能はPDF内の機密情報を墨消ししますか？", "answer": "いいえ。保護は出力へのアクセスを制御するもので、元のPDFから機密テキストを削除する墨消し機能ではありません。" },
+          { "question": "ClickPDF Protectで作成したファイルはどこで開けますか？", "answer": "保護時に設定したパスワードを使い、ClickPDF Unlockで開いてください。他社のPDF解除ツールでも使えるとは限りません。" }
+        ]
+      },
+      "unlock": {
+        "introHeading": "ClickPDF Protectで作成したファイルを開く",
+        "intro": "ClickPDF Protectで作成した専用保護ファイルは、設定時と同じ正しいパスワードで開けます。このツールは一般的なPDFのパスワード解除や、知らないパスワードの回避には対応しません。",
+        "stepsHeading": "ClickPDF保護ファイルを開く3つの手順",
+        "steps": [
+          { "title": "保護ファイルを選択", "description": "ClickPDF Protectで作成したファイルをUnlock PDFのワークスペースに追加します。" },
+          { "title": "パスワードを入力", "description": "保護時に設定したパスワードを入力し、タイプミスがないか確認します。" },
+          { "title": "開いてPDFを保存", "description": "解除処理を実行して出力PDFをダウンロードし、ページを開いて内容を確認します。" }
+        ],
+        "faqs": [
+          { "question": "どのPDFでもパスワードを解除できますか？", "answer": "いいえ。ClickPDF Protectで作成された専用保護ファイルを開くためのツールで、一般的なPDFのパスワードを回避するものではありません。" },
+          { "question": "保護時に設定したパスワードが必要ですか？", "answer": "はい。そのClickPDF保護ファイルに設定された正しいパスワードを入力してください。" },
+          { "question": "間違ったパスワードを入力すると復元やリセットができますか？", "answer": "いいえ。誤ったパスワードでは保護された内容を開けず、パスワードの回避やリセット機能もありません。" },
+          { "question": "解除する前に通常のPDFビューアーで開けますか？", "answer": "独自の保護ファイルは解除前には通常のPDFではありません。ClickPDF Unlockで開いてから、互換性のあるビューアーで出力PDFを確認してください。" },
+          { "question": "解除すると保護された元ファイルは変更されますか？", "answer": "いいえ。解除後のPDFは別の出力ファイルです。保護された入力ファイルを残すかどうかはご自身で判断できます。" },
+          { "question": "ファイルの内容は文書サーバーに送信されますか？", "answer": "対応するファイル処理はブラウザー内で行われます。ただし、ウェブページのリソースや有効になっている第三者サービスへの通信は発生する場合があります。" }
+        ]
       }
     }
   },
@@ -202,6 +238,42 @@
           { "question": "کیا Rotate PDF اصل فائل کو اووررائٹ کرتا ہے؟", "answer": "نہیں۔ گھمائی ہوئی PDF الگ فائل کے طور پر ڈاؤن لوڈ ہوتی ہے؛ ڈیوائس میں موجود اصل فائل تبدیل نہیں ہوتی۔" },
           { "question": "صفحات کے previews آنے میں دیر کیوں لگ سکتی ہے؟", "answer": "تھمب نیلز بنانے میں براؤزر میموری استعمال ہوتی ہے۔ بڑی PDFs یا تصاویر والے صفحات کو ڈیوائس کے لحاظ سے زیادہ وقت لگ سکتا ہے۔" }
         ]
+      },
+      "protect": {
+        "introHeading": "ClickPDF کے مخصوص فارمیٹ میں PDF محفوظ کریں",
+        "intro": "ClickPDF Protect، AES-256-GCM استعمال کر کے اپنی مخصوص protected فائل بناتا ہے۔ یہ عام PDF میں معمول کا open-password نہیں لگاتا۔ مقررہ password محفوظ رکھیں؛ فائل بعد میں کھولنے کے لیے ClickPDF Unlock استعمال کریں۔",
+        "stepsHeading": "ClickPDF Protect سے فائل محفوظ کرنے کے تین مراحل",
+        "steps": [
+          { "title": "PDF منتخب کریں", "description": "وہ PDF ورک اسپیس میں شامل کریں جسے ClickPDF کے مخصوص فارمیٹ میں محفوظ کرنا ہے۔" },
+          { "title": "Password مقرر کریں", "description": "protection ورک اسپیس میں password درج کریں اور protected فائل بنانے سے پہلے اسے اچھی طرح چیک کریں۔" },
+          { "title": "محفوظ فائل ڈاؤن لوڈ کریں", "description": "نتیجہ محفوظ کریں اور password اپنے پاس رکھیں۔ فائل دوبارہ کھولنے کے لیے ClickPDF Unlock استعمال کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا یہ عام PDF کا open-password لگاتا ہے؟", "answer": "نہیں۔ ClickPDF Protect اپنی مخصوص encrypted فائل بناتا ہے؛ یہ عام PDF reader والے password-protection فارمیٹ جیسا نہیں ہے۔" },
+          { "question": "کیا protected فائل عام PDF viewer میں براہِ راست کھلے گی؟", "answer": "اس مخصوص فارمیٹ کو ہر viewer عام PDF نہیں سمجھے گا۔ درست password درج کر کے ClickPDF Unlock سے کھولیں۔" },
+          { "question": "اگر مقررہ password بھول جاؤں تو کیا اسے واپس حاصل کیا جا سکتا ہے؟", "answer": "protected فائل کھولنے کے لیے password ضروری ہے۔ ٹول password recovery یا bypass کی ضمانت نہیں دیتا، اس لیے اسے محفوظ جگہ پر رکھیں۔" },
+          { "question": "کیا تحفظ لگانے سے اصل PDF بدل جائے گی؟", "answer": "نہیں۔ protected نتیجہ الگ فائل کے طور پر ڈاؤن لوڈ ہوتا ہے۔ اپنی ضرورت کے مطابق اصل PDF بھی محفوظ رکھیں۔" },
+          { "question": "کیا یہ حساس متن کو PDF سے مستقل حذف کرتا ہے؟", "answer": "نہیں۔ یہ protected output تک رسائی محدود کرتا ہے، مگر اصل PDF سے حساس متن نہیں مٹاتا اور redaction کا متبادل نہیں ہے۔" },
+          { "question": "ClickPDF Protect سے بنی فائل کہاں کھلے گی؟", "answer": "تحفظ کے وقت مقررہ password کے ساتھ ClickPDF Unlock استعمال کریں۔ دوسرے PDF decryption tools کے ساتھ مطابقت فرض نہ کریں۔" }
+        ]
+      },
+      "unlock": {
+        "introHeading": "ClickPDF Protect والی فائل کھولیں",
+        "intro": "ClickPDF Protect سے بنی مخصوص protected فائل کو کھولنے کے لیے وہی درست password درکار ہے جو تحفظ کے وقت رکھا تھا۔ یہ ٹول ہر قسم کی عام PDF encryption یا نامعلوم password کو bypass نہیں کرتا۔",
+        "stepsHeading": "ClickPDF protected فائل کھولنے کے تین مراحل",
+        "steps": [
+          { "title": "محفوظ فائل منتخب کریں", "description": "ClickPDF Protect سے بنائی گئی فائل کو Unlock PDF ورک اسپیس میں شامل کریں۔" },
+          { "title": "Password درج کریں", "description": "تحفظ کے وقت مقررہ password لکھیں اور ٹائپنگ کی غلطی چیک کریں۔" },
+          { "title": "فائل کھولیں اور PDF محفوظ کریں", "description": "unlock عمل چلائیں، بننے والی PDF ڈاؤن لوڈ کریں اور صفحات کھول کر تصدیق کریں۔" }
+        ],
+        "faqs": [
+          { "question": "کیا Unlock PDF کسی بھی PDF کا password ہٹا سکتا ہے؟", "answer": "نہیں۔ یہ ClickPDF Protect سے بنائی گئی مخصوص فائلوں کے لیے ہے؛ یہ عام PDFs کے password کو bypass نہیں کرتا۔" },
+          { "question": "کیا تحفظ کے وقت والا ہی password درکار ہے؟", "answer": "جی ہاں۔ اس ClickPDF-protected فائل کے لیے مقررہ درست password درج کریں۔" },
+          { "question": "غلط password سے کیا فائل recover یا reset ہو سکتی ہے؟", "answer": "نہیں۔ غلط password سے protected مواد نہیں کھلتا، اور ٹول password bypass یا reset فراہم نہیں کرتا۔" },
+          { "question": "کیا unlock سے پہلے protected فائل عام PDF viewer میں کھل جائے گی؟", "answer": "unlock ہونے سے پہلے یہ مخصوص فائل عام PDF نہیں ہوتی۔ پہلے ClickPDF Unlock استعمال کریں، پھر بننے والی PDF کسی compatible viewer میں کھولیں۔" },
+          { "question": "کیا unlock کرنے سے اصل protected فائل تبدیل ہوتی ہے؟", "answer": "نہیں۔ ٹول unlocked نتیجہ الگ فائل کے طور پر بناتا ہے؛ اصل protected فائل برقرار رہتی ہے۔" },
+          { "question": "کیا فائل کا مواد document server کو بھیجا جاتا ہے؟", "answer": "موزوں فائل processing براؤزر میں ہوتی ہے۔ ویب پیج کے resources اور فعال third-party services کی درخواستیں پھر بھی ہو سکتی ہیں۔" }
+        ]
       }
     }
   },
@@ -304,6 +376,42 @@
           { "question": "Kann ich eine falsche Drehung vor dem Speichern korrigieren?", "answer": "Nutzen Sie die Seitensteuerung erneut, um die Ausrichtung vor dem Download zu korrigieren. Wenn Sie neu beginnen möchten, öffnen Sie die Quelldatei erneut." },
           { "question": "Überschreibt Rotate PDF meine Quelldatei?", "answer": "Nein. Die gedrehte PDF wird als separate Datei heruntergeladen; die Originaldatei auf Ihrem Gerät bleibt unverändert." },
           { "question": "Warum werden Seitenvorschauen manchmal langsam geladen?", "answer": "Das Rendern der Vorschauen benötigt Browser-Speicher. Große PDFs oder bildreiche Seiten können je nach Gerät länger benötigen." }
+        ]
+      },
+      "protect": {
+        "introHeading": "PDF im ClickPDF-eigenen Format schützen",
+        "intro": "ClickPDF Protect erstellt mit AES-256-GCM eine proprietäre geschützte Datei. Dabei wird kein übliches Öffnungspasswort in eine normale PDF eingefügt. Bewahren Sie das festgelegte Passwort auf und nutzen Sie später ClickPDF Unlock zum Öffnen.",
+        "stepsHeading": "Datei in drei Schritten mit ClickPDF Protect schützen",
+        "steps": [
+          { "title": "PDF auswählen", "description": "Fügen Sie die PDF hinzu, die im ClickPDF-eigenen Format geschützt werden soll." },
+          { "title": "Passwort festlegen", "description": "Geben Sie im Schutz-Arbeitsbereich ein Passwort ein und prüfen Sie es, bevor Sie die geschützte Datei erstellen." },
+          { "title": "Geschützte Datei speichern", "description": "Laden Sie die Ausgabe herunter und bewahren Sie das Passwort auf. Zum späteren Öffnen benötigen Sie ClickPDF Unlock." }
+        ],
+        "faqs": [
+          { "question": "Fügt das Tool ein übliches Öffnungspasswort zu einer PDF hinzu?", "answer": "Nein. ClickPDF Protect erstellt eine eigene verschlüsselte Datei. Das ist nicht dasselbe wie der normale PDF-Passwortschutz für beliebige PDF-Reader." },
+          { "question": "Kann ich die geschützte Datei direkt in einem normalen PDF-Viewer öffnen?", "answer": "Das eigene Dateiformat wird möglicherweise nicht als normale PDF erkannt. Öffnen Sie es mit ClickPDF Unlock und dem richtigen Passwort." },
+          { "question": "Kann ich ein vergessenes Passwort wiederherstellen?", "answer": "Das Passwort ist zum Öffnen der geschützten Datei erforderlich. Das Tool verspricht keine Wiederherstellung oder Umgehung; bewahren Sie das Passwort sicher auf." },
+          { "question": "Wird meine Original-PDF beim Schützen überschrieben?", "answer": "Nein. Die geschützte Ausgabe wird als separate Datei heruntergeladen. Bewahren Sie das Original entsprechend Ihren Sicherheitsanforderungen auf." },
+          { "question": "Entfernt diese Funktion vertraulichen Text aus der PDF?", "answer": "Nein. Der Schutz beschränkt den Zugriff auf die Ausgabe, entfernt aber keinen vertraulichen Text aus der Original-PDF und ersetzt keine Schwärzung." },
+          { "question": "Wie öffne ich eine Datei aus ClickPDF Protect?", "answer": "Verwenden Sie ClickPDF Unlock mit dem beim Schutz festgelegten Passwort. Eine Kompatibilität mit anderen PDF-Entschlüsselungstools ist nicht vorausgesetzt." }
+        ]
+      },
+      "unlock": {
+        "introHeading": "Mit ClickPDF Protect erstellte Datei öffnen",
+        "intro": "Für eine geschützte Datei aus ClickPDF Protect benötigen Sie das richtige Passwort, das bei der Erstellung festgelegt wurde. Das Tool umgeht weder beliebige Standard-PDF-Verschlüsselung noch unbekannte Passwörter.",
+        "stepsHeading": "ClickPDF-geschützte Datei in drei Schritten öffnen",
+        "steps": [
+          { "title": "Geschützte Datei auswählen", "description": "Fügen Sie die mit ClickPDF Protect erstellte Datei im Unlock-PDF-Arbeitsbereich hinzu." },
+          { "title": "Passwort eingeben", "description": "Geben Sie das beim Schutz festgelegte Passwort ein und prüfen Sie die Eingabe auf Tippfehler." },
+          { "title": "Entschlüsseln und PDF speichern", "description": "Starten Sie das Öffnen, laden Sie die resultierende PDF herunter und prüfen Sie anschließend die Seiten." }
+        ],
+        "faqs": [
+          { "question": "Kann Unlock PDF das Passwort jeder PDF entfernen?", "answer": "Nein. Das Tool öffnet Dateien im eigenen Format von ClickPDF Protect und umgeht keine Passwörter beliebiger Standard-PDFs." },
+          { "question": "Benötige ich dasselbe Passwort wie beim Schützen?", "answer": "Ja. Geben Sie das richtige Passwort ein, das für diese ClickPDF-geschützte Datei festgelegt wurde." },
+          { "question": "Kann ein falsches Passwort die Datei wiederherstellen oder zurücksetzen?", "answer": "Nein. Ein falsches Passwort öffnet den geschützten Inhalt nicht; das Tool bietet keine Umgehung oder Zurücksetzung des Passworts." },
+          { "question": "Kann ich die geschützte Datei vor dem Öffnen in einem normalen PDF-Viewer lesen?", "answer": "Vor dem Öffnen ist die eigene Schutzdatei keine normale PDF. Nutzen Sie zuerst ClickPDF Unlock und prüfen Sie die Ausgabe danach in einem kompatiblen Viewer." },
+          { "question": "Ändert das Öffnen die geschützte Quelldatei?", "answer": "Nein. Das Tool erstellt eine separate geöffnete PDF-Datei. Die geschützte Eingabedatei bleibt erhalten." },
+          { "question": "Werden die Dateiinhalte an einen Dokumentserver gesendet?", "answer": "Die unterstützte Dateiverarbeitung läuft im Browser. Die Webseite kann dennoch Ressourcen und aktivierte Drittanbieterdienste anfordern." }
         ]
       }
     }

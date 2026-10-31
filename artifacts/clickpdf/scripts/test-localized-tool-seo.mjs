@@ -136,12 +136,11 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   assert.deepEqual(
     contentPairs,
     [
-      'de:compress', 'de:jpg-to-pdf', 'de:merge',
-      'de:rotate', 'de:split',
-      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:rotate', 'ja:split',
-      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:rotate', 'ur:split',
+      'de:compress', 'de:jpg-to-pdf', 'de:merge', 'de:protect', 'de:rotate', 'de:split', 'de:unlock',
+      'ja:compress', 'ja:jpg-to-pdf', 'ja:merge', 'ja:protect', 'ja:rotate', 'ja:split', 'ja:unlock',
+      'ur:compress', 'ur:jpg-to-pdf', 'ur:merge', 'ur:protect', 'ur:rotate', 'ur:split', 'ur:unlock',
     ],
-    'only the twelve new draft pages and three pre-existing localized Merge pages are complete',
+    'only the eighteen new draft pages and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -155,7 +154,7 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       ['existing_unverified', 'generated_draft', 'human_reviewed'].includes(entry.status),
       `${pair} uses a documented QA status`,
     );
-    if (pair.includes(':compress') || pair.includes(':jpg-to-pdf')) {
+    if (!pair.endsWith(':merge')) {
       assert.equal(entry.status, 'generated_draft', `${pair} remains identified as a draft`);
       assert.equal(entry.contentCheckedAgainstToolBehavior, true, `${pair} is checked against the tool behavior`);
     }
@@ -193,6 +192,20 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
         const resolutionFaq = content.faqs.find((faq) => /resolution|auflösung|解像度|ریزولوشن/i.test(faq.question));
         assert.ok(resolutionFaq, `${locale} explains that conversion does not increase image resolution`);
         assert.match(resolutionFaq.answer, /^(?:Nein|いいえ|نہیں)/, `${locale} does not promise image upscaling`);
+      }
+      if (toolId === 'protect') {
+        assert.match(contentText, /AES-256-GCM/i, `${locale} identifies the documented encryption format`);
+        assert.match(contentText, /ClickPDF Unlock/, `${locale} explains which tool opens the protected format`);
+        assert.doesNotMatch(contentText, /military|militär|軍事用|軍工/iu, `${locale} avoids unsupported military-grade wording`);
+      }
+      if (toolId === 'unlock') {
+        assert.match(contentText, /ClickPDF Protect/, `${locale} limits the feature to ClickPDF Protect files`);
+        const scopeLimit = {
+          de: 'Beliebige passwortgeschützte Standard-PDFs',
+          ja: '一般的なPDFのパスワード解除',
+          ur: 'عام password-protected PDFs',
+        }[locale];
+        assert.ok(contentText.includes(scopeLimit), `${locale} states that arbitrary standard PDFs are not supported`);
       }
 
       const allQuestions = localizedQuestionsByLocale.get(locale) || [];
@@ -287,9 +300,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 15);
-  assert.equal(routePaths.length, 36, '36 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 405, '405 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 21);
+  assert.equal(routePaths.length, 42, '42 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 399, '399 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,

@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- Generated sitemap: 278 URLs, including 21 public tools and 36 tool route URLs (15 localized routes), 231 Markdown blog posts and localized alternates. -->
+<!-- Generated sitemap: 284 URLs, including 21 public tools and 42 tool route URLs (21 localized routes), 231 Markdown blog posts and localized alternates. -->
   <url>
     <loc>https://www.clickpdf.net/</loc>
     <lastmod>2026-10-17</lastmod>
@@ -285,6 +285,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/protect-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/protect-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/protect-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/protect-pdf-password/" />
   </url>
   <url>
@@ -293,6 +329,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ja/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/ur/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+  </url>
+  <url>
+    <loc>https://www.clickpdf.net/de/tools/unlock-pdf-password/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.clickpdf.net/ja/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.clickpdf.net/ur/tools/unlock-pdf-password/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.clickpdf.net/de/tools/unlock-pdf-password/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.clickpdf.net/tools/unlock-pdf-password/" />
   </url>
   <url>

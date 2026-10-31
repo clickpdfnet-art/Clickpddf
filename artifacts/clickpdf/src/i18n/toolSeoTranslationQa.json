@@ -122,6 +122,54 @@
       "humanReviewed": false,
       "reviewer": null,
       "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "protect",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "de",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "ja",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
+    },
+    {
+      "tool": "unlock",
+      "locale": "ur",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null,
+      "contentCheckedAgainstToolBehavior": true
     }
   ]
 }

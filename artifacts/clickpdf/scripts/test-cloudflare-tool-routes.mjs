@@ -139,7 +139,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 15, 'only the 15 complete Merge, Compress, Image-to-PDF, Split, and Rotate locale routes are exposed');
+  assert.equal(localizedRoutes.length, 21, 'only the 21 complete localized routes for the seven translated tools are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {
