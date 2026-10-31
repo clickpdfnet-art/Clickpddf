@@ -20,3 +20,9 @@ When adding localized SEO content, extend the existing locale object rather than
 **Why:** a staged batch edit once introduced repeated locale keys; ordinary JSON parsing did not report the duplicate, while the last object replaced prior translations.
 
 **How to apply:** after editing the locale bundle, verify that each locale key occurs once and that the expected tool-language pairs and generated routes still match.
+
+Source-level translations alone do not prove a localized SEO page is complete: translated tool content and its localized title/description must both appear in the generated HTML and sitemap.
+
+**Why:** a localization batch passed structural source checks but exposed a missing generated meta description and an HTML-escaping mismatch only in the built-route regression test.
+
+**How to apply:** when adding localized tool pages, verify generated title, description, canonical URL, and sitemap entry in addition to the JSON content and QA ledger.

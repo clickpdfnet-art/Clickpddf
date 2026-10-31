@@ -142,15 +142,26 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     [
       'ar:compress', 'ar:edit-metadata', 'ar:excel-to-pdf', 'ar:jpg-to-pdf', 'ar:merge', 'ar:metadata', 'ar:organize', 'ar:page-numbers', 'ar:pdf-to-excel', 'ar:pdf-to-image', 'ar:pdf-to-powerpoint', 'ar:pdf-to-text', 'ar:pdf-to-word', 'ar:protect', 'ar:rotate', 'ar:sign', 'ar:split', 'ar:unlock', 'ar:watermark', 'ar:word-to-excel', 'ar:word-to-pdf',
       'de:compress', 'de:edit-metadata', 'de:excel-to-pdf', 'de:jpg-to-pdf', 'de:merge', 'de:metadata', 'de:organize', 'de:page-numbers', 'de:pdf-to-excel', 'de:pdf-to-image', 'de:pdf-to-powerpoint', 'de:pdf-to-text', 'de:pdf-to-word', 'de:protect', 'de:rotate', 'de:sign', 'de:split', 'de:unlock', 'de:watermark', 'de:word-to-excel', 'de:word-to-pdf',
-      'es:metadata', 'es:word-to-excel',
+      'es:compress', 'es:jpg-to-pdf', 'es:metadata', 'es:pdf-to-image', 'es:split', 'es:word-to-excel',
       'fr:compress', 'fr:edit-metadata', 'fr:excel-to-pdf', 'fr:jpg-to-pdf', 'fr:merge', 'fr:metadata', 'fr:organize', 'fr:page-numbers', 'fr:pdf-to-excel', 'fr:pdf-to-image', 'fr:pdf-to-powerpoint', 'fr:pdf-to-text', 'fr:pdf-to-word', 'fr:protect', 'fr:rotate', 'fr:sign', 'fr:split', 'fr:unlock', 'fr:watermark', 'fr:word-to-excel', 'fr:word-to-pdf',
       'hi:compress', 'hi:edit-metadata', 'hi:excel-to-pdf', 'hi:jpg-to-pdf', 'hi:merge', 'hi:metadata', 'hi:organize', 'hi:page-numbers', 'hi:pdf-to-excel', 'hi:pdf-to-image', 'hi:pdf-to-powerpoint', 'hi:pdf-to-text', 'hi:pdf-to-word', 'hi:protect', 'hi:rotate', 'hi:sign', 'hi:split', 'hi:unlock', 'hi:watermark', 'hi:word-to-excel', 'hi:word-to-pdf',
+      'id:compress', 'id:jpg-to-pdf', 'id:pdf-to-image', 'id:split',
+      'it:compress', 'it:edit-metadata', 'it:jpg-to-pdf', 'it:metadata', 'it:organize', 'it:page-numbers', 'it:pdf-to-image', 'it:protect', 'it:rotate', 'it:split', 'it:unlock', 'it:watermark',
       'ja:compress', 'ja:edit-metadata', 'ja:excel-to-pdf', 'ja:jpg-to-pdf', 'ja:merge', 'ja:metadata', 'ja:organize', 'ja:page-numbers', 'ja:pdf-to-excel', 'ja:pdf-to-image', 'ja:pdf-to-powerpoint', 'ja:pdf-to-text', 'ja:pdf-to-word', 'ja:protect', 'ja:rotate', 'ja:sign', 'ja:split', 'ja:unlock', 'ja:watermark', 'ja:word-to-excel', 'ja:word-to-pdf',
-      'tl:metadata', 'tl:word-to-excel',
+      'ko:compress', 'ko:edit-metadata', 'ko:jpg-to-pdf', 'ko:metadata', 'ko:organize', 'ko:page-numbers', 'ko:pdf-to-image', 'ko:split',
+      'nl:compress', 'nl:edit-metadata', 'nl:jpg-to-pdf', 'nl:metadata', 'nl:organize', 'nl:page-numbers', 'nl:pdf-to-image', 'nl:protect', 'nl:rotate', 'nl:split', 'nl:unlock', 'nl:watermark',
+      'no:compress', 'no:edit-metadata', 'no:jpg-to-pdf', 'no:metadata', 'no:organize', 'no:page-numbers', 'no:pdf-to-image', 'no:protect', 'no:rotate', 'no:split', 'no:unlock', 'no:watermark',
+      'pl:compress', 'pl:edit-metadata', 'pl:jpg-to-pdf', 'pl:metadata', 'pl:organize', 'pl:page-numbers', 'pl:pdf-to-image', 'pl:protect', 'pl:rotate', 'pl:split', 'pl:unlock', 'pl:watermark',
+      'pt:compress', 'pt:edit-metadata', 'pt:jpg-to-pdf', 'pt:metadata', 'pt:organize', 'pt:page-numbers', 'pt:pdf-to-image', 'pt:protect', 'pt:rotate', 'pt:split', 'pt:unlock', 'pt:watermark',
+      'ru:compress', 'ru:edit-metadata', 'ru:jpg-to-pdf', 'ru:metadata', 'ru:organize', 'ru:page-numbers', 'ru:pdf-to-image', 'ru:split',
+      'sv:compress', 'sv:edit-metadata', 'sv:jpg-to-pdf', 'sv:metadata', 'sv:organize', 'sv:page-numbers', 'sv:pdf-to-image', 'sv:protect', 'sv:rotate', 'sv:split', 'sv:unlock', 'sv:watermark',
+      'tl:compress', 'tl:jpg-to-pdf', 'tl:metadata', 'tl:pdf-to-image', 'tl:split', 'tl:word-to-excel',
+      'tr:compress', 'tr:edit-metadata', 'tr:jpg-to-pdf', 'tr:metadata', 'tr:organize', 'tr:page-numbers', 'tr:pdf-to-image', 'tr:split',
       'ur:compress', 'ur:edit-metadata', 'ur:excel-to-pdf', 'ur:jpg-to-pdf', 'ur:merge', 'ur:metadata', 'ur:organize', 'ur:page-numbers', 'ur:pdf-to-excel', 'ur:pdf-to-image', 'ur:pdf-to-powerpoint', 'ur:pdf-to-text', 'ur:pdf-to-word', 'ur:protect', 'ur:rotate', 'ur:sign', 'ur:split', 'ur:unlock', 'ur:watermark', 'ur:word-to-excel', 'ur:word-to-pdf',
-      'zh:metadata', 'zh:word-to-excel',
+      'vi:compress', 'vi:jpg-to-pdf', 'vi:pdf-to-image', 'vi:split',
+      'zh:compress', 'zh:jpg-to-pdf', 'zh:metadata', 'zh:pdf-to-image', 'zh:split', 'zh:word-to-excel',
     ],
-    'only the 129 generated drafts and three pre-existing localized Merge pages are complete',
+    'only the 245 generated drafts and three pre-existing localized Merge pages are complete',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
@@ -195,15 +206,15 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       if (toolId === 'compress') {
         assert.doesNotMatch(
           contentText,
-          /verlustfrei|画質を落とさず|without (?:any )?loss|بغیر نقصان(?: کے)? معیار|गुणवत्ता खोए बिना|دون فقدان الجودة|sans perte/iu,
+          /verlustfrei|画質を落とさず|without (?:any )?loss|بغیر نقصان(?: کے)? معیار|गुणवत्ता खोए बिना|دون فقدان الجودة|sans perte|senza (?:perdita|perdite)(?: di qualità)?|uten tap av kvalitet|sem perda de qualidade/iu,
           `${locale} compression copy does not promise lossless results`,
         );
       }
       if (toolId === 'jpg-to-pdf') {
         assert.match(contentText, /JPG[\s\S]*PNG[\s\S]*WebP/i, `${locale} names all supported image formats`);
-        const resolutionFaq = content.faqs.find((faq) => /resolution|auflösung|解像度|ریزولوشن|دقة|résolution/i.test(faq.question));
+        const resolutionFaq = content.faqs.find((faq) => /resolution|auflösung|解像度|分辨率|разрешение|해상도|çözünürlük|çözünürlüğ|resolutie|rozdzielczość|upplösning|ریزولوشن|دقة|résolution|resolución|risoluzione|oppløsning|resolução|resolusi|độ phân giải/i.test(faq.question));
         assert.ok(resolutionFaq, `${locale} explains that conversion does not increase image resolution`);
-        assert.match(resolutionFaq.answer, /^(?:Nein|いいえ|نہیں|नहीं|لا|Non)/u, `${locale} does not promise image upscaling`);
+        assert.match(resolutionFaq.answer, /^(?:Nein|いいえ|不会|Hindi|아니요|Hayır|Нет|Nee|Nie|Nej|نہیں|نहीं|لا|Non|No|Nei|Não|Tidak|Không)/u, `${locale} does not promise image upscaling`);
       }
       if (toolId === 'protect') {
         assert.match(contentText, /AES-256-GCM/i, `${locale} identifies the documented encryption format`);
@@ -219,6 +230,12 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
           hi: 'दूसरे सामान्य PDF',
           ar: 'ملفات PDF القياسية الأخرى',
           fr: 'PDF standard quelconque',
+          it: 'PDF standard',
+          no: 'vanlige PDF-filer',
+          pt: 'PDFs padrão',
+          nl: "standaard-PDF's",
+          pl: 'standardowych plików PDF',
+          sv: 'standard-PDF-filer',
         }[locale];
         assert.ok(contentText.includes(scopeLimit), `${locale} states that arbitrary standard PDFs are not supported`);
       }
@@ -393,9 +410,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
   assert.equal(englishToolRoutes.length, 21);
-  assert.equal(localizedToolRoutes.length, 132);
-  assert.equal(routePaths.length, 153, '153 of 441 possible tool-language routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 288, '288 matrix pairs remain untranslated');
+  assert.equal(localizedToolRoutes.length, 248);
+  assert.equal(routePaths.length, 269, '269 of 441 possible tool-language routes are complete and discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 172, '172 matrix pairs remain untranslated');
 
   assert.match(
     routeParserSource,
