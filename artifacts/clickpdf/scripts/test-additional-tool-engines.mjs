@@ -76,6 +76,16 @@ async function makeRealPptxFixture() {
     w: 1,
     h: 1,
   });
+  first.addShape(presentation.ShapeType.rect, {
+    x: 0.5, y: 1.2, w: 2, h: 0.7,
+    fill: { color: 'EFEFEF' },
+    line: { color: '333333' },
+  });
+  first.addText('Shape label', { x: 0.65, y: 1.4, w: 1.7, h: 0.25, fontSize: 12 });
+  first.addTable([
+    ['Table heading', 'Table value'],
+    ['Row name', '42'],
+  ], { x: 0.5, y: 3, w: 4, h: 1.2, fontSize: 12 });
 
   const second = presentation.addSlide();
   second.addText('Second layout title', { x: 1, y: 0.5, w: 4, h: 0.4, fontSize: 20 });
@@ -169,6 +179,11 @@ const sourcePdf = await makePdf(2);
   for (let index = 0; index < 2; index++) {
     classicPdf.addPage([300, 400]).drawText(`Recovery ${index + 1}`, { x: 40, y: 350, fontSize: 12 });
   }
+  const repairImage = await classicPdf.embedPng(Buffer.from(
+    'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/vVQAAAAASUVORK5CYII=',
+    'base64',
+  ));
+  classicPdf.getPage(0).drawImage(repairImage, { x: 40, y: 300, width: 20, height: 20 });
   const validBytes = new Uint8Array(await classicPdf.save({ useObjectStreams: false }));
 
   for (const [label, damagedBytes] of [
@@ -178,18 +193,31 @@ const sourcePdf = await makePdf(2);
     const repairedBytes = await repairPdfBytes(damagedBytes);
     const reopened = await PDFDocument.load(repairedBytes);
     assert.equal(reopened.getPageCount(), 2, `${label}: recovered output opens with both pages`);
+    assert.deepEqual(
+      reopened.getPages().map((page) => page.getSize()),
+      [{ width: 300, height: 400 }, { width: 300, height: 400 }],
+      `${label}: recovered output retains page dimensions`,
+    );
     const extracted = (await readPdfText(repairedBytes)).join('\n');
     assert.match(extracted, /Recovery 1/);
     assert.match(extracted, /Recovery 2/);
+    assert.match(
+      readRawPageContent(reopened, 0),
+      /\/[A-Za-z0-9._-]+\s+Do\b/,
+      `${label}: recovered page content still references its embedded image`,
+    );
   }
 
-  let truncatedRejected = false;
-  try {
-    await repairPdfBytes(validBytes.slice(0, -10));
-  } catch {
-    truncatedRejected = true;
-  }
-  assert.equal(truncatedRejected, true, 'truncated content that prevents parsing must be reported as unrecoverable');
+  await assert.rejects(
+    () => repairPdfBytes(validBytes.slice(0, -10)),
+    /could not be opened as a PDF|too damaged to repair/i,
+    'truncated content that prevents parsing must be reported as unrecoverable',
+  );
+  await assert.rejects(
+    () => repairPdfBytes(new TextEncoder().encode('not a PDF')),
+    /could not be opened as a PDF.*No output was created/,
+    'unsupported input must fail with a clear error and produce no output',
+  );
 }
 
 {
@@ -282,6 +310,8 @@ const sourcePdf = await makePdf(2);
   const sourceSlide1 = await realPptx.file('ppt/slides/slide1.xml').async('text');
   const sourceSlide2 = await realPptx.file('ppt/slides/slide2.xml').async('text');
   assert.match(sourceSlide1, /<p:pic\b/, 'the real PPTX fixture includes a picture shape');
+  assert.match(sourceSlide1, /<a:tbl>/, 'the real PPTX fixture includes a table');
+  assert.match(sourceSlide1, /Shape label/, 'the real PPTX fixture includes text inside a shape');
   assert.match(sourceSlide1, /Fixture title/);
   assert.match(sourceSlide2, /Second layout title/);
   const presentationXml = await realPptx.file('ppt/presentation.xml').async('text');
@@ -304,6 +334,11 @@ const sourcePdf = await makePdf(2);
   const realText = (await readPdfText(realResult.data)).join('\n');
   assert.match(realText, /Fixture title/);
   assert.match(realText, /Body fixture text/);
+  assert.match(realText, /Shape label/);
+  assert.match(realText, /Table heading/);
+  assert.match(realText, /Table value/);
+  assert.match(realText, /Row name/);
+  assert.match(realText, /42/);
   assert.match(realText, /Second layout title/);
   assert.match(realText, /Second slide content/);
   assert.doesNotMatch(
@@ -336,4 +371,4 @@ const sourcePdf = await makePdf(2);
   assert.match(officeConverters, /if \(!isSupportedPowerPointFile\(file\.name\)\)/, 'the conversion entry point uses the shared legacy format guard');
 }
 
-console.log('Additional tool engine checks passed: crop, valid/damaged/unrecoverable PDF repair, text comparison, real PPTX text/image/layout behavior, legacy .ppt rejection, and workspace constraints.');
+console.log('Additional tool engine checks passed: crop, valid/damaged/unrecoverable PDF repair with page/text/image checks, text comparison, multi-slide PPTX text/table/shape and image/layout limitations, legacy .ppt rejection, and workspace constraints.');

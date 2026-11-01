@@ -23,10 +23,15 @@ export async function cropPdfMargins(pdfBytes, marginPercent) {
 }
 
 export async function repairPdfBytes(pdfBytes) {
-  const pdf = await PDFDocument.load(pdfBytes, {
-    ignoreEncryption: false,
-    throwOnInvalidObject: false,
-  });
+  let pdf;
+  try {
+    pdf = await PDFDocument.load(pdfBytes, {
+      ignoreEncryption: false,
+      throwOnInvalidObject: false,
+    });
+  } catch {
+    throw new Error('This file could not be opened as a PDF, or it is too damaged to repair. No output was created.');
+  }
   const originalPageCount = pdf.getPageCount();
   if (originalPageCount === 0) throw new Error('No recoverable pages were found in this PDF.');
 
