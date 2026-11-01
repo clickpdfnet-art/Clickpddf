@@ -24,7 +24,7 @@ function textContent(value = '') {
 
 test('all public tool pages retain SEO metadata and canonical links', async () => {
   const tools = await readActiveToolRegistry(appDir);
-  assert.equal(tools.length, 23, 'PDF/A, PDF Repair, and PowerPoint to PDF remain hidden');
+  assert.equal(tools.length, 25, 'the public registry contains all 25 enabled tools; only PDF/A remains hidden');
   const seoSource = await readTypeScriptExport(
     path.join(appDir, 'src', 'data', 'toolSeoData.ts'),
     'TOOL_SEO_REGISTRY',

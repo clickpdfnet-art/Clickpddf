@@ -1092,7 +1092,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "PowerPointからPDFの使い方",
-        "intro": "PPTXのテキストを抽出し、新しい基本的なPDFページに配置します。 元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。",
+        "intro": "PPTXのテキストを抽出し、新しい基本的なPDFページに配置します。 元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。内蔵PDFフォントで表示できる文字には限りがあります。対応していない文字がスライドに含まれる場合、変換はエラーで停止し、PDFは作成されません。",
         "stepsHeading": "PowerPointからPDFの使い方：3つの手順",
         "steps": [
           {
@@ -1123,7 +1123,7 @@
           },
           {
             "question": "PowerPointからPDF: 利用前に知っておくべき制限は？",
-            "answer": "元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。"
+            "answer": "元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。内蔵PDFフォントで表示できる文字には限りがあります。対応していない文字がスライドに含まれる場合、変換はエラーで停止し、PDFは作成されません。"
           },
           {
             "question": "PowerPointからPDF: ファイルの処理はどこで行われますか？",
@@ -2230,7 +2230,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "PowerPoint سے PDF استعمال کرنے کا طریقہ",
-        "intro": "PPTX سے متن نکال کر نئے سادہ PDF صفحات میں رکھتا ہے۔ اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔",
+        "intro": "PPTX سے متن نکال کر نئے سادہ PDF صفحات میں رکھتا ہے۔ اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔ PDF کی built-in font محدود حروف کو سپورٹ کرتی ہے۔ سلائیڈ میں غیر معاون حرف ہونے پر تبدیلی error کے ساتھ رک جاتی ہے اور کوئی PDF نہیں بنتی۔",
         "stepsHeading": "PowerPoint سے PDF استعمال کرنے کے تین مراحل",
         "steps": [
           {
@@ -2261,7 +2261,7 @@
           },
           {
             "question": "PowerPoint سے PDF: استعمال سے پہلے کون سی حد جاننی چاہیے؟",
-            "answer": "اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔"
+            "answer": "اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔ PDF کی built-in font محدود حروف کو سپورٹ کرتی ہے۔ سلائیڈ میں غیر معاون حرف ہونے پر تبدیلی error کے ساتھ رک جاتی ہے اور کوئی PDF نہیں بنتی۔"
           },
           {
             "question": "PowerPoint سے PDF: فائلوں کی کارروائی کہاں ہوتی ہے؟",
@@ -3368,7 +3368,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "So verwenden Sie PowerPoint zu PDF",
-        "intro": "Extrahiert PPTX-Text und setzt ihn auf neue einfache PDF-Seiten. Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt.",
+        "intro": "Extrahiert PPTX-Text und setzt ihn auf neue einfache PDF-Seiten. Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt. Die integrierte PDF-Schrift unterstützt nur einen begrenzten Zeichensatz. Enthält eine Folie nicht unterstützte Zeichen, wird die Konvertierung mit einer Fehlermeldung abgebrochen und keine PDF erstellt.",
         "stepsHeading": "PowerPoint zu PDF in drei Schritten verwenden",
         "steps": [
           {
@@ -3399,7 +3399,7 @@
           },
           {
             "question": "PowerPoint zu PDF: Welche Einschränkungen sollte ich kennen?",
-            "answer": "Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt."
+            "answer": "Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt. Die integrierte PDF-Schrift unterstützt nur einen begrenzten Zeichensatz. Enthält eine Folie nicht unterstützte Zeichen, wird die Konvertierung mit einer Fehlermeldung abgebrochen und keine PDF erstellt."
           },
           {
             "question": "PowerPoint zu PDF: Wo werden die Dateien verarbeitet?",
@@ -4506,7 +4506,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "PowerPoint से PDF का उपयोग कैसे करें",
-        "intro": "PPTX से टेक्स्ट निकालकर नए साधारण PDF पेज बनाता है। मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते।",
+        "intro": "PPTX से टेक्स्ट निकालकर नए साधारण PDF पेज बनाता है। मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते। अंतर्निहित PDF फ़ॉन्ट केवल सीमित वर्णों का समर्थन करता है। स्लाइड में असमर्थित वर्ण होने पर रूपांतरण त्रुटि के साथ रुक जाता है और PDF नहीं बनती।",
         "stepsHeading": "PowerPoint से PDF के लिए तीन चरण",
         "steps": [
           {
@@ -4537,7 +4537,7 @@
           },
           {
             "question": "PowerPoint से PDF: कौन-सी सीमाएँ जानना ज़रूरी है?",
-            "answer": "मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते।"
+            "answer": "मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते। अंतर्निहित PDF फ़ॉन्ट केवल सीमित वर्णों का समर्थन करता है। स्लाइड में असमर्थित वर्ण होने पर रूपांतरण त्रुटि के साथ रुक जाता है और PDF नहीं बनती।"
           },
           {
             "question": "PowerPoint से PDF: फ़ाइलों की प्रक्रिया कहाँ होती है?",
@@ -5644,7 +5644,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "كيفية استخدام PowerPoint إلى PDF",
-        "intro": "تستخرج النص من PPTX وتضعه في صفحات PDF أساسية جديدة. لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية.",
+        "intro": "تستخرج النص من PPTX وتضعه في صفحات PDF أساسية جديدة. لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية. يدعم خط PDF المضمّن مجموعة محدودة من الأحرف. إذا احتوت الشريحة على أحرف غير مدعومة، يتوقف التحويل مع ظهور خطأ ولا يتم إنشاء PDF.",
         "stepsHeading": "استخدم PowerPoint إلى PDF في ثلاث خطوات",
         "steps": [
           {
@@ -5675,7 +5675,7 @@
           },
           {
             "question": "PowerPoint إلى PDF: ما القيود التي يجب معرفتها؟",
-            "answer": "لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية."
+            "answer": "لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية. يدعم خط PDF المضمّن مجموعة محدودة من الأحرف. إذا احتوت الشريحة على أحرف غير مدعومة، يتوقف التحويل مع ظهور خطأ ولا يتم إنشاء PDF."
           },
           {
             "question": "PowerPoint إلى PDF: أين تتم معالجة الملفات؟",
@@ -6782,7 +6782,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Utiliser PowerPoint en PDF",
-        "intro": "Extrait le texte d’un PPTX et le place sur de nouvelles pages PDF simples. Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés.",
+        "intro": "Extrait le texte d’un PPTX et le place sur de nouvelles pages PDF simples. Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés. La police PDF intégrée prend en charge un jeu de caractères limité. Si une diapositive contient un caractère non pris en charge, la conversion s’arrête avec une erreur et aucun PDF n’est créé.",
         "stepsHeading": "Utiliser PowerPoint en PDF en trois étapes",
         "steps": [
           {
@@ -6813,7 +6813,7 @@
           },
           {
             "question": "PowerPoint en PDF: Quelles limites faut-il connaître ?",
-            "answer": "Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés."
+            "answer": "Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés. La police PDF intégrée prend en charge un jeu de caractères limité. Si une diapositive contient un caractère non pris en charge, la conversion s’arrête avec une erreur et aucun PDF n’est créé."
           },
           {
             "question": "PowerPoint en PDF: Où les fichiers sont-ils traités ?",
@@ -7920,7 +7920,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "如何使用PowerPoint 转 PDF",
-        "intro": "提取 PPTX 文本并排版到新的基础 PDF 页面。 不会保留原始图像、位置、图表、主题、备注或动画。",
+        "intro": "提取 PPTX 文本并排版到新的基础 PDF 页面。 不会保留原始图像、位置、图表、主题、备注或动画。内置 PDF 字体支持的字符有限。若幻灯片包含不支持的字符，转换会报错停止，且不会生成 PDF。",
         "stepsHeading": "PowerPoint 转 PDF的三个步骤",
         "steps": [
           {
@@ -7951,7 +7951,7 @@
           },
           {
             "question": "PowerPoint 转 PDF: 使用前应了解哪些限制？",
-            "answer": "不会保留原始图像、位置、图表、主题、备注或动画。"
+            "answer": "不会保留原始图像、位置、图表、主题、备注或动画。内置 PDF 字体支持的字符有限。若幻灯片包含不支持的字符，转换会报错停止，且不会生成 PDF。"
           },
           {
             "question": "PowerPoint 转 PDF: 文件在哪里处理？",
@@ -9058,7 +9058,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Paano gamitin ang PowerPoint sa PDF",
-        "intro": "Kinukuha ang teksto mula sa PPTX at inilalagay sa bagong payak na PDF page. Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation.",
+        "intro": "Kinukuha ang teksto mula sa PPTX at inilalagay sa bagong payak na PDF page. Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation. Limitado ang mga character na sinusuportahan ng built-in na PDF font. Kapag may hindi suportadong character sa slide, hihinto ang conversion na may error at walang PDF na malilikha.",
         "stepsHeading": "Gamitin ang PowerPoint sa PDF sa tatlong hakbang",
         "steps": [
           {
@@ -9089,7 +9089,7 @@
           },
           {
             "question": "PowerPoint sa PDF: Anong mga limitasyon ang dapat malaman?",
-            "answer": "Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation."
+            "answer": "Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation. Limitado ang mga character na sinusuportahan ng built-in na PDF font. Kapag may hindi suportadong character sa slide, hihinto ang conversion na may error at walang PDF na malilikha."
           },
           {
             "question": "PowerPoint sa PDF: Saan pinoproseso ang mga file?",
@@ -10196,7 +10196,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Cómo usar PowerPoint a PDF",
-        "intro": "Extrae texto de PPTX y lo coloca en nuevas páginas PDF básicas. No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales.",
+        "intro": "Extrae texto de PPTX y lo coloca en nuevas páginas PDF básicas. No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales. La fuente PDF integrada admite un conjunto limitado de caracteres. Si una diapositiva contiene caracteres no compatibles, la conversión se detiene con un error y no se crea ningún PDF.",
         "stepsHeading": "Usa PowerPoint a PDF en tres pasos",
         "steps": [
           {
@@ -10227,7 +10227,7 @@
           },
           {
             "question": "PowerPoint a PDF: ¿Qué limitaciones debo conocer?",
-            "answer": "No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales."
+            "answer": "No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales. La fuente PDF integrada admite un conjunto limitado de caracteres. Si una diapositiva contiene caracteres no compatibles, la conversión se detiene con un error y no se crea ningún PDF."
           },
           {
             "question": "PowerPoint a PDF: ¿Dónde se procesan los archivos?",
@@ -11334,7 +11334,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Come usare PowerPoint in PDF",
-        "intro": "Estrae il testo dai PPTX e lo dispone su nuove pagine PDF di base. Non conserva immagini, posizioni, grafici, temi, note o animazioni originali.",
+        "intro": "Estrae il testo dai PPTX e lo dispone su nuove pagine PDF di base. Non conserva immagini, posizioni, grafici, temi, note o animazioni originali. Il font PDF incorporato supporta un insieme limitato di caratteri. Se una diapositiva contiene caratteri non supportati, la conversione si interrompe con un errore e non viene creato alcun PDF.",
         "stepsHeading": "Usa PowerPoint in PDF in tre passaggi",
         "steps": [
           {
@@ -11365,7 +11365,7 @@
           },
           {
             "question": "PowerPoint in PDF: Quali limiti devo conoscere?",
-            "answer": "Non conserva immagini, posizioni, grafici, temi, note o animazioni originali."
+            "answer": "Non conserva immagini, posizioni, grafici, temi, note o animazioni originali. Il font PDF incorporato supporta un insieme limitato di caratteri. Se una diapositiva contiene caratteri non supportati, la conversione si interrompe con un errore e non viene creato alcun PDF."
           },
           {
             "question": "PowerPoint in PDF: Dove vengono elaborati i file?",
@@ -12472,7 +12472,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Slik bruker du PowerPoint til PDF",
-        "intro": "Henter tekst fra PPTX og plasserer den på nye, enkle PDF-sider. Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke.",
+        "intro": "Henter tekst fra PPTX og plasserer den på nye, enkle PDF-sider. Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke. Den innebygde PDF-skriften støtter et begrenset tegnsett. Hvis et lysbilde inneholder tegn som ikke støttes, stopper konverteringen med en feil, og ingen PDF opprettes.",
         "stepsHeading": "Bruk PowerPoint til PDF i tre trinn",
         "steps": [
           {
@@ -12503,7 +12503,7 @@
           },
           {
             "question": "PowerPoint til PDF: Hvilke begrensninger bør jeg kjenne til?",
-            "answer": "Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke."
+            "answer": "Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke. Den innebygde PDF-skriften støtter et begrenset tegnsett. Hvis et lysbilde inneholder tegn som ikke støttes, stopper konverteringen med en feil, og ingen PDF opprettes."
           },
           {
             "question": "PowerPoint til PDF: Hvor behandles filene?",
@@ -13610,7 +13610,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Como usar PowerPoint para PDF",
-        "intro": "Extrai texto do PPTX e o organiza em novas páginas PDF básicas. Imagens, posições, gráficos, temas, notas e animações originais não são preservados.",
+        "intro": "Extrai texto do PPTX e o organiza em novas páginas PDF básicas. Imagens, posições, gráficos, temas, notas e animações originais não são preservados. A fonte PDF incorporada suporta um conjunto limitado de caracteres. Se um slide contiver caracteres não suportados, a conversão será interrompida com um erro e nenhum PDF será criado.",
         "stepsHeading": "Use PowerPoint para PDF em três etapas",
         "steps": [
           {
@@ -13641,7 +13641,7 @@
           },
           {
             "question": "PowerPoint para PDF: Quais limitações devo conhecer?",
-            "answer": "Imagens, posições, gráficos, temas, notas e animações originais não são preservados."
+            "answer": "Imagens, posições, gráficos, temas, notas e animações originais não são preservados. A fonte PDF incorporada suporta um conjunto limitado de caracteres. Se um slide contiver caracteres não suportados, a conversão será interrompida com um erro e nenhum PDF será criado."
           },
           {
             "question": "PowerPoint para PDF: Onde os arquivos são processados?",
@@ -14748,7 +14748,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Как использовать PowerPoint в PDF",
-        "intro": "Извлекает текст PPTX и размещает его на новых простых страницах PDF. Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются.",
+        "intro": "Извлекает текст PPTX и размещает его на новых простых страницах PDF. Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются. Встроенный шрифт PDF поддерживает ограниченный набор символов. Если на слайде есть неподдерживаемые символы, преобразование завершится с ошибкой, и PDF не будет создан.",
         "stepsHeading": "Три шага для работы с PowerPoint в PDF",
         "steps": [
           {
@@ -14779,7 +14779,7 @@
           },
           {
             "question": "PowerPoint в PDF: Какие ограничения важно знать?",
-            "answer": "Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются."
+            "answer": "Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются. Встроенный шрифт PDF поддерживает ограниченный набор символов. Если на слайде есть неподдерживаемые символы, преобразование завершится с ошибкой, и PDF не будет создан."
           },
           {
             "question": "PowerPoint в PDF: Где обрабатываются файлы?",
@@ -15886,7 +15886,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "PowerPoint를 PDF로 사용 방법",
-        "intro": "PPTX의 텍스트를 추출해 새 기본 PDF 페이지에 배치합니다. 원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다.",
+        "intro": "PPTX의 텍스트를 추출해 새 기본 PDF 페이지에 배치합니다. 원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다. 내장 PDF 글꼴은 제한된 문자 집합만 지원합니다. 슬라이드에 지원되지 않는 문자가 있으면 변환이 오류와 함께 중단되고 PDF가 생성되지 않습니다.",
         "stepsHeading": "PowerPoint를 PDF로 사용 3단계",
         "steps": [
           {
@@ -15917,7 +15917,7 @@
           },
           {
             "question": "PowerPoint를 PDF로: 어떤 제한 사항을 알아야 하나요?",
-            "answer": "원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다."
+            "answer": "원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다. 내장 PDF 글꼴은 제한된 문자 집합만 지원합니다. 슬라이드에 지원되지 않는 문자가 있으면 변환이 오류와 함께 중단되고 PDF가 생성되지 않습니다."
           },
           {
             "question": "PowerPoint를 PDF로: 파일은 어디에서 처리되나요?",
@@ -17024,7 +17024,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "PowerPoint’ten PDF’ye nasıl kullanılır",
-        "intro": "PPTX metnini çıkarıp yeni basit PDF sayfalarına yerleştirir. Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz.",
+        "intro": "PPTX metnini çıkarıp yeni basit PDF sayfalarına yerleştirir. Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz. Yerleşik PDF yazı tipi sınırlı sayıda karakteri destekler. Slaytta desteklenmeyen karakter varsa dönüştürme hata vererek durur ve PDF oluşturulmaz.",
         "stepsHeading": "PowerPoint’ten PDF’ye için üç adım",
         "steps": [
           {
@@ -17055,7 +17055,7 @@
           },
           {
             "question": "PowerPoint’ten PDF’ye: Hangi sınırlamaları bilmeliyim?",
-            "answer": "Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz."
+            "answer": "Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz. Yerleşik PDF yazı tipi sınırlı sayıda karakteri destekler. Slaytta desteklenmeyen karakter varsa dönüştürme hata vererek durur ve PDF oluşturulmaz."
           },
           {
             "question": "PowerPoint’ten PDF’ye: Dosyalar nerede işlenir?",
@@ -18162,7 +18162,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Zo gebruik je PowerPoint naar PDF",
-        "intro": "Haalt tekst uit PPTX en plaatst die op nieuwe eenvoudige PDF-pagina’s. Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden.",
+        "intro": "Haalt tekst uit PPTX en plaatst die op nieuwe eenvoudige PDF-pagina’s. Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden. Het ingebouwde PDF-lettertype ondersteunt slechts een beperkte tekenset. Bevat een dia niet-ondersteunde tekens, dan stopt de conversie met een fout en wordt er geen PDF gemaakt.",
         "stepsHeading": "PowerPoint naar PDF gebruiken in drie stappen",
         "steps": [
           {
@@ -18193,7 +18193,7 @@
           },
           {
             "question": "PowerPoint naar PDF: Welke beperkingen moet ik kennen?",
-            "answer": "Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden."
+            "answer": "Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden. Het ingebouwde PDF-lettertype ondersteunt slechts een beperkte tekenset. Bevat een dia niet-ondersteunde tekens, dan stopt de conversie met een fout en wordt er geen PDF gemaakt."
           },
           {
             "question": "PowerPoint naar PDF: Waar worden bestanden verwerkt?",
@@ -19300,7 +19300,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Jak używać narzędzia PowerPoint do PDF",
-        "intro": "Wyodrębnia tekst z PPTX i umieszcza go na nowych, podstawowych stronach PDF. Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane.",
+        "intro": "Wyodrębnia tekst z PPTX i umieszcza go na nowych, podstawowych stronach PDF. Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane. Wbudowana czcionka PDF obsługuje ograniczony zestaw znaków. Jeśli slajd zawiera nieobsługiwane znaki, konwersja zostanie przerwana z błędem i plik PDF nie zostanie utworzony.",
         "stepsHeading": "Użyj PowerPoint do PDF w trzech krokach",
         "steps": [
           {
@@ -19331,7 +19331,7 @@
           },
           {
             "question": "PowerPoint do PDF: Jakie ograniczenia warto znać?",
-            "answer": "Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane."
+            "answer": "Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane. Wbudowana czcionka PDF obsługuje ograniczony zestaw znaków. Jeśli slajd zawiera nieobsługiwane znaki, konwersja zostanie przerwana z błędem i plik PDF nie zostanie utworzony."
           },
           {
             "question": "PowerPoint do PDF: Gdzie są przetwarzane pliki?",
@@ -20438,7 +20438,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Så använder du PowerPoint till PDF",
-        "intro": "Hämtar text från PPTX och placerar den på nya enkla PDF-sidor. Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte.",
+        "intro": "Hämtar text från PPTX och placerar den på nya enkla PDF-sidor. Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte. Det inbyggda PDF-teckensnittet stöder en begränsad teckenuppsättning. Om en bildruta innehåller tecken som inte stöds avbryts konverteringen med ett fel och ingen PDF skapas.",
         "stepsHeading": "Använd PowerPoint till PDF i tre steg",
         "steps": [
           {
@@ -20469,7 +20469,7 @@
           },
           {
             "question": "PowerPoint till PDF: Vilka begränsningar bör jag känna till?",
-            "answer": "Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte."
+            "answer": "Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte. Det inbyggda PDF-teckensnittet stöder en begränsad teckenuppsättning. Om en bildruta innehåller tecken som inte stöds avbryts konverteringen med ett fel och ingen PDF skapas."
           },
           {
             "question": "PowerPoint till PDF: Var bearbetas filerna?",
@@ -21576,7 +21576,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Cara menggunakan PowerPoint ke PDF",
-        "intro": "Mengambil teks dari PPTX dan menyusunnya pada halaman PDF dasar yang baru. Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan.",
+        "intro": "Mengambil teks dari PPTX dan menyusunnya pada halaman PDF dasar yang baru. Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan. Font PDF bawaan hanya mendukung kumpulan karakter terbatas. Jika slide berisi karakter yang tidak didukung, konversi akan berhenti dengan kesalahan dan PDF tidak dibuat.",
         "stepsHeading": "Gunakan PowerPoint ke PDF dalam tiga langkah",
         "steps": [
           {
@@ -21607,7 +21607,7 @@
           },
           {
             "question": "PowerPoint ke PDF: Batasan apa yang perlu diketahui?",
-            "answer": "Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan."
+            "answer": "Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan. Font PDF bawaan hanya mendukung kumpulan karakter terbatas. Jika slide berisi karakter yang tidak didukung, konversi akan berhenti dengan kesalahan dan PDF tidak dibuat."
           },
           {
             "question": "PowerPoint ke PDF: Di mana file diproses?",
@@ -22714,7 +22714,7 @@
       },
       "powerpoint-to-pdf": {
         "introHeading": "Cách sử dụng PowerPoint sang PDF",
-        "intro": "Trích xuất văn bản PPTX và đặt vào các trang PDF cơ bản mới. Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc.",
+        "intro": "Trích xuất văn bản PPTX và đặt vào các trang PDF cơ bản mới. Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc. Phông PDF tích hợp chỉ hỗ trợ một tập ký tự giới hạn. Nếu trang chiếu chứa ký tự không được hỗ trợ, quá trình chuyển đổi sẽ dừng kèm lỗi và không tạo PDF.",
         "stepsHeading": "Sử dụng PowerPoint sang PDF trong ba bước",
         "steps": [
           {
@@ -22745,7 +22745,7 @@
           },
           {
             "question": "PowerPoint sang PDF: Cần biết những giới hạn nào?",
-            "answer": "Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc."
+            "answer": "Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc. Phông PDF tích hợp chỉ hỗ trợ một tập ký tự giới hạn. Nếu trang chiếu chứa ký tự không được hỗ trợ, quá trình chuyển đổi sẽ dừng kèm lỗi và không tạo PDF."
           },
           {
             "question": "PowerPoint sang PDF: Tệp được xử lý ở đâu?",

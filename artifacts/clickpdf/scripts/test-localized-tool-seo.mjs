@@ -25,7 +25,53 @@ const supportedLanguageCodes = [
   ...translationsSource.matchAll(/^\s*\|\s*'([a-z]{2})'/gm),
 ].map((match) => match[1]);
 
-test('tool SEO draft generation keeps hidden Repair copy out of Compare translations', () => {
+const repairAccuracyMarkers = {
+  ja: ['復旧は保証されず', '欠落・切断した内容は復元できません'],
+  ur: ['بحالی کی ضمانت نہیں', 'غائب یا truncated مواد واپس نہیں آ سکتا'],
+  de: ['nicht garantiert', 'fehlende oder abgeschnittene Inhalte lassen sich nicht zurückholen'],
+  hi: ['गारंटी नहीं', 'गायब या कटा हुआ कंटेंट वापस नहीं बनाया जा सकता'],
+  ar: ['لا يوجد ضمان', 'المفقود أو المبتور'],
+  fr: ['n’est pas garantie', 'contenu manquant ou tronqué ne peut pas être restauré'],
+  zh: ['不保证修复成功', '无法恢复缺失或被截断的内容'],
+  tl: ['walang garantiya', 'hindi maibabalik ang nawawala o naputol na nilalaman'],
+  es: ['no se garantiza la recuperación', 'no se restaura el contenido ausente o truncado'],
+  it: ['non è garantito', 'contenuti mancanti o troncati non possono essere ripristinati'],
+  no: ['ikke garantert', 'manglende eller avkortet innhold kan ikke gjenskapes'],
+  pt: ['não é garantida', 'conteúdo ausente ou truncado não pode ser restaurado'],
+  ru: ['не гарантируется', 'отсутствующее или усечённое содержимое вернуть нельзя'],
+  ko: ['복구를 보장하지 않으며', '없거나 잘린 내용은 복원할 수 없습니다'],
+  tr: ['kurtarma garanti edilmez', 'eksik ya da kesilmiş içerik geri getirilemez'],
+  nl: ['niet gegarandeerd', 'ontbrekende of afgekorte inhoud kan niet worden teruggezet'],
+  pl: ['nie jest gwarantowane', 'brakującej lub uciętej treści nie da się przywrócić'],
+  sv: ['garanteras inte', 'saknat eller avklippt innehåll kan inte återskapas'],
+  id: ['tidak dijamin', 'konten yang hilang atau terpotong tidak dapat dipulihkan'],
+  vi: ['không đảm bảo khôi phục', 'nội dung bị thiếu hoặc bị cắt'],
+};
+
+const powerpointCharacterLimitMarkers = {
+  ja: '表示できる文字には限りがあります',
+  ur: 'محدود حروف کو سپورٹ کرتی ہے',
+  de: 'begrenzten Zeichensatz',
+  hi: 'सीमित वर्णों का समर्थन करता है',
+  ar: 'مجموعة محدودة من الأحرف',
+  fr: 'jeu de caractères limité',
+  zh: '支持的字符有限',
+  tl: 'Limitado ang mga character',
+  es: 'conjunto limitado de caracteres',
+  it: 'insieme limitato di caratteri',
+  no: 'begrenset tegnsett',
+  pt: 'conjunto limitado de caracteres',
+  ru: 'ограниченный набор символов',
+  ko: '제한된 문자 집합',
+  tr: 'sınırlı sayıda karakteri',
+  nl: 'beperkte tekenset',
+  pl: 'ograniczony zestaw znaków',
+  sv: 'begränsad teckenuppsättning',
+  id: 'kumpulan karakter terbatas',
+  vi: 'tập ký tự giới hạn',
+};
+
+test('tool SEO translations keep Repair copy separate from Compare content', () => {
   const repair = contentByLocale.ja.tools.repair;
   const compare = contentByLocale.ja.tools.compare;
   assert.match(repair.intro, /同じページ数で再度開ける/u);
@@ -50,6 +96,37 @@ function schemaNodes(html) {
       return Array.isArray(schema['@graph']) ? schema['@graph'] : [schema];
     });
 }
+
+test('localized SEO titles distinguish the seven duplicate pairs without changing tool labels', async () => {
+  const titlePairs = [
+    { id: 'split', locales: ['es', 'pt'], titles: ['Dividir PDF por páginas y rangos', 'Dividir PDF por páginas ou intervalos'] },
+    { id: 'compress', locales: ['es', 'pt'], titles: ['Comprimir PDF para reducir el tamaño', 'Comprimir PDF para reduzir o tamanho'] },
+    { id: 'protect', locales: ['es', 'pt'], titles: ['Proteger PDF con contraseña', 'Proteger PDF com senha'] },
+    { id: 'unlock', locales: ['es', 'pt'], titles: ['Desbloquear PDF protegido con contraseña', 'Desbloquear PDF protegido por senha'] },
+    { id: 'repair', locales: ['es', 'pt'], titles: ['Intentar reparar un PDF dañado', 'Tentar reparar um PDF danificado'] },
+    { id: 'compare', locales: ['es', 'pt'], titles: ['Comparar el texto de dos archivos PDF', 'Comparar o texto de dois arquivos PDF'] },
+    { id: 'sign', locales: ['fr', 'no'], titles: ['Signer un PDF avec une signature visuelle', 'Signer PDF med en synlig signatur'] },
+  ];
+
+  for (const locale of Object.keys(contentByLocale)) {
+    const titles = tools.map((tool) => tool.localizedTitles[locale]?.seoTitle || tool.localizedTitles[locale]?.title);
+    assert.equal(new Set(titles).size, titles.length, `${locale} localized SEO title metadata is unique`);
+  }
+
+  for (const { id, locales, titles } of titlePairs) {
+    const tool = tools.find((candidate) => candidate.id === id);
+    assert.ok(tool, `${id} is public`);
+    assert.notEqual(titles[0], titles[1], `${id} title pair is distinct`);
+    for (const [index, locale] of locales.entries()) {
+      const localized = tool.localizedTitles[locale];
+      assert.equal(localized.seoTitle, titles[index], `${locale}:${id} has its differentiated SEO title`);
+      const htmlPath = path.join(publicDir, locale, 'tools', tool.slug, 'index.html');
+      const html = await readFile(htmlPath, 'utf8');
+      assert.ok(html.includes(`<title>${escapeHtml(`${titles[index]} | ClickPDF`)}</title>`), `${locale}:${id} generated metadata uses the SEO title`);
+      assert.ok(html.includes(`<h1>${escapeHtml(localized.title)}</h1>`), `${locale}:${id} visible H1 keeps the existing tool label`);
+    }
+  }
+});
 
 test('every completed localized Merge PDF route has matching page, schema, sitemap, and alternates', async () => {
   assert.ok(mergeTool, 'the Merge PDF tool is active');
@@ -138,9 +215,11 @@ test('every completed localized Merge PDF route has matching page, schema, sitem
 });
 
 test('localized tool route matrix keeps only complete, source-checked locale pairs discoverable', async () => {
-  assert.equal(tools.length, 23, 'PDF/A, PDF Repair, and PowerPoint to PDF remain hidden');
+  assert.equal(tools.length, 25, 'PDF/A remains hidden while Repair and PowerPoint to PDF are public');
   assert.equal(supportedLanguageCodes.length, 21, 'the selector supports 21 languages');
-  assert.equal(tools.length * supportedLanguageCodes.length, 483, 'the public tool-language matrix has 483 possible routes');
+  assert.equal(tools.length * supportedLanguageCodes.length, 525, 'the public tool-language matrix has 525 possible routes');
+  assert.ok(tools.some((tool) => tool.id === 'repair'), 'Repair is present in the active public registry');
+  assert.ok(tools.some((tool) => tool.id === 'powerpoint-to-pdf'), 'PowerPoint to PDF is present in the active public registry');
 
   const publicToolIds = new Set(tools.map((tool) => tool.id));
   const allContentPairs = Object.entries(contentByLocale).flatMap(([locale, localeData]) =>
@@ -175,9 +254,9 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     }
   }
   for (const toolId of ['repair', 'powerpoint-to-pdf']) {
-    const hiddenDrafts = qaLedger.entries.filter((entry) => entry.tool === toolId);
-    assert.equal(hiddenDrafts.length, Object.keys(contentByLocale).length, `${toolId} keeps a QA record for every non-English draft`);
-    for (const entry of hiddenDrafts) {
+    const draftEntries = qaLedger.entries.filter((entry) => entry.tool === toolId);
+    assert.equal(draftEntries.length, Object.keys(contentByLocale).length, `${toolId} keeps a QA record for every non-English draft`);
+    for (const entry of draftEntries) {
       assert.equal(entry.status, 'generated_draft', `${entry.locale}:${toolId} remains a generated draft`);
       assert.equal(entry.humanReviewed, false, `${entry.locale}:${toolId} does not claim human review`);
       assert.equal(entry.reviewer, null, `${entry.locale}:${toolId} has no invented reviewer identity`);
@@ -188,6 +267,7 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     /^https:\/\/www\.clickpdf\.net\/[a-z]{2}\/tools\/[^/]+\/$/.test(url),
   );
   assert.equal(localizedToolSitemapUrls.length, contentPairs.length);
+  assert.equal(localizedToolSitemapUrls.length, 500, 'all 25 public tools have a URL in each of 20 translated locales');
   assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, 'all sitemap URLs remain unique');
 
   const localizedQuestionsByLocale = new Map();
@@ -200,8 +280,8 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       assert.equal(new Set(content.faqs.map((faq) => faq.question)).size, 6, `${locale}:${toolId} FAQ questions are distinct`);
       if (!tool) {
         assert.ok(
-          ['repair', 'powerpoint-to-pdf'].includes(toolId),
-          `${locale}:${toolId} is intentionally hidden rather than missing from the active registry`,
+          ['pdf-to-pdfa'].includes(toolId),
+          `${locale}:${toolId} is the only intentionally hidden tool rather than missing from the active registry`,
         );
         continue;
       }
@@ -227,6 +307,17 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
         assert.match(contentText, /AES-256-GCM/i, `${locale} identifies the documented encryption format`);
         assert.match(contentText, /ClickPDF Unlock/, `${locale} explains which tool opens the protected format`);
         assert.doesNotMatch(contentText, /military|militär|軍事用|軍工/iu, `${locale} avoids unsupported military-grade wording`);
+      }
+      if (toolId === 'repair') {
+        const [noGuarantee, missingOrTruncated] = repairAccuracyMarkers[locale];
+        assert.ok(tool.localizedTitles[locale].description.includes(noGuarantee), `${locale} meta description preserves the best-effort limitation`);
+        assert.ok(tool.localizedTitles[locale].description.includes(missingOrTruncated), `${locale} meta description does not promise missing content recovery`);
+      }
+      if (toolId === 'powerpoint-to-pdf') {
+        assert.ok(
+          content.faqs[3].answer.includes(powerpointCharacterLimitMarkers[locale]),
+          `${locale} identifies the supported character limit`,
+        );
       }
       if (toolId === 'unlock') {
         assert.match(contentText, /ClickPDF Protect/, `${locale} limits the feature to ClickPDF Protect files`);
@@ -399,10 +490,18 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       const html = await readFile(pagePath, 'utf8');
       const main = html.match(/<main\b(?=[^>]*\bid=["']seo-static-content["'])[^>]*>([\s\S]*?)<\/main>/i)?.[1];
       assert.ok(main, `${localizedUrl} has crawlable static content`);
+      if (locale === 'ja' || locale === 'zh') {
+        const cjkCharacterCount = (main.match(/[\u3040-\u30ff\u3400-\u9fff]/g) || []).length;
+        assert.ok(
+          cjkCharacterCount >= 200,
+          `${localizedUrl} has ${cjkCharacterCount} visible CJK characters; Latin whitespace word counts must not classify it as a shell`,
+        );
+      }
       assert.match(html, new RegExp(`<html[^>]*lang=["']${locale}["']`, 'i'));
       assert.match(html, new RegExp(`<html[^>]*dir=["']${['ur', 'ar'].includes(locale) ? 'rtl' : 'ltr'}["']`, 'i'));
       assert.match(html, new RegExp(`<link rel=["']canonical["'] href=["']${localizedUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`));
-      assert.match(html, new RegExp(`<title>${escapeHtml(`${tool.localizedTitles[locale].title} | ClickPDF`)}</title>`));
+      const seoTitle = tool.localizedTitles[locale].seoTitle || tool.localizedTitles[locale].title;
+      assert.match(html, new RegExp(`<title>${escapeHtml(`${seoTitle} | ClickPDF`)}</title>`));
       assert.ok(
         html.includes(`<meta name="description" content="${escapeHtml(tool.localizedTitles[locale].description)}"`),
         `${localizedUrl} has its localized meta description`,

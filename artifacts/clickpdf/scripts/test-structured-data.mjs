@@ -379,7 +379,7 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
 });
 
 test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and BreadcrumbList schemas', async () => {
-  assert.equal(activeTools.length, 23, 'the public registry excludes PDF/A, PDF Repair, and PowerPoint to PDF');
+  assert.equal(activeTools.length, 25, 'the public registry excludes PDF/A while exposing the 25 enabled tools');
   const allFaqQuestions = activeTools.flatMap((tool) => tool.faqs.map((faq) => faq.question.trim().toLocaleLowerCase()));
   assert.equal(allFaqQuestions.length, activeTools.length * 6, 'each public tool provides six FAQs');
   assert.equal(new Set(allFaqQuestions).size, allFaqQuestions.length, 'all tool FAQ questions are distinct');

@@ -20,7 +20,7 @@ const copy = {
     browser: '対応する文書処理はブラウザー内で行われます。ページのリソースや有効な第三者機能は通常の通信を行う場合があります。',
     reviewAnswer: 'はい。重要なページや内容を確認し、必要に応じて元ファイルと照合してください。',
     operations: ['全ページの四辺に同じ割合を適用し、PDFのCropBoxを変更します。', '読み込めるPDFを再保存し、同じページ数で再度開けるか確認します。', '2つのPDFから選択可能なテキストをページごとに比較します。', 'PPTXのテキストを抽出し、新しい基本的なPDFページに配置します。'],
-    limits: ['CropBoxの外側にある内容は削除されません。安全な墨消しには使えません。', '復元は保証されず、欠落・切断した内容は復元できません。', '画像、レイアウト、書式、OCR前のスキャン文字は比較しません。', '元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。'],
+    limits: ['CropBoxの外側にある内容は削除されません。安全な墨消しには使えません。', '復元は保証されず、欠落・切断した内容は復元できません。', '画像、レイアウト、書式、OCR前のスキャン文字は比較しません。', '元の画像、配置、グラフ、テーマ、ノート、アニメーションは再現されません。内蔵PDFフォントで表示できる文字には限りがあります。対応していない文字がスライドに含まれる場合、変換はエラーで停止し、PDFは作成されません。'],
   },
   ur: {
     about: '{tool} استعمال کرنے کا طریقہ', stepsHeading: '{tool} استعمال کرنے کے تین مراحل', stepTitles: ['فائل منتخب کریں', 'عمل چلائیں', 'نتیجہ دیکھیں'],
@@ -31,7 +31,7 @@ const copy = {
     browser: 'معاون دستاویز پروسیسنگ براؤزر میں ہوتی ہے۔ صفحے کے وسائل اور فعال تھرڈ پارٹی سروسز معمول کی درخواستیں کر سکتی ہیں۔',
     reviewAnswer: 'ہاں۔ اہم صفحات اور مواد کی جانچ کریں اور ضرورت ہو تو اصل فائل سے موازنہ کریں۔',
     operations: ['ہر صفحے کے چاروں کناروں پر ایک ہی تناسب لگا کر PDF کا CropBox بدلتا ہے۔', 'قابلِ مطالعہ PDF کو دوبارہ محفوظ کر کے اسی صفحہ تعداد کے ساتھ کھلنے کی جانچ کرتا ہے۔', 'دو PDFs میں منتخب کیے جا سکنے والے متن کا صفحہ بہ صفحہ موازنہ کرتا ہے۔', 'PPTX سے متن نکال کر نئے سادہ PDF صفحات میں رکھتا ہے۔'],
-    limits: ['CropBox سے باہر کا مواد حذف نہیں ہوتا؛ اسے محفوظ redaction نہ سمجھیں۔', 'بحالی کی ضمانت نہیں؛ غائب یا کٹا ہوا مواد واپس نہیں آ سکتا۔', 'تصاویر، layout، formatting یا OCR کے بغیر scan شدہ متن کا موازنہ نہیں ہوتا۔', 'اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔'],
+    limits: ['CropBox سے باہر کا مواد حذف نہیں ہوتا؛ اسے محفوظ redaction نہ سمجھیں۔', 'بحالی کی ضمانت نہیں؛ غائب یا کٹا ہوا مواد واپس نہیں آ سکتا۔', 'تصاویر، layout، formatting یا OCR کے بغیر scan شدہ متن کا موازنہ نہیں ہوتا۔', 'اصل تصاویر، layout، charts، theme، notes اور animations شامل نہیں ہوتے۔ PDF کی built-in font محدود حروف کو سپورٹ کرتی ہے۔ سلائیڈ میں غیر معاون حرف ہونے پر تبدیلی error کے ساتھ رک جاتی ہے اور کوئی PDF نہیں بنتی۔'],
   },
   de: {
     about: 'So verwenden Sie {tool}', stepsHeading: '{tool} in drei Schritten verwenden', stepTitles: ['Dateien auswählen', 'Vorgang starten', 'Ergebnis prüfen'],
@@ -42,7 +42,7 @@ const copy = {
     browser: 'Die unterstützte Dokumentverarbeitung läuft im Browser. Seitenressourcen und aktivierte Drittanbieterdienste können normale Netzwerkanfragen auslösen.',
     reviewAnswer: 'Ja. Prüfen Sie wichtige Seiten und Inhalte und vergleichen Sie sie bei Bedarf mit der Quelle.',
     operations: ['Ändert die PDF-CropBox mit demselben Prozentsatz an allen vier Seiten jeder Seite.', 'Speichert ein ladbares PDF neu und prüft, ob es mit derselben Seitenzahl wieder geöffnet werden kann.', 'Vergleicht den auswählbaren Text aus genau zwei PDFs Seite für Seite.', 'Extrahiert PPTX-Text und setzt ihn auf neue einfache PDF-Seiten.'],
-    limits: ['Inhalt außerhalb der CropBox wird nicht gelöscht. Dies ist keine sichere Schwärzung.', 'Eine Wiederherstellung ist nicht garantiert; fehlende oder abgeschnittene Inhalte lassen sich nicht erzeugen.', 'Bilder, Layout, Formatierung und nicht per OCR erkannter Scantext werden nicht verglichen.', 'Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt.'],
+    limits: ['Inhalt außerhalb der CropBox wird nicht gelöscht. Dies ist keine sichere Schwärzung.', 'Eine Wiederherstellung ist nicht garantiert; fehlende oder abgeschnittene Inhalte lassen sich nicht erzeugen.', 'Bilder, Layout, Formatierung und nicht per OCR erkannter Scantext werden nicht verglichen.', 'Originalbilder, Positionen, Diagramme, Designs, Notizen und Animationen bleiben unberücksichtigt. Die integrierte PDF-Schrift unterstützt nur einen begrenzten Zeichensatz. Enthält eine Folie nicht unterstützte Zeichen, wird die Konvertierung mit einer Fehlermeldung abgebrochen und keine PDF erstellt.'],
   },
   hi: {
     about: '{tool} का उपयोग कैसे करें', stepsHeading: '{tool} के लिए तीन चरण', stepTitles: ['फ़ाइलें चुनें', 'प्रक्रिया चलाएँ', 'परिणाम जाँचें'],
@@ -53,7 +53,7 @@ const copy = {
     browser: 'समर्थित दस्तावेज़ प्रक्रिया ब्राउज़र में होती है। पेज संसाधन और चालू तृतीय-पक्ष सुविधाएँ सामान्य नेटवर्क अनुरोध कर सकती हैं।',
     reviewAnswer: 'हाँ। ज़रूरी पेज और सामग्री जाँचें और आवश्यकता हो तो मूल फ़ाइल से मिलाएँ।',
     operations: ['हर पेज के चारों किनारों पर समान प्रतिशत लगाकर PDF CropBox बदलता है।', 'पार्सर से पढ़ी जा सकने वाली PDF को फिर से सहेजकर समान पेज संख्या के साथ खुलने की जाँच करता है।', 'ठीक दो PDF के चुने जा सकने वाले टेक्स्ट की पेज-दर-पेज तुलना करता है।', 'PPTX से टेक्स्ट निकालकर नए साधारण PDF पेज बनाता है।'],
-    limits: ['CropBox के बाहर की सामग्री मिटती नहीं; यह सुरक्षित redaction नहीं है।', 'बहाली की गारंटी नहीं; गायब या कटे हुए हिस्से वापस नहीं बनाए जा सकते।', 'चित्र, लेआउट, formatting और OCR के बिना स्कैन किए गए टेक्स्ट की तुलना नहीं होती।', 'मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते।'],
+    limits: ['CropBox के बाहर की सामग्री मिटती नहीं; यह सुरक्षित redaction नहीं है।', 'बहाली की गारंटी नहीं; गायब या कटे हुए हिस्से वापस नहीं बनाए जा सकते।', 'चित्र, लेआउट, formatting और OCR के बिना स्कैन किए गए टेक्स्ट की तुलना नहीं होती।', 'मूल चित्र, लेआउट, चार्ट, थीम, नोट्स और एनिमेशन शामिल नहीं होते। अंतर्निहित PDF फ़ॉन्ट केवल सीमित वर्णों का समर्थन करता है। स्लाइड में असमर्थित वर्ण होने पर रूपांतरण त्रुटि के साथ रुक जाता है और PDF नहीं बनती।'],
   },
   ar: {
     about: 'كيفية استخدام {tool}', stepsHeading: 'استخدم {tool} في ثلاث خطوات', stepTitles: ['اختر الملفات', 'ابدأ المعالجة', 'راجع النتيجة'],
@@ -64,7 +64,7 @@ const copy = {
     browser: 'تتم معالجة المستندات المدعومة في المتصفح. وقد تجري موارد الصفحة والخدمات الخارجية المفعّلة طلبات شبكة عادية.',
     reviewAnswer: 'نعم. راجع الصفحات والمحتوى المهم وقارن بالأصل عند الحاجة.',
     operations: ['تغيّر CropBox في PDF بنسبة موحدة على الجوانب الأربعة لكل صفحة.', 'تعيد حفظ ملف PDF يمكن للمحلل قراءته وتتحقق من فتحه مع عدد الصفحات نفسه.', 'تقارن النص القابل للتحديد في ملفي PDF صفحةً بصفحة.', 'تستخرج النص من PPTX وتضعه في صفحات PDF أساسية جديدة.'],
-    limits: ['لا يُحذف المحتوى خارج CropBox؛ فهذا ليس إخفاءً آمنًا للمعلومات.', 'الاستعادة غير مضمونة ولا يمكن إنشاء محتوى مفقود أو مبتور.', 'لا تقارن الأداة الصور أو التخطيط أو التنسيق أو نص الصفحات الممسوحة دون OCR.', 'لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية.'],
+    limits: ['لا يُحذف المحتوى خارج CropBox؛ فهذا ليس إخفاءً آمنًا للمعلومات.', 'الاستعادة غير مضمونة ولا يمكن إنشاء محتوى مفقود أو مبتور.', 'لا تقارن الأداة الصور أو التخطيط أو التنسيق أو نص الصفحات الممسوحة دون OCR.', 'لا تُحفظ الصور أو التخطيط أو المخططات أو السمات أو الملاحظات أو الحركات الأصلية. يدعم خط PDF المضمّن مجموعة محدودة من الأحرف. إذا احتوت الشريحة على أحرف غير مدعومة، يتوقف التحويل مع ظهور خطأ ولا يتم إنشاء PDF.'],
   },
   fr: {
     about: 'Utiliser {tool}', stepsHeading: 'Utiliser {tool} en trois étapes', stepTitles: ['Choisir les fichiers', 'Lancer le traitement', 'Vérifier le résultat'],
@@ -75,7 +75,7 @@ const copy = {
     browser: 'Le traitement pris en charge s’effectue dans le navigateur. Les ressources de la page et les services tiers activés peuvent effectuer des requêtes réseau ordinaires.',
     reviewAnswer: 'Oui. Vérifiez les pages et le contenu importants, puis comparez-les à la source si nécessaire.',
     operations: ['Modifie la CropBox du PDF avec le même pourcentage sur les quatre côtés de chaque page.', 'Réenregistre un PDF lisible par le parseur et vérifie qu’il s’ouvre avec le même nombre de pages.', 'Compare le texte sélectionnable de deux PDF, page par page.', 'Extrait le texte d’un PPTX et le place sur de nouvelles pages PDF simples.'],
-    limits: ['Le contenu hors de la CropBox n’est pas supprimé ; ce n’est pas une caviardage sécurisé.', 'La récupération n’est pas garantie et ne recrée pas le contenu manquant ou tronqué.', 'Les images, la mise en page, le formatage et le texte scanné sans OCR ne sont pas comparés.', 'Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés.'],
+    limits: ['Le contenu hors de la CropBox n’est pas supprimé ; ce n’est pas une caviardage sécurisé.', 'La récupération n’est pas garantie et ne recrée pas le contenu manquant ou tronqué.', 'Les images, la mise en page, le formatage et le texte scanné sans OCR ne sont pas comparés.', 'Les images, positions, graphiques, thèmes, notes et animations d’origine ne sont pas conservés. La police PDF intégrée prend en charge un jeu de caractères limité. Si une diapositive contient un caractère non pris en charge, la conversion s’arrête avec une erreur et aucun PDF n’est créé.'],
   },
   zh: {
     about: '如何使用{tool}', stepsHeading: '{tool}的三个步骤', stepTitles: ['选择文件', '运行处理', '检查结果'],
@@ -86,7 +86,7 @@ const copy = {
     browser: '支持的文档处理在浏览器中进行。网页资源和已启用的第三方服务仍可能发出常规网络请求。',
     reviewAnswer: '需要。请检查重要页面和内容，必要时与源文件核对。',
     operations: ['对每页四边应用相同百分比，以调整 PDF CropBox。', '重新保存解析器仍可读取的 PDF，并检查页数相同的文件能否重新打开。', '逐页比较两个 PDF 中可选择的文本。', '提取 PPTX 文本并排版到新的基础 PDF 页面。'],
-    limits: ['CropBox 之外的内容不会被删除；这不是安全涂黑。', '无法保证修复，也不能恢复缺失或截断的内容。', '不会比较图像、版式、格式或未经过 OCR 的扫描文字。', '不会保留原始图像、位置、图表、主题、备注或动画。'],
+    limits: ['CropBox 之外的内容不会被删除；这不是安全涂黑。', '无法保证修复，也不能恢复缺失或截断的内容。', '不会比较图像、版式、格式或未经过 OCR 的扫描文字。', '不会保留原始图像、位置、图表、主题、备注或动画。内置 PDF 字体支持的字符有限。若幻灯片包含不支持的字符，转换会报错停止，且不会生成 PDF。'],
   },
   tl: {
     about: 'Paano gamitin ang {tool}', stepsHeading: 'Gamitin ang {tool} sa tatlong hakbang', stepTitles: ['Pumili ng mga file', 'Patakbuhin ang proseso', 'Suriin ang resulta'],
@@ -97,7 +97,7 @@ const copy = {
     browser: 'Sa browser ginagawa ang suportadong pagproseso ng dokumento. Maaari pa ring gumawa ng karaniwang network request ang page resources at mga naka-enable na third-party feature.',
     reviewAnswer: 'Oo. Suriin ang mahahalagang pahina at nilalaman at ihambing sa source kung kailangan.',
     operations: ['Binabago ang PDF CropBox gamit ang parehong porsiyento sa apat na gilid ng bawat pahina.', 'Muling sine-save ang PDF na nababasa pa ng parser at sinusuri ang parehong bilang ng pahina.', 'Inihahambing ang mapipiling teksto ng eksaktong dalawang PDF kada pahina.', 'Kinukuha ang teksto mula sa PPTX at inilalagay sa bagong payak na PDF page.'],
-    limits: ['Hindi nabubura ang nilalaman sa labas ng CropBox; hindi ito secure redaction.', 'Hindi garantisado ang pag-recover at hindi maibabalik ang nawawala o naputol na nilalaman.', 'Hindi inihahambing ang larawan, layout, formatting o scanned text na walang OCR.', 'Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation.'],
+    limits: ['Hindi nabubura ang nilalaman sa labas ng CropBox; hindi ito secure redaction.', 'Hindi garantisado ang pag-recover at hindi maibabalik ang nawawala o naputol na nilalaman.', 'Hindi inihahambing ang larawan, layout, formatting o scanned text na walang OCR.', 'Hindi pinapanatili ang orihinal na larawan, layout, chart, theme, notes o animation. Limitado ang mga character na sinusuportahan ng built-in na PDF font. Kapag may hindi suportadong character sa slide, hihinto ang conversion na may error at walang PDF na malilikha.'],
   },
   es: {
     about: 'Cómo usar {tool}', stepsHeading: 'Usa {tool} en tres pasos', stepTitles: ['Selecciona archivos', 'Ejecuta el proceso', 'Revisa el resultado'],
@@ -108,7 +108,7 @@ const copy = {
     browser: 'El procesamiento compatible se realiza en el navegador. Los recursos de la página y los servicios externos habilitados pueden generar solicitudes de red normales.',
     reviewAnswer: 'Sí. Revisa las páginas y el contenido importantes y compáralos con el original si hace falta.',
     operations: ['Cambia el CropBox del PDF con el mismo porcentaje en los cuatro lados de cada página.', 'Vuelve a guardar un PDF que el analizador puede leer y verifica que se abra con el mismo número de páginas.', 'Compara el texto seleccionable de dos PDF página por página.', 'Extrae texto de PPTX y lo coloca en nuevas páginas PDF básicas.'],
-    limits: ['El contenido fuera del CropBox no se elimina; no es una redacción segura.', 'La recuperación no está garantizada y no puede recrear contenido ausente o truncado.', 'No compara imágenes, diseño, formato ni texto escaneado sin OCR.', 'No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales.'],
+    limits: ['El contenido fuera del CropBox no se elimina; no es una redacción segura.', 'La recuperación no está garantizada y no puede recrear contenido ausente o truncado.', 'No compara imágenes, diseño, formato ni texto escaneado sin OCR.', 'No conserva imágenes, posiciones, gráficos, temas, notas ni animaciones originales. La fuente PDF integrada admite un conjunto limitado de caracteres. Si una diapositiva contiene caracteres no compatibles, la conversión se detiene con un error y no se crea ningún PDF.'],
   },
   it: {
     about: 'Come usare {tool}', stepsHeading: 'Usa {tool} in tre passaggi', stepTitles: ['Seleziona i file', 'Avvia l’elaborazione', 'Controlla il risultato'],
@@ -119,7 +119,7 @@ const copy = {
     browser: 'L’elaborazione supportata avviene nel browser. Le risorse della pagina e i servizi di terze parti attivi possono effettuare normali richieste di rete.',
     reviewAnswer: 'Sì. Controlla le pagine e i contenuti importanti e confrontali con la fonte se necessario.',
     operations: ['Modifica il CropBox del PDF applicando la stessa percentuale ai quattro lati di ogni pagina.', 'Salva di nuovo un PDF leggibile dal parser e verifica che si riapra con lo stesso numero di pagine.', 'Confronta pagina per pagina il testo selezionabile di due PDF.', 'Estrae il testo dai PPTX e lo dispone su nuove pagine PDF di base.'],
-    limits: ['Il contenuto fuori dal CropBox non viene eliminato; non è una redazione sicura.', 'Il recupero non è garantito e non ricrea contenuti mancanti o troncati.', 'Non confronta immagini, impaginazione, formattazione o testo scansionato senza OCR.', 'Non conserva immagini, posizioni, grafici, temi, note o animazioni originali.'],
+    limits: ['Il contenuto fuori dal CropBox non viene eliminato; non è una redazione sicura.', 'Il recupero non è garantito e non ricrea contenuti mancanti o troncati.', 'Non confronta immagini, impaginazione, formattazione o testo scansionato senza OCR.', 'Non conserva immagini, posizioni, grafici, temi, note o animazioni originali. Il font PDF incorporato supporta un insieme limitato di caratteri. Se una diapositiva contiene caratteri non supportati, la conversione si interrompe con un errore e non viene creato alcun PDF.'],
   },
   no: {
     about: 'Slik bruker du {tool}', stepsHeading: 'Bruk {tool} i tre trinn', stepTitles: ['Velg filer', 'Kjør behandlingen', 'Kontroller resultatet'],
@@ -130,7 +130,7 @@ const copy = {
     browser: 'Støttet dokumentbehandling skjer i nettleseren. Sideressurser og aktiverte tredjepartstjenester kan fortsatt sende vanlige nettverksforespørsler.',
     reviewAnswer: 'Ja. Kontroller viktige sider og innhold, og sammenlign med kilden ved behov.',
     operations: ['Endrer PDF-filens CropBox med samme prosent på alle fire sider av hver side.', 'Lagrer en PDF som parseren kan lese på nytt og kontrollerer at samme sidetall åpnes.', 'Sammenligner markerbar tekst i to PDF-filer side for side.', 'Henter tekst fra PPTX og plasserer den på nye, enkle PDF-sider.'],
-    limits: ['Innhold utenfor CropBox slettes ikke; dette er ikke sikker sladding.', 'Gjenoppretting er ikke garantert, og manglende eller avkuttet innhold kan ikke gjenskapes.', 'Bilder, layout, formatering og skannet tekst uten OCR sammenlignes ikke.', 'Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke.'],
+    limits: ['Innhold utenfor CropBox slettes ikke; dette er ikke sikker sladding.', 'Gjenoppretting er ikke garantert, og manglende eller avkuttet innhold kan ikke gjenskapes.', 'Bilder, layout, formatering og skannet tekst uten OCR sammenlignes ikke.', 'Originale bilder, plassering, diagrammer, temaer, notater og animasjoner beholdes ikke. Den innebygde PDF-skriften støtter et begrenset tegnsett. Hvis et lysbilde inneholder tegn som ikke støttes, stopper konverteringen med en feil, og ingen PDF opprettes.'],
   },
   pt: {
     about: 'Como usar {tool}', stepsHeading: 'Use {tool} em três etapas', stepTitles: ['Escolha os arquivos', 'Execute o processo', 'Confira o resultado'],
@@ -141,7 +141,7 @@ const copy = {
     browser: 'O processamento compatível ocorre no navegador. Recursos da página e serviços de terceiros ativados ainda podem fazer solicitações de rede comuns.',
     reviewAnswer: 'Sim. Confira páginas e conteúdos importantes e compare com a origem se necessário.',
     operations: ['Altera o CropBox do PDF com a mesma porcentagem nos quatro lados de cada página.', 'Salva novamente um PDF que o analisador consegue ler e verifica se abre com a mesma contagem de páginas.', 'Compara o texto selecionável de dois PDFs página por página.', 'Extrai texto do PPTX e o organiza em novas páginas PDF básicas.'],
-    limits: ['O conteúdo fora do CropBox não é apagado; isso não é uma redação segura.', 'A recuperação não é garantida e não recria conteúdo ausente ou truncado.', 'Imagens, layout, formatação e texto digitalizado sem OCR não são comparados.', 'Imagens, posições, gráficos, temas, notas e animações originais não são preservados.'],
+    limits: ['O conteúdo fora do CropBox não é apagado; isso não é uma redação segura.', 'A recuperação não é garantida e não recria conteúdo ausente ou truncado.', 'Imagens, layout, formatação e texto digitalizado sem OCR não são comparados.', 'Imagens, posições, gráficos, temas, notas e animações originais não são preservados. A fonte PDF incorporada suporta um conjunto limitado de caracteres. Se um slide contiver caracteres não suportados, a conversão será interrompida com um erro e nenhum PDF será criado.'],
   },
   ru: {
     about: 'Как использовать {tool}', stepsHeading: 'Три шага для работы с {tool}', stepTitles: ['Выберите файлы', 'Запустите обработку', 'Проверьте результат'],
@@ -152,7 +152,7 @@ const copy = {
     browser: 'Поддерживаемая обработка документов выполняется в браузере. Ресурсы страницы и включенные сторонние сервисы могут отправлять обычные сетевые запросы.',
     reviewAnswer: 'Да. Проверьте важные страницы и содержимое, при необходимости сравните с исходником.',
     operations: ['Изменяет CropBox PDF, применяя одинаковый процент ко всем четырем сторонам каждой страницы.', 'Повторно сохраняет читаемый парсером PDF и проверяет повторное открытие с тем же числом страниц.', 'Сравнивает выделяемый текст двух PDF постранично.', 'Извлекает текст PPTX и размещает его на новых простых страницах PDF.'],
-    limits: ['Содержимое за пределами CropBox не удаляется; это не безопасное редактирование.', 'Восстановление не гарантируется; отсутствующее или усеченное содержимое нельзя воссоздать.', 'Изображения, макет, форматирование и текст сканов без OCR не сравниваются.', 'Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются.'],
+    limits: ['Содержимое за пределами CropBox не удаляется; это не безопасное редактирование.', 'Восстановление не гарантируется; отсутствующее или усеченное содержимое нельзя воссоздать.', 'Изображения, макет, форматирование и текст сканов без OCR не сравниваются.', 'Исходные изображения, расположение, диаграммы, темы, заметки и анимация не сохраняются. Встроенный шрифт PDF поддерживает ограниченный набор символов. Если на слайде есть неподдерживаемые символы, преобразование завершится с ошибкой, и PDF не будет создан.'],
   },
   ko: {
     about: '{tool} 사용 방법', stepsHeading: '{tool} 사용 3단계', stepTitles: ['파일 선택', '처리 실행', '결과 확인'],
@@ -163,7 +163,7 @@ const copy = {
     browser: '지원되는 문서 처리는 브라우저에서 실행됩니다. 페이지 리소스와 활성화된 타사 기능은 일반 네트워크 요청을 보낼 수 있습니다.',
     reviewAnswer: '예. 중요한 페이지와 내용을 확인하고 필요하면 원본과 비교하세요.',
     operations: ['모든 페이지의 네 면에 같은 비율을 적용해 PDF CropBox를 변경합니다.', '파서가 읽을 수 있는 PDF를 다시 저장하고 같은 페이지 수로 열리는지 확인합니다.', '두 PDF의 선택 가능한 텍스트를 페이지별로 비교합니다.', 'PPTX의 텍스트를 추출해 새 기본 PDF 페이지에 배치합니다.'],
-    limits: ['CropBox 밖의 내용은 삭제되지 않습니다. 보안 redaction 기능이 아닙니다.', '복구를 보장하지 않으며 누락되거나 잘린 내용을 되살릴 수 없습니다.', '이미지, 레이아웃, 서식 및 OCR 전 스캔 텍스트는 비교하지 않습니다.', '원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다.'],
+    limits: ['CropBox 밖의 내용은 삭제되지 않습니다. 보안 redaction 기능이 아닙니다.', '복구를 보장하지 않으며 누락되거나 잘린 내용을 되살릴 수 없습니다.', '이미지, 레이아웃, 서식 및 OCR 전 스캔 텍스트는 비교하지 않습니다.', '원본 이미지, 배치, 차트, 테마, 노트 및 애니메이션은 보존되지 않습니다. 내장 PDF 글꼴은 제한된 문자 집합만 지원합니다. 슬라이드에 지원되지 않는 문자가 있으면 변환이 오류와 함께 중단되고 PDF가 생성되지 않습니다.'],
   },
   tr: {
     about: '{tool} nasıl kullanılır', stepsHeading: '{tool} için üç adım', stepTitles: ['Dosyaları seçin', 'İşlemi başlatın', 'Sonucu inceleyin'],
@@ -174,7 +174,7 @@ const copy = {
     browser: 'Desteklenen belge işlemleri tarayıcıda yapılır. Sayfa kaynakları ve etkin üçüncü taraf hizmetleri olağan ağ istekleri gönderebilir.',
     reviewAnswer: 'Evet. Önemli sayfaları ve içeriği inceleyin; gerekirse kaynakla karşılaştırın.',
     operations: ['Her sayfanın dört kenarına aynı yüzdeyi uygulayarak PDF CropBox alanını değiştirir.', 'Ayrıştırıcının okuyabildiği PDF’yi yeniden kaydeder ve aynı sayfa sayısıyla açıldığını kontrol eder.', 'İki PDF’de seçilebilir metni sayfa sayfa karşılaştırır.', 'PPTX metnini çıkarıp yeni basit PDF sayfalarına yerleştirir.'],
-    limits: ['CropBox dışındaki içerik silinmez; bu güvenli redaksiyon değildir.', 'Kurtarma garanti edilmez; eksik veya kesilmiş içerik yeniden oluşturulamaz.', 'Görseller, düzen, biçim ve OCR uygulanmamış tarama metni karşılaştırılmaz.', 'Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz.'],
+    limits: ['CropBox dışındaki içerik silinmez; bu güvenli redaksiyon değildir.', 'Kurtarma garanti edilmez; eksik veya kesilmiş içerik yeniden oluşturulamaz.', 'Görseller, düzen, biçim ve OCR uygulanmamış tarama metni karşılaştırılmaz.', 'Özgün görseller, yerleşim, grafikler, temalar, notlar ve animasyonlar korunmaz. Yerleşik PDF yazı tipi sınırlı sayıda karakteri destekler. Slaytta desteklenmeyen karakter varsa dönüştürme hata vererek durur ve PDF oluşturulmaz.'],
   },
   nl: {
     about: 'Zo gebruik je {tool}', stepsHeading: '{tool} gebruiken in drie stappen', stepTitles: ['Bestanden kiezen', 'Verwerking starten', 'Resultaat controleren'],
@@ -185,7 +185,7 @@ const copy = {
     browser: 'Ondersteunde documentverwerking gebeurt in de browser. Paginaresources en ingeschakelde diensten van derden kunnen gewone netwerkverzoeken doen.',
     reviewAnswer: 'Ja. Controleer belangrijke pagina’s en inhoud en vergelijk zo nodig met het bronbestand.',
     operations: ['Wijzigt de CropBox van de PDF met hetzelfde percentage aan alle vier zijden van elke pagina.', 'Slaat een leesbare PDF opnieuw op en controleert of die met hetzelfde aantal pagina’s opent.', 'Vergelijkt selecteerbare tekst uit twee PDF’s pagina voor pagina.', 'Haalt tekst uit PPTX en plaatst die op nieuwe eenvoudige PDF-pagina’s.'],
-    limits: ['Inhoud buiten de CropBox wordt niet gewist; dit is geen veilige redactie.', 'Herstel is niet gegarandeerd en ontbrekende of afgebroken inhoud kan niet worden gemaakt.', 'Afbeeldingen, lay-out, opmaak en gescande tekst zonder OCR worden niet vergeleken.', 'Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden.'],
+    limits: ['Inhoud buiten de CropBox wordt niet gewist; dit is geen veilige redactie.', 'Herstel is niet gegarandeerd en ontbrekende of afgebroken inhoud kan niet worden gemaakt.', 'Afbeeldingen, lay-out, opmaak en gescande tekst zonder OCR worden niet vergeleken.', 'Oorspronkelijke afbeeldingen, posities, grafieken, thema’s, notities en animaties blijven niet behouden. Het ingebouwde PDF-lettertype ondersteunt slechts een beperkte tekenset. Bevat een dia niet-ondersteunde tekens, dan stopt de conversie met een fout en wordt er geen PDF gemaakt.'],
   },
   pl: {
     about: 'Jak używać narzędzia {tool}', stepsHeading: 'Użyj {tool} w trzech krokach', stepTitles: ['Wybierz pliki', 'Uruchom przetwarzanie', 'Sprawdź wynik'],
@@ -196,7 +196,7 @@ const copy = {
     browser: 'Obsługiwane przetwarzanie dokumentów odbywa się w przeglądarce. Zasoby strony i włączone usługi zewnętrzne mogą wykonywać zwykłe żądania sieciowe.',
     reviewAnswer: 'Tak. Sprawdź ważne strony i treść, a w razie potrzeby porównaj je z plikiem źródłowym.',
     operations: ['Zmienia CropBox pliku PDF, stosując ten sam procent do wszystkich czterech boków każdej strony.', 'Zapisuje ponownie plik PDF możliwy do odczytania i sprawdza, czy otwiera się z tą samą liczbą stron.', 'Porównuje zaznaczalny tekst z dwóch plików PDF strona po stronie.', 'Wyodrębnia tekst z PPTX i umieszcza go na nowych, podstawowych stronach PDF.'],
-    limits: ['Treść poza CropBox nie jest usuwana; nie jest to bezpieczne redagowanie.', 'Odzyskiwanie nie jest gwarantowane i nie odtwarza brakującej ani uciętej treści.', 'Obrazy, układ, formatowanie i zeskanowany tekst bez OCR nie są porównywane.', 'Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane.'],
+    limits: ['Treść poza CropBox nie jest usuwana; nie jest to bezpieczne redagowanie.', 'Odzyskiwanie nie jest gwarantowane i nie odtwarza brakującej ani uciętej treści.', 'Obrazy, układ, formatowanie i zeskanowany tekst bez OCR nie są porównywane.', 'Oryginalne obrazy, rozmieszczenie, wykresy, motywy, notatki i animacje nie są zachowywane. Wbudowana czcionka PDF obsługuje ograniczony zestaw znaków. Jeśli slajd zawiera nieobsługiwane znaki, konwersja zostanie przerwana z błędem i plik PDF nie zostanie utworzony.'],
   },
   sv: {
     about: 'Så använder du {tool}', stepsHeading: 'Använd {tool} i tre steg', stepTitles: ['Välj filer', 'Kör bearbetningen', 'Granska resultatet'],
@@ -207,7 +207,7 @@ const copy = {
     browser: 'Dokumentbearbetning som stöds sker i webbläsaren. Sidresurser och aktiverade tredjepartstjänster kan göra vanliga nätverksanrop.',
     reviewAnswer: 'Ja. Kontrollera viktiga sidor och innehåll och jämför med källan vid behov.',
     operations: ['Ändrar PDF-filens CropBox med samma procent på alla fyra sidor av varje sida.', 'Sparar om en PDF som parsern kan läsa och kontrollerar att samma sidantal kan öppnas.', 'Jämför markerbar text i två PDF-filer sida för sida.', 'Hämtar text från PPTX och placerar den på nya enkla PDF-sidor.'],
-    limits: ['Innehåll utanför CropBox tas inte bort; detta är inte säker redigering.', 'Återställning kan inte garanteras och saknat eller avklippt innehåll kan inte återskapas.', 'Bilder, layout, formatering och skannad text utan OCR jämförs inte.', 'Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte.'],
+    limits: ['Innehåll utanför CropBox tas inte bort; detta är inte säker redigering.', 'Återställning kan inte garanteras och saknat eller avklippt innehåll kan inte återskapas.', 'Bilder, layout, formatering och skannad text utan OCR jämförs inte.', 'Originalbilder, placeringar, diagram, teman, anteckningar och animeringar bevaras inte. Det inbyggda PDF-teckensnittet stöder en begränsad teckenuppsättning. Om en bildruta innehåller tecken som inte stöds avbryts konverteringen med ett fel och ingen PDF skapas.'],
   },
   id: {
     about: 'Cara menggunakan {tool}', stepsHeading: 'Gunakan {tool} dalam tiga langkah', stepTitles: ['Pilih file', 'Jalankan proses', 'Periksa hasil'],
@@ -218,7 +218,7 @@ const copy = {
     browser: 'Pemrosesan dokumen yang didukung dilakukan di browser. Sumber daya halaman dan layanan pihak ketiga yang aktif tetap dapat membuat permintaan jaringan biasa.',
     reviewAnswer: 'Ya. Periksa halaman dan konten penting, lalu bandingkan dengan sumber bila perlu.',
     operations: ['Mengubah CropBox PDF dengan persentase sama pada keempat sisi setiap halaman.', 'Menyimpan ulang PDF yang dapat dibaca parser dan memeriksa apakah jumlah halamannya tetap sama.', 'Membandingkan teks yang dapat dipilih dari dua PDF halaman demi halaman.', 'Mengambil teks dari PPTX dan menyusunnya pada halaman PDF dasar yang baru.'],
-    limits: ['Konten di luar CropBox tidak dihapus; ini bukan redaksi yang aman.', 'Pemulihan tidak dijamin dan konten hilang atau terpotong tidak dapat dibuat ulang.', 'Gambar, tata letak, format, dan teks pindai tanpa OCR tidak dibandingkan.', 'Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan.'],
+    limits: ['Konten di luar CropBox tidak dihapus; ini bukan redaksi yang aman.', 'Pemulihan tidak dijamin dan konten hilang atau terpotong tidak dapat dibuat ulang.', 'Gambar, tata letak, format, dan teks pindai tanpa OCR tidak dibandingkan.', 'Gambar, tata letak, grafik, tema, catatan, dan animasi asli tidak dipertahankan. Font PDF bawaan hanya mendukung kumpulan karakter terbatas. Jika slide berisi karakter yang tidak didukung, konversi akan berhenti dengan kesalahan dan PDF tidak dibuat.'],
   },
   vi: {
     about: 'Cách sử dụng {tool}', stepsHeading: 'Sử dụng {tool} trong ba bước', stepTitles: ['Chọn tệp', 'Chạy xử lý', 'Kiểm tra kết quả'],
@@ -229,7 +229,7 @@ const copy = {
     browser: 'Quá trình xử lý tài liệu được hỗ trợ chạy trong trình duyệt. Tài nguyên trang và dịch vụ bên thứ ba được bật vẫn có thể gửi yêu cầu mạng thông thường.',
     reviewAnswer: 'Có. Hãy kiểm tra các trang và nội dung quan trọng, rồi đối chiếu với tệp nguồn nếu cần.',
     operations: ['Thay đổi CropBox PDF bằng cùng một tỷ lệ ở cả bốn cạnh của mỗi trang.', 'Lưu lại PDF mà trình phân tích có thể đọc và kiểm tra khả năng mở với cùng số trang.', 'So sánh văn bản có thể chọn trong hai PDF theo từng trang.', 'Trích xuất văn bản PPTX và đặt vào các trang PDF cơ bản mới.'],
-    limits: ['Nội dung ngoài CropBox không bị xóa; đây không phải thao tác biên tập bảo mật.', 'Không đảm bảo khôi phục và không thể tạo lại nội dung bị thiếu hoặc cắt cụt.', 'Không so sánh hình ảnh, bố cục, định dạng hoặc văn bản quét chưa OCR.', 'Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc.'],
+    limits: ['Nội dung ngoài CropBox không bị xóa; đây không phải thao tác biên tập bảo mật.', 'Không đảm bảo khôi phục và không thể tạo lại nội dung bị thiếu hoặc cắt cụt.', 'Không so sánh hình ảnh, bố cục, định dạng hoặc văn bản quét chưa OCR.', 'Không giữ lại hình ảnh, vị trí, biểu đồ, chủ đề, ghi chú và hoạt ảnh gốc. Phông PDF tích hợp chỉ hỗ trợ một tập ký tự giới hạn. Nếu trang chiếu chứa ký tự không được hỗ trợ, quá trình chuyển đổi sẽ dừng kèm lỗi và không tạo PDF.'],
   },
 };
 

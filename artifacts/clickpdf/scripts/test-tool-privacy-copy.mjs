@@ -16,7 +16,7 @@ const expectedToolIds = [
   'pdf-to-text', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'word-to-pdf',
   'word-to-excel', 'excel-to-pdf', 'sign',
 ];
-const newlyEnabledToolIds = ['crop', 'compare'];
+const newlyEnabledToolIds = ['crop', 'compare', 'repair', 'powerpoint-to-pdf'];
 
 const englishExpected = {
   merge: 'Combines selected PDF files in the order you choose. Review links, forms, and annotations in the merged file because interactive features can vary by source document.',
@@ -83,7 +83,7 @@ for (const [language, locale] of Object.entries(translations)) {
   assert.deepEqual(
     legacyLocaleTools.sort(),
     [...expectedToolIds].sort(),
-    `Tool IDs must match all 21 live public tools for ${language}.`,
+    `Explicit privacy copy must retain the same core tool IDs for ${language}.`,
   );
   assert.equal(new Set(Object.values(locale.tools)).size, Object.keys(locale.tools).length, `Tool copy must be tool-specific for ${language}.`);
   for (const toolId of expectedToolIds) {
@@ -151,4 +151,4 @@ for (const tool of activeTools) {
   assert.ok(!html.includes(oldGenericParagraph), `${tool.slug} still contains the repeated generic paragraph.`);
 }
 
-console.log(`Validated unique tool copy for ${expectedToolIds.length} tools in ${supportedLanguages.length} languages, confirmed the removed sections stay hidden, and checked all ${activeTools.length} generated static tool pages.`);
+console.log(`Validated ${expectedToolIds.length} explicit privacy summaries and localized fallback copy for ${newlyEnabledToolIds.length} additional tools in ${supportedLanguages.length} languages; checked all ${activeTools.length} generated static tool pages.`);

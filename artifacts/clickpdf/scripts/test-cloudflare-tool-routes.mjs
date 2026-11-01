@@ -27,22 +27,6 @@ const intentionalLegacy404s = [
     path: '/tools/repair-pdf/',
     reason: 'The canonical repair slug is repair-corrupted-pdf; this non-registered variant is not a public route.',
   },
-  {
-    path: '/tools/repair-corrupted-pdf/',
-    reason: 'PDF Repair remains hidden because parser recovery is best-effort and the reopen/page-count check cannot guarantee content integrity.',
-  },
-  {
-    path: '/tools/powerpoint-to-pdf/',
-    reason: 'PowerPoint to PDF remains hidden because it produces basic text-only pages and does not preserve general slide content or layout.',
-  },
-  {
-    path: '/ur/tools/repair-corrupted-pdf/',
-    reason: 'Localized PDF Repair drafts remain hidden along with the English public route.',
-  },
-  {
-    path: '/ja/tools/powerpoint-to-pdf/',
-    reason: 'Localized PowerPoint to PDF drafts remain hidden along with the English public route.',
-  },
 ];
 
 async function listHtmlFiles(directory) {
@@ -90,7 +74,7 @@ function createAssetsBinding() {
 test('every public tool has an alias redirect and a valid canonical static route', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
 
-  assert.equal(tools.length, 23, 'PDF/A, PDF Repair, and PowerPoint to PDF remain hidden.');
+  assert.equal(tools.length, 25, 'only PDF/A remains hidden; all other implemented tools have canonical routes.');
 
   for (const tool of tools) {
     await t.test(tool.slug, async () => {
@@ -183,7 +167,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 460, 'only localized routes for public tools are exposed');
+  assert.equal(localizedRoutes.length, 500, 'all 25 public tools have routes in the 20 translated locales');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {

@@ -705,7 +705,7 @@ for (const absoluteUrl of sitemapUrls) {
     ? {
         ...tool,
         name: localizedTitle.title,
-        title: `${localizedTitle.title} | ClickPDF`,
+        title: `${localizedTitle.seoTitle || localizedTitle.title} | ClickPDF`,
         description: localizedTitle.description,
         shortDescription: localizedTitle.description,
         privacySummary: tool.privacySummaries?.[language] || '',

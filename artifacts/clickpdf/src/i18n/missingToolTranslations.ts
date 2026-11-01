@@ -20,7 +20,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word to PDF', description: 'Convert Word documents into readable, high-resolution PDF files.' },
     'word-to-excel': { title: 'Word to Excel', description: 'Move Word tables and document text into an Excel workbook.' },
     'excel-to-pdf': { title: 'Excel to PDF', description: 'Convert spreadsheets into paginated, styled PDF tables.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint to PDF', description: 'Convert presentations into crisp widescreen PDF slides.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint to PDF', description: 'Extract selectable PPTX text into basic PDF pages; original slide artwork and layout are not preserved.' },
   },
   ur: {
     'pdf-to-image': { title: 'PDF سے تصاویر', description: 'PDF صفحات کو صاف PNG تصاویر میں تبدیل کریں اور برآمد سے پہلے صفحات ترتیب دیں۔' },
@@ -30,7 +30,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word سے PDF', description: 'Word دستاویز کو صاف اور اعلیٰ معیار کی PDF فائل میں تبدیل کریں۔' },
     'word-to-excel': { title: 'Word سے Excel', description: 'Word ٹیبلز اور متن کو Excel ورک بک میں منتقل کریں۔' },
     'excel-to-pdf': { title: 'Excel سے PDF', description: 'اسپریڈشیٹس کو ترتیب وار صفحات اور بہتر انداز والی PDF ٹیبلز میں بدلیں۔' },
-    'powerpoint-to-pdf': { title: 'PowerPoint سے PDF', description: 'پریزنٹیشن کو واضح، چوڑی اسکرین والی PDF سلائیڈز میں تبدیل کریں۔' },
+    'powerpoint-to-pdf': { title: 'PowerPoint سے PDF', description: 'PPTX سے منتخب ہونے والا متن سادہ PDF صفحات میں نکالیں؛ اصل سلائیڈ کی تصاویر اور ترتیب محفوظ نہیں رہتی۔' },
   },
   ar: {
     'pdf-to-image': { title: 'PDF إلى صور', description: 'حوّل صفحات PDF إلى صور PNG واضحة وتحكّم بالصفحات قبل التصدير.' },
@@ -40,7 +40,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word إلى PDF', description: 'حوّل مستندات Word إلى ملفات PDF واضحة وعالية الدقة.' },
     'word-to-excel': { title: 'Word إلى Excel', description: 'انقل جداول Word ونصوص المستند إلى مصنف Excel.' },
     'excel-to-pdf': { title: 'Excel إلى PDF', description: 'حوّل جداول البيانات إلى صفحات PDF منسقة ومرقمة.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint إلى PDF', description: 'حوّل العروض التقديمية إلى شرائح PDF عريضة وواضحة.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint إلى PDF', description: 'استخرج النص القابل للتحديد من PPTX إلى صفحات PDF أساسية؛ لا تُحفظ صور الشرائح أو تخطيطها الأصلي.' },
   },
   hi: {
     'pdf-to-image': { title: 'PDF से इमेज', description: 'PDF पेजों को स्पष्ट PNG इमेज में बदलें और निर्यात से पहले पेज व्यवस्थित करें।' },
@@ -50,7 +50,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word से PDF', description: 'Word दस्तावेज़ों को स्पष्ट, उच्च-रिज़ॉल्यूशन PDF में बदलें।' },
     'word-to-excel': { title: 'Word से Excel', description: 'Word तालिकाओं और दस्तावेज़ के टेक्स्ट को Excel वर्कबुक में ले जाएँ।' },
     'excel-to-pdf': { title: 'Excel से PDF', description: 'स्प्रेडशीट को पेजों में बाँटी गई, स्टाइल वाली PDF तालिकाओं में बदलें।' },
-    'powerpoint-to-pdf': { title: 'PowerPoint से PDF', description: 'प्रेज़ेंटेशन को स्पष्ट वाइडस्क्रीन PDF स्लाइड में बदलें।' },
+    'powerpoint-to-pdf': { title: 'PowerPoint से PDF', description: 'PPTX से चुनने योग्य पाठ निकालकर साधारण PDF पृष्ठ बनाता है; मूल स्लाइड की छवियाँ और लेआउट सुरक्षित नहीं रहते।' },
   },
   zh: {
     'pdf-to-image': { title: 'PDF 转图片', description: '将 PDF 页面转换为清晰的 PNG 图片，并在导出前管理页面。' },
@@ -60,7 +60,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word 转 PDF', description: '将 Word 文档转换为清晰的高清 PDF 文件。' },
     'word-to-excel': { title: 'Word 转 Excel', description: '将 Word 表格和文本导入 Excel 工作簿。' },
     'excel-to-pdf': { title: 'Excel 转 PDF', description: '将电子表格转换为分页且样式整齐的 PDF 表格。' },
-    'powerpoint-to-pdf': { title: 'PowerPoint 转 PDF', description: '将演示文稿转换为清晰的宽屏 PDF 幻灯片。' },
+    'powerpoint-to-pdf': { title: 'PowerPoint 转 PDF', description: '提取 PPTX 中可选择的文字并生成基础 PDF 页面；不会保留原幻灯片图像和版式。' },
   },
   ja: {
     'pdf-to-image': { title: 'PDFから画像へ', description: 'PDFページを鮮明なPNG画像に変換し、書き出し前にページを管理します。' },
@@ -70,7 +70,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'WordからPDF', description: 'Word文書を読みやすい高解像度PDFに変換します。' },
     'word-to-excel': { title: 'WordからExcel', description: 'Wordの表や文書テキストをExcelブックに移します。' },
     'excel-to-pdf': { title: 'ExcelからPDF', description: '表計算シートをページ分割された書式付きPDF表に変換します。' },
-    'powerpoint-to-pdf': { title: 'PowerPointからPDF', description: 'プレゼンテーションを鮮明なワイド画面PDFスライドに変換します。' },
+    'powerpoint-to-pdf': { title: 'PowerPointからPDF', description: 'PPTXの選択可能なテキストを基本的なPDFページに変換します。元のスライド画像やレイアウトは保持されません。' },
   },
   tl: {
     'pdf-to-image': { title: 'PDF sa Larawan', description: 'Gawing malinaw na PNG ang mga PDF page at ayusin ang mga ito bago i-export.' },
@@ -80,7 +80,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word sa PDF', description: 'Gawing malinaw at mataas ang resolusyong PDF ang mga Word document.' },
     'word-to-excel': { title: 'Word sa Excel', description: 'Ilipat ang mga talahanayan at teksto ng Word sa Excel workbook.' },
     'excel-to-pdf': { title: 'Excel sa PDF', description: 'Gawing nakaayos at may estilo na mga PDF table ang spreadsheet.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint sa PDF', description: 'Gawing malinaw na widescreen PDF slide ang mga presentation.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint sa PDF', description: 'Kunin ang mapipiling text mula sa PPTX at ilagay ito sa simpleng PDF pages; hindi mapapanatili ang orihinal na larawan at layout ng slide.' },
   },
   de: {
     'pdf-to-image': { title: 'PDF zu Bild', description: 'PDF-Seiten in klare PNG-Bilder umwandeln und Seiten vor dem Export verwalten.' },
@@ -90,7 +90,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word zu PDF', description: 'Word-Dokumente in gut lesbare PDF-Dateien mit hoher Auflösung umwandeln.' },
     'word-to-excel': { title: 'Word zu Excel', description: 'Word-Tabellen und Dokumenttext in eine Excel-Arbeitsmappe übertragen.' },
     'excel-to-pdf': { title: 'Excel zu PDF', description: 'Tabellenblätter in formatierte, mehrseitige PDF-Tabellen umwandeln.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint zu PDF', description: 'Präsentationen in klare PDF-Folien im Breitbildformat umwandeln.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint zu PDF', description: 'Extrahiert auswählbaren PPTX-Text in einfache PDF-Seiten; Originalbilder und Folienlayout bleiben nicht erhalten.' },
   },
   fr: {
     'pdf-to-image': { title: 'PDF en images', description: 'Convertissez les pages PDF en images PNG nettes et gérez-les avant l’export.' },
@@ -100,7 +100,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word en PDF', description: 'Convertissez vos documents Word en fichiers PDF lisibles et haute résolution.' },
     'word-to-excel': { title: 'Word en Excel', description: 'Transférez les tableaux et le texte Word dans un classeur Excel.' },
     'excel-to-pdf': { title: 'Excel en PDF', description: 'Convertissez les feuilles de calcul en tableaux PDF paginés et mis en forme.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint en PDF', description: 'Convertissez les présentations en diapositives PDF panoramiques nettes.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint en PDF', description: 'Extrait le texte sélectionnable des PPTX vers des pages PDF simples ; les images et la mise en page d’origine ne sont pas conservées.' },
   },
   es: {
     'pdf-to-image': { title: 'PDF a imagen', description: 'Convierte páginas PDF en imágenes PNG nítidas y organiza las páginas antes de exportar.' },
@@ -110,7 +110,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word a PDF', description: 'Convierte documentos Word en archivos PDF legibles y de alta resolución.' },
     'word-to-excel': { title: 'Word a Excel', description: 'Pasa tablas y texto de Word a un libro de Excel.' },
     'excel-to-pdf': { title: 'Excel a PDF', description: 'Convierte hojas de cálculo en tablas PDF paginadas y con formato.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint a PDF', description: 'Convierte presentaciones en diapositivas PDF panorámicas y nítidas.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint a PDF', description: 'Extrae el texto seleccionable de PPTX en páginas PDF básicas; no conserva las imágenes ni el diseño originales.' },
   },
   it: {
     'pdf-to-image': { title: 'PDF in immagini', description: 'Converti le pagine PDF in immagini PNG nitide e gestiscile prima dell’esportazione.' },
@@ -120,7 +120,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word in PDF', description: 'Converti documenti Word in file PDF leggibili ad alta risoluzione.' },
     'word-to-excel': { title: 'Word in Excel', description: 'Sposta tabelle e testo Word in una cartella di lavoro Excel.' },
     'excel-to-pdf': { title: 'Excel in PDF', description: 'Converti fogli di calcolo in tabelle PDF impaginate e formattate.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint in PDF', description: 'Converti presentazioni in chiare diapositive PDF widescreen.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint in PDF', description: 'Estrae il testo selezionabile dai PPTX in pagine PDF di base; non conserva immagini e impaginazione originali.' },
   },
   no: {
     'pdf-to-image': { title: 'PDF til bilder', description: 'Gjør PDF-sider om til tydelige PNG-bilder og administrer sidene før eksport.' },
@@ -130,7 +130,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word til PDF', description: 'Gjør Word-dokumenter om til lesbare PDF-filer med høy oppløsning.' },
     'word-to-excel': { title: 'Word til Excel', description: 'Flytt Word-tabeller og dokumenttekst til en Excel-arbeidsbok.' },
     'excel-to-pdf': { title: 'Excel til PDF', description: 'Gjør regneark om til formaterte PDF-tabeller fordelt på sider.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint til PDF', description: 'Gjør presentasjoner om til tydelige widescreen PDF-lysbilder.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint til PDF', description: 'Henter ut valgbar PPTX-tekst til enkle PDF-sider; originale bilder og lysbildeoppsett bevares ikke.' },
   },
   pt: {
     'pdf-to-image': { title: 'PDF para imagem', description: 'Converta páginas PDF em imagens PNG nítidas e organize-as antes de exportar.' },
@@ -140,7 +140,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word para PDF', description: 'Converta documentos Word em PDFs legíveis e de alta resolução.' },
     'word-to-excel': { title: 'Word para Excel', description: 'Transfira tabelas e textos do Word para uma pasta de trabalho do Excel.' },
     'excel-to-pdf': { title: 'Excel para PDF', description: 'Converta planilhas em tabelas PDF paginadas e formatadas.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint para PDF', description: 'Converta apresentações em slides PDF widescreen nítidos.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint para PDF', description: 'Extrai texto selecionável de PPTX para páginas PDF básicas; imagens e layout originais dos slides não são preservados.' },
   },
   ru: {
     'pdf-to-image': { title: 'PDF в изображения', description: 'Преобразуйте страницы PDF в чёткие изображения PNG и управляйте ими до экспорта.' },
@@ -150,7 +150,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word в PDF', description: 'Преобразуйте документы Word в читаемые PDF высокого разрешения.' },
     'word-to-excel': { title: 'Word в Excel', description: 'Переносите таблицы и текст Word в книгу Excel.' },
     'excel-to-pdf': { title: 'Excel в PDF', description: 'Преобразуйте таблицы в форматированные PDF с разбиением на страницы.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint в PDF', description: 'Преобразуйте презентации в чёткие широкоформатные слайды PDF.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint в PDF', description: 'Извлекает выделяемый текст PPTX в простые страницы PDF; исходные изображения и макет слайдов не сохраняются.' },
   },
   ko: {
     'pdf-to-image': { title: 'PDF를 이미지로', description: 'PDF 페이지를 선명한 PNG 이미지로 변환하고 내보내기 전에 관리하세요.' },
@@ -160,7 +160,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word를 PDF로', description: 'Word 문서를 읽기 쉬운 고해상도 PDF 파일로 변환합니다.' },
     'word-to-excel': { title: 'Word를 Excel로', description: 'Word 표와 문서 텍스트를 Excel 통합 문서로 옮깁니다.' },
     'excel-to-pdf': { title: 'Excel을 PDF로', description: '스프레드시트를 페이지별로 정리된 스타일 있는 PDF 표로 변환합니다.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint를 PDF로', description: '프레젠테이션을 선명한 와이드스크린 PDF 슬라이드로 변환합니다.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint를 PDF로', description: 'PPTX의 선택 가능한 텍스트를 기본 PDF 페이지로 옮깁니다. 원본 슬라이드 이미지와 레이아웃은 보존되지 않습니다.' },
   },
   tr: {
     'pdf-to-image': { title: 'PDF’den Görsele', description: 'PDF sayfalarını net PNG görsellerine dönüştürün ve dışa aktarmadan önce yönetin.' },
@@ -170,7 +170,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word’den PDF’ye', description: 'Word belgelerini okunaklı, yüksek çözünürlüklü PDF dosyalarına dönüştürün.' },
     'word-to-excel': { title: 'Word’den Excel’e', description: 'Word tablolarını ve belge metnini Excel çalışma kitabına aktarın.' },
     'excel-to-pdf': { title: 'Excel’den PDF’ye', description: 'Elektronik tabloları sayfalı ve biçimlendirilmiş PDF tablolarına dönüştürün.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint’ten PDF’ye', description: 'Sunumları net, geniş ekran PDF slaytlarına dönüştürün.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint’ten PDF’ye', description: 'PPTX’teki seçilebilir metni temel PDF sayfalarına aktarır; özgün slayt görselleri ve düzeni korunmaz.' },
   },
   nl: {
     'pdf-to-image': { title: 'PDF naar afbeelding', description: 'Zet PDF-pagina’s om naar heldere PNG-afbeeldingen en beheer ze vóór export.' },
@@ -180,7 +180,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word naar PDF', description: 'Zet Word-documenten om naar leesbare PDF-bestanden met hoge resolutie.' },
     'word-to-excel': { title: 'Word naar Excel', description: 'Verplaats Word-tabellen en documenttekst naar een Excel-werkmap.' },
     'excel-to-pdf': { title: 'Excel naar PDF', description: 'Zet spreadsheets om naar opgemaakte PDF-tabellen met paginering.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint naar PDF', description: 'Zet presentaties om naar heldere breedbeeld-PDF-dia’s.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint naar PDF', description: 'Haalt selecteerbare PPTX-tekst naar eenvoudige PDF-pagina’s; originele afbeeldingen en dia-indeling blijven niet behouden.' },
   },
   pl: {
     'pdf-to-image': { title: 'PDF na obraz', description: 'Konwertuj strony PDF na wyraźne obrazy PNG i zarządzaj nimi przed eksportem.' },
@@ -190,7 +190,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word do PDF', description: 'Konwertuj dokumenty Word na czytelne pliki PDF o wysokiej rozdzielczości.' },
     'word-to-excel': { title: 'Word do Excela', description: 'Przenieś tabele i tekst z Worda do skoroszytu Excel.' },
     'excel-to-pdf': { title: 'Excel do PDF', description: 'Konwertuj arkusze na stronicowane, sformatowane tabele PDF.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint do PDF', description: 'Konwertuj prezentacje na wyraźne szerokoekranowe slajdy PDF.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint do PDF', description: 'Wyodrębnia zaznaczalny tekst z PPTX do prostych stron PDF; oryginalne obrazy i układ slajdów nie są zachowywane.' },
   },
   sv: {
     'pdf-to-image': { title: 'PDF till bild', description: 'Konvertera PDF-sidor till tydliga PNG-bilder och hantera dem före export.' },
@@ -200,7 +200,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word till PDF', description: 'Konvertera Word-dokument till läsbara PDF-filer med hög upplösning.' },
     'word-to-excel': { title: 'Word till Excel', description: 'Flytta Word-tabeller och dokumenttext till en Excel-arbetsbok.' },
     'excel-to-pdf': { title: 'Excel till PDF', description: 'Konvertera kalkylblad till formaterade PDF-tabeller med sidbrytningar.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint till PDF', description: 'Konvertera presentationer till tydliga bredbilds-PDF-bilder.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint till PDF', description: 'Hämtar markerbar PPTX-text till enkla PDF-sidor; originalbilder och bildlayout bevaras inte.' },
   },
   id: {
     'pdf-to-image': { title: 'PDF ke Gambar', description: 'Ubah halaman PDF menjadi gambar PNG yang jelas dan atur sebelum diekspor.' },
@@ -210,7 +210,7 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word ke PDF', description: 'Ubah dokumen Word menjadi file PDF yang mudah dibaca dan beresolusi tinggi.' },
     'word-to-excel': { title: 'Word ke Excel', description: 'Pindahkan tabel dan teks dokumen Word ke buku kerja Excel.' },
     'excel-to-pdf': { title: 'Excel ke PDF', description: 'Ubah spreadsheet menjadi tabel PDF berformat dengan beberapa halaman.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint ke PDF', description: 'Ubah presentasi menjadi slide PDF layar lebar yang jelas.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint ke PDF', description: 'Mengambil teks PPTX yang dapat dipilih ke halaman PDF dasar; gambar dan tata letak slide asli tidak dipertahankan.' },
   },
   vi: {
     'pdf-to-image': { title: 'PDF sang hình ảnh', description: 'Chuyển trang PDF thành ảnh PNG rõ nét và quản lý trang trước khi xuất.' },
@@ -220,6 +220,6 @@ export const MISSING_TOOL_TRANSLATIONS: Record<Language, Partial<Record<NewToolI
     'word-to-pdf': { title: 'Word sang PDF', description: 'Chuyển tài liệu Word thành tệp PDF rõ nét, độ phân giải cao.' },
     'word-to-excel': { title: 'Word sang Excel', description: 'Chuyển bảng và văn bản Word sang sổ làm việc Excel.' },
     'excel-to-pdf': { title: 'Excel sang PDF', description: 'Chuyển bảng tính thành bảng PDF có định dạng và phân trang.' },
-    'powerpoint-to-pdf': { title: 'PowerPoint sang PDF', description: 'Chuyển bản trình bày thành trang chiếu PDF rộng, rõ nét.' },
+    'powerpoint-to-pdf': { title: 'PowerPoint sang PDF', description: 'Trích xuất văn bản PPTX có thể chọn thành các trang PDF cơ bản; hình ảnh và bố cục trang chiếu gốc không được giữ lại.' },
   },
 };

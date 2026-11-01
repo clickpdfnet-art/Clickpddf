@@ -196,10 +196,12 @@ export async function readActiveToolRegistry(appDir) {
         if (!localizedTitles[locale]) localizedTitles[locale] = {};
         localizedTitles[locale] = {
           ...localizedTitles[locale],
-          description: localized.content.steps?.[1]?.description
-            || localized.content.intro
-            || localizedTitles[locale].description
-            || '',
+      description: ['repair', 'powerpoint-to-pdf'].includes(tool.id)
+        ? localizedTitles[locale].description
+        : localized.content.steps?.[1]?.description
+          || localized.content.intro
+          || localizedTitles[locale].description
+          || '',
         };
       }
     }

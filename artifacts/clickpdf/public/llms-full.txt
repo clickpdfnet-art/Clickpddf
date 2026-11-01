@@ -2,7 +2,7 @@
 
 Canonical homepage: https://www.clickpdf.net/
 Publisher: Click Digital Services
-Public PDF tools: 23
+Public PDF tools: 25
 Published Markdown articles: 231
 
 ## Overview
@@ -157,6 +157,13 @@ Key capabilities: Professional Table Styling; Automatic Multi-Page Overflow; Bro
 Typical workflow: Select a spreadsheet file: Choose a supported XLSX, XLS, or CSV document from your device. → Generate the paginated output: Start the conversion and allow the tool to lay the spreadsheet content out across PDF pages. → Review the PDF pages: Download the PDF and check column widths, page breaks, and any rows that span multiple pages.
 Common questions: Which spreadsheet formats can Excel to PDF open? | Will a wide spreadsheet fit on one PDF page? | Are spreadsheet formulas recalculated during conversion? | Can I check the PDF before sending it? | Does making a PDF change my workbook? | Why does a large workbook take longer to export?
 
+### Convert Selectable PPTX Text to a Basic PDF
+URL: https://www.clickpdf.net/tools/powerpoint-to-pdf/
+Description: Create basic 16:9 PDF pages from selectable text in .pptx files. Original slide artwork and layout are not preserved; legacy .ppt is unsupported.
+Key capabilities: Basic 16:9 Pages; Selectable Text Output; Browser-Based Processing; Batch ZIP Download
+Typical workflow: Select a .pptx file: Choose a PowerPoint Open XML presentation. Save older .ppt files as .pptx before using this tool. → Rebuild text-only pages: The tool extracts selectable slide text and lays it out on new 16:9 PDF pages. → Save and review the PDF: Download the PDF, then check its text, page sequence, and omissions before sharing it.
+Common questions: Does the PDF look like the original PowerPoint? | Which PowerPoint files are supported? | Are all slide text and objects preserved? | Can text in the output PDF be selected? | Can I use this for a presentation that must keep its design? | Does conversion change the original presentation?
+
 ### Sign PDF Online — Add a Visual Signature
 URL: https://www.clickpdf.net/tools/sign-pdf-online/
 Description: Draw, type, or upload a visual signature mark and place it on PDF pages. It is an image, not a certificate-backed digital signature or identity check.
@@ -170,6 +177,13 @@ Description: Adjust all PDF page CropBoxes by the same margin percentage in your
 Key capabilities: Uniform Margin Setting; Adjust the Visible Page Area; Not Secure Redaction; Browser-Based Processing
 Typical workflow: Add the PDF files: Select one or more PDFs whose visible page area you want to adjust. → Choose a uniform margin: Set a percentage from 0 to 25. The same amount is applied to all four sides of every page. → Save and inspect the copies: Download the cropped PDF or ZIP and check every page in a PDF viewer.
 Common questions: Does cropping erase the content outside the page area? | Can I crop each page by a different amount? | Can cropping securely hide sensitive information? | What does the margin percentage mean? | Will the source PDF be overwritten? | Can I process several PDFs together?
+
+### PDF Repair Online: Best-Effort Rebuild
+URL: https://www.clickpdf.net/tools/repair-corrupted-pdf/
+Description: Try rebuilding a PDF that a parser can still partially read. Recovery is not guaranteed and cannot restore missing or truncated content.
+Key capabilities: Best-Effort Parser Rebuild; Output Reopen Check; Recovery Not Guaranteed; Review Before Use
+Typical workflow: Select the PDF: Choose the document the parser should attempt to read and rebuild. → Create a rebuilt copy: Run the operation. A new file is created only if the document can be loaded and the saved copy passes the reopen check. → Download and inspect the output: Download the rebuilt copy, then compare important pages and content with the original.
+Common questions: Can this tool repair every damaged PDF? | What does the verification check? | Can missing or truncated content be restored? | Does this work on password-protected PDFs? | Will the original PDF be overwritten? | Should I rely on a successfully rebuilt PDF without checking it?
 
 ### Compare Selectable Text in Two PDF Files
 URL: https://www.clickpdf.net/tools/compare-pdf-documents/
