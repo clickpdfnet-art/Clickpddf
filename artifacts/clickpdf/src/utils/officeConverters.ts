@@ -8,6 +8,7 @@ import JSZip from 'jszip';
 import { initPdfWorker } from './pdfWorkerSetup';
 import { yieldToMainThread, readSafeArrayBuffer } from './memoryManager';
 import { renderWordHtmlToPdf } from './wordPdfRenderer';
+import { convertPptxTextToPdf } from './powerpointTextPdf.mjs';
 
 export interface OfficeConversionResult {
   data: Uint8Array;
@@ -696,169 +697,24 @@ export async function convertPdfToPowerPointPptx(
 }
 
 /**
- * 4. Convert PowerPoint (.pptx) to PDF
- * Unzips .pptx OpenXML structure, extracts slide shapes, titles, and text, and renders onto 16:9 PDF slides.
+ * Rebuild selectable text from a PPTX into a basic PDF slide layout.
+ * This is not a visual-fidelity PowerPoint renderer.
  */
 export async function convertPowerPointToPdf(
   file: File,
   onProgress?: ConversionProgressCallback
 ): Promise<OfficeConversionResult> {
-  onProgress?.(0, 100, 'Unpacking PowerPoint presentation (.pptx)...');
-
-  const zip = new JSZip();
-  const zipContent = await zip.loadAsync(file);
-
-  // Find all slide XML files (ppt/slides/slide1.xml, slide2.xml, ...)
-  const slideEntries: { name: string; num: number; file: JSZip.JSZipObject }[] = [];
-
-  zipContent.forEach((relativePath, zipEntry) => {
-    const match = relativePath.match(/^ppt\/slides\/slide(\d+)\.xml$/i);
-    if (match) {
-      slideEntries.push({
-        name: relativePath,
-        num: parseInt(match[1], 10),
-        file: zipEntry
-      });
-    }
-  });
-
-  slideEntries.sort((a, b) => a.num - b.num);
-
-  if (slideEntries.length === 0) {
-    throw new Error('No slides found in this PowerPoint (.pptx) file. Please ensure it is a valid OpenXML presentation.');
+  if (!/\.pptx$/i.test(file.name)) {
+    throw new Error('Only .pptx files are supported. Save legacy .ppt presentations as .pptx first.');
   }
-
-  const pdfDoc = await PDFDocument.create();
-  const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-  const totalSlides = slideEntries.length;
-
-  for (let i = 0; i < totalSlides; i++) {
-    const entry = slideEntries[i];
-    onProgress?.(i + 1, totalSlides, `Rendering slide ${i + 1} of ${totalSlides} to PDF...`);
-
-    const xmlText = await entry.file.async('text');
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-
-    // Extract slide text runs
-    const paragraphs = Array.from(xmlDoc.getElementsByTagName('a:p'));
-    const slideLines: { text: string; isBold: boolean; isTitle: boolean }[] = [];
-
-    paragraphs.forEach((p, pIdx) => {
-      const textNodes = Array.from(p.getElementsByTagName('a:t'));
-      const combined = textNodes.map(t => t.textContent || '').join('').trim();
-      if (combined) {
-        // Detect bold in <a:rPr b="1">
-        const rPr = p.getElementsByTagName('a:rPr')[0];
-        const isBold = rPr ? rPr.getAttribute('b') === '1' : false;
-        slideLines.push({
-          text: combined,
-          isBold,
-          isTitle: pIdx === 0
-        });
-      }
-    });
-
-    // 16:9 widescreen standard PDF page: 960 x 540 points
-    const page = pdfDoc.addPage([960, 540]);
-
-    // Slide background
-    page.drawRectangle({
-      x: 0,
-      y: 0,
-      width: 960,
-      height: 540,
-      color: rgb(0.97, 0.98, 0.99)
-    });
-
-    // Top accent bar
-    page.drawRectangle({
-      x: 40,
-      y: 532,
-      width: 880,
-      height: 4,
-      color: rgb(0.38, 0.40, 0.95) // Indigo
-    });
-
-    let currentY = 470;
-    const title = slideLines[0]?.text || `Slide ${entry.num}`;
-
-    // Draw Slide Title
-    page.drawText(truncateText(title, 60), {
-      x: 50,
-      y: currentY,
-      size: 24,
-      font: fontBold,
-      color: rgb(0.12, 0.16, 0.23)
-    });
-
-    currentY -= 45;
-
-    // Draw body bullet items
-    const bodyItems = slideLines.slice(1);
-    if (bodyItems.length > 0) {
-      for (const item of bodyItems.slice(0, 12)) {
-        if (currentY < 80) break;
-
-        // Draw bullet circle
-        page.drawCircle({
-          x: 56,
-          y: currentY + 4,
-          size: 3,
-          color: rgb(0.38, 0.40, 0.95)
-        });
-
-        // Draw text with word wrapping
-        const wrapped = wrapText(item.text, 80);
-        wrapped.slice(0, 2).forEach((line, lineIdx) => {
-          page.drawText(line, {
-            x: 70,
-            y: currentY - lineIdx * 16,
-            size: 13,
-            font: item.isBold ? fontBold : fontRegular,
-            color: rgb(0.20, 0.25, 0.33)
-          });
-        });
-
-        currentY -= Math.max(26, wrapped.length * 18);
-      }
-    } else {
-      page.drawText('(Empty slide or diagram presentation)', {
-        x: 70,
-        y: currentY,
-        size: 13,
-        font: fontRegular,
-        color: rgb(0.5, 0.55, 0.6)
-      });
-    }
-
-    // Slide Footer
-    page.drawText(`ClickPDF • Slide ${i + 1} of ${totalSlides}`, {
-      x: 50,
-      y: 25,
-      size: 10,
-      font: fontRegular,
-      color: rgb(0.58, 0.64, 0.72)
-    });
-
-    await yieldToMainThread(15);
-  }
-
-  onProgress?.(95, 100, 'Assembling PDF presentation...');
-  const pdfBytes = await pdfDoc.save();
-  const baseName = file.name.replace(/\.pptx?$/i, '');
-  const outName = `${baseName}.pdf`;
-
-  onProgress?.(100, 100, 'PowerPoint to PDF completed!');
-
-  return {
-    data: pdfBytes,
-    fileName: outName,
-    details: `Converted ${totalSlides} PowerPoint slide(s) into 16:9 landscape PDF pages.`,
-    pageCount: totalSlides
-  };
+  onProgress?.(0, 100, 'Reading selectable text from the PPTX slides...');
+  const result = await convertPptxTextToPdf(
+    new Uint8Array(await file.arrayBuffer()),
+    file.name,
+    (current, total) => onProgress?.(current, total, `Rebuilding text-only PDF page ${current} of ${total}...`)
+  );
+  onProgress?.(100, 100, 'Text-only PDF creation complete. Review the output before use.');
+  return result;
 }
 
 /**
