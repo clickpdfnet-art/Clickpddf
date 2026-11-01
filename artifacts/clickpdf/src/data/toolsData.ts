@@ -316,9 +316,11 @@ export const PDF_TOOLS: PDFTool[] = [
   ...getPluginToolsAsPdfTools()
 ];
 
-// PDF/A stays excluded until an ISO-conformance validator is available.
+// Keep tools hidden until their real-file behavior and public claims meet the release bar.
 export const HIDDEN_TOOL_IDS = new Set([
   'pdf-to-pdfa',
+  'repair',
+  'powerpoint-to-pdf',
 ]);
 
 export const PUBLIC_PDF_TOOLS = PDF_TOOLS.filter((tool) => !HIDDEN_TOOL_IDS.has(tool.id));

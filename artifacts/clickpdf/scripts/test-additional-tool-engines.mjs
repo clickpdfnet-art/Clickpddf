@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import JSZip from 'jszip';
+import PptxGenJS from 'pptxgenjs';
 import { PDFDocument } from 'pdf-lib';
 import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { buildPdfTextComparisonReport } from '../src/utils/pdfTextComparison.mjs';
@@ -17,7 +18,9 @@ const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 async function makePdf(pageCount = 1) {
   const pdf = await PDFDocument.create();
-  for (let index = 0; index < pageCount; index++) pdf.addPage([200, 100]);
+  for (let index = 0; index < pageCount; index++) {
+    pdf.addPage([200, 100]).drawText(`Repair fixture page ${index + 1}`);
+  }
   return new Uint8Array(await pdf.save());
 }
 
@@ -44,6 +47,28 @@ async function makePptx(slides) {
   return new Uint8Array(await zip.generateAsync({ type: 'uint8array' }));
 }
 
+async function makeRealPptxFixture() {
+  const presentation = new PptxGenJS();
+  presentation.layout = 'LAYOUT_WIDE';
+
+  const first = presentation.addSlide();
+  first.addText('Fixture title', { x: 0.5, y: 0.4, w: 5, h: 0.5, fontSize: 24, bold: true });
+  first.addText('Body fixture text', { x: 1, y: 2, w: 5, h: 1, fontSize: 16 });
+  first.addImage({
+    data: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/vVQAAAAASUVORK5CYII=',
+    x: 7,
+    y: 1,
+    w: 1,
+    h: 1,
+  });
+
+  const second = presentation.addSlide();
+  second.addText('Second layout title', { x: 1, y: 0.5, w: 4, h: 0.4, fontSize: 20 });
+  second.addText('Second slide content', { x: 4, y: 3, w: 3, h: 1, fontSize: 14 });
+
+  return new Uint8Array(await presentation.write({ outputType: 'uint8array' }));
+}
+
 const sourcePdf = await makePdf(2);
 
 {
@@ -61,6 +86,39 @@ const sourcePdf = await makePdf(2);
   const repaired = await PDFDocument.load(repairedBytes);
   assert.equal(repaired.getPageCount(), 2, 'best-effort rebuild retains the readable page count');
   await assert.rejects(() => repairPdfBytes(new TextEncoder().encode('not a PDF')));
+}
+
+{
+  const classicPdf = await PDFDocument.create();
+  for (let index = 0; index < 2; index++) {
+    classicPdf.addPage([300, 400]).drawText(`Recoverable xref fixture page ${index + 1}`);
+  }
+  const validBytes = new Uint8Array(await classicPdf.save({ useObjectStreams: false }));
+  const validText = new TextDecoder().decode(validBytes);
+  assert.match(validText, /startxref\s+\d+/);
+
+  const badXrefOffsetText = validText.replace(/startxref\s+\d+/, 'startxref\n999999');
+  const missingXrefTrailerText = validText.replace(/startxref\s+\d+\s+%%EOF\s*$/, '');
+  assert.notEqual(badXrefOffsetText, validText, 'the malformed-offset fixture changes the xref pointer');
+  assert.notEqual(missingXrefTrailerText, validText, 'the missing-trailer fixture removes startxref and EOF');
+
+  for (const [label, damagedBytes] of [
+    ['incorrect startxref offset', new TextEncoder().encode(badXrefOffsetText)],
+    ['missing startxref trailer', new TextEncoder().encode(missingXrefTrailerText)],
+  ]) {
+    const repairedBytes = await repairPdfBytes(damagedBytes);
+    const reopened = await PDFDocument.load(repairedBytes);
+    assert.equal(reopened.getPageCount(), 2, `${label}: recovered output opens with both pages`);
+    const extracted = (await readPdfText(repairedBytes)).join('\n');
+    assert.match(extracted, /Recoverable xref fixture page 1/);
+    assert.match(extracted, /Recoverable xref fixture page 2/);
+  }
+
+  await assert.rejects(
+    () => repairPdfBytes(validBytes.slice(0, -10)),
+    undefined,
+    'truncated content that prevents parsing must be reported as unrecoverable',
+  );
 }
 
 {
@@ -102,13 +160,59 @@ const sourcePdf = await makePdf(2);
     () => convertPptxTextToPdf(unicodePptx, 'unicode.pptx'),
     /characters not supported by the built-in PDF font/,
   );
+
+  const realPptxBytes = await makeRealPptxFixture();
+  const realPptx = await JSZip.loadAsync(realPptxBytes);
+  const mediaFiles = Object.keys(realPptx.files).filter((name) => /^ppt\/media\/.+\.png$/i.test(name));
+  assert.ok(mediaFiles.length > 0, 'the real PPTX fixture contains an embedded image');
+  const sourceSlide1 = await realPptx.file('ppt/slides/slide1.xml').async('text');
+  const sourceSlide2 = await realPptx.file('ppt/slides/slide2.xml').async('text');
+  assert.match(sourceSlide1, /<p:pic\b/, 'the real PPTX fixture includes a picture shape');
+  assert.match(sourceSlide1, /Fixture title/);
+  assert.match(sourceSlide2, /Second layout title/);
+  const presentationXml = await realPptx.file('ppt/presentation.xml').async('text');
+  const slideSize = presentationXml.match(/<p:sldSz\b[^>]*cx="(\d+)"[^>]*cy="(\d+)"/);
+  assert.ok(slideSize, 'the real PPTX fixture declares a slide layout');
+  assert.ok(
+    Math.abs(Number(slideSize[1]) / Number(slideSize[2]) - 16 / 9) < 0.01,
+    'the source presentation uses a 16:9 layout',
+  );
+
+  const realResult = await convertPptxTextToPdf(realPptxBytes, 'real-layout-image-fixture.pptx');
+  assert.equal(realResult.fileName, 'real-layout-image-fixture.pdf');
+  assert.equal(realResult.pageCount, 2, 'one basic PDF page is created for each source slide');
+  assert.match(realResult.details, /original slide images, layout, charts, speaker notes, and animations are not preserved/i);
+  const realOutput = await PDFDocument.load(realResult.data);
+  assert.deepEqual(realOutput.getPages().map((page) => page.getSize()), [
+    { width: 960, height: 540 },
+    { width: 960, height: 540 },
+  ], 'source slide placement is rebuilt onto uniform 16:9 PDF pages');
+  const realText = (await readPdfText(realResult.data)).join('\n');
+  assert.match(realText, /Fixture title/);
+  assert.match(realText, /Body fixture text/);
+  assert.match(realText, /Second layout title/);
+  assert.match(realText, /Second slide content/);
+  assert.doesNotMatch(
+    new TextDecoder().decode(realResult.data),
+    /\/Subtype\s*\/Image\b/,
+    'embedded PPTX pictures are intentionally not copied into the basic PDF output',
+  );
+  assert.equal(isSupportedPowerPointFile('legacy.ppt'), false);
+  await assert.rejects(
+    () => convertPptxTextToPdf(realPptxBytes, 'legacy.ppt'),
+    /Only \.pptx files are supported/,
+    'legacy .ppt input is rejected with the supported format stated',
+  );
 }
 
 {
   const workspace = await readFile(path.join(appDir, 'src/components/ToolWorkspace.tsx'), 'utf8');
+  const officeConverters = await readFile(path.join(appDir, 'src/utils/officeConverters.ts'), 'utf8');
   assert.match(workspace, /tool\.id === 'compare' && files\.length !== 2/, 'text comparison requires exactly two files');
   assert.match(workspace, /cropMarginPercent/, 'crop margin control is wired into tool execution');
   assert.match(workspace, /CropBox/, 'crop UI explains that content outside the visible box remains in the file');
+  assert.match(workspace, /pptxOnly\s*=\s*tool\.id === 'powerpoint-to-pdf'/, 'the workspace accepts only PPTX files for this converter');
+  assert.match(officeConverters, /if \(!isSupportedPowerPointFile\(file\.name\)\)/, 'the conversion entry point uses the shared legacy format guard');
 }
 
-console.log('Additional tool engine checks passed: crop, best-effort repair, text comparison, PPTX text conversion, and workspace constraints.');
+console.log('Additional tool engine checks passed: crop, valid/damaged/unrecoverable PDF repair, text comparison, real PPTX text/image/layout behavior, legacy .ppt rejection, and workspace constraints.');

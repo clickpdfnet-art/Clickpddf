@@ -16,7 +16,7 @@ const expectedToolIds = [
   'pdf-to-text', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'word-to-pdf',
   'word-to-excel', 'excel-to-pdf', 'sign',
 ];
-const newlyEnabledToolIds = ['crop', 'repair', 'compare', 'powerpoint-to-pdf'];
+const newlyEnabledToolIds = ['crop', 'compare'];
 
 const englishExpected = {
   merge: 'Combines selected PDF files in the order you choose. Review links, forms, and annotations in the merged file because interactive features can vary by source document.',

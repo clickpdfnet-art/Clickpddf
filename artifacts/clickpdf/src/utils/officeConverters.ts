@@ -8,7 +8,7 @@ import JSZip from 'jszip';
 import { initPdfWorker } from './pdfWorkerSetup';
 import { yieldToMainThread, readSafeArrayBuffer } from './memoryManager';
 import { renderWordHtmlToPdf } from './wordPdfRenderer';
-import { convertPptxTextToPdf } from './powerpointTextPdf.mjs';
+import { convertPptxTextToPdf, isSupportedPowerPointFile } from './powerpointTextPdf.mjs';
 
 export interface OfficeConversionResult {
   data: Uint8Array;
@@ -704,7 +704,7 @@ export async function convertPowerPointToPdf(
   file: File,
   onProgress?: ConversionProgressCallback
 ): Promise<OfficeConversionResult> {
-  if (!/\.pptx$/i.test(file.name)) {
+  if (!isSupportedPowerPointFile(file.name)) {
     throw new Error('Only .pptx files are supported. Save legacy .ppt presentations as .pptx first.');
   }
   onProgress?.(0, 100, 'Reading selectable text from the PPTX slides...');

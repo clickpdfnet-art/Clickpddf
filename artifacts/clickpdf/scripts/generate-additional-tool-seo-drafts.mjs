@@ -6,7 +6,7 @@ import { readActiveToolRegistry } from './static-tool-registry.mjs';
 const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const contentPath = path.join(appDir, 'src', 'i18n', 'toolSeoContentTranslations.json');
 const qaPath = path.join(appDir, 'src', 'i18n', 'toolSeoTranslationQa.json');
-const toolIds = ['crop', 'repair', 'compare', 'powerpoint-to-pdf'];
+const candidateToolIds = ['crop', 'repair', 'compare', 'powerpoint-to-pdf'];
 
 // Draft localization copy for the newly released tools. These entries are
 // intentionally marked unreviewed until a native speaker approves them.
@@ -236,6 +236,8 @@ const copy = {
 const content = JSON.parse(await readFile(contentPath, 'utf8'));
 const qa = JSON.parse(await readFile(qaPath, 'utf8'));
 const tools = await readActiveToolRegistry(appDir);
+const publicToolIds = new Set(tools.map((tool) => tool.id));
+const toolIds = candidateToolIds.filter((toolId) => publicToolIds.has(toolId));
 const qaByPair = new Map(qa.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
 const localeIds = Object.keys(content).filter((locale) => locale !== 'en');
 

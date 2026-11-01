@@ -130,24 +130,26 @@ test('every completed localized Merge PDF route has matching page, schema, sitem
 });
 
 test('localized tool route matrix keeps only complete, source-checked locale pairs discoverable', async () => {
-  assert.equal(tools.length, 25, 'the active public tool registry contains 25 tools; PDF/A remains hidden');
+  assert.equal(tools.length, 23, 'PDF/A, PDF Repair, and PowerPoint to PDF remain hidden');
   assert.equal(supportedLanguageCodes.length, 21, 'the selector supports 21 languages');
-  assert.equal(tools.length * supportedLanguageCodes.length, 525, 'the complete tool-language matrix has 525 possible pairs');
+  assert.equal(tools.length * supportedLanguageCodes.length, 483, 'the public tool-language matrix has 483 possible routes');
 
-  const contentPairs = Object.entries(contentByLocale).flatMap(([locale, localeData]) =>
+  const publicToolIds = new Set(tools.map((tool) => tool.id));
+  const allContentPairs = Object.entries(contentByLocale).flatMap(([locale, localeData]) =>
     Object.keys(localeData.tools).map((toolId) => `${locale}:${toolId}`),
   ).sort();
+  const contentPairs = allContentPairs.filter((pair) => publicToolIds.has(pair.slice(pair.indexOf(':') + 1)));
   const expectedPairs = Object.keys(contentByLocale).flatMap((locale) =>
     tools.map((tool) => `${locale}:${tool.id}`),
   ).sort();
   assert.deepEqual(
     contentPairs,
     expectedPairs,
-    'all 25 active tools have localized content in all 20 non-English locales',
+    'all public tools have localized content in all 20 non-English locales',
   );
 
   const qaByPair = new Map(qaLedger.entries.map((entry) => [`${entry.locale}:${entry.tool}`, entry]));
-  assert.equal(qaByPair.size, contentPairs.length, 'the QA ledger has one record per localized tool page');
+  assert.equal(qaByPair.size, allContentPairs.length, 'the QA ledger retains records for public and hidden localized drafts');
   for (const pair of contentPairs) {
     const entry = qaByPair.get(pair);
     assert.ok(entry, `${pair} has an explicit QA record`);
@@ -458,10 +460,10 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     .filter((pathname) => /^\/(?:[a-z]{2}\/)?tools\/[^/]+\/$/.test(pathname));
   const englishToolRoutes = routePaths.filter((pathname) => pathname.startsWith('/tools/'));
   const localizedToolRoutes = routePaths.filter((pathname) => !pathname.startsWith('/tools/'));
-  assert.equal(englishToolRoutes.length, 25);
-  assert.equal(localizedToolRoutes.length, 500);
-  assert.equal(routePaths.length, 525, 'all 525 English and localized tool routes are complete and discoverable');
-  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 0, 'no tool-language matrix pairs remain untranslated');
+  assert.equal(englishToolRoutes.length, tools.length);
+  assert.equal(localizedToolRoutes.length, contentPairs.length);
+  assert.equal(routePaths.length, tools.length + contentPairs.length, 'only English and translated routes for public tools are discoverable');
+  assert.equal(tools.length * supportedLanguageCodes.length - routePaths.length, 0, 'all public tool-language routes are discoverable');
 
   assert.match(
     routeParserSource,
