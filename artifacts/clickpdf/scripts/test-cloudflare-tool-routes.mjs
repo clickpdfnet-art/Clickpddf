@@ -16,8 +16,16 @@ const intentionalLegacy404s = [
     reason: 'The Compare PDF implementation remains hidden and no public equivalent exists.',
   },
   {
+    path: '/tools/compare-pdf-documents/',
+    reason: 'The Compare PDF route remains hidden because its processing engine is not implemented.',
+  },
+  {
     path: '/tools/crop-pdf/',
     reason: 'The Crop PDF implementation remains hidden and no public equivalent exists.',
+  },
+  {
+    path: '/tools/crop-pdf-margins/',
+    reason: 'The Crop PDF route remains hidden because its processing engine is not implemented.',
   },
   {
     path: '/tools/extract-images-from-pdf/',
@@ -28,12 +36,20 @@ const intentionalLegacy404s = [
     reason: 'No public PDF flattening tool exists; merging documents is not equivalent.',
   },
   {
+    path: '/tools/pdf-to-pdfa/',
+    reason: 'The PDF/A route remains hidden because no PDF/A conversion or conformance validation engine exists.',
+  },
+  {
     path: '/tools/powerpoint-to-pdf/',
-    reason: 'PowerPoint to PDF is hidden; PDF to PowerPoint is the reverse conversion.',
+    reason: 'The converter extracts text into newly drawn slides, omits original slide artwork/layout, and advertises legacy .ppt support its OpenXML parser does not provide.',
   },
   {
     path: '/tools/repair-pdf/',
     reason: 'The Repair PDF implementation remains hidden and no public equivalent exists.',
+  },
+  {
+    path: '/tools/repair-corrupted-pdf/',
+    reason: 'Repair only re-saves parser-accepted files in best-effort mode; representative corrupted-file recovery is not verified.',
   },
 ];
 
@@ -273,7 +289,7 @@ test('the grayscale legacy URL redirects to the working Compress PDF grayscale o
   }
 });
 
-test('unsupported legacy tool URLs remain 404 and absent from sitemap and rendered internal links', async (t) => {
+test('unsupported legacy and hidden tool URLs remain 404 and absent from sitemap and rendered internal links', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
   const sitemap = await readFile(path.join(publicDir, 'sitemap.xml'), 'utf8');
   const sitemapPaths = new Set(
