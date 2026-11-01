@@ -10,6 +10,42 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
 const publicDir = path.join(appDir, 'dist', 'public');
 const tools = await readActiveToolRegistry(appDir);
+const intentionalLegacy404s = [
+  {
+    path: '/tools/compare-pdf/',
+    reason: 'The Compare PDF implementation remains hidden and no public equivalent exists.',
+  },
+  {
+    path: '/tools/crop-pdf/',
+    reason: 'The Crop PDF implementation remains hidden and no public equivalent exists.',
+  },
+  {
+    path: '/tools/extract-images-from-pdf/',
+    reason: 'PDF to Image renders whole pages as PNG; it does not extract embedded image objects.',
+  },
+  {
+    path: '/tools/flatten-pdf/',
+    reason: 'No public PDF flattening tool exists; merging documents is not equivalent.',
+  },
+  {
+    path: '/tools/powerpoint-to-pdf/',
+    reason: 'PowerPoint to PDF is hidden; PDF to PowerPoint is the reverse conversion.',
+  },
+  {
+    path: '/tools/repair-pdf/',
+    reason: 'The Repair PDF implementation remains hidden and no public equivalent exists.',
+  },
+];
+
+async function listHtmlFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const nestedFiles = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return listHtmlFiles(entryPath);
+    return entry.isFile() && /\.html?$/i.test(entry.name) ? [entryPath] : [];
+  }));
+  return nestedFiles.flat();
+}
 
 function createAssetsBinding() {
   return {
@@ -177,6 +213,117 @@ test('legacy tool aliases redirect to their current canonical tool routes', asyn
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/pdf-metadata'), '/tools/edit-pdf-metadata/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/protect-pdf'), '/tools/protect-pdf-password/');
   assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/pdf-metadata'), '/tools/edit-pdf-metadata/');
+});
+
+test('Unlock PDF legacy URLs redirect directly to the canonical page for host and slash variants', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  const origins = [
+    'http://www.clickpdf.net',
+    'https://www.clickpdf.net',
+    'http://clickpdf.net',
+    'https://clickpdf.net',
+  ];
+  const canonicalUrl = 'https://www.clickpdf.net/tools/unlock-pdf-password/?source=legacy-url-test';
+  assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/unlock-pdf'), '/tools/unlock-pdf-password/');
+
+  for (const origin of origins) {
+    for (const pathVariant of ['/tools/unlock-pdf', '/tools/unlock-pdf/']) {
+      const response = await worker.fetch(
+        new Request(`${origin}${pathVariant}?source=legacy-url-test`),
+        env,
+      );
+      assert.equal(response.status, 301, `${origin}${pathVariant} redirects permanently`);
+      assert.equal(
+        response.headers.get('location'),
+        canonicalUrl,
+        `${origin}${pathVariant} reaches the final canonical URL in one hop`,
+      );
+
+      const target = await worker.fetch(new Request(canonicalUrl), env);
+      assert.equal(target.status, 200, 'the canonical Unlock PDF page is available');
+      assert.equal(target.headers.get('location'), null, 'the canonical target does not redirect again');
+      assert.match(
+        await target.text(),
+        /<link rel=["']canonical["'] href=["']https:\/\/www\.clickpdf\.net\/tools\/unlock-pdf-password\/["']/,
+      );
+    }
+  }
+});
+
+test('the grayscale legacy URL redirects to the working Compress PDF grayscale option', async () => {
+  const env = { ASSETS: createAssetsBinding() };
+  const canonicalUrl = 'https://www.clickpdf.net/tools/compress-pdf/?source=legacy-url-test';
+  assert.equal(TOOL_ROUTE_REDIRECTS.get('/tools/grayscale-pdf'), '/tools/compress-pdf/');
+
+  for (const pathVariant of ['/tools/grayscale-pdf', '/tools/grayscale-pdf/']) {
+    const response = await worker.fetch(
+      new Request(`https://www.clickpdf.net${pathVariant}?source=legacy-url-test`),
+      env,
+    );
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get('location'), canonicalUrl);
+
+    const target = await worker.fetch(new Request(canonicalUrl), env);
+    assert.equal(target.status, 200);
+    assert.equal(target.headers.get('location'), null);
+    assert.match(
+      await target.text(),
+      /<link rel=["']canonical["'] href=["']https:\/\/www\.clickpdf\.net\/tools\/compress-pdf\/["']/,
+    );
+  }
+});
+
+test('unsupported legacy tool URLs remain 404 and absent from sitemap and rendered internal links', async (t) => {
+  const env = { ASSETS: createAssetsBinding() };
+  const sitemap = await readFile(path.join(publicDir, 'sitemap.xml'), 'utf8');
+  const sitemapPaths = new Set(
+    [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, loc]) => new URL(loc).pathname),
+  );
+  const renderedLinks = new Set();
+
+  for (const htmlPath of await listHtmlFiles(publicDir)) {
+    const html = await readFile(htmlPath, 'utf8');
+    for (const [, href] of html.matchAll(/\bhref=["']([^"']+)["']/gi)) {
+      try {
+        const link = new URL(href, 'https://www.clickpdf.net');
+        if (link.origin === 'https://www.clickpdf.net') renderedLinks.add(link.pathname);
+      } catch {
+        // Ignore non-URL attribute values; they are not navigable links.
+      }
+    }
+  }
+
+  for (const { path: legacyPath, reason } of intentionalLegacy404s) {
+    await t.test(legacyPath, async () => {
+      const slug = legacyPath.split('/').filter(Boolean).at(-1);
+      assert.ok(reason.length > 0, 'the intentional 404 decision has a documented rationale');
+      assert.ok(!tools.some((tool) => tool.slug === slug), `${legacyPath} is not in the active public registry`);
+      assert.ok(!sitemapPaths.has(legacyPath), `${legacyPath} is absent from the sitemap`);
+      assert.ok(!sitemapPaths.has(legacyPath.slice(0, -1)), `${legacyPath} without a slash is absent from the sitemap`);
+      assert.ok(!renderedLinks.has(legacyPath), `${legacyPath} is absent from rendered internal links`);
+      assert.ok(!renderedLinks.has(legacyPath.slice(0, -1)), `${legacyPath} without a slash is absent from rendered internal links`);
+
+      const noSlash = await worker.fetch(
+        new Request(`https://www.clickpdf.net${legacyPath.slice(0, -1)}?source=legacy-404-test`),
+        env,
+      );
+      assert.equal(noSlash.status, 301, 'slashless tool paths normalize to the trailing-slash URL');
+      assert.equal(
+        noSlash.headers.get('location'),
+        `https://www.clickpdf.net${legacyPath}?source=legacy-404-test`,
+      );
+      const normalized = await worker.fetch(new Request(noSlash.headers.get('location')), env);
+      assert.equal(normalized.status, 404, reason);
+      assert.equal(normalized.headers.get('location'), null, 'the intentional 404 does not redirect elsewhere');
+
+      const withSlash = await worker.fetch(
+        new Request(`https://www.clickpdf.net${legacyPath}`),
+        env,
+      );
+      assert.equal(withSlash.status, 404, reason);
+      assert.equal(withSlash.headers.get('location'), null);
+    });
+  }
 });
 
 test('the 320x50 ad URL returns the static advertisement document directly', async () => {

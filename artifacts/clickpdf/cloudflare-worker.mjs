@@ -30,6 +30,7 @@ export const TOOL_ROUTE_REDIRECTS = new Map([
   ['/ocr-pdf-analysis', '/tools/ocr-pdf-analysis/'],
   ['/protect-pdf-password', '/tools/protect-pdf-password/'],
   ['/unlock-pdf-password', '/tools/unlock-pdf-password/'],
+  ['/tools/unlock-pdf', '/tools/unlock-pdf-password/'],
   ['/pdf-to-text', '/tools/pdf-to-text/'],
   ['/pdf-to-word', '/tools/pdf-to-word/'],
   ['/pdf-to-excel', '/tools/pdf-to-excel/'],
@@ -43,6 +44,7 @@ export const TOOL_ROUTE_REDIRECTS = new Map([
   ['/pdf-metadata', '/tools/edit-pdf-metadata/'],
   ['/tools/protect-pdf', '/tools/protect-pdf-password/'],
   ['/tools/pdf-metadata', '/tools/edit-pdf-metadata/'],
+  ['/tools/grayscale-pdf', '/tools/compress-pdf/'],
 ]);
 
 let unicodeRouteMap;
