@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { inflateSync } from 'node:zlib';
 import JSZip from 'jszip';
 import PptxGenJS from 'pptxgenjs';
 import { PDFDocument } from 'pdf-lib';
@@ -33,6 +34,20 @@ async function readPdfText(bytes) {
     pages.push(text.items.map((item) => ('str' in item ? item.str : '')).join(' '));
   }
   return pages;
+}
+
+function readRawPageContent(document, pageIndex) {
+  const contents = document.getPage(pageIndex).node.Contents();
+  const streams = contents?.asArray?.() ?? [contents];
+  return streams.map((reference) => {
+    const stream = document.context.lookup(reference);
+    const raw = stream.getContents();
+    try {
+      return inflateSync(raw).toString('latin1');
+    } catch {
+      return Buffer.from(raw).toString('latin1');
+    }
+  }).join('\n');
 }
 
 function slideXml(paragraphs) {
@@ -98,13 +113,47 @@ function removeStartXrefTrailer(pdfBytes) {
 const sourcePdf = await makePdf(2);
 
 {
-  const croppedBytes = await cropPdfMargins(sourcePdf, 5);
+  const cropFixtureDocument = await PDFDocument.create();
+  const firstCropPage = cropFixtureDocument.addPage([200, 100]);
+  firstCropPage.drawText('Crop page one', { x: 20, y: 60, size: 12 });
+  firstCropPage.drawText('Outside CropBox remains', { x: 1, y: 1, size: 6 });
+  const secondCropPage = cropFixtureDocument.addPage([600, 400]);
+  secondCropPage.drawText('Crop page two', { x: 40, y: 350, size: 12 });
+  const cropFixture = new Uint8Array(await cropFixtureDocument.save());
+
+  const croppedBytes = await cropPdfMargins(cropFixture, 5);
   const cropped = await PDFDocument.load(croppedBytes);
-  const croppedPage = cropped.getPage(0);
-  assert.deepEqual(croppedPage.getMediaBox(), { x: 0, y: 0, width: 200, height: 100 });
-  assert.deepEqual(croppedPage.getCropBox(), { x: 5, y: 5, width: 190, height: 90 });
+  assert.equal(cropped.getPageCount(), 2, 'all source pages are retained');
+  assert.deepEqual(cropped.getPage(0).getMediaBox(), { x: 0, y: 0, width: 200, height: 100 });
+  assert.deepEqual(cropped.getPage(0).getCropBox(), { x: 5, y: 5, width: 190, height: 90 });
+  assert.deepEqual(cropped.getPage(1).getMediaBox(), { x: 0, y: 0, width: 600, height: 400 });
+  assert.deepEqual(cropped.getPage(1).getCropBox(), { x: 20, y: 20, width: 560, height: 360 });
+  const croppedText = (await readPdfText(croppedBytes)).join('\n');
+  assert.match(croppedText, /Crop page one/);
+  assert.match(croppedText, /Crop page two/);
+  const firstPageContent = readRawPageContent(cropped, 0);
+  assert.ok(
+    firstPageContent.toUpperCase().includes(Buffer.from('Outside CropBox remains').toString('hex').toUpperCase()),
+    'the off-box text remains in the saved page content stream; CropBox changes are not redaction',
+  );
+
+  const maximumCrop = await PDFDocument.load(await cropPdfMargins(cropFixture, 25));
+  assert.deepEqual(maximumCrop.getPage(0).getCropBox(), { x: 25, y: 25, width: 150, height: 50 });
+  const zeroCrop = await PDFDocument.load(await cropPdfMargins(cropFixture, 0));
+  assert.deepEqual(zeroCrop.getPage(0).getCropBox(), { x: 0, y: 0, width: 200, height: 100 });
+
   await assert.rejects(() => cropPdfMargins(sourcePdf, 26), /between 0 and 25 percent/);
+  await assert.rejects(() => cropPdfMargins(sourcePdf, -1), /between 0 and 25 percent/);
   await assert.rejects(() => cropPdfMargins(sourcePdf, Number.NaN), /between 0 and 25 percent/);
+
+  const tinyPdf = await PDFDocument.create();
+  tinyPdf.addPage([50, 50]);
+  const tinyPdfBytes = new Uint8Array(await tinyPdf.save());
+  await assert.rejects(
+    () => cropPdfMargins(tinyPdfBytes, 25),
+    /page too small/,
+    'crop settings that leave a page below the minimum size are rejected',
+  );
 }
 
 {
@@ -144,6 +193,49 @@ const sourcePdf = await makePdf(2);
 }
 
 {
+  const originalDocument = await PDFDocument.create();
+  originalDocument.addPage([300, 400]).drawText('Shared clause', { x: 40, y: 350, fontSize: 12 });
+  originalDocument.addPage([300, 400]).drawText('Total 100', { x: 40, y: 350, fontSize: 12 });
+  const originalBytes = new Uint8Array(await originalDocument.save());
+
+  const revisedDocument = await PDFDocument.create();
+  revisedDocument.addPage([300, 400]).drawText('Shared clause', { x: 40, y: 350, fontSize: 12 });
+  revisedDocument.addPage([300, 400]).drawText('Total 125', { x: 40, y: 350, fontSize: 12 });
+  revisedDocument.addPage([300, 400]).drawText('Added appendix', { x: 40, y: 350, fontSize: 12 });
+  revisedDocument.addPage([300, 400]);
+  const revisedBytes = new Uint8Array(await revisedDocument.save());
+
+  const originalPages = await readPdfText(originalBytes);
+  const revisedPages = await readPdfText(revisedBytes);
+  const originalEmptyPages = originalPages.flatMap((text, index) => text.trim() ? [] : [index + 1]);
+  const revisedEmptyPages = revisedPages.flatMap((text, index) => text.trim() ? [] : [index + 1]);
+  assert.match(originalPages[0], /Shared clause/);
+  assert.match(originalPages[1], /Total 100/);
+  assert.equal(revisedPages.length, 4);
+
+  const realReport = buildPdfTextComparisonReport(
+    {
+      fileName: 'original.pdf',
+      pages: originalPages.length,
+      text: originalPages.join('\f'),
+      emptyPages: originalEmptyPages,
+    },
+    {
+      fileName: 'revised.pdf',
+      pages: revisedPages.length,
+      text: revisedPages.join('\f'),
+      emptyPages: revisedEmptyPages,
+    },
+  );
+  assert.match(realReport, /PAGE 1: TEXT MATCH/);
+  assert.match(realReport, /PAGE 2: TEXT DIFFERS/);
+  assert.match(realReport, /PAGE 3: PAGE ADDED/);
+  assert.match(realReport, /PAGE 4: PAGE ADDED/);
+  assert.match(realReport, /Total 100/);
+  assert.match(realReport, /Total 125/);
+  assert.match(realReport, /OCR NOTE/);
+  assert.match(realReport, /Revised file has no selectable text on page\(s\): 4/);
+
   const report = buildPdfTextComparisonReport(
     { fileName: 'original.pdf', pages: 2, text: 'Same text\fOriginal wording', emptyPages: [] },
     { fileName: 'revised.pdf', pages: 3, text: 'Same text\fRevised wording\fNew page', emptyPages: [3] },
@@ -230,7 +322,14 @@ const sourcePdf = await makePdf(2);
 {
   const workspace = await readFile(path.join(appDir, 'src/components/ToolWorkspace.tsx'), 'utf8');
   const officeConverters = await readFile(path.join(appDir, 'src/utils/officeConverters.ts'), 'utf8');
+  const textExtraction = await readFile(path.join(appDir, 'src/utils/pdfTextExtraction.ts'), 'utf8');
   assert.match(workspace, /tool\.id === 'compare' && files\.length !== 2/, 'text comparison requires exactly two files');
+  assert.match(workspace, /const \[original,\s*revised\] = files/);
+  assert.match(workspace, /extractPdfText\(original/);
+  assert.match(workspace, /extractPdfText\(revised/);
+  assert.match(textExtraction, /URL\.createObjectURL\(file\)/, 'PDF text extraction reads the selected local file');
+  assert.match(textExtraction, /pdfjs\.getDocument\(\{ url, stopAtErrors: true \}\)/);
+  assert.match(textExtraction, /URL\.revokeObjectURL\(url\)/);
   assert.match(workspace, /cropMarginPercent/, 'crop margin control is wired into tool execution');
   assert.match(workspace, /CropBox/, 'crop UI explains that content outside the visible box remains in the file');
   assert.match(workspace, /pptxOnly\s*=\s*tool\.id === 'powerpoint-to-pdf'/, 'the workspace accepts only PPTX files for this converter');
