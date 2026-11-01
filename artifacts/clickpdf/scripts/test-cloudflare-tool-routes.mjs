@@ -29,11 +29,11 @@ const intentionalLegacy404s = [
   },
   {
     path: '/tools/repair-corrupted-pdf/',
-    reason: 'PDF Repair remains hidden until real-file recovery behavior meets the release bar.',
+    reason: 'PDF Repair remains hidden because parser recovery is best-effort and the reopen/page-count check cannot guarantee content integrity.',
   },
   {
     path: '/tools/powerpoint-to-pdf/',
-    reason: 'PowerPoint to PDF remains hidden until its real-file behavior meets the release bar.',
+    reason: 'PowerPoint to PDF remains hidden because it produces basic text-only pages and does not preserve general slide content or layout.',
   },
   {
     path: '/ur/tools/repair-corrupted-pdf/',

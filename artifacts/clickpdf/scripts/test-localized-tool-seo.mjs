@@ -174,6 +174,15 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
       assert.equal(entry.contentCheckedAgainstToolBehavior, true, `${pair} is checked against the tool behavior`);
     }
   }
+  for (const toolId of ['repair', 'powerpoint-to-pdf']) {
+    const hiddenDrafts = qaLedger.entries.filter((entry) => entry.tool === toolId);
+    assert.equal(hiddenDrafts.length, Object.keys(contentByLocale).length, `${toolId} keeps a QA record for every non-English draft`);
+    for (const entry of hiddenDrafts) {
+      assert.equal(entry.status, 'generated_draft', `${entry.locale}:${toolId} remains a generated draft`);
+      assert.equal(entry.humanReviewed, false, `${entry.locale}:${toolId} does not claim human review`);
+      assert.equal(entry.reviewer, null, `${entry.locale}:${toolId} has no invented reviewer identity`);
+    }
+  }
 
   const localizedToolSitemapUrls = sitemapUrls.filter((url) =>
     /^https:\/\/www\.clickpdf\.net\/[a-z]{2}\/tools\/[^/]+\/$/.test(url),

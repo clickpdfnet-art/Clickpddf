@@ -34,6 +34,9 @@ test('hidden tools remain backed up but are excluded from public cards, searches
   }
 
   assert.equal(allIds.length - publicIds.length, expectedHiddenIds.length);
+  for (const id of ['crop', 'compare']) {
+    assert.ok(publicIds.includes(id), `${id} remains public with tested behavior and supported limitations`);
+  }
   assert.equal(tools.CATEGORIES.find(category => category.id === 'all')?.count, publicIds.length);
   for (const category of tools.CATEGORIES.filter(item => item.id !== 'all')) {
     assert.equal(

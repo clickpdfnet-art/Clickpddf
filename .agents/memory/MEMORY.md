@@ -16,3 +16,4 @@
 - [Cloudflare Unicode asset redirects](clickpdf-unicode-asset-redirects.md) — absorb only the mapped internal 307 from `.html` to extensionless assets; preserve the public canonical URL.
 - [ClickPDF SEO-safe changes](clickpdf-seo-safe-changes.md) — keep SEO work scoped; BeyondSEO browser mode needs Chromium's system libraries, while HTTP mode may be partial.
 - [ClickPDF canonical blog links](clickpdf-linkify-canonicalization.md) — Markdown-it can turn bare domains into HTTP anchors; normalize links after linkification and test generated HTML.
+- [CropBox test semantics](cropbox-test-semantics.md) — PDF.js can hide clipped text; inspect page streams when testing whether crops delete content.
