@@ -14,12 +14,18 @@ const toolSource = (await readFile(new URL('../src/data/toolsData.ts', import.me
     'const getPluginToolsAsPdfTools = () => [];'
   );
 const tools = await import(asModule(compile(toolSource)));
-const expectedHiddenIds = ['pdf-to-pdfa', 'powerpoint-to-pdf', 'repair'];
+const expectedHiddenTools = [
+  { id: 'pdf-to-pdfa', slug: 'pdf-to-pdfa' },
+  { id: 'powerpoint-to-pdf', slug: 'powerpoint-to-pdf' },
+  { id: 'repair', slug: 'repair-corrupted-pdf' },
+];
+const expectedHiddenIds = expectedHiddenTools.map((tool) => tool.id);
 
 test('hidden tools remain backed up but are excluded from public cards, searches, and categories', () => {
   assert.deepEqual([...tools.HIDDEN_TOOL_IDS].sort(), expectedHiddenIds);
   const allIds = tools.PDF_TOOLS.map(tool => tool.id);
   const publicIds = tools.PUBLIC_PDF_TOOLS.map(tool => tool.id);
+  assert.equal(publicIds.length, 23, 'only 23 tools currently meet the public release bar');
 
   for (const id of expectedHiddenIds) {
     assert.ok(allIds.includes(id), `${id} remains in the full backup registry`);
@@ -77,10 +83,10 @@ test('default sitemap only contains public tools', async () => {
   for (const label of ['pdf to pdf/a', 'repair pdf', 'powerpoint to pdf']) {
     assert.ok(!index.includes(label), `${label} is absent from the generated sitemap`);
   }
-  for (const tool of tools.PDF_TOOLS.filter((tool) => expectedHiddenIds.includes(tool.id))) {
+  for (const { id, slug } of expectedHiddenTools) {
     assert.ok(
-      !entries.some((entry) => entry.path === `/tools/${tool.id}/` || entry.loc.includes(tool.title)),
-      `${tool.id} is not exposed by the public sitemap`,
+      !entries.some((entry) => entry.path === `/tools/${slug}/`),
+      `${id} is not exposed by the public sitemap`,
     );
   }
   delete globalThis.__PUBLIC_PDF_TOOLS__;

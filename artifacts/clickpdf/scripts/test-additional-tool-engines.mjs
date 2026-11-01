@@ -19,7 +19,7 @@ const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 async function makePdf(pageCount = 1) {
   const pdf = await PDFDocument.create();
   for (let index = 0; index < pageCount; index++) {
-    pdf.addPage([200, 100]).drawText(`Repair fixture page ${index + 1}`);
+    pdf.addPage([200, 100]).drawText(`Repair ${index + 1}`, { x: 20, y: 60, size: 12 });
   }
   return new Uint8Array(await pdf.save());
 }
@@ -69,6 +69,32 @@ async function makeRealPptxFixture() {
   return new Uint8Array(await presentation.write({ outputType: 'uint8array' }));
 }
 
+function replaceStartXrefOffset(pdfBytes, replacement) {
+  const bytes = Buffer.from(pdfBytes);
+  const marker = Buffer.from('startxref', 'ascii');
+  const markerIndex = bytes.lastIndexOf(marker);
+  assert.ok(markerIndex >= 0, 'the fixture has a startxref marker');
+
+  let numberStart = markerIndex + marker.length;
+  while ([0x09, 0x0a, 0x0d, 0x20].includes(bytes[numberStart])) numberStart++;
+  let numberEnd = numberStart;
+  while (bytes[numberEnd] >= 0x30 && bytes[numberEnd] <= 0x39) numberEnd++;
+  assert.ok(numberEnd > numberStart, 'the fixture has a numeric startxref offset');
+
+  return new Uint8Array(Buffer.concat([
+    bytes.subarray(0, numberStart),
+    Buffer.from(String(replacement), 'ascii'),
+    bytes.subarray(numberEnd),
+  ]));
+}
+
+function removeStartXrefTrailer(pdfBytes) {
+  const bytes = Buffer.from(pdfBytes);
+  const markerIndex = bytes.lastIndexOf(Buffer.from('startxref', 'ascii'));
+  assert.ok(markerIndex >= 0, 'the fixture has a startxref marker');
+  return new Uint8Array(bytes.subarray(0, markerIndex));
+}
+
 const sourcePdf = await makePdf(2);
 
 {
@@ -85,40 +111,36 @@ const sourcePdf = await makePdf(2);
   const repairedBytes = await repairPdfBytes(sourcePdf);
   const repaired = await PDFDocument.load(repairedBytes);
   assert.equal(repaired.getPageCount(), 2, 'best-effort rebuild retains the readable page count');
+  assert.match((await readPdfText(repairedBytes)).join('\n'), /Repair 1/);
   await assert.rejects(() => repairPdfBytes(new TextEncoder().encode('not a PDF')));
 }
 
 {
   const classicPdf = await PDFDocument.create();
   for (let index = 0; index < 2; index++) {
-    classicPdf.addPage([300, 400]).drawText(`Recoverable xref fixture page ${index + 1}`);
+    classicPdf.addPage([300, 400]).drawText(`Recovery ${index + 1}`, { x: 40, y: 350, fontSize: 12 });
   }
   const validBytes = new Uint8Array(await classicPdf.save({ useObjectStreams: false }));
-  const validText = new TextDecoder().decode(validBytes);
-  assert.match(validText, /startxref\s+\d+/);
-
-  const badXrefOffsetText = validText.replace(/startxref\s+\d+/, 'startxref\n999999');
-  const missingXrefTrailerText = validText.replace(/startxref\s+\d+\s+%%EOF\s*$/, '');
-  assert.notEqual(badXrefOffsetText, validText, 'the malformed-offset fixture changes the xref pointer');
-  assert.notEqual(missingXrefTrailerText, validText, 'the missing-trailer fixture removes startxref and EOF');
 
   for (const [label, damagedBytes] of [
-    ['incorrect startxref offset', new TextEncoder().encode(badXrefOffsetText)],
-    ['missing startxref trailer', new TextEncoder().encode(missingXrefTrailerText)],
+    ['incorrect startxref offset', replaceStartXrefOffset(validBytes, 999999)],
+    ['missing startxref trailer', removeStartXrefTrailer(validBytes)],
   ]) {
     const repairedBytes = await repairPdfBytes(damagedBytes);
     const reopened = await PDFDocument.load(repairedBytes);
     assert.equal(reopened.getPageCount(), 2, `${label}: recovered output opens with both pages`);
     const extracted = (await readPdfText(repairedBytes)).join('\n');
-    assert.match(extracted, /Recoverable xref fixture page 1/);
-    assert.match(extracted, /Recoverable xref fixture page 2/);
+    assert.match(extracted, /Recovery 1/);
+    assert.match(extracted, /Recovery 2/);
   }
 
-  await assert.rejects(
-    () => repairPdfBytes(validBytes.slice(0, -10)),
-    undefined,
-    'truncated content that prevents parsing must be reported as unrecoverable',
-  );
+  let truncatedRejected = false;
+  try {
+    await repairPdfBytes(validBytes.slice(0, -10));
+  } catch {
+    truncatedRejected = true;
+  }
+  assert.equal(truncatedRejected, true, 'truncated content that prevents parsing must be reported as unrecoverable');
 }
 
 {

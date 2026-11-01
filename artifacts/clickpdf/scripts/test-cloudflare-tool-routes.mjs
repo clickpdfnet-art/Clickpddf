@@ -35,6 +35,14 @@ const intentionalLegacy404s = [
     path: '/tools/powerpoint-to-pdf/',
     reason: 'PowerPoint to PDF remains hidden until its real-file behavior meets the release bar.',
   },
+  {
+    path: '/ur/tools/repair-corrupted-pdf/',
+    reason: 'Localized PDF Repair drafts remain hidden along with the English public route.',
+  },
+  {
+    path: '/ja/tools/powerpoint-to-pdf/',
+    reason: 'Localized PowerPoint to PDF drafts remain hidden along with the English public route.',
+  },
 ];
 
 async function listHtmlFiles(directory) {

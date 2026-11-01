@@ -1,6 +1,7 @@
 // Functional engine check, not a browser capacity guarantee.
 // Run after building: node artifacts/clickpdf/scripts/verify-pdf-background.mjs
 import { PDFDocument, PDFName } from 'pdf-lib';
+import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { Worker } from 'node:worker_threads';
 import { readdir, mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -37,6 +38,24 @@ async function processFiles(operation, files) {
   } finally { await worker.terminate(); }
 }
 
+function damageStartXrefOffset(pdfBytes) {
+  const bytes = Buffer.from(pdfBytes);
+  const marker = Buffer.from('startxref', 'ascii');
+  const markerIndex = bytes.lastIndexOf(marker);
+  assert.ok(markerIndex >= 0, 'the fixture has a startxref marker');
+  let offsetStart = markerIndex + marker.length;
+  while ([0x09, 0x0a, 0x0d, 0x20].includes(bytes[offsetStart])) offsetStart++;
+  let offsetEnd = offsetStart;
+  while (bytes[offsetEnd] >= 0x30 && bytes[offsetEnd] <= 0x39) offsetEnd++;
+  assert.ok(offsetEnd > offsetStart, 'the fixture has a numeric startxref offset');
+
+  return new Uint8Array(Buffer.concat([
+    bytes.subarray(0, offsetStart),
+    Buffer.from('999999', 'ascii'),
+    bytes.subarray(offsetEnd),
+  ]));
+}
+
 try {
   const smallPdf = await PDFDocument.create();
   smallPdf.addPage([300, 400]).drawText('ClickPDF batch fixture');
@@ -71,5 +90,33 @@ try {
   const repaired = await processFiles('repair', [small]);
   assert.equal((await PDFDocument.load(repaired)).getPageCount(), 1);
   console.log('PASS: built Repair worker returned a readable one-page PDF.');
+
+  const repairFixtureDocument = await PDFDocument.create();
+  repairFixtureDocument.addPage([300, 400]).drawText('Worker repair fixture', { x: 40, y: 350, fontSize: 12 });
+  const repairFixture = new Uint8Array(await repairFixtureDocument.save({ useObjectStreams: false }));
+  const damagedFixture = damageStartXrefOffset(repairFixture);
+  const repairedDamage = await processFiles(
+    'repair',
+    [new File([damagedFixture], 'damaged-xref.pdf', { type: 'application/pdf' })],
+  );
+  assert.equal((await PDFDocument.load(repairedDamage)).getPageCount(), 1);
+  const reopenedRepair = await getDocument({
+    data: repairedDamage,
+    useSystemFonts: true,
+    isEvalSupported: false,
+  }).promise;
+  const repairedPage = await reopenedRepair.getPage(1);
+  const repairedText = (await repairedPage.getTextContent()).items
+    .map((item) => ('str' in item ? item.str : ''))
+    .join(' ');
+  assert.match(repairedText, /Worker repair fixture/);
+  console.log('PASS: built Repair worker recovered a damaged xref while retaining readable page text.');
+
+  await assert.rejects(
+    () => processFiles('repair', [new File([repairFixture.slice(0, -10)], 'truncated.pdf', { type: 'application/pdf' })]),
+    /Failed to parse|Unexpected|PDF/i,
+    'the built Repair worker rejects a truncated file it cannot safely rebuild',
+  );
+  console.log('PASS: built Repair worker rejected a truncated unrecoverable PDF.');
   console.log('NOTE: This test runs the actual built worker in Node, not a browser. It does not establish browser support for 50–1000 MB files.');
 } finally { await rm(directory, { recursive: true, force: true }); }

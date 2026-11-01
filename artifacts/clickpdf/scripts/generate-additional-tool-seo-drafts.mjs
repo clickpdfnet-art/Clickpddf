@@ -252,7 +252,7 @@ for (const locale of localeIds) {
     if (localized.operations.length !== 4 || localized.limits.length !== 4 || localized.multiple.length !== 4) {
       throw new Error(`Translation template for ${locale} does not cover all four tools.`);
     }
-    const operationIndex = toolIds.indexOf(toolId);
+    const operationIndex = candidateToolIds.indexOf(toolId);
     const title = tool.localizedTitles?.[locale]?.title || tool.toolLabel;
     const operation = localized.operations[operationIndex];
     const limitation = localized.limits[operationIndex];

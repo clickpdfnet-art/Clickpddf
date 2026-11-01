@@ -25,6 +25,14 @@ const supportedLanguageCodes = [
   ...translationsSource.matchAll(/^\s*\|\s*'([a-z]{2})'/gm),
 ].map((match) => match[1]);
 
+test('tool SEO draft generation keeps hidden Repair copy out of Compare translations', () => {
+  const repair = contentByLocale.ja.tools.repair;
+  const compare = contentByLocale.ja.tools.compare;
+  assert.match(repair.intro, /同じページ数で再度開ける/u);
+  assert.match(compare.intro, /2つのPDFから選択可能なテキストをページごとに比較/u);
+  assert.match(compare.faqs[2].answer, /PDFが2つ必要/u);
+});
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, '&amp;')
@@ -177,11 +185,17 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
   for (const [locale, localeData] of Object.entries(contentByLocale)) {
     for (const [toolId, content] of Object.entries(localeData.tools)) {
       const tool = tools.find((item) => item.id === toolId);
-      assert.ok(tool, `${toolId} remains in the active tool registry`);
       assert.ok(content.introHeading && content.intro, `${locale}:${toolId} has a localized introduction`);
       assert.equal(content.steps.length, 3, `${locale}:${toolId} has three tool-specific steps`);
       assert.equal(content.faqs.length, 6, `${locale}:${toolId} has six tool-specific FAQs`);
       assert.equal(new Set(content.faqs.map((faq) => faq.question)).size, 6, `${locale}:${toolId} FAQ questions are distinct`);
+      if (!tool) {
+        assert.ok(
+          ['repair', 'powerpoint-to-pdf'].includes(toolId),
+          `${locale}:${toolId} is intentionally hidden rather than missing from the active registry`,
+        );
+        continue;
+      }
       const contentText = JSON.stringify({
         title: tool.localizedTitles[locale]?.title,
         description: tool.localizedTitles[locale]?.description,
