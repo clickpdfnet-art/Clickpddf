@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 import { readActiveToolRegistry, readTypeScriptExport } from './static-tool-registry.mjs';
@@ -15,6 +16,7 @@ const expectedToolIds = [
   'pdf-to-text', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'word-to-pdf',
   'word-to-excel', 'excel-to-pdf', 'sign',
 ];
+const newlyEnabledToolIds = ['crop', 'repair', 'compare', 'powerpoint-to-pdf'];
 
 const englishExpected = {
   merge: 'Combines selected PDF files in the order you choose. Review links, forms, and annotations in the merged file because interactive features can vary by source document.',
@@ -38,6 +40,10 @@ const englishExpected = {
   'word-to-excel': 'Places Word tables into Excel worksheets and keeps document text or lists in a separate worksheet. Review complex or merged tables and the extracted text.',
   'excel-to-pdf': 'Renders spreadsheet content as styled, paginated PDF tables. Check scaling, column widths, and page breaks, especially for wide sheets.',
   sign: 'Places a drawn, typed, or stamped visual signature on PDF pages. This is not a certificate-backed digital signature or identity verification.',
+  crop: 'Changes the PDF CropBox uniformly on all four sides. Content outside the CropBox is not deleted, so this is not secure redaction.',
+  repair: 'Attempts to re-save and reopen a PDF that the parser can read. Recovery is best-effort and cannot restore missing or truncated content.',
+  compare: 'Compares selectable text from exactly two PDFs page by page. It does not compare images, visual layout, or scanned text without OCR.',
+  'powerpoint-to-pdf': 'Extracts selectable text from PPTX files into basic PDF pages. Original slide artwork, layout, charts, notes, and animations are not preserved.',
 };
 
 const urduExpected = {
@@ -63,6 +69,7 @@ function findLanguageUnion(node) {
 findLanguageUnion(source);
 
 const translations = await readTypeScriptExport(tablePath, 'TOOL_PRIVACY_TRANSLATIONS');
+const localizedSeo = JSON.parse(await readFile(path.join(appDir, 'src/i18n/toolSeoContentTranslations.json'), 'utf8'));
 assert.equal(supportedLanguages.length, 21, 'The project must keep its 21 supported languages.');
 assert.deepEqual(
   Object.keys(translations).sort(),
@@ -72,18 +79,29 @@ assert.deepEqual(
 
 for (const [language, locale] of Object.entries(translations)) {
   assert.deepEqual(Object.keys(locale).sort(), ['tools'], `Unexpected shared copy remains for ${language}.`);
+  const legacyLocaleTools = Object.keys(locale.tools).filter((id) => expectedToolIds.includes(id));
   assert.deepEqual(
-    Object.keys(locale.tools).sort(),
+    legacyLocaleTools.sort(),
     [...expectedToolIds].sort(),
     `Tool IDs must match all 21 live public tools for ${language}.`,
   );
-  assert.equal(new Set(Object.values(locale.tools)).size, expectedToolIds.length, `Tool copy must be tool-specific for ${language}.`);
+  assert.equal(new Set(Object.values(locale.tools)).size, Object.keys(locale.tools).length, `Tool copy must be tool-specific for ${language}.`);
   for (const toolId of expectedToolIds) {
     assert.ok(locale.tools[toolId].trim(), `Missing ${language}/${toolId} summary.`);
   }
+  for (const toolId of newlyEnabledToolIds) {
+    assert.ok(
+      (locale.tools[toolId] ?? localizedSeo[language]?.tools?.[toolId]?.intro)?.trim(),
+      `Missing generated ${language}/${toolId} privacy summary.`,
+    );
+  }
 }
 
-assert.deepEqual(translations.en.tools, englishExpected, 'English tool copy must match the approved source wording exactly.');
+assert.deepEqual(
+  translations.en.tools,
+  englishExpected,
+  'English tool copy must match the approved source wording exactly.',
+);
 for (const [toolId, expected] of Object.entries(urduExpected)) {
   assert.equal(translations.ur.tools[toolId], expected, `Urdu copy must be mapped to ${toolId}.`);
 }
@@ -92,16 +110,22 @@ const transpiled = ts.transpileModule(await readFile(tablePath, 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
 }).outputText;
 const privacyModule = { exports: {} };
-new Function('module', 'exports', transpiled)(privacyModule, privacyModule.exports);
+const privacyRequire = createRequire(tablePath);
+const privacyModuleRequire = (specifier) => {
+  const loaded = privacyRequire(specifier);
+  return specifier.endsWith('.json') ? { default: loaded } : loaded;
+};
+new Function('module', 'exports', 'require', transpiled)(privacyModule, privacyModule.exports, privacyModuleRequire);
 const getCopy = privacyModule.exports.getToolPrivacyCopy;
 for (const language of supportedLanguages) {
-  for (const toolId of expectedToolIds) {
+  for (const toolId of [...expectedToolIds, ...newlyEnabledToolIds]) {
     const copy = getCopy(language, toolId);
-    assert.equal(copy.summary, translations[language].tools[toolId], `Runtime copy mismatch at ${language}/${toolId}.`);
+    const expectedSummary = translations[language].tools[toolId] ?? localizedSeo[language]?.tools?.[toolId]?.intro;
+    assert.equal(copy.summary, expectedSummary, `Runtime copy mismatch at ${language}/${toolId}.`);
     assert.deepEqual(Object.keys(copy), ['summary'], `Unexpected extra copy returned for ${language}/${toolId}.`);
   }
 }
-assert.throws(() => getCopy('ur', 'crop'), /Missing localized tool privacy copy/);
+assert.ok(getCopy('ur', 'crop').summary, 'Generated localized privacy copy must be available for new public tools.');
 
 const componentSource = await readFile(path.join(appDir, 'src/components/ToolSeoContentSection.tsx'), 'utf8');
 assert.match(componentSource, /getToolPrivacyCopy\(language,\s*tool\.id\)/);
@@ -115,7 +139,7 @@ assert.match(componentSource, /\{seoInfo\.secondaryOverview\}/, 'The metadata to
 assert.doesNotMatch(componentSource, /isEnglishMetadataPage\s*\?\s*seoInfo\.metaDescription/);
 
 const activeTools = await readActiveToolRegistry(appDir);
-assert.deepEqual(activeTools.map((tool) => tool.id).sort(), [...expectedToolIds].sort());
+assert.deepEqual(activeTools.map((tool) => tool.id).sort(), [...expectedToolIds, ...newlyEnabledToolIds].sort());
 const oldGenericParagraph = 'Your document is processed locally in your browser. The page may still load standard resources and enabled third-party services, such as ads.';
 const removedDisclosure = 'The page may still load standard resources and enabled third-party services, including ads.';
 for (const tool of activeTools) {

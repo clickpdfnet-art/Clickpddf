@@ -39,6 +39,10 @@ export const TOOL_ROUTE_REDIRECTS = new Map([
   ['/word-to-excel', '/tools/word-to-excel/'],
   ['/excel-to-pdf', '/tools/excel-to-pdf/'],
   ['/sign-pdf-online', '/tools/sign-pdf-online/'],
+  ['/powerpoint-to-pdf', '/tools/powerpoint-to-pdf/'],
+  ['/crop-pdf-margins', '/tools/crop-pdf-margins/'],
+  ['/repair-corrupted-pdf', '/tools/repair-corrupted-pdf/'],
+  ['/compare-pdf-documents', '/tools/compare-pdf-documents/'],
   // Retain older public aliases that predate the current tool slugs.
   ['/protect-pdf', '/tools/protect-pdf-password/'],
   ['/pdf-metadata', '/tools/edit-pdf-metadata/'],

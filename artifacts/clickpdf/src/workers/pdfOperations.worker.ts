@@ -1,10 +1,15 @@
 import { PDFDocument } from 'pdf-lib';
+import { cropPdfMargins, repairPdfBytes } from '../utils/pdfToolOperations.mjs';
 
-type Request = { operation: 'merge' | 'optimize' | 'repair'; files: File[] };
+type Request = {
+  operation: 'merge' | 'optimize' | 'repair' | 'crop';
+  files: File[];
+  marginPercent?: number;
+};
 
 self.onmessage = async (event: MessageEvent<Request>) => {
   try {
-    const { operation, files } = event.data;
+    const { operation, files, marginPercent = 0 } = event.data;
     if (operation === 'merge') {
       const output = await PDFDocument.create();
       for (let index = 0; index < files.length; index++) {
@@ -27,10 +32,17 @@ self.onmessage = async (event: MessageEvent<Request>) => {
       self.postMessage({ type: 'progress', current: files.length, total: files.length, saving: true });
       const data = await output.save({ useObjectStreams: true, objectsPerTick: 25 });
       self.postMessage({ type: 'result', data }, { transfer: [data.buffer] });
+    } else if (operation === 'repair') {
+      const data = await repairPdfBytes(new Uint8Array(await files[0].arrayBuffer()));
+      self.postMessage({ type: 'result', data }, { transfer: [data.buffer] });
+    } else if (operation === 'crop') {
+      const data = await cropPdfMargins(
+        new Uint8Array(await files[0].arrayBuffer()),
+        marginPercent ?? 0,
+      );
+      self.postMessage({ type: 'result', data }, { transfer: [data.buffer] });
     } else {
-      const source = await PDFDocument.load(await files[0].arrayBuffer(), {
-        ignoreEncryption: false, throwOnInvalidObject: operation !== 'repair',
-      });
+      const source = await PDFDocument.load(await files[0].arrayBuffer(), { ignoreEncryption: false });
       if (operation === 'optimize') {
         source.setTitle('');
         source.setAuthor('');

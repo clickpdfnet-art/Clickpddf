@@ -4,7 +4,7 @@
 
 ## Overview
 
-ClickPDF provides 21 browser-based tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. For supported PDF tools, document file contents are processed locally in your browser on your device rather than uploaded to ClickPDF's document-processing service. This describes document processing only: the website may still make standard network requests for its code, fonts, workers, images, and other page resources. Enabled advertising or other third-party features may also make standard requests and receive associated connection metadata under their own policies. This is not a claim of zero network traffic or anonymity. Processing capacity depends on the tool, browser, device memory, and file size.
+ClickPDF provides 25 browser-based tools for merging, splitting, compressing, converting, organizing, editing, and protecting PDF documents. For supported PDF tools, document file contents are processed locally in your browser on your device rather than uploaded to ClickPDF's document-processing service. This describes document processing only: the website may still make standard network requests for its code, fonts, workers, images, and other page resources. Enabled advertising or other third-party features may also make standard requests and receive associated connection metadata under their own policies. This is not a claim of zero network traffic or anonymity. Processing capacity depends on the tool, browser, device memory, and file size.
 
 ## PDF tools
 
@@ -28,7 +28,11 @@ ClickPDF provides 21 browser-based tools for merging, splitting, compressing, co
 - [Word to PDF Online — Convert DOCX Files](https://www.clickpdf.net/tools/word-to-pdf/): Convert DOCX files to PDF in your browser. The output pages are rendered as images, so text may not be selectable; legacy DOC files are not supported.
 - [Word to Excel Online — Extract DOCX Tables](https://www.clickpdf.net/tools/word-to-excel/): Extract DOCX tables into XLSX, with one worksheet per detected table. Paragraphs and lists are collected separately; review the workbook.
 - [Excel to PDF Online — Convert Spreadsheets](https://www.clickpdf.net/tools/excel-to-pdf/): Convert XLSX, XLS, or CSV spreadsheets to paginated PDF tables in your browser. Check column widths, page breaks, and print layout before sharing.
+- [Convert Selectable PPTX Text to a Basic PDF](https://www.clickpdf.net/tools/powerpoint-to-pdf/): Create basic 16:9 PDF pages from selectable text in .pptx files. Original slide artwork and layout are not preserved; legacy .ppt is unsupported.
 - [Sign PDF Online — Add a Visual Signature](https://www.clickpdf.net/tools/sign-pdf-online/): Draw, type, or upload a visual signature mark and place it on PDF pages. It is an image, not a certificate-backed digital signature or identity check.
+- [Crop PDF Margins Online — Adjust the Visible Page Area](https://www.clickpdf.net/tools/crop-pdf-margins/): Adjust all PDF page CropBoxes by the same margin percentage in your browser. Cropping does not erase hidden content or redact information.
+- [PDF Repair Online: Best-Effort Rebuild](https://www.clickpdf.net/tools/repair-corrupted-pdf/): Try rebuilding a PDF that a parser can still partially read. Recovery is not guaranteed and cannot restore missing or truncated content.
+- [Compare Selectable Text in Two PDF Files](https://www.clickpdf.net/tools/compare-pdf-documents/): Compare selectable text from two PDFs page by page and download a text report. Scanned text, images, and visual layout are not compared.
 
 ## Guides and articles
 

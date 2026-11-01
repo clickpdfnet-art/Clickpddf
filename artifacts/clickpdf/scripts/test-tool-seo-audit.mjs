@@ -22,9 +22,9 @@ function textContent(value = '') {
     .trim();
 }
 
-test('all 21 public tool pages retain research-reviewed SEO metadata and canonical links', async () => {
+test('all 25 public tool pages retain research-reviewed SEO metadata and canonical links', async () => {
   const tools = await readActiveToolRegistry(appDir);
-  assert.equal(tools.length, 21, 'the public PDF tool registry contains exactly 21 tools');
+  assert.equal(tools.length, 25, 'the public PDF tool registry contains exactly 25 tools; PDF/A remains hidden');
   const seoSource = await readTypeScriptExport(
     path.join(appDir, 'src', 'data', 'toolSeoData.ts'),
     'TOOL_SEO_REGISTRY',

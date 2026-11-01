@@ -14,7 +14,7 @@ function decodeXmlText(value) {
 }
 
 export function extractPowerPointSlideLines(xmlText) {
-  const paragraphs = [...xmlText.matchAll(/<(?:[\w.-]+:)?p\b[^>]*>([\s\S]*?)<\/(?:[\w.-]+:)?p>/g)];
+  const paragraphs = [...xmlText.matchAll(/<(?:[A-Za-z_][\w.-]*:)?p(?:\s[^>]*)?>([\s\S]*?)<\/(?:[A-Za-z_][\w.-]*:)?p\s*>/g)];
   return paragraphs.flatMap((match, index) => {
     const paragraph = match[1];
     const text = [...paragraph.matchAll(/<(?:[\w.-]+:)?t\b[^>]*>([\s\S]*?)<\/(?:[\w.-]+:)?t>/g)]
@@ -85,46 +85,74 @@ export async function convertPptxTextToPdf(fileBytes, fileName, onProgress = () 
     onProgress(index + 1, slideEntries.length);
   }
 
-  for (let index = 0; index < slides.length; index++) {
-    const page = pdf.addPage([960, 540]);
-    page.drawRectangle({ x: 0, y: 0, width: 960, height: 540, color: rgb(0.97, 0.98, 0.99) });
-    page.drawRectangle({ x: 40, y: 532, width: 880, height: 4, color: rgb(0.38, 0.40, 0.95) });
+  if (!slides.some((slide) => slide.length > 0)) {
+    throw new Error('No selectable slide text was found in this presentation. No PDF was created.');
+  }
 
+  let renderedPageCount = 0;
+  for (let index = 0; index < slides.length; index++) {
     const lines = slides[index];
-    const titleLine = lines[0];
-    const title = titleLine?.text || `Slide ${slideEntries[index].number}`;
+    const title = lines[0]?.text || `Slide ${slideEntries[index].number}`;
+    const titleFont = bold;
     try {
-      bold.encodeText(title);
+      titleFont.encodeText(title);
     } catch {
       throw new Error('This presentation contains characters not supported by the built-in PDF font. No output was created.');
     }
-    page.drawText(title, {
-      x: 50, y: 470, size: 22, font: bold,
-      maxWidth: 860, lineHeight: 27, color: rgb(0.12, 0.16, 0.23),
-    });
 
-    let y = 415;
-    for (const line of lines.slice(1).slice(0, 12)) {
-      if (y < 75) break;
-      page.drawCircle({ x: 56, y: y + 4, size: 3, color: rgb(0.38, 0.40, 0.95) });
+    let page;
+    let y;
+    let continuation = false;
+    const createPage = () => {
+      page = pdf.addPage([960, 540]);
+      renderedPageCount++;
+      page.drawRectangle({ x: 0, y: 0, width: 960, height: 540, color: rgb(0.97, 0.98, 0.99) });
+      page.drawRectangle({ x: 40, y: 532, width: 880, height: 4, color: rgb(0.38, 0.40, 0.95) });
+      const heading = continuation ? `${title} (continued)` : title;
+      try {
+        titleFont.encodeText(heading);
+      } catch {
+        throw new Error('This presentation contains characters not supported by the built-in PDF font. No output was created.');
+      }
+      page.drawText(heading, {
+        x: 50, y: 470, size: 22, font: titleFont,
+        maxWidth: 860, lineHeight: 27, color: rgb(0.12, 0.16, 0.23),
+      });
+      y = 415;
+    };
+    createPage();
+
+    if (lines.length <= 1) {
+      page.drawText('No selectable slide text was found.', {
+        x: 70, y, size: 13, font: regular, color: rgb(0.45, 0.5, 0.58),
+      });
+    }
+
+    for (const line of lines.slice(1)) {
       const font = line.isBold ? bold : regular;
       try {
         font.encodeText(line.text);
       } catch {
         throw new Error('This presentation contains characters not supported by the built-in PDF font. No output was created.');
       }
-      const wrapped = wrapText(line.text, font, 13, 820).slice(0, 2);
-      wrapped.forEach((text, lineIndex) => page.drawText(text, {
-        x: 70, y: y - lineIndex * 17, size: 13, font, color: rgb(0.2, 0.25, 0.33),
-      }));
-      y -= Math.max(27, wrapped.length * 19);
+      const wrapped = wrapText(line.text, font, 13, 820);
+      for (const text of wrapped) {
+        if (y < 65) {
+          continuation = true;
+          createPage();
+        }
+        page.drawCircle({ x: 56, y: y + 4, size: 3, color: rgb(0.38, 0.40, 0.95) });
+        page.drawText(text, {
+          x: 70, y, size: 13, font, color: rgb(0.2, 0.25, 0.33),
+        });
+        y -= 18;
+      }
+      y -= 8;
     }
-    if (lines.length <= 1) {
-      page.drawText('No selectable slide text was found.', {
-        x: 70, y: 415, size: 13, font: regular, color: rgb(0.45, 0.5, 0.58),
-      });
-    }
-    page.drawText(`Text-only reconstruction • Slide ${index + 1} of ${slides.length}`, {
+  }
+
+  for (const [index, page] of pdf.getPages().entries()) {
+    page.drawText(`Text-only reconstruction • Page ${index + 1} of ${renderedPageCount}`, {
       x: 50, y: 25, size: 10, font: regular, color: rgb(0.58, 0.64, 0.72),
     });
   }
@@ -134,7 +162,7 @@ export async function convertPptxTextToPdf(fileBytes, fileName, onProgress = () 
   return {
     data,
     fileName: outputName,
-    pageCount: slides.length,
-    details: `Created ${slides.length} basic PDF page(s) from selectable PPTX text. Original slide images, layout, charts, speaker notes, and animations are not preserved; review the output before use.`,
+    pageCount: renderedPageCount,
+    details: `Created ${renderedPageCount} basic PDF page(s) from ${slides.length} PPTX slide(s). Selectable text is retained, but original slide images, layout, charts, speaker notes, and animations are not preserved; review the output before use.`,
   };
 }

@@ -1,4 +1,5 @@
 import type { Language } from '../i18n/translations';
+import toolSeoContentTranslations from '../i18n/toolSeoContentTranslations.json';
 
 export const TOOL_PRIVACY_COPY_TOOL_IDS = [
   'merge',
@@ -22,12 +23,16 @@ export const TOOL_PRIVACY_COPY_TOOL_IDS = [
   'word-to-excel',
   'excel-to-pdf',
   'sign',
+  'crop',
+  'repair',
+  'compare',
+  'powerpoint-to-pdf',
 ] as const;
 
 export type ToolPrivacyCopyToolId = (typeof TOOL_PRIVACY_COPY_TOOL_IDS)[number];
 
 interface ToolPrivacyLocaleCopy {
-  tools: Record<ToolPrivacyCopyToolId, string>;
+  tools: Partial<Record<ToolPrivacyCopyToolId, string>>;
 }
 
 export const TOOL_PRIVACY_TRANSLATIONS = {
@@ -54,6 +59,10 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
       'word-to-excel': 'Places Word tables into Excel worksheets and keeps document text or lists in a separate worksheet. Review complex or merged tables and the extracted text.',
       'excel-to-pdf': 'Renders spreadsheet content as styled, paginated PDF tables. Check scaling, column widths, and page breaks, especially for wide sheets.',
       sign: 'Places a drawn, typed, or stamped visual signature on PDF pages. This is not a certificate-backed digital signature or identity verification.',
+      crop: 'Changes the PDF CropBox uniformly on all four sides. Content outside the CropBox is not deleted, so this is not secure redaction.',
+      repair: 'Attempts to re-save and reopen a PDF that the parser can read. Recovery is best-effort and cannot restore missing or truncated content.',
+      compare: 'Compares selectable text from exactly two PDFs page by page. It does not compare images, visual layout, or scanned text without OCR.',
+      'powerpoint-to-pdf': 'Extracts selectable text from PPTX files into basic PDF pages. Original slide artwork, layout, charts, notes, and animations are not preserved.',
     },
   },
   ur: {
@@ -560,8 +569,13 @@ export const TOOL_PRIVACY_TRANSLATIONS = {
 
 export function getToolPrivacyCopy(language: Language, toolId: string) {
   const locale = TOOL_PRIVACY_TRANSLATIONS[language];
-  const summary = locale.tools[toolId as ToolPrivacyCopyToolId];
-  if (!summary || !TOOL_PRIVACY_COPY_TOOL_IDS.includes(toolId as ToolPrivacyCopyToolId)) {
+  const typedToolId = toolId as ToolPrivacyCopyToolId;
+  const generatedLocale = (toolSeoContentTranslations as Record<string, { tools?: Record<string, { intro?: string }> }>)[language];
+  const translatedSummary = (locale.tools as Partial<Record<ToolPrivacyCopyToolId, string>>)[typedToolId];
+  const summary = translatedSummary
+    ?? generatedLocale?.tools?.[toolId]?.intro
+    ?? (language === 'en' ? translatedSummary : undefined);
+  if (!summary || !TOOL_PRIVACY_COPY_TOOL_IDS.includes(typedToolId)) {
     throw new Error(`Missing localized tool privacy copy for ${language}/${toolId}.`);
   }
   return { summary };

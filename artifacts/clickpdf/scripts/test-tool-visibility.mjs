@@ -14,13 +14,7 @@ const toolSource = (await readFile(new URL('../src/data/toolsData.ts', import.me
     'const getPluginToolsAsPdfTools = () => [];'
   );
 const tools = await import(asModule(compile(toolSource)));
-const expectedHiddenIds = [
-  'compare',
-  'crop',
-  'pdf-to-pdfa',
-  'powerpoint-to-pdf',
-  'repair'
-];
+const expectedHiddenIds = ['pdf-to-pdfa'];
 
 test('hidden tools remain backed up but are excluded from public cards, searches, and categories', () => {
   assert.deepEqual([...tools.HIDDEN_TOOL_IDS].sort(), expectedHiddenIds);
@@ -80,7 +74,7 @@ test('default sitemap only contains public tools', async () => {
     entry.path.startsWith('/?tool=')
   ));
 
-  for (const label of ['compare pdf', 'crop & trim margins', 'pdf to pdf/a', 'powerpoint to pdf', 'repair pdf']) {
+  for (const label of ['pdf to pdf/a']) {
     assert.ok(!index.includes(label), `${label} is absent from the generated sitemap`);
   }
   delete globalThis.__PUBLIC_PDF_TOOLS__;

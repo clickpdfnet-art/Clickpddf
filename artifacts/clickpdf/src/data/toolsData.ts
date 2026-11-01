@@ -243,13 +243,13 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'powerpoint-to-pdf',
     title: 'PowerPoint to PDF',
-    description: 'Convert PowerPoint presentations (.pptx, .ppt) into crisp 16:9 PDF slides.',
-    extendedDescription: 'Transform OpenXML PowerPoint (.pptx) slides into vector-crisp widescreen PDF pages with slide titles, bullet points, and clean presentation formatting.',
+    description: 'Rebuild selectable text from .pptx slides into a basic 16:9 PDF. Original slide artwork and layout are not preserved.',
+    extendedDescription: 'Extracts text from .pptx files and places it on new basic PDF pages. Legacy .ppt files and visual-fidelity conversion are not supported.',
     category: 'convert',
     iconName: 'Presentation',
     badge: 'PPTX to PDF',
     accentColor: 'from-amber-600 to-orange-700',
-    acceptedFileTypes: '.pptx,.ppt,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint',
+    acceptedFileTypes: '.pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation',
     multiFile: true
   },
   {
@@ -267,8 +267,8 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'crop',
     title: 'Crop & Trim Margins',
-    description: 'Adjust document margins and trim excess white space for printing or reading.',
-    extendedDescription: 'Eliminate distracting borders and unwanted white margins from scanned documents, presentation slides, or book pages for optimal reading.',
+    description: 'Adjust the PDF CropBox with one uniform margin for every page. Cropping does not erase hidden content.',
+    extendedDescription: 'Change the visible and printable page area in a PDF copy. This is not secure redaction and does not remove content outside the CropBox.',
     category: 'edit',
     iconName: 'Crop',
     accentColor: 'from-fuchsia-600 to-rose-600',
@@ -289,8 +289,8 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'repair',
     title: 'Repair PDF',
-    description: 'Recover data from corrupted or damaged PDF files and restore viewable pages.',
-    extendedDescription: 'Diagnose syntax discrepancies, rebuild cross-reference tables, and reconstruct damaged PDF streams to restore corrupt files.',
+    description: 'Try a best-effort parser rebuild for a PDF that can still be partially read. Recovery is not guaranteed.',
+    extendedDescription: 'Create and reopen a newly saved copy when the PDF parser can load the source. Missing or truncated content cannot be restored.',
     category: 'optimize',
     iconName: 'Wrench',
     accentColor: 'from-lime-600 to-emerald-700',
@@ -300,8 +300,8 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'compare',
     title: 'Compare PDF',
-    description: 'Inspect two versions of a document side-by-side to highlight page alterations.',
-    extendedDescription: 'Compare two PDF revisions side-by-side with synchronised scrolling to spot differences, clause changes, and visual alterations instantly.',
+    description: 'Compare selectable text in exactly two PDFs and download a page-by-page report. Visual changes are not compared.',
+    extendedDescription: 'Extract selectable text from the original and revised PDFs. Scans without OCR, images, and visual layout are outside the comparison.',
     category: 'edit',
     iconName: 'Columns',
     badge: 'New',
@@ -316,14 +316,9 @@ export const PDF_TOOLS: PDFTool[] = [
   ...getPluginToolsAsPdfTools()
 ];
 
-// Keep these tools in the full registry as backups, but exclude them from public discovery.
-// Remove an ID here to bring that tool back into the live UI and sitemap.
+// PDF/A stays excluded until an ISO-conformance validator is available.
 export const HIDDEN_TOOL_IDS = new Set([
-  'powerpoint-to-pdf',
-  'crop',
   'pdf-to-pdfa',
-  'repair',
-  'compare'
 ]);
 
 export const PUBLIC_PDF_TOOLS = PDF_TOOLS.filter((tool) => !HIDDEN_TOOL_IDS.has(tool.id));

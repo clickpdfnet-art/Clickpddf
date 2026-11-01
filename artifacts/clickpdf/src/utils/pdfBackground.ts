@@ -3,9 +3,10 @@
  * buffers. Final bytes are transferred (not copied) back from the worker.
  */
 export function runPdfBackground(
-  operation: 'merge' | 'optimize' | 'repair',
+  operation: 'merge' | 'optimize' | 'repair' | 'crop',
   files: File[],
-  onProgress?: (current: number, total: number) => void
+  onProgress?: (current: number, total: number) => void,
+  options?: { marginPercent?: number },
 ): Promise<Uint8Array> {
   return new Promise((resolve, reject) => {
     const worker = new Worker(new URL('../workers/pdfOperations.worker.ts', import.meta.url), { type: 'module' });
@@ -28,7 +29,7 @@ export function runPdfBackground(
     };
     worker.onmessageerror = () => fail('Could not receive background PDF output. Your selected files have been kept.');
     try {
-      worker.postMessage({ operation, files });
+      worker.postMessage({ operation, files, ...options });
     } catch (error) {
       fail(error instanceof Error ? error.message : String(error));
     }

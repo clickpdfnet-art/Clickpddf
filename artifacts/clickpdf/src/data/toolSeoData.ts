@@ -893,17 +893,17 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'crop-pdf-margins',
     toolId: 'crop',
     aliases: ['crop', 'trim-pdf', 'cut-pdf-borders', 'crop-pdf-online'],
-    h1Title: 'Crop PDF Margins Online — Trim White Borders Free',
-    metaTitle: 'Crop PDF Margins Online Free – Trim Page Borders | ClickPDF',
-    metaDescription: 'Crop PDF margins in your browser for printing or e-readers. Page resources and enabled services may still make network requests.',
+    h1Title: 'Crop PDF Margins Online — Adjust the Visible Page Area',
+    metaTitle: 'Crop PDF Margins Online – Adjust the PDF CropBox | ClickPDF',
+    metaDescription: 'Adjust all PDF page CropBoxes by the same margin percentage in your browser. Cropping does not erase hidden content or redact information.',
     keywords: 'crop pdf, trim pdf margins, cut pdf borders online free, adjust pdf margins in browser, client side pdf crop',
     targetKeywords: ['crop pdf', 'trim pdf margins', 'crop pdf borders', 'pdf crop online free'],
-    badge: 'Precision Bounding Box',
-    overviewHeading: 'Eliminate Distracting Margins & White Borders',
-    overview: 'Optimize presentation slides, book scans, and financial spreadsheets for tablets and e-readers by trimming excess white margins. ClickPDF lets you adjust the PDF `/CropBox` and `/MediaBox` coordinates with pixel precision.',
-    secondaryOverview: 'Everything happens client-side without re-encoding text or causing pixelation, maintaining maximum sharpness and print clarity.',
-    privacyHighlight: 'Private Geometry Adjustment: Bounding box matrices are modified locally in memory, keeping your documents confidential.',
-    stepsHeading: 'How to Crop PDF Margins',
+    badge: 'PDF CropBox',
+    overviewHeading: 'Adjust the Visible and Printable Page Area',
+    overview: 'Set a uniform crop margin on each side of every selected PDF. The operation updates the PDF CropBox; it does not remove the original content outside that box.',
+    secondaryOverview: 'Review the cropped copy in a PDF viewer. CropBox changes are not secure redaction and should not be used to conceal confidential information.',
+    privacyHighlight: 'The selected files are processed in your browser; the website may still make standard resource and enabled third-party requests.',
+    stepsHeading: 'How to Crop PDF Page Margins',
     steps: [
       {
         step: 1,
@@ -912,33 +912,33 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         step: 2,
-        title: 'Adjust Margin Sliders',
-        description: 'Drag margin sliders or type exact millimeter trims for top, bottom, left, and right.'
+        title: 'Choose the crop percentage',
+        description: 'Set one margin percentage from 0 to 25 for all four sides of every page.'
       },
       {
         step: 3,
-        title: 'Save Cropped PDF',
-        description: 'Download your cropped, compact PDF file instantly.'
+        title: 'Save and review the copy',
+        description: 'Download the PDF and check its visible page area. The CropBox does not erase hidden content.'
       }
     ],
     faqs: [
       {
-        question: 'Does cropping reduce the text resolution?',
-        answer: 'No! Cropping simply adjusts the viewing and printing bounding box. Vector fonts and images retain 100% of their original sharpness.'
+        question: 'Does cropping erase the content outside the page area?',
+        answer: 'No. This tool changes the PDF CropBox, which controls the visible or printable area. It does not securely remove the underlying content.'
       },
       {
-        question: 'Can I crop all pages uniformly?',
-        answer: 'Yes! You can apply the crop margin settings to all pages across the entire document.'
+        question: 'Can I apply one margin to every page?',
+        answer: 'Yes. The selected percentage is applied uniformly to all four sides of every page in each selected PDF.'
       },
       {
-        question: 'Is the cropped content completely removed or just masked?',
-        answer: 'Our tool updates the standard PDF CropBox dictionary used by all compliant viewers to display only the requested region.'
+        question: 'Can I use cropping to hide sensitive information?',
+        answer: 'No. Content outside the CropBox can remain in the file. Use a verified redaction workflow to remove sensitive information.'
       }
     ],
     benefits: [
-      { title: 'Fine Margin Tuning', desc: 'Control top, bottom, left, and right trims independently.', iconName: 'Sliders' },
-      { title: 'E-Reader Optimized', desc: 'Expand text area for optimal reading on iPads and Kindle devices.', iconName: 'BookOpen' },
-      { title: 'Zero Compression Loss', desc: 'Keeps 100% original document fidelity without recompression.', iconName: 'Sparkles' },
+      { title: 'Uniform Margin Setting', desc: 'Apply one 0–25% crop margin to all four sides of every page.', iconName: 'Sliders' },
+      { title: 'Adjust the Visible Page Area', desc: 'Change how page bounds appear in compatible PDF viewers.', iconName: 'BookOpen' },
+      { title: 'Not Secure Redaction', desc: 'CropBox changes do not erase underlying page content.', iconName: 'AlertTriangle' },
       { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Shield' }
     ],
     relatedToolIds: ['rotate', 'organize', 'compress', 'split']
@@ -1003,53 +1003,53 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'repair-corrupted-pdf',
     toolId: 'repair',
     aliases: ['repair', 'fix-pdf', 'recover-pdf', 'corrupted-pdf-repair'],
-    h1Title: 'Repair Corrupted PDF Online — Fix Broken & Damaged Files Free',
-    metaTitle: 'Repair Corrupted PDF Online Free – Fix Damaged Files | ClickPDF',
-    metaDescription: 'Recover corrupted PDF files online for free. Rebuild cross-reference tables and restore pages in your browser; page requests may still occur.',
+    h1Title: 'PDF Repair Online: Best-Effort Rebuild',
+    metaTitle: 'PDF Repair & Rebuild Online – Best-Effort | ClickPDF',
+    metaDescription: 'Try rebuilding a PDF that a parser can still partially read. Recovery is not guaranteed and cannot restore missing or truncated content.',
     keywords: 'repair pdf, fix corrupted pdf online free, recover damaged pdf, rebuild pdf cross reference table, client side pdf repair',
-    targetKeywords: ['repair pdf', 'fix corrupted pdf', 'recover damaged pdf', 'pdf repair online free'],
-    badge: 'XREF Table Reconstruction',
-    overviewHeading: 'Reconstruct Damaged PDF Stream Structures Locally',
-    overview: 'Files damaged during interrupted downloads, server crashes, or improper email attachments often refuse to open in Adobe Acrobat or browser viewers. ClickPDF scans the raw binary byte stream, repairs broken cross-reference (XREF) tables, and restores viewable page objects.',
-    secondaryOverview: 'Because the binary repair engine runs locally in your browser, your broken files are examined and reconstructed on your machine without risking data exposure.',
-    privacyHighlight: 'Private File Recovery: Repair sensitive financial ledgers and proprietary project proposals safely without uploading broken files to unverified cloud services.',
-    stepsHeading: 'How to Repair a Broken PDF File',
+    targetKeywords: ['PDF repair', 'fix corrupted PDF', 'best-effort PDF rebuild', 'repair PDF online'],
+    badge: 'Best-Effort Rebuild',
+    overviewHeading: 'Attempt to Rebuild a Readable PDF Copy',
+    overview: 'The tool asks the PDF parser to load a document in best-effort mode, saves a newly structured copy, and checks whether it can reopen with the same page count. It does not reconstruct arbitrary damaged streams.',
+    secondaryOverview: 'Files that are truncated, encrypted, or missing page data may fail or remain incomplete. Keep the original and inspect the rebuilt copy before relying on it.',
+    privacyHighlight: 'The selected files are processed in your browser; this does not guarantee device security or prevent ordinary page and enabled third-party requests.',
+    stepsHeading: 'How to Try a Best-Effort PDF Rebuild',
     steps: [
       {
         step: 1,
-        title: 'Upload Damaged PDF',
-        description: 'Drop your un-openable or damaged PDF into the repair workspace.'
+        title: 'Choose the PDF',
+        description: 'Select the file you want the parser to attempt to read and rebuild.'
       },
       {
         step: 2,
-        title: 'Run Stream Diagnostics',
-        description: 'Click "Analyze & Repair PDF" to trigger structural reconstruction.'
+        title: 'Create a rebuilt copy',
+        description: 'Run the parser and save a new PDF if the file can be loaded and verified.'
       },
       {
         step: 3,
-        title: 'Download Restored File',
-        description: 'Save your repaired PDF and open it in any standard viewer.'
+        title: 'Open and inspect the result',
+        description: 'Check the new file, page count, and important content. Recovery is not guaranteed.'
       }
     ],
     faqs: [
       {
-        question: 'Can all damaged PDF files be completely repaired?',
-        answer: 'If the core page streams and font objects are present in the byte stream, our tool will rebuild the directory table and restore them. Severely truncated files missing page data may restore only undamaged sheets.'
+        question: 'Can this tool repair every corrupted PDF?',
+        answer: 'No. It only attempts a parser-based rebuild. Missing, truncated, encrypted, or severely damaged content may not be recoverable.'
       },
       {
-        question: 'Why did my PDF get corrupted in the first place?',
-        answer: 'Common causes include incomplete web downloads, email attachment encoding glitches, and power disruptions during file saves.'
+        question: 'What does the tool verify after rebuilding?',
+        answer: 'It checks whether the output can be reopened and retains the original page count. That check does not prove every page or object is intact.'
       },
       {
-        question: 'Are my file contents saved during the repair analysis?',
-        answer: 'The binary analysis runs in your browser. Supported file contents are not sent to ClickPDF document-processing servers, though the page may still request resources and enabled third-party services.'
+        question: 'Can the tool restore missing page content?',
+        answer: 'No. Rebuilding file structure cannot recreate bytes that are absent from a damaged or truncated source.'
       }
     ],
     benefits: [
-      { title: 'XREF Table Recovery', desc: 'Reconstructs damaged cross-reference index tables automatically.', iconName: 'Wrench' },
-      { title: 'Stream De-duplication', desc: 'Fixes corrupted trailers and missing EOF markers.', iconName: 'Cpu' },
-      { title: 'Completely In-Browser', desc: 'Zero data uploaded to remote servers or third-party storage.', iconName: 'Shield' },
-      { title: 'Instant Diagnosis', desc: 'Provides immediate feedback on recoverable pages.', iconName: 'Zap' }
+      { title: 'Best-Effort Parser Rebuild', desc: 'Attempts to save a fresh copy of a PDF the parser can still load.', iconName: 'Wrench' },
+      { title: 'Output Reopen Check', desc: 'Checks whether the rebuilt PDF opens and retains the page count.', iconName: 'FileCheck' },
+      { title: 'Recovery Not Guaranteed', desc: 'Cannot recreate missing or truncated page content.', iconName: 'AlertTriangle' },
+      { title: 'Review Before Use', desc: 'Keep the original file and verify important pages and objects.', iconName: 'Eye' }
     ],
     relatedToolIds: ['compress', 'split', 'merge', 'metadata']
   },
@@ -1058,53 +1058,53 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'compare-pdf-documents',
     toolId: 'compare',
     aliases: ['compare', 'diff-pdf', 'compare-pdf-versions', 'pdf-diff-tool'],
-    h1Title: 'Compare PDF Documents Online — Side-by-Side Version Diff',
-    metaTitle: 'Compare PDF Documents Online Free – Side-by-Side Diff | ClickPDF',
-    metaDescription: 'Compare two PDF versions side by side online for free. Review page and visual differences in your browser; the page may still make requests.',
+    h1Title: 'Compare Selectable Text in Two PDF Files',
+    metaTitle: 'Compare PDF Text Online – Selectable Text Report | ClickPDF',
+    metaDescription: 'Compare selectable text from two PDFs page by page and download a text report. Scanned text, images, and visual layout are not compared.',
     keywords: 'compare pdf documents, pdf diff online free, compare two pdf versions, side by side pdf comparison, client side pdf compare',
     targetKeywords: ['compare pdf', 'compare two pdf files', 'pdf diff online', 'pdf comparison free'],
-    badge: 'Synchronized Diff View',
-    overviewHeading: 'Spot Critical Clause Changes & Revision Differences',
-    overview: 'Reviewing contract revisions, lease updates, and architectural blueprints requires meticulous precision. ClickPDF renders two PDF documents side-by-side with synchronized dual scrolling, allowing you to quickly spot missing sentences, altered figures, and formatting updates.',
-    secondaryOverview: 'Because the comparison operates inside your browser, neither confidential version is ever uploaded to external servers, protecting sensitive negotiation drafts and proprietary trade secrets.',
-    privacyHighlight: 'Private Side-by-Side Comparison: Both PDF files remain exclusively in your browser’s temporary memory, ensuring complete privacy during sensitive business audits.',
+    badge: 'Selectable Text Report',
+    overviewHeading: 'Review Page-by-Page Selectable Text Changes',
+    overview: 'Select the original PDF followed by the revised copy. ClickPDF extracts selectable text from both files and produces a downloadable report that labels matching or different page text.',
+    secondaryOverview: 'This is not a visual comparison: it does not compare layout, formatting, graphics, handwriting, or scanned pages without OCR. Review both PDFs directly for visual changes.',
+    privacyHighlight: 'The selected PDF text is extracted in your browser; the website may still make standard resource and enabled third-party requests.',
     stepsHeading: 'How to Compare Two PDF Documents',
     steps: [
       {
         step: 1,
-        title: 'Upload First Document (Original)',
-        description: 'Drop the baseline or initial revision of your PDF into the left viewer.'
+        title: 'Select the original PDF',
+        description: 'Add the original document first so its selectable text is the comparison baseline.'
       },
       {
         step: 2,
-        title: 'Upload Second Document (Revised)',
-        description: 'Drop the newer revision into the right viewer.'
+        title: 'Select the revised PDF',
+        description: 'Add exactly one revised PDF as the second file.'
       },
       {
         step: 3,
-        title: 'Inspect Side-by-Side',
-        description: 'Scroll through pages synchronously to pinpoint visual and textual modifications.'
+        title: 'Download the text report',
+        description: 'Review page labels and extracted text. Open the PDFs separately to check visual changes.'
       }
     ],
     faqs: [
       {
-        question: 'Does synchronized scrolling work on documents with different page counts?',
-        answer: 'Yes! You can lock or unlock synchronized scrolling at any point to align specific pages.'
+        question: 'What does this comparison check?',
+        answer: 'It compares extracted selectable text page by page and marks matching or different text. It does not compare visual layout or graphics.'
       },
       {
-        question: 'Can I compare scanned PDF documents?',
-        answer: 'Yes! Our high-resolution canvas renderer displays visual changes on both scanned documents and vector PDFs.'
+        question: 'Can it compare scanned pages or handwritten text?',
+        answer: 'No. Scanned images and handwriting are not read by this comparison. OCR is required before such text can be compared.'
       },
       {
-        question: 'Are my confidential revision drafts uploaded anywhere?',
-        answer: 'The comparison runs in your browser; selected file contents are not sent to ClickPDF document-processing servers. The page may still request resources and enabled third-party services.'
+        question: 'Does the report show layout, image, or font changes?',
+        answer: 'No. It reports selectable text only. Open the original and revised PDFs in a viewer to inspect formatting, images, page geometry, and other visual differences.'
       }
     ],
     benefits: [
-      { title: 'Synchronized Dual Scroll', desc: 'Scroll both documents in parallel to inspect line-by-line differences.', iconName: 'Columns' },
-      { title: 'Side-by-Side Clarity', desc: 'High-resolution rendering makes minute typographic changes clear.', iconName: 'Eye' },
-      { title: 'Browser-Based Processing', desc: 'Selected files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Lock' },
-      { title: 'No Subscription or Limits', desc: 'Compare unlimited pages and files without fees.', iconName: 'Check' }
+      { title: 'Selectable Text Report', desc: 'Compare extracted text page by page and download the result.', iconName: 'FileText' },
+      { title: 'Exactly Two PDFs', desc: 'Choose an original PDF followed by one revised copy.', iconName: 'Files' },
+      { title: 'Scanned Text Limitation', desc: 'Image-only pages require OCR and are not compared by this tool.', iconName: 'ScanText' },
+      { title: 'Visual Changes Not Compared', desc: 'Review both PDFs separately for layout, image, and formatting differences.', iconName: 'Eye' }
     ],
     relatedToolIds: ['merge', 'split', 'sign', 'watermark']
   },
@@ -1487,46 +1487,46 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     slug: 'powerpoint-to-pdf',
     toolId: 'powerpoint-to-pdf',
     aliases: ['powerpoint-to-pdf', 'pptx-to-pdf', 'ppt-to-pdf', 'convert-powerpoint-to-pdf', 'slides-to-pdf'],
-    h1Title: 'PowerPoint to PDF Converter Online — Crisp 16:9 Slides Free',
-    metaTitle: 'PowerPoint to PDF Online Free – Convert PPTX to PDF Slides | ClickPDF',
-    metaDescription: 'Convert PowerPoint (.pptx, .ppt) to widescreen PDF slides in your browser. Vector output; page resources and services may still make requests.',
-    keywords: 'powerpoint to pdf, convert powerpoint to pdf, pptx to pdf, ppt to pdf online free, slides to pdf, 16:9 pdf slides, client side pptx to pdf',
-    targetKeywords: ['powerpoint to pdf', 'convert pptx to pdf', 'slides to pdf converter', 'free powerpoint to pdf online'],
-    badge: '16:9 Widescreen Slides',
-    overviewHeading: 'Convert Presentations into Universal, High-Resolution PDF Slides',
-    overview: 'Ensure your slide deck looks identical on every projector, tablet, and mobile device. ClickPDF transforms Microsoft PowerPoint (.pptx, .ppt) presentations into crisp 16:9 widescreen PDF pages with slide titles, bullet points, and slide numbering preserved.',
-    secondaryOverview: 'In-browser XML parsing extracts slide sequences and renders vector PDF slides. Review the result for layout differences.',
-    privacyHighlight: 'Browser-Based Presentation Processing: Supported files are processed in your browser rather than sent to ClickPDF document-processing servers. The page may still make resource and third-party requests.',
-    stepsHeading: 'How to Convert PowerPoint to PDF in 3 Steps',
+    h1Title: 'Convert Selectable PPTX Text to a Basic PDF',
+    metaTitle: 'PowerPoint Text to Basic PDF – PPTX Converter | ClickPDF',
+    metaDescription: 'Create basic 16:9 PDF pages from selectable text in .pptx files. Original slide artwork and layout are not preserved; legacy .ppt is unsupported.',
+    keywords: 'pptx text to pdf, powerpoint to basic pdf, powerpoint text converter, pptx to pdf text, browser pptx text extraction',
+    targetKeywords: ['PPTX text to PDF', 'PowerPoint text to basic PDF', 'convert PPTX text to PDF'],
+    badge: 'Text-Only Reconstruction',
+    overviewHeading: 'Create New PDF Pages from PowerPoint Text',
+    overview: 'Extracts selectable text from .pptx slides and places it on new basic 16:9 PDF pages. It does not reproduce original slide positions, artwork, images, charts, themes, notes, or animations.',
+    secondaryOverview: 'The built-in PDF font supports a limited character set. Conversion stops with an error if slide text contains unsupported characters. Review the result before use.',
+    privacyHighlight: 'Selected presentation content is processed in your browser; page resources and enabled third-party features may still make standard network requests.',
+    stepsHeading: 'How to Create a Basic PDF from PPTX Text',
     steps: [
       {
         step: 1,
-        title: 'Upload Your Presentation',
-        description: 'Select your .pptx or .ppt slide deck from your device.'
+        title: 'Select a .pptx file',
+        description: 'Choose a PowerPoint Open XML presentation. Legacy .ppt files are not supported.'
       },
       {
         step: 2,
-        title: 'In-Browser Slide Rendering',
-        description: 'The engine parses OpenXML slide relationships, maps text frames, titles, and layout sequences.'
+        title: 'Rebuild text-only pages',
+        description: 'Selectable slide text is extracted and placed on new, basic 16:9 PDF pages.'
       },
       {
         step: 3,
-        title: 'Download 16:9 PDF Slides',
-        description: 'Click "Convert PowerPoint to PDF" to generate your printable, shareable presentation document.'
+        title: 'Review the output',
+        description: 'Download the PDF and check text, sequence, and omitted slide objects before sharing.'
       }
     ],
     faqs: [
       {
-        question: 'Why convert PowerPoint slides to PDF before presenting or emailing?',
-        answer: 'PDF guarantees that fonts, layout spacing, and graphics will not shift when opened on a different computer, Mac, or tablet without PowerPoint installed.'
+        question: 'Will the PDF preserve the original PowerPoint design?',
+        answer: 'No. This is a text-only reconstruction. Original positions, images, charts, colors, themes, speaker notes, and animations are not preserved.'
       },
       {
-        question: 'What slide format is generated in the PDF?',
-        answer: 'ClickPDF produces modern 16:9 widescreen PDF pages (960 x 540 pt) matching the aspect ratio of modern laptops, conference displays, and projectors.'
+        question: 'Which PowerPoint formats can I select?',
+        answer: 'Only .pptx files are supported. Save an older .ppt presentation as .pptx before using the converter.'
       },
       {
-        question: 'Is Microsoft PowerPoint required on my device?',
-        answer: 'No! ClickPDF unpacks presentation XML archives directly in JavaScript without needing Microsoft Office installed.'
+        question: 'Are all slide text and objects included?',
+        answer: 'Selectable text is extracted, but only a limited amount is placed on each new page. Original images and other slide objects are omitted.'
       },
       {
         question: 'Are pitch decks or secret project slides uploaded anywhere?',
@@ -1538,8 +1538,8 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       }
     ],
     benefits: [
-      { title: '16:9 Presentation Geometry', desc: 'Produces modern widescreen PDF slides ready for conference displays.', iconName: 'Presentation' },
-      { title: 'No Font Substitution', desc: 'Locks in slide layout and typography so your presentation looks identical everywhere.', iconName: 'FileCheck' },
+      { title: 'Basic 16:9 Pages', desc: 'Creates a new widescreen PDF page for each PPTX slide.', iconName: 'Presentation' },
+      { title: 'Selectable Text Output', desc: 'Places extracted text into a new PDF layout; visual fidelity is not preserved.', iconName: 'FileText' },
       { title: 'Browser-Based Processing', desc: 'Supported files are processed in your browser; page resources and enabled third-party services may still make network requests.', iconName: 'Lock' },
       { title: 'Batch ZIP Download', desc: 'Convert multiple presentation files in one click with zero subscription fees.', iconName: 'Download' }
     ],

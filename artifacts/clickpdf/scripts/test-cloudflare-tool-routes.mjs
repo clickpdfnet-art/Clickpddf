@@ -12,22 +12,6 @@ const publicDir = path.join(appDir, 'dist', 'public');
 const tools = await readActiveToolRegistry(appDir);
 const intentionalLegacy404s = [
   {
-    path: '/tools/compare-pdf/',
-    reason: 'The Compare PDF implementation remains hidden and no public equivalent exists.',
-  },
-  {
-    path: '/tools/compare-pdf-documents/',
-    reason: 'The Compare PDF route remains hidden because its processing engine is not implemented.',
-  },
-  {
-    path: '/tools/crop-pdf/',
-    reason: 'The Crop PDF implementation remains hidden and no public equivalent exists.',
-  },
-  {
-    path: '/tools/crop-pdf-margins/',
-    reason: 'The Crop PDF route remains hidden because its processing engine is not implemented.',
-  },
-  {
     path: '/tools/extract-images-from-pdf/',
     reason: 'PDF to Image renders whole pages as PNG; it does not extract embedded image objects.',
   },
@@ -40,16 +24,8 @@ const intentionalLegacy404s = [
     reason: 'The PDF/A route remains hidden because no PDF/A conversion or conformance validation engine exists.',
   },
   {
-    path: '/tools/powerpoint-to-pdf/',
-    reason: 'The converter extracts text into newly drawn slides, omits original slide artwork/layout, and advertises legacy .ppt support its OpenXML parser does not provide.',
-  },
-  {
     path: '/tools/repair-pdf/',
-    reason: 'The Repair PDF implementation remains hidden and no public equivalent exists.',
-  },
-  {
-    path: '/tools/repair-corrupted-pdf/',
-    reason: 'Repair only re-saves parser-accepted files in best-effort mode; representative corrupted-file recovery is not verified.',
+    reason: 'The canonical repair slug is repair-corrupted-pdf; this non-registered variant is not a public route.',
   },
 ];
 
@@ -98,7 +74,7 @@ function createAssetsBinding() {
 test('every public tool has an alias redirect and a valid canonical static route', async (t) => {
   const env = { ASSETS: createAssetsBinding() };
 
-  assert.equal(tools.length, 21, 'The public tool registry should contain all 21 tools.');
+  assert.equal(tools.length, 25, 'The public tool registry should contain 25 tools while PDF/A remains hidden.');
 
   for (const tool of tools) {
     await t.test(tool.slug, async () => {
@@ -191,7 +167,7 @@ test('complete localized tool routes serve matching canonical static pages', asy
     })),
   );
 
-  assert.equal(localizedRoutes.length, 420, 'all 420 localized routes for the completed tool-language matrix are exposed');
+  assert.equal(localizedRoutes.length, 500, 'all 500 localized routes for the completed tool-language matrix are exposed');
 
   for (const { locale, path: routePath } of localizedRoutes) {
     await t.test(routePath, async () => {

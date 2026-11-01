@@ -3,6 +3,7 @@
 - [Spreadsheet browser compatibility](spreadsheet-browser-compatibility.md) — use namespace SheetJS imports; Node workbook tests do not prove Vite browser compatibility.
 - [Read-only PDF metadata](pdf-metadata-inspection.md) — disable pdf-lib metadata updates during inspection to avoid false Producer and modification-date values.
 - [Targeted tool repairs](tool-repair-isolation.md) — isolate the named tool; protect all unrelated tools and shared website functionality.
+- [PDF/A publication gate](pdfa-publication-gate.md) — keep PDF/A out of public listings and routes until ISO conformance is validated.
 - [PDF to Word fidelity](pdf-word-fidelity.md) — editable defaults, explicit image fallback, honest preview limits, and DOCX textbox schema checks.
 - [Global tool-page banner ad](tool-page-banner-ad.md) — show one sandboxed banner on tool views by default; explicit ad-cookie rejection opts out.
 - [Admin dashboard visibility](admin-dashboard-visibility.md) — preserve the dashboard code and data, but keep all public website entry points disabled until requested.

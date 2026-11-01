@@ -18,6 +18,7 @@ import { SITE_COPY_TRANSLATIONS } from '../i18n/siteCopyTranslations';
 import { BLOG_INTERFACE_TRANSLATIONS } from '../i18n/blogInterfaceTranslations';
 import { FLOATING_UI_TRANSLATIONS } from '../i18n/floatingUiTranslations';
 import { MISSING_TOOL_TRANSLATIONS, NewToolId } from '../i18n/missingToolTranslations';
+import localizedToolSeoContent from '../i18n/toolSeoContentTranslations.json';
 import { resolveInitialLanguage } from '../i18n/resolveInitialLanguage';
 
 interface LanguageContextType {
@@ -95,6 +96,17 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const getToolDescription = (tool: PDFTool | string): string => {
     const id = typeof tool === 'string' ? tool : tool.id;
+    if (['crop', 'repair', 'compare', 'powerpoint-to-pdf'].includes(id)) {
+      if (language === 'en') {
+        const englishTool = typeof tool === 'string' ? PDF_TOOLS.find((item) => item.id === id) : tool;
+        if (englishTool?.description) return englishTool.description;
+      } else {
+        const localizedCopy = (localizedToolSeoContent as Record<string, { tools?: Record<string, { intro?: string; steps?: Array<{ description?: string }> }> }>)[language]
+          ?.tools?.[id];
+        const localizedDescription = localizedCopy?.steps?.[1]?.description || localizedCopy?.intro;
+        if (localizedDescription) return localizedDescription;
+      }
+    }
     const localized = TOOL_TRANSLATIONS[id]?.[language];
     if (localized?.description) return localized.description;
     const addedToolTranslation = MISSING_TOOL_TRANSLATIONS[language][id as NewToolId];
@@ -105,6 +117,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const getToolExtendedDescription = (tool: PDFTool | string): string => {
+    const id = typeof tool === 'string' ? tool : tool.id;
+    if (['crop', 'repair', 'compare', 'powerpoint-to-pdf'].includes(id)) return getToolDescription(tool);
     if (typeof tool !== 'string' && tool.extendedDescription) {
       return tool.extendedDescription;
     }

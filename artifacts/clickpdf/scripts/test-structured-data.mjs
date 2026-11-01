@@ -379,15 +379,15 @@ test('homepage contains brand, WebSite, WebApplication, navigation, and the full
 });
 
 test('each active PDF tool has SoftwareApplication, HowTo, FAQPage, and BreadcrumbList schemas', async () => {
-  assert.equal(activeTools.length, 21, 'the public registry covers all 21 active PDF tools');
+  assert.equal(activeTools.length, 25, 'the public registry covers all 25 active PDF tools');
   const allFaqQuestions = activeTools.flatMap((tool) => tool.faqs.map((faq) => faq.question.trim().toLocaleLowerCase()));
-  assert.equal(allFaqQuestions.length, 126, 'the 21 tools provide six FAQs each');
-  assert.equal(new Set(allFaqQuestions).size, 126, 'all tool FAQ questions are distinct');
+  assert.equal(allFaqQuestions.length, 150, 'the 25 tools provide six FAQs each');
+  assert.equal(new Set(allFaqQuestions).size, 150, 'all tool FAQ questions are distinct');
   const howToSignatures = activeTools.map((tool) =>
     tool.steps.map((step) => `${step.title}: ${step.description}`).join(' | ').toLocaleLowerCase(),
   );
-  assert.equal(howToSignatures.length, 21, 'each active tool has a HowTo collection');
-  assert.equal(new Set(howToSignatures).size, 21, 'HowTo collections are not reused across tools');
+  assert.equal(howToSignatures.length, 25, 'each active tool has a HowTo collection');
+  assert.equal(new Set(howToSignatures).size, 25, 'HowTo collections are not reused across tools');
 
   for (const url of toolUrls) {
     const { html, nodes } = await readHeadSchemas(url);

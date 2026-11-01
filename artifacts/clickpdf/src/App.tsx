@@ -5,6 +5,7 @@ import { getStoredArticles, saveArticles } from './data/initialArticles';
 import { getActiveBlogArticles } from './utils/blogLoader';
 import { getStoredSeoConfig, saveSeoConfig, applySeoConfigToDom, applyToolSeo, applyStandaloneToolSchema, applyBlogSeo, applyStructuredPageSeo, resetHomeSeo } from './utils/seoManager';
 import { getToolCanonicalPath, getToolSeoInfo } from './data/toolSeoData';
+import { getLocalizedToolPageSeoContent } from './data/toolPageSeoContent';
 import { FAQ_DATA } from './data/faqData';
 import { parseCurrentRoute, navigateToToolUrl, navigateToHomeUrl, navigateToToolsUrl, navigateToBlogUrl, navigateToBlogListUrl, buildAppPath } from './utils/routeParser';
 
@@ -45,6 +46,13 @@ const BLOG_INDEX_URL = `${SITE_ORIGIN}/blog/`;
 const TOOLS_INDEX_URL = `${SITE_ORIGIN}/tools/`;
 const TOOLS_INDEX_TITLE = 'All PDF Tools for Documents | ClickPDF';
 const TOOLS_INDEX_DESCRIPTION = 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.';
+const CONTENT_LIMITED_TOOL_IDS = new Set(['crop', 'repair', 'compare', 'powerpoint-to-pdf']);
+
+function getToolSeoDescription(toolId: string, language: Language, fallback: string) {
+  if (!CONTENT_LIMITED_TOOL_IDS.has(toolId)) return fallback;
+  const content = getLocalizedToolPageSeoContent(toolId, language);
+  return content?.steps?.[1]?.description || content?.intro || fallback;
+}
 
 function breadcrumbSchema(url: string, currentLabel: string) {
   return {
@@ -284,7 +292,12 @@ function AppContent() {
     const localizedTool = TOOL_TRANSLATIONS[selectedTool.id]?.[language];
     navigateToToolUrl(selectedTool.id, true, language);
     if (seo) {
-      applyToolSeo(seo, language, localizedTool?.title, localizedTool?.description);
+      applyToolSeo(
+        seo,
+        language,
+        localizedTool?.title,
+        getToolSeoDescription(selectedTool.id, language, localizedTool?.description || selectedTool.description),
+      );
     }
   }, [activeView, selectedTool?.id, language]);
 
@@ -334,7 +347,12 @@ function AppContent() {
           if (seo) {
             const pageLanguage = route.locale || language;
             const localizedTool = TOOL_TRANSLATIONS[found.id]?.[pageLanguage];
-            applyToolSeo(seo, pageLanguage, localizedTool?.title, localizedTool?.description);
+            applyToolSeo(
+              seo,
+              pageLanguage,
+              localizedTool?.title,
+              getToolSeoDescription(found.id, pageLanguage, localizedTool?.description || found.description),
+            );
           } else {
             applyStandaloneToolSchema(
               found.title,
@@ -557,7 +575,12 @@ function AppContent() {
     const toolSeo = getToolSeoInfo(tool.id);
     if (toolSeo) {
       const localizedTool = TOOL_TRANSLATIONS[tool.id]?.[language];
-      applyToolSeo(toolSeo, language, localizedTool?.title, localizedTool?.description);
+        applyToolSeo(
+          toolSeo,
+          language,
+          localizedTool?.title,
+          getToolSeoDescription(tool.id, language, localizedTool?.description || tool.description),
+        );
     } else {
       applyStandaloneToolSchema(
         tool.title,

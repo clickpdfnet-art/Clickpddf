@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
 import { OutputArchive } from '../utils/outputArchive';
 import { LocalOutputStore } from '../utils/localOutputStore';
 import { runPdfBackground } from '../utils/pdfBackground';
+import { extractPdfText } from '../utils/pdfTextExtraction';
+import { buildPdfTextComparisonReport } from '../utils/pdfTextComparison.mjs';
 import { DocumentSelector } from './DocumentSelector';
 import { startDownloadCountdown, DownloadRequestGate } from '../utils/downloadCountdown';
 import { PDFTool } from '../types';
@@ -226,6 +228,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   });
 
   const [rotateDeg, setRotateDeg] = useState(90);
+  const [cropMarginPercent, setCropMarginPercent] = useState(5);
   const [pdfOcrLanguage, setPdfOcrLanguage] = useState('eng');
   const [pdfWordOptions, setPdfWordOptions] = useState<PdfWordOptions>(DEFAULT_PDF_WORD_OPTIONS);
   const [wordReports, setWordReports] = useState<Record<string, WordReportEntry>>({});
@@ -498,19 +501,28 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       return;
     }
     const docxOnly = tool.id === 'word-to-pdf' || tool.id === 'word-to-excel';
+    const pptxOnly = tool.id === 'powerpoint-to-pdf';
+    const compareRemaining = tool.id === 'compare' ? Math.max(0, 2 - fileItems.length) : Number.POSITIVE_INFINITY;
+    const acceptedFiles = tool.id === 'compare' ? selectedFiles.slice(0, compareRemaining) : selectedFiles;
     const compatibleFiles = docxOnly
-      ? selectedFiles.filter(file => file.name.toLowerCase().endsWith('.docx'))
-      : selectedFiles;
+      ? acceptedFiles.filter(file => file.name.toLowerCase().endsWith('.docx'))
+      : pptxOnly
+      ? acceptedFiles.filter(file => file.name.toLowerCase().endsWith('.pptx'))
+      : acceptedFiles;
     const unsupportedFiles = docxOnly
       ? selectedFiles.filter(file => !file.name.toLowerCase().endsWith('.docx'))
+      : pptxOnly
+      ? selectedFiles.filter(file => !file.name.toLowerCase().endsWith('.pptx'))
       : [];
+    const excessCompareFiles = tool.id === 'compare' ? selectedFiles.slice(compareRemaining) : [];
     const batch = validateFileBatch(
       compatibleFiles,
       getExpectedTypeForTool(tool.id),
       fileItems.map(item => item.file)
     );
     const errors = [
-      ...unsupportedFiles.map(file => `"${file.name}" is not supported here. Please choose a .docx file.`),
+      ...unsupportedFiles.map(file => `"${file.name}" is not supported here. Please choose a ${pptxOnly ? '.pptx' : '.docx'} file.`),
+      ...(excessCompareFiles.length ? ['Compare PDF accepts exactly two documents: the original first, then the revised copy.'] : []),
       ...batch.errors
     ];
 
@@ -826,6 +838,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       setErrorMessage('Please upload at least one file to process.');
       return;
     }
+    if (tool.id === 'compare' && files.length !== 2) {
+      setErrorMessage('Select exactly two PDFs: the original first and the revised copy second.');
+      return;
+    }
 
     if (tool.id === 'split') {
       const parts = splitRange.split(',').map(s => s.trim()).filter(Boolean);
@@ -879,6 +895,57 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         details = files.length > 1
           ? `Successfully merged ${files.length} PDF files into a single document.`
           : `Successfully processed and consolidated PDF into a standard document.`;
+      } else if (tool.id === 'compare') {
+        const [original, revised] = files;
+        setProcessingStatus(`Extracting selectable text from ${original.name}...`);
+        const originalText = await extractPdfText(original, (page, total) => {
+          setProcessingStatus(`Original PDF: reading page ${page} of ${total}...`);
+        }, new AbortController().signal);
+        setProcessingStatus(`Extracting selectable text from ${revised.name}...`);
+        const revisedText = await extractPdfText(revised, (page, total) => {
+          setProcessingStatus(`Revised PDF: reading page ${page} of ${total}...`);
+        }, new AbortController().signal);
+        const report = buildPdfTextComparisonReport(
+          { fileName: original.name, ...originalText },
+          { fileName: revised.name, ...revisedText },
+        );
+        resultData = new TextEncoder().encode(report);
+        outputName = 'pdf_text_comparison.txt';
+        details = `Compared selectable text across ${originalText.pages} original page(s) and ${revisedText.pages} revised page(s). This report does not compare visual appearance, images, or scanned text.`;
+      } else if (tool.id === 'crop') {
+        const zip = new JSZip();
+        const failures: string[] = [];
+        let cropped = 0;
+        for (let index = 0; index < files.length; index++) {
+          const file = files[index];
+          setProcessingStatus(`Adjusting CropBox for ${index + 1} of ${files.length}: ${file.name}...`);
+          try {
+            const data = await runPdfBackground('crop', [file], undefined, { marginPercent: cropMarginPercent });
+            const name = `cropped_${file.name}`;
+            if (files.length === 1) {
+              resultData = data;
+              outputName = name;
+            } else {
+              zip.file(name, data);
+            }
+            cropped++;
+            const item = fileItems[index];
+            if (item) setProcessedFilesMap((current) => ({
+              ...current,
+              [item.id]: { data, fileName: name, status: 'done', originalSize: file.size, newSize: data.byteLength },
+            }));
+          } catch (error) {
+            const message = formatMemoryErrorMessage(error, file.name);
+            failures.push(`${file.name}: ${message}`);
+          }
+          await yieldToMainThread(20);
+        }
+        if (!cropped) throw new Error(`No PDFs could be cropped. ${failures.join('; ')}`);
+        if (files.length > 1) {
+          resultData = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' });
+          outputName = `cropped_${cropped}_files.zip`;
+        }
+        details = `Adjusted the PDF CropBox by ${cropMarginPercent}% on each side for ${cropped} of ${files.length} file(s). Cropping changes the visible/printable page box; it does not erase hidden content or provide secure redaction.${failures.length ? ` Failed: ${failures.join('; ')}` : ''}`;
       } else if (tool.id === 'split') {
         // Parse split range e.g. "1, 2, 3-5"
         const pagesToKeep: number[] = [];
@@ -2012,6 +2079,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           setProcessingStatus(`Converting 0 of ${files.length} presentations to PDF...`);
           const zip = new JSZip();
           let successCount = 0;
+          let failCount = 0;
           for (let i = 0; i < files.length; i++) {
             const f = files[i];
             const currentItem = fileItems[i];
@@ -2036,6 +2104,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 runItemAutoDownloadCountdown(currentItem, res.data, res.fileName, i, files.length);
               }
             } catch (err: any) {
+              failCount++;
               if (currentItem) {
                 setProcessedFilesMap(prev => ({
                   ...prev,
@@ -2056,7 +2125,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           setProcessingStatus('Packaging batch converted PDFs ZIP...');
           resultData = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE' });
           outputName = `powerpoint_to_pdf_${successCount}_files.zip`;
-          details = `Successfully converted ${successCount} presentation(s) into 16:9 widescreen PDF slides.`;
+          details = `Converted ${successCount} presentation(s) to basic PDFs using selectable text only. Original slide artwork, layout, charts, notes, and animations are not preserved; review each output before use.${failCount ? ` ${failCount} file(s) failed; see the individual file errors.` : ''}`;
         }
       } else if (tool.id === 'repair') {
         const zip = new JSZip();
@@ -2252,11 +2321,41 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       </div>
 
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
-      {['crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) && (
+      {tool.id === 'pdf-to-pdfa' && (
         <div role="alert" className="mb-5 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-800 dark:text-amber-200">
           {language === 'ur'
-            ? 'اس ٹول کا اصل processing انجن موجودہ ایپ میں مکمل نہیں ہے۔ فائلیں منتخب ہو سکتی ہیں، مگر درست نتیجہ ابھی نہیں بنایا جا سکتا۔ پہلے یہ ٹول اصل کام کے بجائے صرف پہلی فائل compress کر رہا تھا؛ اب غلط کامیابی نہیں دکھائی جائے گی۔'
-            : 'This tool’s processing engine is not implemented in the current app. File selection is available, but a correct output cannot yet be produced. Previously it silently compressed only the first file instead of performing this operation; that misleading fallback has been removed.'}
+            ? 'PDF/A بنانے اور ISO معیار کے مطابق جانچنے کا مصدقہ انجن موجود نہیں، اس لیے یہ ٹول فی الحال دستیاب نہیں ہے۔'
+            : 'A verified PDF/A converter and ISO conformance validator are not available, so this tool is not currently offered.'}
+        </div>
+      )}
+      {tool.id === 'crop' && (
+        <div className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-100">
+          <label htmlFor="crop-margin-percent" className="flex items-center justify-between gap-3 font-semibold">
+            <span>{language === 'ur' ? 'ہر طرف کا مارجن کاٹیں' : 'Crop the same margin from each side'}</span>
+            <span>{cropMarginPercent}%</span>
+          </label>
+          <input
+            id="crop-margin-percent"
+            type="range"
+            min="0"
+            max="25"
+            step="1"
+            value={cropMarginPercent}
+            onChange={(event) => setCropMarginPercent(Number(event.target.value))}
+            className="mt-3 w-full accent-indigo-600"
+          />
+          <p className="mt-2 text-xs leading-relaxed">
+            {language === 'ur'
+              ? 'یہ PDF کا CropBox بدلتا ہے؛ باہر کا مواد فائل سے مٹتا نہیں۔ حساس معلومات چھپانے کے لیے redaction استعمال کریں۔'
+              : 'This changes the PDF CropBox only; cropped content is not erased. Use a verified redaction tool to remove sensitive content.'}
+          </p>
+        </div>
+      )}
+      {tool.id === 'compare' && (
+        <div role="note" className="mb-5 rounded-xl border border-indigo-200 bg-indigo-50 p-4 text-sm text-indigo-900 dark:border-indigo-900 dark:bg-indigo-950/30 dark:text-indigo-100">
+          {language === 'ur'
+            ? 'بالکل دو PDFs منتخب کریں: پہلے اصل، پھر نظرثانی شدہ فائل۔ یہ ٹول صرف منتخب کیے جا سکنے والے متن کا موازنہ کرتا ہے، ظاہری ڈیزائن یا اسکین شدہ متن کا نہیں۔'
+            : 'Select exactly two PDFs: the original first and the revised file second. This tool compares selectable text only—not visual layout, images, or scanned text.'}
         </div>
       )}
       <input
@@ -3347,27 +3446,27 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 <div className="flex-1 text-xs">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-bold text-slate-900 dark:text-white text-sm">
-                      PowerPoint Presentation (.pptx) to PDF Converter
+                      PowerPoint text to basic PDF
                     </span>
                     <span className="text-[10px] font-semibold bg-orange-100 dark:bg-orange-900/80 text-orange-800 dark:text-orange-300 px-2 py-0.5 rounded-full border border-orange-200 dark:border-orange-700">
-                      16:9 Widescreen PDF Slides
+                      Text-only slide reconstruction
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    Unpacks OpenXML presentation slides, extracts slide titles, content paragraphs, and bullet points, and generates crystal-clear 16:9 widescreen PDF slides ready for sharing.
+                    Extracts selectable text from .pptx slides and lays it out in a new basic 16:9 PDF. It does not reproduce the original slide design.
                   </p>
                   <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
-                      <span>Accepts .pptx and .ppt presentation files</span>
+                      <span>Accepts .pptx files only; legacy .ppt is not supported</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
-                      <span>Widescreen 16:9 PDF geometry with slide headers</span>
+                      <span>Creates new 16:9 pages from extracted slide text</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
-                      <span>Maintains slide sequencing, bullet cards & footers</span>
+                      <span>Original images, layout, charts, notes, and animations are not preserved</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -3384,7 +3483,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             <button
               type="button"
               onClick={handleProcess}
-              disabled={isProcessing || ['sign', 'crop', 'pdf-to-pdfa', 'compare'].includes(tool.id) || (tool.id === 'jpg-to-pdf' && imagePages.length === 0)}
+              disabled={
+                isProcessing ||
+                ['sign', 'pdf-to-pdfa'].includes(tool.id) ||
+                (tool.id === 'compare' && files.length !== 2) ||
+                (tool.id === 'jpg-to-pdf' && imagePages.length === 0)
+              }
               className={`inline-flex items-center gap-2 px-6 py-2.5 max-w-full ${
                 tool.id === 'protect'
                   ? 'bg-rose-600 hover:bg-rose-700'
@@ -3473,6 +3577,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   ? 'Convert image pages to PDF'
                   : tool.id === 'watermark' && files.length > 1
                   ? `Apply Watermark to All ${files.length} PDFs`
+                  : tool.id === 'compare'
+                  ? 'Compare selectable text'
+                  : tool.id === 'crop'
+                  ? 'Crop PDF margins'
                   : `${t.processBtn}`}
               </span>
             </button>
