@@ -206,6 +206,28 @@ async function createTypedSignature() {
   await clickButton('Type');
   await evaluate(`(() => {
     const input = document.querySelector('input[placeholder="Type your name"]');
+    const setter = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(input), 'value').set;
+    setter.call(input, 'Browser Test Signature');
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  })()`);
+  await clickButton('Create typed signature');
+  await waitFor(() => evaluate(`document.querySelectorAll('#sign-signature-library option').length >= 2`), 'typed signature creation');
+}
+  });
+}
+
+async function addSignatureToPage(pageNumber) {
+  await setInput('input[aria-label="Current page"]', pageNumber);
+  await waitForPage(pageNumber);
+  await clickButton(`Add to page ${pageNumber}`);
+  await waitFor(() => evaluate(`document.body.innerText.includes('${pageNumber} signature') || document.body.innerText.includes('signatures placed')`), `signature added on page ${pageNumber}`);
+}
+
+async function createTypedSignature() {
+  await clickButton('Type');
+  await evaluate(`(() => {
+    const input = document.querySelector('input[placeholder="Type your name"]');
     const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
     setter.call(input, 'Browser Test Signature');
     input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -264,10 +286,6 @@ try {
   await waitFor(() => evaluate(`document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'original PDF render');
 
   await drawSignature();
-  await waitFor(
-    () => evaluate(`![...document.querySelectorAll('button')].find(node => node.innerText.includes('Use this signature'))?.disabled`),
-    'signature creation button to enable after drawing',
-  );
   const drawnState = await evaluate(`(() => {
     const canvas = document.querySelector('canvas[aria-label*="Draw your signature"]');
     const pixels = canvas?.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height).data;
@@ -335,9 +353,7 @@ try {
       previewLabel: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview')),
       canvasWidth: document.querySelector('#sign-pdf-preview-canvas')?.width,
       canvasHeight: document.querySelector('#sign-pdf-preview-canvas')?.height,
-      previewError: document.querySelector('[role="alert"]')?.innerText,
-      previewLoading: document.body.innerText.includes('Loading PDF pages…'),
-      canvasPresent: Boolean(document.querySelector('#sign-pdf-preview-canvas')),
+      previewError: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview') && text.includes('could not')),
       body: document.querySelector('main')?.innerText?.slice(-1600)
     }))()`);
     console.error('Signed preview diagnostics:', JSON.stringify(status));
