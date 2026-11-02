@@ -1,0 +1,5929 @@
+{
+  "task": 198,
+  "baselineSourceSha256": "e1cb89f639b18ad7b9d43ec87f67b3dcaf456b7142a19d5f8e37b7824cca5ecf",
+  "baselineSourceBytes": 167233,
+  "baselineBlankLines": 738,
+  "orderedLocAndHreflangSha256": "a55d00e8e14f074c23b555735f4ebd8f253da59652dbf4bd7a40344ff71839f0",
+  "locCount": 140,
+  "uniqueLocCount": 140,
+  "entriesWithAlternates": 123,
+  "alternateLinkCount": 1308,
+  "expectedStaticToolHtmlPages": 123,
+  "entries": [
+    {
+      "loc": "https://clickpdf.net/",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/protect-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/unlock-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/extract-images-from-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/pdf-metadata",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/crop-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/compare-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/repair-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/flatten-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/tools/grayscale-pdf",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/convert-photos-into-crisp-pdf-portfolios",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/demystifying-pdf-passwords-encryption",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/how-to-merge-reorder-pdfs-formal-filings",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/in-browser-pdf-privacy-guide",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/scanned-paper-to-searchable-text-ocr",
+      "alternates": []
+    },
+    {
+      "loc": "https://clickpdf.net/blog/watermarking-confidential-pdf-reports",
+      "alternates": []
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/merge-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/merge-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/split-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/split-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/split-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/split-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/split-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/split-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/split-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/split-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/split-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/split-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/split-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/split-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/split-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/split-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/split-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/split-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/split-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/split-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/split-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/split-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/compress-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/compress-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/compress-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/compress-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/image-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/image-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/pdf-to-image/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/pdf-to-image/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/rotate-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/rotate-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/watermark-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/watermark-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/page-numbers-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/page-numbers-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/organize-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/organize-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/edit-pdf-metadata/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/edit-pdf-metadata/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/ocr-pdf-analysis/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/ocr-pdf-analysis/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/protect-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/protect-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/protect-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/protect-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/unlock-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/pdf-to-text/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/pdf-to-text/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/pdf-to-word/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/pdf-to-word/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/pdf-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/pdf-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/pdf-to-powerpoint/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/word-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/word-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/word-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/word-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/excel-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/excel-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/powerpoint-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/powerpoint-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/fr/tools/sign-pdf-online/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/sign-pdf-online/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/sign-pdf-online/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/no/tools/sign-pdf-online/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/crop-pdf-margins/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/crop-pdf-margins/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ur",
+          "href": "https://www.clickpdf.net/ur/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "hi",
+          "href": "https://www.clickpdf.net/hi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ar",
+          "href": "https://www.clickpdf.net/ar/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "de",
+          "href": "https://www.clickpdf.net/de/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tl",
+          "href": "https://www.clickpdf.net/tl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "it",
+          "href": "https://www.clickpdf.net/it/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ru",
+          "href": "https://www.clickpdf.net/ru/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "ko",
+          "href": "https://www.clickpdf.net/ko/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "tr",
+          "href": "https://www.clickpdf.net/tr/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "nl",
+          "href": "https://www.clickpdf.net/nl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "pl",
+          "href": "https://www.clickpdf.net/pl/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "sv",
+          "href": "https://www.clickpdf.net/sv/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "id",
+          "href": "https://www.clickpdf.net/id/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "vi",
+          "href": "https://www.clickpdf.net/vi/tools/repair-corrupted-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/repair-corrupted-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/es/tools/compare-pdf-documents/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/merge-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/merge-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/merge-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/split-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/split-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/split-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/split-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/split-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/split-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/compress-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compress-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compress-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/image-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/image-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/image-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/pdf-to-image/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-image/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-image/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/rotate-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/rotate-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/rotate-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/watermark-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/watermark-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/watermark-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/page-numbers-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/page-numbers-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/page-numbers-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/organize-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/organize-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/organize-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/edit-pdf-metadata/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/edit-pdf-metadata/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/edit-pdf-metadata/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/ocr-pdf-analysis/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/ocr-pdf-analysis/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/ocr-pdf-analysis/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/protect-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/protect-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/protect-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/unlock-pdf-password/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/unlock-pdf-password/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/unlock-pdf-password/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/pdf-to-text/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-text/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-text/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/pdf-to-word/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-word/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-word/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/pdf-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/pdf-to-powerpoint/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/pdf-to-powerpoint/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/pdf-to-powerpoint/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/word-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/word-to-excel/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/word-to-excel/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/word-to-excel/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/excel-to-pdf/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/excel-to-pdf/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/excel-to-pdf/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/sign-pdf-online/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "fr",
+          "href": "https://www.clickpdf.net/fr/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "no",
+          "href": "https://www.clickpdf.net/no/tools/sign-pdf-online/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/sign-pdf-online/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/crop-pdf-margins/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/crop-pdf-margins/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/crop-pdf-margins/"
+        }
+      ]
+    },
+    {
+      "loc": "https://www.clickpdf.net/tools/compare-pdf-documents/",
+      "alternates": [
+        {
+          "hreflang": "en",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "zh",
+          "href": "https://www.clickpdf.net/zh/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://www.clickpdf.net/ja/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://www.clickpdf.net/es/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "pt",
+          "href": "https://www.clickpdf.net/pt/tools/compare-pdf-documents/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://www.clickpdf.net/tools/compare-pdf-documents/"
+        }
+      ]
+    }
+  ]
+}
