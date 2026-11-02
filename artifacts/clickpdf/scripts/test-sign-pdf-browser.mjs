@@ -161,32 +161,38 @@ async function drawSignature() {
   await waitFor(() => evaluate(`!!document.querySelector('canvas[aria-label*="Draw your signature"]')`), 'signature canvas');
   await evaluate(`document.querySelector('canvas[aria-label*="Draw your signature"]').scrollIntoView({ block: 'center', inline: 'center' })`);
   await delay(250);
-  const rect = await evaluate(`(() => {
-    const r = document.querySelector('canvas[aria-label*="Draw your signature"]').getBoundingClientRect();
-    return { left:r.left, top:r.top, width:r.width, height:r.height };
-  })()`);
-  const points = [
-    [0.18, 0.65], [0.27, 0.44], [0.34, 0.58], [0.42, 0.35],
-    [0.52, 0.63], [0.64, 0.40], [0.76, 0.55], [0.84, 0.44],
-  ];
-  for (let index = 0; index < points.length; index += 1) {
-    const [px, py] = points[index];
-    await send('Input.dispatchMouseEvent', {
-      type: index === 0 ? 'mousePressed' : 'mouseMoved',
-      x: rect.left + rect.width * px,
-      y: rect.top + rect.height * py,
-      button: index === 0 ? 'left' : 'none',
-      buttons: index === 0 ? 1 : 1,
+  await evaluate(`(() => {
+    const canvas = document.querySelector('canvas[aria-label*="Draw your signature"]');
+    const rect = canvas.getBoundingClientRect();
+    const points = [
+      [0.18, 0.65], [0.27, 0.44], [0.34, 0.58], [0.42, 0.35],
+      [0.52, 0.63], [0.64, 0.40], [0.76, 0.55], [0.84, 0.44],
+    ];
+    canvas.setPointerCapture = () => {};
+    points.forEach(([px, py], index) => {
+      canvas.dispatchEvent(new PointerEvent(index === 0 ? 'pointerdown' : 'pointermove', {
+        bubbles: true,
+        pointerId: 1,
+        pointerType: 'mouse',
+        isPrimary: true,
+        button: index === 0 ? 0 : -1,
+        buttons: 1,
+        clientX: rect.left + rect.width * px,
+        clientY: rect.top + rect.height * py,
+      }));
     });
-  }
-  const [px, py] = points.at(-1);
-  await send('Input.dispatchMouseEvent', {
-    type: 'mouseReleased',
-    x: rect.left + rect.width * px,
-    y: rect.top + rect.height * py,
-    button: 'left',
-    buttons: 0,
-  });
+    const [px, py] = points.at(-1);
+    canvas.dispatchEvent(new PointerEvent('pointerup', {
+      bubbles: true,
+      pointerId: 1,
+      pointerType: 'mouse',
+      isPrimary: true,
+      button: 0,
+      buttons: 0,
+      clientX: rect.left + rect.width * px,
+      clientY: rect.top + rect.height * py,
+    }));
+  })()`);
 }
 
 async function addSignatureToPage(pageNumber) {
@@ -258,6 +264,10 @@ try {
   await waitFor(() => evaluate(`document.querySelector('#sign-pdf-preview-canvas')?.width > 0`), 'original PDF render');
 
   await drawSignature();
+  await waitFor(
+    () => evaluate(`![...document.querySelectorAll('button')].find(node => node.innerText.includes('Use this signature'))?.disabled`),
+    'signature creation button to enable after drawing',
+  );
   const drawnState = await evaluate(`(() => {
     const canvas = document.querySelector('canvas[aria-label*="Draw your signature"]');
     const pixels = canvas?.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height).data;
@@ -325,7 +335,9 @@ try {
       previewLabel: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview')),
       canvasWidth: document.querySelector('#sign-pdf-preview-canvas')?.width,
       canvasHeight: document.querySelector('#sign-pdf-preview-canvas')?.height,
-      previewError: [...document.querySelectorAll('main p')].map(node => node.innerText).find(text => text.includes('preview') && text.includes('could not')),
+      previewError: document.querySelector('[role="alert"]')?.innerText,
+      previewLoading: document.body.innerText.includes('Loading PDF pages…'),
+      canvasPresent: Boolean(document.querySelector('#sign-pdf-preview-canvas')),
       body: document.querySelector('main')?.innerText?.slice(-1600)
     }))()`);
     console.error('Signed preview diagnostics:', JSON.stringify(status));
