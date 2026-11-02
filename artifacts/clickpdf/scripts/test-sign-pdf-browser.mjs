@@ -206,28 +206,6 @@ async function createTypedSignature() {
   await clickButton('Type');
   await evaluate(`(() => {
     const input = document.querySelector('input[placeholder="Type your name"]');
-    const setter = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(input), 'value').set;
-    setter.call(input, 'Browser Test Signature');
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-  })()`);
-  await clickButton('Create typed signature');
-  await waitFor(() => evaluate(`document.querySelectorAll('#sign-signature-library option').length >= 2`), 'typed signature creation');
-}
-  });
-}
-
-async function addSignatureToPage(pageNumber) {
-  await setInput('input[aria-label="Current page"]', pageNumber);
-  await waitForPage(pageNumber);
-  await clickButton(`Add to page ${pageNumber}`);
-  await waitFor(() => evaluate(`document.body.innerText.includes('${pageNumber} signature') || document.body.innerText.includes('signatures placed')`), `signature added on page ${pageNumber}`);
-}
-
-async function createTypedSignature() {
-  await clickButton('Type');
-  await evaluate(`(() => {
-    const input = document.querySelector('input[placeholder="Type your name"]');
     const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
     setter.call(input, 'Browser Test Signature');
     input.dispatchEvent(new Event('input', { bubbles: true }));
