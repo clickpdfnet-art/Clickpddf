@@ -1,0 +1,54 @@
+{
+  "source": "Task 190 candidate translation values preserved in the Task 194 review candidate",
+  "pairs": [
+    {
+      "toolId": "split",
+      "locales": {
+        "es": "Dividir PDF por páginas y rangos",
+        "pt": "Dividir PDF por páginas ou intervalos"
+      }
+    },
+    {
+      "toolId": "compress",
+      "locales": {
+        "es": "Comprimir PDF para reducir el tamaño",
+        "pt": "Comprimir PDF para reduzir o tamanho"
+      }
+    },
+    {
+      "toolId": "protect",
+      "locales": {
+        "es": "Proteger PDF con contraseña",
+        "pt": "Proteger PDF com senha"
+      }
+    },
+    {
+      "toolId": "unlock",
+      "locales": {
+        "es": "Desbloquear PDF protegido con contraseña",
+        "pt": "Desbloquear PDF protegido por senha"
+      }
+    },
+    {
+      "toolId": "repair",
+      "locales": {
+        "es": "Intentar reparar un PDF dañado",
+        "pt": "Tentar reparar um PDF danificado"
+      }
+    },
+    {
+      "toolId": "compare",
+      "locales": {
+        "es": "Comparar el texto de dos archivos PDF",
+        "pt": "Comparar o texto de dois arquivos PDF"
+      }
+    },
+    {
+      "toolId": "sign",
+      "locales": {
+        "fr": "Signer un PDF avec une signature visuelle",
+        "no": "Signer PDF med en synlig signatur"
+      }
+    }
+  ]
+}

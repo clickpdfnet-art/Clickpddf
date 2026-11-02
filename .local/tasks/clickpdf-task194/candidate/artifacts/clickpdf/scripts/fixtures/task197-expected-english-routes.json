@@ -1,0 +1,28 @@
+{
+  "baseSourceSha": "3631f75badc8ba1fe0533d2f3489269adfbfa748",
+  "routes": [
+    "https://www.clickpdf.net/tools/merge-pdf/",
+    "https://www.clickpdf.net/tools/split-pdf/",
+    "https://www.clickpdf.net/tools/compress-pdf/",
+    "https://www.clickpdf.net/tools/image-to-pdf/",
+    "https://www.clickpdf.net/tools/pdf-to-image/",
+    "https://www.clickpdf.net/tools/rotate-pdf/",
+    "https://www.clickpdf.net/tools/watermark-pdf/",
+    "https://www.clickpdf.net/tools/page-numbers-pdf/",
+    "https://www.clickpdf.net/tools/organize-pdf/",
+    "https://www.clickpdf.net/tools/edit-pdf-metadata/",
+    "https://www.clickpdf.net/tools/ocr-pdf-analysis/",
+    "https://www.clickpdf.net/tools/protect-pdf-password/",
+    "https://www.clickpdf.net/tools/unlock-pdf-password/",
+    "https://www.clickpdf.net/tools/pdf-to-text/",
+    "https://www.clickpdf.net/tools/pdf-to-word/",
+    "https://www.clickpdf.net/tools/pdf-to-excel/",
+    "https://www.clickpdf.net/tools/pdf-to-powerpoint/",
+    "https://www.clickpdf.net/tools/word-to-pdf/",
+    "https://www.clickpdf.net/tools/word-to-excel/",
+    "https://www.clickpdf.net/tools/excel-to-pdf/",
+    "https://www.clickpdf.net/tools/sign-pdf-online/",
+    "https://www.clickpdf.net/tools/crop-pdf-margins/",
+    "https://www.clickpdf.net/tools/compare-pdf-documents/"
+  ]
+}

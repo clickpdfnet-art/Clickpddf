@@ -1,0 +1,691 @@
+{
+  "baseSourceSha": "3631f75badc8ba1fe0533d2f3489269adfbfa748",
+  "entries": [
+    {
+      "locale": "zh",
+      "tool": "merge",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "merge",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "split",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "split",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "split",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "split",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "compress",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "compress",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "compress",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "compress",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "jpg-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "jpg-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "pdf-to-image",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "pdf-to-image",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "rotate",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "rotate",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "watermark",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "watermark",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "page-numbers",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "page-numbers",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "organize",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "organize",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "edit-metadata",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "edit-metadata",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "metadata",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "metadata",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "protect",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "protect",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "protect",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "protect",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "unlock",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "unlock",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "unlock",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "unlock",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "pdf-to-text",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "pdf-to-text",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "pdf-to-word",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "pdf-to-word",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "pdf-to-excel",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "pdf-to-excel",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "pdf-to-powerpoint",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "pdf-to-powerpoint",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "word-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "word-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "word-to-excel",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "word-to-excel",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "excel-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "excel-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ur",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "hi",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ar",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "fr",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "de",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "tl",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "it",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "no",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ru",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ko",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "tr",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "nl",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pl",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "sv",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "id",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "vi",
+      "tool": "powerpoint-to-pdf",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "fr",
+      "tool": "sign",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "sign",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "sign",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "no",
+      "tool": "sign",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "crop",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "crop",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ur",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "hi",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ar",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "fr",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "de",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "tl",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "it",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "no",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ru",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ko",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "tr",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "nl",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pl",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "sv",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "id",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "vi",
+      "tool": "repair",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "zh",
+      "tool": "compare",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "ja",
+      "tool": "compare",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "es",
+      "tool": "compare",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    },
+    {
+      "locale": "pt",
+      "tool": "compare",
+      "status": "generated_draft",
+      "humanReviewed": false,
+      "reviewer": null
+    }
+  ]
+}
