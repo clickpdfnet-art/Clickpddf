@@ -158,6 +158,28 @@ function linkList(items, label) {
     .join('')}</ul></nav>`;
 }
 
+const LOCALE_LINK_TOOL_IDS = new Set(['word-to-excel', 'powerpoint-to-pdf', 'crop', 'repair', 'compare']);
+
+function renderToolLocaleNavigation(tool, language, labels, languageOptions) {
+  if (language === 'en' || !LOCALE_LINK_TOOL_IDS.has(tool.id)) return '';
+
+  const availableLocales = new Set(Object.keys(tool.localizedSeoContent || {}));
+  const alternatives = languageOptions.filter((option) =>
+    option.code !== language &&
+    (option.code === 'en' || availableLocales.has(option.code)),
+  );
+  if (alternatives.length === 0) return '';
+
+  const heading = labels.selectLanguage || 'Select language';
+  const toolPath = `/tools/${encodeURIComponent(tool.slug)}/`;
+  const links = alternatives.map((option) => {
+    const href = option.code === 'en' ? toolPath : `/${option.code}${toolPath}`;
+    return `<li><a href="${escapeHtml(href)}" lang="${escapeHtml(option.code)}" hreflang="${escapeHtml(option.code)}" data-tool-language-link="${escapeHtml(option.code)}"><span aria-hidden="true">${escapeHtml(option.flag || '')}</span> ${escapeHtml(option.nativeName)}</a></li>`;
+  }).join('');
+
+  return `<nav aria-labelledby="tool-locale-navigation-heading" data-tool-locale-navigation="true"><h2 id="tool-locale-navigation-heading">${escapeHtml(heading)}</h2><ul>${links}</ul></nav>`;
+}
+
 function firstSentence(value) {
   const text = String(value || '').trim();
   for (let index = 0; index < text.length; index += 1) {
@@ -257,7 +279,11 @@ export function renderToolsIndexFallback(tools) {
   });
 }
 
-export function renderToolFallback(tool, tools, { language = 'en', labels = {} } = {}) {
+export function renderToolFallback(tool, tools, {
+  language = 'en',
+  labels = {},
+  languageOptions = [],
+} = {}) {
   const byId = new Map(tools.map((item) => [item.id, item]));
   const isEnglish = language === 'en';
   const relatedTools = (tool.relatedToolIds || [])
@@ -300,10 +326,11 @@ export function renderToolFallback(tool, tools, { language = 'en', labels = {} }
     }),
     labels.relatedTools || 'Related PDF tools',
   );
+  const localeNavigation = renderToolLocaleNavigation(tool, language, labels, languageOptions);
   return fallbackPage({
     title: tool.name,
     description: tool.description,
-    content: `${directAnswer}${toolPrivacySummary}${toolOverview}${benefits}${steps}${faqs}${links}<p><a href="/">${escapeHtml(labels.browseTools || 'Browse all ClickPDF tools')}</a></p>`,
+    content: `${directAnswer}${toolPrivacySummary}${toolOverview}${benefits}${steps}${faqs}${localeNavigation}${links}<p><a href="/">${escapeHtml(labels.browseTools || 'Browse all ClickPDF tools')}</a></p>`,
   });
 }
 

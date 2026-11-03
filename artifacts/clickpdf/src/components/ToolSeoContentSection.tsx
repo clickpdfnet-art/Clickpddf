@@ -11,11 +11,14 @@ import { PDFTool } from '../types';
 import { getToolCanonicalPath, ToolSeoInfo } from '../data/toolSeoData';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
+import { Language, SUPPORTED_LANGUAGES } from '../i18n/translations';
 import { TOOL_PAGE_TRANSLATIONS } from '../i18n/toolPageTranslations';
 import { getToolPrivacyCopy } from '../data/toolPrivacyTranslations';
 import { getLocalizedToolPageSeoContent, getToolPageSeoLabels, hasLocalizedToolPageSeoContent } from '../data/toolPageSeoContent';
 
 export type ToolSeoStage = 'empty' | 'active' | 'completed';
+
+const LOCALE_LINK_TOOL_IDS = new Set(['word-to-excel', 'powerpoint-to-pdf', 'crop', 'repair', 'compare']);
 
 interface ToolSeoContentSectionProps {
   tool: PDFTool;
@@ -49,6 +52,12 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
   const relatedTools = (seoInfo.relatedToolIds || [])
     .map((id) => PUBLIC_PDF_TOOLS.find((t) => t.id === id))
     .filter((t): t is PDFTool => Boolean(t));
+  const localeLinks = language !== 'en' && LOCALE_LINK_TOOL_IDS.has(tool.id)
+    ? SUPPORTED_LANGUAGES.filter((option) =>
+        option.code !== language &&
+        (option.code === 'en' || hasLocalizedToolPageSeoContent(tool.id, option.code)),
+      )
+    : [];
   const toolName = getToolTitle(tool);
   const toolPrivacyCopy = getToolPrivacyCopy(language, tool.id);
   const isEnglishSeoPage = language === 'en';
@@ -58,6 +67,11 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
     const localizedPath = language !== 'en' && hasLocalizedToolPageSeoContent(toolId, language)
       ? `/${language}${path}`
       : path;
+    return localizedPath.endsWith('/') ? localizedPath : `${localizedPath}/`;
+  };
+  const localeHref = (locale: Language) => {
+    const canonicalPath = getToolCanonicalPath(tool.id);
+    const localizedPath = locale === 'en' ? canonicalPath : `/${locale}${canonicalPath}`;
     return localizedPath.endsWith('/') ? localizedPath : `${localizedPath}/`;
   };
   const localizedSteps = specificContent?.steps ?? (isEnglishSeoPage ? seoInfo.steps : [
@@ -234,6 +248,37 @@ export const ToolSeoContentSection: React.FC<ToolSeoContentSectionProps> = ({
             ))}
           </div>
         </div>
+
+        {localeLinks.length > 0 && (
+          <nav
+            aria-labelledby="tool-locale-navigation-heading"
+            data-tool-locale-navigation="true"
+            className="space-y-3 border-t border-slate-200 pt-6 dark:border-slate-800"
+          >
+            <h3
+              id="tool-locale-navigation-heading"
+              className="text-sm font-bold text-slate-900 dark:text-white"
+            >
+              {ui.selectLanguage}
+            </h3>
+            <ul className="flex flex-wrap gap-2">
+              {localeLinks.map((option) => (
+                <li key={option.code}>
+                  <a
+                    href={localeHref(option.code)}
+                    lang={option.code}
+                    hrefLang={option.code}
+                    data-tool-language-link={option.code}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-indigo-400 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-indigo-500 dark:hover:text-indigo-300"
+                  >
+                    <span aria-hidden="true">{option.flag}</span>
+                    <span>{option.nativeName}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         {/* 5. Tool-Specific FAQs (Accordion) */}
         <div className="space-y-4">

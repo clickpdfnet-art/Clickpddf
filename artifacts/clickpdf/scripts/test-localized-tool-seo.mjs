@@ -593,3 +593,106 @@ test('localized tool route matrix keeps only complete, source-checked locale pai
     'manual language switching routes to a tool page only when that localized content exists',
   );
 });
+
+test('five targeted localized tool clusters have accessible crawlable language links', async () => {
+  const navigationToolIds = ['word-to-excel', 'powerpoint-to-pdf', 'crop', 'repair', 'compare'];
+  const targetToolIds = new Set(navigationToolIds);
+  const nonEnglishLocales = supportedLanguageCodes.filter((locale) => locale !== 'en');
+  const allLocales = supportedLanguageCodes;
+  const localizedTargets = new Map();
+  const incomingNavigationLinks = new Map();
+  const expectedCanonicalAlternates = (slug) => new Map([
+    ...supportedLanguageCodes.map((locale) => [
+      locale,
+      `${siteOrigin}/${locale === 'en' ? '' : `${locale}/`}tools/${slug}/`,
+    ]),
+    ['x-default', `${siteOrigin}/tools/${slug}/`],
+  ]);
+  const readAnchorAttributes = (html) => [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)].map((match) => {
+    const getAttribute = (name) => match[1].match(new RegExp(`(?:^|\\s)${name}=["']([^"']+)["']`, 'i'))?.[1];
+    return {
+      href: getAttribute('href'),
+      locale: getAttribute('data-tool-language-link'),
+      lang: getAttribute('lang'),
+      hreflang: getAttribute('hreflang'),
+      text: match[2].replace(/<[^>]*>/g, '').trim(),
+    };
+  });
+
+  for (const toolId of navigationToolIds) {
+    const tool = tools.find((candidate) => candidate.id === toolId);
+    assert.ok(tool, `${toolId} is a public tool`);
+    const localizedContentLocales = Object.keys(contentByLocale)
+      .filter((locale) => locale !== 'en' && Boolean(contentByLocale[locale]?.tools?.[toolId]))
+      .sort();
+    assert.deepEqual(localizedContentLocales, [...nonEnglishLocales].sort(), `${toolId} has all 20 localized routes`);
+
+    for (const targetLocale of nonEnglishLocales) {
+      localizedTargets.set(`/${targetLocale}/tools/${tool.slug}/`, `${targetLocale}:${toolId}`);
+    }
+
+    for (const locale of nonEnglishLocales) {
+      const routePath = `/${locale}/tools/${tool.slug}/`;
+      const pageUrl = `${siteOrigin}${routePath}`;
+      const htmlPath = path.join(publicDir, locale, 'tools', tool.slug, 'index.html');
+      const html = await readFile(htmlPath, 'utf8');
+      const main = html.match(/<main\b(?=[^>]*\bid=["']seo-static-content["'])[^>]*>([\s\S]*?)<\/main>/i)?.[1];
+      assert.ok(main, `${pageUrl} contains crawlable static HTML`);
+
+      const navMatch = main.match(/<nav\b(?=[^>]*\bdata-tool-locale-navigation=["']true["'])[^>]*>([\s\S]*?)<\/nav>/i);
+      assert.ok(navMatch, `${pageUrl} has a visible locale navigation block`);
+      const navOpen = main.match(/<nav\b(?=[^>]*\bdata-tool-locale-navigation=["']true["'])[^>]*>/i)?.[0] || '';
+      assert.match(navOpen, /\baria-labelledby=["']tool-locale-navigation-heading["']/i);
+      assert.match(navMatch[1], /<h2\b[^>]*id=["']tool-locale-navigation-heading["'][^>]*>[^<]+<\/h2>/i);
+      assert.doesNotMatch(navOpen, /\bhidden\b|aria-hidden=["']true|display\s*:\s*none/i);
+
+      const links = readAnchorAttributes(navMatch[0]);
+      const expectedLocales = allLocales.filter((candidate) => candidate !== locale).sort();
+      assert.deepEqual(
+        links.map((link) => link.locale).sort(),
+        expectedLocales,
+        `${pageUrl} links to every other available language and does not link to itself`,
+      );
+      for (const link of links) {
+        assert.ok(link.href, `${pageUrl} has a normal anchor href`);
+        assert.equal(link.lang, link.locale, `${pageUrl} marks the link text language`);
+        assert.equal(link.hreflang, link.locale, `${pageUrl} declares the target language`);
+        const expectedPath = link.locale === 'en'
+          ? `/tools/${tool.slug}/`
+          : `/${link.locale}/tools/${tool.slug}/`;
+        assert.equal(link.href, expectedPath, `${pageUrl} links to the same tool's correct locale route`);
+        assert.ok(link.text, `${pageUrl} has visible language link text`);
+        if (localizedTargets.has(link.href)) {
+          incomingNavigationLinks.set(link.href, (incomingNavigationLinks.get(link.href) || 0) + 1);
+        }
+      }
+      assert.ok(sitemapUrlSet.has(pageUrl), `${pageUrl} remains in the sitemap`);
+
+      const canonical = html.match(/<link rel=["']canonical["'] href=["']([^"']+)["']/i)?.[1];
+      assert.equal(canonical, pageUrl, `${pageUrl} keeps its existing canonical URL`);
+      const alternates = new Map(
+        [...html.matchAll(/<link rel=["']alternate["'] hreflang=["']([^"']+)["'] href=["']([^"']+)["']/gi)]
+          .map((match) => [match[1], match[2]]),
+      );
+      const expectedAlternates = expectedCanonicalAlternates(tool.slug);
+      assert.equal(alternates.size, expectedAlternates.size, `${pageUrl} retains the complete hreflang set`);
+      for (const [alternateLocale, alternateUrl] of expectedAlternates) {
+        assert.equal(alternates.get(alternateLocale), alternateUrl, `${pageUrl} keeps its ${alternateLocale} alternate`);
+      }
+    }
+  }
+
+  assert.equal(localizedTargets.size, 100, 'only the 100 audited localized routes are targeted');
+  for (const [targetPath, targetDescription] of localizedTargets) {
+    assert.equal(incomingNavigationLinks.get(targetPath), 19, `${targetDescription} has 19 incoming locale links`);
+  }
+
+  for (const tool of tools.filter((candidate) => !targetToolIds.has(candidate.id))) {
+    for (const locale of supportedLanguageCodes) {
+      if (!contentByLocale[locale]?.tools?.[tool.id]) continue;
+      const htmlPath = path.join(publicDir, locale, 'tools', tool.slug, 'index.html');
+      const html = await readFile(htmlPath, 'utf8');
+      assert.doesNotMatch(html, /\bdata-tool-locale-navigation=["']true["']/i, `${locale}:${tool.id} remains outside this navigation scope`);
+    }
+  }
+});

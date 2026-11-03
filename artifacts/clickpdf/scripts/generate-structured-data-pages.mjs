@@ -19,6 +19,8 @@ const appDir = path.resolve(scriptDir, '..');
 const outputDir = path.join(appDir, 'dist', 'public');
 const sitemapPath = path.join(outputDir, 'sitemap.xml');
 const faqDataPath = path.join(appDir, 'src', 'data', 'faqData.ts');
+const uiTranslationsPath = path.join(appDir, 'src', 'i18n', 'uiTranslations.ts');
+const translationsPath = path.join(appDir, 'src', 'i18n', 'translations.ts');
 const legalPagesPath = path.join(appDir, 'src', 'data', 'legalPages.json');
 const blogDir = path.join(appDir, 'src', 'blogs');
 const siteOrigin = 'https://www.clickpdf.net';
@@ -678,6 +680,13 @@ function prepareRouteHtml(template, {
 const template = await readFile(path.join(outputDir, 'index.html'), 'utf8');
 const sitemap = await readFile(sitemapPath, 'utf8');
 const activeTools = await readActiveToolRegistry(appDir);
+const [uiKeys, uiRows, languageOptions] = await Promise.all([
+  readTypeScriptExport(uiTranslationsPath, 'UI_KEYS'),
+  readTypeScriptExport(uiTranslationsPath, 'rows'),
+  readTypeScriptExport(translationsPath, 'SUPPORTED_LANGUAGES'),
+]);
+const selectLanguageIndex = uiKeys.indexOf('selectLanguage');
+if (selectLanguageIndex < 0) throw new Error('UI_TRANSLATIONS is missing the selectLanguage label.');
 const toolSeoRegistry = new Map(activeTools.map((tool) => [tool.slug, tool]));
 const faqData = await readTypeScriptExport(faqDataPath, 'FAQ_DATA');
 const generated = [];
@@ -749,7 +758,11 @@ for (const absoluteUrl of sitemapUrls) {
       schema,
       staticContent: renderToolFallback(contentTool, activeTools, {
         language,
-        labels: translation?.labels,
+        labels: {
+          ...translation?.labels,
+          selectLanguage: uiRows[language]?.[selectLanguageIndex] || 'Select language',
+        },
+        languageOptions,
       }),
       hreflangAlternates: alternates,
       hreflangIdPrefix: 'clickpdf-tool-hreflang',
