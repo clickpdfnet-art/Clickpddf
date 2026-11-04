@@ -8,18 +8,19 @@ import {
   ADVERTISING_CONSENT_CHANGED_EVENT,
   ADVERTISING_CONSENT_STORAGE_KEY,
   ADSENSE_PUBLISHER_ID,
-  ADSENSE_SCRIPT_URL,
-  ADSENSE_SLOT_IDS,
-  hasConfiguredAdSenseSlots,
+  ADSENSE_SLOT_ID,
   isValidAdSenseSlotId,
-  loadAdSenseScriptOnce,
-  shouldLoadAdSense,
+  shouldRequestAdUnit,
 } from '../src/ads/adsenseRuntime.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(projectRoot, 'public');
 const builtPublicDir = path.join(projectRoot, 'dist', 'public');
 const expectedAdsTxt = 'google.com, pub-6250344265022238, DIRECT, f08c47fec0942fa0\n';
+const expectedGaId = 'G-RYEME5P62V';
+const expectedAdSenseScript =
+  'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6250344265022238';
+const expectedGaScript = `https://www.googletagmanager.com/gtag/js?id=${expectedGaId}`;
 
 function createAssetsBinding() {
   return {
@@ -45,6 +46,21 @@ async function readTextFiles(directory) {
   return files.flat();
 }
 
+function countMatches(value, pattern) {
+  return [...value.matchAll(pattern)].length;
+}
+
+function assertPublicHeadHasOneGoogleTagSet(html, sourcePath) {
+  const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1];
+  assert.ok(head, `${sourcePath} has a document head`);
+  assert.equal(countMatches(head, /<script\b[^>]*src=["']https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-RYEME5P62V["'][^>]*><\/script>/gi), 1, `${sourcePath} has one GA loader`);
+  assert.equal(countMatches(head, /gtag\(['"]config['"],\s*['"]G-RYEME5P62V['"]\)/g), 1, `${sourcePath} configures the confirmed GA ID once`);
+  assert.equal(countMatches(head, /<script\b[^>]*src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-6250344265022238["'][^>]*><\/script>/gi), 1, `${sourcePath} has one AdSense loader`);
+  const adScript = head.match(/<script\b[^>]*src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-6250344265022238["'][^>]*><\/script>/i)?.[0] || '';
+  assert.match(adScript, /\basync\b/i, `${sourcePath} AdSense loader is async`);
+  assert.match(adScript, /\bcrossorigin=["']anonymous["']/i, `${sourcePath} AdSense loader uses anonymous CORS`);
+}
+
 async function assertAdsTxtResponse(response) {
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-type') || '', /^text\/plain(?:;|$)/i);
@@ -67,102 +83,111 @@ test('ads.txt is one exact standard record and is served as plain text through l
   }
 });
 
-test('confirmed AdSense publisher and slot are configured for both tool placements', () => {
+test('confirmed AdSense publisher, single slot, and consent policy are configured', () => {
   assert.equal(ADSENSE_PUBLISHER_ID, 'ca-pub-6250344265022238');
-  assert.deepEqual(Object.keys(ADSENSE_SLOT_IDS), ['toolHeader', 'beforeBack']);
-  assert.deepEqual(ADSENSE_SLOT_IDS, { toolHeader: '7770736190', beforeBack: '7770736190' });
-  assert.equal(hasConfiguredAdSenseSlots(ADSENSE_SLOT_IDS), true);
-  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.toolHeader), true);
-  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.beforeBack), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, null), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'accepted'), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'dismissed'), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'rejected'), false);
-  const missingSlotIds = { toolHeader: 'REPLACE_WITH_TOOL_HEADER_AD_SLOT_ID', beforeBack: '' };
-  assert.equal(hasConfiguredAdSenseSlots(missingSlotIds), false);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, missingSlotIds, null), false);
-
-  const realSlotIds = { toolHeader: '1234567890', beforeBack: '9876543210' };
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, realSlotIds, null), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, realSlotIds, 'accepted'), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, realSlotIds, 'dismissed'), true);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, realSlotIds, 'rejected'), false);
-
-  let scriptInsertions = 0;
-  if (shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, null)) scriptInsertions += 1;
-  assert.equal(scriptInsertions, 1, 'configured slot IDs allow the AdSense script request');
-});
-
-test('the official AdSense loader appends one script when invoked repeatedly', async () => {
-  const addedScripts = [];
-  const scriptAttributes = new Map();
-  const eventHandlers = new Map();
-  const fakeDocument = {
-    querySelector: () => null,
-    createElement: (tagName) => {
-      assert.equal(tagName, 'script');
-      return {
-        async: false,
-        crossOrigin: '',
-        src: '',
-        setAttribute: (name, value) => scriptAttributes.set(name, value),
-        addEventListener: (eventName, handler) => eventHandlers.set(eventName, handler),
-      };
-    },
-    head: {
-      appendChild: (script) => {
-        addedScripts.push(script);
-        queueMicrotask(() => eventHandlers.get('load')?.());
-      },
-    },
-  };
-
-  const first = loadAdSenseScriptOnce(fakeDocument, ADSENSE_PUBLISHER_ID);
-  const second = loadAdSenseScriptOnce(fakeDocument, ADSENSE_PUBLISHER_ID);
-  assert.equal(first, second);
-  await Promise.all([first, second]);
-  assert.equal(addedScripts.length, 1);
-  assert.equal(addedScripts[0].src, `${ADSENSE_SCRIPT_URL}?client=${ADSENSE_PUBLISHER_ID}`);
-  assert.equal(addedScripts[0].async, true);
-  assert.equal(addedScripts[0].crossOrigin, 'anonymous');
-  assert.equal(scriptAttributes.get('data-clickpdf-adsense'), 'true');
-});
-
-test('tool-only placements are after each tool heading and before the navigation bar', async () => {
-  const source = async (relativePath) => readFile(path.join(projectRoot, relativePath), 'utf8');
-  const app = await source('src/App.tsx');
-  const workspace = await source('src/components/ToolWorkspace.tsx');
-  const signWorkspace = await source('src/components/SignPdfWorkspace.tsx');
-  const textWorkspace = await source('src/components/PdfTextWorkspace.tsx');
-  const excelWorkspace = await source('src/components/PdfExcelWorkspace.tsx');
-  const component = await source('src/components/AdSenseDisplayAd.tsx');
-
-  assert.match(app, /activeView === 'tool' && selectedTool && \(\s*<AdSenseDisplayAd placement="beforeBack" \/>/);
-  assert.equal((app.match(/<AdSenseDisplayAd\b/g) || []).length, 1);
-  assert.match(component, /width: 'min\(320px, calc\(100vw - 24px\)\)'/);
-  assert.match(component, /maxWidth: 320, height: 50/);
-
-  const headerPlacements = [
-    ['src/components/ToolWorkspace.tsx', workspace, '{/* Tool header card */}', '{/* Keep the picker mounted'],
-    ['src/components/SignPdfWorkspace.tsx', signWorkspace, '<h1', '<input ref={pageFileInputRef}'],
-    ['src/components/PdfTextWorkspace.tsx', textWorkspace, '<h1', '<input ref={input}'],
-    ['src/components/PdfExcelWorkspace.tsx', excelWorkspace, '<h1', '<input ref={input}'],
-  ];
-  for (const [file, content, headerMarker, nextMarker] of headerPlacements) {
-    const placementIndex = content.indexOf('<AdSenseDisplayAd placement="toolHeader" />');
-    assert.notEqual(placementIndex, -1, `${file} has its tool-header placement`);
-    assert.ok(placementIndex > content.indexOf(headerMarker), `${file} places it after the tool heading`);
-    assert.ok(placementIndex < content.indexOf(nextMarker), `${file} places it before tool controls`);
-    assert.equal((content.match(/<AdSenseDisplayAd placement="toolHeader" \/>/g) || []).length, 1);
-  }
-
-  assert.match(component, /if \(!canLoad\) return null;/);
-  assert.match(component, /if \(!canLoad\) return;/);
-  assert.match(component, /loadAdSenseScriptOnce\(document, ADSENSE_PUBLISHER_ID\)/);
-  assert.match(component, /addEventListener\(ADVERTISING_CONSENT_CHANGED_EVENT/);
-  assert.match(component, /ADVERTISING_CONSENT_STORAGE_KEY/);
+  assert.equal(ADSENSE_SLOT_ID, '7770736190');
+  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_ID), true);
+  assert.equal(shouldRequestAdUnit(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_ID, null), true);
+  assert.equal(shouldRequestAdUnit(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_ID, 'accepted'), true);
+  assert.equal(shouldRequestAdUnit(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_ID, 'dismissed'), true);
+  assert.equal(shouldRequestAdUnit(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_ID, 'rejected'), false);
+  assert.equal(shouldRequestAdUnit(ADSENSE_PUBLISHER_ID, 'REPLACE_WITH_AD_SLOT_ID', null), false);
+  assert.equal(shouldRequestAdUnit('invalid-publisher', ADSENSE_SLOT_ID, null), false);
   assert.equal(ADVERTISING_CONSENT_STORAGE_KEY, 'clickpdf_cookie_consent_v1');
   assert.equal(ADVERTISING_CONSENT_CHANGED_EVENT, 'clickpdf-cookie-consent-change');
+});
+
+test('every generated sitemap page and SPA shell has one GA tag and one AdSense loader in its head', async () => {
+  const template = await readFile(path.join(projectRoot, 'index.html'), 'utf8');
+  assertPublicHeadHasOneGoogleTagSet(template, 'index.html');
+
+  const sitemap = await readFile(path.join(builtPublicDir, 'sitemap.xml'), 'utf8');
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([\s\S]*?)<\/loc>/g)]
+    .map((match) => new URL(match[1].trim().replaceAll('&amp;', '&')));
+  assert.ok(sitemapUrls.length > 0, 'the generated public sitemap contains routes');
+  const unicodeRoutes = JSON.parse(
+    await readFile(path.join(builtPublicDir, '__unicode_routes.json'), 'utf8'),
+  );
+
+  const htmlFiles = (await readTextFiles(builtPublicDir))
+    .filter((file) => file.path.endsWith('.html'));
+  assert.ok(htmlFiles.length >= sitemapUrls.length, 'generated HTML includes every sitemap route');
+  for (const file of htmlFiles) {
+    assertPublicHeadHasOneGoogleTagSet(file.content, path.relative(builtPublicDir, file.path));
+    assert.doesNotMatch(file.content, /<ins\b[^>]*class=["'][^"']*\badsbygoogle\b/i, `${file.path} has no static ad unit`);
+  }
+
+  for (const url of sitemapUrls) {
+    const decodedRoute = decodeURIComponent(url.pathname).replace(/\/+$/, '') || '/';
+    const mappedPath = unicodeRoutes[decodedRoute];
+    const decodedPath = decodedRoute.replace(/^\/+|\/+$/g, '');
+    const htmlPath = mappedPath
+      ? path.join(builtPublicDir, mappedPath.replace(/^\/+/, ''))
+      : decodedPath
+        ? path.join(builtPublicDir, decodedPath, 'index.html')
+        : path.join(builtPublicDir, 'index.html');
+    await access(htmlPath);
+    const html = await readFile(htmlPath, 'utf8');
+    assertPublicHeadHasOneGoogleTagSet(html, url.pathname);
+  }
+
+  const toolRoutes = sitemapUrls
+    .map((url) => url.pathname)
+    .map((pathname) => pathname.match(/^\/(?:(?<locale>[a-z]{2})\/)?tools\/(?<slug>[^/]+)\/?$/))
+    .filter(Boolean);
+  const englishSlugs = new Set(
+    toolRoutes.filter((route) => !route.groups.locale).map((route) => route.groups.slug),
+  );
+  const localizedRoutes = toolRoutes.filter((route) => route.groups.locale);
+  const locales = new Set(localizedRoutes.map((route) => route.groups.locale));
+  assert.ok(englishSlugs.size > 0, 'the sitemap has public PDF tools in English');
+  assert.equal(locales.size + 1, 21, 'the sitemap covers all 21 supported languages including English');
+  assert.equal(localizedRoutes.length, englishSlugs.size * locales.size, 'every public tool has a route in every localized language');
+  for (const locale of locales) {
+    const localizedSlugs = new Set(
+      localizedRoutes.filter((route) => route.groups.locale === locale).map((route) => route.groups.slug),
+    );
+    assert.deepEqual(localizedSlugs, englishSlugs, `${locale} contains the complete public tool set`);
+  }
+});
+
+test('each tool workspace has one header-only display placement and consent rejection blocks its ad unit', async () => {
+  const source = async (relativePath) => readFile(path.join(projectRoot, relativePath), 'utf8');
+  const app = await source('src/App.tsx');
+  const component = await source('src/components/AdSenseDisplayAd.tsx');
+  const headerPlacements = [
+    ['src/components/ToolWorkspace.tsx', await source('src/components/ToolWorkspace.tsx'), '{/* Tool header card */}', '{/* Keep the picker mounted'],
+    ['src/components/SignPdfWorkspace.tsx', await source('src/components/SignPdfWorkspace.tsx'), '<h1', '<input ref={pageFileInputRef}'],
+    ['src/components/PdfTextWorkspace.tsx', await source('src/components/PdfTextWorkspace.tsx'), '<h1', '<input ref={input}'],
+    ['src/components/PdfExcelWorkspace.tsx', await source('src/components/PdfExcelWorkspace.tsx'), '<h1', '<input ref={input}'],
+  ];
+
+  assert.doesNotMatch(app, /AdSenseDisplayAd|beforeBack/);
+  const sourceFiles = await readTextFiles(path.join(projectRoot, 'src'));
+  const adUses = sourceFiles.flatMap((file) =>
+    [...file.content.matchAll(/<AdSenseDisplayAd\b[^>]*\/>/g)].map(() => path.relative(projectRoot, file.path)),
+  );
+  assert.equal(adUses.length, headerPlacements.length, 'only tool workspace views mount an ad unit');
+
+  for (const [file, content, headerMarker, nextMarker] of headerPlacements) {
+    const placement = '<AdSenseDisplayAd />';
+    const placementIndex = content.indexOf(placement);
+    assert.notEqual(placementIndex, -1, `${file} contains its single header placement`);
+    assert.ok(placementIndex > content.indexOf(headerMarker), `${file} places the ad after the tool header`);
+    assert.ok(placementIndex < content.indexOf(nextMarker), `${file} places the ad before file controls`);
+    assert.equal((content.match(/<AdSenseDisplayAd\b/g) || []).length, 1, `${file} has no second placement`);
+  }
+
+  assert.match(component, /if \(!canRequestAd\) return null;/);
+  assert.match(component, /if \(!canRequestAd\) return;/);
+  assert.match(component, /adsWindow\.adsbygoogle\.push\(\{\}\)/);
+  assert.match(component, /ADVERTISING_CONSENT_CHANGED_EVENT/);
+  assert.match(component, /ADVERTISING_CONSENT_STORAGE_KEY/);
+  assert.match(component, /data-ad-placement="toolHeader"/);
+  assert.match(component, /data-ad-slot=\{ADSENSE_SLOT_ID\}/);
+  assert.match(component, /width: 'min\(320px, calc\(100vw - 24px\)\)'/);
+  assert.match(component, /maxWidth: 320, height: 50/);
+  assert.doesNotMatch(component, /loadAdSenseScriptOnce/);
 });
 
 test('active ClickPDF runtime contains no Adsterra provider, route, or banner asset', async () => {

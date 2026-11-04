@@ -214,7 +214,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
       <h1 className="font-bold text-xl text-slate-900 dark:text-white">{getToolTitle(tool)}</h1>
       <p className="text-sm text-slate-500 mt-2">{getToolDescription(tool)}</p>
     </div>
-    <AdSenseDisplayAd placement="toolHeader" />
+    <AdSenseDisplayAd />
     <input ref={input} type="file" multiple accept=".pdf,application/pdf" className="hidden" aria-label="Select PDF files" onChange={event => { addFiles(Array.from(event.target.files || [])); event.target.value = ''; }} disabled={processing || packing} />
     {error && <div role="alert" className="mb-4 p-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 text-sm break-words"><AlertCircle className="inline w-4 h-4 mr-2" />{error}</div>}
     {!items.length ? <div role="button" tabIndex={0} onClick={() => input.current?.click()} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); input.current?.click(); } }} onDragOver={event => event.preventDefault()} onDrop={event => { event.preventDefault(); addFiles(Array.from(event.dataTransfer.files)); }} className="border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-8 sm:p-12 text-center cursor-pointer">

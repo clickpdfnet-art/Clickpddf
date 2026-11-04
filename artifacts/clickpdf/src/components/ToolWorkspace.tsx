@@ -2320,7 +2320,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           </div>
         </div>
       </div>
-      <AdSenseDisplayAd placement="toolHeader" />
+      <AdSenseDisplayAd />
 
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
       {tool.id === 'pdf-to-pdfa' && (
