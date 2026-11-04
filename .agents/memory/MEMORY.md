@@ -5,7 +5,7 @@
 - [Targeted tool repairs](tool-repair-isolation.md) — isolate the named tool; protect all unrelated tools and shared website functionality.
 - [PDF/A publication gate](pdfa-publication-gate.md) — keep PDF/A out of public listings and routes until ISO conformance is validated.
 - [PDF to Word fidelity](pdf-word-fidelity.md) — editable defaults, explicit image fallback, honest preview limits, and DOCX textbox schema checks.
-- [Global tool-page banner ad](tool-page-banner-ad.md) — show one sandboxed banner on tool views by default; explicit ad-cookie rejection opts out.
+- [ClickPDF display ads](tool-page-banner-ad.md) — enable AdSense only with both real tool-page slot IDs and non-rejected consent; keep placements tool-only.
 - [Admin dashboard visibility](admin-dashboard-visibility.md) — preserve the dashboard code and data, but keep all public website entry points disabled until requested.
 - [Cloudflare root build](cloudflare-root-build.md) — keep Cloudflare’s pnpm version aligned with the lockfile and pass safe PORT/BASE_PATH defaults to the monorepo build.
 - [Cloudflare custom-domain routing](cloudflare-custom-domain.md) — a www Worker route needs proxied DNS plus both DNS and Worker deployment permissions.

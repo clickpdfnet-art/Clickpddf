@@ -1,16 +1,14 @@
 ---
-name: Global ClickPDF tool-page banner ad
-description: Project-wide placement, privacy, and fill-detection rules for the third-party banner.
+name: ClickPDF display ads
+description: Active AdSense placement, slot-configuration, and consent rules for ClickPDF.
 ---
 
-Show a single centered 320×50 banner directly below the global header and before the Back control on individual tool pages and the batch queue. Keep the homepage, catalog, blog, legal pages, and other non-tool views ad-free, and do not duplicate the banner during tool navigation.
+Use exactly two AdSense display placements on actual PDF tool pages: one directly below the tool-specific header and one immediately before the existing Back/navigation bar. Keep the homepage, tool catalog, batch view, blog, legal pages, and other non-tool views ad-free. Keep both placements in normal document flow, centered, responsive within a 320×50 slot, and clear of upload, processing, download, and navigation controls. Do not use Auto Ads.
 
-The single Adsterra banner loads by default unless the visitor explicitly rejects advertising cookies. Dismissing the notice is not an opt-out. Keep the cookie notice visible and make rejection explicit. Use the separate static ad document in a sandbox without `allow-same-origin`; do not switch to same-origin `srcDoc` with scripts enabled, which would give third-party ad code access to the parent page.
+The owner must provide two real AdSense slot IDs before either placement is rendered or the official provider script is requested. Named placeholders fail closed: no request, iframe, or visible blank slot. Load the official AdSense script only once after both IDs are valid. An explicit advertising-cookie rejection blocks requests; accepted, dismissed, or absent consent continues to allow ads, matching the existing preference behavior.
 
-Adsterra's supplied script does not expose a verifiable fill callback. Keep the 320×50 slot visible when the provider does not fill it; a blank slot is preferable to hiding the placement after a timeout. Never claim verified impressions or pixel content based only on a script or iframe load.
+Keep the root `ads.txt` to the one approved standard Google record. Do not create additional records or duplicate source copies.
 
-**Why:** the user requested default-on loading, an explicit advertising opt-out, an isolated third-party script, and a persistent placement even when the provider does not fill it. The user chose the existing static iframe and selected the GitHub 320×50 format.
+**Why:** the user replaced the previous ad provider and specified two tool-only placements, an explicit consent opt-out, and no active ad requests until the two real slot IDs are available.
 
-**How to apply:** preserve the shared ad placement and consent notice behavior. Load the static ad page by URL and keep the iframe sandboxed without `allow-same-origin`; do not add same-origin access for provider scripts. Keep the fixed-size slot visible on no-fill, and use provider evidence before claiming an ad actually rendered.
-
-When a banner is blank, record both the provider script's HTTP status and response byte count before changing iframe or layout code. A successful HTTP status with an empty body means the provider supplied no creative; it is not evidence of a local spacing failure.
+**How to apply:** preserve the two named tool placements and the saved consent key. Verify the build, static `ads.txt` response, and fail-closed tests locally. Do not claim a creative is visible without checking with valid owner-supplied slots; never deploy or modify provider settings unless separately requested.
