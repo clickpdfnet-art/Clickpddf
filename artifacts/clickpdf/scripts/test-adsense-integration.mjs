@@ -19,7 +19,7 @@ import {
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(projectRoot, 'public');
 const builtPublicDir = path.join(projectRoot, 'dist', 'public');
-const expectedAdsTxt = 'google.com, pub-625034426022238, DIRECT, f08c47fec0942fa0\n';
+const expectedAdsTxt = 'google.com, pub-6250344265022238, DIRECT, f08c47fec0942fa0\n';
 
 function createAssetsBinding() {
   return {
@@ -67,13 +67,20 @@ test('ads.txt is one exact standard record and is served as plain text through l
   }
 });
 
-test('AdSense configuration fails closed until both real slot IDs are supplied', () => {
-  assert.equal(ADSENSE_PUBLISHER_ID, 'ca-pub-625034426022238');
+test('confirmed AdSense publisher and slot are configured for both tool placements', () => {
+  assert.equal(ADSENSE_PUBLISHER_ID, 'ca-pub-6250344265022238');
   assert.deepEqual(Object.keys(ADSENSE_SLOT_IDS), ['toolHeader', 'beforeBack']);
-  assert.equal(hasConfiguredAdSenseSlots(ADSENSE_SLOT_IDS), false);
-  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.toolHeader), false);
-  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.beforeBack), false);
-  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, null), false);
+  assert.deepEqual(ADSENSE_SLOT_IDS, { toolHeader: '7770736190', beforeBack: '7770736190' });
+  assert.equal(hasConfiguredAdSenseSlots(ADSENSE_SLOT_IDS), true);
+  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.toolHeader), true);
+  assert.equal(isValidAdSenseSlotId(ADSENSE_SLOT_IDS.beforeBack), true);
+  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, null), true);
+  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'accepted'), true);
+  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'dismissed'), true);
+  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, 'rejected'), false);
+  const missingSlotIds = { toolHeader: 'REPLACE_WITH_TOOL_HEADER_AD_SLOT_ID', beforeBack: '' };
+  assert.equal(hasConfiguredAdSenseSlots(missingSlotIds), false);
+  assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, missingSlotIds, null), false);
 
   const realSlotIds = { toolHeader: '1234567890', beforeBack: '9876543210' };
   assert.equal(shouldLoadAdSense(ADSENSE_PUBLISHER_ID, realSlotIds, null), true);
@@ -83,7 +90,7 @@ test('AdSense configuration fails closed until both real slot IDs are supplied',
 
   let scriptInsertions = 0;
   if (shouldLoadAdSense(ADSENSE_PUBLISHER_ID, ADSENSE_SLOT_IDS, null)) scriptInsertions += 1;
-  assert.equal(scriptInsertions, 0, 'missing slot IDs must prevent all AdSense script requests');
+  assert.equal(scriptInsertions, 1, 'configured slot IDs allow the AdSense script request');
 });
 
 test('the official AdSense loader appends one script when invoked repeatedly', async () => {

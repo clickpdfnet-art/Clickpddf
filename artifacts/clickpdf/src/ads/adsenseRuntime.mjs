@@ -1,8 +1,8 @@
-export const ADSENSE_PUBLISHER_ID = 'ca-pub-625034426022238';
+export const ADSENSE_PUBLISHER_ID = 'ca-pub-6250344265022238';
 
 export const ADSENSE_SLOT_IDS = Object.freeze({
-  toolHeader: 'REPLACE_WITH_TOOL_HEADER_AD_SLOT_ID',
-  beforeBack: 'REPLACE_WITH_TOOL_BEFORE_BACK_AD_SLOT_ID',
+  toolHeader: '7770736190',
+  beforeBack: '7770736190',
 });
 
 export const ADVERTISING_CONSENT_STORAGE_KEY = 'clickpdf_cookie_consent_v1';
