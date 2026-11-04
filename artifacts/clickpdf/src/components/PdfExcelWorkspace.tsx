@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { AdSenseDisplayAd } from './AdSenseDisplayAd';
 import { ArrowLeft, ShieldCheck, FileSpreadsheet, Upload, Plus, Eye, Download, AlertCircle, Loader2, X, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import type { PDFTool } from '../types';
@@ -180,6 +181,7 @@ export function PdfExcelWorkspace({ tool, initialFiles, onBack, onSelectTool }: 
       <h1 className="font-bold text-xl text-slate-900 dark:text-white">{getToolTitle(tool)}</h1>
       <p className="text-sm text-slate-500 mt-2">{getToolDescription(tool)}</p>
     </div>
+    <AdSenseDisplayAd placement="toolHeader" />
     <input ref={input} type="file" multiple accept=".pdf,application/pdf" className="hidden" aria-label="Select PDF files"
       disabled={processing || packing} onChange={event => { addFiles(Array.from(event.target.files || [])); event.target.value = ''; }} />
     {error && <div role="alert" className="p-4 mb-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 text-xs break-words"><AlertCircle className="w-4 h-4 inline mr-2" />{error}</div>}

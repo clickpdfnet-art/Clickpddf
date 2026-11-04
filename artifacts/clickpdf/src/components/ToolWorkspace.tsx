@@ -81,6 +81,7 @@ import { SortableFileList, OrderedFile, ProcessedFileInfo } from './SortableFile
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
+import { AdSenseDisplayAd } from './AdSenseDisplayAd';
 import { getToolPlugin } from '../tools/plugins/pluginLoader';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import confetti from 'canvas-confetti';
@@ -2319,6 +2320,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           </div>
         </div>
       </div>
+      <AdSenseDisplayAd placement="toolHeader" />
 
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
       {tool.id === 'pdf-to-pdfa' && (

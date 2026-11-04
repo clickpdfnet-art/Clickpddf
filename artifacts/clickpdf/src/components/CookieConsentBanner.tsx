@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Cookie, ShieldCheck, X } from 'lucide-react';
+import {
+  ADVERTISING_CONSENT_CHANGED_EVENT,
+  ADVERTISING_CONSENT_STORAGE_KEY,
+} from '../ads/adsenseRuntime.mjs';
 
 interface CookieConsentBannerProps {
   onOpenCookiesPolicy: () => void;
 }
-
-const COOKIE_CONSENT_KEY = 'clickpdf_cookie_consent_v1';
-const CONSENT_CHANGED_EVENT = 'clickpdf-cookie-consent-change';
 
 export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpenCookiesPolicy }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     try {
-      const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+      const consent = localStorage.getItem(ADVERTISING_CONSENT_STORAGE_KEY);
       if (!consent) {
         // Show after a brief delay so it doesn't jarringly pop up during initial paint
         const timer = setTimeout(() => {
@@ -29,25 +30,25 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
 
   const handleAccept = () => {
     try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+      localStorage.setItem(ADVERTISING_CONSENT_STORAGE_KEY, 'accepted');
     } catch {}
-    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
+    window.dispatchEvent(new Event(ADVERTISING_CONSENT_CHANGED_EVENT));
     setIsVisible(false);
   };
 
   const handleReject = () => {
     try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, 'rejected');
+      localStorage.setItem(ADVERTISING_CONSENT_STORAGE_KEY, 'rejected');
     } catch {}
-    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
+    window.dispatchEvent(new Event(ADVERTISING_CONSENT_CHANGED_EVENT));
     setIsVisible(false);
   };
 
   const handleDismiss = () => {
     try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, 'dismissed');
+      localStorage.setItem(ADVERTISING_CONSENT_STORAGE_KEY, 'dismissed');
     } catch {}
-    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
+    window.dispatchEvent(new Event(ADVERTISING_CONSENT_CHANGED_EVENT));
     setIsVisible(false);
   };
 
@@ -81,7 +82,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
             >
               Cookies Policy
             </button>{' '}
-            for complete transparency. Ads load by default; choose “Reject Advertising Cookies” to opt out.
+            for complete transparency. Advertising may load when configured; choose “Reject Advertising Cookies” to opt out.
           </p>
 
           <div className="mt-3.5 flex items-center gap-2 flex-wrap">
