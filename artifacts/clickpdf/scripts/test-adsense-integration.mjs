@@ -118,13 +118,13 @@ test('every generated sitemap page and SPA shell has one GA tag and one AdSense 
   }
 
   for (const url of sitemapUrls) {
-    const decodedRoute = decodeURIComponent(url.pathname).replace(/\/+$/, '') || '/';
+    const decodedRoute = decodeURIComponent(url.pathname);
     const mappedPath = unicodeRoutes[decodedRoute];
-    const decodedPath = decodedRoute.replace(/^\/+|\/+$/g, '');
+    const encodedPath = url.pathname.replace(/^\/+|\/+$/g, '');
     const htmlPath = mappedPath
       ? path.join(builtPublicDir, mappedPath.replace(/^\/+/, ''))
-      : decodedPath
-        ? path.join(builtPublicDir, decodedPath, 'index.html')
+      : encodedPath
+        ? path.join(builtPublicDir, encodedPath, 'index.html')
         : path.join(builtPublicDir, 'index.html');
     await access(htmlPath);
     const html = await readFile(htmlPath, 'utf8');
