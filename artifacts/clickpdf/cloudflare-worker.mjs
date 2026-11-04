@@ -162,6 +162,17 @@ export default {
       canonicalPath = `${normalizedToolPath(url.pathname)}/`;
     }
 
+    if (
+      isApexHost &&
+      url.protocol === 'https:' &&
+      url.pathname === '/ads.txt' &&
+      (request.method === 'GET' || request.method === 'HEAD')
+    ) {
+      const assetUrl = new URL(url);
+      assetUrl.hostname = CANONICAL_HOST;
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
+
     if (isApexHost || isInsecureCanonicalHost || canonicalPath) {
       if (canonicalPath) url.pathname = canonicalPath;
       url.protocol = 'https:';

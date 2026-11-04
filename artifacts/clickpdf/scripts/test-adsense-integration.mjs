@@ -75,7 +75,14 @@ test('ads.txt is one exact standard record and is served as plain text through l
   const env = { ASSETS: createAssetsBinding() };
   await assertAdsTxtResponse(await worker.fetch(new Request('https://www.clickpdf.net/ads.txt'), env));
 
-  for (const apexUrl of ['http://clickpdf.net/ads.txt', 'https://clickpdf.net/ads.txt']) {
+  const secureApexResponse = await worker.fetch(
+    new Request('https://clickpdf.net/ads.txt?source=ads-check'),
+    env,
+  );
+  await assertAdsTxtResponse(secureApexResponse);
+  assert.equal(secureApexResponse.headers.get('location'), null);
+
+  for (const apexUrl of ['http://clickpdf.net/ads.txt', 'http://www.clickpdf.net/ads.txt']) {
     const redirect = await worker.fetch(new Request(apexUrl), env);
     assert.equal(redirect.status, 301);
     assert.equal(redirect.headers.get('location'), 'https://www.clickpdf.net/ads.txt');
