@@ -31,6 +31,7 @@ import { CookieConsentBanner } from './components/CookieConsentBanner';
 import { ShareModal } from './components/ShareModal';
 import { FloatingShareButton } from './components/FloatingShareButton';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { AdSenseDisplayAd } from './components/AdSenseDisplayAd';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
@@ -793,6 +794,10 @@ function AppContent() {
     />
   );
   const activeLegalPage = activeLegalPageId ? getLegalPageById(activeLegalPageId) : undefined;
+  const showToolHeaderAd =
+    activeView === 'tool' &&
+    selectedTool !== null &&
+    PUBLIC_PDF_TOOLS.some((tool) => tool.id === selectedTool.id);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/60 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-200">
@@ -813,6 +818,8 @@ function AppContent() {
         onOpenBatchQueue={() => handleGoToBatchQueue()}
         onOpenShare={() => setIsShareModalOpen(true)}
       />
+
+      {showToolHeaderAd && <AdSenseDisplayAd />}
 
       {/* Main Viewport Content */}
       <main className="flex-1">

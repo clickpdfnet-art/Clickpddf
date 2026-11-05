@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AdSenseDisplayAd } from './AdSenseDisplayAd';
 import { ArrowLeft, ShieldCheck, FileText, Upload, Plus, Eye, Download, Copy, CheckCircle2, AlertCircle, Loader2, X } from 'lucide-react';
 import { PDFTool } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -204,7 +203,7 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
   const activeFile = items.find(item => item.id === activeId);
   const percentage = progress.total ? Math.round((progress.completed + (progress.pages ? progress.page / progress.pages : 0)) / progress.total * 100) : 0;
 
-  return <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+  return <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-0 pb-8">
     <div className="flex items-center justify-between gap-2 mb-6">
       <button type="button" onClick={onBack} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300"><ArrowLeft className="w-4 h-4" />{t.backToTools}</button>
       <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 rounded-md p-2 dark:bg-emerald-950 dark:text-emerald-300"><ShieldCheck className="w-3.5 h-3.5" />{t.clientProcessingBadge}</span>
@@ -214,7 +213,6 @@ export function PdfTextWorkspace({ tool, initialFiles, onBack, onSelectTool }: P
       <h1 className="font-bold text-xl text-slate-900 dark:text-white">{getToolTitle(tool)}</h1>
       <p className="text-sm text-slate-500 mt-2">{getToolDescription(tool)}</p>
     </div>
-    <AdSenseDisplayAd />
     <input ref={input} type="file" multiple accept=".pdf,application/pdf" className="hidden" aria-label="Select PDF files" onChange={event => { addFiles(Array.from(event.target.files || [])); event.target.value = ''; }} disabled={processing || packing} />
     {error && <div role="alert" className="mb-4 p-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 text-sm break-words"><AlertCircle className="inline w-4 h-4 mr-2" />{error}</div>}
     {!items.length ? <div role="button" tabIndex={0} onClick={() => input.current?.click()} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); input.current?.click(); } }} onDragOver={event => event.preventDefault()} onDrop={event => { event.preventDefault(); addFiles(Array.from(event.dataTransfer.files)); }} className="border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-8 sm:p-12 text-center cursor-pointer">

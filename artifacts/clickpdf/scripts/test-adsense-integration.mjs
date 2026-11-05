@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import worker from '../cloudflare-worker.mjs';
+import { readActiveToolRegistry } from './static-tool-registry.mjs';
 import {
   ADVERTISING_CONSENT_CHANGED_EVENT,
   ADVERTISING_CONSENT_STORAGE_KEY,
@@ -158,31 +159,47 @@ test('every generated sitemap page and SPA shell has one GA tag and one AdSense 
   }
 });
 
-test('each tool workspace has one header-only display placement and consent rejection blocks its ad unit', async () => {
+test('public PDF tools use one top banner and collapse unavailable ads', async () => {
   const source = async (relativePath) => readFile(path.join(projectRoot, relativePath), 'utf8');
   const app = await source('src/App.tsx');
   const component = await source('src/components/AdSenseDisplayAd.tsx');
-  const headerPlacements = [
-    ['src/components/ToolWorkspace.tsx', await source('src/components/ToolWorkspace.tsx'), '{/* Tool header card */}', '{/* Keep the picker mounted'],
-    ['src/components/SignPdfWorkspace.tsx', await source('src/components/SignPdfWorkspace.tsx'), '<h1', '<input ref={pageFileInputRef}'],
-    ['src/components/PdfTextWorkspace.tsx', await source('src/components/PdfTextWorkspace.tsx'), '<h1', '<input ref={input}'],
-    ['src/components/PdfExcelWorkspace.tsx', await source('src/components/PdfExcelWorkspace.tsx'), '<h1', '<input ref={input}'],
-  ];
-
-  assert.doesNotMatch(app, /AdSenseDisplayAd|beforeBack/);
+  const headerIndex = app.indexOf('<Header');
+  const headerEndIndex = app.indexOf('/>', headerIndex);
+  const adIndex = app.indexOf('<AdSenseDisplayAd />');
+  const mainIndex = app.indexOf('<main className="flex-1">');
+  assert.ok(headerIndex >= 0 && headerEndIndex > headerIndex, 'the global navigation renders');
+  assert.ok(adIndex > headerEndIndex, 'the ad follows the global navigation');
+  assert.ok(adIndex < mainIndex, 'the ad precedes the tool workspace and Back link');
+  assert.match(
+    app,
+    /const showToolHeaderAd =\s*activeView === 'tool' &&\s*selectedTool !== null &&\s*PUBLIC_PDF_TOOLS\.some\(\(tool\) => tool\.id === selectedTool\.id\)/,
+    'the placement is limited to selected public PDF tools',
+  );
+  assert.equal((app.match(/<AdSenseDisplayAd\b/g) || []).length, 1, 'App mounts one shared ad placement');
   const sourceFiles = await readTextFiles(path.join(projectRoot, 'src'));
   const adUses = sourceFiles.flatMap((file) =>
     [...file.content.matchAll(/<AdSenseDisplayAd\b[^>]*\/>/g)].map(() => path.relative(projectRoot, file.path)),
   );
-  assert.equal(adUses.length, headerPlacements.length, 'only tool workspace views mount an ad unit');
+  assert.deepEqual(adUses, ['src/App.tsx'], 'no tool workspace or non-tool view duplicates the ad');
 
-  for (const [file, content, headerMarker, nextMarker] of headerPlacements) {
-    const placement = '<AdSenseDisplayAd />';
-    const placementIndex = content.indexOf(placement);
-    assert.notEqual(placementIndex, -1, `${file} contains its single header placement`);
-    assert.ok(placementIndex > content.indexOf(headerMarker), `${file} places the ad after the tool header`);
-    assert.ok(placementIndex < content.indexOf(nextMarker), `${file} places the ad before file controls`);
-    assert.equal((content.match(/<AdSenseDisplayAd\b/g) || []).length, 1, `${file} has no second placement`);
+  const publicTools = await readActiveToolRegistry(projectRoot);
+  assert.equal(publicTools.length, 25, 'all 25 public PDF tools use the shared conditional placement');
+  const publicToolIds = new Set(publicTools.map((tool) => tool.id));
+  for (const toolId of ['jpg-to-pdf', 'watermark', 'merge', 'split', 'compress']) {
+    assert.ok(publicToolIds.has(toolId), `${toolId} is a public tool using the shared header placement`);
+  }
+
+  const workspaceChecks = [
+    ['src/components/ToolWorkspace.tsx', await source('src/components/ToolWorkspace.tsx'), 't.backToTools', '{/* Tool header card */}'],
+    ['src/components/SignPdfWorkspace.tsx', await source('src/components/SignPdfWorkspace.tsx'), 't.backToTools', '<h1'],
+    ['src/components/PdfTextWorkspace.tsx', await source('src/components/PdfTextWorkspace.tsx'), 't.backToTools', '<h1'],
+    ['src/components/PdfExcelWorkspace.tsx', await source('src/components/PdfExcelWorkspace.tsx'), 't.backToTools', '<h1'],
+  ];
+  for (const [file, content, backMarker, titleMarker] of workspaceChecks) {
+    assert.doesNotMatch(content, /AdSenseDisplayAd/, `${file} has no misplaced or duplicate ad`);
+    const backIndex = content.indexOf(backMarker);
+    const titleIndex = content.indexOf(titleMarker, backIndex);
+    assert.ok(backIndex >= 0 && titleIndex > backIndex, `${file} renders Back before tool title`);
   }
 
   assert.match(component, /if \(!canRequestAd\) return null;/);
@@ -190,10 +207,16 @@ test('each tool workspace has one header-only display placement and consent reje
   assert.match(component, /adsWindow\.adsbygoogle\.push\(\{\}\)/);
   assert.match(component, /ADVERTISING_CONSENT_CHANGED_EVENT/);
   assert.match(component, /ADVERTISING_CONSENT_STORAGE_KEY/);
+  assert.match(component, /aria-label="Advertisement"/);
+  assert.match(component, /aria-hidden=\{isUnfilled\}/);
+  assert.match(component, /new MutationObserver\(readProviderStatus\)/);
+  assert.match(component, /NO_FILL_COLLAPSE_MS = 12_000/);
+  assert.match(component, /height: isUnfilled \? 0 : 50/);
+  assert.match(component, /flex: isUnfilled \? '0 0 0px' : '0 0 50px'/);
   assert.match(component, /data-ad-placement="toolHeader"/);
   assert.match(component, /data-ad-slot=\{ADSENSE_SLOT_ID\}/);
   assert.match(component, /width: 'min\(320px, calc\(100vw - 24px\)\)'/);
-  assert.match(component, /maxWidth: 320, height: 50/);
+  assert.match(component, /maxWidth: 320,[\s\S]*height: isUnfilled \? 0 : 50,[\s\S]*minHeight: isUnfilled \? 0 : 50,[\s\S]*maxHeight: 50/);
   assert.doesNotMatch(component, /loadAdSenseScriptOnce/);
 });
 
