@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readActiveToolRegistry } from './static-tool-registry.mjs';
 import { setGeneratedSitemapComment } from './sitemap-summary.mjs';
+import { getSitemapContentDates, normalizeContentDate } from './sitemap-content-dates.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(scriptDir, '..');
@@ -68,8 +69,7 @@ function escapeXml(value = '') {
 }
 
 function xmlDate(value) {
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? new Date().toISOString().slice(0, 10) : date.toISOString().slice(0, 10);
+  return normalizeContentDate(value, 'blog article frontmatter');
 }
 
 function plainText(value = '') {
@@ -114,6 +114,8 @@ for (const fileName of markdownFiles) {
 }
 
 const activeTools = await readActiveToolRegistry(appDir);
+const sourceDates = await getSitemapContentDates(appDir);
+const { tools: toolLastmod, faq: faqLastmod, batch: batchLastmod, legal: legalLastmod } = sourceDates;
 const llms = [
   '# ClickPDF',
   '',
@@ -233,7 +235,7 @@ for (const group of groups.values()) {
 }
 
 const blogUrlBlocks = articles.map((article) => {
-  const lastmod = xmlDate(article.date);
+  const lastmod = xmlDate(article.datemodified || article.date);
   const image = article.coverimage ? new URL(article.coverimage, baseUrl).toString() : '';
   const imageXml = image
     ? `\n    <image:image>\n      <image:loc>${escapeXml(image)}</image:loc>\n      <image:title>${escapeXml(article.title)}</image:title>\n    </image:image>`
@@ -270,7 +272,7 @@ const toolUrlEntries = activeTools.flatMap((tool) => {
   ).join('\n');
   return alternateUrls.map(({ locale, url }) => ({
     locale,
-    block: `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>`,
+    block: `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${toolLastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>`,
   }));
 });
 const toolUrlBlocks = toolUrlEntries.map(({ block }) => block);
@@ -284,27 +286,31 @@ const utilityPageBlocks = [
     title: 'All PDF Tools for Documents | ClickPDF',
     description: 'Browse ClickPDF’s PDF tools for merging, splitting, compressing, converting, editing, organizing, and securing documents in your browser. Choose a tool.',
     priority: '0.7',
+    lastmod: toolLastmod,
   },
   {
     path: '/faq/',
     title: 'Frequently Asked Questions | ClickPDF',
     description: 'Answers about ClickPDF privacy, browser processing, PDF tools, limits and compatibility.',
     priority: '0.5',
+    lastmod: faqLastmod,
   },
   {
     path: '/batch/',
     title: 'Batch Processing Queue | ClickPDF',
     description: 'Process multiple documents sequentially in your browser and download results individually or as a ZIP.',
     priority: '0.6',
+    lastmod: batchLastmod,
   },
   ...legalPages.map((page) => ({
     path: page.path,
     title: page.title,
     description: page.description,
     priority: '0.5',
+    lastmod: legalLastmod,
   })),
-].map(({ path: route, priority }) =>
-  `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+].map(({ path: route, priority, lastmod }) =>
+  `  <url>\n    <loc>${escapeXml(`${baseUrl}${route}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
 );
 
 let sitemap = await readFile(sitemapPath, 'utf8');
