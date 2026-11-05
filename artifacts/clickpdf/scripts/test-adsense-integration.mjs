@@ -210,13 +210,15 @@ test('public PDF tools use one top banner and collapse unavailable ads', async (
   assert.match(component, /aria-label="Advertisement"/);
   assert.match(component, /aria-hidden=\{isUnfilled\}/);
   assert.match(component, /new MutationObserver\(readProviderStatus\)/);
-  assert.match(component, /NO_FILL_COLLAPSE_MS = 12_000/);
-  assert.match(component, /height: isUnfilled \? 0 : 50/);
-  assert.match(component, /flex: isUnfilled \? '0 0 0px' : '0 0 50px'/);
+  assert.match(component, /if \(providerStatus === 'filled'\) setAdStatus\('filled'\)/);
+  assert.match(component, /if \(providerStatus === 'unfilled'\) setAdStatus\('unfilled'\)/);
+  assert.match(component, /className=\{`mx-auto my-2 flex w-full shrink-0 justify-center overflow-hidden \$\{className\}`\}/);
+  assert.match(component, /height: 50,\s*minHeight: 50,\s*maxHeight: 50,\s*flex: '0 0 50px'/);
+  assert.doesNotMatch(component, /NO_FILL_COLLAPSE_MS|window\.setTimeout|height: isUnfilled \? 0 : 50|flex: isUnfilled \? '0 0 0px'/);
   assert.match(component, /data-ad-placement="toolHeader"/);
   assert.match(component, /data-ad-slot=\{ADSENSE_SLOT_ID\}/);
   assert.match(component, /width: 'min\(320px, calc\(100vw - 24px\)\)'/);
-  assert.match(component, /maxWidth: 320,[\s\S]*height: isUnfilled \? 0 : 50,[\s\S]*minHeight: isUnfilled \? 0 : 50,[\s\S]*maxHeight: 50/);
+  assert.match(component, /maxWidth: 320,[\s\S]*height: 50,[\s\S]*minHeight: 50,[\s\S]*maxHeight: 50/);
   assert.doesNotMatch(component, /loadAdSenseScriptOnce/);
 });
 

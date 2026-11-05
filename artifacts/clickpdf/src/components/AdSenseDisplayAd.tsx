@@ -11,8 +11,6 @@ interface AdSenseDisplayAdProps {
   className?: string;
 }
 
-const NO_FILL_COLLAPSE_MS = 12_000;
-
 function readAdvertisingConsent(): string | null {
   try {
     return localStorage.getItem(ADVERTISING_CONSENT_STORAGE_KEY);
@@ -56,15 +54,8 @@ export const AdSenseDisplayAd: React.FC<AdSenseDisplayAdProps> = ({ className = 
     observer.observe(adElement, { attributes: true, attributeFilter: ['data-ad-status'] });
     readProviderStatus();
 
-    const noFillTimeout = window.setTimeout(() => {
-      if (adElement.getAttribute('data-ad-status') !== 'filled') {
-        setAdStatus('unfilled');
-      }
-    }, NO_FILL_COLLAPSE_MS);
-
     return () => {
       observer.disconnect();
-      window.clearTimeout(noFillTimeout);
     };
   }, [canRequestAd]);
 
@@ -83,17 +74,17 @@ export const AdSenseDisplayAd: React.FC<AdSenseDisplayAdProps> = ({ className = 
     <aside
       aria-label="Advertisement"
       aria-hidden={isUnfilled}
-      className={`mx-auto ${isUnfilled ? 'my-0' : 'my-2'} flex w-full shrink-0 justify-center overflow-hidden ${className}`}
+      className={`mx-auto my-2 flex w-full shrink-0 justify-center overflow-hidden ${className}`}
       data-testid="adsense-display-ad"
       data-ad-placement="toolHeader"
       data-ad-status={adStatus}
       style={{
         width: 'min(320px, calc(100vw - 24px))',
         maxWidth: 320,
-        height: isUnfilled ? 0 : 50,
-        minHeight: isUnfilled ? 0 : 50,
+        height: 50,
+        minHeight: 50,
         maxHeight: 50,
-        flex: isUnfilled ? '0 0 0px' : '0 0 50px',
+        flex: '0 0 50px',
       }}
     >
       <ins
