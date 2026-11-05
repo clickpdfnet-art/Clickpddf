@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AdSenseDisplayAd } from './AdSenseDisplayAd';
 import JSZip from 'jszip';
 import { PDFDocument } from 'pdf-lib';
 import {
@@ -771,7 +770,7 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
     : 0;
 
   return (
-    <div className="mx-auto max-w-5xl px-3 py-5 sm:px-6 sm:py-8">
+    <div className="mx-auto max-w-5xl px-3 pt-0 pb-5 sm:px-6 sm:pb-8">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <button
           type="button"
@@ -795,8 +794,6 @@ export const SignPdfWorkspace: React.FC<SignPdfWorkspaceProps> = ({
           <ShieldCheck className="h-3.5 w-3.5" /> Files and signature images are processed locally in this browser.
         </p>
       </section>
-
-      <AdSenseDisplayAd />
 
       <input ref={pageFileInputRef} type="file" accept="application/pdf,.pdf" multiple className="hidden" onChange={event => onChooseFiles(event.target.files)} />
       <input ref={signatureFileInputRef} type="file" accept="image/png,.png" className="hidden" onChange={event => void handleSignatureUpload(event.target.files?.[0])} />

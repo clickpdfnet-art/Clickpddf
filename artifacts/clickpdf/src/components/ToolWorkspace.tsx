@@ -81,7 +81,6 @@ import { SortableFileList, OrderedFile, ProcessedFileInfo } from './SortableFile
 import { useLanguage } from '../context/LanguageContext';
 import { getToolSeoInfo } from '../data/toolSeoData';
 import { ToolSeoContentSection } from './ToolSeoContentSection';
-import { AdSenseDisplayAd } from './AdSenseDisplayAd';
 import { getToolPlugin } from '../tools/plugins/pluginLoader';
 import { PUBLIC_PDF_TOOLS } from '../data/toolsData';
 import confetti from 'canvas-confetti';
@@ -2240,7 +2239,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   if (plugin) {
     const PluginComponent = plugin.Component;
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-0 pb-6 sm:pb-8">
         {/* Top bar with back button */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -2286,7 +2285,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-0 pb-6 sm:pb-8">
       {/* Top bar with back button */}
       <div className="flex items-center justify-between mb-6">
         <button
@@ -2320,8 +2319,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           </div>
         </div>
       </div>
-      <AdSenseDisplayAd />
-
       {/* Keep the picker mounted in every workspace mode so additional files can always be added. */}
       {tool.id === 'pdf-to-pdfa' && (
         <div role="alert" className="mb-5 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/30 p-4 text-sm text-amber-800 dark:text-amber-200">
