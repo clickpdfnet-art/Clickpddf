@@ -12,12 +12,12 @@
     "tools": {
       "merge": {
         "introHeading": "複数のPDFを1つにまとめる",
-        "intro": "2つ以上のPDFを追加し、結合する順序を整えてから1つのファイルを作成します。元のPDFは別に残ります。リンク、フォーム、注釈の動作は文書によって異なる場合があるため、保存後に結果を確認してください。",
+        "intro": "PDFを1つ以上追加し、複数の文書をまとめる場合は順序を整えてから出力を作成します。1つだけ処理すると別のコピーが作成され、元のPDFは変更されません。リンク、フォーム、注釈の動作は文書によって異なる場合があるため、保存後に結果を確認してください。",
         "stepsHeading": "PDFファイルを3つの手順で結合する方法",
         "steps": [
           {
             "title": "PDFファイルを追加",
-            "description": "デバイスから2つ以上のPDF文書を選ぶか、結合ワークスペースにドラッグします。"
+            "description": "デバイスから1つ以上のPDF文書を選ぶか、結合ワークスペースにドラッグします。"
           },
           {
             "title": "文書の順序を設定",
@@ -30,28 +30,28 @@
         ],
         "faqs": [
           {
-            "question": "Merge PDFで複数のファイルが必要なのはなぜですか？",
-            "answer": "結合機能は別々の文書を1つにまとめるため、PDFを少なくとも2つ追加してください。ページを確認する必要がある場合は、各ファイルを先に開いて確認します。"
+            "question": "Merge PDFは1つのファイルだけでも使えますか？",
+            "answer": "はい。Merge PDFは1つ以上のPDFファイルに対応しています。1つのファイルを処理すると、別のPDFコピーが作成されます。複数の文書をまとめる場合のみ、2つ以上のPDFを選択してください。元のファイルは変更されません。"
           },
           {
             "question": "結合する前にPDFの順番を変更できますか？",
-            "answer": "はい。結合を開始する前に、ワークスペースで選択した文書を並べ替えるか、利用できる並べ替え機能を使ってください。"
+            "answer": "はい。ワークスペースでPDFファイル全体をドラッグ＆ドロップまたは並べ替え機能で並べ替えられます。開始前に各PDFをプレビューし、ページを確認してください。各ファイル内のページ順は維持されます。ページ順を変える場合は、結合前にそのPDFでOrganize Pagesを使ってください。標準的な暗号化PDF用のパスワード入力欄はありません。閲覧可能なロック解除済みコピーを用意してください。ClickPDFのUnlock PDFはClickPDF Web Cryptoで保護されたファイル用で、一般的なPDF暗号化には対応しません。"
           },
           {
             "question": "リンク、フォーム、注釈は元のPDFと同じように動作しますか？",
-            "answer": "動作は元のPDFや閲覧ソフトによって異なる場合があります。ダウンロードした結合後のファイルを開き、必要な操作要素を確認してください。"
+            "answer": "動作は元のPDFや閲覧ソフトによって異なる場合があるため、結合後の出力を確認してください。ページオブジェクトとAcroFormデータがコピーされ、後から重複したフォームフィールド名は変更されます。動的XFAフォームと電子署名付きPDFは安全に結合できないため、処理が拒否されます。"
           },
           {
             "question": "ページサイズの異なるPDFを1つに結合できますか？",
-            "answer": "ページ寸法が異なるPDFも結合できますが、閲覧時や印刷時にページごとに見え方が異なることがあります。共有する前に出力を確認してください。"
+            "answer": "はい。ページ寸法が異なるPDFも結合できます。ページサイズは統一されないため、閲覧時や印刷時に見え方が異なることがあります。共有する前に出力を確認してください。"
           },
           {
             "question": "結合すると元のPDFは上書きされますか？",
-            "answer": "いいえ。結合後の文書は別のファイルとして作成されます。結合したコピーを確認して保存するまでは、元のファイルを保管してください。"
+            "answer": "いいえ。Merge PDFは別の出力を作成し、選択したファイルをブラウザー内で読み取ります。ページはリソースや有効なサービスのためにネットワーク要求を行う場合がありますが、それはPDFの内容を処理サーバーへ送ることとは別です。"
           },
           {
             "question": "大きなPDFの結合にかかる時間は何で変わりますか？",
-            "answer": "処理時間はPDFの数やサイズ、ブラウザーとデバイスで使用できるメモリによって異なります。非常に大きな一括処理は、少数ずつ分けると安定する場合があります。"
+            "answer": "処理時間と成功率はPDFの数とサイズ、ブラウザーやデバイスで使用できるメモリによって異なります。確認したコードにはファイルサイズやページ数の固定上限はありませんが、実際にはブラウザーのメモリが制約になります。処理に失敗した場合は、ファイル数を減らすか小さいPDFを試してください。Merge PDFは圧縮処理ではないため、出力サイズが小さくなるとは限りません。"
           }
         ]
       },
@@ -1150,12 +1150,12 @@
     "tools": {
       "merge": {
         "introHeading": "متعدد PDF فائلیں ایک ساتھ جوڑیں",
-        "intro": "کم از کم دو PDFs شامل کریں، ان کی ترتیب بنائیں اور پھر ایک مشترکہ فائل تیار کریں۔ اصل PDFs الگ رہتی ہیں۔ لنکس، فارمز اور annotations کا رویہ دستاویز کے لحاظ سے بدل سکتا ہے، اس لیے محفوظ کرنے کے بعد نتیجہ چیک کریں۔",
+        "intro": "ایک یا زیادہ PDFs شامل کریں؛ متعدد دستاویزات کو جوڑنے کی صورت میں ان کی ترتیب بنائیں، پھر آؤٹ پٹ تیار کریں۔ ایک فائل پر کارروائی سے اس کی الگ نقل بنتی ہے اور اصل PDF میں تبدیلی نہیں ہوتی۔ لنکس، فارمز اور annotations کا رویہ دستاویز کے لحاظ سے بدل سکتا ہے، اس لیے محفوظ کرنے کے بعد نتیجہ چیک کریں۔",
         "stepsHeading": "PDF فائلوں کو تین مراحل میں جوڑنے کا طریقہ",
         "steps": [
           {
             "title": "PDF فائلیں شامل کریں",
-            "description": "اپنے ڈیوائس سے کم از کم دو PDF دستاویزات منتخب کریں یا انہیں مرج ورک اسپیس میں کھینچ کر ڈالیں۔"
+            "description": "اپنے ڈیوائس سے ایک یا زیادہ PDF دستاویزات منتخب کریں یا انہیں مرج ورک اسپیس میں کھینچ کر ڈالیں۔"
           },
           {
             "title": "دستاویزات کی ترتیب بنائیں",
@@ -1168,28 +1168,28 @@
         ],
         "faqs": [
           {
-            "question": "Merge PDF میں ایک سے زیادہ فائلیں کیوں درکار ہیں؟",
-            "answer": "جوڑنے کا عمل الگ دستاویزات کو یکجا کرتا ہے، اس لیے کم از کم دو PDFs شامل کریں۔ اگر صفحات کی تصدیق ضروری ہو تو پہلے ہر فائل کھول کر دیکھیں۔"
+            "question": "کیا Merge PDF ایک فائل کے ساتھ بھی استعمال ہو سکتا ہے؟",
+            "answer": "جی ہاں۔ Merge PDF ایک یا زیادہ PDF فائلیں قبول کرتا ہے۔ ایک فائل پر کارروائی سے اس کی الگ PDF نقل بنتی ہے۔ دو یا زیادہ فائلیں صرف تب منتخب کریں جب دستاویزات کو جوڑنا ہو۔ اصل فائلیں تبدیل نہیں ہوتیں۔"
           },
           {
             "question": "کیا PDF ملانے سے پہلے فائلوں کی ترتیب بدل سکتا ہوں؟",
-            "answer": "جی ہاں۔ مرج شروع کرنے سے پہلے ورک اسپیس میں منتخب دستاویزات کی ترتیب بدلیں یا دستیاب sorting controls استعمال کریں۔"
+            "answer": "جی ہاں۔ ورک اسپیس میں پوری PDF فائلوں کو drag-and-drop یا دستیاب ترتیب کے کنٹرولز سے آگے پیچھے کریں۔ شروع کرنے سے پہلے ہر ماخذ PDF کا پیش منظر دیکھیں اور اس کے صفحات چیک کریں۔ ہر فائل کے اندر صفحات کی موجودہ ترتیب برقرار رہتی ہے؛ صفحوں کی ترتیب بدلنے کے لیے پہلے اسی PDF پر Organize Pages استعمال کریں۔ عام encrypted PDFs کے لیے Merge PDF میں password درج کرنے کا اختیار نہیں؛ پڑھنے کے قابل unlocked نقل فراہم کریں۔ ClickPDF کا Unlock PDF صرف ClickPDF Web Crypto سے محفوظ فائلوں کے لیے ہے، عام PDF encryption کے لیے نہیں۔"
           },
           {
-            "question": "کیا لنکس، فارمز اور annotations پہلے کی طرح کام کریں گے؟",
-            "answer": "یہ رویہ اصل PDFs اور انہیں کھولنے والے پروگرام کے لحاظ سے مختلف ہو سکتا ہے۔ ڈاؤن لوڈ کے بعد مشترکہ فائل کھولیں اور ضروری interactive چیزیں آزمائیں۔"
+            "question": "کیا لنکس، فارمز اور تشریحات پہلے کی طرح کام کریں گی؟",
+            "answer": "رویّہ اصل PDFs اور انہیں کھولنے والے پروگرام کے مطابق بدل سکتا ہے، اس لیے مشترکہ PDF کا نتیجہ ضرور دیکھیں۔ Merger صفحے کے objects اور AcroForm data نقل کرتا ہے اور بعد میں آنے والے دہرائے گئے فارم فیلڈ نام بدل دیتا ہے۔ Dynamic XFA فارمز اور digitally signed PDFs کو محفوظ طریقے سے نہیں ملایا جا سکتا، اس لیے انہیں مسترد کیا جاتا ہے۔"
           },
           {
             "question": "کیا مختلف سائز کے صفحات والی PDFs ایک ساتھ جوڑ سکتا ہوں؟",
-            "answer": "مختلف page dimensions والی PDFs جوڑی جا سکتی ہیں، لیکن دیکھنے یا پرنٹ کرنے پر صفحات مختلف دکھائی دے سکتے ہیں۔ شیئر کرنے سے پہلے نتیجہ دیکھیں۔"
+            "answer": "جی ہاں۔ مختلف dimensions والے صفحات کی PDFs جوڑی جا سکتی ہیں۔ صفحات کے سائز ایک جیسے نہیں کیے جاتے، اس لیے viewer میں یا پرنٹ پر مختلف دکھائی دے سکتے ہیں۔ شیئر کرنے سے پہلے نتیجہ چیک کریں۔"
           },
           {
             "question": "کیا PDF ملانے سے میری اصل فائلیں اووررائٹ ہوں گی؟",
-            "answer": "نہیں۔ جوڑی گئی دستاویز الگ نتیجے کے طور پر بنتی ہے۔ مشترکہ کاپی کی جانچ اور محفوظ کرنے تک اصل فائلیں اپنے پاس رکھیں۔"
+            "answer": "نہیں۔ Merge PDF الگ output بناتا ہے اور منتخب فائلیں براؤزر میں پڑھتا ہے۔ صفحہ وسائل اور فعال خدمات کے لیے نیٹ ورک درخواستیں کر سکتا ہے؛ یہ PDF کا مواد processing server کو بھیجنے سے الگ بات ہے۔"
           },
           {
             "question": "بڑی PDFs کو ملانے میں کتنا وقت لگے گا، یہ کن باتوں پر منحصر ہے؟",
-            "answer": "وقت PDFs کی تعداد اور سائز، اور براؤزر و ڈیوائس کی دستیاب میموری پر منحصر ہے۔ بہت بڑی batch کو چھوٹے حصوں میں چلانا زیادہ قابلِ اعتماد ہو سکتا ہے۔"
+            "answer": "وقت اور کامیابی PDFs کی تعداد اور سائز، اور براؤزر و ڈیوائس کی دستیاب میموری پر منحصر ہیں۔ جائزہ لیے گئے کوڈ میں فائل سائز یا صفحات کی کوئی مقررہ حد نہیں، لیکن عملی حد براؤزر کی میموری ہے۔ ناکامی پر کم یا چھوٹی PDFs آزمائیں۔ Merge PDF compression نہیں کرتا، اس لیے نتیجے کی فائل لازماً چھوٹی نہیں ہوگی۔"
           }
         ]
       },
@@ -2288,12 +2288,12 @@
     "tools": {
       "merge": {
         "introHeading": "Mehrere PDFs zu einer Datei zusammenfügen",
-        "intro": "Fügen Sie mindestens zwei PDFs hinzu und ordnen Sie sie, bevor Sie eine gemeinsame Datei erstellen. Die Originale bleiben getrennt erhalten. Links, Formulare und Anmerkungen können sich je nach Dokument anders verhalten; prüfen Sie daher das Ergebnis nach dem Speichern.",
+        "intro": "Fügen Sie eine oder mehrere PDFs hinzu und ordnen Sie sie, wenn Sie mehrere Dokumente zusammenführen möchten. Bei einer einzelnen PDF wird eine separate Kopie erstellt; die Originaldatei bleibt unverändert. Links, Formulare und Anmerkungen können sich je nach Dokument anders verhalten; prüfen Sie daher das Ergebnis nach dem Speichern.",
         "stepsHeading": "PDF-Dateien in drei Schritten zusammenfügen",
         "steps": [
           {
             "title": "PDF-Dateien hinzufügen",
-            "description": "Wählen Sie mindestens zwei PDF-Dokumente auf Ihrem Gerät aus oder ziehen Sie sie in den Arbeitsbereich zum Zusammenfügen."
+            "description": "Wählen Sie ein oder mehrere PDF-Dokumente auf Ihrem Gerät aus oder ziehen Sie sie in den Arbeitsbereich zum Zusammenfügen."
           },
           {
             "title": "Dokumentreihenfolge festlegen",
@@ -2306,28 +2306,28 @@
         ],
         "faqs": [
           {
-            "question": "Warum benötigt Merge PDF mehr als eine Datei?",
-            "answer": "Beim Zusammenfügen werden getrennte Dokumente kombiniert. Fügen Sie deshalb mindestens zwei PDFs hinzu. Öffnen Sie jede Datei vorher, wenn Sie den Seiteninhalt prüfen müssen."
+            "question": "Kann ich Merge PDF auch mit nur einer Datei verwenden?",
+            "answer": "Ja. Merge PDF akzeptiert eine oder mehrere PDF-Dateien. Bei einer einzelnen Datei wird eine separate PDF-Kopie erstellt. Wählen Sie nur dann mindestens zwei PDFs aus, wenn Sie mehrere Dokumente zusammenfügen möchten. Die Originaldateien bleiben unverändert."
           },
           {
             "question": "Kann ich die Dateireihenfolge vor dem Zusammenfügen ändern?",
-            "answer": "Ja. Ordnen Sie die ausgewählten Dokumente im Arbeitsbereich neu oder verwenden Sie die verfügbaren Sortierfunktionen, bevor Sie den Vorgang starten."
+            "answer": "Ja. Ordnen Sie ganze PDF-Dateien im Arbeitsbereich per Drag-and-drop oder mit den verfügbaren Sortierfunktionen neu. Zeigen Sie jede Quelldatei vor dem Start in der Vorschau an und prüfen Sie ihre Seiten. Die Seitenreihenfolge innerhalb jeder Quelldatei bleibt erhalten; verwenden Sie zuerst Organize Pages für eine PDF, wenn Sie ihre Seiten neu ordnen möchten. Für standardmäßig verschlüsselte PDFs gibt es in Merge PDF kein Passwortfeld; verwenden Sie eine lesbare, entsperrte Kopie. ClickPDFs Unlock PDF verarbeitet nur mit ClickPDF Web Crypto geschützte Dateien, nicht beliebige standardverschlüsselte PDFs."
           },
           {
             "question": "Funktionieren Links, Formulare und Anmerkungen danach genau wie zuvor?",
-            "answer": "Das kann je nach Quelldatei und PDF-Programm unterschiedlich sein. Öffnen Sie das heruntergeladene Ergebnis und testen Sie wichtige interaktive Elemente."
+            "answer": "Das Verhalten kann je nach PDF-Datei und Anzeigeprogramm variieren; prüfen Sie daher das zusammengeführte Ergebnis. Seitenobjekte und AcroForm-Daten werden kopiert; spätere doppelte Formularfeldnamen werden umbenannt. Dynamische XFA-Formulare und digital signierte PDFs können nicht sicher zusammengeführt werden und werden abgelehnt."
           },
           {
             "question": "Kann eine zusammengeführte PDF Seiten unterschiedlicher Größe enthalten?",
-            "answer": "PDFs mit unterschiedlichen Seitenmaßen lassen sich zusammenfügen. Die Seiten können beim Anzeigen oder Drucken dennoch verschieden wirken. Prüfen Sie die Ausgabe vor dem Teilen."
+            "answer": "Ja. PDFs mit unterschiedlichen Seitenmaßen lassen sich zusammenfügen. Die Seitengrößen werden nicht angeglichen, daher können Seiten in einem Anzeigeprogramm oder beim Drucken unterschiedlich wirken. Prüfen Sie die Ausgabe vor dem Teilen."
           },
           {
             "question": "Überschreibt das Zusammenfügen meine Originaldateien?",
-            "answer": "Nein. Das zusammengeführte Dokument wird als separate Datei erstellt. Bewahren Sie die Originale auf, bis Sie die kombinierte Kopie geprüft und gespeichert haben."
+            "answer": "Nein. Merge PDF erstellt eine separate Ausgabe und liest die ausgewählten Dateien im Browser. Die Webseite kann weiterhin Netzwerkanfragen für Ressourcen und aktivierte Dienste stellen; das ist getrennt davon, PDF-Inhalte an einen Verarbeitungsserver zu senden."
           },
           {
             "question": "Wovon hängt die Dauer beim Zusammenfügen großer PDFs ab?",
-            "answer": "Die Verarbeitungszeit hängt von Anzahl und Größe der PDFs sowie vom verfügbaren Speicher im Browser und auf dem Gerät ab. Sehr große Stapel lassen sich möglicherweise zuverlässiger in kleineren Gruppen verarbeiten."
+            "answer": "Dauer und Erfolg hängen von Anzahl und Größe der PDFs sowie vom verfügbaren Speicher im Browser und auf dem Gerät ab. Im geprüften Code gibt es keine feste Datei- oder Seitenzahlgrenze, aber der Browser-Speicher ist eine praktische Beschränkung. Versuchen Sie bei Fehlern weniger oder kleinere PDFs. Merge PDF ist keine Komprimierungsfunktion; die Ausgabe wird daher nicht unbedingt kleiner."
           }
         ]
       },
@@ -3881,7 +3881,7 @@
         "steps": [
           {
             "title": "PDF फ़ाइलें जोड़ें",
-            "description": "Merge workspace में अपने device से कम से कम दो PDFs चुनें या उन्हें वहाँ छोड़ें।"
+            "description": "Merge workspace में अपने device से एक या अधिक PDFs चुनें या उन्हें वहाँ छोड़ें।"
           },
           {
             "title": "दस्तावेज़ों का क्रम तय करें",
@@ -3894,28 +3894,28 @@
         ],
         "faqs": [
           {
-            "question": "Merge PDF को एक से अधिक फ़ाइलें क्यों चाहिए?",
-            "answer": "यह अलग दस्तावेज़ जोड़ता है, इसलिए कम से कम दो PDFs चुनें। सही pages की पुष्टि करनी हो तो पहले हर फ़ाइल खोलें।"
+            "question": "क्या Merge PDF में केवल एक फ़ाइल भी इस्तेमाल की जा सकती है?",
+            "answer": "हाँ। Merge PDF एक या अधिक PDF फ़ाइलें स्वीकार करता है। एक फ़ाइल प्रोसेस करने पर उसकी अलग PDF कॉपी बनती है। दो या अधिक PDF केवल दस्तावेज़ जोड़ने के लिए चुनें। मूल फ़ाइलें नहीं बदलतीं।"
           },
           {
             "question": "क्या PDFs जोड़ने से पहले उनका क्रम बदल सकता हूँ?",
-            "answer": "हाँ। Merge शुरू करने से पहले workspace में दस्तावेज़ों को फिर से क्रम में रखें या sort controls इस्तेमाल करें।"
+            "answer": "हाँ। कार्यक्षेत्र में पूरी PDF फ़ाइलों का क्रम drag-and-drop या उपलब्ध नियंत्रणों से बदलें। शुरू करने से पहले हर स्रोत PDF का पूर्वावलोकन करें और उसके पृष्ठ जाँचें। हर स्रोत फ़ाइल के पृष्ठ उसी क्रम में रहेंगे; पृष्ठ क्रम बदलने के लिए पहले उस PDF पर Organize Pages इस्तेमाल करें। सामान्य encrypted PDFs के लिए Merge PDF में password डालने का विकल्प नहीं है; पढ़ने योग्य unlocked कॉपी दें। ClickPDF का Unlock PDF केवल ClickPDF Web Crypto-संरक्षित फ़ाइलों के लिए है, सामान्य PDF encryption के लिए नहीं।"
           },
           {
-            "question": "क्या links, forms और annotations पहले जैसे ही काम करेंगे?",
-            "answer": "यह source PDFs और viewers के अनुसार बदल सकता है। संयुक्त फ़ाइल खोलकर ज़रूरी interactive items जाँचें।"
+            "question": "क्या लिंक, फ़ॉर्म और टिप्पणियाँ पहले की तरह काम करेंगी?",
+            "answer": "व्यवहार स्रोत PDF और viewer के अनुसार बदल सकता है, इसलिए संयुक्त output जाँचें। Merger page objects और AcroForm data कॉपी करता है तथा बाद में आने वाले duplicate form-field names बदल देता है। Dynamic XFA forms और digitally signed PDFs को सुरक्षित रूप से merge नहीं किया जा सकता, इसलिए उन्हें अस्वीकार किया जाता है।"
           },
           {
             "question": "क्या संयुक्त PDF में अलग-अलग आकार के पृष्ठ हो सकते हैं?",
-            "answer": "अलग dimensions वाले पृष्ठ जोड़े जा सकते हैं, पर viewer या print में अलग दिख सकते हैं। साझा करने से पहले output देखें।"
+            "answer": "हाँ। अलग-अलग page dimensions वाली PDFs जोड़ी जा सकती हैं। पृष्ठों के आकार एक जैसे नहीं किए जाते, इसलिए viewer या print में उनका रूप अलग हो सकता है। साझा करने से पहले output जाँचें।"
           },
           {
             "question": "क्या merge मेरी मूल PDFs को overwrite करता है?",
-            "answer": "नहीं। संयुक्त दस्तावेज़ अलग output है। जाँच और save करने तक मूल फ़ाइलें रखें।"
+            "answer": "नहीं। Merge PDF अलग output बनाता है और चुनी गई फ़ाइलों को ब्राउज़र में पढ़ता है। पेज resources और चालू सेवाओं के लिए network requests कर सकता है; यह PDF सामग्री को processing server पर भेजने से अलग है।"
           },
           {
             "question": "बड़े merge को पूरा होने में क्या समय लगाता है?",
-            "answer": "समय PDFs की संख्या और आकार तथा browser और device memory पर निर्भर करता है। बहुत बड़े batches को छोटे समूहों में चलाना अधिक भरोसेमंद हो सकता है।"
+            "answer": "समय और सफलता PDFs की संख्या व आकार तथा ब्राउज़र और डिवाइस में उपलब्ध मेमोरी पर निर्भर करते हैं। जाँचे गए कोड में फ़ाइल आकार या पृष्ठों की निश्चित सीमा नहीं है, लेकिन ब्राउज़र मेमोरी व्यावहारिक सीमा है। विफल होने पर कम या छोटी PDFs आज़माएँ। Merge PDF compression नहीं करता, इसलिए output छोटा होना तय नहीं है।"
           }
         ]
       },
@@ -5019,7 +5019,7 @@
         "steps": [
           {
             "title": "أضف ملفات PDF",
-            "description": "حدد مستندين على الأقل من جهازك أو اسحبهما إلى مساحة الدمج."
+            "description": "حدد ملف PDF واحدًا أو أكثر من جهازك، أو اسحب الملفات إلى مساحة الدمج."
           },
           {
             "title": "رتب المستندات",
@@ -5032,28 +5032,28 @@
         ],
         "faqs": [
           {
-            "question": "لماذا يحتاج دمج PDF إلى أكثر من ملف؟",
-            "answer": "تجمع العملية مستندات منفصلة، لذا أضف ملفي PDF على الأقل. افتح كل ملف أولًا إذا أردت التأكد من صفحاته."
+            "question": "هل يمكن استخدام Merge PDF مع ملف PDF واحد فقط؟",
+            "answer": "نعم. يقبل Merge PDF ملف PDF واحدًا أو أكثر. تؤدي معالجة ملف واحد إلى إنشاء نسخة PDF منفصلة. اختر ملفي PDF أو أكثر فقط عند دمج مستندات متعددة. لا تتغير الملفات الأصلية."
           },
           {
             "question": "هل يمكنني تغيير ترتيب الملفات قبل الدمج؟",
-            "answer": "نعم. أعد ترتيب المستندات في مساحة العمل أو استخدم أدوات الفرز المتاحة قبل بدء الدمج."
+            "answer": "نعم. أعد ترتيب ملفات PDF كاملة في مساحة العمل بالسحب والإفلات أو باستخدام أدوات الترتيب المتاحة. عاين كل ملف مصدر وافحص صفحاته قبل البدء. يبقى ترتيب الصفحات داخل كل ملف كما هو؛ استخدم Organize Pages على ملف PDF أولًا إذا أردت تغيير ترتيب صفحاته. لا يتضمن Merge PDF خانة لكلمة مرور ملفات PDF القياسية المشفرة؛ قدّم نسخة مقروءة وغير مقفلة. تعالج ميزة Unlock PDF من ClickPDF الملفات المحمية بـ ClickPDF Web Crypto فقط، ولا تفتح كل ملفات PDF المشفرة القياسية."
           },
           {
             "question": "هل ستعمل الروابط والنماذج والتعليقات كما كانت تمامًا؟",
-            "answer": "قد يختلف ذلك حسب ملفات PDF الأصلية وبرامج العرض. افتح الناتج واختبر العناصر التفاعلية المهمة."
+            "answer": "قد يختلف السلوك حسب ملفات PDF وبرامج العرض، لذا راجع الناتج المدمج. تنسخ الأداة كائنات الصفحات وبيانات AcroForm، وتعيد تسمية أسماء حقول النماذج المكررة التي تأتي لاحقًا. لا يمكن دمج نماذج XFA الديناميكية وملفات PDF الموقعة رقميًا بأمان، ولذلك تُرفض."
           },
           {
             "question": "هل يمكن أن يحتوي الملف الموحّد على صفحات بأحجام مختلفة؟",
-            "answer": "يمكن جمع الصفحات ذات الأبعاد المختلفة، لكن قد يظهر اختلافها في العارض أو عند الطباعة. راجع الناتج قبل مشاركته."
+            "answer": "نعم. يمكن جمع ملفات PDF ذات أبعاد صفحات مختلفة. لا تُوحّد أحجام الصفحات، لذلك قد تبدو مختلفة في العارض أو عند الطباعة. راجع الناتج قبل مشاركته."
           },
           {
             "question": "هل يستبدل الدمج ملفات PDF الأصلية؟",
-            "answer": "لا. المستند الموحّد ناتج منفصل. احتفظ بالملفات الأصلية حتى تراجع النسخة المجمعة وتحفظها."
+            "answer": "لا. ينشئ Merge PDF ناتجًا منفصلًا ويقرأ الملفات المحددة داخل المتصفح. قد تجري صفحة الويب طلبات شبكة للموارد والخدمات المفعّلة؛ وهذا منفصل عن إرسال محتوى PDF إلى خادم معالجة."
           },
           {
             "question": "ما الذي يؤثر في سرعة دمج ملفات كبيرة؟",
-            "answer": "يعتمد الوقت على عدد الملفات وأحجامها وذاكرة المتصفح والجهاز. قد تكون معالجة الدفعات الكبيرة أكثر موثوقية عند تقسيمها."
+            "answer": "يعتمد الوقت واحتمال النجاح على عدد ملفات PDF وأحجامها والذاكرة المتاحة في المتصفح والجهاز. لا يفرض الكود الذي تمت مراجعته حدًا ثابتًا لحجم الملف أو عدد الصفحات، لكن ذاكرة المتصفح تظل قيدًا عمليًا. عند فشل المعالجة، جرّب ملفات أقل أو أصغر. Merge PDF ليس أداة ضغط، لذلك قد لا يكون الناتج أصغر."
           }
         ]
       },
@@ -6157,7 +6157,7 @@
         "steps": [
           {
             "title": "Ajouter les fichiers PDF",
-            "description": "Sélectionnez au moins deux documents sur votre appareil ou déposez-les dans l’espace de fusion."
+            "description": "Sélectionnez un ou plusieurs documents PDF sur votre appareil ou déposez-les dans l’espace de fusion."
           },
           {
             "title": "Définir l’ordre des documents",
@@ -6170,28 +6170,28 @@
         ],
         "faqs": [
           {
-            "question": "Pourquoi Merge PDF nécessite-t-il plusieurs fichiers ?",
-            "answer": "La fusion rassemble des documents distincts ; ajoutez donc au moins deux PDF. Ouvrez-les d’abord pour vérifier les pages si nécessaire."
+            "question": "Puis-je utiliser Merge PDF avec un seul fichier ?",
+            "answer": "Oui. Merge PDF accepte un ou plusieurs fichiers PDF. Le traitement d’un seul fichier crée une copie PDF distincte. Sélectionnez au moins deux PDF uniquement pour réunir plusieurs documents. Les fichiers d’origine restent inchangés."
           },
           {
             "question": "Puis-je changer l’ordre des fichiers avant la fusion ?",
-            "answer": "Oui. Réorganisez les documents dans l’espace de travail ou utilisez les commandes de tri avant de lancer la fusion."
+            "answer": "Oui. Réorganisez les fichiers PDF entiers dans l’espace de travail par glisser-déposer ou avec les commandes de tri disponibles. Prévisualisez chaque PDF source et vérifiez ses pages avant de commencer. L’ordre des pages de chaque fichier source est conservé ; utilisez d’abord Organize Pages sur un PDF si vous devez en modifier l’ordre des pages. Merge PDF ne propose pas de champ de mot de passe pour les PDF standard chiffrés ; fournissez une copie lisible et déverrouillée. Unlock PDF de ClickPDF traite uniquement les fichiers protégés par ClickPDF Web Crypto, pas les PDF standard chiffrés en général."
           },
           {
             "question": "Les liens, formulaires et annotations fonctionneront-ils exactement comme avant ?",
-            "answer": "Cela peut varier selon les PDF et les lecteurs utilisés. Ouvrez le résultat et testez les éléments interactifs importants."
+            "answer": "Le comportement peut varier selon les PDF et les lecteurs ; vérifiez donc le résultat fusionné. L’outil copie les objets de page et les données AcroForm, et renomme les noms de champs de formulaire dupliqués qui apparaissent ensuite. Les formulaires XFA dynamiques et les PDF signés numériquement ne peuvent pas être fusionnés en toute sécurité et sont refusés."
           },
           {
             "question": "Un PDF fusionné peut-il contenir des pages de tailles différentes ?",
-            "answer": "Oui, mais leurs dimensions peuvent différer à l’écran ou à l’impression. Vérifiez le résultat avant de le partager."
+            "answer": "Oui. Des PDF aux dimensions de page différentes peuvent être réunis. Les tailles ne sont pas normalisées ; les pages peuvent donc avoir un aspect différent à l’écran ou à l’impression. Vérifiez le résultat avant de le partager."
           },
           {
             "question": "La fusion remplace-t-elle mes PDF d’origine ?",
-            "answer": "Non. Le document fusionné est un résultat séparé. Gardez les fichiers d’origine jusqu’à ce que vous ayez vérifié et enregistré la copie."
+            "answer": "Non. Merge PDF crée un résultat distinct et lit les fichiers sélectionnés dans le navigateur. La page peut quand même envoyer des requêtes réseau pour ses ressources et services activés ; cela ne signifie pas que le contenu des PDF est envoyé à un serveur de traitement."
           },
           {
             "question": "Qu’est-ce qui influe sur la durée d’une grande fusion ?",
-            "answer": "La durée dépend du nombre et de la taille des PDF ainsi que de la mémoire du navigateur et de l’appareil. Les très grands lots peuvent être plus fiables en petits groupes."
+            "answer": "La durée et la réussite dépendent du nombre et de la taille des PDF ainsi que de la mémoire disponible dans le navigateur et sur l’appareil. Le code examiné ne fixe aucune limite de taille de fichier ni de nombre de pages, mais la mémoire du navigateur reste une limite pratique. En cas d’échec, essayez moins de PDF ou des fichiers plus petits. Merge PDF n’est pas un outil de compression ; le fichier obtenu ne sera donc pas forcément plus petit."
           }
         ]
       },
@@ -6935,11 +6935,11 @@
         "steps": [
           {
             "title": "选择 PDF 文件",
-            "description": "添加要放入合并文档的文件。"
+            "description": "从设备中选择一个或多个 PDF 文档，或将它们拖入合并工作区。"
           },
           {
             "title": "排列文件顺序",
-            "description": "拖动文件，使页面按所需顺序排列。"
+            "description": "在工作区拖动整份 PDF 文件或使用排序控件调整文件顺序。每个源 PDF 内的页面顺序保持不变；如需调整某个源文件的页面，请先单独使用 Organize Pages。"
           },
           {
             "title": "合并并检查",
@@ -6948,28 +6948,28 @@
         ],
         "faqs": [
           {
-            "question": "合并前可以调整文件顺序吗？",
-            "answer": "可以。合并前请在工作区重新排列文件；结果会按显示顺序组合。"
+            "question": "Merge PDF 可以只处理一个 PDF 文件吗？",
+            "answer": "可以。Merge PDF 接受一个或多个 PDF 文件。处理单个文件会生成一份独立的 PDF 副本。只有在合并多个文档时才需要选择两个或更多 PDF。原始文件不会被修改。"
           },
           {
-            "question": "合并 PDF 会减小文件大小吗？",
-            "answer": "不一定。合并会把文档组合在一起，并不等同于压缩；如有大小限制，请另外压缩并检查清晰度。"
+            "question": "合并前如何调整 PDF 文件的顺序？",
+            "answer": "可以在工作区通过拖放或可用的排序控件调整整份 PDF 文件的顺序。开始前请预览每个源 PDF 并检查其页面。每个源文件内部的页面顺序会保持不变；如需调整某个 PDF 内的页面，请先使用 Organize Pages。Merge PDF 不提供输入标准加密 PDF 密码的选项；请提供可读取且已解锁的副本。ClickPDF 的 Unlock PDF 仅处理由 ClickPDF Web Crypto 保护的文件，不能解锁任意标准 PDF 加密文件。"
           },
           {
-            "question": "可以合并受密码保护的 PDF 吗？",
-            "answer": "受保护的文件可能需要先用相应工具解锁，然后再添加到合并队列。"
+            "question": "合并后，链接、表单和注释等交互元素会保持原样吗？",
+            "answer": "具体表现会因源 PDF 和查看器而异，请检查合并后的文件。工具会复制页面对象和 AcroForm 数据，并重命名后续出现的重复表单字段名。动态 XFA 表单和数字签名 PDF 无法安全合并，因此会被拒绝处理。"
           },
           {
-            "question": "原始文件会被覆盖吗？",
-            "answer": "不会。工具会生成一个新的合并 PDF，请保留原始文件直到确认结果无误。"
+            "question": "页面尺寸不同的 PDF 合并后会怎样？",
+            "answer": "可以合并页面尺寸不同的 PDF。页面尺寸不会被统一，因此在查看器中或打印时，各页的显示效果可能不同。分享前请检查输出文件。"
           },
           {
-            "question": "可以一次添加多个文件吗？",
-            "answer": "可以添加多个 PDF；处理能力取决于文件大小、浏览器和设备可用内存。"
+            "question": "合并会修改或覆盖原始文件吗？",
+            "answer": "不会。Merge PDF 会创建单独的输出文件，并在浏览器中读取所选文件。网页仍可能为资源和已启用的服务发起网络请求；这与将 PDF 内容发送到处理服务器不同。"
           },
           {
-            "question": "我的 PDF 会上传到处理服务器吗？",
-            "answer": "所选文件内容在浏览器中处理，不会发送到 ClickPDF 文档处理服务器；网页仍可能请求资源和启用的服务。"
+            "question": "合并大型 PDF 需要多长时间？",
+            "answer": "处理时间和成功率取决于 PDF 的数量、大小以及浏览器和设备可用的内存。检查过的代码没有固定的文件大小或页数上限，但浏览器内存仍是实际限制。如果处理失败，请尝试减少文件数量或使用较小的 PDF。Merge PDF 不是压缩工具，因此输出文件不一定更小。"
           }
         ]
       },
@@ -8073,11 +8073,11 @@
         "steps": [
           {
             "title": "Pumili ng mga PDF",
-            "description": "Idagdag ang mga file na gusto mong isama sa pinagsamang dokumento."
+            "description": "Pumili ng isa o higit pang PDF na dokumento mula sa device mo o i-drag ang mga ito papunta sa merge workspace."
           },
           {
             "title": "Ayusin ang pagkakasunod-sunod",
-            "description": "I-drag ang mga file para maitakda ang gusto mong ayos ng mga pahina."
+            "description": "Ayusin ang pagkakasunod-sunod ng buong PDF file sa workspace sa pamamagitan ng drag-and-drop o mga sorting control. Nananatili ang ayos ng mga pahina sa loob ng bawat source PDF; gamitin muna nang hiwalay ang Organize Pages kung kailangang baguhin ang ayos ng mga pahina."
           },
           {
             "title": "Pagsamahin at suriin",
@@ -8086,28 +8086,28 @@
         ],
         "faqs": [
           {
-            "question": "Maaari ko bang baguhin ang ayos ng mga file bago pagsamahin?",
-            "answer": "Oo. Ayusin muli ang mga file sa workspace bago mag-merge; susundin ng resulta ang ipinakitang ayos."
+            "question": "Maaari bang gamitin ang Merge PDF sa iisang PDF lang?",
+            "answer": "Oo. Tumatanggap ang Merge PDF ng isa o higit pang PDF file. Kapag isang file lang ang pinroseso, gagawa ito ng hiwalay na kopya ng PDF. Pumili lang ng dalawa o higit pang PDF kung pagsasamahin ang maraming dokumento. Hindi binabago ang mga orihinal na file."
           },
           {
-            "question": "Pinapaliit ba ng pagsasama ang laki ng PDF?",
-            "answer": "Hindi palagi. Pinagsasama nito ang mga dokumento ngunit hindi ito compression; kung may limitasyon sa laki, i-compress nang hiwalay at suriin ang linaw."
+            "question": "Paano ko babaguhin ang pagkakasunod-sunod ng mga PDF bago pagsamahin?",
+            "answer": "Ayusin ang pagkakasunod-sunod ng buong PDF file sa workspace sa pamamagitan ng drag-and-drop o mga available na control. I-preview ang bawat source PDF at suriin ang mga pahina nito bago magsimula. Nananatili ang dating ayos ng mga pahina sa loob ng bawat source file; gamitin muna ang Organize Pages sa isang PDF kung babaguhin mo ang ayos ng mga pahina nito. Walang password field ang Merge PDF para sa karaniwang naka-encrypt na PDF; magbigay ng nababasa at naka-unlock na kopya. Ang Unlock PDF ng ClickPDF ay para lang sa mga file na protektado ng ClickPDF Web Crypto, hindi sa lahat ng karaniwang PDF encryption."
           },
           {
-            "question": "Maaari bang isama ang PDF na protektado ng password?",
-            "answer": "Maaaring kailanganing i-unlock muna ang protektadong file gamit ang angkop na tool bago ito idagdag sa merge queue."
+            "question": "Nananatili ba ang mga link, form, at anotasyon?",
+            "answer": "Maaaring mag-iba ang paggana depende sa mga PDF at viewer, kaya suriin ang pinagsamang output. Kinokopya ng tool ang mga page object at AcroForm data, at pinapalitan nito ang pangalan ng mga susunod na duplicate na pangalan ng form field. Hindi ligtas pagsamahin ang mga dynamic XFA form at digital na nilagdaang PDF, kaya tinatanggihan ang mga ito."
           },
           {
-            "question": "Mapapalitan ba ang mga orihinal na file?",
-            "answer": "Hindi. Gumagawa ito ng bagong pinagsamang PDF; itabi ang mga orihinal hanggang masuri mo ang resulta."
+            "question": "Ano ang mangyayari kung magkaiba ang laki ng mga pahina ng PDF?",
+            "answer": "Maaaring pagsamahin ang mga PDF na magkaiba ang sukat ng pahina. Hindi pinag-iisa ang mga sukat, kaya maaaring magkaiba ang hitsura ng mga pahina sa viewer o kapag inilimbag. Suriin ang output bago ito ibahagi."
           },
           {
-            "question": "Maaari ba akong magdagdag ng maraming file?",
-            "answer": "Oo. Maaari kang magdagdag ng maraming PDF; nakadepende ang pagproseso sa laki ng file, browser at memorya ng device."
+            "question": "Nababago o napapalitan ba ang mga orihinal na file?",
+            "answer": "Hindi. Gumagawa ang Merge PDF ng hiwalay na output at binabasa ang mga napiling file sa browser. Maaari pa ring gumawa ang page ng mga network request para sa resources at naka-enable na serbisyo; hiwalay ito sa pagpapadala ng PDF content sa processing server."
           },
           {
-            "question": "Ina-upload ba ang mga PDF sa server para iproseso?",
-            "answer": "Pinoproseso ang nilalaman ng mga napiling file sa browser at hindi ipinapadala sa mga server ng ClickPDF para sa pagproseso ng dokumento; maaari pa ring humiling ng resources at pinaganang serbisyo ang webpage."
+            "question": "Gaano katagal pagsamahin ang malalaking PDF?",
+            "answer": "Nakadepende ang oras at tagumpay sa dami at laki ng mga PDF at sa memoryang magagamit ng browser at device. Walang nakapirming file-size o page-count cap sa sinuring code, pero praktikal na limitasyon ang memorya ng browser. Kung mabigo, subukan ang mas kaunti o mas maliliit na PDF. Hindi pang-compress ang Merge PDF, kaya maaaring hindi lumiit ang output."
           }
         ]
       },
@@ -9211,11 +9211,11 @@
         "steps": [
           {
             "title": "Selecciona los archivos PDF",
-            "description": "Añade los documentos que quieres reunir en el archivo final."
+            "description": "Selecciona uno o varios documentos PDF de tu dispositivo o arrástralos al espacio de combinación."
           },
           {
             "title": "Ordena los archivos",
-            "description": "Arrástralos para que las páginas queden en el orden adecuado."
+            "description": "Reordena archivos PDF completos en el espacio de trabajo mediante arrastrar y soltar o los controles de orden. Se conserva el orden de las páginas dentro de cada PDF de origen; usa Organize Pages por separado en el PDF de origen si necesitas cambiarlo."
           },
           {
             "title": "Combina y revisa",
@@ -9224,28 +9224,28 @@
         ],
         "faqs": [
           {
-            "question": "¿Puedo cambiar el orden antes de unir los PDF?",
-            "answer": "Sí. Reordena los archivos en el espacio de trabajo antes de combinarlos; el resultado seguirá ese orden."
+            "question": "¿Puedo usar Merge PDF con un solo archivo PDF?",
+            "answer": "Sí. Merge PDF acepta uno o varios archivos PDF. Al procesar un solo archivo se crea una copia PDF independiente. Selecciona dos o más PDF solo cuando quieras combinar documentos. Los archivos originales no se modifican."
           },
           {
-            "question": "¿Unir PDF reduce el tamaño del archivo?",
-            "answer": "No necesariamente. Combinar documentos no es lo mismo que comprimir; si hay un límite de tamaño, comprime el resultado aparte y revisa la calidad."
+            "question": "¿Cómo puedo cambiar el orden de los PDF antes de unirlos?",
+            "answer": "Reordena archivos PDF completos en el espacio de trabajo mediante arrastrar y soltar o los controles de orden disponibles. Previsualiza cada PDF de origen y revisa sus páginas antes de empezar. Se conserva el orden de las páginas dentro de cada archivo; usa primero Organize Pages en un PDF si necesitas cambiar ese orden. Merge PDF no tiene un campo para introducir la contraseña de PDF estándar cifrados; proporciona una copia legible y desbloqueada. Unlock PDF de ClickPDF solo procesa archivos protegidos con ClickPDF Web Crypto, no cualquier PDF cifrado estándar."
           },
           {
-            "question": "¿Puedo incluir un PDF protegido con contraseña?",
-            "answer": "Es posible que primero tengas que desbloquearlo con la herramienta adecuada antes de añadirlo a la cola."
+            "question": "¿Se conservan los enlaces, formularios y anotaciones?",
+            "answer": "El comportamiento puede variar según los PDF y los visores, así que revisa el resultado combinado. La herramienta copia objetos de página y datos de AcroForm, y cambia los nombres de los campos de formulario duplicados que aparecen después. Los formularios XFA dinámicos y los PDF firmados digitalmente no se pueden combinar de forma segura y se rechazan."
           },
           {
-            "question": "¿Se reemplazan los archivos originales?",
-            "answer": "No. Se crea un PDF nuevo; conserva los originales hasta comprobar que el resultado esté bien."
+            "question": "¿Qué ocurre si los PDF tienen páginas de distintos tamaños?",
+            "answer": "Sí. Se pueden combinar PDF con páginas de distintas dimensiones. Los tamaños no se normalizan, por lo que las páginas pueden verse diferentes en el visor o al imprimir. Revisa el resultado antes de compartirlo."
           },
           {
-            "question": "¿Puedo añadir varios archivos a la vez?",
-            "answer": "Sí. Puedes añadir varios PDF; el procesamiento depende del tamaño, el navegador y la memoria disponible del dispositivo."
+            "question": "¿Se modifican o sobrescriben los archivos originales?",
+            "answer": "No. Merge PDF crea un resultado independiente y lee los archivos seleccionados en el navegador. La página puede realizar solicitudes de red para recursos y servicios habilitados; eso es distinto de enviar el contenido de los PDF a un servidor de procesamiento."
           },
           {
-            "question": "¿Se suben mis archivos a un servidor?",
-            "answer": "El contenido seleccionado se procesa en el navegador y no se envía a los servidores de procesamiento de documentos de ClickPDF; la página puede solicitar recursos y servicios habilitados."
+            "question": "¿Cuánto se tarda en unir PDF grandes?",
+            "answer": "El tiempo y el resultado dependen de la cantidad y el tamaño de los PDF y de la memoria disponible en el navegador y el dispositivo. El código revisado no establece un límite fijo de tamaño de archivo ni de número de páginas, pero la memoria del navegador es un límite práctico. Si falla, prueba con menos archivos o PDF más pequeños. Merge PDF no es una herramienta de compresión, así que el archivo de salida puede no ser más pequeño."
           }
         ]
       },
@@ -10434,12 +10434,12 @@
       },
       "merge": {
         "introHeading": "Unisci più PDF in un unico documento",
-        "intro": "Aggiungi almeno due PDF, disponili nell’ordine necessario e crea un file unito. Controlla link, moduli, segnalibri e annotazioni nel risultato: le funzioni interattive possono variare tra i documenti.",
+        "intro": "Aggiungi uno o più PDF e disponili nell’ordine desiderato se vuoi unire più documenti. Con un solo PDF viene creata una copia separata; il file originale resta invariato. Controlla link, moduli, segnalibri e annotazioni nel risultato: le funzioni interattive possono variare tra i documenti.",
         "stepsHeading": "Unisci PDF in tre passaggi",
         "steps": [
           {
             "title": "Aggiungi i file PDF",
-            "description": "Seleziona almeno due documenti dal dispositivo o trascinali nell’area di lavoro."
+            "description": "Seleziona uno o più documenti PDF dal dispositivo o trascinali nell’area di lavoro."
           },
           {
             "title": "Ordina i documenti",
@@ -10452,28 +10452,28 @@
         ],
         "faqs": [
           {
-            "question": "Quanti PDF posso unire in una volta?",
-            "answer": "Aggiungi i documenti necessari; il numero gestibile dipende dai file e dalla memoria disponibile sul dispositivo."
+            "question": "Posso usare Merge PDF con un solo file?",
+            "answer": "Sì. Merge PDF accetta uno o più file PDF. L’elaborazione di un solo file crea una copia PDF separata. Seleziona due o più PDF solo se vuoi unire più documenti. I file originali non vengono modificati."
           },
           {
-            "question": "I PDF vengono caricati sui server di elaborazione ClickPDF?",
-            "answer": "I contenuti dei file supportati vengono elaborati nel browser e non inviati ai server di elaborazione documenti ClickPDF. La pagina può comunque richiedere risorse o servizi di terze parti."
+            "question": "Come posso cambiare l’ordine dei PDF prima di unirli?",
+            "answer": "Riordina i file PDF interi nell’area di lavoro trascinandoli o usando i controlli di ordinamento disponibili. Visualizza l’anteprima di ogni PDF di origine e controllane le pagine prima di iniziare. L’ordine delle pagine all’interno di ogni file resta invariato; usa prima Organize Pages su un PDF se devi modificarlo. Merge PDF non offre un campo password per i PDF standard crittografati: fornisci una copia leggibile e sbloccata. Unlock PDF di ClickPDF gestisce solo i file protetti con ClickPDF Web Crypto, non qualsiasi PDF standard crittografato."
           },
           {
-            "question": "L’unione modifica la qualità o i collegamenti?",
-            "answer": "Le pagine vengono unite come contenuto PDF, non appiattite in immagini. Link, moduli, segnalibri e annotazioni possono variare; controlla il risultato."
+            "question": "I link, i moduli e le annotazioni vengono mantenuti?",
+            "answer": "Il comportamento può variare in base ai PDF e ai programmi di visualizzazione, quindi controlla il risultato unito. Lo strumento copia gli oggetti delle pagine e i dati AcroForm e rinomina i nomi dei campi modulo duplicati che compaiono successivamente. I moduli XFA dinamici e i PDF firmati digitalmente non possono essere uniti in sicurezza e vengono rifiutati."
           },
           {
-            "question": "Posso riordinare le singole pagine dopo aver unito i file?",
-            "answer": "Lo strumento Unisci ordina i documenti. Per riordinare le singole pagine, usa lo strumento Organizza pagine."
+            "question": "Cosa succede se i PDF hanno pagine di dimensioni diverse?",
+            "answer": "Sì. È possibile unire PDF con dimensioni di pagina diverse. Le dimensioni non vengono normalizzate, quindi le pagine possono apparire diverse nel visualizzatore o in stampa. Controlla il risultato prima di condividerlo."
           },
           {
             "question": "Il PDF originale viene sovrascritto?",
-            "answer": "No. Il documento unito viene scaricato come nuovo file; conserva i PDF di origine."
+            "answer": "No. Merge PDF crea un risultato separato e legge i file selezionati nel browser. La pagina può comunque inviare richieste di rete per risorse e servizi attivi; questo è distinto dall’invio del contenuto dei PDF a un server di elaborazione."
           },
           {
-            "question": "Perché l’unione di molti PDF può richiedere tempo?",
-            "answer": "I tempi dipendono dal numero di file e pagine e dalla memoria disponibile sul dispositivo."
+            "question": "Quanto tempo ci vuole per unire PDF di grandi dimensioni?",
+            "answer": "Durata e riuscita dipendono dal numero e dalle dimensioni dei PDF e dalla memoria disponibile nel browser e sul dispositivo. Nel codice esaminato non ci sono limiti fissi per dimensione del file o numero di pagine, ma la memoria del browser è un limite pratico. Se l’elaborazione non riesce, prova con meno PDF o file più piccoli. Merge PDF non è uno strumento di compressione, quindi il risultato potrebbe non essere più piccolo."
           }
         ]
       },
@@ -11572,12 +11572,12 @@
       },
       "merge": {
         "introHeading": "Slå sammen flere PDF-filer til ett dokument",
-        "intro": "Legg til minst to PDF-filer, ordne dem i ønsket rekkefølge og lag én samlet fil. Kontroller lenker, skjemaer, bokmerker og merknader i resultatet; interaktive funksjoner kan variere mellom dokumenter.",
+        "intro": "Legg til én eller flere PDF-filer, og ordne dem hvis du skal slå sammen flere dokumenter. Behandling av én fil lager en separat kopi; originalfilen endres ikke. Kontroller lenker, skjemaer, bokmerker og merknader i resultatet; interaktive funksjoner kan variere mellom dokumenter.",
         "stepsHeading": "Slå sammen PDF-filer i tre trinn",
         "steps": [
           {
             "title": "Legg til PDF-filene",
-            "description": "Velg minst to dokumenter fra enheten, eller dra dem inn i arbeidsområdet."
+            "description": "Velg ett eller flere PDF-dokumenter fra enheten, eller dra dem inn i arbeidsområdet."
           },
           {
             "title": "Ordne dokumentene",
@@ -11590,28 +11590,28 @@
         ],
         "faqs": [
           {
-            "question": "Hvor mange PDF-filer kan jeg slå sammen samtidig?",
-            "answer": "Legg til dokumentene du trenger; praktisk kapasitet avhenger av filene og tilgjengelig minne på enheten."
+            "question": "Kan jeg bruke Merge PDF med bare én fil?",
+            "answer": "Ja. Merge PDF godtar én eller flere PDF-filer. Behandling av én fil oppretter en separat PDF-kopi. Velg to eller flere PDF-filer bare når du vil slå sammen dokumenter. Originalfilene endres ikke."
           },
           {
-            "question": "Lastes PDF-innhold opp til ClickPDFs behandlingsservere?",
-            "answer": "Innholdet i støttede filer behandles i nettleseren og sendes ikke til ClickPDFs dokumentbehandlingsservere. Siden kan likevel hente ressurser eller tredjepartstjenester."
+            "question": "Hvordan kan jeg endre rekkefølgen på PDF-filene før de slås sammen?",
+            "answer": "Sorter hele PDF-filer i arbeidsområdet ved å dra og slippe dem eller bruke de tilgjengelige sorteringskontrollene. Forhåndsvis hver kilde-PDF og kontroller sidene før du starter. Siderekkefølgen i hver kildefil beholdes; bruk Organize Pages på en PDF først hvis du vil endre siderekkefølgen. Merge PDF har ikke et passordfelt for standard krypterte PDF-filer; bruk en lesbar, ulåst kopi. ClickPDFs Unlock PDF håndterer bare filer beskyttet med ClickPDF Web Crypto, ikke vilkårlige standard krypterte PDF-filer."
           },
           {
-            "question": "Endrer sammenslåing kvaliteten eller lenkene?",
-            "answer": "Sidene slås sammen som PDF-innhold, ikke som flate bilder. Lenker, skjemaer, bokmerker og merknader kan variere; kontroller resultatet."
+            "question": "Bevares lenker, skjemaer og merknader?",
+            "answer": "Dette kan variere mellom PDF-filer og visningsprogrammer, så kontroller den sammenslåtte filen. Verktøyet kopierer sideobjekter og AcroForm-data og gir senere dupliserte skjemafelt nye navn. Dynamiske XFA-skjemaer og digitalt signerte PDF-filer kan ikke slås sammen på en sikker måte og avvises."
           },
           {
-            "question": "Kan jeg endre rekkefølgen på enkeltsider etterpå?",
-            "answer": "Sammenslåingsverktøyet ordner dokumenter. Bruk Organiser sider for å flytte enkeltsider."
+            "question": "Hva skjer hvis PDF-filene har ulike sidestørrelser?",
+            "answer": "Ja. PDF-filer med ulike sidemål kan slås sammen. Sidestørrelsene normaliseres ikke, så sidene kan se forskjellige ut i en PDF-leser eller ved utskrift. Kontroller resultatet før du deler det."
           },
           {
             "question": "Overskrives den opprinnelige PDF-filen?",
-            "answer": "Nei. Den sammenslåtte PDF-en lastes ned som en ny fil; behold kildefilene."
+            "answer": "Nei. Merge PDF oppretter en separat utdatafil og leser de valgte filene i nettleseren. Nettsiden kan fortsatt sende nettverksforespørsler for ressurser og aktiverte tjenester; dette er noe annet enn å sende PDF-innhold til en behandlingsserver."
           },
           {
-            "question": "Hvorfor kan det ta tid å slå sammen mange PDF-er?",
-            "answer": "Behandlingstiden avhenger av antall filer og sider samt tilgjengelig minne på enheten."
+            "question": "Hvor lang tid tar det å slå sammen store PDF-filer?",
+            "answer": "Tidsbruk og resultat avhenger av antallet og størrelsen på PDF-filene og minnet som er tilgjengelig i nettleseren og på enheten. Den gjennomgåtte koden har ingen fast grense for filstørrelse eller sidetall, men nettleserminnet er en praktisk begrensning. Hvis behandlingen mislykkes, kan du prøve færre eller mindre PDF-filer. Merge PDF er ikke et komprimeringsverktøy, så utdatafilen blir ikke nødvendigvis mindre."
           }
         ]
       },
@@ -12710,12 +12710,12 @@
       },
       "merge": {
         "introHeading": "Junte vários PDFs em um único documento",
-        "intro": "Adicione pelo menos dois PDFs, organize-os na ordem desejada e crie um arquivo combinado. Confira links, formulários, favoritos e anotações no resultado, pois os recursos interativos podem variar entre os documentos.",
+        "intro": "Adicione um ou mais PDFs e organize-os se quiser reunir vários documentos. Ao processar um único PDF, é criada uma cópia separada; o original permanece inalterado. Confira links, formulários, favoritos e anotações no resultado, pois os recursos interativos podem variar entre os documentos.",
         "stepsHeading": "Junte PDFs em três etapas",
         "steps": [
           {
             "title": "Adicione os arquivos PDF",
-            "description": "Selecione pelo menos dois documentos no dispositivo ou arraste-os para a área de trabalho."
+            "description": "Selecione um ou mais documentos PDF no dispositivo ou arraste-os para a área de trabalho."
           },
           {
             "title": "Organize a ordem dos documentos",
@@ -12728,28 +12728,28 @@
         ],
         "faqs": [
           {
-            "question": "Quantos PDFs posso juntar de uma vez?",
-            "answer": "Adicione os documentos necessários; a quantidade prática depende dos arquivos e da memória disponível no dispositivo."
+            "question": "Posso usar o Merge PDF com apenas um arquivo?",
+            "answer": "Sim. O Merge PDF aceita um ou mais arquivos PDF. O processamento de um único arquivo cria uma cópia separada em PDF. Selecione dois ou mais PDFs somente quando quiser combinar documentos. Os arquivos originais não são alterados."
           },
           {
-            "question": "O conteúdo dos PDFs é enviado aos servidores de processamento do ClickPDF?",
-            "answer": "O conteúdo dos arquivos compatíveis é processado no navegador e não é enviado aos servidores de processamento de documentos do ClickPDF. A página ainda pode solicitar recursos ou serviços de terceiros."
+            "question": "Como posso mudar a ordem dos PDFs antes de juntá-los?",
+            "answer": "Reordene arquivos PDF inteiros na área de trabalho arrastando-os ou usando os controles de ordenação disponíveis. Visualize cada PDF de origem e confira suas páginas antes de começar. A ordem das páginas dentro de cada arquivo de origem é mantida; use primeiro Organize Pages em um PDF se precisar mudar essa ordem. O Merge PDF não oferece um campo de senha para PDFs padrão criptografados; forneça uma cópia legível e desbloqueada. O Unlock PDF da ClickPDF processa apenas arquivos protegidos pelo ClickPDF Web Crypto, não qualquer PDF padrão criptografado."
           },
           {
-            "question": "A união altera a qualidade ou os links?",
-            "answer": "As páginas são unidas como conteúdo PDF, não achatadas em imagens. Links, formulários, favoritos e anotações podem variar; confira o resultado."
+            "question": "Links, formulários e anotações são preservados?",
+            "answer": "O comportamento pode variar conforme os PDFs e os visualizadores; por isso, revise o resultado combinado. A ferramenta copia objetos das páginas e dados AcroForm e renomeia os nomes de campos de formulário duplicados que aparecem depois. Formulários XFA dinâmicos e PDFs assinados digitalmente não podem ser combinados com segurança e são rejeitados."
           },
           {
-            "question": "Posso reordenar páginas individuais depois?",
-            "answer": "A ferramenta Juntar organiza documentos inteiros. Para reorganizar páginas individuais, use Organizar páginas."
+            "question": "O que acontece quando os PDFs têm páginas de tamanhos diferentes?",
+            "answer": "Sim. É possível combinar PDFs com dimensões de página diferentes. Os tamanhos não são normalizados, então as páginas podem parecer diferentes no visualizador ou na impressão. Confira o resultado antes de compartilhar."
           },
           {
             "question": "O PDF original é sobrescrito?",
-            "answer": "Não. O documento unido é baixado como um novo arquivo; mantenha os PDFs de origem."
+            "answer": "Não. O Merge PDF cria um resultado separado e lê os arquivos selecionados no navegador. A página ainda pode fazer solicitações de rede para recursos e serviços ativados; isso é diferente de enviar o conteúdo dos PDFs para um servidor de processamento."
           },
           {
-            "question": "Por que juntar muitos PDFs pode levar tempo?",
-            "answer": "O tempo depende da quantidade de arquivos e páginas e da memória disponível no dispositivo."
+            "question": "Quanto tempo leva para juntar PDFs grandes?",
+            "answer": "O tempo e o sucesso dependem da quantidade e do tamanho dos PDFs e da memória disponível no navegador e no dispositivo. O código revisado não define um limite fixo de tamanho de arquivo ou de número de páginas, mas a memória do navegador é uma limitação prática. Se o processamento falhar, tente usar menos PDFs ou arquivos menores. O Merge PDF não é uma ferramenta de compressão, portanto o arquivo final pode não ser menor."
           }
         ]
       },
@@ -14028,12 +14028,12 @@
       },
       "merge": {
         "introHeading": "Объедините несколько PDF в один документ",
-        "intro": "Добавьте не менее двух PDF-файлов, расположите их в нужном порядке и создайте общий документ. После объединения проверьте ссылки, формы, закладки и аннотации: интерактивные элементы могут различаться.",
+        "intro": "Добавьте один или несколько PDF-файлов и расположите их по порядку, если объединяете несколько документов. При обработке одного файла создаётся отдельная копия; исходный файл не изменяется. После объединения проверьте ссылки, формы, закладки и аннотации: интерактивные элементы могут различаться.",
         "stepsHeading": "Объедините PDF за три шага",
         "steps": [
           {
             "title": "Добавьте PDF-файлы",
-            "description": "Выберите не менее двух документов на устройстве или перетащите их в рабочую область."
+            "description": "Выберите один или несколько документов PDF на устройстве или перетащите их в рабочую область."
           },
           {
             "title": "Расположите документы",
@@ -14046,28 +14046,28 @@
         ],
         "faqs": [
           {
-            "question": "Сколько PDF-файлов можно объединить за раз?",
-            "answer": "Добавьте нужные документы; практический предел зависит от файлов и доступной памяти устройства."
+            "question": "Можно ли использовать Merge PDF только с одним файлом?",
+            "answer": "Да. Merge PDF принимает один или несколько PDF-файлов. Обработка одного файла создаёт отдельную копию PDF. Выбирайте два или более PDF только для объединения документов. Исходные файлы не изменяются."
           },
           {
-            "question": "Загружаются ли PDF-файлы на серверы ClickPDF?",
-            "answer": "Содержимое поддерживаемых файлов обрабатывается в браузере и не отправляется на серверы обработки документов ClickPDF. Страница при этом может запрашивать ресурсы и сторонние сервисы."
+            "question": "Как изменить порядок PDF-файлов перед объединением?",
+            "answer": "Переставьте целые PDF-файлы в рабочей области перетаскиванием или с помощью доступных средств сортировки. Перед началом просмотрите каждый исходный PDF и проверьте его страницы. Порядок страниц внутри каждого исходного файла сохраняется; сначала используйте Organize Pages для PDF, если нужно изменить порядок его страниц. В Merge PDF нет поля для пароля стандартных зашифрованных PDF; предоставьте читаемую разблокированную копию. Функция Unlock PDF от ClickPDF работает только с файлами, защищёнными ClickPDF Web Crypto, а не с любыми стандартно зашифрованными PDF."
           },
           {
-            "question": "Сохраняются ли ссылки и примечания после объединения?",
-            "answer": "Страницы объединяются как содержимое PDF, а не превращаются в изображения. Ссылки, формы, закладки и аннотации могут вести себя по-разному — проверьте результат."
+            "question": "Сохранятся ли ссылки, формы и аннотации?",
+            "answer": "Поведение может различаться в разных PDF-файлах и программах просмотра, поэтому проверьте результат объединения. Инструмент копирует объекты страниц и данные AcroForm, а последующим дублирующимся именам полей формы присваивает новые имена. Динамические формы XFA и PDF с цифровой подписью нельзя безопасно объединить, поэтому они отклоняются."
           },
           {
-            "question": "Можно ли менять порядок отдельных страниц?",
-            "answer": "Инструмент объединяет целые документы. Для перестановки отдельных страниц используйте «Организовать страницы»."
+            "question": "Что произойдёт, если в PDF-файлах страницы разного размера?",
+            "answer": "Да. PDF-файлы с разными размерами страниц можно объединить. Размеры страниц не нормализуются, поэтому в программе просмотра или при печати они могут выглядеть по-разному. Проверьте результат перед отправкой."
           },
           {
             "question": "Исходные PDF-файлы перезаписываются?",
-            "answer": "Нет. Объединённый документ скачивается как новый файл; сохраните исходники."
+            "answer": "Нет. Merge PDF создаёт отдельный результат и читает выбранные файлы в браузере. Страница по-прежнему может отправлять сетевые запросы для ресурсов и включённых служб; это не означает отправку содержимого PDF на сервер обработки."
           },
           {
-            "question": "Почему объединение множества PDF занимает время?",
-            "answer": "Время зависит от количества файлов и страниц, а также от памяти устройства."
+            "question": "Сколько времени занимает объединение больших PDF-файлов?",
+            "answer": "Время и успешность обработки зависят от количества и размера PDF-файлов, а также от памяти браузера и устройства. В проверенном коде нет фиксированного ограничения размера файла или числа страниц, но память браузера остаётся практическим пределом. При сбое попробуйте меньше файлов или файлы меньшего размера. Merge PDF не является инструментом сжатия, поэтому размер результата может не уменьшиться."
           }
         ]
       },
@@ -15166,12 +15166,12 @@
       },
       "merge": {
         "introHeading": "여러 PDF를 하나의 문서로 병합하세요",
-        "intro": "두 개 이상의 PDF를 추가하고 원하는 순서로 정렬한 뒤 하나의 문서로 만드세요. 병합 후 링크, 양식, 책갈피와 주석을 확인하세요. 문서마다 상호작용 요소가 다를 수 있습니다.",
+        "intro": "PDF 파일을 하나 이상 추가하고 여러 문서를 합칠 경우 원하는 순서로 정렬하세요. PDF 한 개만 처리하면 별도의 사본이 만들어지며 원본은 변경되지 않습니다. 병합 후 링크, 양식, 책갈피와 주석을 확인하세요. 문서마다 상호작용 요소가 다를 수 있습니다.",
         "stepsHeading": "세 단계로 PDF 병합하기",
         "steps": [
           {
             "title": "PDF 파일 추가",
-            "description": "기기에서 두 개 이상의 문서를 선택하거나 작업 영역으로 끌어오세요."
+            "description": "기기에서 PDF 문서를 하나 이상 선택하거나 작업 영역으로 끌어오세요."
           },
           {
             "title": "문서 순서 정렬",
@@ -15184,28 +15184,28 @@
         ],
         "faqs": [
           {
-            "question": "한 번에 몇 개의 PDF를 병합할 수 있나요?",
-            "answer": "필요한 문서를 추가하세요. 실제 처리 가능한 양은 파일과 기기의 사용 가능한 메모리에 따라 달라집니다."
+            "question": "PDF 파일 하나만으로도 Merge PDF를 사용할 수 있나요?",
+            "answer": "네. Merge PDF는 PDF 파일을 한 개 이상 처리합니다. 파일 하나를 처리하면 별도의 PDF 사본이 만들어집니다. 여러 문서를 합칠 때만 PDF를 두 개 이상 선택하세요. 원본 파일은 변경되지 않습니다."
           },
           {
-            "question": "PDF 내용이 ClickPDF 처리 서버로 업로드되나요?",
-            "answer": "지원되는 파일의 내용은 브라우저에서 처리되며 ClickPDF 문서 처리 서버로 전송되지 않습니다. 다만 페이지는 리소스나 타사 서비스를 요청할 수 있습니다."
+            "question": "병합 전에 PDF 파일 순서를 어떻게 바꾸나요?",
+            "answer": "작업 영역에서 드래그 앤 드롭이나 정렬 기능으로 PDF 파일 전체의 순서를 바꾸세요. 시작 전에 각 원본 PDF를 미리 보고 페이지를 확인하세요. 각 원본 파일 안의 페이지 순서는 유지됩니다. 페이지 순서를 바꾸려면 먼저 해당 PDF에서 Organize Pages를 사용하세요. Merge PDF에는 일반적인 암호화 PDF의 비밀번호 입력란이 없으므로 읽을 수 있고 잠금이 해제된 사본을 제공하세요. ClickPDF의 Unlock PDF는 ClickPDF Web Crypto로 보호된 파일만 처리하며, 모든 일반 PDF 암호화를 해제하지는 않습니다."
           },
           {
-            "question": "병합 후 링크와 주석이 유지되나요?",
-            "answer": "페이지는 이미지로 평탄화되지 않고 PDF 내용으로 합쳐집니다. 링크, 양식, 책갈피와 주석은 문서마다 다를 수 있으므로 결과를 확인하세요."
+            "question": "링크, 양식, 주석 같은 상호작용 요소가 그대로 유지되나요?",
+            "answer": "PDF와 뷰어에 따라 동작이 달라질 수 있으므로 병합 결과를 확인하세요. 도구는 페이지 객체와 AcroForm 데이터를 복사하고, 뒤에 나오는 중복 양식 필드 이름은 변경합니다. 동적 XFA 양식과 디지털 서명된 PDF는 안전하게 병합할 수 없어 거부됩니다."
           },
           {
-            "question": "병합한 뒤 개별 페이지 순서를 바꿀 수 있나요?",
-            "answer": "병합 도구는 문서 전체의 순서를 정합니다. 개별 페이지를 옮기려면 페이지 정리 도구를 사용하세요."
+            "question": "페이지 크기가 서로 다른 PDF를 합치면 어떻게 되나요?",
+            "answer": "네. 페이지 크기가 서로 다른 PDF도 합칠 수 있습니다. 페이지 크기는 통일되지 않으므로 뷰어나 인쇄물에서 페이지가 다르게 보일 수 있습니다. 공유하기 전에 결과를 확인하세요."
           },
           {
             "question": "원본 PDF가 덮어써지나요?",
-            "answer": "아니요. 병합된 문서는 새 파일로 다운로드됩니다. 원본 파일도 보관하세요."
+            "answer": "아니요. Merge PDF는 별도의 결과물을 만들고 선택한 파일을 브라우저에서 읽습니다. 웹페이지는 리소스와 활성화된 서비스를 위해 네트워크 요청을 할 수 있으며, 이는 PDF 내용을 처리 서버로 보내는 것과는 별개입니다."
           },
           {
-            "question": "PDF를 많이 병합하면 왜 시간이 걸리나요?",
-            "answer": "처리 시간은 파일과 페이지 수, 기기에서 사용할 수 있는 메모리에 따라 달라집니다."
+            "question": "대용량 PDF를 병합하는 데 얼마나 걸리나요?",
+            "answer": "처리 시간과 성공 여부는 PDF의 개수와 크기, 브라우저와 기기에서 사용할 수 있는 메모리에 따라 달라집니다. 검토한 코드에는 파일 크기나 페이지 수의 고정 제한이 없지만 브라우저 메모리는 실제 제약입니다. 실패하면 PDF 수를 줄이거나 더 작은 파일을 사용해 보세요. Merge PDF는 압축 도구가 아니므로 결과 파일이 더 작아지지 않을 수 있습니다."
           }
         ]
       },
@@ -16304,12 +16304,12 @@
       },
       "merge": {
         "introHeading": "Birden fazla PDF'yi tek belgede birleştirin",
-        "intro": "En az iki PDF ekleyin, istediğiniz sıraya koyun ve tek bir belge oluşturun. Birleştirmeden sonra bağlantıları, formları, yer imlerini ve açıklamaları kontrol edin; etkileşimli öğeler belgelere göre farklılık gösterebilir.",
+        "intro": "Bir veya daha fazla PDF ekleyin; birden çok belgeyi birleştirecekseniz istediğiniz sıraya koyun. Tek bir PDF işlendiğinde ayrı bir kopya oluşturulur ve kaynak dosya değişmez. Birleştirmeden sonra bağlantıları, formları, yer imlerini ve açıklamaları kontrol edin; etkileşimli öğeler belgelere göre farklılık gösterebilir.",
         "stepsHeading": "Üç adımda PDF birleştirme",
         "steps": [
           {
             "title": "PDF dosyalarını ekleyin",
-            "description": "Cihazınızdan en az iki belge seçin veya çalışma alanına sürükleyin."
+            "description": "Cihazınızdan bir veya daha fazla PDF belgesi seçin veya çalışma alanına sürükleyin."
           },
           {
             "title": "Belgeleri sıralayın",
@@ -16322,28 +16322,28 @@
         ],
         "faqs": [
           {
-            "question": "Bir seferde kaç PDF birleştirebilirim?",
-            "answer": "İhtiyacınız olan belgeleri ekleyin; pratik sınır dosyalara ve cihazdaki kullanılabilir belleğe bağlıdır."
+            "question": "Merge PDF'yi tek bir dosyayla kullanabilir miyim?",
+            "answer": "Evet. Merge PDF bir veya daha fazla PDF dosyasını kabul eder. Tek bir dosya işlendiğinde ayrı bir PDF kopyası oluşturulur. Yalnızca birden fazla belgeyi birleştirmek istediğinizde iki veya daha fazla PDF seçin. Orijinal dosyalar değişmez."
           },
           {
-            "question": "PDF içerikleri ClickPDF işlem sunucularına yüklenir mi?",
-            "answer": "Desteklenen dosyaların içeriği tarayıcıda işlenir ve ClickPDF belge işleme sunucularına gönderilmez. Sayfa yine de kaynak veya üçüncü taraf hizmetleri isteyebilir."
+            "question": "Birleştirmeden önce PDF dosyalarının sırasını nasıl değiştirebilirim?",
+            "answer": "Çalışma alanında sürükleyip bırakarak veya sıralama kontrollerini kullanarak PDF dosyalarının tamamını yeniden sıralayın. Başlamadan önce her kaynak PDF'yi önizleyip sayfalarını kontrol edin. Her kaynak dosyanın içindeki sayfa sırası korunur; sayfa sırasını değiştirmek için önce o PDF'de Organize Pages kullanın. Merge PDF'de standart şifreli PDF'ler için parola giriş alanı yoktur; okunabilir ve kilidi açılmış bir kopya sağlayın. ClickPDF'nin Unlock PDF özelliği yalnızca ClickPDF Web Crypto ile korunan dosyaları işler, her standart şifreli PDF'yi değil."
           },
           {
-            "question": "Birleştirme bağlantıları ve açıklamaları korur mu?",
-            "answer": "Sayfalar görüntüye dönüştürülmeden PDF içeriği olarak birleştirilir. Bağlantılar, formlar, yer imleri ve açıklamalar farklılık gösterebilir; sonucu kontrol edin."
+            "question": "Bağlantılar, formlar ve açıklamalar korunur mu?",
+            "answer": "Davranış kaynak PDF'lere ve görüntüleyicilere göre değişebilir; bu nedenle birleştirilmiş sonucu inceleyin. Araç sayfa nesnelerini ve AcroForm verilerini kopyalar, daha sonra gelen yinelenen form alanı adlarını değiştirir. Dinamik XFA formları ve dijital olarak imzalanmış PDF'ler güvenli biçimde birleştirilemez ve reddedilir."
           },
           {
-            "question": "Birleştirdikten sonra tek tek sayfaları sıralayabilir miyim?",
-            "answer": "Birleştirme aracı belgelerin sırasını düzenler. Tek tek sayfaları taşımak için Sayfaları Düzenle aracını kullanın."
+            "question": "PDF'lerin sayfa boyutları farklıysa ne olur?",
+            "answer": "Evet. Farklı sayfa boyutlarına sahip PDF'ler birleştirilebilir. Sayfa boyutları eşitlenmez; bu nedenle sayfalar görüntüleyicide veya baskıda farklı görünebilir. Paylaşmadan önce sonucu inceleyin."
           },
           {
             "question": "Orijinal PDF dosyalarının üzerine yazılır mı?",
-            "answer": "Hayır. Birleştirilmiş belge yeni bir dosya olarak indirilir; kaynak PDF'leri saklayın."
+            "answer": "Hayır. Merge PDF ayrı bir çıktı oluşturur ve seçilen dosyaları tarayıcıda okur. Sayfa, kaynaklar ve etkin hizmetler için yine de ağ istekleri yapabilir; bu, PDF içeriğinin işleme sunucusuna gönderilmesinden farklıdır."
           },
           {
-            "question": "Çok sayıda PDF'yi birleştirmek neden zaman alabilir?",
-            "answer": "İşlem süresi dosya ve sayfa sayısına ve cihaz belleğine bağlıdır."
+            "question": "Büyük PDF dosyalarını birleştirmek ne kadar sürer?",
+            "answer": "Süre ve başarı PDF sayısına ve boyutuna, ayrıca tarayıcıda ve cihazda kullanılabilir belleğe bağlıdır. İncelenen kodda sabit bir dosya boyutu veya sayfa sayısı sınırı yoktur, ancak tarayıcı belleği pratik bir kısıttır. İşlem başarısız olursa daha az sayıda veya daha küçük PDF deneyin. Merge PDF bir sıkıştırma aracı değildir; çıktı daha küçük olmayabilir."
           }
         ]
       },
@@ -17627,11 +17627,11 @@
         "steps": [
           {
             "title": "Kies PDF-bestanden",
-            "description": "Voeg de documenten toe die in het eindbestand moeten komen."
+            "description": "Selecteer één of meer PDF-documenten op je apparaat of sleep ze naar de samenvoegwerkruimte."
           },
           {
             "title": "Bepaal de volgorde",
-            "description": "Sleep de bestanden zodat de pagina's in de juiste volgorde staan."
+            "description": "Rangschik volledige PDF-bestanden in de werkruimte door ze te slepen of de sorteeropties te gebruiken. De pagina's binnen elk bronbestand behouden hun volgorde; gebruik Organize Pages afzonderlijk voor een bron-PDF als je die paginavolgorde wilt wijzigen."
           },
           {
             "title": "Voeg samen en controleer",
@@ -17640,28 +17640,28 @@
         ],
         "faqs": [
           {
-            "question": "Kan ik de volgorde vóór het samenvoegen aanpassen?",
-            "answer": "Ja. Rangschik de bestanden in de werkruimte voordat u samenvoegt; de uitvoer volgt die volgorde."
+            "question": "Kan ik Merge PDF met één PDF-bestand gebruiken?",
+            "answer": "Ja. Merge PDF ondersteunt één of meer PDF-bestanden. Als je één bestand verwerkt, wordt er een aparte kopie gemaakt; selecteer twee of meer PDF's om documenten samen te voegen. Het originele bestand blijft ongewijzigd."
           },
           {
-            "question": "Wordt een PDF kleiner door samenvoegen?",
-            "answer": "Niet automatisch. Samenvoegen is geen compressie; comprimeer het resultaat apart als er een limiet geldt en controleer de kwaliteit."
+            "question": "Hoe kan ik de volgorde van PDF-bestanden vóór het samenvoegen wijzigen?",
+            "answer": "Rangschik volledige PDF-bestanden in de werkruimte door ze te slepen of de beschikbare sorteeropties te gebruiken. Bekijk elk bronbestand vooraf en controleer de pagina's. De pagina's binnen elk bronbestand behouden hun bestaande volgorde; gebruik eerst Organize Pages voor een PDF als je de paginavolgorde wilt wijzigen. Merge PDF heeft geen wachtwoordveld voor standaard versleutelde PDF's; gebruik een leesbare, ontgrendelde kopie. Unlock PDF van ClickPDF verwerkt alleen bestanden die met ClickPDF Web Crypto zijn beveiligd, niet willekeurige standaard versleutelde PDF's."
           },
           {
-            "question": "Kan ik een PDF met wachtwoord toevoegen?",
-            "answer": "Het beveiligde bestand moet mogelijk eerst met een geschikte tool worden ontgrendeld voordat u het toevoegt."
+            "question": "Blijven links, formulieren en annotaties behouden?",
+            "answer": "Het gedrag kan verschillen per PDF en viewer; controleer daarom het samengevoegde resultaat. De tool kopieert paginaobjecten en AcroForm-gegevens en hernoemt later voorkomende dubbele formulierveldnamen. Dynamische XFA-formulieren en digitaal ondertekende PDF's kunnen niet veilig worden samengevoegd en worden geweigerd."
           },
           {
-            "question": "Worden de originele bestanden overschreven?",
-            "answer": "Nee. Er wordt een nieuw samengevoegd bestand gemaakt; bewaar de originelen totdat u het resultaat hebt gecontroleerd."
+            "question": "Wat gebeurt er als PDF's verschillende paginaformaten hebben?",
+            "answer": "Ja. PDF's met verschillende paginaformaten kunnen worden samengevoegd. De paginaformaten worden niet gelijkgetrokken, waardoor pagina's er in een viewer of op papier anders uit kunnen zien. Controleer het resultaat voordat je het deelt."
           },
           {
-            "question": "Kan ik meerdere bestanden tegelijk toevoegen?",
-            "answer": "Ja. U kunt meerdere PDF's kiezen; verwerking hangt af van bestandsgrootte, browser en beschikbaar apparaatgeheugen."
+            "question": "Worden mijn originele bestanden gewijzigd of overschreven?",
+            "answer": "Nee. Merge PDF maakt een afzonderlijk resultaat en leest de geselecteerde bestanden in de browser. De webpagina kan nog steeds netwerkverzoeken doen voor bronnen en ingeschakelde diensten; dat staat los van het versturen van PDF-inhoud naar een verwerkingsserver."
           },
           {
-            "question": "Worden mijn PDF's naar een verwerkingsserver gestuurd?",
-            "answer": "Geselecteerde bestandsinhoud wordt in de browser verwerkt en niet naar de documentverwerkingsservers van ClickPDF gestuurd; de pagina kan wel bronnen en ingeschakelde services opvragen."
+            "question": "Hoe lang duurt het samenvoegen van grote PDF's?",
+            "answer": "De verwerkingstijd en het resultaat hangen af van het aantal en de grootte van de PDF's en het beschikbare geheugen in je browser en op je apparaat. De gecontroleerde code stelt geen vaste limiet voor bestandsgrootte of paginatal in, maar browsergeheugen blijft een praktische beperking. Probeer bij een fout minder of kleinere PDF's. Merge PDF is geen compressietool, dus het resultaat is niet noodzakelijk kleiner."
           }
         ]
       },
@@ -18765,11 +18765,11 @@
         "steps": [
           {
             "title": "Wybierz pliki PDF",
-            "description": "Dodaj dokumenty, które mają znaleźć się w pliku wynikowym."
+            "description": "Wybierz jeden lub więcej dokumentów PDF na urządzeniu albo przeciągnij je do obszaru łączenia."
           },
           {
             "title": "Ustaw kolejność",
-            "description": "Przeciągnij pliki, aby strony pojawiły się we właściwym porządku."
+            "description": "Zmień kolejność całych plików PDF w obszarze roboczym, przeciągając je lub używając opcji sortowania. Strony w każdym pliku źródłowym zachowują swoją kolejność; jeśli chcesz ją zmienić, użyj osobno Organize Pages dla danego pliku źródłowego PDF."
           },
           {
             "title": "Połącz i sprawdź",
@@ -18778,28 +18778,28 @@
         ],
         "faqs": [
           {
-            "question": "Czy mogę zmienić kolejność przed połączeniem plików?",
-            "answer": "Tak. Ułóż pliki w obszarze roboczym przed połączeniem; wynik zachowa widoczną kolejność."
+            "question": "Czy mogę użyć Merge PDF z jednym plikiem PDF?",
+            "answer": "Tak. Merge PDF przyjmuje jeden lub więcej plików PDF. Przetworzenie jednego pliku tworzy osobną kopię PDF. Wybierz co najmniej dwa pliki PDF tylko wtedy, gdy chcesz połączyć dokumenty. Oryginalne pliki nie są zmieniane."
           },
           {
-            "question": "Czy łączenie zmniejsza rozmiar PDF?",
-            "answer": "Nie zawsze. Łączenie nie jest kompresją; jeśli obowiązuje limit, skompresuj plik osobno i sprawdź jego czytelność."
+            "question": "Jak zmienić kolejność plików PDF przed ich połączeniem?",
+            "answer": "Zmień kolejność całych plików PDF w obszarze roboczym, przeciągając je lub używając dostępnych opcji sortowania. Przed rozpoczęciem wyświetl podgląd każdego źródłowego pliku PDF i sprawdź jego strony. Kolejność stron w każdym pliku źródłowym pozostaje bez zmian; jeśli chcesz ją zmienić, najpierw użyj Organize Pages dla danego pliku PDF. Merge PDF nie ma pola na hasło do standardowych zaszyfrowanych plików PDF; podaj czytelną, odblokowaną kopię. Funkcja Unlock PDF w ClickPDF obsługuje tylko pliki chronione przez ClickPDF Web Crypto, a nie dowolne standardowo zaszyfrowane pliki PDF."
           },
           {
-            "question": "Czy mogę dodać PDF chroniony hasłem?",
-            "answer": "Chroniony plik może wymagać wcześniejszego odblokowania odpowiednim narzędziem."
+            "question": "Czy linki, formularze i adnotacje zostaną zachowane?",
+            "answer": "Działanie może zależeć od plików PDF i używanej przeglądarki, dlatego sprawdź połączony wynik. Narzędzie kopiuje obiekty stron i dane AcroForm, a później występujące zduplikowane nazwy pól formularza zmienia. Dynamicznych formularzy XFA i cyfrowo podpisanych plików PDF nie można bezpiecznie łączyć, więc są odrzucane."
           },
           {
-            "question": "Czy oryginalne pliki zostaną zastąpione?",
-            "answer": "Nie. Powstaje nowy połączony PDF; zachowaj oryginały do czasu sprawdzenia wyniku."
+            "question": "Co się stanie, gdy pliki PDF mają różne rozmiary stron?",
+            "answer": "Tak. Można połączyć pliki PDF o różnych wymiarach stron. Rozmiary stron nie są ujednolicane, więc strony mogą wyglądać inaczej w przeglądarce lub po wydrukowaniu. Sprawdź wynik przed udostępnieniem."
           },
           {
-            "question": "Czy mogę dodać wiele plików naraz?",
-            "answer": "Tak. Możesz dodać wiele PDF-ów; przetwarzanie zależy od rozmiaru plików, przeglądarki i pamięci urządzenia."
+            "question": "Czy oryginalne pliki są zmieniane lub nadpisywane?",
+            "answer": "Nie. Merge PDF tworzy osobny wynik i odczytuje wybrane pliki w przeglądarce. Strona może nadal wysyłać żądania sieciowe dotyczące zasobów i włączonych usług; nie oznacza to wysyłania zawartości PDF do serwera przetwarzającego."
           },
           {
-            "question": "Czy moje pliki są wysyłane na serwer?",
-            "answer": "Zawartość wybranych plików jest przetwarzana w przeglądarce i nie trafia na serwery ClickPDF do przetwarzania dokumentów; strona może nadal pobierać zasoby i korzystać z włączonych usług."
+            "question": "Ile trwa łączenie dużych plików PDF?",
+            "answer": "Czas i powodzenie przetwarzania zależą od liczby i rozmiaru plików PDF oraz pamięci dostępnej w przeglądarce i urządzeniu. Sprawdzony kod nie określa stałego limitu rozmiaru pliku ani liczby stron, ale pamięć przeglądarki jest praktycznym ograniczeniem. W razie błędu spróbuj użyć mniejszej liczby lub mniejszych plików PDF. Merge PDF nie jest narzędziem do kompresji, więc plik wynikowy nie musi być mniejszy."
           }
         ]
       },
@@ -19903,11 +19903,11 @@
         "steps": [
           {
             "title": "Välj PDF-filer",
-            "description": "Lägg till dokumenten som ska ingå i den sammanslagna filen."
+            "description": "Välj ett eller flera PDF-dokument på enheten eller dra dem till arbetsytan för sammanfogning."
           },
           {
             "title": "Ordna filerna",
-            "description": "Dra filerna så att sidorna hamnar i rätt ordning."
+            "description": "Ordna hela PDF-filer i arbetsytan genom att dra och släppa dem eller använda sorteringskontrollerna. Sidordningen i varje käll-PDF behålls; använd Organize Pages separat på källfilen om du behöver ändra sidordningen."
           },
           {
             "title": "Slå ihop och kontrollera",
@@ -19916,28 +19916,28 @@
         ],
         "faqs": [
           {
-            "question": "Kan jag ändra ordningen före sammanslagningen?",
-            "answer": "Ja. Ordna filerna i arbetsytan innan du slår ihop dem; resultatet följer den visade ordningen."
+            "question": "Kan Merge PDF användas med en enda PDF-fil?",
+            "answer": "Ja. Merge PDF accepterar en eller flera PDF-filer. När en fil behandlas skapas en separat PDF-kopia. Välj två eller fler PDF-filer endast när du vill sammanfoga dokument. Originalfilerna ändras inte."
           },
           {
-            "question": "Blir PDF-filen mindre när jag slår ihop filer?",
-            "answer": "Inte automatiskt. Sammanfogning är inte komprimering; komprimera resultatet separat om en storleksgräns gäller och kontrollera kvaliteten."
+            "question": "Hur ändrar jag ordningen på PDF-filer före sammanfogningen?",
+            "answer": "Ordna hela PDF-filer i arbetsytan genom att dra och släppa dem eller använda tillgängliga sorteringskontroller. Förhandsgranska varje käll-PDF och kontrollera dess sidor innan du börjar. Sidordningen i varje källfil behålls; använd först Organize Pages på en PDF om du vill ändra sidordningen. Merge PDF har inget lösenordsfält för standardkrypterade PDF-filer; använd en läsbar, upplåst kopia. ClickPDFs Unlock PDF hanterar bara filer som skyddats med ClickPDF Web Crypto, inte godtyckliga standardkrypterade PDF-filer."
           },
           {
-            "question": "Kan jag lägga till en lösenordsskyddad PDF?",
-            "answer": "Den skyddade filen kan behöva låsas upp med ett lämpligt verktyg innan den läggs till."
+            "question": "Bevaras länkar, formulär och kommentarer?",
+            "answer": "Beteendet kan variera mellan PDF-filer och visningsprogram, så kontrollera den sammanfogade filen. Verktyget kopierar sidobjekt och AcroForm-data och byter namn på senare dubblerade formulärfältsnamn. Dynamiska XFA-formulär och digitalt signerade PDF-filer kan inte sammanfogas säkert och avvisas."
           },
           {
-            "question": "Skrivs originalfilerna över?",
-            "answer": "Nej. En ny sammanslagen PDF skapas; behåll originalen tills du har kontrollerat resultatet."
+            "question": "Vad händer om PDF-filerna har olika sidstorlekar?",
+            "answer": "Ja. PDF-filer med olika sidmått kan sammanfogas. Sidstorlekarna normaliseras inte, så sidorna kan se olika ut i ett visningsprogram eller vid utskrift. Granska resultatet innan du delar det."
           },
           {
-            "question": "Kan jag lägga till flera filer samtidigt?",
-            "answer": "Ja. Du kan välja flera PDF-filer; bearbetningen beror på filstorlek, webbläsare och enhetens tillgängliga minne."
+            "question": "Ändras eller skrivs originalfilerna över?",
+            "answer": "Nej. Merge PDF skapar en separat utdatafil och läser de valda filerna i webbläsaren. Sidan kan fortfarande göra nätverksförfrågningar för resurser och aktiverade tjänster; det är skilt från att skicka PDF-innehåll till en bearbetningsserver."
           },
           {
-            "question": "Skickas mina PDF-filer till en server?",
-            "answer": "Valt filinnehåll behandlas i webbläsaren och skickas inte till ClickPDF:s dokumentservrar; sidan kan fortfarande hämta resurser och använda aktiverade tjänster."
+            "question": "Hur lång tid tar det att sammanfoga stora PDF-filer?",
+            "answer": "Tidsåtgång och resultat beror på PDF-filernas antal och storlek samt på minnet som finns tillgängligt i webbläsaren och på enheten. Den granskade koden har ingen fast gräns för filstorlek eller sidantal, men webbläsarens minne är en praktisk begränsning. Försök med färre eller mindre PDF-filer om behandlingen misslyckas. Merge PDF är inget komprimeringsverktyg, så utdatafilen blir inte nödvändigtvis mindre."
           }
         ]
       },
@@ -21036,12 +21036,12 @@
       },
       "merge": {
         "introHeading": "Gabungkan beberapa PDF menjadi satu file",
-        "intro": "Tambahkan dua atau lebih PDF, atur urutannya, lalu buat satu file gabungan. Periksa tautan, formulir, bookmark, dan anotasi pada hasil karena fitur interaktif dapat berbeda di setiap dokumen.",
+        "intro": "Tambahkan satu atau lebih PDF dan atur urutannya jika ingin menggabungkan beberapa dokumen. Memproses satu file akan membuat salinan terpisah; file asli tidak berubah. Periksa tautan, formulir, bookmark, dan anotasi pada hasil karena fitur interaktif dapat berbeda di setiap dokumen.",
         "stepsHeading": "Gabungkan PDF dalam tiga langkah",
         "steps": [
           {
             "title": "Tambahkan file PDF",
-            "description": "Pilih setidaknya dua dokumen dari perangkat atau seret ke ruang kerja."
+            "description": "Pilih satu atau beberapa dokumen PDF dari perangkat atau seret ke ruang kerja."
           },
           {
             "title": "Atur urutan dokumen",
@@ -21054,28 +21054,28 @@
         ],
         "faqs": [
           {
-            "question": "Berapa banyak PDF yang dapat saya gabungkan sekaligus?",
-            "answer": "Tambahkan dokumen sesuai kebutuhan; jumlah praktis bergantung pada file dan memori perangkat yang tersedia."
+            "question": "Bisakah saya menggunakan Merge PDF hanya dengan satu file?",
+            "answer": "Ya. Merge PDF menerima satu atau beberapa file PDF. Memproses satu file akan membuat salinan PDF terpisah. Pilih dua file PDF atau lebih hanya jika ingin menggabungkan beberapa dokumen. File asli tidak diubah."
           },
           {
-            "question": "Apakah PDF saya dikirim ke server pemrosesan ClickPDF?",
-            "answer": "Isi file yang didukung diproses di browser dan tidak dikirim ke server pemrosesan dokumen ClickPDF. Halaman tetap dapat meminta sumber daya atau layanan pihak ketiga."
+            "question": "Bagaimana cara mengubah urutan file PDF sebelum digabungkan?",
+            "answer": "Susun ulang seluruh file PDF di ruang kerja dengan menyeretnya atau menggunakan kontrol urutan yang tersedia. Pratinjau setiap PDF sumber dan periksa halamannya sebelum mulai. Urutan halaman di dalam setiap file sumber tetap sama; gunakan Organize Pages pada PDF terlebih dahulu jika ingin mengubah urutan halamannya. Merge PDF tidak menyediakan kolom kata sandi untuk PDF standar yang terenkripsi; berikan salinan yang dapat dibaca dan sudah dibuka kuncinya. Unlock PDF dari ClickPDF hanya menangani file yang dilindungi ClickPDF Web Crypto, bukan sembarang enkripsi PDF standar."
           },
           {
-            "question": "Apakah penggabungan merusak kualitas atau tautan?",
-            "answer": "Halaman digabung sebagai konten PDF, bukan diratakan menjadi gambar. Tautan, formulir, bookmark, dan anotasi dapat berbeda; periksa file hasil."
+            "question": "Apakah tautan, formulir, dan anotasi tetap berfungsi?",
+            "answer": "Perilakunya dapat berbeda menurut PDF dan aplikasi pembaca, jadi periksa hasil gabungan. Alat ini menyalin objek halaman dan data AcroForm, serta mengganti nama bidang formulir duplikat yang muncul berikutnya. Formulir XFA dinamis dan PDF yang ditandatangani secara digital tidak dapat digabungkan dengan aman sehingga ditolak."
           },
           {
-            "question": "Bisakah saya mengubah urutan halaman satu per satu?",
-            "answer": "Alat Gabungkan mengatur urutan dokumen. Untuk menyusun halaman individual, gunakan alat Atur Halaman."
+            "question": "Apa yang terjadi jika PDF memiliki ukuran halaman yang berbeda?",
+            "answer": "Ya. PDF dengan ukuran halaman berbeda dapat digabungkan. Ukuran halaman tidak diseragamkan, jadi tampilannya mungkin berbeda di aplikasi pembaca atau saat dicetak. Periksa hasilnya sebelum dibagikan."
           },
           {
             "question": "Apakah PDF asli akan ditimpa?",
-            "answer": "Tidak. File gabungan diunduh sebagai dokumen baru; simpan PDF sumber."
+            "answer": "Tidak. Merge PDF membuat hasil terpisah dan membaca file yang dipilih di browser. Halaman web tetap dapat mengirim permintaan jaringan untuk resource dan layanan yang diaktifkan; hal ini berbeda dari mengirim isi PDF ke server pemrosesan."
           },
           {
-            "question": "Mengapa penggabungan PDF besar memerlukan waktu?",
-            "answer": "Waktu pemrosesan bergantung pada jumlah file, halaman, dan memori perangkat yang tersedia."
+            "question": "Berapa lama waktu yang dibutuhkan untuk menggabungkan PDF berukuran besar?",
+            "answer": "Waktu dan keberhasilan pemrosesan bergantung pada jumlah dan ukuran PDF serta memori yang tersedia di browser dan perangkat. Kode yang ditinjau tidak menetapkan batas tetap ukuran file atau jumlah halaman, tetapi memori browser tetap menjadi batas praktis. Jika gagal, coba lebih sedikit atau file PDF yang lebih kecil. Merge PDF bukan alat kompresi, jadi file hasilnya belum tentu lebih kecil."
           }
         ]
       },
@@ -22174,12 +22174,12 @@
       },
       "merge": {
         "introHeading": "Gộp nhiều PDF thành một tệp",
-        "intro": "Thêm từ hai PDF trở lên, sắp xếp thứ tự rồi tạo một tệp kết hợp. Kiểm tra liên kết, biểu mẫu, dấu trang và chú thích trong kết quả vì các tính năng tương tác có thể khác nhau giữa các tài liệu.",
+        "intro": "Thêm một hoặc nhiều PDF; nếu gộp nhiều tài liệu, hãy sắp xếp theo thứ tự mong muốn. Xử lý một tệp sẽ tạo bản sao riêng; tệp gốc không bị thay đổi. Hãy kiểm tra liên kết, biểu mẫu, dấu trang và chú thích trong kết quả vì các tính năng tương tác có thể khác nhau giữa các tài liệu.",
         "stepsHeading": "Gộp PDF trong ba bước",
         "steps": [
           {
             "title": "Thêm tệp PDF",
-            "description": "Chọn ít nhất hai tài liệu trên thiết bị hoặc kéo chúng vào vùng làm việc."
+            "description": "Chọn một hoặc nhiều tài liệu PDF trên thiết bị hoặc kéo chúng vào vùng làm việc."
           },
           {
             "title": "Sắp xếp thứ tự tài liệu",
@@ -22192,28 +22192,28 @@
         ],
         "faqs": [
           {
-            "question": "Tôi có thể gộp bao nhiêu PDF cùng lúc?",
-            "answer": "Thêm các tài liệu cần thiết; số lượng thực tế phụ thuộc vào tệp và bộ nhớ thiết bị còn trống."
+            "question": "Tôi có thể dùng Merge PDF chỉ với một tệp không?",
+            "answer": "Có. Merge PDF chấp nhận một hoặc nhiều tệp PDF. Xử lý một tệp sẽ tạo một bản sao PDF riêng. Chỉ chọn từ hai tệp PDF trở lên khi bạn muốn gộp nhiều tài liệu. Các tệp gốc không bị thay đổi."
           },
           {
-            "question": "Tệp của tôi có được gửi đến máy chủ xử lý ClickPDF không?",
-            "answer": "Nội dung PDF được hỗ trợ xử lý trong trình duyệt và không gửi đến máy chủ xử lý tài liệu ClickPDF. Trang vẫn có thể yêu cầu tài nguyên hoặc dịch vụ bên thứ ba."
+            "question": "Làm cách nào để đổi thứ tự các tệp PDF trước khi gộp?",
+            "answer": "Sắp xếp lại toàn bộ tệp PDF trong vùng làm việc bằng cách kéo thả hoặc dùng các tùy chọn sắp xếp. Xem trước từng PDF nguồn và kiểm tra các trang trước khi bắt đầu. Thứ tự trang trong mỗi tệp nguồn được giữ nguyên; hãy dùng Organize Pages trên PDF đó trước nếu cần đổi thứ tự trang. Merge PDF không có ô nhập mật khẩu cho PDF tiêu chuẩn được mã hóa; hãy cung cấp bản có thể đọc và đã mở khóa. Unlock PDF của ClickPDF chỉ xử lý tệp được bảo vệ bằng ClickPDF Web Crypto, không xử lý mọi kiểu mã hóa PDF tiêu chuẩn."
           },
           {
-            "question": "Gộp PDF có làm giảm chất lượng hoặc hỏng liên kết không?",
-            "answer": "Các trang được gộp dưới dạng nội dung PDF, không chuyển thành ảnh phẳng. Liên kết, biểu mẫu, dấu trang và chú thích có thể khác nhau; hãy kiểm tra tệp kết quả."
+            "question": "Liên kết, biểu mẫu và chú thích có được giữ nguyên không?",
+            "answer": "Cách hoạt động có thể khác nhau tùy PDF và trình xem, vì vậy hãy kiểm tra kết quả đã gộp. Công cụ sao chép đối tượng trang và dữ liệu AcroForm, đồng thời đổi tên các trường biểu mẫu trùng lặp xuất hiện sau. Biểu mẫu XFA động và PDF có chữ ký số không thể gộp an toàn nên sẽ bị từ chối."
           },
           {
-            "question": "Tôi có thể đổi thứ tự từng trang không?",
-            "answer": "Công cụ Gộp sắp xếp toàn bộ tài liệu. Để sắp xếp từng trang, hãy dùng công cụ Sắp xếp trang."
+            "question": "Điều gì xảy ra nếu các PDF có kích thước trang khác nhau?",
+            "answer": "Có. Có thể gộp các PDF có kích thước trang khác nhau. Kích thước trang không được chuẩn hóa, nên các trang có thể hiển thị khác trong trình xem hoặc khi in. Hãy kiểm tra kết quả trước khi chia sẻ."
           },
           {
             "question": "Tệp PDF nguồn có bị thay đổi không?",
-            "answer": "Không. Tệp kết hợp được tải xuống thành tài liệu mới; hãy giữ các PDF nguồn."
+            "answer": "Không. Merge PDF tạo một kết quả riêng và đọc các tệp đã chọn trong trình duyệt. Trang web vẫn có thể gửi yêu cầu mạng để tải tài nguyên và dịch vụ được bật; điều này khác với việc gửi nội dung PDF đến máy chủ xử lý."
           },
           {
-            "question": "Vì sao gộp PDF lớn mất nhiều thời gian?",
-            "answer": "Thời gian xử lý phụ thuộc vào số tệp, số trang và bộ nhớ thiết bị hiện có."
+            "question": "Gộp các tệp PDF lớn mất bao lâu?",
+            "answer": "Thời gian và khả năng xử lý thành công phụ thuộc vào số lượng, kích thước PDF và bộ nhớ có sẵn trong trình duyệt và trên thiết bị. Mã đã kiểm tra không đặt giới hạn cố định về kích thước tệp hoặc số trang, nhưng bộ nhớ trình duyệt vẫn là giới hạn thực tế. Nếu xử lý thất bại, hãy thử ít PDF hơn hoặc tệp nhỏ hơn. Merge PDF không phải công cụ nén nên tệp kết quả có thể không nhỏ hơn."
           }
         ]
       },

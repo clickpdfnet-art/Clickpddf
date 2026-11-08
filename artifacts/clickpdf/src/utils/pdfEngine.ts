@@ -3,6 +3,7 @@ import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { initPdfWorker } from './pdfWorkerSetup';
 import { runPdfBackground } from './pdfBackground';
 import { downloadFile } from './downloadFile';
+import { mergePdfDocuments } from './mergePdfDocument';
 import {
   readSafeArrayBuffer,
   yieldToMainThread,
@@ -18,45 +19,24 @@ export function downloadBlob(data: Uint8Array | Blob, fileName: string, mimeType
 }
 
 /**
- * Merge multiple PDF files into one with memory protection and dereferencing.
+ * Merge one or more PDF files into one with memory protection and dereferencing.
  */
 export async function mergePdfFiles(
   files: File[],
-  onProgress?: (current: number, total: number) => void
+  onProgress?: (current: number, total: number) => void,
+  signal?: AbortSignal,
 ): Promise<Uint8Array> {
-  if (typeof Worker !== 'undefined') return runPdfBackground('merge', files, onProgress);
-  const mergedPdf = await PDFDocument.create();
-
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    try {
-      let arrayBuffer: ArrayBuffer | null = null;
+  if (typeof Worker !== 'undefined') return runPdfBackground('merge', files, onProgress, undefined, signal);
+  return mergePdfDocuments(files, onProgress, {
+    readFile: async (file) => {
       try {
-        arrayBuffer = await file.arrayBuffer();
+        return await file.arrayBuffer();
       } catch {
-        arrayBuffer = await readSafeArrayBuffer(file);
+        return readSafeArrayBuffer(file);
       }
-      const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: false });
-      arrayBuffer = null; // Free raw ArrayBuffer memory immediately
-      const pageIndices = pdf.getPageIndices();
-      const copiedPages = await mergedPdf.copyPages(pdf, pageIndices);
-      for (let pageIndex = 0; pageIndex < copiedPages.length; pageIndex++) {
-        mergedPdf.addPage(copiedPages[pageIndex]);
-        if (pageIndex % 25 === 24) await yieldToMainThread(0);
-      }
-    } catch (err) {
-      throw new Error(formatMemoryErrorMessage(err, file.name));
-    }
-
-    if (onProgress) {
-      onProgress(i + 1, files.length);
-    }
-    // Yield event loop to allow browser garbage collection of previous buffers
-    await yieldToMainThread(40);
-  }
-
-  // Memory-safe save with compressed object streams to minimize RAM usage and file size
-  return await mergedPdf.save({ useObjectStreams: true });
+    },
+    yieldToMainThread,
+  });
 }
 
 /**

@@ -21,8 +21,8 @@ PDF operations may use significant browser memory and processing time, especiall
 URL: https://www.clickpdf.net/tools/merge-pdf/
 Description: Merge PDFs online, reorder them with drag and drop, and download one file. Processing runs in your browser; page resources may still make requests.
 Key capabilities: Browser-Based File Processing; PDF Page Content; Browser Processing; Local PDF Processing
-Typical workflow: Add the PDF files: Select at least two PDF documents from your device or drop them into the merge workspace. → Set the document order: Drag files into sequence or use the available sort controls before combining them. → Merge and review: Create and download the combined PDF, then check page order and any links, forms, or annotations you need.
-Common questions: Why does Merge PDF need more than one file? | Can I change the file sequence before combining PDFs? | Will links, forms, and annotations behave exactly as before? | Can one merged PDF contain pages with different sizes? | Does merging overwrite any of my original PDFs? | What affects how quickly a large merge finishes?
+Typical workflow: Add the PDF files: Select one or more PDF documents from your device or drop them into the merge workspace. → Set the document order: Drag files into sequence or use the available sort controls before combining them. → Merge and review: Create and download the combined PDF, then check page order and any links, forms, or annotations you need.
+Common questions: Can I use Merge PDF with just one file? | Can I change the file sequence before combining PDFs? | Will links, forms, and annotations behave exactly as before? | Can one merged PDF contain pages with different sizes? | Does merging overwrite any of my original PDFs? | What affects how quickly a large merge finishes?
 
 ### Split PDF Online — Extract Pages or Page Ranges
 URL: https://www.clickpdf.net/tools/split-pdf/

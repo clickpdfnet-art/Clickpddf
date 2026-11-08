@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
@@ -19,6 +20,12 @@ import {
 } from './clickpdf-release-provenance.mjs';
 import { createClickPdfReleaseManifest } from './create-clickpdf-release-manifest.mjs';
 import { verifyPublishedAssets } from './verify-clickpdf-release.mjs';
+import {
+  assertApprovedReleaseCommit,
+  assertPrebuiltAssetInventoryMatches,
+  assertPrebuiltManifestContract,
+  verifyPrebuiltArtifacts,
+} from './clickpdf-prebuilt-release.mjs';
 
 const sourceRevision = 'a'.repeat(40);
 const buildInputs = {
@@ -161,6 +168,192 @@ test('read-only published asset verification compares served bytes with the mani
     verifyPublishedAssets(manifest, new URL('https://example.test'), async () => new Response('wrong')),
     /published bytes differ/,
   );
+});
+
+test('prebuilt release contract pins its source SHA, Preserve Build mode, and protected hashes', () => {
+  const protectedFileSha256 = {
+    'artifacts/clickpdf/public/sitemap.xml': '1'.repeat(64),
+    'artifacts/clickpdf/dist/public/sitemap.xml': '1'.repeat(64),
+    'artifacts/clickpdf/public/llms.txt': '2'.repeat(64),
+    'artifacts/clickpdf/dist/public/llms.txt': '2'.repeat(64),
+    'artifacts/clickpdf/public/llms-full.txt': '3'.repeat(64),
+    'artifacts/clickpdf/dist/public/llms-full.txt': '3'.repeat(64),
+    'artifacts/clickpdf/dist/public/sitemap_index.xml': '4'.repeat(64),
+  };
+  const manifest = createReleaseManifest({
+    sourceRevision,
+    assets: [{ path: '/index.html', bytes: 1, sha256: sha256(Buffer.from('x')) }],
+    buildInputs: {
+      ...buildInputs,
+      buildMode: 'sitemap-preserving',
+      protectedFileSha256,
+    },
+  });
+
+  assert.equal(
+    assertPrebuiltManifestContract(manifest, sourceRevision, protectedFileSha256),
+    true,
+  );
+  const wrongSourceManifest = createReleaseManifest({
+    sourceRevision: 'b'.repeat(40),
+    assets: manifest.assets,
+    buildInputs: manifest.buildInputs,
+  });
+  assert.throws(
+    () => assertPrebuiltManifestContract(wrongSourceManifest, sourceRevision, protectedFileSha256),
+    /source revision/i,
+  );
+  const standardModeManifest = createReleaseManifest({
+    sourceRevision,
+    assets: manifest.assets,
+    buildInputs: { ...manifest.buildInputs, buildMode: 'standard' },
+  });
+  assert.throws(
+    () => assertPrebuiltManifestContract(standardModeManifest, sourceRevision, protectedFileSha256),
+    /sitemap-preserving/i,
+  );
+  assert.throws(
+    () => assertPrebuiltManifestContract(manifest, sourceRevision, {
+      ...protectedFileSha256,
+      'artifacts/clickpdf/public/sitemap.xml': 'f'.repeat(64),
+    }),
+    /protected-file hashes/i,
+  );
+});
+
+test('prebuilt release commit must be a single approved-baseline child with an exact file scope', async () => {
+  const rootDirectory = await mkdtemp(path.join(os.tmpdir(), 'clickpdf-release-scope-'));
+  const runGit = (args) => execFileSync('git', args, {
+    cwd: rootDirectory,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  }).trim();
+  try {
+    runGit(['init', '--quiet']);
+    runGit(['config', 'user.name', 'ClickPDF Test']);
+    runGit(['config', 'user.email', 'clickpdf-test@example.invalid']);
+    await writeFile(path.join(rootDirectory, 'base.txt'), 'base');
+    runGit(['add', 'base.txt']);
+    runGit(['commit', '--quiet', '-m', 'test base']);
+    const parent = runGit(['rev-parse', 'HEAD']);
+
+    await writeFile(path.join(rootDirectory, 'approved.txt'), 'approved');
+    runGit(['add', 'approved.txt']);
+    runGit(['commit', '--quiet', '-m', 'test release']);
+    const sourceRevision = runGit(['rev-parse', 'HEAD']);
+
+    assert.deepEqual(
+      assertApprovedReleaseCommit({
+        rootDirectory,
+        sourceRevision,
+        expectedParent: parent,
+        expectedPaths: ['approved.txt'],
+      }),
+      { parent, files: ['approved.txt'] },
+    );
+    assert.throws(
+      () => assertApprovedReleaseCommit({
+        rootDirectory,
+        sourceRevision,
+        expectedParent: 'f'.repeat(40),
+        expectedPaths: ['approved.txt'],
+      }),
+      /sole parent/i,
+    );
+    assert.throws(
+      () => assertApprovedReleaseCommit({
+        rootDirectory,
+        sourceRevision,
+        expectedParent: parent,
+        expectedPaths: ['unrelated.txt'],
+      }),
+      /file scope mismatch/i,
+    );
+  } finally {
+    await rm(rootDirectory, { recursive: true, force: true });
+  }
+});
+
+test('prebuilt artifact verification checks exact source, protected files, worker source, and asset inventory', async () => {
+  const rootDirectory = await mkdtemp(path.join(os.tmpdir(), 'clickpdf-prebuilt-'));
+  const publicSource = path.join(rootDirectory, 'artifacts/clickpdf/public');
+  const publicOutput = path.join(rootDirectory, 'artifacts/clickpdf/dist/public');
+  const sourceRevision = 'd'.repeat(40);
+  const protectedFileSha256 = {};
+  try {
+    await mkdir(path.join(publicOutput, 'assets'), { recursive: true });
+    await mkdir(publicSource, { recursive: true });
+    const protectedPairs = [
+      ['artifacts/clickpdf/public/sitemap.xml', 'artifacts/clickpdf/dist/public/sitemap.xml', 'sitemap'],
+      ['artifacts/clickpdf/public/llms.txt', 'artifacts/clickpdf/dist/public/llms.txt', 'llms'],
+      ['artifacts/clickpdf/public/llms-full.txt', 'artifacts/clickpdf/dist/public/llms-full.txt', 'llms-full'],
+    ];
+    for (const [sourcePath, outputPath, content] of protectedPairs) {
+      const bytes = Buffer.from(content);
+      await mkdir(path.dirname(path.join(rootDirectory, sourcePath)), { recursive: true });
+      await mkdir(path.dirname(path.join(rootDirectory, outputPath)), { recursive: true });
+      await writeFile(path.join(rootDirectory, sourcePath), bytes);
+      await writeFile(path.join(rootDirectory, outputPath), bytes);
+      protectedFileSha256[sourcePath] = sha256(bytes);
+      protectedFileSha256[outputPath] = sha256(bytes);
+    }
+    const sitemapIndexBytes = Buffer.from('sitemap index');
+    await writeFile(path.join(publicOutput, 'sitemap_index.xml'), sitemapIndexBytes);
+    protectedFileSha256['artifacts/clickpdf/dist/public/sitemap_index.xml'] = sha256(sitemapIndexBytes);
+
+    const workerSource = Buffer.from('export default {}');
+    await writeFile(path.join(rootDirectory, 'artifacts/clickpdf/cloudflare-worker.mjs'), workerSource);
+    const lockfile = Buffer.from('lockfile');
+    const wranglerConfig = Buffer.from('name = "clickpddf"');
+    await writeFile(path.join(rootDirectory, 'pnpm-lock.yaml'), lockfile);
+    await writeFile(path.join(rootDirectory, 'wrangler.toml'), wranglerConfig);
+    await writeFile(path.join(publicOutput, 'assets/app.js'), 'app');
+    const assets = await collectStaticAssetEntries(publicOutput);
+    const manifest = createReleaseManifest({
+      sourceRevision,
+      assets,
+      buildInputs: {
+        ...buildInputs,
+        lockfileSha256: sha256(lockfile),
+        wranglerConfigSha256: sha256(wranglerConfig),
+        workerSourceSha256: sha256(workerSource),
+        buildMode: 'sitemap-preserving',
+        protectedFileSha256,
+      },
+    });
+
+    assert.equal(
+      await verifyPrebuiltArtifacts({
+        rootDirectory,
+        sourceRevision,
+        manifest,
+        expectedProtectedHashes: protectedFileSha256,
+      }),
+      manifest,
+    );
+    assert.equal(assertPrebuiltAssetInventoryMatches(assets, assets), true);
+    assert.throws(
+      () => assertPrebuiltAssetInventoryMatches(assets, [...assets, {
+        path: '/unexpected.js',
+        bytes: 1,
+        sha256: sha256(Buffer.from('x')),
+      }]),
+      /do not match/i,
+    );
+
+    await writeFile(path.join(publicOutput, 'assets/app.js'), 'changed');
+    await assert.rejects(
+      verifyPrebuiltArtifacts({
+        rootDirectory,
+        sourceRevision,
+        manifest,
+        expectedProtectedHashes: protectedFileSha256,
+      }),
+      /do not match the recorded artifact inventory/i,
+    );
+  } finally {
+    await rm(rootDirectory, { recursive: true, force: true });
+  }
 });
 
 test('release manifest endpoint is served without cache and excluded from indexing', async () => {

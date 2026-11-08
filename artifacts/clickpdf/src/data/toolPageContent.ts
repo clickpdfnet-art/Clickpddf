@@ -26,17 +26,17 @@ export const TOOL_PAGE_CONTENT: Record<string, ToolPageContent> = {
   merge: {
     stepsHeading: 'How to Merge PDF Files in Three Steps',
     steps: [
-      { step: 1, title: 'Add the PDF files', description: 'Select at least two PDF documents from your device or drop them into the merge workspace.' },
+      { step: 1, title: 'Add the PDF files', description: 'Select one or more PDF documents from your device or drop them into the merge workspace.' },
       { step: 2, title: 'Set the document order', description: 'Drag files into sequence or use the available sort controls before combining them.' },
       { step: 3, title: 'Merge and review', description: 'Create and download the combined PDF, then check page order and any links, forms, or annotations you need.' },
     ],
     faqs: [
-      { question: 'Why does Merge PDF need more than one file?', answer: 'The merge action combines separate documents, so add at least two PDFs. Open each file first if you need to confirm that it contains the right pages.' },
-      { question: 'Can I change the file sequence before combining PDFs?', answer: 'Yes. Reorder the selected documents in the workspace, or use its available sort controls, before starting the merge.' },
-      { question: 'Will links, forms, and annotations behave exactly as before?', answer: 'That can vary between source PDFs and viewers. Open the merged result and test any interactive elements that matter to your submission.' },
-      { question: 'Can one merged PDF contain pages with different sizes?', answer: 'PDFs with different page dimensions can be combined, but the pages may look different in a viewer or when printed. Review the output before sharing it.' },
-      { question: 'Does merging overwrite any of my original PDFs?', answer: 'No. The merged document is a separate output. Keep your original files until you have checked and saved the combined copy.' },
-      { question: 'What affects how quickly a large merge finishes?', answer: 'Processing time depends on the number and size of the PDFs and the memory available in your browser and device. Very large batches may work more reliably in smaller groups.' },
+      { question: 'Can I use Merge PDF with just one file?', answer: 'Yes. Merge PDF accepts one or more PDF files. Processing a single file creates a separate PDF copy. Select two or more PDFs only when you want to combine documents. Your original files are not changed.' },
+      { question: 'Can I change the file sequence before combining PDFs?', answer: 'Yes. Reorder whole PDF files in the workspace using drag-and-drop or the available ordering controls. Preview each source PDF and check its pages before starting. Merge PDF keeps the pages within each source file in their existing order; use Organize Pages on a PDF first if you need to change its page order. Merge PDF has no password-entry option for standard encrypted PDFs; provide a readable, unlocked copy. ClickPDF’s Unlock PDF feature handles ClickPDF Web Crypto-protected files, not arbitrary standard PDF encryption.' },
+      { question: 'Will links, forms, and annotations behave exactly as before?', answer: 'Their behavior can vary between PDFs and viewers, so review the merged output. The merger copies page objects and AcroForm data, and renames later duplicate form-field names. Dynamic XFA forms and digitally signed PDFs cannot be safely merged and are rejected.' },
+      { question: 'Can one merged PDF contain pages with different sizes?', answer: 'Yes. PDFs with different page dimensions can be combined. Page sizes are not normalized, so pages may look different in a viewer or when printed. Review the output before sharing it.' },
+      { question: 'Does merging overwrite any of my original PDFs?', answer: 'No. Merge PDF creates a separate output and reads the selected files in the browser. The page may still make network requests for resources and enabled services; that is separate from sending PDF contents to a processing server.' },
+      { question: 'What affects how quickly a large merge finishes?', answer: 'Processing time and success depend on the number and size of the PDFs and the memory available in your browser and device. There is no fixed file-size or page-count cap in the reviewed code, but browser memory is a practical limit. Try fewer or smaller PDFs if processing fails. Merging is not a compression operation, so the output may not be smaller.' },
     ],
   },
   split: {

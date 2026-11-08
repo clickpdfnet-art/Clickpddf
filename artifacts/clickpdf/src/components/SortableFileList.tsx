@@ -59,6 +59,11 @@ interface SortableFileCardProps {
   isMultiFile: boolean;
   processedInfo?: ProcessedFileInfo;
   language?: string;
+  previewLabels?: {
+    label: string;
+    thisFileTitle: string;
+    processedFileTitle: string;
+  };
   onPreview: (file: File) => void;
   onRemove: (index: number) => void;
   onMoveUp: (index: number) => void;
@@ -73,6 +78,7 @@ const SortableFileCard: React.FC<SortableFileCardProps> = ({
   isMultiFile,
   processedInfo,
   language,
+  previewLabels,
   onPreview,
   onRemove,
   onMoveUp,
@@ -321,10 +327,13 @@ const SortableFileCard: React.FC<SortableFileCardProps> = ({
             }
           }}
           className="px-2.5 py-1 text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-white bg-indigo-50/70 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900 rounded-lg transition-colors flex items-center gap-1 cursor-pointer font-semibold border border-indigo-100 dark:border-indigo-800"
-          title={processedInfo?.status === 'done' ? 'Preview processed file' : 'Preview this file'}
+          aria-label={previewLabels?.label}
+          title={processedInfo?.status === 'done'
+            ? previewLabels?.processedFileTitle || 'Preview processed file'
+            : previewLabels?.thisFileTitle || 'Preview this file'}
         >
           <Eye className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Preview</span>
+          <span className="hidden sm:inline">{previewLabels?.label || 'Preview'}</span>
         </button>
 
         {/* Keyboard/Accessible Move Arrows */}
@@ -374,6 +383,11 @@ interface SortableFileListProps {
   toolId: string;
   processedFiles?: Record<string, ProcessedFileInfo>;
   language?: string;
+  previewLabels?: {
+    label: string;
+    thisFileTitle: string;
+    processedFileTitle: string;
+  };
   onReorder: (newItems: OrderedFile[]) => void;
   onPreview: (file: File) => void;
   onRemove: (index: number) => void;
@@ -387,6 +401,7 @@ export const SortableFileList: React.FC<SortableFileListProps> = ({
   toolId,
   processedFiles,
   language,
+  previewLabels,
   onReorder,
   onPreview,
   onRemove,
@@ -565,6 +580,7 @@ export const SortableFileList: React.FC<SortableFileListProps> = ({
                 isMultiFile={isMultiFile}
                 processedInfo={processedFiles?.[item.id]}
                 language={language}
+                previewLabels={previewLabels}
                 onPreview={onPreview}
                 onRemove={onRemove}
                 onMoveUp={handleMoveUp}

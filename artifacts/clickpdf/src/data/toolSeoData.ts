@@ -51,7 +51,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
     aliases: ['merge', 'combine-pdf', 'join-pdf', 'merge-pdf-files'],
     h1Title: 'Merge PDF Online — Combine Files in Your Browser',
     metaTitle: 'Merge PDF Online Free: Combine PDF Files | ClickPDF',
-    metaDescription: 'Merge PDFs online, reorder them with drag and drop, and download one file. Processing runs in your browser; page resources may still make requests.',
+    metaDescription: 'Process one or more PDFs in your browser. Create a separate copy from one file or combine multiple files in your chosen order; review the output.',
     keywords: 'merge PDF online, combine PDF files, join PDF online, merge PDF files free',
     targetKeywords: ['merge PDF online', 'merge PDF online free', 'combine PDF files', 'merge PDF without sign up'],
     badge: 'Browser-Based Processing',
@@ -64,23 +64,23 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       {
         step: 1,
         title: 'Upload or Drop PDF Files',
-        description: 'Select two or more PDF documents from your device or drag them directly into the designated drop zone.'
+        description: 'Select one or more PDF documents from your device or drag them directly into the designated drop zone.'
       },
       {
         step: 2,
         title: 'Reorder Document Sequence',
-        description: 'Drag and drop individual files or click the sort controls (A-Z, Z-A, or manual) to achieve your ideal page order.'
+        description: 'Reorder whole PDF files with drag and drop or the available sorting controls. Pages remain in their existing order within each source PDF; use Organize Pages on a source PDF first if you need to change page order.'
       },
       {
         step: 3,
         title: 'Generate & Download',
-        description: 'Click "Merge PDFs Now" to construct your consolidated document instantly in your browser and save the result.'
+        description: 'Create and download the merged PDF in your browser. Processing time depends on your files and device, so review the output before sharing.'
       }
     ],
     faqs: [
       {
         question: 'Is there a limit on how many PDF files I can merge at once?',
-        answer: 'No arbitrary limits exist! Because processing takes place client-side using your device’s RAM rather than a shared cloud server queue, you can merge dozens of documents smoothly depending on your system memory.'
+        answer: 'There is no fixed file-size or page-count cap in the reviewed implementation, but available browser and device memory is a practical limit. Processing success depends on the files and device; try fewer or smaller PDFs if it fails.'
       },
       {
         question: 'Are my private documents uploaded to any remote server?',
@@ -92,7 +92,7 @@ export const TOOL_SEO_REGISTRY: Record<string, ToolSeoInfo> = {
       },
       {
         question: 'Can I reorder individual pages within the merged files?',
-        answer: 'Yes! You can either reorder whole files in the Merge tool or switch directly to the Organize Pages tool to drag and drop individual pages across documents.'
+        answer: 'Merge PDF reorders whole source files, not individual pages or pages across documents. To change page order, use Organize Pages on a source PDF before adding it to Merge PDF.'
       }
     ],
     benefits: [

@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { OutputArchive } from '../utils/outputArchive';
 import { LocalOutputStore } from '../utils/localOutputStore';
-import { runPdfBackground } from '../utils/pdfBackground';
+import { PdfBackgroundCancelledError, runPdfBackground } from '../utils/pdfBackground';
 import { extractPdfText } from '../utils/pdfTextExtraction';
 import { buildPdfTextComparisonReport } from '../utils/pdfTextComparison.mjs';
+import { formatMergePdfErrorMessage } from '../utils/mergePdfDocument';
 import { DocumentSelector } from './DocumentSelector';
 import { startDownloadCountdown, DownloadRequestGate } from '../utils/downloadCountdown';
 import { PDFTool } from '../types';
@@ -165,6 +166,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   const files = useMemo(() => fileItems.map(item => item.file), [fileItems]);
   const [isProcessing, setIsProcessing] = useState(false);
   const wordAbortControllerRef = useRef<AbortController | null>(null);
+  const mergeAbortControllerRef = useRef<AbortController | null>(null);
+  const mergeOperationIdRef = useRef(0);
+  const componentMountedRef = useRef(true);
   const [processingStatus, setProcessingStatus] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [previewFile, setPreviewFile] = useState<File | null>(null);
@@ -176,6 +180,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     details?: string;
   } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    componentMountedRef.current = true;
+    return () => {
+      componentMountedRef.current = false;
+      mergeOperationIdRef.current += 1;
+      mergeAbortControllerRef.current?.abort();
+      mergeAbortControllerRef.current = null;
+    };
+  }, []);
 
   // Three-Stage Visibility for External SEO Sections:
   // Stage 1 ('empty'): Initial Empty State (before file selection) -> show all external SEO sections
@@ -556,6 +570,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     if (isProcessing) return;
     const itemToRemove = fileItems[index];
     setFileItems(prev => prev.filter((_, i) => i !== index));
+    if (tool.id === 'merge') setErrorMessage(null);
     if (itemToRemove) {
       setProcessedFilesMap(prev => {
         const next = { ...prev };
@@ -873,6 +888,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       }
     }
 
+    const mergeAttemptId = tool.id === 'merge' ? ++mergeOperationIdRef.current : null;
+    const mergeController = tool.id === 'merge' && typeof Worker !== 'undefined'
+      ? new AbortController()
+      : null;
+    if (mergeController) mergeAbortControllerRef.current = mergeController;
     const wordController = tool.id === 'pdf-to-word' ? new AbortController() : null;
     if (wordController) wordAbortControllerRef.current = wordController;
     setIsProcessing(true);
@@ -890,7 +910,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         setProcessingStatus(`Merging 0 of ${files.length} document${files.length > 1 ? 's' : ''}...`);
         resultData = await mergePdfFiles(files, (curr, tot) => {
           setProcessingStatus(`Merging file ${curr} of ${tot}...`);
-        });
+        }, mergeController?.signal);
         outputName = 'merged_document.pdf';
         details = files.length > 1
           ? `Successfully merged ${files.length} PDF files into a single document.`
@@ -2164,6 +2184,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         throw new Error(`The "${getToolTitle(tool)}" processing engine is not implemented. No files were changed. Compression is not a substitute for this operation.`);
       }
 
+      if (tool.id === 'merge' && (!componentMountedRef.current || mergeController?.signal.aborted)) return;
+
       setSuccessResult({
         data: resultData,
         fileName: outputName,
@@ -2181,12 +2203,30 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         // non-critical
       }
     } catch (err: any) {
-      const userMessage = formatMemoryErrorMessage(err);
-      setErrorMessage(userMessage);
-      console.warn('[ClickPDF Engine Warn]', userMessage);
+      const isMergeCancellation = tool.id === 'merge' && err instanceof PdfBackgroundCancelledError;
+      const canUpdateMergeUi = tool.id !== 'merge' || (
+        componentMountedRef.current && mergeAttemptId === mergeOperationIdRef.current
+      );
+      if (canUpdateMergeUi) {
+        const userMessage = isMergeCancellation
+          ? t.mergeCancelledMessage
+          : tool.id === 'merge'
+            ? formatMergePdfErrorMessage(err, t)
+            : formatMemoryErrorMessage(err);
+        setErrorMessage(userMessage);
+        if (!isMergeCancellation) console.warn('[ClickPDF Engine Warn]', userMessage);
+      }
     } finally {
-      setIsProcessing(false);
-      setProcessingStatus('');
+      if (tool.id === 'merge') {
+        if (mergeAbortControllerRef.current === mergeController) mergeAbortControllerRef.current = null;
+        if (componentMountedRef.current && mergeAttemptId === mergeOperationIdRef.current) {
+          setIsProcessing(false);
+          setProcessingStatus('');
+        }
+      } else {
+        setIsProcessing(false);
+        setProcessingStatus('');
+      }
       if (wordAbortControllerRef.current === wordController) wordAbortControllerRef.current = null;
     }
   };
@@ -2533,6 +2573,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             toolId={tool.id}
             processedFiles={processedFilesMap}
             language={language}
+            previewLabels={tool.id === 'merge' ? {
+              label: t.previewBtn,
+              thisFileTitle: t.previewThisFile,
+              processedFileTitle: t.previewProcessedFile,
+            } : undefined}
             onReorder={(items) => { if (!isProcessing) setFileItems(items); }}
             onPreview={(file) => {
               if (tool.id === 'pdf-to-word') {
@@ -3583,6 +3628,17 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   : `${t.processBtn}`}
               </span>
             </button>
+            {isProcessing && tool.id === 'merge' && mergeAbortControllerRef.current && <button
+              type="button"
+              data-testid="button-cancel-merge"
+              aria-label={t.cancelMergeBtn}
+              disabled={mergeAbortControllerRef.current.signal.aborted}
+              onClick={() => {
+                const controller = mergeAbortControllerRef.current;
+                if (controller && !controller.signal.aborted) controller.abort();
+              }}
+              className="inline-flex items-center gap-2 rounded-xl border border-rose-300 dark:border-rose-800 px-4 py-2.5 text-xs font-bold text-rose-700 dark:text-rose-300 disabled:opacity-60"
+            >{t.cancelMergeBtn}</button>}
             {isProcessing && tool.id === 'pdf-to-word' && <button type="button"
               disabled={wordAbortControllerRef.current?.signal.aborted === true}
               onClick={() => {
