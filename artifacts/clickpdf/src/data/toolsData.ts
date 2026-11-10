@@ -5,8 +5,8 @@ export const BASE_PDF_TOOLS: PDFTool[] = [
   {
     id: 'merge',
     title: 'Merge PDF',
-    description: 'Combine multiple PDFs into one unified document in your preferred order.',
-    extendedDescription: 'Merge unlimited PDF documents together in exact sequence with drag-and-drop page sorting, instant client-side preview, and lightning-fast local generation.',
+    description: 'Process one or more PDFs. Create a separate copy from one PDF, or combine multiple PDFs in your chosen file order.',
+    extendedDescription: 'Process one or more PDF files in your browser. Reorder whole files with drag-and-drop or the available ordering controls, preview each source PDF, and download a separate result. Processing time depends on file size and available device memory.',
     category: 'organize',
     iconName: 'Layers',
     badge: 'Popular',

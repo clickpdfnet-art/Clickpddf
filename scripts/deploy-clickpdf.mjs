@@ -2,6 +2,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createClickPdfReleaseManifest } from './create-clickpdf-release-manifest.mjs';
+import { verifyPrebuiltRelease } from './clickpdf-prebuilt-release.mjs';
 import {
   CLICKPDF_WORKER_NAME,
   WRANGLER_VERSION,
@@ -38,21 +39,34 @@ function capture(command, args) {
 }
 
 async function main() {
-  assertCleanGitTree('before building');
+  const deployMode = process.env.CLICKPDF_DEPLOY_MODE || 'build';
+  if (deployMode !== 'build' && deployMode !== 'prebuilt') {
+    throw new Error('CLICKPDF_DEPLOY_MODE must be "build" or "prebuilt".');
+  }
+  assertCleanGitTree(deployMode === 'prebuilt' ? 'before prebuilt deployment' : 'before building');
   const sourceRevision = gitOutput(['rev-parse', '--verify', 'HEAD']);
   if (!/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(sourceRevision)) {
     throw new Error('Could not resolve a full Git source revision.');
   }
 
-  run('pnpm', ['run', 'build']);
-  assertCleanGitTree('after building');
+  let manifest;
+  if (deployMode === 'prebuilt') {
+    manifest = await verifyPrebuiltRelease({ rootDirectory, sourceRevision });
+    console.log(
+      `Verified prebuilt artifacts for ${sourceRevision}: ${manifest.buildInputs.buildMode}, ` +
+      `${manifest.assets.length} assets (${manifest.assetManifestSha256}).`,
+    );
+  } else {
+    run('pnpm', ['run', 'build']);
+    assertCleanGitTree('after building');
 
-  const pnpmVersion = capture('pnpm', ['--version']);
-  const { manifest } = await createClickPdfReleaseManifest({
-    rootDirectory,
-    sourceRevision,
-    pnpmVersion,
-  });
+    const pnpmVersion = capture('pnpm', ['--version']);
+    ({ manifest } = await createClickPdfReleaseManifest({
+      rootDirectory,
+      sourceRevision,
+      pnpmVersion,
+    }));
+  }
   const message = formatDeploymentMessage(manifest);
 
   // Keep account identity output private while checking that Wrangler is authenticated.
